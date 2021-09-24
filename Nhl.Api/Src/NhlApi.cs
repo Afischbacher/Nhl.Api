@@ -305,7 +305,7 @@ namespace Nhl.Api
 
 		/// <summary>
 		/// Returns the NHL league draft based on a specific year based on the 4 character draft year, see <see cref="DraftYear"/> for more information. <br/>
-		/// <strong>Note:</strong> Some NHL draft years provide very large JSON responses of greater than 300,000 lines.
+		/// <strong>Note:</strong> Some NHL draft years responses provide very large JSON payloads
 		/// </summary>
 		/// <param name="year">The specified year of the NHL draft, see <see cref="DraftYear"/> for all NHL draft years</param>
 		/// <returns></returns>
@@ -324,11 +324,20 @@ namespace Nhl.Api
 			return await NhlApiHttpClient.GetAsync<LeagueDraft>($"/draft/{year}");
 		}
 
-		public async Task<LeagueProspects> GetLeagueProspectsAsync()
+		/// <summary>
+		/// Returns all the NHL league prospects <br/>
+		/// <strong>Note:</strong> The NHL prospects response provides a very large JSON payload
+		/// </summary>
+		/// <returns>A collection of all the NHL prospects, see <see cref="ProspectProfile"/> for more information </returns>
+		public async Task<List<ProspectProfile>> GetLeagueProspectsAsync()
 		{
-			return await NhlApiHttpClient.GetAsync<LeagueProspects>("/draft/prospects");
+			return (await NhlApiHttpClient.GetAsync<LeagueProspects>("/draft/prospects")).Prospects;
 		}
 
+		/// <summary>
+		/// Returns an NHL prospect profile by their prospect id
+		/// </summary>
+		/// <returns>An NHL prospect, see <see cref="ProspectProfile"/> for more information </returns>
 		public async Task<ProspectProfile> GetLeagueProspectByIdAsync(int id)
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueProspects>($"/draft/prospects/{id}"))

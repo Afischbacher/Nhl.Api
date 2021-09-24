@@ -72,7 +72,7 @@ namespace Nhl.Api
 
 		public Task<LeagueDraft> GetDraftByYear(string year);
 
-		public Task<LeagueProspects> GetLeagueProspectsAsync();
+		public Task<List<ProspectProfile>> GetLeagueProspectsAsync();
 
 		public Task<ProspectProfile> GetLeagueProspectByIdAsync(int id);
 
