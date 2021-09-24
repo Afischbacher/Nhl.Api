@@ -304,7 +304,8 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Returns the NHL league draft based on a specific year based on the 4 character draft year, see <see cref="DraftYear"/> for more information
+		/// Returns the NHL league draft based on a specific year based on the 4 character draft year, see <see cref="DraftYear"/> for more information. <br/>
+		/// <strong>Note:</strong> Some NHL draft years provide very large JSON responses of greater than 300,000 lines.
 		/// </summary>
 		/// <param name="year">The specified year of the NHL draft, see <see cref="DraftYear"/> for all NHL draft years</param>
 		/// <returns></returns>
