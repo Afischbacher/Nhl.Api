@@ -21,7 +21,7 @@ namespace Nhl.Api.Models.Game
 		public int TotalMatches { get; set; }
 
 		[JsonProperty("games")]
-		public List<Api.Models.Game.Game> Games { get; set; }
+		public List<Game> Games { get; set; }
 
 		//@todo Match these types
 		[JsonProperty("events")]

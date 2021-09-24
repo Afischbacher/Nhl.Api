@@ -20,6 +20,7 @@ using Nhl.Api.Models.Venue;
 
 namespace Nhl.Api
 {
+
 	public class NhlApi : INhlApi
 	{
 		public NhlApi()
@@ -71,7 +72,7 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL team by the team id
 		/// </summary>
-		/// <param name="id">The NHL team id, example: Toronto Maple Leafs is the number 10</param>
+		/// <param name="id">The NHL team id, example: Toronto Maple Leafs - 10</param>
 		public async Task<Team> GetTeamByIdAsync(int id)
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueTeam>($"/teams/{id}"))
@@ -151,7 +152,7 @@ namespace Nhl.Api
 		/// Returns an NHL player based on a player id, see <see cref="Player"/> for more information
 		/// </summary>
 		/// <param name="id">An NHL player id, example: 8478402 is Connor McDavid </param>
-		/// <returns></returns>
+		/// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
 		public async Task<Player> GetPlayerByIdAsync(int id)
 		{
 			return (await NhlApiHttpClient.GetAsync<LeaguePlayers>($"/people/{id}"))
@@ -159,50 +160,83 @@ namespace Nhl.Api
 				.SingleOrDefault();
 		}
 
-
+		/// <summary>
+		/// Returns all of the NHL game types within a season and within special events
+		/// </summary>
+		/// <returns>A collection of NHL and other sporting event game types, see <see cref="GameType"/> for more information </returns>
 		public async Task<List<GameType>> GetGameTypesAsync()
 		{
 			return await NhlApiHttpClient.GetAsync<List<GameType>>($"/gameTypes");
 		}
 
+		/// <summary>
+		/// Returns all of the valid NHL game statuses of an NHL game
+		/// </summary>
+		/// <returns>A collection of NHL game statues, see <see cref="GameStatus"/> for more information</returns>
 		public async Task<List<GameStatus>> GetGameStatusesAsync()
 		{
 			return await NhlApiHttpClient.GetAsync<List<GameStatus>>($"/gameStatus");
 		}
 
+		/// <summary>
+		/// Returns a collection of all the play types within the duration of an NHL game
+		/// </summary>
+		/// <returns>A collection of distinct play types, see <see cref="PlayType"/> for more information</returns>
 		public async Task<List<PlayType>> GetPlayTypesAsync()
 		{
 			return await NhlApiHttpClient.GetAsync<List<PlayType>>($"/playTypes");
 		}
 
+		/// <summary>
+		/// Returns a collection of all the different types of tournaments in the hockey
+		/// </summary>
+		/// <returns>A collection of tournament types, see <see cref="TournamentType"/> for more information</returns>
 		public async Task<List<TournamentType>> GetTournamentTypesAsync()
 		{
 			return await NhlApiHttpClient.GetAsync<List<TournamentType>>($"/tournamentTypes");
 		}
 
-		public async Task<List<PlayoffTournamentType>> GetPlayoffTournamentTypesAsync()
+		/// <summary>
+		/// Returns a collection of all the different types of playoff tournaments in the NHL 
+		/// </summary>
+		/// <returns>A collection of tournament types, see <see cref="PlayoffTournamentType"/> for more information</returns>
+		public async Task<PlayoffTournamentType> GetPlayoffTournamentTypesAsync()
 		{
-			return await NhlApiHttpClient.GetAsync<List<PlayoffTournamentType>>($"/tournaments/playoffs");
+			return await NhlApiHttpClient.GetAsync<PlayoffTournamentType>($"/tournaments/playoffs");
 		}
 
 		/// <summary>
-		/// Return's the NHL game schedule based on the provided date. If the date is null, it will provide today's current NHL game schedule 
+		/// Return's the NHL game schedule based on the provided <see cref="DateTime"/>. If the date is null, it will provide today's current NHL game schedule 
 		/// </summary>
 		/// <param name="date">The requested date for the NHL game schedule</param>
 		/// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
 		public async Task<GameSchedule> GetGameScheduleByDateAsnyc(DateTime? date)
 		{
-			var httpRequestUri = date.HasValue ? $"/schedule?date={date.Value:yyyy-mm-dd}" : "/schedule";
+			var httpRequestUri = date.HasValue ? $"/schedule?date={date.Value:yyyy-MM-dd}" : "/schedule";
 			return await NhlApiHttpClient.GetAsync<GameSchedule>(httpRequestUri);
 		}
 
+		/// <summary>
+		/// Return's the NHL game schedule based on the provided year, month and day
+		/// </summary>
+		/// <param name="date">The requested date for the NHL game schedule</param>
+		/// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
+		public async Task<GameSchedule> GetGameScheduleByDateAsnyc(int year, int month, int day)
+		{
+			return await NhlApiHttpClient.GetAsync<GameSchedule>($"/schedule?date={year}-{month}-{day}");
+		}
+		
+		/// <summary>
+		/// Returns all of the NHL seasons since the inception of the league in 1917-1918
+		/// </summary>
+		/// <returns>A collection of seasons since the inception of the NHL</returns>
 		public async Task<List<Season>> GetAllSeasonsAsync()
 		{
-			return await NhlApiHttpClient.GetAsync<List<Season>>("/seasons");
+			return (await NhlApiHttpClient.GetAsync<LeagueSeasons>("/seasons")).Seasons;
 		}
 
 		/// <summary>
-		/// 
+		/// Returns the NHL season information based on the provided season years
 		/// </summary>
 		/// <param name="seasonYear">See <see cref="SeasonYear"/> for all valid season year arguments</param>
 		/// <returns>An NHL season based on the provided season year, example: '20172018'</returns>
@@ -218,30 +252,62 @@ namespace Nhl.Api
 				throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
 			}
 
-			return await NhlApiHttpClient.GetAsync<Season>($"/seasons/{seasonYear}");
+			return (await NhlApiHttpClient.GetAsync<LeagueSeasons>($"/seasons/{seasonYear}"))
+				.Seasons
+				.SingleOrDefault();
 		}
 
+		/// <summary>
+		/// Returns all of the NHL league standing types, this includes playoff and preseason standings
+		/// </summary>
+		/// <returns>A collection of all the NHL standing types, see <see cref="LeagueStandingType"/> for more information</returns>
 		public async Task<List<LeagueStandingType>> GetLeagueStandingTypesAsync()
 		{
 			return await NhlApiHttpClient.GetAsync<List<LeagueStandingType>>($"/standingsTypes");
 		}
 
-		public async Task<LeagueStandings> GetLeagueStandingsAsync(DateTime? date)
+		/// <summary>
+		/// Returns the standings of every team in the NHL for the provided <see cref="DateTime?"/>, if the date is null it will provide the current NHL league standings
+		/// </summary>
+		/// <param name="date">The NHL league standings date for the request NHL standings</param>
+		/// <returns>A collection of all the leauge standings </returns>
+		public async Task<List<Records>> GetLeagueStandingsAsync(DateTime? date)
 		{
-			var httpRequestUri = date.HasValue ? $"/standings?season={date.Value:yyyy-mm-dd}" : "/standings";
-			return await NhlApiHttpClient.GetAsync<LeagueStandings>(httpRequestUri);
+			var httpRequestUri = date.HasValue ? $"/standings?date={date.Value:yyyy-MM-dd}" : "/standings";
+			return (await NhlApiHttpClient.GetAsync<LeagueStandings>(httpRequestUri)).Records;
 		}
 
-		public async Task<StatisticTypes> GetStatisticTypesAsync()
+		/// <summary>
+		/// Returns all distinct types of NHL statistics types
+		/// </summary>
+		/// <returns>A collection of all the various NHL statistics types, see <see cref="StatisticTypes"/> for more information</returns>
+		public async Task<List<StatisticTypes>> GetStatisticTypesAsync()
 		{
-			return await NhlApiHttpClient.GetAsync<StatisticTypes>("/statTypes");
+			return await NhlApiHttpClient.GetAsync<List<StatisticTypes>>("/statTypes");
 		}
 
-		public async Task<TeamStatistics> GetTeamStatisticsByIdAsync(int id)
+		/// <summary>
+		/// Returns a specified NHL team's statistics for the the specified season, if no season year is specified, see <see cref="SeasonYear"/>, the most recent season statistics will be returned
+		/// </summary>
+		/// <param name="id">The NHL team id, example: Toronto Maple Leafs - 10</param>
+		/// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, example: 20202021</param>
+		/// <returns>A collection of all the specified NHL team statistics for the specified season</returns>
+		public async Task<TeamStatistics> GetTeamStatisticsByIdAsync(int id, string seasonYear)
 		{
-			return await NhlApiHttpClient.GetAsync<TeamStatistics>($"/teams/{id}/stats");
+			if (seasonYear?.Length > 8)
+			{
+				throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+			}
+
+			var httpRequestUri = string.IsNullOrWhiteSpace(seasonYear) ? $"/teams/{id}/stats" : $"/teams/{id}/stats?season={seasonYear}";
+			return await NhlApiHttpClient.GetAsync<TeamStatistics>(httpRequestUri);
 		}
 
+		/// <summary>
+		/// Returns the NHL league draft based on a specific year based on the 4 character draft year, see <see cref="DraftYear"/> for more information
+		/// </summary>
+		/// <param name="year">The specified year of the NHL draft, see <see cref="DraftYear"/> for all NHL draft years</param>
+		/// <returns></returns>
 		public async Task<LeagueDraft> GetDraftByYear(string year)
 		{
 			if (string.IsNullOrEmpty(year))

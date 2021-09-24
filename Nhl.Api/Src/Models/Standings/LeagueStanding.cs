@@ -6,6 +6,6 @@ namespace Nhl.Api.Models.Standings
 	public class LeagueStandings
 	{
 		[JsonProperty("records")]
-		public List<Records> Records { get; set; }
+		public List<Records> Records { get; set; } = new List<Records>();
 	}
 }

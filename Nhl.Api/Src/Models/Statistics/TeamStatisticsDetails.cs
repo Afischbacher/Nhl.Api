@@ -24,61 +24,61 @@ namespace Nhl.Api.Models.Statistics
 		public string PtPctg { get; set; }
 
 		[JsonProperty("goalsPerGame")]
-		public decimal GoalsPerGame { get; set; }
+		public string GoalsPerGame { get; set; }
 
 		[JsonProperty("goalsAgainstPerGame")]
-		public decimal GoalsAgainstPerGame { get; set; }
+		public string GoalsAgainstPerGame { get; set; }
 
 		[JsonProperty("evGGARatio")]
-		public decimal EvGGARatio { get; set; }
+		public string EvGGARatio { get; set; }
 
 		[JsonProperty("powerPlayPercentage")]
 		public string PowerPlayPercentage { get; set; }
 
 		[JsonProperty("powerPlayGoals")]
-		public decimal PowerPlayGoals { get; set; }
+		public string PowerPlayGoals { get; set; }
 
 		[JsonProperty("powerPlayGoalsAgainst")]
-		public decimal PowerPlayGoalsAgainst { get; set; }
+		public string PowerPlayGoalsAgainst { get; set; }
 
 		[JsonProperty("powerPlayOpportunities")]
-		public decimal PowerPlayOpportunities { get; set; }
+		public string PowerPlayOpportunities { get; set; }
 
 		[JsonProperty("penaltyKillPercentage")]
 		public string PenaltyKillPercentage { get; set; }
 
 		[JsonProperty("shotsPerGame")]
-		public decimal ShotsPerGame { get; set; }
+		public string ShotsPerGame { get; set; }
 
 		[JsonProperty("shotsAllowed")]
-		public decimal ShotsAllowed { get; set; }
+		public string ShotsAllowed { get; set; }
 
 		[JsonProperty("winScoreFirst")]
-		public decimal WinScoreFirst { get; set; }
+		public string WinScoreFirst { get; set; }
 
 		[JsonProperty("winOppScoreFirst")]
-		public decimal WinOppScoreFirst { get; set; }
+		public string WinOppScoreFirst { get; set; }
 
 		[JsonProperty("winLeadFirstPer")]
-		public decimal WinLeadFirstPer { get; set; }
+		public string WinLeadFirstPer { get; set; }
 
 		[JsonProperty("winLeadSecondPer")]
-		public decimal WinLeadSecondPer { get; set; }
+		public string WinLeadSecondPer { get; set; }
 
 		[JsonProperty("winOutshootOpp")]
-		public decimal WinOutshootOpp { get; set; }
+		public string WinOutshootOpp { get; set; }
 
 		[JsonProperty("winOutshotByOpp")]
-		public decimal WinOutshotByOpp { get; set; }
+		public string WinOutshotByOpp { get; set; }
 
 		[JsonProperty("faceOffsTaken")]
-		public decimal FaceOffsTaken { get; set; }
+		public string FaceOffsTaken { get; set; }
 
 		[JsonProperty("faceOffsWon")]
-		public decimal FaceOffsWon { get; set; }
+		public string FaceOffsWon { get; set; }
 
 		[JsonProperty("faceOffsLost")]
-		public decimal FaceOffsLost { get; set; }
+		public string FaceOffsLost { get; set; }
 
 		[JsonProperty("faceOffWinPercentage")]
 		public string FaceOffWinPercentage { get; set; }

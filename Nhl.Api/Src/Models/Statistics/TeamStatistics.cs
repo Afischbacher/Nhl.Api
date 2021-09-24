@@ -6,6 +6,6 @@ namespace Nhl.Api.Models.Statistics
 	public class TeamStatistics
 	{
 		[JsonProperty("stats")]
-		public List<Statistic> Stats { get; set; }
+		public List<Statistic> Statistics { get; set; }
 	}
 }

@@ -52,9 +52,11 @@ namespace Nhl.Api
 
 		public Task<List<TournamentType>> GetTournamentTypesAsync();
 
-		public Task<List<PlayoffTournamentType>> GetPlayoffTournamentTypesAsync();
+		public Task<PlayoffTournamentType> GetPlayoffTournamentTypesAsync();
 
 		public Task<GameSchedule> GetGameScheduleByDateAsnyc(DateTime? date);
+
+		public Task<GameSchedule> GetGameScheduleByDateAsnyc(int year, int month, int day);
 
 		public Task<List<Season>> GetAllSeasonsAsync();
 
@@ -62,11 +64,11 @@ namespace Nhl.Api
 
 		public Task<List<LeagueStandingType>> GetLeagueStandingTypesAsync();
 
-		public Task<LeagueStandings> GetLeagueStandingsAsync(DateTime? date);
+		public Task<List<Records>> GetLeagueStandingsAsync(DateTime? date);
 
-		public Task<StatisticTypes> GetStatisticTypesAsync();
+		public Task<List<StatisticTypes>> GetStatisticTypesAsync();
 
-		public Task<TeamStatistics> GetTeamStatisticsByIdAsync(int id);
+		public Task<TeamStatistics> GetTeamStatisticsByIdAsync(int id, string seasonYear);
 
 		public Task<LeagueDraft> GetDraftByYear(string year);
 

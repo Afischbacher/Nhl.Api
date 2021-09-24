@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace Nhl.Api.Models.Season
 {
@@ -8,13 +9,13 @@ namespace Nhl.Api.Models.Season
 		public string SeasonId { get; set; }
 
 		[JsonProperty("regularSeasonStartDate")]
-		public string RegularSeasonStartDate { get; set; }
+		public DateTime RegularSeasonStartDate { get; set; }
 
 		[JsonProperty("regularSeasonEndDate")]
-		public string RegularSeasonEndDate { get; set; }
+		public DateTime RegularSeasonEndDate { get; set; }
 
 		[JsonProperty("seasonEndDate")]
-		public string SeasonEndDate { get; set; }
+		public DateTime SeasonEndDate { get; set; }
 
 		[JsonProperty("numberOfGames")]
 		public int NumberOfGames { get; set; }
