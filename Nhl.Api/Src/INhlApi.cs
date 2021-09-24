@@ -34,11 +34,11 @@ namespace Nhl.Api
 
 		public Task<List<Team>> GetAllActiveTeamsAsync();
 
-		public Task<List<Division>> GetDivisionsAsync();
+		public Task<List<Division>> GetAllDivisionsAsync();
 
 		public Task<Division> GetDivisionByIdAsync(int divisioIid);
 
-		public Task<List<Conference>> GetConferencesAsync();
+		public Task<List<Conference>> GetAllConferencesAsync();
 
 		public Task<Conference> GetConferenceByIdAsync(int conferenceId);
 

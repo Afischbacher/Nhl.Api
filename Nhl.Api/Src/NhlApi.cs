@@ -28,7 +28,7 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Return's all NHL franchises
+		/// Returns all NHL franchises
 		/// </summary>
 		public async Task<List<Franchise>> GetAllFranchisesAsync()
 		{
@@ -36,7 +36,7 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Return's all active NHL franchises
+		/// Returns all active NHL franchises
 		/// </summary>
 		public async Task<List<Franchise>> GetAllActiveFranchisesAsync()
 		{
@@ -47,7 +47,7 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Return's all inactive NHL franchises
+		/// Returns all inactive NHL franchises
 		/// </summary>
 		public async Task<List<Franchise>> GetAllInactiveFranchisesAsync()
 		{
@@ -58,7 +58,7 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Return's a single NHL franchise by the franchise id
+		/// Returns a single NHL franchise by the franchise id
 		/// </summary>
 		/// <param name="id">The NHL franchise id, example: New York Rangers is the number 10</param>
 		public async Task<Franchise> GetFranchiseByIdAsync(int id)
@@ -69,9 +69,9 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Return's an NHL team by the team id
+		/// Returns an NHL team by the team id
 		/// </summary>
-		/// <param name="id">The NHL team id, example: Toronto Maple Leafss is the number 10</param>
+		/// <param name="id">The NHL team id, example: Toronto Maple Leafs is the number 10</param>
 		public async Task<Team> GetTeamByIdAsync(int id)
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueTeam>($"/teams/{id}"))
@@ -80,7 +80,7 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Return's all the NHL teams
+		/// Returns all the NHL teams
 		/// </summary>
 		public async Task<List<Team>> GetAllTeamsAsync()
 		{
@@ -88,7 +88,7 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Return's all the active NHL teams
+		/// Returns all the active NHL teams
 		/// </summary>
 		public async Task<List<Team>> GetAllActiveTeamsAsync()
 		{
@@ -99,7 +99,7 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Return's all the inactive NHL teams
+		/// Returns all the inactive NHL teams
 		/// </summary>
 		public async Task<List<Team>> GetAllInactiveTeamsAsync()
 		{
@@ -109,30 +109,56 @@ namespace Nhl.Api
 				.ToList();
 		}
 
-		public async Task<List<Division>> GetDivisionsAsync()
+		/// <summary>
+		/// Returns all of the NHL divisions
+		/// </summary>
+		public async Task<List<Division>> GetAllDivisionsAsync()
 		{
-			return await NhlApiHttpClient.GetAsync<List<Division>>($"/divisions");
+			return (await NhlApiHttpClient.GetAsync<LeagueDivisions>($"/divisions")).Divisions;
 		}
 
+		/// <summary>
+		/// Returns an NHL division by the division id
+		/// </summary>
+		/// <param name="id">The NHL division id, example: Atlantic divison is the number 17</param>
 		public async Task<Division> GetDivisionByIdAsync(int id)
 		{
-			return await NhlApiHttpClient.GetAsync<Division>($"/divisions/{id}");
+			return (await NhlApiHttpClient.GetAsync<LeagueDivisions>($"/divisions/{id}"))
+				.Divisions
+				.FirstOrDefault();
 		}
 
-		public async Task<List<Conference>> GetConferencesAsync()
+		/// <summary>
+		/// Returns all of the NHL conferences
+		/// </summary>
+		public async Task<List<Conference>> GetAllConferencesAsync()
 		{
-			return await NhlApiHttpClient.GetAsync<List<Conference>>($"/conferences");
+			return (await NhlApiHttpClient.GetAsync<LeagueConferences>($"/conferences")).Conferences;
 		}
 
+		/// <summary>
+		/// Returns all of the NHL conferences
+		/// </summary>
+		/// <param name="id">The NHL conference id, example: Eastern Conference is the number 6</param>
 		public async Task<Conference> GetConferenceByIdAsync(int id)
 		{
-			return await NhlApiHttpClient.GetAsync<Conference>($"/conferences/{id}");
+			return (await NhlApiHttpClient.GetAsync<LeagueConferences>($"/conferences/{id}"))
+				.Conferences
+				.SingleOrDefault();
 		}
 
+		/// <summary>
+		/// Returns an NHL player based on a player id, see <see cref="Player"/> for more information
+		/// </summary>
+		/// <param name="id">An NHL player id, example: 8478402 is Connor McDavid </param>
+		/// <returns></returns>
 		public async Task<Player> GetPlayerByIdAsync(int id)
 		{
-			return await NhlApiHttpClient.GetAsync<Player>($"/people/{id}");
+			return (await NhlApiHttpClient.GetAsync<LeaguePlayers>($"/people/{id}"))
+				.Players
+				.SingleOrDefault();
 		}
+
 
 		public async Task<List<GameType>> GetGameTypesAsync()
 		{

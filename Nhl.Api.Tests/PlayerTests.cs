@@ -1,0 +1,54 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Threading.Tasks;
+
+namespace Nhl.Api.Tests
+{
+	[TestClass]
+	public class PlayerTests
+	{
+		[TestMethod]
+		public async Task TestGetPlayerByIdAsync()
+		{
+			INhlApi nhlApi = new NhlApi();
+
+			// Connor McDavid - Player Id - 8478402
+			var player = await nhlApi.GetPlayerByIdAsync(8478402);
+
+			Assert.IsNotNull(player);
+
+			Assert.IsNotNull(player.Active);
+			Assert.IsNotNull(player.AlternateCaptain);
+			Assert.IsNotNull(player.BirthCountry);
+			Assert.IsNotNull(player.BirthCity);
+
+			Assert.IsNotNull(player.BirthDate);
+			Assert.IsNotNull(player.Captain);
+			Assert.IsNotNull(player.CurrentAge);
+			Assert.IsNotNull(player.CurrentTeam);
+
+			Assert.IsNotNull(player.FirstName);
+			Assert.IsNotNull(player.LastName);
+			Assert.IsNotNull(player.FullName);
+			Assert.IsNotNull(player.Height);
+
+			Assert.IsNotNull(player.ShootsCatches);
+			Assert.IsNotNull(player.RosterStatus);
+			Assert.IsNotNull(player.Weight);
+			Assert.IsNotNull(player.Rookie);
+			Assert.IsNotNull(player.PrimaryNumber);
+			Assert.IsNotNull(player.Nationality);
+			Assert.IsNotNull(player.Id);
+			Assert.IsNotNull(player.Link);
+		}
+
+		[TestMethod]
+		public async Task TestGetPlayerByInvalidIdAsync()
+		{
+			INhlApi nhlApi = new NhlApi();
+
+			var player = await nhlApi.GetPlayerByIdAsync(1000);
+
+			Assert.IsNull(player);
+		}
+	}
+}
