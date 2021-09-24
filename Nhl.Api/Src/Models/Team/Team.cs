@@ -2,16 +2,8 @@
 
 namespace Nhl.Api.Models.Team
 {
-	public class Team
+	public class Team : TeamInformation
 	{
-		[JsonProperty("id")]
-		public int Id { get; set; }
-
-		[JsonProperty("name")]
-		public string Name { get; set; }
-
-		[JsonProperty("link")]
-		public string Link { get; set; }
 
 		[JsonProperty("venue")]
 		public Nhl.Api.Models.Venue.Venue Venue { get; set; }

@@ -28,7 +28,7 @@ namespace Nhl.Api.Http
 				throw new ArgumentNullException(nameof(route));
 			}
 
-			var httpResponseMessage = await _httpClient.GetAsync(route);
+			var httpResponseMessage = await _httpClient.GetAsync($"{_httpClient.BaseAddress}{route}");
 			var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
 			return JsonConvert.DeserializeObject<T>(contentResponse);
 		}
