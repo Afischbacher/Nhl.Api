@@ -20,7 +20,9 @@ using Nhl.Api.Models.Venue;
 
 namespace Nhl.Api
 {
-
+	/// <summary>
+	/// The Unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
+	/// </summary>
 	public class NhlApi : INhlApi
 	{
 		public NhlApi()
@@ -29,9 +31,10 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Returns all NHL franchises
+		/// Returns all NHL franchises, including information such as team name, location and more
 		/// </summary>
-		public async Task<List<Franchise>> GetAllFranchisesAsync()
+		/// <returns>A collection of all NHL franchises, see <see cref="Franchise"/> for more information</returns>
+		public async Task<List<Franchise>> GetFranchisesAsync()
 		{
 			return (await NhlApiHttpClient.GetAsync<LegaueFranchises>("/franchises")).Franchises;
 		}
@@ -39,7 +42,8 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns all active NHL franchises
 		/// </summary>
-		public async Task<List<Franchise>> GetAllActiveFranchisesAsync()
+		/// <returns>A collection of all active NHL franchises, see <see cref="Franchise"/> for more information</returns>
+		public async Task<List<Franchise>> GetActiveFranchisesAsync()
 		{
 			return (await NhlApiHttpClient.GetAsync<LegaueFranchises>("/franchises"))
 				.Franchises
@@ -50,7 +54,8 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns all inactive NHL franchises
 		/// </summary>
-		public async Task<List<Franchise>> GetAllInactiveFranchisesAsync()
+		/// <returns>A collection of all inactive NHL franchises, see <see cref="Franchise"/> for more information</returns>
+		public async Task<List<Franchise>> GetInactiveFranchisesAsync()
 		{
 			return (await NhlApiHttpClient.GetAsync<LegaueFranchises>("/franchises"))
 				.Franchises
@@ -59,12 +64,13 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Returns a single NHL franchise by the franchise id
+		/// Returns an NHL franchise by the franchise id
 		/// </summary>
-		/// <param name="id">The NHL franchise id, example: New York Rangers is the number 10</param>
-		public async Task<Franchise> GetFranchiseByIdAsync(int id)
+		/// <param name="franchiseId">The NHL franchise id, example: Montréal Canadiens - 1 </param>
+		/// <returns> An NHL franchise, see <see cref="Franchise"/> for more information</returns>
+		public async Task<Franchise> GetFranchiseByIdAsync(int franchiseId)
 		{
-			return (await NhlApiHttpClient.GetAsync<LegaueFranchises>($"/franchises/{id}"))
+			return (await NhlApiHttpClient.GetAsync<LegaueFranchises>($"/franchises/{franchiseId}"))
 				.Franchises
 				.SingleOrDefault();
 		}
@@ -72,26 +78,29 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL team by the team id
 		/// </summary>
-		/// <param name="id">The NHL team id, example: Toronto Maple Leafs - 10</param>
-		public async Task<Team> GetTeamByIdAsync(int id)
+		/// <param name="teamId">The NHL team id, example: Toronto Maple Leafs - 10</param>
+		/// <returns>An NHL team with information including name, location, division and more, see <see cref="Team"/> for more information</returns>
+		public async Task<Team> GetTeamByIdAsync(int teamId)
 		{
-			return (await NhlApiHttpClient.GetAsync<LeagueTeam>($"/teams/{id}"))
+			return (await NhlApiHttpClient.GetAsync<LeagueTeam>($"/teams/{teamId}"))
 				.Teams
 				.SingleOrDefault();
 		}
 
 		/// <summary>
-		/// Returns all the NHL teams
+		/// Returns all active and inactive NHL teams
 		/// </summary>
-		public async Task<List<Team>> GetAllTeamsAsync()
+		/// <returns>A collection of all NHL teams, see <see cref="Team"/> for more information</returns>
+		public async Task<List<Team>> GetTeamsAsync()
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueTeam>($"/teams")).Teams;
 		}
 
 		/// <summary>
-		/// Returns all the active NHL teams
+		/// Returns all active NHL teams
 		/// </summary>
-		public async Task<List<Team>> GetAllActiveTeamsAsync()
+		/// <returns>A collection of all active NHL teams, see <see cref="Team"/> for more information</returns>
+		public async Task<List<Team>> GetActiveTeamsAsync()
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueTeam>($"/teams"))
 				.Teams
@@ -100,9 +109,10 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Returns all the inactive NHL teams
+		/// Returns all inactive NHL teams
 		/// </summary>
-		public async Task<List<Team>> GetAllInactiveTeamsAsync()
+		/// <returns>A collection of all active NHL teams, see <see cref="Team"/> for more information</returns>
+		public async Task<List<Team>> GetInactiveTeamsAsync()
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueTeam>($"/teams"))
 				.Teams
@@ -113,7 +123,8 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns all of the NHL divisions
 		/// </summary>
-		public async Task<List<Division>> GetAllDivisionsAsync()
+		/// <returns>A collection of all the NHL divisions, see <see cref="Division"/> for more information</returns>
+		public async Task<List<Division>> GetDivisionsAsync()
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueDivisions>($"/divisions")).Divisions;
 		}
@@ -121,10 +132,11 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL division by the division id
 		/// </summary>
-		/// <param name="id">The NHL division id, example: Atlantic divison is the number 17</param>
-		public async Task<Division> GetDivisionByIdAsync(int id)
+		/// <param name="divisionId">The NHL division id, example: Atlantic divison is the number 17</param>
+		/// <returns>Returns an NHL division, see <see cref="Division"/> for more information</returns>
+		public async Task<Division> GetDivisionByIdAsync(int divisionId)
 		{
-			return (await NhlApiHttpClient.GetAsync<LeagueDivisions>($"/divisions/{id}"))
+			return (await NhlApiHttpClient.GetAsync<LeagueDivisions>($"/divisions/{divisionId}"))
 				.Divisions
 				.FirstOrDefault();
 		}
@@ -132,7 +144,8 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns all of the NHL conferences
 		/// </summary>
-		public async Task<List<Conference>> GetAllConferencesAsync()
+		/// <returns>A collection of all the NHL conferences, see <see cref="Conference"/> for more information</returns>
+		public async Task<List<Conference>> GetConferencesAsync()
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueConferences>($"/conferences")).Conferences;
 		}
@@ -140,22 +153,23 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns all of the NHL conferences
 		/// </summary>
-		/// <param name="id">The NHL conference id, example: Eastern Conference is the number 6</param>
-		public async Task<Conference> GetConferenceByIdAsync(int id)
+		/// <param name="conferenceId">The NHL conference id, example: Eastern Conference is the number 6</param>
+		/// <returns>An NHL conference, see <see cref="Conference"/> for more information</returns>
+		public async Task<Conference> GetConferenceByIdAsync(int conferenceId)
 		{
-			return (await NhlApiHttpClient.GetAsync<LeagueConferences>($"/conferences/{id}"))
+			return (await NhlApiHttpClient.GetAsync<LeagueConferences>($"/conferences/{conferenceId}"))
 				.Conferences
 				.SingleOrDefault();
 		}
 
 		/// <summary>
-		/// Returns an NHL player based on a player id, see <see cref="Player"/> for more information
+		/// Returns an NHL player by their player id, includes information such as age, weight, position and more
 		/// </summary>
-		/// <param name="id">An NHL player id, example: 8478402 is Connor McDavid </param>
+		/// <param name="playerId">An NHL player id, example: 8478402 is Connor McDavid </param>
 		/// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
-		public async Task<Player> GetPlayerByIdAsync(int id)
+		public async Task<Player> GetPlayerByIdAsync(int playerId)
 		{
-			return (await NhlApiHttpClient.GetAsync<LeaguePlayers>($"/people/{id}"))
+			return (await NhlApiHttpClient.GetAsync<LeaguePlayers>($"/people/{playerId}"))
 				.Players
 				.SingleOrDefault();
 		}
@@ -219,18 +233,20 @@ namespace Nhl.Api
 		/// <summary>
 		/// Return's the NHL game schedule based on the provided year, month and day
 		/// </summary>
-		/// <param name="date">The requested date for the NHL game schedule</param>
+		/// <param name="year">The requested year for the NHL game schedule</param>
+		/// <param name="month">The requested month for the NHL game schedule</param>
+		/// <param name="day">The requested day for the NHL game schedule</param>
 		/// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
 		public async Task<GameSchedule> GetGameScheduleByDateAsnyc(int year, int month, int day)
 		{
 			return await NhlApiHttpClient.GetAsync<GameSchedule>($"/schedule?date={year}-{month}-{day}");
 		}
-		
+
 		/// <summary>
 		/// Returns all of the NHL seasons since the inception of the league in 1917-1918
 		/// </summary>
 		/// <returns>A collection of seasons since the inception of the NHL</returns>
-		public async Task<List<Season>> GetAllSeasonsAsync()
+		public async Task<List<Season>> GetSeasonsAsync()
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueSeasons>("/seasons")).Seasons;
 		}
@@ -287,9 +303,9 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Returns a specified NHL team's statistics for the the specified season, if no season year is specified, see <see cref="SeasonYear"/>, the most recent season statistics will be returned
+		/// Returns a specified NHL team's statistics for the the specified season, the most recent season statistics will be returned
 		/// </summary>
-		/// <param name="id">The NHL team id, example: Toronto Maple Leafs - 10</param>
+		/// <param name="teamId">The NHL team id, example: Toronto Maple Leafs - 10</param>
 		/// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, example: 20202021</param>
 		/// <returns>A collection of all the specified NHL team statistics for the specified season</returns>
 		public async Task<TeamStatistics> GetTeamStatisticsByIdAsync(int id, string seasonYear)
@@ -305,10 +321,10 @@ namespace Nhl.Api
 
 		/// <summary>
 		/// Returns the NHL league draft based on a specific year based on the 4 character draft year, see <see cref="DraftYear"/> for more information. <br/>
-		/// <strong>Note:</strong> Some NHL draft years responses provide very large JSON payloads
+		/// <strong>Note:</strong> Some responses provide very large JSON payloads
 		/// </summary>
 		/// <param name="year">The specified year of the NHL draft, see <see cref="DraftYear"/> for all NHL draft years</param>
-		/// <returns></returns>
+		/// <returns>The NHL league draft, which includes draft rounds, player information and more, see <see cref="LeagueDraft"/> for more information</returns>
 		public async Task<LeagueDraft> GetDraftByYear(string year)
 		{
 			if (string.IsNullOrEmpty(year))
@@ -345,11 +361,19 @@ namespace Nhl.Api
 				.SingleOrDefault();
 		}
 
-		public async Task<LeagueAwards> GetLeagueAwardsAsync()
+		/// <summary>
+		/// Returns all of the NHL awards, including the description, history, and images
+		/// </summary>
+		/// <returns>A collection of all the NHL awards, see <see cref="Award"/> for more information</returns>
+		public async Task<List<Award>> GetLeagueAwardsAsync()
 		{
-			return await NhlApiHttpClient.GetAsync<LeagueAwards>("/awards");
+			return (await NhlApiHttpClient.GetAsync<LeagueAwards>("/awards")).Awards;
 		}
 
+		/// <summary>
+		/// Returns an NHL award by the award id
+		/// </summary>
+		/// <returns>A collection of all the NHL awards, see <see cref="Award"/> for more information</returns>
 		public async Task<Award> GetLeagueAwardByIdAsync(int id)
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueAwards>($"/awards/{id}"))
@@ -357,11 +381,22 @@ namespace Nhl.Api
 				.SingleOrDefault();
 		}
 
-		public async Task<LeagueVenues> GetLeagueVenuesAsync()
+		/// <summary>
+		/// Returns all of the NHL venue's, including arenas and stadiums <br/>
+		/// <strong>NOTE:</strong> This is not a comprehnsive list of all NHL stadiums and arenas
+		/// </summary>
+		/// <returns>A collection of NHL stadiums and arenas, see <see cref="LeagueVenue"/> for more information</returns>
+		public async Task<List<LeagueVenue>> GetLeagueVenuesAsync()
 		{
-			return await NhlApiHttpClient.GetAsync<LeagueVenues>("/venues");
+			return (await NhlApiHttpClient.GetAsync<LeagueVenues>("/venues")).Venues;
 		}
 
+
+		/// <summary>
+		/// Returns an NHL venue by the venue id
+		/// </summary>
+		/// <param name="id">The specified id of an NHL venue, example: 5058 - Canada Life Centre </param>
+		/// <returns>A collection of NHL stadiums and arenas, see <see cref="LeagueVenue"/> for more information</returns>
 		public async Task<LeagueVenue> GetLeagueVenueByIdAsync(int id)
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueVenues>($"/venues/{id}"))
@@ -369,6 +404,10 @@ namespace Nhl.Api
 				.SingleOrDefault();
 		}
 
+		/// <summary>
+		/// Return's all the event types within the NHL
+		/// </summary>
+		/// <returns>A collection of event types within the NHL, see <see cref="EventType"/> for more information</returns>
 		public async Task<List<EventType>> GetEventTypesAsync()
 		{
 			return await NhlApiHttpClient.GetAsync<List<EventType>>("/eventTypes");

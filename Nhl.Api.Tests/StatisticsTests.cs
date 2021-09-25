@@ -23,7 +23,6 @@ namespace Nhl.Api.Tests
 			foreach (var statisticsType in statisticsTypes)
 			{
 				Assert.IsNotNull(statisticsType.DisplayName);
-				Assert.IsNotNull(statisticsType.GameType);
 			}
 
 		}

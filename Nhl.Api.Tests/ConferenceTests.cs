@@ -12,7 +12,7 @@ namespace Nhl.Api.Tests
 		{
 			INhlApi nhlApi = new NhlApi();
 
-			var conferences = await nhlApi.GetAllConferencesAsync();
+			var conferences = await nhlApi.GetConferencesAsync();
 
 			Assert.IsNotNull(conferences);
 			CollectionAssert.AllItemsAreNotNull(conferences);

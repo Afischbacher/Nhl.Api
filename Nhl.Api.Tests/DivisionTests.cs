@@ -13,7 +13,7 @@ namespace Nhl.Api.Tests
 		{
 			INhlApi nhlApi = new NhlApi();
 
-			var divisions = await nhlApi.GetAllDivisionsAsync();
+			var divisions = await nhlApi.GetDivisionsAsync();
 
 			Assert.IsNotNull(divisions);
 			CollectionAssert.AllItemsAreNotNull(divisions);

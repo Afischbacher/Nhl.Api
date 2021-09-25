@@ -51,5 +51,74 @@ namespace Nhl.Api.Tests
 				Assert.IsNotNull(record.TeamRecords);
 			}
 		}
+
+		[TestMethod]
+		public async Task TestGetLeagueAwardsAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueAwards = await nhlApi.GetLeagueAwardsAsync();
+
+			// Assert
+			Assert.IsNotNull(leagueAwards);
+			CollectionAssert.AllItemsAreNotNull(leagueAwards);
+
+			foreach (var award in leagueAwards)
+			{
+				Assert.IsNotNull(award.Description);
+				Assert.IsNotNull(award.HomePageUrl);
+				Assert.IsNotNull(award.ImageUrl);
+				Assert.IsNotNull(award.Link);
+				Assert.IsNotNull(award.Name);
+				Assert.IsNotNull(award.RecipientType);
+				Assert.IsNotNull(award.ShortName);
+			}
+		}
+
+		[TestMethod]
+		public async Task TestGetLeagueAwardsByIdAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueAward = await nhlApi.GetLeagueAwardByIdAsync(1);
+
+			// Assert
+			Assert.IsNotNull(leagueAward);
+
+			Assert.IsNotNull(leagueAward.Description);
+			Assert.IsNotNull(leagueAward.History);
+			Assert.IsNotNull(leagueAward.HomePageUrl);
+			Assert.IsNotNull(leagueAward.ImageUrl);
+			Assert.IsNotNull(leagueAward.Link);
+			Assert.IsNotNull(leagueAward.Name);
+			Assert.IsNotNull(leagueAward.RecipientType);
+			Assert.IsNotNull(leagueAward.ShortName);
+			
+		}
+
+
+		[TestMethod]
+		public async Task TestGetEventTypesAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var eventTypes = await nhlApi.GetEventTypesAsync();
+
+			// Assert
+			Assert.IsNotNull(eventTypes);
+			CollectionAssert.AllItemsAreNotNull(eventTypes);
+
+			foreach (var eventType in eventTypes)
+			{
+				Assert.IsNotNull(eventType.Description);
+				Assert.IsNotNull(eventType.Id);
+			}
+		}
 	}
 }

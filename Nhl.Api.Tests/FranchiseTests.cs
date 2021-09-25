@@ -13,7 +13,7 @@ namespace Nhl.Api.Tests
 		{
 			var nhlApi = new NhlApi();
 
-			var franchises = await nhlApi.GetAllFranchisesAsync();
+			var franchises = await nhlApi.GetFranchisesAsync();
 
 			Assert.IsNotNull(franchises);
 			CollectionAssert.AllItemsAreNotNull(franchises);
@@ -33,7 +33,7 @@ namespace Nhl.Api.Tests
 		{
 			var nhlApi = new NhlApi();
 
-			var franchises = await nhlApi.GetAllActiveFranchisesAsync();
+			var franchises = await nhlApi.GetActiveFranchisesAsync();
 
 			Assert.IsNotNull(franchises);
 			CollectionAssert.AllItemsAreNotNull(franchises);
@@ -54,7 +54,7 @@ namespace Nhl.Api.Tests
 		{
 			var nhlApi = new NhlApi();
 
-			var franchises = await nhlApi.GetAllInactiveFranchisesAsync();
+			var franchises = await nhlApi.GetInactiveFranchisesAsync();
 
 			Assert.IsNotNull(franchises);
 			CollectionAssert.AllItemsAreNotNull(franchises);
