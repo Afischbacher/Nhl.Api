@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nhl.Api.Models.Draft;
+using Nhl.Api.Domain.Models.Draft;
 using System.Linq;
 using System.Threading.Tasks;
 

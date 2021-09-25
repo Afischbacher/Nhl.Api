@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nhl.Api", "Nhl.Api\Nhl.Api.csproj", "{64056B7A-7290-4AAF-A593-FDEDB1BF3582}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nhl.Api.Tests", "Nhl.Api.Tests\Nhl.Api.Tests.csproj", "{AD12C3AE-5540-4D45-80B7-F8C3F5A62AFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nhl.Api.Tests", "Nhl.Api.Tests\Nhl.Api.Tests.csproj", "{AD12C3AE-5540-4D45-80B7-F8C3F5A62AFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nhl.Api.Domain", "Nhl.Api.Domain\Nhl.Api.Domain.csproj", "{081BC6DC-8886-452C-9942-D73DB5AE774D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AD12C3AE-5540-4D45-80B7-F8C3F5A62AFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD12C3AE-5540-4D45-80B7-F8C3F5A62AFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD12C3AE-5540-4D45-80B7-F8C3F5A62AFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{081BC6DC-8886-452C-9942-D73DB5AE774D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{081BC6DC-8886-452C-9942-D73DB5AE774D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{081BC6DC-8886-452C-9942-D73DB5AE774D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{081BC6DC-8886-452C-9942-D73DB5AE774D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
