@@ -26,5 +26,5 @@ jobs:
   # uses: EasyDesk/action-dotnet-test@228a60327933ff6200594e89a6fa906a69e5f1e6
       uses: EasyDesk/action-dotnet-test@v1.0.0
       with:
-        path: '../../Nhl.Tests.csproj'
+        path: '/home/runner/work/Nhl.Api/Nhl.Api/Nhl.Api.Tests'
         skip-build: true
