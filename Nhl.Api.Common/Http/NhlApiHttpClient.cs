@@ -10,17 +10,26 @@ namespace Nhl.Api.Common.Http
 	/// </summary>
 	public static class NhlApiHttpClient
 	{
+		private static readonly object _lock = new object();
 		private static HttpClient _httpClient;
 
-		static NhlApiHttpClient()
+		private static HttpClient HttpClient 
 		{
-			if (_httpClient == null)
+			get
 			{
-				_httpClient = new HttpClient
+				lock (_lock)
 				{
-					BaseAddress = new Uri("https://statsapi.web.nhl.com/api/v1"),
-					Timeout = TimeSpan.FromSeconds(30)
-				};
+					if (_httpClient == null)
+					{
+						_httpClient = new HttpClient
+						{
+							BaseAddress = new Uri("https://statsapi.web.nhl.com/api/v1"),
+							Timeout = TimeSpan.FromSeconds(30)
+						};
+					}
+
+					return _httpClient;
+				}
 			}
 		}
 
@@ -36,7 +45,7 @@ namespace Nhl.Api.Common.Http
 				throw new ArgumentNullException(nameof(route));
 			}
 
-			var httpResponseMessage = await _httpClient.GetAsync($"{_httpClient.BaseAddress}{route}");
+			var httpResponseMessage = await HttpClient.GetAsync($"{HttpClient.BaseAddress}{route}");
 			var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
 			return JsonConvert.DeserializeObject<T>(contentResponse);
 		}
