@@ -9,11 +9,14 @@ namespace Nhl.Api.Tests
 		[TestMethod]
 		public async Task TestGetPlayerByIdAsync()
 		{
+			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
+			// Act 
 			// Connor McDavid - Player Id - 8478402
 			var player = await nhlApi.GetPlayerByIdAsync(8478402);
 
+			// Assert
 			Assert.IsNotNull(player);
 
 			Assert.IsNotNull(player.Active);
@@ -44,10 +47,13 @@ namespace Nhl.Api.Tests
 		[TestMethod]
 		public async Task TestGetPlayerByInvalidIdAsync()
 		{
+			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
+			// Act 
 			var player = await nhlApi.GetPlayerByIdAsync(1000);
 
+			// Assert
 			Assert.IsNull(player);
 		}
 	}

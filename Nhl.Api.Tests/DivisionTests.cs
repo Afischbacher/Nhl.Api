@@ -11,10 +11,13 @@ namespace Nhl.Api.Tests
 		[TestMethod]
 		public async Task TestGetAllDivisionsAsync()
 		{
+			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
+			// Act 
 			var divisions = await nhlApi.GetDivisionsAsync();
 
+			// Assert
 			Assert.IsNotNull(divisions);
 			CollectionAssert.AllItemsAreNotNull(divisions);
 
@@ -31,10 +34,13 @@ namespace Nhl.Api.Tests
 		[TestMethod]
 		public async Task TestGetDivisionByIdAsync()
 		{
+			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
+			// Act 
 			var division = await nhlApi.GetDivisionByIdAsync(17);
 
+			// Assert
 			Assert.IsNotNull(division);
 			Assert.IsNotNull(division.Abbreviation);
 			Assert.IsNotNull(division.Id);
@@ -46,10 +52,13 @@ namespace Nhl.Api.Tests
 		[TestMethod]
 		public async Task TestGetDivisionWithInvalidIdAsync()
 		{
+			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
+			// Act 
 			var division = await nhlApi.GetDivisionByIdAsync(999);
 
+			// Assert
 			Assert.IsNull(division);
 		}
 	}

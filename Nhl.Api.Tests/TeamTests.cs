@@ -11,10 +11,13 @@ namespace Nhl.Api.Tests
 		[TestMethod]
 		public async Task TestGetTeamsAsync()
 		{
+			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
+			// Act 
 			var teams = await nhlApi.GetTeamsAsync();
 
+			// Assert
 			Assert.IsNotNull(teams);
 			CollectionAssert.AllItemsAreNotNull(teams);
 
@@ -42,10 +45,14 @@ namespace Nhl.Api.Tests
 		[TestMethod]
 		public async Task TestGetAllActiveTeamsAsync()
 		{
+
+			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
+			// Act 
 			var teams = await nhlApi.GetActiveTeamsAsync();
 
+			// Assert
 			Assert.IsNotNull(teams);
 			CollectionAssert.AllItemsAreNotNull(teams);
 

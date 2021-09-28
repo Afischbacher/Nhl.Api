@@ -10,10 +10,13 @@ namespace Nhl.Api.Tests
 		[TestMethod]
 		public async Task TestGetConferencesAsync()
 		{
+			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
+			// Act 
 			var conferences = await nhlApi.GetConferencesAsync();
 
+			// Assert
 			Assert.IsNotNull(conferences);
 			CollectionAssert.AllItemsAreNotNull(conferences);
 
@@ -31,10 +34,13 @@ namespace Nhl.Api.Tests
 		[TestMethod]
 		public async Task TestGetConferenceByIdAsync()
 		{
+			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
+			// Act 
 			var conference = await nhlApi.GetConferenceByIdAsync(6);
 
+			// Assert
 			Assert.IsNotNull(conference.Id);
 			Assert.IsNotNull(conference.Link);
 			Assert.IsNotNull(conference.Name);
@@ -46,10 +52,13 @@ namespace Nhl.Api.Tests
 		[TestMethod]
 		public async Task TestGetConferenceWithInvalidIdAsync()
 		{
+			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
+			// Act 
 			var conference = await nhlApi.GetConferenceByIdAsync(999);
 
+			// Assert
 			Assert.IsNull(conference);
 		}
 	}
