@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
 using Nhl.Api.Domain.Models.Award;
 using Nhl.Api.Domain.Models.Conference;
 using Nhl.Api.Domain.Models.Division;
