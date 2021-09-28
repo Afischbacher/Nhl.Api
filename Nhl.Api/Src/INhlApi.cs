@@ -22,6 +22,9 @@ namespace Nhl.Api
 	/// </summary>
 	public interface INhlApi
 	{
+
+		#region Franchises
+
 		/// <summary>
 		/// Returns all NHL franchises, including information such as team name, location and more
 		/// </summary>
@@ -45,6 +48,10 @@ namespace Nhl.Api
 		/// </summary>
 		/// <returns>A collection of all inactive NHL franchises, see <see cref="Franchise"/> for more information</returns>
 		public Task<List<Franchise>> GetInactiveFranchisesAsync();
+
+		#endregion
+
+		#region Teams
 
 		/// <summary>
 		/// Returns an NHL team by the team id
@@ -71,6 +78,10 @@ namespace Nhl.Api
 		/// <returns>A collection of all active NHL teams, see <see cref="Team"/> for more information</returns>
 		public Task<List<Team>> GetInactiveTeamsAsync();
 
+		#endregion
+
+		#region Divisions
+
 		/// <summary>
 		/// Returns all of the NHL divisions
 		/// </summary>
@@ -83,6 +94,10 @@ namespace Nhl.Api
 		/// <param name="divisionId">The NHL division id, Example: 17 - Atlantic divison </param>
 		/// <returns>Returns an NHL division, see <see cref="Division"/> for more information</returns>
 		public Task<Division> GetDivisionByIdAsync(int divisionId);
+
+		#endregion
+
+		#region Conferences
 
 		/// <summary>
 		/// Returns all of the NHL conferences
@@ -97,12 +112,20 @@ namespace Nhl.Api
 		/// <returns>An NHL conference, see <see cref="Conference"/> for more information</returns>
 		public Task<Conference> GetConferenceByIdAsync(int conferenceId);
 
+		#endregion
+
+		#region Players
+
 		/// <summary>
 		/// Returns an NHL player by their player id, includes information such as age, weight, position and more
 		/// </summary>
 		/// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid </param>
 		/// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
 		public Task<Player> GetPlayerByIdAsync(int playerId);
+
+		#endregion
+
+		#region Games
 
 		/// <summary>
 		/// Returns all of the NHL game types within a season and within special events
@@ -150,6 +173,10 @@ namespace Nhl.Api
 		/// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
 		public Task<GameSchedule> GetGameScheduleByDateAsnyc(int year, int month, int day);
 
+		#endregion
+
+		#region Seasons
+
 		/// <summary>
 		/// Returns all of the NHL seasons since the inception of the league in 1917-1918
 		/// </summary>
@@ -163,6 +190,10 @@ namespace Nhl.Api
 		/// <returns>An NHL season based on the provided season year, Example - "20172018"</returns>
 		public Task<Season> GetSeasonByYearAsync(string seasonYear);
 
+		#endregion
+
+		#region Leagues
+
 		/// <summary>
 		/// Returns all of the NHL league standing types, this includes playoff and preseason standings
 		/// </summary>
@@ -175,6 +206,10 @@ namespace Nhl.Api
 		/// <param name="date">The NHL league standings date for the request NHL standings</param>
 		/// <returns>A collection of all the leauge standings </returns>
 		public Task<List<Records>> GetLeagueStandingsAsync(DateTime? date);
+
+		#endregion
+
+		#region Statistics
 
 		/// <summary>
 		/// Returns all distinct types of NHL statistics types
@@ -190,6 +225,10 @@ namespace Nhl.Api
 		/// <returns>A collection of all the specified NHL team statistics for the specified season</returns>
 		public Task<TeamStatistics> GetTeamStatisticsByIdAsync(int teamId, string seasonYear);
 
+		#endregion
+
+		#region Drafts
+
 		/// <summary>
 		/// Returns the NHL league draft based on a specific year based on the 4 character draft year, see <see cref="DraftYear"/> for more information. <br/>
 		/// <strong>Note:</strong> Some NHL draft years responses provide very large JSON payloads
@@ -197,6 +236,10 @@ namespace Nhl.Api
 		/// <param name="year">The specified year of the NHL draft, see <see cref="DraftYear"/> for all NHL draft years</param>
 		/// <returns>The NHL league draft, which includes draft rounds, player information and more, see <see cref="LeagueDraft"/> for more information</returns>
 		public Task<LeagueDraft> GetDraftByYear(string year);
+
+		#endregion
+
+		#region Prospects
 
 		/// <summary>
 		/// Returns all the NHL league prospects <br/>
@@ -211,6 +254,10 @@ namespace Nhl.Api
 		/// <returns>An NHL prospect, see <see cref="ProspectProfile"/> for more information </returns>
 		public Task<ProspectProfile> GetLeagueProspectByIdAsync(int prospectId);
 
+		#endregion
+
+		#region Awards
+
 		/// <summary>
 		/// Returns all of the NHL awards, including the description, history, and images
 		/// </summary>
@@ -224,6 +271,10 @@ namespace Nhl.Api
 		/// <param name="leagueAwardId">The NHL league award identifier </param>
 		/// <returns>A collection of all the NHL awards, see <see cref="Award"/> for more information</returns>
 		public Task<Award> GetLeagueAwardByIdAsync(int leagueAwardId);
+
+		#endregion
+
+		#region Venues
 
 		/// <summary>
 		/// Returns all of the NHL venue's, including arenas and stadiums <br/>
@@ -240,10 +291,15 @@ namespace Nhl.Api
 		/// <returns>A collection of NHL stadiums and arenas, see <see cref="LeagueVenue"/> for more information</returns>
 		public Task<LeagueVenue> GetLeagueVenueByIdAsync(int venueId);
 
+		#endregion
+
+		#region Event Types
+
 		/// <summary>
 		/// Return's all the event types within the NHL
 		/// </summary>
 		/// <returns>A collection of event types within the NHL, see <see cref="EventType"/> for more information</returns>
-		public Task<List<EventType>> GetEventTypesAsync();
+		public Task<List<EventType>> GetEventTypesAsync(); 
+		#endregion
 	}
 }

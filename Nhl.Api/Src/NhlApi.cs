@@ -25,7 +25,7 @@ namespace Nhl.Api
 	/// </summary>
 	public class NhlApi : INhlApi
 	{
-		
+
 		/// <summary>
 		/// Returns all NHL franchises, including information such as team name, location and more
 		/// </summary>
