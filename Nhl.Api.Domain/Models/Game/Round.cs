@@ -17,7 +17,7 @@ namespace Nhl.Api.Models.Game
 		/// </summary>
 		[JsonProperty("code")]
 		public int Code { get; set; }
-		
+
 		/// <summary>
 		/// The names for the NHL playoff round, see <see cref="Names.Names"/> for more information
 		/// </summary>

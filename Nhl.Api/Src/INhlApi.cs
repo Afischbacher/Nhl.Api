@@ -299,7 +299,7 @@ namespace Nhl.Api
 		/// Return's all the event types within the NHL
 		/// </summary>
 		/// <returns>A collection of event types within the NHL, see <see cref="EventType"/> for more information</returns>
-		public Task<List<EventType>> GetEventTypesAsync(); 
+		public Task<List<EventType>> GetEventTypesAsync();
 		#endregion
 	}
 }

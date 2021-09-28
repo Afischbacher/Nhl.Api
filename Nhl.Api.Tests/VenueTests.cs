@@ -43,7 +43,7 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(leagueVenue.Id);
 			Assert.IsNotNull(leagueVenue.Link);
 			Assert.IsNotNull(leagueVenue.Name);
-			
+
 		}
 	}
 }

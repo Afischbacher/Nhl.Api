@@ -80,7 +80,7 @@ namespace Nhl.Api.Tests
 					Assert.IsNotNull(split.TeamStatisticsDetails.ShotsPerGame);
 				}
 
-				if(statistic.Type.DisplayName != "regularSeasonStatRankings")
+				if (statistic.Type.DisplayName != "regularSeasonStatRankings")
 				{
 					Assert.IsNotNull(statistic.Type);
 					Assert.IsNotNull(statistic.Type.DisplayName);
@@ -89,7 +89,7 @@ namespace Nhl.Api.Tests
 					Assert.IsNotNull(statistic.Type.GameType.Id);
 					Assert.IsNotNull(statistic.Type.GameType.Postseason);
 				}
-				
+
 			}
 		}
 

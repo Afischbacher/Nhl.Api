@@ -3,7 +3,7 @@ using Nhl.Api.Models.Game;
 
 namespace Nhl.Api.Models.Team
 {
-	public abstract class TeamWithLeagueRecord 
+	public abstract class TeamWithLeagueRecord
 	{
 		/// <summary>
 		/// The NHL team league record

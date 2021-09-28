@@ -13,7 +13,7 @@ namespace Nhl.Api.Common.Http
 		private static readonly object _lock = new object();
 		private static HttpClient _httpClient;
 
-		private static HttpClient HttpClient 
+		private static HttpClient HttpClient
 		{
 			get
 			{

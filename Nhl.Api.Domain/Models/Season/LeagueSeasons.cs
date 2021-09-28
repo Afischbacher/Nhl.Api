@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Season
-{ 
+{
 	public class LeagueSeasons
 	{
 		[JsonProperty("seasons")]

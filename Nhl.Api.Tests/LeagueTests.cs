@@ -97,7 +97,7 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(leagueAward.Name);
 			Assert.IsNotNull(leagueAward.RecipientType);
 			Assert.IsNotNull(leagueAward.ShortName);
-			
+
 		}
 
 

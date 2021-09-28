@@ -45,7 +45,7 @@ namespace Nhl.Api.Models.Team
 		/// Information about the NHL teams division
 		/// </summary>
 		[JsonProperty("division")]
-		public  Division.Division Division { get; set; }
+		public Division.Division Division { get; set; }
 
 		/// <summary>
 		/// Information about the NHL teams conference

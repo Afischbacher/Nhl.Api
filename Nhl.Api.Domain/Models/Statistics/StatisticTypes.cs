@@ -2,7 +2,7 @@
 using Nhl.Api.Models.Game;
 
 namespace Nhl.Api.Models.Statistics
-{ 	
+{
 	public class StatisticTypes
 	{
 		/// <summary>

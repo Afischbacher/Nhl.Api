@@ -117,7 +117,7 @@ namespace Nhl.Api.Tests
 			}
 		}
 
-		
+
 		[TestMethod]
 		public async Task TestGetGetGameScheduleByDateAsnyc()
 		{
@@ -180,7 +180,7 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act
-			var gameSchedule = await nhlApi.GetGameScheduleByDateAsnyc(2020,1,29);
+			var gameSchedule = await nhlApi.GetGameScheduleByDateAsnyc(2020, 1, 29);
 
 			// Assert
 			Assert.IsNotNull(gameSchedule);

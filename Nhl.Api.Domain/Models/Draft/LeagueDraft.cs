@@ -8,7 +8,7 @@ namespace Nhl.Api.Models.Draft
 	{
 		/// <summary>
 		/// The collection of the NHL league drafts, see <see cref="Draft"/> for more information
- 		/// </summary>
+		/// </summary>
 		[JsonProperty("drafts")]
 		public List<Draft> Drafts { get; set; }
 	}
