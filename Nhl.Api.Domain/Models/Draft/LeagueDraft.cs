@@ -6,9 +6,9 @@ namespace Nhl.Api.Domain.Models.Draft
 {
 	public class LeagueDraft
 	{
-		[JsonProperty("copyright")]
-		public string Copyright { get; set; }
-
+		/// <summary>
+		/// The collection of the NHL league drafts, see <see cref="Draft"/> for more information
+ 		/// </summary>
 		[JsonProperty("drafts")]
 		public List<Draft> Drafts { get; set; }
 	}

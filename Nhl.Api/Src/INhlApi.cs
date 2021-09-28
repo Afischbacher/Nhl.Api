@@ -50,7 +50,7 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL team by the team id
 		/// </summary>
-		/// <param name="teamId">The NHL team id, example: Toronto Maple Leafs - 10</param>
+		/// <param name="teamId">The NHL team id, Example: 10 - Toronto Maple Leafs</param>
 		/// <returns>An NHL team with information including name, location, division and more, see <see cref="Team"/> for more information</returns>
 		public Task<Team> GetTeamByIdAsync(int teamId);
 
@@ -81,7 +81,7 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL division by the division id
 		/// </summary>
-		/// <param name="divisionId">The NHL division id, example: Atlantic divison is the number 17</param>
+		/// <param name="divisionId">The NHL division id, Example: 17 - Atlantic divison </param>
 		/// <returns>Returns an NHL division, see <see cref="Division"/> for more information</returns>
 		public Task<Division> GetDivisionByIdAsync(int divisionId);
 
@@ -94,14 +94,14 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns all of the NHL conferences
 		/// </summary>
-		/// <param name="conferenceId">The NHL conference id, example: Eastern Conference is the number 6</param>
+		/// <param name="conferenceId">The NHL conference id, Example: 6 - Eastern Conference </param>
 		/// <returns>An NHL conference, see <see cref="Conference"/> for more information</returns>
 		public Task<Conference> GetConferenceByIdAsync(int conferenceId);
 
 		/// <summary>
 		/// Returns an NHL player by their player id, includes information such as age, weight, position and more
 		/// </summary>
-		/// <param name="playerId">An NHL player id, example: 8478402 is Connor McDavid </param>
+		/// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid </param>
 		/// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
 		public Task<Player> GetPlayerByIdAsync(int playerId);
 
@@ -161,7 +161,7 @@ namespace Nhl.Api
 		/// Returns the NHL season information based on the provided season years
 		/// </summary>
 		/// <param name="seasonYear">See <see cref="SeasonYear"/> for all valid season year arguments</param>
-		/// <returns>An NHL season based on the provided season year, example: '20172018'</returns>
+		/// <returns>An NHL season based on the provided season year, Example - "20172018"</returns>
 		public Task<Season> GetSeasonByYearAsync(string seasonYear);
 
 		/// <summary>
@@ -191,7 +191,6 @@ namespace Nhl.Api
 		/// <returns>A collection of all the specified NHL team statistics for the specified season</returns>
 		public Task<TeamStatistics> GetTeamStatisticsByIdAsync(int teamId, string seasonYear);
 
-
 		/// <summary>
 		/// Returns the NHL league draft based on a specific year based on the 4 character draft year, see <see cref="DraftYear"/> for more information. <br/>
 		/// <strong>Note:</strong> Some NHL draft years responses provide very large JSON payloads
@@ -220,8 +219,10 @@ namespace Nhl.Api
 		public Task<List<Award>> GetLeagueAwardsAsync();
 
 		/// <summary>
-		/// Returns an NHL award by the award id
+		/// Returns an NHL award by the award id <br/>
+		/// Example: 1 - Stanley Cup 
 		/// </summary>
+		/// <param name="leagueAwardId">The NHL league award identifier </param>
 		/// <returns>A collection of all the NHL awards, see <see cref="Award"/> for more information</returns>
 		public Task<Award> GetLeagueAwardByIdAsync(int leagueAwardId);
 
@@ -233,9 +234,10 @@ namespace Nhl.Api
 		public Task<List<LeagueVenue>> GetLeagueVenuesAsync();
 
 		/// <summary>
-		/// Returns an NHL venue by the venue id
+		/// Returns an NHL venue by the venue id <br/>
+		///  Example: 5058 - Canada Life Centre
 		/// </summary>
-		/// <param name="id">The specified id of an NHL venue, example: 5058 - Canada Life Centre </param>
+		/// <param name="venueId">The specified id of an NHL venue, </param>
 		/// <returns>A collection of NHL stadiums and arenas, see <see cref="LeagueVenue"/> for more information</returns>
 		public Task<LeagueVenue> GetLeagueVenueByIdAsync(int venueId);
 

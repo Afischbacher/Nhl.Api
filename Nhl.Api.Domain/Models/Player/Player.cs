@@ -17,7 +17,7 @@ namespace Nhl.Api.Domain.Models.Player
 		public int Id { get; set; }
 
 		/// <summary>
-		/// Full name of the NHL player
+		/// Full name of the NHL player <br/>
 		/// Example: Alexander Ovechkin
 		/// </summary>
 		[JsonProperty("fullName")]
