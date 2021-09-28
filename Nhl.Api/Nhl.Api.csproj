@@ -9,13 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Nhl.Api.Common\Nhl.Api.Common.csproj" />
     <ProjectReference Include="..\Nhl.Api.Domain\Nhl.Api.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Src\Services\League\" />
-    <Folder Include="Src\Services\Game\" />
-    <Folder Include="Src\Services\Player\" />
   </ItemGroup>
 
 </Project>

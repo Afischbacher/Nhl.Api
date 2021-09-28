@@ -1,5 +1,4 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nhl.Api.Http;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests

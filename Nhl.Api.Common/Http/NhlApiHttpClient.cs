@@ -3,8 +3,11 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Nhl.Api.Http
+namespace Nhl.Api.Common.Http
 {
+	/// <summary>
+	/// The dedicated NHL Http Client for the NHL API
+	/// </summary>
 	public static class NhlApiHttpClient
 	{
 		private static HttpClient _httpClient;
@@ -21,6 +24,11 @@ namespace Nhl.Api.Http
 			}
 		}
 
+		/// <summary>
+		/// Performs a HTTP GET request
+		/// </summary>
+		/// <param name="route">The NHL API endpoint</param>
+		/// <returns></returns>
 		public static async Task<T> GetAsync<T>(string route) where T : class, new()
 		{
 			if (string.IsNullOrWhiteSpace(route))

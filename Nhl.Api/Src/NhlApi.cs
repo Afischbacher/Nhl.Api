@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-using Nhl.Api.Http;
 using Nhl.Api.Domain.Models.Award;
 using Nhl.Api.Domain.Models.Conference;
 using Nhl.Api.Domain.Models.Division;
@@ -17,6 +16,7 @@ using Nhl.Api.Domain.Models.Standing;
 using Nhl.Api.Domain.Models.Statistics;
 using Nhl.Api.Domain.Models.Team;
 using Nhl.Api.Domain.Models.Venue;
+using Nhl.Api.Common.Http;
 
 namespace Nhl.Api
 {
