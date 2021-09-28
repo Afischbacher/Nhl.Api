@@ -1,4 +1,4 @@
-﻿namespace Nhl.Api.Domain.Enumerations.Team
+﻿namespace Nhl.Api.Models.Enumerations.Team
 {
 	/// <summary>
 	/// An enumeration for all active NHL teams

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nhl.Api.Domain.Models.Division
+namespace Nhl.Api.Models.Division
 {
 	public class LeagueDivisions
 	{

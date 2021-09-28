@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nhl.Api.Domain.Models.Franchise
+namespace Nhl.Api.Models.Franchise
 {
 	public class LegaueFranchises
 	{

@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Player;
-using Nhl.Api.Domain.Models.Team;
+using Nhl.Api.Models.Player;
+using Nhl.Api.Models.Team;
 
-namespace Nhl.Api.Domain.Models.Draft
+namespace Nhl.Api.Models.Draft
 {
 	public class Pick
 	{

@@ -1,4 +1,4 @@
-﻿namespace Nhl.Api.Domain.Enumerations.Division
+﻿namespace Nhl.Api.Models.Enumerations.Division
 {
 	/// <summary>
 	/// An enumeration for all active NHL divisions

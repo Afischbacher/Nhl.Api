@@ -1,5 +1,5 @@
 ﻿
-namespace Nhl.Api.Domain.Enumerations.Conference
+namespace Nhl.Api.Models.Enumerations.Conference
 {
 	/// <summary>
 	/// An enumeration of all active NHL conferences

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Team;
+using Nhl.Api.Models.Team;
 
-namespace Nhl.Api.Domain.Models.Statistics
+namespace Nhl.Api.Models.Statistics
 {
 	public class Split
 	{

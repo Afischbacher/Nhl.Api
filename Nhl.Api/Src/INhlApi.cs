@@ -1,19 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Nhl.Api.Domain.Models.Award;
-using Nhl.Api.Domain.Models.Conference;
-using Nhl.Api.Domain.Models.Division;
-using Nhl.Api.Domain.Models.Draft;
-using Nhl.Api.Domain.Models.Event;
-using Nhl.Api.Domain.Models.Franchise;
-using Nhl.Api.Domain.Models.Game;
-using Nhl.Api.Domain.Models.Player;
-using Nhl.Api.Domain.Models.Season;
-using Nhl.Api.Domain.Models.Standing;
-using Nhl.Api.Domain.Models.Statistics;
-using Nhl.Api.Domain.Models.Team;
-using Nhl.Api.Domain.Models.Venue;
+using Nhl.Api.Models.Award;
+using Nhl.Api.Models.Conference;
+using Nhl.Api.Models.Division;
+using Nhl.Api.Models.Draft;
+using Nhl.Api.Models.Event;
+using Nhl.Api.Models.Franchise;
+using Nhl.Api.Models.Game;
+using Nhl.Api.Models.Player;
+using Nhl.Api.Models.Season;
+using Nhl.Api.Models.Standing;
+using Nhl.Api.Models.Statistics;
+using Nhl.Api.Models.Team;
+using Nhl.Api.Models.Venue;
 
 namespace Nhl.Api
 {

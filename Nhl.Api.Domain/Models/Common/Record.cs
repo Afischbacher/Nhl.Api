@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Team;
+using Nhl.Api.Models.Team;
 using System.Collections.Generic;
 
-namespace Nhl.Api.Domain.Models.Common
+namespace Nhl.Api.Models.Common
 {
 	public class Record
 	{

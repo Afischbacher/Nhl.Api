@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Nhl.Api.Domain.Models.Event
+namespace Nhl.Api.Models.Event
 {
 	public class EventType
 	{

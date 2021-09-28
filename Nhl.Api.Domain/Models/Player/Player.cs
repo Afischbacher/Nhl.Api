@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Team;
+using Nhl.Api.Models.Team;
 using System;
 
-namespace Nhl.Api.Domain.Models.Player
+namespace Nhl.Api.Models.Player
 {
 	/// <summary>
 	/// The profile and information of an NHL player

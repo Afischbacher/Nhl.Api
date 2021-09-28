@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Nhl.Api.Domain.Models.Game
+namespace Nhl.Api.Models.Game
 {
 	public class GameDate
 	{

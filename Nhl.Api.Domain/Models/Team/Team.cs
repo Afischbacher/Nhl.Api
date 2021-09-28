@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Nhl.Api.Domain.Models.Team
+namespace Nhl.Api.Models.Team
 {
 	/// <summary>
 	/// An NHL team

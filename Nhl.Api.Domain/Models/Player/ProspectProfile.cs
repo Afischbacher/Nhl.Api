@@ -1,11 +1,11 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Draft;
-using Nhl.Api.Domain.Models.League;
-using Nhl.Api.Domain.Models.Team;
+using Nhl.Api.Models.Draft;
+using Nhl.Api.Models.League;
+using Nhl.Api.Models.Team;
 using Nhl.Api.Models.Player;
 using System;
 
-namespace Nhl.Api.Domain.Models.Player
+namespace Nhl.Api.Models.Player
 {
 	public class ProspectProfile
 	{

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Nhl.Api.Domain.Models.Franchise
+namespace Nhl.Api.Models.Franchise
 {
 	/// <summary>
 	/// An NHL franchise

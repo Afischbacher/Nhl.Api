@@ -1,9 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Common;
-using Nhl.Api.Domain.Models.Team;
+using Nhl.Api.Models.Common;
+using Nhl.Api.Models.Team;
 
-namespace Nhl.Api.Domain.Models.Game
+namespace Nhl.Api.Models.Game
 {
 	public class Game
 	{

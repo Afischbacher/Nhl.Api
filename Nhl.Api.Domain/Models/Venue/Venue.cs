@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Common;
+using Nhl.Api.Models.Common;
 
-namespace Nhl.Api.Domain.Models.Venue
+namespace Nhl.Api.Models.Venue
 {
 	public class Venue
 	{

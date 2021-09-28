@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Common;
+using Nhl.Api.Models.Common;
 using System.Collections.Generic;
 
-namespace Nhl.Api.Domain.Models.Game
+namespace Nhl.Api.Models.Game
 {
 	public class GameSchedule
 	{

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Nhl.Api.Domain.Models.Venue
+namespace Nhl.Api.Models.Venue
 {
 	public class LeagueVenues
 	{

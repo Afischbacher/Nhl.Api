@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Game;
+using Nhl.Api.Models.Game;
 
-namespace Nhl.Api.Domain.Models.Team
+namespace Nhl.Api.Models.Team
 {
 	public abstract class TeamWithLeagueRecord 
 	{

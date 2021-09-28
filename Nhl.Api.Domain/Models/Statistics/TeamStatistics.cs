@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Nhl.Api.Domain.Models.Statistics
+namespace Nhl.Api.Models.Statistics
 {
 	public class TeamStatistics
 	{

@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Nhl.Api.Domain.Models.Award
+namespace Nhl.Api.Models.Award
 {
 	public class LeagueAwards
 	{

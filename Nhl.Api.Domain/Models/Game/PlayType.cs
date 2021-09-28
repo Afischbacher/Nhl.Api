@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace Nhl.Api.Domain.Models.Game
+namespace Nhl.Api.Models.Game
 {
 	/// <summary>
 	/// Identifies all of the different play types in an NHL game

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace Nhl.Api.Domain.Models.Standing
+namespace Nhl.Api.Models.Standing
 {
 	public class LeagueStandings
 	{

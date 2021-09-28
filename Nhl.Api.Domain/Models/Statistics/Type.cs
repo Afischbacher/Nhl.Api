@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Game;
+using Nhl.Api.Models.Game;
 
-namespace Nhl.Api.Domain.Models.Statistics
+namespace Nhl.Api.Models.Statistics
 {
 	public class Type
 	{

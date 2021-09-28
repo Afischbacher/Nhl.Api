@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Common;
+using Nhl.Api.Models.Common;
 
-namespace Nhl.Api.Domain.Models.Conference
+namespace Nhl.Api.Models.Conference
 {
 	public class Conference : NhlApiMetaData
 	{

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-namespace Nhl.Api.Domain.Models.Draft
+namespace Nhl.Api.Models.Draft
 {
 	public class LeagueDraft
 	{

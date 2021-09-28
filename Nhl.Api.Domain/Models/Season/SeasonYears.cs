@@ -1,5 +1,5 @@
 ﻿
-namespace Nhl.Api.Domain.Models.Season
+namespace Nhl.Api.Models.Season
 {
 	public class SeasonYear
 	{

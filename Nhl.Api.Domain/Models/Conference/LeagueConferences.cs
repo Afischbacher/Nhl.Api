@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Nhl.Api.Domain.Models.Conference
+namespace Nhl.Api.Models.Conference
 {
 	public class LeagueConferences
 	{

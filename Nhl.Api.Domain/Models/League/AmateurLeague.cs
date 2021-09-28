@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 
 
-namespace Nhl.Api.Domain.Models.League
+namespace Nhl.Api.Models.League
 {
 	public class AmateurLeague
 	{

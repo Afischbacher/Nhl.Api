@@ -1,5 +1,5 @@
 ﻿
-namespace Nhl.Api.Domain.Models.Team
+namespace Nhl.Api.Models.Team
 {
 	public class HomeTeam : TeamWithLeagueRecord
 	{
