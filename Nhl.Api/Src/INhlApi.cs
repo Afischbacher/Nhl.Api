@@ -149,7 +149,7 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns a collection of all the different types of tournaments in the hockey
 		/// </summary>
-		/// <returns>A collection of tournament types, see <see cref="TournamentType"/> for more information</retur
+		/// <returns>A collection of tournament types, see <see cref="TournamentType"/> for more information</returns>
 		Task<List<TournamentType>> GetTournamentTypesAsync();
 
 		/// <summary>
@@ -202,7 +202,7 @@ namespace Nhl.Api
 		Task<List<LeagueStandingType>> GetLeagueStandingTypesAsync();
 
 		/// <summary>
-		/// Returns the standings of every team in the NHL for the provided <see cref="DateTime?"/>, if the date is null it will provide the current NHL league standings
+		/// Returns the standings of every team in the NHL for the provided date, if the date is null it will provide the current NHL league standings
 		/// </summary>
 		/// <param name="date">The NHL league standings date for the request NHL standings</param>
 		/// <returns>A collection of all the leauge standings </returns>

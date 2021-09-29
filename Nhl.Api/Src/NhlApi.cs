@@ -279,7 +279,7 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Returns the standings of every team in the NHL for the provided <see cref="DateTime?"/>, if the date is null it will provide the current NHL league standings
+		/// Returns the standings of every team in the NHL for the provided date, if the date is null it will provide the current NHL league standings
 		/// </summary>
 		/// <param name="date">The NHL league standings date for the request NHL standings</param>
 		/// <returns>A collection of all the leauge standings </returns>
@@ -304,14 +304,14 @@ namespace Nhl.Api
 		/// <param name="teamId">The NHL team id, example: Toronto Maple Leafs - 10</param>
 		/// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, example: 20202021</param>
 		/// <returns>A collection of all the specified NHL team statistics for the specified season</returns>
-		public async Task<TeamStatistics> GetTeamStatisticsByIdAsync(int id, string seasonYear)
+		public async Task<TeamStatistics> GetTeamStatisticsByIdAsync(int teamId, string seasonYear)
 		{
 			if (seasonYear?.Length > 8)
 			{
 				throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
 			}
 
-			var httpRequestUri = string.IsNullOrWhiteSpace(seasonYear) ? $"/teams/{id}/stats" : $"/teams/{id}/stats?season={seasonYear}";
+			var httpRequestUri = string.IsNullOrWhiteSpace(seasonYear) ? $"/teams/{teamId}/stats" : $"/teams/{teamId}/stats?season={seasonYear}";
 			return await NhlApiHttpClient.GetAsync<TeamStatistics>(httpRequestUri);
 		}
 
