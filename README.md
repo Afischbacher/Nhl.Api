@@ -36,6 +36,13 @@ If you are using any type of a inversion of control or dependency injection libr
 ### Simple Object Creation
 `var nhlApi = new NhlApi();`
 
+## Usage
+
+Once registered using your dependency injection library of choice or just using the simple instance of the API. Use the API and see the magic 🧙‍♂️ of the .NET NHL API.
+```
+var teams = await _nhlApi.GetTeamsAsync();
+...
+```
 
 ## Bugs
 
