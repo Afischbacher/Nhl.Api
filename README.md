@@ -31,7 +31,12 @@ If you are using any type of a inversion of control or dependency injection libr
 `container.RegisterType<INhlApi, NhlApi>();`
 
 ### AutoFac
-`builder.RegisterInstance(new NhlApi()).As<INhlApi>();`
+`builder.RegisterType<NhlApi>().As<INhlApi>();`
 
 ### Simple Object Creation
 `var nhlApi = new NhlApi();`
+
+
+## Bugs
+
+If you have any issues with the library or suggestions, please feel free to create an issue and it will be adressed as soon as possible :)
