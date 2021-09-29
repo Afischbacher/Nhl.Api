@@ -5,9 +5,10 @@
 	/// </summary>
 	public enum DivisionEnum
 	{
-		Atlantic = 17,
+		Pacific = 15,
 		Central = 16,
+		Atlantic = 17,
 		Metropolitan = 18,
-		Pacific = 15
+
 	}
 }
