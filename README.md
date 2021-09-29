@@ -1,6 +1,5 @@
 [![Build/Test](https://github.com/Afischbacher/Nhl.Api/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Afischbacher/Nhl.Api/actions/workflows/dotnet.yml)
 [![Issues](https://img.shields.io/github/issues/Afischbacher/Nhl.Api.svg)](https://github.com/Afischbacher/Nhl.Api/issues)
-[![Total Lines](https://sloc.xyz/github/Afischbacher/Nhl.Api)](https://GitHub.com/Afischbacher/Nhl.Api)
 [![License](https://img.shields.io/github/license/Afischbacher/Nhl.Api)](https://github.com/Afischbacher/Nhl.Api/blob/master/LICENSE)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Afischbacher/Nhl.Api/graphs/commit-activity)
 
