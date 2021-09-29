@@ -4,9 +4,9 @@
 [![License](https://img.shields.io/github/license/Afischbacher/Nhl.Api)](https://github.com/Afischbacher/Nhl.Api/blob/master/LICENSE)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Afischbacher/Nhl.Api/graphs/commit-activity)
 
-# The Official Unofficial .NET NHL API 
+# The Official Unofficial .NET NHL API 🏒
 A C# .NET Standard 2.0 library for the .NET NHL API
-## Installing Nhl.Api 🏒
+## Installing Nhl.Api 🏗
 You should install Nhl.Api with NuGet:
 ```
 Install-Package Nhl.Api
@@ -35,7 +35,7 @@ If you are using any type of a inversion of control or dependency injection libr
 ## Documentation 📖
 Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 
-## Contents
+### Contents
 
 -  [NhlApi](#T-Nhl-Api-INhlApi  'Nhl.Api.INhlApi')
 
