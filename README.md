@@ -26,7 +26,7 @@ dotnet add package Nhl.Api
 Either commands, from Package Manager Console or .NET Core CLI, will download and install all required dependencies.
 
 
-## Implementation ⚒
+## Implementation 💪
 
 If you are using any type of a inversion of control or dependency injection library such as the built in library within .NET Core, Unity, or AutoFac. It's very simple to implement, or you can create an instance of the `NhlApi` class and use the API as you would like.
 
