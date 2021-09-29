@@ -61,4 +61,4 @@ Here are some of the future items I would like to add and are currently in the b
 
 - [ ] Content Feed for Live Games
 - [ ] Player Search within the NHL league
-- [ ] Add additional API functionality for ease of searching
+- [ ] Add additional API functionality for ease of searching for various NHL entities
