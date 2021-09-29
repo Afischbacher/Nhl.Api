@@ -1,6 +1,9 @@
 ﻿
 namespace Nhl.Api.Models.Season
 {
+	/// <summary>
+	/// All of the NHL season years since the inception of the NHL league
+	/// </summary>
 	public class SeasonYear
 	{
 		public const string season19171918 = "19171918";

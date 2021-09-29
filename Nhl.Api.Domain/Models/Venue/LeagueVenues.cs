@@ -5,6 +5,9 @@ namespace Nhl.Api.Models.Venue
 {
 	public class LeagueVenues
 	{
+		/// <summary>
+		/// A collection of NHL venues
+		/// </summary>
 		[JsonProperty("venues")]
 		public List<LeagueVenue> Venues { get; set; } = new List<LeagueVenue>();
 	}

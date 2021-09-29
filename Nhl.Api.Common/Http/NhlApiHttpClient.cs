@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace Nhl.Api.Common.Http
 {
 	/// <summary>
-	/// The dedicated NHL Http Client for the NHL API
+	/// The dedicated NHL HTTP Client for the NHL API
 	/// </summary>
 	public static class NhlApiHttpClient
 	{
@@ -37,7 +37,7 @@ namespace Nhl.Api.Common.Http
 		/// Performs a HTTP GET request
 		/// </summary>
 		/// <param name="route">The NHL API endpoint</param>
-		/// <returns></returns>
+		/// <returns>The deserialized JSON payload of the generic type</returns>
 		public static async Task<T> GetAsync<T>(string route) where T : class, new()
 		{
 			if (string.IsNullOrWhiteSpace(route))

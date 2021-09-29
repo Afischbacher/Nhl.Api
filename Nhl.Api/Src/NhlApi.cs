@@ -343,7 +343,7 @@ namespace Nhl.Api
 		/// <returns>A collection of all the NHL prospects, see <see cref="ProspectProfile"/> for more information </returns>
 		public async Task<List<ProspectProfile>> GetLeagueProspectsAsync()
 		{
-			return (await NhlApiHttpClient.GetAsync<LeagueProspects>("/draft/prospects")).Prospects;
+			return (await NhlApiHttpClient.GetAsync<LeagueProspects>("/draft/prospects")).ProspectProfiles;
 		}
 
 		/// <summary>
@@ -353,7 +353,7 @@ namespace Nhl.Api
 		public async Task<ProspectProfile> GetLeagueProspectByIdAsync(int id)
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueProspects>($"/draft/prospects/{id}"))
-				.Prospects
+				.ProspectProfiles
 				.SingleOrDefault();
 		}
 

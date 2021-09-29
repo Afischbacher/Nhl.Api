@@ -6,7 +6,10 @@ namespace Nhl.Api.Models.Draft
 {
 	public class LeagueProspects
 	{
+		/// <summary>
+		/// A collection of league prospect profiles within the NHL
+		/// </summary>
 		[JsonProperty("prospects")]
-		public List<ProspectProfile> Prospects { get; set; } = new List<ProspectProfile>();
+		public List<ProspectProfile> ProspectProfiles { get; set; } = new List<ProspectProfile>();
 	}
 }

@@ -2,7 +2,6 @@
 using Nhl.Api.Models.Draft;
 using Nhl.Api.Models.League;
 using Nhl.Api.Models.Team;
-using Nhl.Api.Models.Player;
 using System;
 
 namespace Nhl.Api.Models.Player
@@ -66,7 +65,7 @@ namespace Nhl.Api.Models.Player
 		public string BirthStateProvince { get; set; }
 
 		/// <summary>
-		/// The birth countryh of the NHL draft prospect <br/>
+		/// The birth country of the NHL draft prospect <br/>
 		/// Example: RUS
 		/// </summary>
 		[JsonProperty("birthCountry")]

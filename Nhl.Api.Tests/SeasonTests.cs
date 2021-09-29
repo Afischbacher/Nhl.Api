@@ -1,6 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Season;
-using System;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests

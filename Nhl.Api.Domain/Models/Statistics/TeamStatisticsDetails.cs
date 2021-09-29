@@ -138,25 +138,25 @@ namespace Nhl.Api.Models.Statistics
 		public string WinOutshotByOpp { get; set; }
 
 		/// <summary>
-		/// The amount of faceoffs taken by rank in place and by numerical value
+		/// The amount of face-offs taken by rank in place and by numerical value
 		/// </summary>
 		[JsonProperty("faceOffsTaken")]
 		public string FaceOffsTaken { get; set; }
 
 		/// <summary>
-		/// The number of faceoffs won by rank in place and by numerical value
+		/// The number of face-offs won by rank in place and by numerical value
 		/// </summary>
 		[JsonProperty("faceOffsWon")]
 		public string FaceOffsWon { get; set; }
 
 		/// <summary>
-		/// The number of faceoffs lost by rank in place and by numerical value
+		/// The number of face-offs lost by rank in place and by numerical value
 		/// </summary>
 		[JsonProperty("faceOffsLost")]
 		public string FaceOffsLost { get; set; }
 
 		/// <summary>
-		/// The faceoff win percentage by rank in place and by numerical value
+		/// The face-off win percentage by rank in place and by numerical value
 		/// </summary>
 		[JsonProperty("faceOffWinPercentage")]
 		public string FaceOffWinPercentage { get; set; }

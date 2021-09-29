@@ -1,6 +1,9 @@
 ﻿
 namespace Nhl.Api.Models.Draft
 {
+	/// <summary>
+	/// All of the valid NHL draft years 
+	/// </summary>
 	public class DraftYear
 	{
 		public const string draftYear1963 = "1963";
