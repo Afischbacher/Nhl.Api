@@ -8,7 +8,6 @@
 
 # The Official Unofficial .NET NHL API 
 A C# .NET Standard 2.0 library for the .NET NHL API
-<br />
 
 ## Installing Nhl.Api 🏒
 
@@ -26,7 +25,6 @@ dotnet add package Nhl.Api
 
 Either commands, from Package Manager Console or .NET Core CLI, will download and install all required dependencies.
 
-<br />
 
 ## Implementation ⚒
 
@@ -44,7 +42,6 @@ If you are using any type of a inversion of control or dependency injection libr
 ### Simple Object Creation
 `var nhlApi = new NhlApi();`
 
-<br />
 
 ## Usage 🚀
 
@@ -53,13 +50,12 @@ Once registered using your dependency injection library of choice or just using 
 var teams = await _nhlApi.GetTeamsAsync();
 ...
 ```
-<br />
+
 
 ## Bugs 🐛
 
 If you have any issues with the library or suggestions, please feel free to create an issue and it will be adressed as soon as possible :)
 
-<br />
 
 ## Feature Backlog 📈
 
