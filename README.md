@@ -32,7 +32,7 @@ If you are using any type of a inversion of control or dependency injection libr
 ### Simple Object Creation
 `var nhlApi = new NhlApi();`
 
-## Documentation 🚀
+## Documentation 🚀 📖
 Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 
 ## Contents
