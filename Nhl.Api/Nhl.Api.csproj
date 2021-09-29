@@ -3,11 +3,15 @@
   <PropertyGroup>
 	<Version>1.0.0</Version>
 	<TargetFramework>netstandard2.0</TargetFramework>
+	<PackageId>Nhl.Api</PackageId>
 	<Authors>Andre Fischbacher</Authors>
-	<Description>The Official Unofficial .NET NHL API</Description>
+	<Description>The official unofficial .NET NHL API</Description>
 	<PackageProjectUrl>https://github.com/Afischbacher/Nhl.Api</PackageProjectUrl>
 	<RepositoryUrl>https://github.com/Afischbacher/Nhl.Api</RepositoryUrl>
 	<RepositoryType>Github</RepositoryType>
+	<Description>
+	  The official unofficial .NET NHL API for providing various NHL information about players, teams, conferences, divisions, statistics and more
+	</Description>
 	<PackageTags>C# .NET NHL NHL.API</PackageTags>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageIcon>nhl-api-logo-128px-128px.png</PackageIcon>
