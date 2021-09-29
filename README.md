@@ -30,5 +30,8 @@ If you are using any type of a inversion of control or dependency injection libr
 ### Unity
 `container.RegisterType<INhlApi, NhlApi>();`
 
+### AutoFac
+`builder.RegisterInstance(new NhlApi()).As<INhlApi>();`
+
 ### Simple Object Creation
 `var nhlApi = new NhlApi();`
