@@ -1,6 +1,8 @@
 ![Build/Test](https://github.com/Afischbacher/Nhl.Api/actions/workflows/dotnet.yml/badge.svg)
 ![Issues](https://img.shields.io/github/issues/Afischbacher/Nhl.Api.svg)
 ![License](https://img.shields.io/github/license/Afischbacher/Nhl.Api)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Afischbacher/Nhl.Api/graphs/commit-activity)
+
 
 # The Official Unofficial .NET NHL API 
 A C# .NET Standard 2.0 library for the .NET NHL API
