@@ -18,15 +18,31 @@
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageIcon>nhl-api-logo-128px-128px.png</PackageIcon>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
   </PropertyGroup>
 
   <ItemGroup>
-	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	<ProjectReference Include="..\Nhl.Api.Common\Nhl.Api.Common.csproj" PrivateAssets="All" />
+	<ProjectReference Include="..\Nhl.Api.Domain\Nhl.Api.Domain.csproj" PrivateAssets="All" />
   </ItemGroup>
 
+  <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="BuildOnlySettings;ResolveReferences">
+	<ItemGroup>
+	  <!-- Filter out unnecessary files -->
+	  <_ReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'All'))"/>
+	</ItemGroup>
+
+	<!-- Print batches for debug purposes -->
+	<Message Text="Batch for .nupkg: ReferenceCopyLocalPaths = @(_ReferenceCopyLocalPaths), ReferenceCopyLocalPaths.DestinationSubDirectory = %(_ReferenceCopyLocalPaths.DestinationSubDirectory) Filename = %(_ReferenceCopyLocalPaths.Filename) Extension = %(_ReferenceCopyLocalPaths.Extension)" Importance="High" Condition="'@(_ReferenceCopyLocalPaths)' != ''" />
+
+	<ItemGroup>
+	  <!-- Add file to package with consideration of sub folder. If empty, the root folder is chosen. -->
+	  <BuildOutputInPackage Include="@(_ReferenceCopyLocalPaths)" TargetPath="%(_ReferenceCopyLocalPaths.DestinationSubDirectory)"/>
+	</ItemGroup>
+  </Target>
+
   <ItemGroup>
-	<ProjectReference Include="..\Nhl.Api.Common\Nhl.Api.Common.csproj" />
-	<ProjectReference Include="..\Nhl.Api.Domain\Nhl.Api.Domain.csproj" />
+	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
