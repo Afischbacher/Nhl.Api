@@ -23,3 +23,5 @@ jobs:
       run: dotnet build --no-restore
     - name: Test with the dotnet CLI
       run: dotnet test
+    - name: Deploy NuGet package
+      run: dotnet nuget push ../../Nhl.Api/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
