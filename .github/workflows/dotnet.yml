@@ -24,6 +24,6 @@ jobs:
     - name: Test with the dotnet CLI
       run: dotnet test
     - name: test
-      run: cd ../../Nhl.Api
+      run: cd ../../Nhl.Api/Nhl.Api/Nhl.Api
     - name: test 2
       run: dir
