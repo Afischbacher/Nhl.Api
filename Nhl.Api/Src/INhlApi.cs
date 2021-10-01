@@ -92,7 +92,7 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL division by the division id
 		/// </summary>
-		/// <param name="divisionId">The NHL division id, Example: 17 - Atlantic divison </param>
+		/// <param name="divisionId">The NHL division id, Example: 17 - Atlantic division </param>
 		/// <returns>Returns an NHL division, see <see cref="Division"/> for more information</returns>
 		Task<Division> GetDivisionByIdAsync(int divisionId);
 
@@ -205,7 +205,7 @@ namespace Nhl.Api
 		/// Returns the standings of every team in the NHL for the provided date, if the date is null it will provide the current NHL league standings
 		/// </summary>
 		/// <param name="date">The NHL league standings date for the request NHL standings</param>
-		/// <returns>A collection of all the leauge standings </returns>
+		/// <returns>A collection of all the league standings </returns>
 		Task<List<Records>> GetLeagueStandingsAsync(DateTime? date);
 
 		#endregion
@@ -219,7 +219,7 @@ namespace Nhl.Api
 		Task<List<StatisticTypes>> GetStatisticTypesAsync();
 
 		/// <summary>
-		/// Returns a specified NHL team's statistics for the the specified season, the most recent season statistics will be returned
+		/// Returns a specified NHL team's statistics for the specified season, the most recent season statistics will be returned
 		/// </summary>
 		/// <param name="teamId">The NHL team id, example: Toronto Maple Leafs - 10</param>
 		/// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, example: 20202021</param>
@@ -279,7 +279,7 @@ namespace Nhl.Api
 
 		/// <summary>
 		/// Returns all of the NHL venue's, including arenas and stadiums <br/>
-		/// <strong>NOTE:</strong> This is not a comprehnsive list of all NHL stadiums and arenas
+		/// <strong>NOTE:</strong> This is not a comprehensive list of all NHL stadiums and arenas
 		/// </summary>
 		/// <returns>A collection of NHL stadiums and arenas, see <see cref="LeagueVenue"/> for more information</returns>
 		Task<List<LeagueVenue>> GetLeagueVenuesAsync();
