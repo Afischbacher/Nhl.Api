@@ -65,7 +65,7 @@ namespace Nhl.Api.Models.Season
 		public bool DivisionsInUse { get; set; }
 
 		/// <summary>
-		/// The NHL season using the concept of NHL wildcards
+		/// The NHL season using the concept of NHL wild-cards
 		/// </summary>
 		[JsonProperty("wildCardInUse")]
 		public bool WildCardInUse { get; set; }
