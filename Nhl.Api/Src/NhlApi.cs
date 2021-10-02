@@ -17,6 +17,9 @@ using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Models.Venue;
 using Nhl.Api.Common.Http;
+using Nhl.Api.Domain.Models.League;
+using Nhl.Api.Domain.Models.Team;
+using Nhl.Api.Models.Enumerations.Player;
 
 namespace Nhl.Api
 {
@@ -169,6 +172,37 @@ namespace Nhl.Api
 				.Players
 				.SingleOrDefault();
 		}
+
+		/// <summary>
+		/// Returns all of the active NHL players
+		/// </summary>
+		/// <returns>A collection of all NHL players</returns>
+		public async Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersAsync()
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueRosters>($"/teams?expand=team.roster"))
+				.Teams
+				.SelectMany(team => team.Roster.Roster)
+				.ToList();
+		}
+
+		/// <summary>
+		/// Returns all of the active NHL players based on the search query provided
+		/// </summary>
+		/// <returns>A collection of all NHL players based on the search query provided</returns>
+		public async Task<List<TeamRosterMember>> SearchLeagueTeamRosterMembersAsync(string query)
+		{
+			if (string.IsNullOrWhiteSpace(query))
+			{
+				return new List<TeamRosterMember>();
+			}
+
+			return (await NhlApiHttpClient.GetAsync<LeagueRosters>($"/teams?expand=team.roster"))
+				.Teams
+				.SelectMany(team => team.Roster.Roster)
+				.Where(rosterMember => rosterMember.Person.FullName.ToLowerInvariant().Contains(query.ToLowerInvariant()))
+				.ToList();
+		}
+
 
 		/// <summary>
 		/// Returns all of the NHL game types within a season and within special events

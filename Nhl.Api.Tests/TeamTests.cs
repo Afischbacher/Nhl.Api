@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Team;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -156,6 +157,74 @@ namespace Nhl.Api.Tests
 			// Assert
 			CollectionAssert.AllItemsAreNotNull(teams);
 			Assert.AreEqual(2, teams.Count());
+		}
+
+		[TestMethod]
+		public async Task TestGetAllPlayersAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var teamRosterMembers = await nhlApi.GetLeagueTeamRosterMembersAsync();
+
+			// Assert
+			CollectionAssert.AllItemsAreNotNull(teamRosterMembers);
+
+			var teamRosterMember = teamRosterMembers.First();
+			Assert.IsNotNull(teamRosterMember.JerseyNumber);
+			Assert.IsNotNull(teamRosterMember.Person);
+			Assert.IsNotNull(teamRosterMember.Person.FullName);
+			Assert.IsNotNull(teamRosterMember.Person.Id);
+			Assert.IsNotNull(teamRosterMember.Person.Link);
+			Assert.IsNotNull(teamRosterMember.Position);
+			Assert.IsNotNull(teamRosterMember.Position.Code);
+			Assert.IsNotNull(teamRosterMember.Position.Abbreviation);
+			Assert.IsNotNull(teamRosterMember.Position.Name);
+
+		}
+
+		[DataTestMethod]
+		[DataRow("sidne")]
+		[DataRow("mcdaVid")]
+		[DataRow("Auston Matth")]
+		[DataRow("Price")]
+		[DataRow("John")]
+		public async Task TestSearchLeagueTeamRosterMembersAsync(string query)
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var players = await nhlApi.SearchLeagueTeamRosterMembersAsync(query);
+
+			// Assert
+			CollectionAssert.AllItemsAreNotNull(players);
+
+			var player = players.First();
+			Assert.IsNotNull(player.JerseyNumber);
+			Assert.IsNotNull(player.Person);
+			Assert.IsNotNull(player.Person.FullName);
+			Assert.IsNotNull(player.Person.Id);
+			Assert.IsNotNull(player.Person.Link);
+			Assert.IsNotNull(player.Position);
+			Assert.IsNotNull(player.Position.Code);
+			Assert.IsNotNull(player.Position.Abbreviation);
+			Assert.IsNotNull(player.Position.Name);
+
+		}
+
+		[TestMethod]
+		public async Task TestSearchLeagueTeamRosterMembersNullQueryAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var players = await nhlApi.SearchLeagueTeamRosterMembersAsync(string.Empty);
+
+			// Assert
+			Assert.AreEqual(0, players.Count);
 		}
 
 		[TestMethod]

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using Nhl.Api.Domain.Models.Team;
 using Nhl.Api.Models.Award;
 using Nhl.Api.Models.Conference;
 using Nhl.Api.Models.Division;
@@ -123,6 +123,18 @@ namespace Nhl.Api
 		/// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid </param>
 		/// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
 		Task<Player> GetPlayerByIdAsync(int playerId);
+
+		/// <summary>
+		/// Returns all of the active NHL roster members 
+		/// </summary>
+		/// <returns>A collection of all NHL players</returns>
+		Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersAsync();
+
+		/// <summary>
+		/// Returns all of the active NHL players based on the search query provided
+		/// </summary>
+		/// <returns>A collection of all NHL players based on the search query provided</returns>
+		Task<List<TeamRosterMember>> SearchLeagueTeamRosterMembersAsync(string query);
 
 		#endregion
 
