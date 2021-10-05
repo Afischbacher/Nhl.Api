@@ -287,6 +287,14 @@ namespace Nhl.Api
 		/// <returns>A collection of all the specified NHL team statistics for the specified season</returns>
 		Task<TeamStatistics> GetTeamStatisticsByIdAsync(int teamId, string seasonYear);
 
+		/// <summary>
+		/// Returns a specified NHL team's statistics for the specified season, the most recent season statistics will be returned
+		/// </summary>
+		/// <param name="team">The NHL team id, example: <see cref="TeamEnum.AnaheimDucks"/></param>
+		/// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, example: 20202021</param>
+		/// <returns>A collection of all the specified NHL team statistics for the specified season</returns>
+		Task<TeamStatistics> GetTeamStatisticsByIdAsync(TeamEnum team, string seasonYear);
+
 		#endregion
 
 		#region Drafts
@@ -313,6 +321,7 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL prospect profile by their prospect id
 		/// </summary>
+		/// <param name="id">The NHL prospect id, Example: 86515 - Francesco Pinelli</param>
 		/// <returns>An NHL prospect, see <see cref="ProspectProfile"/> for more information </returns>
 		Task<ProspectProfile> GetLeagueProspectByIdAsync(int prospectId);
 

@@ -424,6 +424,23 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
+		/// Returns a specified NHL team's statistics for the specified season, the most recent season statistics will be returned
+		/// </summary>
+		/// <param name="team">The NHL team id, example: <see cref="TeamEnum.AnaheimDucks"/></param>
+		/// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, example: 20202021</param>
+		/// <returns>A collection of all the specified NHL team statistics for the specified season</returns>
+		public async Task<TeamStatistics> GetTeamStatisticsByIdAsync(TeamEnum team, string seasonYear)
+		{
+			if (seasonYear?.Length > 8)
+			{
+				throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+			}
+
+			var httpRequestUri = string.IsNullOrWhiteSpace(seasonYear) ? $"/teams/{((int)team)}/stats" : $"/teams/{((int)team)}/stats?season={seasonYear}";
+			return await NhlApiHttpClient.GetAsync<TeamStatistics>(httpRequestUri);
+		}
+
+		/// <summary>
 		/// Returns the NHL league draft based on a specific year based on the 4 character draft year, see <see cref="DraftYear"/> for more information. <br/>
 		/// <strong>Note:</strong> Some responses provide very large JSON payloads
 		/// </summary>
@@ -457,10 +474,11 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL prospect profile by their prospect id
 		/// </summary>
+		/// <param name="prospectId">The NHL prospect id, Example: 86515 - Francesco Pinelli</param>
 		/// <returns>An NHL prospect, see <see cref="ProspectProfile"/> for more information </returns>
-		public async Task<ProspectProfile> GetLeagueProspectByIdAsync(int id)
+		public async Task<ProspectProfile> GetLeagueProspectByIdAsync(int prospectId)
 		{
-			return (await NhlApiHttpClient.GetAsync<LeagueProspects>($"/draft/prospects/{id}"))
+			return (await NhlApiHttpClient.GetAsync<LeagueProspects>($"/draft/prospects/{prospectId}"))
 				.ProspectProfiles
 				.SingleOrDefault();
 		}
@@ -475,16 +493,16 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Returns an NHL award by the award id
+		/// Returns an NHL award by id <br/>
 		/// </summary>
+		/// <param name="awardId">The identifier for the NHL award, Example: Ted Lindsay Award - 13</param>
 		/// <returns>An NHL award, see <see cref="Award"/> for more information</returns>
-		public async Task<Award> GetLeagueAwardByIdAsync(int id)
+		public async Task<Award> GetLeagueAwardByIdAsync(int awardId)
 		{
-			return (await NhlApiHttpClient.GetAsync<LeagueAwards>($"/awards/{id}"))
+			return (await NhlApiHttpClient.GetAsync<LeagueAwards>($"/awards/{awardId}"))
 				.Awards
 				.SingleOrDefault();
 		}
-
 
 		/// <summary>
 		/// Returns an NHL award by the award id <br/>
@@ -514,11 +532,11 @@ namespace Nhl.Api
 		/// Returns an NHL venue by the venue id <br/>
 		///  Example: 5058 - Canada Life Centre
 		/// </summary>
-		/// <param name="id">The specified id of an NHL venue, </param>
+		/// <param name="venueId">The specified id of an NHL venue, </param>
 		/// <returns>An NHL venue, see <see cref="LeagueVenue"/> for more information</returns>
-		public async Task<LeagueVenue> GetLeagueVenueByIdAsync(int id)
+		public async Task<LeagueVenue> GetLeagueVenueByIdAsync(int venueId)
 		{
-			return (await NhlApiHttpClient.GetAsync<LeagueVenues>($"/venues/{id}"))
+			return (await NhlApiHttpClient.GetAsync<LeagueVenues>($"/venues/{venueId}"))
 				.Venues
 				.SingleOrDefault();
 		}

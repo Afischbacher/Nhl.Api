@@ -14,7 +14,7 @@
 	<Description>
 	  The official unofficial .NET NHL API for providing various NHL information about players, teams, conferences, divisions, statistics and more
 	</Description>
-	<PackageTags>C# .NET NHL Hockey Nhl-Data</PackageTags>
+	<PackageTags>C# .NET National Hockey League NHL Hockey Statistics Analysis</PackageTags>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageIcon>nhl-api-logo-128px-128px.png</PackageIcon>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
