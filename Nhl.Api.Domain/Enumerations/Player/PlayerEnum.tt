@@ -10,6 +10,7 @@
 <#@ import namespace="System.Threading.Tasks" #>
 <#@ import namespace="Newtonsoft.Json" #>
 <#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
 <#@ import namespace="Nhl.Api" #>
 <#@ import namespace="Nhl.Api.Domain.Models.Team" #>
 <#@ import namespace="Nhl.Api.Domain.Models.League" #>
@@ -30,9 +31,10 @@ namespace Nhl.Api.Models.Enumerations.Player
 
 		var teamRosterMembersEnumValues = teamRosterMembers.Select(rosterMember => 
 		{
+			var playerId = Regex.Replace(rosterMember.Person.FullName, @"('|\.|\s|-|_|)","");
 			return new
 			{
-				PlayerId = rosterMember.Person.FullName.Replace(" ","").Replace("-","").Replace("'","").Replace(".",""),
+				PlayerId = playerId,
 				Id = rosterMember.Person.Id
 			};
 		});
