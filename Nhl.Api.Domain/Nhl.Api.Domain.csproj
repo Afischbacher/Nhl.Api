@@ -6,38 +6,50 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Enumerations\Player\PlayerEnum.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PlayerEnum.tt</DependentUpon>
+	<None Include="Enumerations\Player\PlayerEnum.cs">
+	  <DesignTime>True</DesignTime>
+	  <AutoGen>True</AutoGen>
+	  <DependentUpon>PlayerEnum.tt</DependentUpon>
 	</None>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Enumerations\Player\PlayerEnum.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PlayerEnum.cs</LastGenOutput>
-    </None>
+	<None Update="Enumerations\Player\PlayerEnum.tt">
+	  <Generator>TextTemplatingFileGenerator</Generator>
+	  <LastGenOutput>PlayerEnum.cs</LastGenOutput>
+	</None>
   </ItemGroup>
-  
+
   <ItemGroup>
 	<Reference Include="netstandard" />
   </ItemGroup>
-  
-  <ItemGroup>
-    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Enumerations\Player\PlayerEnum.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>PlayerEnum.tt</DependentUpon>
+	<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <PropertyGroup>
+	<T4TargetPath>$(TargetPath)</T4TargetPath>
+  </PropertyGroup>
+  
+  <ItemGroup>
+	<T4ParameterValues Include="T4ProjectDir">
+	  <Value>$(T4TargetPath)</Value>
+	  <Visible>false</Visible>
+	</T4ParameterValues>
+</ItemGroup>
+
+<ItemGroup>
+	<Compile Update="Enumerations\Player\PlayerEnum.cs">
+	  <DesignTime>True</DesignTime>
+	  <AutoGen>True</AutoGen>
+	  <DependentUpon>PlayerEnum.tt</DependentUpon>
 	</Compile>
   </ItemGroup>
 
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v16.0\TextTemplating\Microsoft.TextTemplating.targets" />
 </Project>

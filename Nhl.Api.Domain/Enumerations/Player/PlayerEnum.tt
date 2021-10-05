@@ -1,9 +1,9 @@
 ﻿<#@ template debug="false" hostspecific="false" language="C#" #>
-<#@ assembly name="System.Core" #>
-<#@ assembly name="$(SolutionDir)Nhl.Api\bin\Debug\netstandard2.0\Nhl.Api.dll" #>
-<#@ assembly name="$(SolutionDir)Nhl.Api\bin\Debug\netstandard2.0\Nhl.Api.Domain.dll" #>
-<#@ assembly name="$(SolutionDir)Nhl.Api.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll" #>
 
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.0\Nhl.Api.dll" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.0\Nhl.Api.Domain.dll" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll" #>
 <#@ assembly name="NetStandard" #>
 
 <#@ import namespace="System.Linq" #>
@@ -16,6 +16,7 @@
 <#@ import namespace="Nhl.Api.Domain.Models.League" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ output extension=".cs" #>
+
 namespace Nhl.Api.Models.Enumerations.Player
 {
 	/// <summary>
@@ -24,6 +25,7 @@ namespace Nhl.Api.Models.Enumerations.Player
 	public enum PlayerEnum
 	{
 	<#
+
 		var nhlApi = new NhlApi();
 
 		List<TeamRosterMember> teamRosterMembers = null;

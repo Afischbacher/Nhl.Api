@@ -1,5 +1,6 @@
 ﻿
 
+
 namespace Nhl.Api.Models.Enumerations.Player
 {
 	/// <summary>
