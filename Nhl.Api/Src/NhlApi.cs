@@ -20,6 +20,12 @@ using Nhl.Api.Common.Http;
 using Nhl.Api.Domain.Models.League;
 using Nhl.Api.Domain.Models.Team;
 using Nhl.Api.Models.Enumerations.Player;
+using Nhl.Api.Domain.Enumerations.Franchise;
+using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Enumerations.Division;
+using Nhl.Api.Models.Enumerations.Conference;
+using Nhl.Api.Models.Enumerations.Award;
+using Nhl.Api.Domain.Enumerations.Venue;
 
 namespace Nhl.Api
 {
@@ -28,6 +34,7 @@ namespace Nhl.Api
 	/// </summary>
 	public class NhlApi : INhlApi
 	{
+
 
 		/// <summary>
 		/// Returns all NHL franchises, including information such as team name, location and more
@@ -74,6 +81,21 @@ namespace Nhl.Api
 				.SingleOrDefault();
 		}
 
+
+		/// <summary>
+		/// Returns an NHL franchise by the franchise id <br/>
+		/// Example: <see cref="FranchiseEnum.LosAngelesKings"/>
+		/// </summary>
+		/// <param name="franchise">The NHL team id, Example: 10 - Toronto Maple Leafs, see <see cref="FranchiseEnum"/> for more information on NHL franchises</param>
+		/// <returns> An NHL franchise, see <see cref="Franchise"/> for more information</returns>
+		public async Task<Franchise> GetFranchiseByIdAsync(FranchiseEnum franchise)
+		{
+			return (await NhlApiHttpClient.GetAsync<LegaueFranchises>($"/franchises/{((int)franchise)}"))
+			.Franchises
+			.SingleOrDefault();
+		}
+
+
 		/// <summary>
 		/// Returns an NHL team by the team id
 		/// </summary>
@@ -84,6 +106,19 @@ namespace Nhl.Api
 			return (await NhlApiHttpClient.GetAsync<LeagueTeam>($"/teams/{teamId}"))
 				.Teams
 				.SingleOrDefault();
+		}
+
+		/// <summary>
+		/// Returns an NHL team by the team enumeration <br/>
+		/// Example: <see cref="TeamEnum.SeattleKraken"/>
+		/// </summary>
+		/// <param name="team">The NHL team id, Example: 10 - Toronto Maple Leafs, see <see cref="TeamEnum"/> for more information on NHL teams</param>
+		/// <returns>An NHL team with information including name, location, division and more, see <see cref="Team"/> for more information on teams</returns>
+		public async Task<Team> GetTeamByIdAsync(TeamEnum team)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueTeam>($"/teams/{((int)team)}"))
+			.Teams
+			.SingleOrDefault();
 		}
 
 		/// <summary>
@@ -141,6 +176,19 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
+		/// Returns an NHL division by the division enumeration <br/>
+		/// Example: <see cref="DivisionEnum.Atlantic"/>
+		/// </summary>
+		/// <param name="division">The NHL division id, Example: 17 - Atlantic division, see <see cref="DivisionEnum"/> for more information on NHL divisions </param>
+		/// <returns>Returns an NHL division, see <see cref="Division"/> for more information</returns>
+		public async Task<Division> GetDivisionByIdAsync(DivisionEnum division)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueDivisions>($"/divisions/{((int)division)}"))
+				.Divisions
+				.FirstOrDefault();
+		}
+
+		/// <summary>
 		/// Returns all of the NHL conferences
 		/// </summary>
 		/// <returns>A collection of all the NHL conferences, see <see cref="Conference"/> for more information</returns>
@@ -162,6 +210,19 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
+		/// Returns the NHL conference by the conference enumeration <br/>
+		/// Example: <see cref="ConferenceEnum.Eastern"/>
+		/// </summary>
+		/// <param name="conference">The NHL conference id, Example: 6 - Eastern Conference, see <see cref="ConferenceEnum"/> for more information on NHL conferences</param>
+		/// <returns>An NHL conference, see <see cref="Conference"/> for more information</returns>
+		public async Task<Conference> GetConferenceByIdAsync(ConferenceEnum conference)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueConferences>($"/conferences/{((int)conference)}"))
+			.Conferences
+			.SingleOrDefault();
+		}
+
+		/// <summary>
 		/// Returns an NHL player by their player id, includes information such as age, weight, position and more
 		/// </summary>
 		/// <param name="playerId">An NHL player id, example: 8478402 is Connor McDavid </param>
@@ -169,6 +230,18 @@ namespace Nhl.Api
 		public async Task<Player> GetPlayerByIdAsync(int playerId)
 		{
 			return (await NhlApiHttpClient.GetAsync<LeaguePlayers>($"/people/{playerId}"))
+				.Players
+				.SingleOrDefault();
+		}
+
+		/// <summary>
+		/// Returns an NHL player by their player id, includes information such as age, weight, position and more
+		/// </summary>
+		/// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+		/// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
+		public async Task<Player> GetPlayerByIdAsync(PlayerEnum player)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeaguePlayers>($"/people/{((int)player)}"))
 				.Players
 				.SingleOrDefault();
 		}
@@ -188,6 +261,7 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns all of the active NHL players based on the search query provided
 		/// </summary>
+		/// <param name="query">An search term to find NHL players, Example: "Auston Matthews" or "Carey Pr.." or "John C" </param>
 		/// <returns>A collection of all NHL players based on the search query provided</returns>
 		public async Task<List<TeamRosterMember>> SearchLeagueTeamRosterMembersAsync(string query)
 		{
@@ -254,7 +328,7 @@ namespace Nhl.Api
 		/// </summary>
 		/// <param name="date">The requested date for the NHL game schedule</param>
 		/// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
-		public async Task<GameSchedule> GetGameScheduleByDateAsnyc(DateTime? date)
+		public async Task<GameSchedule> GetGameScheduleByDateAsync(DateTime? date)
 		{
 			var httpRequestUri = date.HasValue ? $"/schedule?date={date.Value:yyyy-MM-dd}" : "/schedule";
 			return await NhlApiHttpClient.GetAsync<GameSchedule>(httpRequestUri);
@@ -267,7 +341,7 @@ namespace Nhl.Api
 		/// <param name="month">The requested month for the NHL game schedule</param>
 		/// <param name="day">The requested day for the NHL game schedule</param>
 		/// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
-		public async Task<GameSchedule> GetGameScheduleByDateAsnyc(int year, int month, int day)
+		public async Task<GameSchedule> GetGameScheduleByDateAsync(int year, int month, int day)
 		{
 			return await NhlApiHttpClient.GetAsync<GameSchedule>($"/schedule?date={year}-{month}-{day}");
 		}
@@ -403,12 +477,26 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL award by the award id
 		/// </summary>
-		/// <returns>A collection of all the NHL awards, see <see cref="Award"/> for more information</returns>
+		/// <returns>An NHL award, see <see cref="Award"/> for more information</returns>
 		public async Task<Award> GetLeagueAwardByIdAsync(int id)
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueAwards>($"/awards/{id}"))
 				.Awards
 				.SingleOrDefault();
+		}
+
+
+		/// <summary>
+		/// Returns an NHL award by the award id <br/>
+		/// Example: <see cref="AwardEnum.StanleyCup"/>
+		/// </summary>
+		/// <param name="leagueAward">The NHL league award identifier, see <see cref="AwardEnum"/> for more information on NHL awards </param>
+		/// <returns>An NHL award, see <see cref="Award"/> for more information</returns>
+		public async Task<Award> GetLeagueAwardByIdAsync(AwardEnum leagueAward)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueAwards>($"/awards/{((int)leagueAward)}"))
+			.Awards
+			.SingleOrDefault();
 		}
 
 		/// <summary>
@@ -423,15 +511,29 @@ namespace Nhl.Api
 
 
 		/// <summary>
-		/// Returns an NHL venue by the venue id
+		/// Returns an NHL venue by the venue id <br/>
+		///  Example: 5058 - Canada Life Centre
 		/// </summary>
-		/// <param name="id">The specified id of an NHL venue, example: 5058 - Canada Life Centre </param>
-		/// <returns>A collection of NHL stadiums and arenas, see <see cref="LeagueVenue"/> for more information</returns>
+		/// <param name="id">The specified id of an NHL venue, </param>
+		/// <returns>An NHL venue, see <see cref="LeagueVenue"/> for more information</returns>
 		public async Task<LeagueVenue> GetLeagueVenueByIdAsync(int id)
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueVenues>($"/venues/{id}"))
 				.Venues
 				.SingleOrDefault();
+		}
+
+		/// <summary>
+		/// Returns an NHL venue by the venue enumeration <br/>
+		///  Example: <see cref="VenueEnum.EnterpriseCenter"/>
+		/// </summary>
+		/// <param name="venue">The specified NHL venue, see <see cref="VenueEnum"/> for more information on NHL venues </param>
+		/// <returns>An NHL venue, see <see cref="LeagueVenue"/> for more information</returns>
+		public async Task<LeagueVenue> GetLeagueVenueByIdAsync(VenueEnum venue)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueVenues>($"/venues/{((int)venue)}"))
+			.Venues
+			.SingleOrDefault();
 		}
 
 		/// <summary>

@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Nhl.Api.Domain.Models.Player;
 using Nhl.Api.Models.Team;
 using System;
 
@@ -157,6 +158,14 @@ namespace Nhl.Api.Models.Player
 		/// </summary>
 		[JsonProperty("primaryPosition")]
 		public PrimaryPosition PrimaryPosition { get; set; }
+
+		public string PlayerHeadshotImageLink
+		{
+			get
+			{
+				return $"{PlayerConstants.PlayerImageLink}{Id}";
+			}
+		}
 	}
 }
 

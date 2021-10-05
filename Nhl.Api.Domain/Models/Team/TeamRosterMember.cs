@@ -24,5 +24,13 @@ namespace Nhl.Api.Domain.Models.Team
 		/// </summary>
 		[JsonProperty("position")]
 		public PrimaryPosition Position { get; set; }
+
+		public string PlayerHeadshotImageLink
+		{
+			get
+			{
+				return $"{PlayerConstants.PlayerImageLink}{Person?.Id}";
+			}
+		}
 	}
 }

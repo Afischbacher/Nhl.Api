@@ -1,11 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Nhl.Api.Domain.Enumerations.Franchise;
+using Nhl.Api.Domain.Enumerations.Venue;
 using Nhl.Api.Domain.Models.Team;
 using Nhl.Api.Models.Award;
 using Nhl.Api.Models.Conference;
 using Nhl.Api.Models.Division;
 using Nhl.Api.Models.Draft;
+using Nhl.Api.Models.Enumerations.Award;
+using Nhl.Api.Models.Enumerations.Conference;
+using Nhl.Api.Models.Enumerations.Division;
+using Nhl.Api.Models.Enumerations.Player;
+using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Event;
 using Nhl.Api.Models.Franchise;
 using Nhl.Api.Models.Game;
@@ -33,8 +40,18 @@ namespace Nhl.Api
 		Task<List<Franchise>> GetFranchisesAsync();
 
 		/// <summary>
+		/// Returns an NHL franchise by the franchise id <br/>
+		/// Example: <see cref="FranchiseEnum.LosAngelesKings"/>
+		/// </summary>
+		/// <param name="franchise">The NHL team id, Example: 10 - Toronto Maple Leafs, see <see cref="FranchiseEnum"/> for more information on NHL franchises</param>
+		/// <returns> An NHL franchise, see <see cref="Franchise"/> for more information</returns>
+		Task<Franchise> GetFranchiseByIdAsync(FranchiseEnum franchise);
+
+
+		/// <summary>
 		/// Returns an NHL franchise by the franchise id
 		/// </summary>
+		/// <param name="franchiseId">The NHL team id, Example: 10 - Toronto Maple Leafs</param>
 		/// <returns> An NHL franchise, see <see cref="Franchise"/> for more information</returns>
 		Task<Franchise> GetFranchiseByIdAsync(int franchiseId);
 
@@ -60,6 +77,14 @@ namespace Nhl.Api
 		/// <param name="teamId">The NHL team id, Example: 10 - Toronto Maple Leafs</param>
 		/// <returns>An NHL team with information including name, location, division and more, see <see cref="Team"/> for more information</returns>
 		Task<Team> GetTeamByIdAsync(int teamId);
+
+		/// <summary>
+		/// Returns an NHL team by the team enumeration <br/>
+		/// Example: <see cref="TeamEnum.SeattleKraken"/>
+		/// </summary>
+		/// <param name="team">The NHL team id, Example: 10 - Toronto Maple Leafs, see <see cref="TeamEnum"/> for more information on NHL teams</param>
+		/// <returns>An NHL team with information including name, location, division and more, see <see cref="Team"/> for more information on teams</returns>
+		Task<Team> GetTeamByIdAsync(TeamEnum team);
 
 		/// <summary>
 		/// Returns all active and inactive NHL teams
@@ -96,6 +121,14 @@ namespace Nhl.Api
 		/// <returns>Returns an NHL division, see <see cref="Division"/> for more information</returns>
 		Task<Division> GetDivisionByIdAsync(int divisionId);
 
+		/// <summary>
+		/// Returns an NHL division by the division enumeration <br/>
+		/// Example: <see cref="DivisionEnum.Atlantic"/>
+		/// </summary>
+		/// <param name="division">The NHL division id, Example: 17 - Atlantic division, see <see cref="DivisionEnum"/> for more information on NHL divisions </param>
+		/// <returns>Returns an NHL division, see <see cref="Division"/> for more information</returns>
+		Task<Division> GetDivisionByIdAsync(DivisionEnum division);
+
 		#endregion
 
 		#region Conferences
@@ -107,11 +140,19 @@ namespace Nhl.Api
 		Task<List<Conference>> GetConferencesAsync();
 
 		/// <summary>
-		/// Returns all of the NHL conferences
+		/// Returns the NHL conference by id
 		/// </summary>
 		/// <param name="conferenceId">The NHL conference id, Example: 6 - Eastern Conference </param>
 		/// <returns>An NHL conference, see <see cref="Conference"/> for more information</returns>
 		Task<Conference> GetConferenceByIdAsync(int conferenceId);
+
+		/// <summary>
+		/// Returns the NHL conference by the conference enumeration <br/>
+		/// Example: <see cref="ConferenceEnum.Eastern"/>
+		/// </summary>
+		/// <param name="conference">The NHL conference id, Example: 6 - Eastern Conference, see <see cref="ConferenceEnum"/> for more information on NHL conferences</param>
+		/// <returns>An NHL conference, see <see cref="Conference"/> for more information</returns>
+		Task<Conference> GetConferenceByIdAsync(ConferenceEnum conference);
 
 		#endregion
 
@@ -125,6 +166,13 @@ namespace Nhl.Api
 		Task<Player> GetPlayerByIdAsync(int playerId);
 
 		/// <summary>
+		/// Returns an NHL player by their player id, includes information such as age, weight, position and more
+		/// </summary>
+		/// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+		/// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
+		Task<Player> GetPlayerByIdAsync(PlayerEnum player);
+
+		/// <summary>
 		/// Returns all of the active NHL roster members 
 		/// </summary>
 		/// <returns>A collection of all NHL players</returns>
@@ -133,6 +181,7 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns all of the active NHL players based on the search query provided
 		/// </summary>
+		/// <param name="query">An search term to find NHL players, Example: "Auston Matthews" or "Carey Pr.." or "John C" </param>
 		/// <returns>A collection of all NHL players based on the search query provided</returns>
 		Task<List<TeamRosterMember>> SearchLeagueTeamRosterMembersAsync(string query);
 
@@ -175,7 +224,7 @@ namespace Nhl.Api
 		/// </summary>
 		/// <param name="date">The requested date for the NHL game schedule</param>
 		/// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
-		Task<GameSchedule> GetGameScheduleByDateAsnyc(DateTime? date);
+		Task<GameSchedule> GetGameScheduleByDateAsync(DateTime? date);
 
 		/// <summary>
 		/// Return's the NHL game schedule based on the provided year, month and day
@@ -184,7 +233,7 @@ namespace Nhl.Api
 		/// <param name="month">The requested month for the NHL game schedule</param>
 		/// <param name="day">The requested day for the NHL game schedule</param>
 		/// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
-		Task<GameSchedule> GetGameScheduleByDateAsnyc(int year, int month, int day);
+		Task<GameSchedule> GetGameScheduleByDateAsync(int year, int month, int day);
 
 		#endregion
 
@@ -282,8 +331,16 @@ namespace Nhl.Api
 		/// Example: 1 - Stanley Cup 
 		/// </summary>
 		/// <param name="leagueAwardId">The NHL league award identifier </param>
-		/// <returns>A collection of all the NHL awards, see <see cref="Award"/> for more information</returns>
+		/// <returns>An NHL award, see <see cref="Award"/> for more information</returns>
 		Task<Award> GetLeagueAwardByIdAsync(int leagueAwardId);
+
+		/// <summary>
+		/// Returns an NHL award by the award id <br/>
+		/// Example: <see cref="AwardEnum.StanleyCup"/>
+		/// </summary>
+		/// <param name="leagueAward">The NHL league award identifier, see <see cref="AwardEnum"/> for more information on NHL awards </param>
+		/// <returns>An NHL award, see <see cref="Award"/> for more information</returns>
+		Task<Award> GetLeagueAwardByIdAsync(AwardEnum leagueAward);
 
 		#endregion
 
@@ -301,8 +358,16 @@ namespace Nhl.Api
 		///  Example: 5058 - Canada Life Centre
 		/// </summary>
 		/// <param name="venueId">The specified id of an NHL venue, </param>
-		/// <returns>A collection of NHL stadiums and arenas, see <see cref="LeagueVenue"/> for more information</returns>
+		/// <returns>An NHL venue, see <see cref="LeagueVenue"/> for more information</returns>
 		Task<LeagueVenue> GetLeagueVenueByIdAsync(int venueId);
+
+		/// <summary>
+		/// Returns an NHL venue by the venue enumeration <br/>
+		///  Example: <see cref="VenueEnum.EnterpriseCenter"/>
+		/// </summary>
+		/// <param name="venue">The specified NHL venue, see <see cref="VenueEnum"/> for more information on NHL venues </param>
+		/// <returns>An NHL venue, see <see cref="LeagueVenue"/> for more information</returns>
+		Task<LeagueVenue> GetLeagueVenueByIdAsync(VenueEnum venue);
 
 		#endregion
 
