@@ -51,5 +51,4 @@
 	</Compile>
   </ItemGroup>
 
-  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v16.0\TextTemplating\Microsoft.TextTemplating.targets" />
 </Project>
