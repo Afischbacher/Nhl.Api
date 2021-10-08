@@ -29,7 +29,7 @@ namespace Nhl.Api.Domain.Models.Team
 		{
 			get
 			{
-				return $"{PlayerConstants.PlayerImageLink}{Person?.Id}";
+				return $"{PlayerConstants.PlayerImageLink}{Person?.Id}.jpg";
 			}
 		}
 	}

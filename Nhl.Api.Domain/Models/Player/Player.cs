@@ -163,7 +163,7 @@ namespace Nhl.Api.Models.Player
 		{
 			get
 			{
-				return $"{PlayerConstants.PlayerImageLink}{Id}";
+				return $"{PlayerConstants.PlayerImageLink}{Id}.jpg";
 			}
 		}
 	}
