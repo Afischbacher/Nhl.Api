@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<Version>1.1.2</Version>
+	<Version>1.1.3</Version>
 	<TargetFramework>netstandard2.0</TargetFramework>
 	<PackageId>Nhl.Api</PackageId>
 	<Title>Nhl.Api</Title>
@@ -14,7 +14,7 @@
 	<Description>
 	  The official unofficial .NET NHL API for providing various NHL information about players, teams, conferences, divisions, statistics and more
 	</Description>
-	<PackageTags>C# .NET National Hockey League NHL Hockey Statistics Analysis</PackageTags>
+	<PackageTags>C# .NET NHL Hockey Statistics Analysis</PackageTags>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageIcon>nhl-api-logo-128px-128px.png</PackageIcon>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>

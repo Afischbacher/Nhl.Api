@@ -44,7 +44,7 @@ namespace Nhl.Api.Models.Enumerations.Player
 
 	<#foreach (var teamRosterMembersEnumValue in teamRosterMembersEnumValues)
 	{#>
-	<#= teamRosterMembersEnumValue.PlayerId #>_<#= teamRosterMembersEnumValue.Id#> = <#= teamRosterMembersEnumValue.Id#>,
+	<#= teamRosterMembersEnumValue.PlayerId #><#= teamRosterMembersEnumValue.Id#> = <#= teamRosterMembersEnumValue.Id#>,
 	<#}#>
 	}
 }
