@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<Version>1.1.0</Version>
+	<Version>1.1.1</Version>
 	<TargetFramework>netstandard2.0</TargetFramework>
 	<PackageId>Nhl.Api</PackageId>
 	<Title>Nhl.Api</Title>
