@@ -1,4 +1,4 @@
-name: Build Develop
+name: Mock "Build Develop"
 
 on:
   push:
