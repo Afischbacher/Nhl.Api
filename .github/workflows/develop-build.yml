@@ -1,8 +1,8 @@
-name: Build
+name: Build Develop
 
 on:
   push:
-    branches: [ master ]
+    branches: [ develop ]
 jobs:
   build:
 
@@ -20,5 +20,3 @@ jobs:
       run: dotnet build --no-restore --configuration Release
     - name: Run Tests
       run: dotnet test
-    - name: Deploy NuGet Package
-      run: dotnet nuget push ../../Nhl.Api/Nhl.Api/Nhl.Api/bin/Release/*.nupkg --api-key ${{secrets.NUGET_API_KEY}} --source https://api.nuget.org/v3/index.json
