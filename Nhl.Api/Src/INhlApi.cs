@@ -321,7 +321,7 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL prospect profile by their prospect id
 		/// </summary>
-		/// <param name="id">The NHL prospect id, Example: 86515 - Francesco Pinelli</param>
+		/// <param name="prospectId">The NHL prospect id, Example: 86515 - Francesco Pinelli</param>
 		/// <returns>An NHL prospect, see <see cref="ProspectProfile"/> for more information </returns>
 		Task<ProspectProfile> GetLeagueProspectByIdAsync(int prospectId);
 
