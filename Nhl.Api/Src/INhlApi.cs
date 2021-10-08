@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+
 using Nhl.Api.Domain.Enumerations.Franchise;
 using Nhl.Api.Domain.Enumerations.Venue;
 using Nhl.Api.Domain.Models.Team;
