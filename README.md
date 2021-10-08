@@ -84,7 +84,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetTournamentTypesAsync()](#M-Nhl-Api-NhlApi-GetTournamentTypesAsync 'Nhl.Api.NhlApi.GetTournamentTypesAsync')
   - [SearchLeagueTeamRosterMembersAsync(query)](#M-Nhl-Api-NhlApi-SearchLeagueTeamRosterMembersAsync-System-String- 'Nhl.Api.NhlApi.SearchLeagueTeamRosterMembersAsync(System.String)')
 
-<a name='#T-Nhl-Api-NhlApi'></a>
+<a name='T-Nhl-Api-NhlApi'></a>
 ## NhlApi `type`
 
 ##### Namespace
