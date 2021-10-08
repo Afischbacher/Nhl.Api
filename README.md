@@ -1,4 +1,5 @@
-[![Build/Test](https://github.com/Afischbacher/Nhl.Api/actions/workflows/dotnet.yml/badge.svg)](https://github.com/Afischbacher/Nhl.Api/actions/workflows/dotnet.yml)
+[![Build/Test](https://github.com/Afischbacher/Nhl.Api/actions/workflows/master-build.yml/badge.svg)](https://github.com/Afischbacher/Nhl.Api/actions/workflows/master-build.yml)
+[![Build/Test](https://github.com/Afischbacher/Nhl.Api/actions/workflows/develop-build.yml/badge.svg)](https://github.com/Afischbacher/Nhl.Api/actions/workflows/develop-build.yml)
 [![NuGet](https://img.shields.io/nuget/v/Nhl.Api)](https://www.nuget.org/packages/Nhl.Api)
 [![Issues](https://img.shields.io/github/issues/Afischbacher/Nhl.Api.svg)](https://github.com/Afischbacher/Nhl.Api/issues)
 [![License](https://img.shields.io/github/license/Afischbacher/Nhl.Api)](https://github.com/Afischbacher/Nhl.Api/blob/master/LICENSE)
