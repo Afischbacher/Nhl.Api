@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Nhl.Api.Domain.Models.Team;
 
 namespace Nhl.Api.Models.Team
 {
@@ -79,6 +80,12 @@ namespace Nhl.Api.Models.Team
 		/// </summary>
 		[JsonProperty("franchiseId")]
 		public int FranchiseId { get; set; }
+
+		/// <summary>
+		/// Information about all the NHL team roster members
+		/// </summary>
+		[JsonProperty("roster")]
+		public TeamRoster Roster { get; set; }
 
 		/// <summary>
 		/// Identifies if the NHL team is currently active

@@ -125,7 +125,7 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act
-			var gameSchedule = await nhlApi.GetGameScheduleByDateAsnyc(null);
+			var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(null);
 
 			// Assert
 			Assert.IsNotNull(gameSchedule);
@@ -153,7 +153,7 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act
-			var gameSchedule = await nhlApi.GetGameScheduleByDateAsnyc(DateTime.Parse("2020-01-29"));
+			var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(DateTime.Parse("2020-01-29"));
 
 			// Assert
 			Assert.IsNotNull(gameSchedule);
@@ -180,7 +180,7 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act
-			var gameSchedule = await nhlApi.GetGameScheduleByDateAsnyc(2020, 1, 29);
+			var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(2020, 1, 29);
 
 			// Assert
 			Assert.IsNotNull(gameSchedule);

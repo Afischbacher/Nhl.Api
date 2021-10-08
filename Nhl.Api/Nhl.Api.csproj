@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<Version>1.0.2</Version>
+	<Version>1.1.0</Version>
 	<TargetFramework>netstandard2.0</TargetFramework>
 	<PackageId>Nhl.Api</PackageId>
 	<Title>Nhl.Api</Title>
@@ -14,7 +14,7 @@
 	<Description>
 	  The official unofficial .NET NHL API for providing various NHL information about players, teams, conferences, divisions, statistics and more
 	</Description>
-	<PackageTags>C# .NET NHL Hockey Nhl-Data</PackageTags>
+	<PackageTags>C# .NET National Hockey League NHL Hockey Statistics Analysis</PackageTags>
 	<PackageLicenseExpression>MIT</PackageLicenseExpression>
 	<PackageIcon>nhl-api-logo-128px-128px.png</PackageIcon>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -22,6 +22,7 @@
 	<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
   </PropertyGroup>
 
+  
   <ItemGroup>
 	<ProjectReference Include="..\Nhl.Api.Common\Nhl.Api.Common.csproj" PrivateAssets="All" />
 	<ProjectReference Include="..\Nhl.Api.Domain\Nhl.Api.Domain.csproj" PrivateAssets="All" />
@@ -30,7 +31,7 @@
   <Target Name="CopyProjectReferencesToPackage" DependsOnTargets="BuildOnlySettings;ResolveReferences">
 	<ItemGroup>
 	  <!-- Filter out unnecessary files -->
-	  <_ReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths->WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')->WithMetadataValue('PrivateAssets', 'All'))"/>
+	  <_ReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')-&gt;WithMetadataValue('PrivateAssets', 'All'))" />
 	</ItemGroup>
 
 	<!-- Print batches for debug purposes -->
@@ -38,7 +39,7 @@
 
 	<ItemGroup>
 	  <!-- Add file to package with consideration of sub folder. If empty, the root folder is chosen. -->
-	  <BuildOutputInPackage Include="@(_ReferenceCopyLocalPaths)" TargetPath="%(_ReferenceCopyLocalPaths.DestinationSubDirectory)"/>
+	  <BuildOutputInPackage Include="@(_ReferenceCopyLocalPaths)" TargetPath="%(_ReferenceCopyLocalPaths.DestinationSubDirectory)" />
 	</ItemGroup>
   </Target>
 
@@ -47,6 +48,6 @@
   </ItemGroup>
 
   <ItemGroup>
-	<None Include="..\Assets\nhl-api-logo-128px-128px.png" Pack="true" PackagePath=""/>
+	<None Include="..\Assets\nhl-api-logo-128px-128px.png" Pack="true" PackagePath="" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhl.Api.Models.Enumerations.Conference;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -39,6 +40,24 @@ namespace Nhl.Api.Tests
 
 			// Act 
 			var conference = await nhlApi.GetConferenceByIdAsync(6);
+
+			// Assert
+			Assert.IsNotNull(conference.Id);
+			Assert.IsNotNull(conference.Link);
+			Assert.IsNotNull(conference.Name);
+			Assert.IsNotNull(conference.Abbreviation);
+			Assert.IsNotNull(conference.Active);
+			Assert.IsNotNull(conference.ShortName);
+		}
+
+		[TestMethod]
+		public async Task TestGetConferenceByIdEnumAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var conference = await nhlApi.GetConferenceByIdAsync(ConferenceEnum.Western);
 
 			// Assert
 			Assert.IsNotNull(conference.Id);

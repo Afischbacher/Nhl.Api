@@ -17,6 +17,15 @@ using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Models.Venue;
 using Nhl.Api.Common.Http;
+using Nhl.Api.Domain.Models.League;
+using Nhl.Api.Domain.Models.Team;
+using Nhl.Api.Models.Enumerations.Player;
+using Nhl.Api.Domain.Enumerations.Franchise;
+using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Enumerations.Division;
+using Nhl.Api.Models.Enumerations.Conference;
+using Nhl.Api.Models.Enumerations.Award;
+using Nhl.Api.Domain.Enumerations.Venue;
 
 namespace Nhl.Api
 {
@@ -25,6 +34,7 @@ namespace Nhl.Api
 	/// </summary>
 	public class NhlApi : INhlApi
 	{
+
 
 		/// <summary>
 		/// Returns all NHL franchises, including information such as team name, location and more
@@ -71,6 +81,21 @@ namespace Nhl.Api
 				.SingleOrDefault();
 		}
 
+
+		/// <summary>
+		/// Returns an NHL franchise by the franchise id <br/>
+		/// Example: <see cref="FranchiseEnum.LosAngelesKings"/>
+		/// </summary>
+		/// <param name="franchise">The NHL team id, Example: 10 - Toronto Maple Leafs, see <see cref="FranchiseEnum"/> for more information on NHL franchises</param>
+		/// <returns> An NHL franchise, see <see cref="Franchise"/> for more information</returns>
+		public async Task<Franchise> GetFranchiseByIdAsync(FranchiseEnum franchise)
+		{
+			return (await NhlApiHttpClient.GetAsync<LegaueFranchises>($"/franchises/{((int)franchise)}"))
+			.Franchises
+			.SingleOrDefault();
+		}
+
+
 		/// <summary>
 		/// Returns an NHL team by the team id
 		/// </summary>
@@ -81,6 +106,19 @@ namespace Nhl.Api
 			return (await NhlApiHttpClient.GetAsync<LeagueTeam>($"/teams/{teamId}"))
 				.Teams
 				.SingleOrDefault();
+		}
+
+		/// <summary>
+		/// Returns an NHL team by the team enumeration <br/>
+		/// Example: <see cref="TeamEnum.SeattleKraken"/>
+		/// </summary>
+		/// <param name="team">The NHL team id, Example: 10 - Toronto Maple Leafs, see <see cref="TeamEnum"/> for more information on NHL teams</param>
+		/// <returns>An NHL team with information including name, location, division and more, see <see cref="Team"/> for more information on teams</returns>
+		public async Task<Team> GetTeamByIdAsync(TeamEnum team)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueTeam>($"/teams/{((int)team)}"))
+			.Teams
+			.SingleOrDefault();
 		}
 
 		/// <summary>
@@ -128,11 +166,24 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL division by the division id
 		/// </summary>
-		/// <param name="divisionId">The NHL division id, example: Atlantic divison is the number 17</param>
+		/// <param name="divisionId">The NHL division id, example: Atlantic division is the number 17</param>
 		/// <returns>Returns an NHL division, see <see cref="Division"/> for more information</returns>
 		public async Task<Division> GetDivisionByIdAsync(int divisionId)
 		{
 			return (await NhlApiHttpClient.GetAsync<LeagueDivisions>($"/divisions/{divisionId}"))
+				.Divisions
+				.FirstOrDefault();
+		}
+
+		/// <summary>
+		/// Returns an NHL division by the division enumeration <br/>
+		/// Example: <see cref="DivisionEnum.Atlantic"/>
+		/// </summary>
+		/// <param name="division">The NHL division id, Example: 17 - Atlantic division, see <see cref="DivisionEnum"/> for more information on NHL divisions </param>
+		/// <returns>Returns an NHL division, see <see cref="Division"/> for more information</returns>
+		public async Task<Division> GetDivisionByIdAsync(DivisionEnum division)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueDivisions>($"/divisions/{((int)division)}"))
 				.Divisions
 				.FirstOrDefault();
 		}
@@ -159,6 +210,19 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
+		/// Returns the NHL conference by the conference enumeration <br/>
+		/// Example: <see cref="ConferenceEnum.Eastern"/>
+		/// </summary>
+		/// <param name="conference">The NHL conference id, Example: 6 - Eastern Conference, see <see cref="ConferenceEnum"/> for more information on NHL conferences</param>
+		/// <returns>An NHL conference, see <see cref="Conference"/> for more information</returns>
+		public async Task<Conference> GetConferenceByIdAsync(ConferenceEnum conference)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueConferences>($"/conferences/{((int)conference)}"))
+			.Conferences
+			.SingleOrDefault();
+		}
+
+		/// <summary>
 		/// Returns an NHL player by their player id, includes information such as age, weight, position and more
 		/// </summary>
 		/// <param name="playerId">An NHL player id, example: 8478402 is Connor McDavid </param>
@@ -169,6 +233,50 @@ namespace Nhl.Api
 				.Players
 				.SingleOrDefault();
 		}
+
+		/// <summary>
+		/// Returns an NHL player by their player id, includes information such as age, weight, position and more
+		/// </summary>
+		/// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+		/// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
+		public async Task<Player> GetPlayerByIdAsync(PlayerEnum player)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeaguePlayers>($"/people/{((int)player)}"))
+				.Players
+				.SingleOrDefault();
+		}
+
+		/// <summary>
+		/// Returns all of the active NHL players
+		/// </summary>
+		/// <returns>A collection of all NHL players</returns>
+		public async Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersAsync()
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueRosters>($"/teams?expand=team.roster"))
+				.Teams
+				.SelectMany(team => team.Roster.Roster)
+				.ToList();
+		}
+
+		/// <summary>
+		/// Returns all of the active NHL players based on the search query provided
+		/// </summary>
+		/// <param name="query">An search term to find NHL players, Example: "Auston Matthews" or "Carey Pr.." or "John C" </param>
+		/// <returns>A collection of all NHL players based on the search query provided</returns>
+		public async Task<List<TeamRosterMember>> SearchLeagueTeamRosterMembersAsync(string query)
+		{
+			if (string.IsNullOrWhiteSpace(query))
+			{
+				return new List<TeamRosterMember>();
+			}
+
+			return (await NhlApiHttpClient.GetAsync<LeagueRosters>($"/teams?expand=team.roster"))
+				.Teams
+				.SelectMany(team => team.Roster.Roster)
+				.Where(rosterMember => rosterMember.Person.FullName.ToLowerInvariant().Contains(query.ToLowerInvariant()))
+				.ToList();
+		}
+
 
 		/// <summary>
 		/// Returns all of the NHL game types within a season and within special events
@@ -220,7 +328,7 @@ namespace Nhl.Api
 		/// </summary>
 		/// <param name="date">The requested date for the NHL game schedule</param>
 		/// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
-		public async Task<GameSchedule> GetGameScheduleByDateAsnyc(DateTime? date)
+		public async Task<GameSchedule> GetGameScheduleByDateAsync(DateTime? date)
 		{
 			var httpRequestUri = date.HasValue ? $"/schedule?date={date.Value:yyyy-MM-dd}" : "/schedule";
 			return await NhlApiHttpClient.GetAsync<GameSchedule>(httpRequestUri);
@@ -233,7 +341,7 @@ namespace Nhl.Api
 		/// <param name="month">The requested month for the NHL game schedule</param>
 		/// <param name="day">The requested day for the NHL game schedule</param>
 		/// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
-		public async Task<GameSchedule> GetGameScheduleByDateAsnyc(int year, int month, int day)
+		public async Task<GameSchedule> GetGameScheduleByDateAsync(int year, int month, int day)
 		{
 			return await NhlApiHttpClient.GetAsync<GameSchedule>($"/schedule?date={year}-{month}-{day}");
 		}
@@ -282,7 +390,7 @@ namespace Nhl.Api
 		/// Returns the standings of every team in the NHL for the provided date, if the date is null it will provide the current NHL league standings
 		/// </summary>
 		/// <param name="date">The NHL league standings date for the request NHL standings</param>
-		/// <returns>A collection of all the leauge standings </returns>
+		/// <returns>A collection of all the league standings </returns>
 		public async Task<List<Records>> GetLeagueStandingsAsync(DateTime? date)
 		{
 			var httpRequestUri = date.HasValue ? $"/standings?date={date.Value:yyyy-MM-dd}" : "/standings";
@@ -299,7 +407,7 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Returns a specified NHL team's statistics for the the specified season, the most recent season statistics will be returned
+		/// Returns a specified NHL team's statistics for the specified season, the most recent season statistics will be returned
 		/// </summary>
 		/// <param name="teamId">The NHL team id, example: Toronto Maple Leafs - 10</param>
 		/// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, example: 20202021</param>
@@ -312,6 +420,23 @@ namespace Nhl.Api
 			}
 
 			var httpRequestUri = string.IsNullOrWhiteSpace(seasonYear) ? $"/teams/{teamId}/stats" : $"/teams/{teamId}/stats?season={seasonYear}";
+			return await NhlApiHttpClient.GetAsync<TeamStatistics>(httpRequestUri);
+		}
+
+		/// <summary>
+		/// Returns a specified NHL team's statistics for the specified season, the most recent season statistics will be returned
+		/// </summary>
+		/// <param name="team">The NHL team id, example: <see cref="TeamEnum.AnaheimDucks"/></param>
+		/// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, example: 20202021</param>
+		/// <returns>A collection of all the specified NHL team statistics for the specified season</returns>
+		public async Task<TeamStatistics> GetTeamStatisticsByIdAsync(TeamEnum team, string seasonYear)
+		{
+			if (seasonYear?.Length > 8)
+			{
+				throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+			}
+
+			var httpRequestUri = string.IsNullOrWhiteSpace(seasonYear) ? $"/teams/{((int)team)}/stats" : $"/teams/{((int)team)}/stats?season={seasonYear}";
 			return await NhlApiHttpClient.GetAsync<TeamStatistics>(httpRequestUri);
 		}
 
@@ -349,10 +474,11 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns an NHL prospect profile by their prospect id
 		/// </summary>
+		/// <param name="prospectId">The NHL prospect id, Example: 86515 - Francesco Pinelli</param>
 		/// <returns>An NHL prospect, see <see cref="ProspectProfile"/> for more information </returns>
-		public async Task<ProspectProfile> GetLeagueProspectByIdAsync(int id)
+		public async Task<ProspectProfile> GetLeagueProspectByIdAsync(int prospectId)
 		{
-			return (await NhlApiHttpClient.GetAsync<LeagueProspects>($"/draft/prospects/{id}"))
+			return (await NhlApiHttpClient.GetAsync<LeagueProspects>($"/draft/prospects/{prospectId}"))
 				.ProspectProfiles
 				.SingleOrDefault();
 		}
@@ -367,19 +493,33 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Returns an NHL award by the award id
+		/// Returns an NHL award by id <br/>
 		/// </summary>
-		/// <returns>A collection of all the NHL awards, see <see cref="Award"/> for more information</returns>
-		public async Task<Award> GetLeagueAwardByIdAsync(int id)
+		/// <param name="awardId">The identifier for the NHL award, Example: Ted Lindsay Award - 13</param>
+		/// <returns>An NHL award, see <see cref="Award"/> for more information</returns>
+		public async Task<Award> GetLeagueAwardByIdAsync(int awardId)
 		{
-			return (await NhlApiHttpClient.GetAsync<LeagueAwards>($"/awards/{id}"))
+			return (await NhlApiHttpClient.GetAsync<LeagueAwards>($"/awards/{awardId}"))
 				.Awards
 				.SingleOrDefault();
 		}
 
 		/// <summary>
+		/// Returns an NHL award by the award id <br/>
+		/// Example: <see cref="AwardEnum.StanleyCup"/>
+		/// </summary>
+		/// <param name="leagueAward">The NHL league award identifier, see <see cref="AwardEnum"/> for more information on NHL awards </param>
+		/// <returns>An NHL award, see <see cref="Award"/> for more information</returns>
+		public async Task<Award> GetLeagueAwardByIdAsync(AwardEnum leagueAward)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueAwards>($"/awards/{((int)leagueAward)}"))
+			.Awards
+			.SingleOrDefault();
+		}
+
+		/// <summary>
 		/// Returns all of the NHL venue's, including arenas and stadiums <br/>
-		/// <strong>NOTE:</strong> This is not a comprehnsive list of all NHL stadiums and arenas
+		/// <strong>NOTE:</strong> This is not a comprehensive list of all NHL stadiums and arenas
 		/// </summary>
 		/// <returns>A collection of NHL stadiums and arenas, see <see cref="LeagueVenue"/> for more information</returns>
 		public async Task<List<LeagueVenue>> GetLeagueVenuesAsync()
@@ -389,15 +529,29 @@ namespace Nhl.Api
 
 
 		/// <summary>
-		/// Returns an NHL venue by the venue id
+		/// Returns an NHL venue by the venue id <br/>
+		///  Example: 5058 - Canada Life Centre
 		/// </summary>
-		/// <param name="id">The specified id of an NHL venue, example: 5058 - Canada Life Centre </param>
-		/// <returns>A collection of NHL stadiums and arenas, see <see cref="LeagueVenue"/> for more information</returns>
-		public async Task<LeagueVenue> GetLeagueVenueByIdAsync(int id)
+		/// <param name="venueId">The specified id of an NHL venue, </param>
+		/// <returns>An NHL venue, see <see cref="LeagueVenue"/> for more information</returns>
+		public async Task<LeagueVenue> GetLeagueVenueByIdAsync(int venueId)
 		{
-			return (await NhlApiHttpClient.GetAsync<LeagueVenues>($"/venues/{id}"))
+			return (await NhlApiHttpClient.GetAsync<LeagueVenues>($"/venues/{venueId}"))
 				.Venues
 				.SingleOrDefault();
+		}
+
+		/// <summary>
+		/// Returns an NHL venue by the venue enumeration <br/>
+		///  Example: <see cref="VenueEnum.EnterpriseCenter"/>
+		/// </summary>
+		/// <param name="venue">The specified NHL venue, see <see cref="VenueEnum"/> for more information on NHL venues </param>
+		/// <returns>An NHL venue, see <see cref="LeagueVenue"/> for more information</returns>
+		public async Task<LeagueVenue> GetLeagueVenueByIdAsync(VenueEnum venue)
+		{
+			return (await NhlApiHttpClient.GetAsync<LeagueVenues>($"/venues/{((int)venue)}"))
+			.Venues
+			.SingleOrDefault();
 		}
 
 		/// <summary>

@@ -34,7 +34,7 @@ namespace Nhl.Api.Models.Award
 
 		/// <summary>
 		/// The history of the NHL award <br/>
-		/// Example: The Jack Adams Award is named in honour of Jack Adams...
+		/// Example: The Jack Adams Award is named in honor of Jack Adams...
 		/// </summary>
 		[JsonProperty("history")]
 		public string History { get; set; }

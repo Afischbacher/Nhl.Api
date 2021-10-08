@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhl.Api.Models.Enumerations.Division;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -39,6 +40,24 @@ namespace Nhl.Api.Tests
 
 			// Act 
 			var division = await nhlApi.GetDivisionByIdAsync(17);
+
+			// Assert
+			Assert.IsNotNull(division);
+			Assert.IsNotNull(division.Abbreviation);
+			Assert.IsNotNull(division.Id);
+			Assert.IsNotNull(division.Link);
+			Assert.IsNotNull(division.Name);
+			Assert.IsNotNull(division.NameShort);
+		}
+
+		[TestMethod]
+		public async Task TestGetDivisionByIdEnumAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var division = await nhlApi.GetDivisionByIdAsync(DivisionEnum.Metropolitan);
 
 			// Assert
 			Assert.IsNotNull(division);

@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhl.Api.Domain.Enumerations.Venue;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -38,7 +39,24 @@ namespace Nhl.Api.Tests
 
 			// Assert
 			Assert.IsNotNull(leagueVenue);
+			Assert.IsNotNull(leagueVenue.AppEnabled);
+			Assert.IsNotNull(leagueVenue.Id);
+			Assert.IsNotNull(leagueVenue.Link);
+			Assert.IsNotNull(leagueVenue.Name);
 
+		}
+
+		[TestMethod]
+		public async Task TestGetLeagueVenueByIdEnumAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueVenue = await nhlApi.GetLeagueVenueByIdAsync(VenueEnum.BridgestoneArena);
+
+			// Assert
+			Assert.IsNotNull(leagueVenue);
 			Assert.IsNotNull(leagueVenue.AppEnabled);
 			Assert.IsNotNull(leagueVenue.Id);
 			Assert.IsNotNull(leagueVenue.Link);

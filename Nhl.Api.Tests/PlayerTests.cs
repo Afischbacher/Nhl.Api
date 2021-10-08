@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhl.Api.Models.Enumerations.Player;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -42,6 +43,47 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(player.Nationality);
 			Assert.IsNotNull(player.Id);
 			Assert.IsNotNull(player.Link);
+			Assert.IsNotNull(player.PlayerHeadshotImageLink);
+
+		}
+
+		[TestMethod]
+		public async Task TestGetPlayerByIdEnumAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			// William Nylander- Player Id - 8477939
+			var player = await nhlApi.GetPlayerByIdAsync(PlayerEnum.WilliamNylander_8477939);
+
+			// Assert
+			Assert.IsNotNull(player);
+
+			Assert.IsNotNull(player.Active);
+			Assert.IsNotNull(player.AlternateCaptain);
+			Assert.IsNotNull(player.BirthCountry);
+			Assert.IsNotNull(player.BirthCity);
+
+			Assert.IsNotNull(player.BirthDate);
+			Assert.IsNotNull(player.Captain);
+			Assert.IsNotNull(player.CurrentAge);
+			Assert.IsNotNull(player.CurrentTeam);
+
+			Assert.IsNotNull(player.FirstName);
+			Assert.IsNotNull(player.LastName);
+			Assert.IsNotNull(player.FullName);
+			Assert.IsNotNull(player.Height);
+
+			Assert.IsNotNull(player.ShootsCatches);
+			Assert.IsNotNull(player.RosterStatus);
+			Assert.IsNotNull(player.Weight);
+			Assert.IsNotNull(player.Rookie);
+			Assert.IsNotNull(player.PrimaryNumber);
+			Assert.IsNotNull(player.Nationality);
+			Assert.IsNotNull(player.Id);
+			Assert.IsNotNull(player.Link);
+			Assert.IsNotNull(player.PlayerHeadshotImageLink);
 		}
 
 		[TestMethod]

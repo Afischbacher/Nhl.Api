@@ -1,5 +1,5 @@
 ﻿
-namespace Nhl.Api.Models.Enumerations.Awards
+namespace Nhl.Api.Models.Enumerations.Award
 {
 	/// <summary>
 	/// An enumeration of all NHL awards

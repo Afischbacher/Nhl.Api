@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhl.Api.Domain.Enumerations.Franchise;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -77,6 +78,24 @@ namespace Nhl.Api.Tests
 			}
 		}
 
+
+		[TestMethod]
+		public async Task TestGetFranchiseByIdEnumAsync()
+		{
+			// Arrange
+			var nhlApi = new NhlApi();
+
+			// Act 
+			var franchise = await nhlApi.GetFranchiseByIdAsync(FranchiseEnum.MontrealWanderers);
+
+			// Assert
+			Assert.IsNotNull(franchise);
+			Assert.IsNotNull(franchise.FirstSeasonId);
+			Assert.IsNotNull(franchise.Link);
+			Assert.IsNotNull(franchise.LocationName);
+			Assert.IsNotNull(franchise.TeamName);
+			Assert.IsNotNull(franchise.MostRecentTeamId);
+		}
 
 		[TestMethod]
 		public async Task TestGetFranchiseByIdAsync()
