@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Nhl.Api.Common.Exceptions;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace Nhl.Api.Common.Http
 						_httpClient = new HttpClient
 						{
 							BaseAddress = new Uri("https://statsapi.web.nhl.com/api/v1"),
-							Timeout = TimeSpan.FromSeconds(30)
+							Timeout = TimeSpan.FromSeconds(60)
 						};
 					}
 
@@ -46,8 +47,13 @@ namespace Nhl.Api.Common.Http
 			}
 
 			var httpResponseMessage = await HttpClient.GetAsync($"{HttpClient.BaseAddress}{route}");
-			var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
-			return JsonConvert.DeserializeObject<T>(contentResponse);
+			if (httpResponseMessage.IsSuccessStatusCode)
+			{
+				var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
+				return JsonConvert.DeserializeObject<T>(contentResponse);
+			}
+
+			throw new NhlApiRequestException($"Failed to retrieve data for endpoint {route}");
 		}
 	}
 }
