@@ -54,7 +54,7 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act 
-			// William Nylander- Player Id - 8477939
+			// William Nylander - Player Id - 8477939
 			var player = await nhlApi.GetPlayerByIdAsync(PlayerEnum.WilliamNylander8477939);
 
 			// Assert

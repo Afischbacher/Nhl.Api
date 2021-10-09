@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Nhl.Api.Domain.Enumerations.Player;
 using Nhl.Api.Domain.Models.Player;
 using Nhl.Api.Models.Player;
 
@@ -25,12 +26,38 @@ namespace Nhl.Api.Domain.Models.Team
 		[JsonProperty("position")]
 		public PrimaryPosition Position { get; set; }
 
+		/// <summary>
+		/// Returns a head-shot image of the NHL player <br/>
+		/// Example: <a href="https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8478402.png">Connor McDavid</a>
+		/// </summary>
 		public string PlayerHeadshotImageLink
 		{
 			get
 			{
-				return $"{PlayerConstants.PlayerImageLink}{Person?.Id}.png";
+				return GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Small);
 			}
+		}
+
+		/// <summary>
+		/// Returns an image of the NHL player based on the requested size <br/>
+		/// Example: <a href="https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8478402.png">Connor McDavid</a>
+		/// </summary>
+		public string GetPlayerHeadshotImageLink(PlayerHeadshotImageSize playerHeadshotImageSize)
+		{
+			if (Person != null)
+			{
+				switch (playerHeadshotImageSize)
+				{
+					case PlayerHeadshotImageSize.Small:
+						return $"{PlayerConstants.PlayerImageLink}{Person.Id}.png";
+					case PlayerHeadshotImageSize.Medium:
+						return $"{PlayerConstants.PlayerImageLink}{Person.Id}@2x.png";
+					case PlayerHeadshotImageSize.Large:
+						return $"{PlayerConstants.PlayerImageLink}{Person.Id}@3x.png";
+				}
+			}
+
+			return null;
 		}
 	}
 }
