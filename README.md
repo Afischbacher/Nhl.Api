@@ -827,4 +827,4 @@ Here are some of the future items I would like to add and are currently in the b
 - [ ] Content Feed for Live Games
 
 ## Notable Mentions 🙏
-Thank you to all the people in the hockey community, especially <a href='https://gitlab.com/dword4' target='_blank'>Drew Hynes</a> to contributed to documenting the <a href='http://statsapi.web.nhl.com/api/v1' target='_blank'>NHL Stats API</a>. Without all of their help, guidance and knowledge none of this would be possible.
+Thank you to all the people in the hockey community, especially <a href="https://gitlab.com/dword4" target="_blank">Drew Hynes</a> to contributed to documenting the <a href="https://statsapi.web.nhl.com/api/v1" target="_blank">NHL Stats API</a>. Without all of their help, guidance and knowledge none of this would be possible.
