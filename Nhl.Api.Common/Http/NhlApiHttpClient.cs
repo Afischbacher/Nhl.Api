@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Common.Exceptions;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -25,7 +24,7 @@ namespace Nhl.Api.Common.Http
 						_httpClient = new HttpClient
 						{
 							BaseAddress = new Uri("https://statsapi.web.nhl.com/api/v1"),
-							Timeout = TimeSpan.FromSeconds(60)
+							Timeout = Timeout
 						};
 					}
 
@@ -33,6 +32,11 @@ namespace Nhl.Api.Common.Http
 				}
 			}
 		}
+		
+		/// <summary>
+		/// The timeout for HTTP requests for the NHL API, default value is 30 seconds
+		/// </summary>
+		public static TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(30);
 
 		/// <summary>
 		/// Performs a HTTP GET request
@@ -47,13 +51,10 @@ namespace Nhl.Api.Common.Http
 			}
 
 			var httpResponseMessage = await HttpClient.GetAsync($"{HttpClient.BaseAddress}{route}");
-			if (httpResponseMessage.IsSuccessStatusCode)
-			{
-				var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
-				return JsonConvert.DeserializeObject<T>(contentResponse);
-			}
-
-			throw new NhlApiRequestException($"Failed to retrieve data for endpoint {route}");
+			
+			var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
+			return JsonConvert.DeserializeObject<T>(contentResponse);
+			
 		}
 	}
 }

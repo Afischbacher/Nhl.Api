@@ -49,11 +49,11 @@ namespace Nhl.Api.Domain.Models.Team
 				switch (playerHeadshotImageSize)
 				{
 					case PlayerHeadshotImageSize.Small:
-						return $"{PlayerConstants.PlayerImageLink}{Person.Id}.png";
+						return $"{PlayerConstants.PlayerHeadshotImageLink}{Person.Id}.png";
 					case PlayerHeadshotImageSize.Medium:
-						return $"{PlayerConstants.PlayerImageLink}{Person.Id}@2x.png";
+						return $"{PlayerConstants.PlayerHeadshotImageLink}{Person.Id}@2x.png";
 					case PlayerHeadshotImageSize.Large:
-						return $"{PlayerConstants.PlayerImageLink}{Person.Id}@3x.png";
+						return $"{PlayerConstants.PlayerHeadshotImageLink}{Person.Id}@3x.png";
 				}
 			}
 

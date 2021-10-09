@@ -183,11 +183,11 @@ namespace Nhl.Api.Models.Player
 				switch (playerHeadshotImageSize)
 				{
 					case PlayerHeadshotImageSize.Small:
-						return $"{PlayerConstants.PlayerImageLink}{Id}.png";
+						return $"{PlayerConstants.PlayerHeadshotImageLink}{Id}.png";
 					case PlayerHeadshotImageSize.Medium:
-						return $"{PlayerConstants.PlayerImageLink}{Id}@2x.png";
+						return $"{PlayerConstants.PlayerHeadshotImageLink}{Id}@2x.png";
 					case PlayerHeadshotImageSize.Large:
-						return $"{PlayerConstants.PlayerImageLink}{Id}@3x.png";
+						return $"{PlayerConstants.PlayerHeadshotImageLink}{Id}@3x.png";
 				} 
 			}
 
