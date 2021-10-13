@@ -26,6 +26,9 @@ using Nhl.Api.Models.Enumerations.Division;
 using Nhl.Api.Models.Enumerations.Conference;
 using Nhl.Api.Models.Enumerations.Award;
 using Nhl.Api.Domain.Enumerations.Venue;
+using Nhl.Api.Domain.Enumerations.Player;
+using Nhl.Api.Domain.Models.Player;
+using Nhl.Api.Common.Extensions;
 
 namespace Nhl.Api
 {
@@ -277,6 +280,49 @@ namespace Nhl.Api
 				.ToList();
 		}
 
+		/// <summary>
+		/// Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+		/// </summary>
+		/// <param name="playerId">The identifier for the NHL player</param>
+		/// <param name="playerStatisticsType"> An enumeration of all the NHL player statistics types </param>
+		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+		/// <returns>A collection of all the in-depth NHL player statistics by type</returns>
+		public async Task<PlayerStatistics> GetPlayerStatisticsByTypeAndSeasonAsync(int playerId, PlayerStatisticsTypeEnum playerStatisticsType, string seasonYear)
+		{
+			if (string.IsNullOrEmpty(seasonYear))
+			{
+				throw new ArgumentNullException(nameof(seasonYear));
+			}
+
+			if (seasonYear.Length > 8)
+			{
+				throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+			}
+
+			return await NhlApiHttpClient.GetAsync<PlayerStatistics>($"/people/{playerId}/stats?stats={playerStatisticsType.ToString().ToCamelCase()}&season={seasonYear}");
+		}
+
+		/// <summary>
+		/// Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+		/// </summary>
+		/// <param name="player">The identifier for the NHL player</param>
+		/// <param name="playerStatisticsType"> An enumeration of all the NHL player statistics types </param>
+		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+		/// <returns>A collection of all the in-depth NHL player statistics by type</returns>
+		public async Task<PlayerStatistics> GetPlayerStatisticsByTypeAndSeasonAsync(PlayerEnum player, PlayerStatisticsTypeEnum playerStatisticsType, string seasonYear)
+		{
+			if (string.IsNullOrEmpty(seasonYear))
+			{
+				throw new ArgumentNullException(nameof(seasonYear));
+			}
+
+			if (seasonYear.Length > 8)
+			{
+				throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+			}
+
+			return await NhlApiHttpClient.GetAsync<PlayerStatistics>($"/people/{((int)player)}/stats?stats={playerStatisticsType.ToString().ToCamelCase()}&season={seasonYear}");
+		}
 
 		/// <summary>
 		/// Returns all of the NHL game types within a season and within special events

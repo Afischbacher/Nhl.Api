@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Nhl.Api.Domain.Enumerations.Franchise;
+using Nhl.Api.Domain.Enumerations.Player;
 using Nhl.Api.Domain.Enumerations.Venue;
+using Nhl.Api.Domain.Models.Player;
 using Nhl.Api.Domain.Models.Team;
 using Nhl.Api.Models.Award;
 using Nhl.Api.Models.Conference;
@@ -185,6 +187,24 @@ namespace Nhl.Api
 		/// <param name="query">An search term to find NHL players, Example: "Auston Matthews" or "Carey Pr.." or "John C" </param>
 		/// <returns>A collection of all NHL players based on the search query provided</returns>
 		Task<List<TeamRosterMember>> SearchLeagueTeamRosterMembersAsync(string query);
+
+		/// <summary>
+		/// Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+		/// </summary>
+		/// <param name="playerId">The identifier for the NHL player</param>
+		/// <param name="playerStatisticsTypeEnum">The type of NHL player statistics for a specific season</param>
+		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+		/// <returns>A collection of all the in-depth NHL player statistics by type</returns>
+		Task<PlayerStatistics> GetPlayerStatisticsByTypeAndSeasonAsync(int playerId, PlayerStatisticsTypeEnum playerStatisticsTypeEnum, string seasonYear);
+
+		/// <summary>
+		/// Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+		/// </summary>
+		/// <param name="playerId">The identifier for the NHL player</param>
+		/// <param name="playerStatisticsTypeEnum">The type of NHL player statistics for a specific season</param>
+		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+		/// <returns>A collection of all the in-depth NHL player statistics by type</returns>
+		Task<PlayerStatistics> GetPlayerStatisticsByTypeAndSeasonAsync(PlayerEnum playerId, PlayerStatisticsTypeEnum playerStatisticsTypeEnum, string seasonYear);
 
 		#endregion
 

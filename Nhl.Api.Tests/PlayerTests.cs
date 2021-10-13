@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhl.Api.Domain.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Player;
+using Nhl.Api.Models.Season;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -106,6 +108,33 @@ namespace Nhl.Api.Tests
 
 			// Assert
 			Assert.IsNull(player);
+		}
+
+		[TestMethod]
+		public async Task TestGetPlayerStatisticsByTypeAndSeasonAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var playerStatistics = await nhlApi.GetPlayerStatisticsByTypeAndSeasonAsync(PlayerEnum.AaronEkblad8477932, PlayerStatisticsTypeEnum.StatsSingleSeason, SeasonYear.season20202021);
+
+			// Assert
+			Assert.IsNull(playerStatistics);
+		}
+
+
+		[TestMethod]
+		public async Task TestGetPlayerStatisticsByTypeAndSeasonWithPlayerIdAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var playerStatistics = await nhlApi.GetPlayerStatisticsByTypeAndSeasonAsync(8477495, PlayerStatisticsTypeEnum.StatsSingleSeason, SeasonYear.season20192020);
+
+			// Assert
+			Assert.IsNull(playerStatistics);
 		}
 	}
 }
