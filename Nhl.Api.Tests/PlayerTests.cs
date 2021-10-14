@@ -156,6 +156,10 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Pim);
 			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.OverTimeGoals);
 			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Blocked);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.EvenTimeOnIce);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PenaltyMinutes);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.FaceOffPct);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.EvenTimeOnIcePerGame);
 		}
 
 
@@ -204,6 +208,11 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Pim);
 			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.OverTimeGoals);
 			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Blocked);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.EvenTimeOnIce);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PenaltyMinutes);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.FaceOffPct);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.EvenTimeOnIcePerGame);
+
 		}
 
 		[TestMethod]
@@ -269,6 +278,7 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(statisticsSplits.GoalieStatisticsData.Wins);
 			Assert.IsNotNull(statisticsSplits.GoalieStatisticsData.TimeOnIcePerGame);
 			Assert.IsNotNull(statisticsSplits.GoalieStatisticsData.TimeOnIce);
+			Assert.IsNotNull(statisticsSplits.GoalieStatisticsData.EvenShots);
 			Assert.IsNotNull(statisticsSplits.GoalieStatisticsData.Ties);
 			Assert.IsNotNull(statisticsSplits.GoalieStatisticsData.Losses);
 			Assert.IsNotNull(statisticsSplits.GoalieStatisticsData.GoalsAgainst);

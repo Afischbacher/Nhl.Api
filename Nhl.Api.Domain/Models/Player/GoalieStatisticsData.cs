@@ -160,7 +160,7 @@ namespace Nhl.Api.Domain.Models.Player
 
 		/// <summary>
 		/// The even strength save percentage for the duration of the NHL goalie's season <br/>
-		/// Example: 93.33333333333333
+		/// Example: 91.8918918918919
 		/// </summary>
 		[JsonProperty("evenStrengthSavePercentage")]
 		public double EvenStrengthSavePercentage { get; set; }
