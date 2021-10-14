@@ -385,7 +385,7 @@ This method has no parameters.
 
 ##### Summary
 
-Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+Returns all of the NHL goalie statistics for a specific NHL season with insightful statistics and NHL game data
 
 ##### Returns
 
@@ -403,7 +403,7 @@ A collection of all the in-depth NHL goalie statistics per season
 
 ##### Summary
 
-Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+Returns all of the NHL goalie statistics for a specific NHL season with insightful statistics and NHL game data
 
 ##### Returns
 
@@ -680,7 +680,7 @@ An NHL player profile, see [Player](#T-Nhl-Api-Models-Player-Player 'Nhl.Api.Mod
 
 ##### Summary
 
-Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+Returns all of the NHL player statistics for a specific NHL season with insightful statistics and NHL game data
 
 ##### Returns
 
@@ -698,7 +698,7 @@ A collection of all the in-depth NHL player statistics by type
 
 ##### Summary
 
-Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+Returns all of the NHL player statistics for a specific NHL season with insightful statistics and NHL game data
 
 ##### Returns
 

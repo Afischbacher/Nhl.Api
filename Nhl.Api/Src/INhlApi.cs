@@ -188,7 +188,7 @@ namespace Nhl.Api
 		Task<List<TeamRosterMember>> SearchLeagueTeamRosterMembersAsync(string query);
 
 		/// <summary>
-		/// Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+		/// Returns all of the NHL player statistics for a specific NHL season with insightful statistics and NHL game data
 		/// </summary>
 		/// <param name="playerId">The identifier for the NHL player</param>
 		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
@@ -196,7 +196,7 @@ namespace Nhl.Api
 		Task<PlayerSeasonStatistics> GetPlayerStatisticsBySeasonAsync(int playerId, string seasonYear);
 
 		/// <summary>
-		/// Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+		/// Returns all of the NHL player statistics for a specific NHL season with insightful statistics and NHL game data
 		/// </summary>
 		/// <param name="player">The identifier for the NHL player</param>
 		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
@@ -204,7 +204,7 @@ namespace Nhl.Api
 		Task<PlayerSeasonStatistics> GetPlayerStatisticsBySeasonAsync(PlayerEnum player, string seasonYear);
 
 		/// <summary>
-		/// Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+		/// Returns all of the NHL goalie statistics for a specific NHL season with insightful statistics and NHL game data
 		/// </summary>
 		/// <param name="playerId">The identifier for the NHL goalie</param>
 		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
@@ -212,7 +212,7 @@ namespace Nhl.Api
 		Task<GoalieSeasonStatistics> GetGoalieStatisticsBySeasonAsync(int playerId, string seasonYear);
 
 		/// <summary>
-		/// Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+		/// Returns all of the NHL goalie statistics for a specific NHL season with insightful statistics and NHL game data
 		/// </summary>
 		/// <param name="player">The identifier for the NHL goalie</param>
 		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
