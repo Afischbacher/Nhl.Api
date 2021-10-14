@@ -1,9 +1,11 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Nhl.Api.Domain.Models.Player
 {
-	public class PlayerSeasonStat
+	public class GoalieSeasonStat
 	{
 		/// <summary>
 		/// The specific type for the NHL player statistics
@@ -12,9 +14,9 @@ namespace Nhl.Api.Domain.Models.Player
 		public Api.Models.Statistics.Type Type { get; set; }
 
 		/// <summary>
-		/// The collection of splits for the NHL player statistics for the specific season
+		/// The collection of splits for the NHL goalie statistics for the specific season
 		/// </summary>
 		[JsonProperty("splits")]
-		public List<PlayerSeasonStatisticsSplit> Splits { get; set; }
+		public List<GoalieSeasonStatisticsSplit> Splits { get; set; }
 	}
 }

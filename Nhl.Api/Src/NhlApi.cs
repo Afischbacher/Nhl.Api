@@ -343,9 +343,27 @@ namespace Nhl.Api
 		/// <param name="playerId">The identifier for the NHL goalie</param>
 		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
 		/// <returns>A collection of all the in-depth NHL goalie statistics per season</returns>
-		public Task<dynamic> GetGoalieStatisticsBySeasonAsync(int playerId, string seasonYear)
+		public async Task<GoalieSeasonStatistics> GetGoalieStatisticsBySeasonAsync(int playerId, string seasonYear)
 		{
-			throw new NotImplementedException();
+			if (string.IsNullOrEmpty(seasonYear))
+			{
+				throw new ArgumentNullException(nameof(seasonYear));
+			}
+
+			if (seasonYear.Length > 8)
+			{
+				throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+			}
+
+			var nhlPlayer = await GetPlayerByIdAsync(playerId);
+			var isPlayerPositionNotGoalie = nhlPlayer?.PrimaryPosition?.Abbreviation != PlayerPositionEnum.G.ToString();
+			if (isPlayerPositionNotGoalie)
+			{
+				throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
+			}
+
+			return await NhlApiHttpClient.GetAsync<GoalieSeasonStatistics>($"/people/{playerId}/stats?stats={nameof(PlayerStatisticsTypeEnum.StatsSingleSeason).ToCamelCase()}&season={seasonYear}");
+
 		}
 
 		/// <summary>
@@ -354,9 +372,26 @@ namespace Nhl.Api
 		/// <param name="player">The identifier for the NHL goalie</param>
 		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
 		/// <returns>A collection of all the in-depth NHL goalie statistics per season</returns>
-		public Task<dynamic> GetGoalieStatisticsBySeasonAsync(PlayerEnum player, string seasonYear)
+		public async Task<GoalieSeasonStatistics> GetGoalieStatisticsBySeasonAsync(PlayerEnum player, string seasonYear)
 		{
-			throw new NotImplementedException();
+			if (string.IsNullOrEmpty(seasonYear))
+			{
+				throw new ArgumentNullException(nameof(seasonYear));
+			}
+
+			if (seasonYear.Length > 8)
+			{
+				throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+			}
+
+			var nhlPlayer = await GetPlayerByIdAsync((int)player);
+			var isPlayerPositionNotGoalie = nhlPlayer?.PrimaryPosition?.Abbreviation != PlayerPositionEnum.G.ToString();
+			if (isPlayerPositionNotGoalie)
+			{
+				throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
+			}
+
+			return await NhlApiHttpClient.GetAsync<GoalieSeasonStatistics>($"/people/{((int)player)}/stats?stats={nameof(PlayerStatisticsTypeEnum.StatsSingleSeason).ToCamelCase()}&season={seasonYear}");
 		}
 
 		/// <summary>
