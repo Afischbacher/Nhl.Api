@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Nhl.Api.Common\Nhl.Api.Common.csproj" />
     <ProjectReference Include="..\Nhl.Api.Domain\Nhl.Api.Domain.csproj" />
     <ProjectReference Include="..\Nhl.Api\Nhl.Api.csproj" />
   </ItemGroup>

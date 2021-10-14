@@ -215,7 +215,7 @@ namespace Nhl.Api.Tests
 		}
 
 		[DataTestMethod]
-		[DataRow("sidne")]
+		[DataRow("Ovechkin")]
 		[DataRow("mcdaVid")]
 		[DataRow("Auston Matth")]
 		[DataRow("Price")]

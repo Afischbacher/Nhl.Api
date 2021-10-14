@@ -97,6 +97,7 @@ namespace Nhl.Api.Tests
 		}
 
 		[TestMethod]
+		[Ignore("Currently the API endpoint is not correctly displaying data")]
 		public async Task TestGetPlayoffTournamentTypesAsync()
 		{
 			// Arrange

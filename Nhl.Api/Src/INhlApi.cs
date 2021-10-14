@@ -192,19 +192,33 @@ namespace Nhl.Api
 		/// Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
 		/// </summary>
 		/// <param name="playerId">The identifier for the NHL player</param>
-		/// <param name="playerStatisticsTypeEnum">The type of NHL player statistics for a specific season</param>
 		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
 		/// <returns>A collection of all the in-depth NHL player statistics by type</returns>
-		Task<PlayerStatistics> GetPlayerStatisticsByTypeAndSeasonAsync(int playerId, PlayerStatisticsTypeEnum playerStatisticsTypeEnum, string seasonYear);
+		Task<PlayerSeasonStatistics> GetPlayerStatisticsBySeasonAsync(int playerId, string seasonYear);
 
 		/// <summary>
 		/// Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
 		/// </summary>
-		/// <param name="playerId">The identifier for the NHL player</param>
-		/// <param name="playerStatisticsTypeEnum">The type of NHL player statistics for a specific season</param>
+		/// <param name="player">The identifier for the NHL player</param>
 		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
 		/// <returns>A collection of all the in-depth NHL player statistics by type</returns>
-		Task<PlayerStatistics> GetPlayerStatisticsByTypeAndSeasonAsync(PlayerEnum playerId, PlayerStatisticsTypeEnum playerStatisticsTypeEnum, string seasonYear);
+		Task<PlayerSeasonStatistics> GetPlayerStatisticsBySeasonAsync(PlayerEnum player, string seasonYear);
+
+		/// <summary>
+		/// Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+		/// </summary>
+		/// <param name="playerId">The identifier for the NHL goalie</param>
+		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+		/// <returns>A collection of all the in-depth NHL goalie statistics per season</returns>
+		Task<dynamic> GetGoalieStatisticsBySeasonAsync(int playerId, string seasonYear);
+
+		/// <summary>
+		/// Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+		/// </summary>
+		/// <param name="player">The identifier for the NHL goalie</param>
+		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+		/// <returns>A collection of all the in-depth NHL goalie statistics per season</returns>
+		Task<dynamic> GetGoalieStatisticsBySeasonAsync(PlayerEnum player, string seasonYear);
 
 		#endregion
 

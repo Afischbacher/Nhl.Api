@@ -1,7 +1,8 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nhl.Api.Domain.Enumerations.Player;
+using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Season;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -117,10 +118,45 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act 
-			var playerStatistics = await nhlApi.GetPlayerStatisticsByTypeAndSeasonAsync(PlayerEnum.AaronEkblad8477932, PlayerStatisticsTypeEnum.StatsSingleSeason, SeasonYear.season20202021);
+			var playerStatistics = await nhlApi.GetPlayerStatisticsBySeasonAsync(PlayerEnum.AaronEkblad8477932, SeasonYear.season20202021);
 
 			// Assert
-			Assert.IsNull(playerStatistics);
+			Assert.IsNotNull(playerStatistics);
+			Assert.IsNotNull(playerStatistics.Statistics);
+			Assert.IsNotNull(playerStatistics.Statistics.First().Type);
+			Assert.IsNotNull(playerStatistics.Statistics.First().Splits);
+			Assert.IsTrue(playerStatistics.Statistics.First().Splits.Any());
+
+			var statisticsSplits = playerStatistics.Statistics.First().Splits.First();
+
+			Assert.IsNotNull(statisticsSplits.Season);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData);
+
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Assists);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Games);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.GameWinningGoals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Games);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Shifts);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.ShortHandedGoals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.ShortHandedPoints);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.ShortHandedTimeOnIce);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.ShortHandedTimeOnIcePerGame);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Shots);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.ShotPct);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Goals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Hits);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.OverTimeGoals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Points);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PlusMinus);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PowerPlayGoals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PowerPlayPoints);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PowerPlayTimeOnIce);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PowerPlayTimeOnIcePerGame);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.TimeOnIce);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.TimeOnIcePerGame);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Pim);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.OverTimeGoals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Blocked);
 		}
 
 
@@ -131,10 +167,71 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act 
-			var playerStatistics = await nhlApi.GetPlayerStatisticsByTypeAndSeasonAsync(8477495, PlayerStatisticsTypeEnum.StatsSingleSeason, SeasonYear.season20192020);
+			var playerStatistics = await nhlApi.GetPlayerStatisticsBySeasonAsync(8477495, SeasonYear.season20192020);
 
 			// Assert
-			Assert.IsNull(playerStatistics);
+			Assert.IsNotNull(playerStatistics);
+			Assert.IsNotNull(playerStatistics.Statistics);
+			Assert.IsNotNull(playerStatistics.Statistics.First().Type);
+			Assert.IsNotNull(playerStatistics.Statistics.First().Splits);
+			Assert.IsTrue(playerStatistics.Statistics.First().Splits.Any());
+
+			var statisticsSplits = playerStatistics.Statistics.First().Splits.First();
+
+			Assert.IsNotNull(statisticsSplits.Season);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData);
+
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Assists);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Games);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.GameWinningGoals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Games);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Shifts);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.ShortHandedGoals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.ShortHandedPoints);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.ShortHandedTimeOnIce);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.ShortHandedTimeOnIcePerGame);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Shots);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.ShotPct);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Goals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Hits);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.OverTimeGoals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Points);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PlusMinus);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PowerPlayGoals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PowerPlayPoints);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PowerPlayTimeOnIce);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.PowerPlayTimeOnIcePerGame);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.TimeOnIce);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.TimeOnIcePerGame);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Pim);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.OverTimeGoals);
+			Assert.IsNotNull(statisticsSplits.PlayerStatisticsData.Blocked);
+		}
+
+		[TestMethod]
+		public async Task TestGetPlayerStatisticsByTypeAndSeasonWithPlayerInvalidPlayerTypeAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act / Assert
+			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>(async () =>
+			{
+				await nhlApi.GetPlayerStatisticsBySeasonAsync(PlayerEnum.CraigAnderson8467950, SeasonYear.season20192020);
+			});
+		}
+
+		[TestMethod]
+		public async Task TestGetPlayerStatisticsByTypeAndSeasonWithPlayerIdInvalidPlayerTypeAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act / Assert
+			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>(async () =>
+			{
+				var test = await nhlApi.GetPlayerStatisticsBySeasonAsync(8471734, SeasonYear.season20192020);
+			});
 		}
 	}
 }
