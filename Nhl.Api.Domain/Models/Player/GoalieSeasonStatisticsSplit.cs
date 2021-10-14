@@ -15,7 +15,7 @@ namespace Nhl.Api.Domain.Models.Player
 		public string Season { get; set; }
 
 		/// <summary>
-		/// The specific NHL goalie data including statistics such as points, shots, time on ice, goals and more
+		/// The specific NHL goalie data including statistics such as saves, save percentage, shutouts and more
 		/// </summary>
 		[JsonProperty("stat")]
 		public GoalieStatisticsData GoalieStatisticsData { get; set; }
