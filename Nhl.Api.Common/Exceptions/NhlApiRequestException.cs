@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Nhl.Api.Common.Exceptions
 {
@@ -9,7 +7,7 @@ namespace Nhl.Api.Common.Exceptions
 	/// </summary>
 	public class NhlApiRequestException : Exception
 	{
-		public NhlApiRequestException(string message) : base()
+		public NhlApiRequestException(string message) : base(message)
 		{
 
 		}

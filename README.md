@@ -7,7 +7,7 @@
 
 # The Official Unofficial .NET NHL API 🏒
 A C# .NET Standard 2.0 library for the .NET NHL API
-## Installing Nhl.Api 🏗
+## Installing Nhl.Api 💭
 You should install Nhl.Api with NuGet:
 ```
 Install-Package Nhl.Api
@@ -57,6 +57,8 @@ Once registered using your dependency injection library of choice or just using 
   - [GetGameScheduleByDateAsync(year,month,day)](#M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32- 'Nhl.Api.NhlApi.GetGameScheduleByDateAsync(System.Int32,System.Int32,System.Int32)')
   - [GetGameStatusesAsync()](#M-Nhl-Api-NhlApi-GetGameStatusesAsync 'Nhl.Api.NhlApi.GetGameStatusesAsync')
   - [GetGameTypesAsync()](#M-Nhl-Api-NhlApi-GetGameTypesAsync 'Nhl.Api.NhlApi.GetGameTypesAsync')
+  - [GetGoalieStatisticsBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetGoalieStatisticsBySeasonAsync(System.Int32,System.String)')
+  - [GetGoalieStatisticsBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlApi.GetGoalieStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
   - [GetInactiveFranchisesAsync()](#M-Nhl-Api-NhlApi-GetInactiveFranchisesAsync 'Nhl.Api.NhlApi.GetInactiveFranchisesAsync')
   - [GetInactiveTeamsAsync()](#M-Nhl-Api-NhlApi-GetInactiveTeamsAsync 'Nhl.Api.NhlApi.GetInactiveTeamsAsync')
   - [GetLeagueAwardByIdAsync(awardId)](#M-Nhl-Api-NhlApi-GetLeagueAwardByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetLeagueAwardByIdAsync(System.Int32)')
@@ -73,6 +75,8 @@ Once registered using your dependency injection library of choice or just using 
   - [GetPlayTypesAsync()](#M-Nhl-Api-NhlApi-GetPlayTypesAsync 'Nhl.Api.NhlApi.GetPlayTypesAsync')
   - [GetPlayerByIdAsync(playerId)](#M-Nhl-Api-NhlApi-GetPlayerByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetPlayerByIdAsync(System.Int32)')
   - [GetPlayerByIdAsync(player)](#M-Nhl-Api-NhlApi-GetPlayerByIdAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum- 'Nhl.Api.NhlApi.GetPlayerByIdAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum)')
+  - [GetPlayerStatisticsBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlApi-GetPlayerStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetPlayerStatisticsBySeasonAsync(System.Int32,System.String)')
+  - [GetPlayerStatisticsBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlApi-GetPlayerStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlApi.GetPlayerStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
   - [GetPlayoffTournamentTypesAsync()](#M-Nhl-Api-NhlApi-GetPlayoffTournamentTypesAsync 'Nhl.Api.NhlApi.GetPlayoffTournamentTypesAsync')
   - [GetSeasonByYearAsync(seasonYear)](#M-Nhl-Api-NhlApi-GetSeasonByYearAsync-System-String- 'Nhl.Api.NhlApi.GetSeasonByYearAsync(System.String)')
   - [GetSeasonsAsync()](#M-Nhl-Api-NhlApi-GetSeasonsAsync 'Nhl.Api.NhlApi.GetSeasonsAsync')
@@ -84,6 +88,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetTeamsAsync()](#M-Nhl-Api-NhlApi-GetTeamsAsync 'Nhl.Api.NhlApi.GetTeamsAsync')
   - [GetTournamentTypesAsync()](#M-Nhl-Api-NhlApi-GetTournamentTypesAsync 'Nhl.Api.NhlApi.GetTournamentTypesAsync')
   - [SearchLeagueTeamRosterMembersAsync(query)](#M-Nhl-Api-NhlApi-SearchLeagueTeamRosterMembersAsync-System-String- 'Nhl.Api.NhlApi.SearchLeagueTeamRosterMembersAsync(System.String)')
+
 
 <a name='T-Nhl-Api-NhlApi'></a>
 ## NhlApi `type`
@@ -374,6 +379,42 @@ A collection of NHL and other sporting event game types, see [GameType](#T-Nhl-A
 
 This method has no parameters.
 
+<a name='M-Nhl-Api-NhlApi-GetGoalieStatisticsBySeasonAsync-System-Int32,System-String-'></a>
+### GetGoalieStatisticsBySeasonAsync(playerId,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL goalie statistics per season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The identifier for the NHL goalie |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlApi-GetGoalieStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String-'></a>
+### GetGoalieStatisticsBySeasonAsync(player,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL goalie statistics per season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL goalie |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
 <a name='M-Nhl-Api-NhlApi-GetInactiveFranchisesAsync'></a>
 ### GetInactiveFranchisesAsync() `method`
 
@@ -632,6 +673,42 @@ An NHL player profile, see [Player](#T-Nhl-Api-Models-Player-Player 'Nhl.Api.Mod
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | An NHL player id, Example: 8478402 - Connor McDavid, see [PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') for more information on NHL players |
+
+<a name='M-Nhl-Api-NhlApi-GetPlayerStatisticsBySeasonAsync-System-Int32,System-String-'></a>
+### GetPlayerStatisticsBySeasonAsync(playerId,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL player statistics by type
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The identifier for the NHL player |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlApi-GetPlayerStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String-'></a>
+### GetPlayerStatisticsBySeasonAsync(player,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL player statistics by type
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL player |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
 
 <a name='M-Nhl-Api-NhlApi-GetPlayoffTournamentTypesAsync'></a>
 ### GetPlayoffTournamentTypesAsync() `method`
