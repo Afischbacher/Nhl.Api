@@ -32,7 +32,7 @@ namespace Nhl.Api.Common.Http
 				}
 			}
 		}
-		
+
 		/// <summary>
 		/// The timeout for HTTP requests for the NHL API, default value is 30 seconds
 		/// </summary>
@@ -51,10 +51,10 @@ namespace Nhl.Api.Common.Http
 			}
 
 			var httpResponseMessage = await HttpClient.GetAsync($"{HttpClient.BaseAddress}{route}");
-			
+
 			var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
 			return JsonConvert.DeserializeObject<T>(contentResponse);
-			
+
 		}
 	}
 }

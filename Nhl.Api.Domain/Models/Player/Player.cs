@@ -188,7 +188,7 @@ namespace Nhl.Api.Models.Player
 						return $"{PlayerConstants.PlayerHeadshotImageLink}{Id}@2x.png";
 					case PlayerHeadshotImageSize.Large:
 						return $"{PlayerConstants.PlayerHeadshotImageLink}{Id}@3x.png";
-				} 
+				}
 			}
 
 			return null;
