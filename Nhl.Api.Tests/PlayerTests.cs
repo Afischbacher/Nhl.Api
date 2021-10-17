@@ -222,10 +222,10 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act / Assert
-			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>(async () =>
+			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>((System.Func<Task>)(async () =>
 			{
-				await nhlApi.GetPlayerStatisticsBySeasonAsync(PlayerEnum.CraigAnderson8467950, SeasonYear.season20192020);
-			});
+				await nhlApi.GetPlayerStatisticsBySeasonAsync((Models.Enumerations.Player.PlayerEnum)Models.Enumerations.Player.PlayerEnum.CraigAnderson8467950, (string)SeasonYear.season20192020);
+			}));
 		}
 
 		[TestMethod]
@@ -347,10 +347,10 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act / Assert
-			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>(async () =>
+			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>((System.Func<Task>)(async () =>
 			{
-				await nhlApi.GetGoalieStatisticsBySeasonAsync(PlayerEnum.AlexOvechkin8471214, SeasonYear.season20192020);
-			});
+				await nhlApi.GetGoalieStatisticsBySeasonAsync((Models.Enumerations.Player.PlayerEnum)Models.Enumerations.Player.PlayerEnum.AlexOvechkin8471214, (string)SeasonYear.season20192020);
+			}));
 		}
 
 		[TestMethod]

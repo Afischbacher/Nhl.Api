@@ -23,7 +23,7 @@ namespace Nhl.Api.Common.Http
 					{
 						_httpClient = new HttpClient
 						{
-							BaseAddress = new Uri("https://statsapi.web.nhl.com/api/v1"),
+							BaseAddress = new Uri($"https://statsapi.web.nhl.com/api/{ClientVersion}"),
 							Timeout = Timeout
 						};
 					}
@@ -37,6 +37,11 @@ namespace Nhl.Api.Common.Http
 		/// The timeout for HTTP requests for the NHL API, default value is 30 seconds
 		/// </summary>
 		public static TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(30);
+
+		/// <summary>
+		/// The client version for HTTP requests for the NHL API, default value is v1
+		/// </summary>
+		public static string ClientVersion { get; set; } = "v1";
 
 		/// <summary>
 		/// Performs a HTTP GET request

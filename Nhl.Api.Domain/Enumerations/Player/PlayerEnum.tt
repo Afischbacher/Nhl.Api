@@ -14,7 +14,10 @@
 <#@ import namespace="Nhl.Api" #>
 <#@ import namespace="Nhl.Api.Domain.Models.Team" #>
 <#@ import namespace="Nhl.Api.Domain.Models.League" #>
+<#@ import namespace="Nhl.Api.Domain.Models.Player" #>
+<#@ import namespace="Nhl.Api.Models.Player" #>
 <#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Collections.Concurrent" #>
 <#@ output extension=".cs" #>
 
 namespace Nhl.Api.Models.Enumerations.Player
@@ -25,26 +28,25 @@ namespace Nhl.Api.Models.Enumerations.Player
 	public enum PlayerEnum
 	{
 	<#
-
 		var nhlApi = new NhlApi();
+		var players = new ConcurrentBag<Player>();
 
-		List<TeamRosterMember> teamRosterMembers = null;
-		Task.Run(() => teamRosterMembers = nhlApi.GetLeagueTeamRosterMembersAsync().Result).Wait();
-
-		var teamRosterMembersEnumValues = teamRosterMembers.Select(rosterMember => 
+		Parallel.For(8444850, 8486000, new ParallelOptions { MaxDegreeOfParallelism = 32 }, (i) => 
 		{
-			var playerId = Regex.Replace(rosterMember.Person.FullName, @"('|\.|\s|-|_|)","");
-			return new
+			try
 			{
-				PlayerId = playerId,
-				Id = rosterMember.Person.Id
-			};
+				Player playerObject = null;
+				Task.Run(() => playerObject = nhlApi.GetPlayerByIdAsync(i).Result).Wait();
+				if (playerObject == null) return;
+				players.Add(playerObject);
+			} catch {}
 		});
-	#>
+		
+		#>
 
-	<#foreach (var teamRosterMembersEnumValue in teamRosterMembersEnumValues)
-	{#>
-	<#= teamRosterMembersEnumValue.PlayerId #><#= teamRosterMembersEnumValue.Id#> = <#= teamRosterMembersEnumValue.Id#>,
-	<#}#>
-	}
+		<#foreach(var player in players)
+		{#>
+		<#= System.Text.RegularExpressions.Regex.Replace(player.FullName, @"('|\.|\s|-|_|)","")#><#=player.Id #> = <#= player.Id #>,
+		<#}#>
+}
 }

@@ -6,21 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-	<None Include="Enumerations\Player\PlayerEnum.cs">
-	  <DesignTime>True</DesignTime>
-	  <AutoGen>True</AutoGen>
-	  <DependentUpon>PlayerEnum.tt</DependentUpon>
-	</None>
-  </ItemGroup>
-
-  <ItemGroup>
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
 	<None Update="Enumerations\Player\PlayerEnum.tt">
-	  <Generator>TextTemplatingFileGenerator</Generator>
 	  <LastGenOutput>PlayerEnum.cs</LastGenOutput>
+	  <Generator>TextTemplatingFileGenerator</Generator>
 	</None>
   </ItemGroup>
 
@@ -44,6 +36,11 @@
 </ItemGroup>
 
 <ItemGroup>
+	<Compile Update="Enumerations\Player\PlayerEnum.cs">
+	  <DesignTime>True</DesignTime>
+	  <AutoGen>True</AutoGen>
+	  <DependentUpon>ActivePlayerEnum.tt</DependentUpon>
+	</Compile>
 	<Compile Update="Enumerations\Player\PlayerEnum.cs">
 	  <DesignTime>True</DesignTime>
 	  <AutoGen>True</AutoGen>

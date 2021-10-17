@@ -2,7 +2,8 @@
 namespace Nhl.Api.Domain.Enumerations.Venue
 {
 	/// <summary>
-	/// A collection of all NHL venues
+	/// A collection of all NHL venues <br/> 
+	/// <strong>Note:</strong> This is not a exhaustive list of all NHL arenas
 	/// </summary>
 	public enum VenueEnum
 	{

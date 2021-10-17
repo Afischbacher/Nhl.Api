@@ -34,11 +34,10 @@ using Nhl.Api.Common.Exceptions;
 namespace Nhl.Api
 {
 	/// <summary>
-	/// The Unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
+	/// The official unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
 	/// </summary>
 	public class NhlApi : INhlApi
 	{
-
 
 		/// <summary>
 		/// Returns all NHL franchises, including information such as team name, location and more
@@ -256,7 +255,30 @@ namespace Nhl.Api
 		/// <returns>A collection of all NHL players</returns>
 		public async Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersAsync()
 		{
-			return (await NhlApiHttpClient.GetAsync<LeagueRosters>($"/teams?expand=team.roster"))
+			return (await NhlApiHttpClient.GetAsync<LeagueRosters>("/teams?expand=team.roster"))
+				.Teams
+				.SelectMany(team => team.Roster.Roster)
+				.ToList();
+		}
+
+		/// <summary>
+		/// Returns all of the active NHL roster members 
+		/// <param name="seasonYear">A season year for the entire NHL roster, Example: 19971998, see <see cref="SeasonYear"/> for more information</param>
+		/// </summary>
+		/// <returns>A collection of all NHL players based on the season year provided</returns>
+		public async Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersAsync(string seasonYear)
+		{
+			if (string.IsNullOrEmpty(seasonYear))
+			{
+				throw new ArgumentNullException(nameof(seasonYear));
+			}
+
+			if (seasonYear.Length > 8)
+			{
+				throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+			}
+
+			return (await NhlApiHttpClient.GetAsync<LeagueRosters>($"/teams?expand=team.roster&season={seasonYear}"))
 				.Teams
 				.SelectMany(team => team.Roster.Roster)
 				.ToList();

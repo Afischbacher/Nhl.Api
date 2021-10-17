@@ -1,7 +1,10 @@
-﻿using System;
+﻿#region System
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+#endregion
 
+#region Nhl.Api
 using Nhl.Api.Domain.Enumerations.Franchise;
 using Nhl.Api.Domain.Enumerations.Venue;
 using Nhl.Api.Domain.Models.Player;
@@ -24,11 +27,12 @@ using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Models.Venue;
+#endregion
 
 namespace Nhl.Api
 {
 	/// <summary>
-	/// The Unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
+	/// The official unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
 	/// </summary>
 	public interface INhlApi
 	{
@@ -179,6 +183,13 @@ namespace Nhl.Api
 		/// </summary>
 		/// <returns>A collection of all NHL players</returns>
 		Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersAsync();
+
+		/// <summary>
+		/// Returns all of the active NHL roster members 
+		/// <param name="seasonYear">A season year for the entire NHL roster, Example: 19971998, see <see cref="SeasonYear"/> for more information</param>
+		/// </summary>
+		/// <returns>A collection of all NHL players based on the season year provided</returns>
+		Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersAsync(string seasonYear);
 
 		/// <summary>
 		/// Returns all of the active NHL players based on the search query provided
