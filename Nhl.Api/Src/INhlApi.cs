@@ -230,6 +230,7 @@ namespace Nhl.Api
 		/// <returns>A collection of all the in-depth NHL goalie statistics per season</returns>
 		Task<GoalieSeasonStatistics> GetGoalieStatisticsBySeasonAsync(PlayerEnum player, string seasonYear);
 
+
 		#endregion
 
 		#region Games

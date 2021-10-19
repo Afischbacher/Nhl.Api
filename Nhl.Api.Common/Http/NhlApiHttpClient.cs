@@ -41,7 +41,7 @@ namespace Nhl.Api.Common.Http
 		/// <summary>
 		/// The client version for HTTP requests for the NHL API, default value is v1
 		/// </summary>
-		public static string ClientVersion { get; set; } = "v1";
+		public static string ClientVersion { get; } = "v1";
 
 		/// <summary>
 		/// Performs a HTTP GET request
@@ -56,8 +56,9 @@ namespace Nhl.Api.Common.Http
 			}
 
 			var httpResponseMessage = await HttpClient.GetAsync($"{HttpClient.BaseAddress}{route}");
-
+			
 			var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
+			
 			return JsonConvert.DeserializeObject<T>(contentResponse);
 
 		}
