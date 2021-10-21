@@ -341,6 +341,7 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(statisticsSplits.GoalieStatisticsData.PowerPlayShots);
 		}
 
+		[Ignore]
 		[TestMethod]
 		public async Task TestSearchAllPlayersAsync()
 		{
@@ -368,7 +369,7 @@ namespace Nhl.Api.Tests
 
 		}
 
-
+		[Ignore]
 		[TestMethod]
 		public async Task TestSearchAllPlayersNoResultsAsync()
 		{
