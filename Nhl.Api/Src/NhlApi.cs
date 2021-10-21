@@ -285,10 +285,10 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
-		/// Returns all of the active NHL players based on the search query provided
+		/// Returns all of the active rostered NHL players based on the search query provided+
 		/// </summary>
 		/// <param name="query">An search term to find NHL players, Example: "Auston Matthews" or "Carey Pr.." or "John C" </param>
-		/// <returns>A collection of all NHL players based on the search query provided</returns>
+		/// <returns>A collection of all rostered and active NHL players based on the search query provided</returns>
 		public async Task<List<TeamRosterMember>> SearchLeagueTeamRosterMembersAsync(string query)
 		{
 			if (string.IsNullOrWhiteSpace(query))
@@ -302,6 +302,44 @@ namespace Nhl.Api
 				.Where(rosterMember => rosterMember.Person.FullName.ToLowerInvariant().Contains(query.ToLowerInvariant()))
 				.ToList();
 		}
+
+		/// <summary>
+		/// Returns any active or inactive NHL players based on the search query provided
+		/// </summary>
+		/// <param name="query">An search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
+		/// <returns>A collection of all NHL players based on the search query provided</returns>
+		public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query)
+		{
+			if (string.IsNullOrWhiteSpace(query))
+			{
+				return new List<PlayerSearchResult>();
+			}
+
+			var playerSearchResults = new List<PlayerSearchResult>();
+			var rawPlayerSearchResults = await NhlSuggestionApiHttpClient.GetAsync<List<string>>($"/minplayers/{query}");
+			foreach (var rawPlayerSearchResult in rawPlayerSearchResults)
+			{
+				var playerDataPoints = rawPlayerSearchResult.Split('|');
+				playerSearchResults.Add(new PlayerSearchResult
+				{
+					PlayerId = int.Parse(playerDataPoints[0]),
+					LastName = playerDataPoints[1],
+					FirstName = playerDataPoints[2],
+					Height = playerDataPoints[5],
+					Weight = playerDataPoints[6],
+					BirthCity = playerDataPoints[7],
+					BirthProvinceState = playerDataPoints[8],
+					BirthCountry = playerDataPoints[9],
+					BirthDate = DateTime.Parse(playerDataPoints[10]),
+					LastTeamOfPlay = playerDataPoints[11],
+					Position = playerDataPoints[12],
+					PlayerNumber = int.Parse(playerDataPoints[13]),
+				});
+			}
+
+			return playerSearchResults;
+		}
+
 
 		/// <summary>
 		/// Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data

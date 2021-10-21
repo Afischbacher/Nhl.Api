@@ -192,11 +192,18 @@ namespace Nhl.Api
 		Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersAsync(string seasonYear);
 
 		/// <summary>
-		/// Returns all of the active NHL players based on the search query provided
+		/// Returns all of the active rostered NHL players based on the search query provided+
 		/// </summary>
 		/// <param name="query">An search term to find NHL players, Example: "Auston Matthews" or "Carey Pr.." or "John C" </param>
-		/// <returns>A collection of all NHL players based on the search query provided</returns>
+		/// <returns>A collection of all rostered and active NHL players based on the search query provided</returns>
 		Task<List<TeamRosterMember>> SearchLeagueTeamRosterMembersAsync(string query);
+
+		/// <summary>
+		/// Returns any active or inactive NHL players based on the search query provided
+		/// </summary>
+		/// <param name="query">An search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
+		/// <returns>A collection of all NHL players based on the search query provided</returns>
+		Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query);
 
 		/// <summary>
 		/// Returns all of the NHL player statistics for a specific NHL season with insightful statistics and NHL game data

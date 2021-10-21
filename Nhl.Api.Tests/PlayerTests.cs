@@ -2,6 +2,7 @@
 using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Season;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -341,15 +342,58 @@ namespace Nhl.Api.Tests
 		}
 
 		[TestMethod]
+		public async Task TestSearchAllPlayersAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var results = await nhlApi.SearchAllPlayersAsync("Wayne Gretzky");
+
+			// Assert
+			Assert.IsNotNull(results);
+			CollectionAssert.AllItemsAreNotNull(results);
+
+			var playerSearchResult = results.First();
+
+			Assert.AreEqual("Brantford", playerSearchResult.BirthCity);
+			Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
+			Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
+			Assert.AreEqual(DateTime.Parse("1961-01-26"), playerSearchResult.BirthDate);
+			Assert.AreEqual("Wayne", playerSearchResult.FirstName);
+			Assert.AreEqual("Gretzky", playerSearchResult.LastName);
+			Assert.AreEqual("NYR", playerSearchResult.LastTeamOfPlay);
+			Assert.AreEqual("6\u0027 0\"", playerSearchResult.Height);
+			Assert.AreEqual(99, playerSearchResult.PlayerNumber);
+
+		}
+
+
+		[TestMethod]
+		public async Task TestSearchAllPlayersNoResultsAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var results = await nhlApi.SearchAllPlayersAsync("");
+
+			// Assert
+			Assert.IsNotNull(results);
+			Assert.AreEqual(0, results.Count);
+
+		}
+
+		[TestMethod]
 		public async Task TestGetGoalieStatisticsByTypeAndSeasonWithPlayerInvalidPlayerTypeAsync()
 		{
 			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
 			// Act / Assert
-			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>((System.Func<Task>)(async () =>
+			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>((async () =>
 			{
-				await nhlApi.GetGoalieStatisticsBySeasonAsync((Models.Enumerations.Player.PlayerEnum)Models.Enumerations.Player.PlayerEnum.AlexOvechkin8471214, (string)SeasonYear.season20192020);
+				await nhlApi.GetGoalieStatisticsBySeasonAsync(PlayerEnum.AlexOvechkin8471214, (string)SeasonYear.season20192020);
 			}));
 		}
 

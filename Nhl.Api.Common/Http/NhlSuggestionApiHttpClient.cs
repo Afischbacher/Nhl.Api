@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 namespace Nhl.Api.Common.Http
 {
 	/// <summary>
-	/// The dedicated NHL HTTP Client for the NHL API
+	/// The dedicated NHL HTTP Client for the NHL suggestion API
 	/// </summary>
-	public static class NhlApiHttpClient
+	public static class NhlSuggestionApiHttpClient
 	{
 		private static readonly object _lock = new object();
 		private static HttpClient _httpClient;
@@ -23,7 +23,7 @@ namespace Nhl.Api.Common.Http
 					{
 						_httpClient = new HttpClient
 						{
-							BaseAddress = new Uri($"{Client}/api/{ClientVersion}"),
+							BaseAddress = new Uri($"{Client}/svc/suggest/{ClientVersion}"),
 							Timeout = Timeout
 						};
 					}
@@ -34,24 +34,24 @@ namespace Nhl.Api.Common.Http
 		}
 
 		/// <summary>
-		/// The timeout for HTTP requests for the NHL API, default value is 30 seconds
+		/// The timeout for HTTP requests for the NHL suggestion API, default value is 30 seconds
 		/// </summary>
 		public static TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(30);
 
 		/// <summary>
-		/// The client version for HTTP requests for the NHL API, default value is v1
+		/// The client version for HTTP requests for the NHL suggestion API, default value is v1
 		/// </summary>
 		public static string ClientVersion { get; } = "v1";
 
 		/// <summary>
-		/// The official client for the NHL API
+		/// The official client for the NHL suggestion API
 		/// </summary>
-		public static string Client { get; } = "https://statsapi.web.nhl.com";
+		public static string Client { get; } = "https://suggest.svc.nhl.com";
 
 		/// <summary>
 		/// Performs a HTTP GET request
 		/// </summary>
-		/// <param name="route">The NHL API endpoint</param>
+		/// <param name="route">The NHL suggestion API endpoint</param>
 		/// <returns>The deserialized JSON payload of the generic type</returns>
 		public static async Task<T> GetAsync<T>(string route) where T : class, new()
 		{
