@@ -316,10 +316,16 @@ namespace Nhl.Api
 			}
 
 			var playerSearchResults = new List<PlayerSearchResult>();
-			var rawPlayerSearchResults = await NhlSuggestionApiHttpClient.GetAsync<List<string>>($"/minplayers/{query}");
-			foreach (var rawPlayerSearchResult in rawPlayerSearchResults)
+			var rawPlayerSearchResults = await NhlSuggestionApiHttpClient.GetAsync<PlayerSearchResponse>($"/minplayers/{query}");
+			foreach (var rawPlayerSearchResult in rawPlayerSearchResults.Suggestions)
 			{
 				var playerDataPoints = rawPlayerSearchResult.Split('|');
+
+				if (playerDataPoints.Count() < 15)
+				{
+					continue;
+				}
+		
 				playerSearchResults.Add(new PlayerSearchResult
 				{
 					PlayerId = int.Parse(playerDataPoints[0]),
