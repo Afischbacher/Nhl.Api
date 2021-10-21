@@ -319,28 +319,34 @@ namespace Nhl.Api
 			var rawPlayerSearchResults = await NhlSuggestionApiHttpClient.GetAsync<PlayerSearchResponse>($"/minplayers/{query}");
 			foreach (var rawPlayerSearchResult in rawPlayerSearchResults.Suggestions)
 			{
-				var playerDataPoints = rawPlayerSearchResult.Split('|');
+				try
+				{
+					var playerDataPoints = rawPlayerSearchResult.Split('|');
 
-				if (playerDataPoints.Count() < 15)
-				{
-					continue;
+					if (playerDataPoints.Count() < 15)
+					{
+						continue;
+					}
+
+					playerSearchResults.Add(new PlayerSearchResult
+					{
+						PlayerId = int.Parse(playerDataPoints[0]),
+						LastName = playerDataPoints[1],
+						FirstName = playerDataPoints[2],
+						Height = playerDataPoints[5],
+						Weight = playerDataPoints[6],
+						BirthCity = playerDataPoints[7],
+						BirthProvinceState = playerDataPoints[8],
+						BirthCountry = playerDataPoints[9],
+						BirthDate = DateTime.Parse(playerDataPoints[10]),
+						LastTeamOfPlay = playerDataPoints[11],
+						Position = playerDataPoints[12],
+						PlayerNumber = int.Parse(playerDataPoints[13]),
+					});
 				}
-		
-				playerSearchResults.Add(new PlayerSearchResult
+				catch
 				{
-					PlayerId = int.Parse(playerDataPoints[0]),
-					LastName = playerDataPoints[1],
-					FirstName = playerDataPoints[2],
-					Height = playerDataPoints[5],
-					Weight = playerDataPoints[6],
-					BirthCity = playerDataPoints[7],
-					BirthProvinceState = playerDataPoints[8],
-					BirthCountry = playerDataPoints[9],
-					BirthDate = DateTime.Parse(playerDataPoints[10]),
-					LastTeamOfPlay = playerDataPoints[11],
-					Position = playerDataPoints[12],
-					PlayerNumber = int.Parse(playerDataPoints[13]),
-				});
+				}
 			}
 
 			return playerSearchResults;
