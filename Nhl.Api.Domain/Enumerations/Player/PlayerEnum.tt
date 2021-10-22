@@ -23,30 +23,33 @@
 namespace Nhl.Api.Models.Enumerations.Player
 {
 	/// <summary>
-	/// A collection of all current NHL players
+	/// A collection of all NHL players
 	/// </summary>
 	public enum PlayerEnum
 	{
 	<#
-		var nhlApi = new NhlApi();
-		var players = new ConcurrentBag<Player>();
+	var nhlApi = new NhlApi();
+	var players = new ConcurrentBag<Player>();
 
-		Parallel.For(8444850, 8486000, new ParallelOptions { MaxDegreeOfParallelism = 32 }, (i) => 
+	Parallel.For(8444850, 8444850/*8486000*/, new ParallelOptions { MaxDegreeOfParallelism = 32 }, (i) => 
+	{
+		try
 		{
-			try
-			{
-				Player playerObject = null;
-				Task.Run(() => playerObject = nhlApi.GetPlayerByIdAsync(i).Result).Wait();
-				if (playerObject == null) return;
-				players.Add(playerObject);
-			} catch {}
-		});
+			Player playerObject = null;
+			Task.Run(() => playerObject = nhlApi.GetPlayerByIdAsync(i).Result).Wait();
+			if (playerObject == null) return;
+			players.Add(playerObject);
+		} catch 
+		{
+			throw;
+		}
+	});
 		
-		#>
+	#>
 
-		<#foreach(var player in players)
-		{#>
-		<#= System.Text.RegularExpressions.Regex.Replace(player.FullName, @"('|\.|\s|-|_|)","")#><#=player.Id #> = <#= player.Id #>,
-		<#}#>
+	<#foreach(var player in players)
+	{#>
+	<#= System.Text.RegularExpressions.Regex.Replace(player.FullName, @"('|\.|\s|-|_|)","")#><#=player.Id #> = <#= player.Id #>,
+	<#}#>
 }
 }
