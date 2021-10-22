@@ -341,15 +341,16 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(statisticsSplits.GoalieStatisticsData.PowerPlayShots);
 		}
 
-		[Ignore]
+		
 		[TestMethod]
-		public async Task TestSearchAllPlayersAsync()
+		[DataRow("Wayne Gretzky")]
+		public async Task TestSearchAllPlayersAsync(string query)
 		{
 			// Arrange
 			INhlApi nhlApi = new NhlApi();
 
 			// Act 
-			var results = await nhlApi.SearchAllPlayersAsync("Wayne Gretzky");
+			var results = await nhlApi.SearchAllPlayersAsync(query);
 
 			// Assert
 			Assert.IsNotNull(results);
@@ -369,7 +370,6 @@ namespace Nhl.Api.Tests
 
 		}
 
-		[Ignore]
 		[TestMethod]
 		public async Task TestSearchAllPlayersNoResultsAsync()
 		{
