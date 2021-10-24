@@ -224,7 +224,7 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act
-			var teamRosterMembers = await nhlApi.GetLeagueTeamRosterMembersAsync(seasonYear);
+			var teamRosterMembers = await nhlApi.GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear);
 
 			// Assert
 			CollectionAssert.AllItemsAreNotNull(teamRosterMembers);

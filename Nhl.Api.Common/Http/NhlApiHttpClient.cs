@@ -5,55 +5,55 @@ using System.Threading.Tasks;
 
 namespace Nhl.Api.Common.Http
 {
-	/// <summary>
-	/// The dedicated NHL HTTP Client for the NHL API
-	/// </summary>
-	public static class NhlApiHttpClient
+	public interface INhlApiHttpClient
 	{
-		private static readonly object _lock = new object();
-		private static HttpClient _httpClient;
+		/// <summary>
+		/// Performs a HTTP GET request
+		/// </summary>
+		/// <param name="route">The NHL  API endpoint</param>
+		/// <returns>The deserialized JSON payload of the generic type</returns>
+		Task<T> GetAsync<T>(string route) where T : class, new();
 
-		private static HttpClient HttpClient
+		HttpClient HttpClient { get; }
+	}
+
+	public class NhlApiHttpClient : INhlApiHttpClient
+	{
+		private readonly object _lock = new object();
+		private static HttpClient _httpClient = new HttpClient();
+		public NhlApiHttpClient(string clientApiUri, string clientVersion, int timeoutInSeconds = 30)
 		{
-			get
-			{
-				lock (_lock)
-				{
-					if (_httpClient == null)
-					{
-						_httpClient = new HttpClient
-						{
-							BaseAddress = new Uri($"{Client}/api/{ClientVersion}"),
-							Timeout = Timeout
-						};
-					}
-
-					return _httpClient;
-				}
-			}
+			Client = clientApiUri;
+			ClientVersion = clientVersion;
+			Timeout = TimeSpan.FromSeconds(timeoutInSeconds);
 		}
 
 		/// <summary>
-		/// The timeout for HTTP requests for the NHL API, default value is 30 seconds
+		/// The HTTP Client for the NHL API
 		/// </summary>
-		public static TimeSpan Timeout { get; set; } = TimeSpan.FromSeconds(30);
+		public virtual HttpClient HttpClient { get; }
 
 		/// <summary>
-		/// The client version for HTTP requests for the NHL API, default value is v1
+		/// The timeout for HTTP requests for the NHL API
 		/// </summary>
-		public static string ClientVersion { get; } = "v1";
+		public TimeSpan Timeout { get; private set; }
+
+		/// <summary>
+		/// The client version for HTTP requests for the NHL API
+		/// </summary>
+		public string ClientVersion { get; private set; }
 
 		/// <summary>
 		/// The official client for the NHL API
 		/// </summary>
-		public static string Client { get; } = "https://statsapi.web.nhl.com";
+		public string Client { get; private set; }
 
 		/// <summary>
-		/// Performs a HTTP GET request
+		/// Performs a HTTP GET request with a generic argument as the model or type to be returned
 		/// </summary>
 		/// <param name="route">The NHL API endpoint</param>
 		/// <returns>The deserialized JSON payload of the generic type</returns>
-		public static async Task<T> GetAsync<T>(string route) where T : class, new()
+		public async Task<T> GetAsync<T>(string route) where T : class, new()
 		{
 			if (string.IsNullOrWhiteSpace(route))
 			{

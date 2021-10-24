@@ -4,20 +4,22 @@ using System.Net.Http;
 namespace Nhl.Api.Common.Http
 {
 	/// <summary>
-	/// The dedicated NHL HTTP Client for the NHL suggestion API
+	/// The dedicated NHL statistics HTTP Client for the NHL API
 	/// </summary>
-
-	public class NhlSuggestionApiHttpClient : NhlApiHttpClient
+	public class NhlStatsApiHttpClient : NhlApiHttpClient
 	{
 		private static readonly object _lock = new object();
 		private HttpClient _httpClient;
-		public NhlSuggestionApiHttpClient() : base(clientApiUri: "https://suggest.svc.nhl.com/svc/suggest/", clientVersion: "v1", timeoutInSeconds: 30)
+		public NhlStatsApiHttpClient() : base(clientApiUri: "https://statsapi.web.nhl.com/api/", clientVersion: "v1", timeoutInSeconds: 30)
 		{
 		}
 
-		public override HttpClient HttpClient 
+		/// <summary>
+		/// The HTTP client for the NHL API
+		/// </summary>
+		public override HttpClient HttpClient
 		{
-			get 
+			get
 			{
 				lock (_lock)
 				{

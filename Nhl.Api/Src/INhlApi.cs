@@ -185,11 +185,11 @@ namespace Nhl.Api
 		Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersAsync();
 
 		/// <summary>
-		/// Returns all of the active NHL roster members 
-		/// <param name="seasonYear">A season year for the entire NHL roster, Example: 19971998, see <see cref="SeasonYear"/> for more information</param>
+		/// Returns all of the active NHL roster members by a season year 
 		/// </summary>
+		/// <param name="seasonYear">A season year for the entire NHL roster, Example: 19971998, see <see cref="SeasonYear"/> for more information</param>
 		/// <returns>A collection of all NHL players based on the season year provided</returns>
-		Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersAsync(string seasonYear);
+		Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersBySeasonYearAsync(string seasonYear);
 
 		/// <summary>
 		/// Returns all of the active rostered NHL players based on the search query provided+
