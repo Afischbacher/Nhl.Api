@@ -1,5 +1,4 @@
-﻿
-namespace Nhl.Api.Domain.Models.Common
+﻿namespace Nhl.Api.Models.Common
 {
 
 	/// <summary>

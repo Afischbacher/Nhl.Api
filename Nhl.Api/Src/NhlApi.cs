@@ -17,19 +17,18 @@ using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Models.Venue;
 using Nhl.Api.Common.Http;
-using Nhl.Api.Domain.Models.League;
-using Nhl.Api.Domain.Models.Team;
 using Nhl.Api.Models.Enumerations.Player;
-using Nhl.Api.Domain.Enumerations.Franchise;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Enumerations.Division;
 using Nhl.Api.Models.Enumerations.Conference;
 using Nhl.Api.Models.Enumerations.Award;
-using Nhl.Api.Domain.Enumerations.Venue;
-using Nhl.Api.Domain.Enumerations.Player;
-using Nhl.Api.Domain.Models.Player;
+using Nhl.Api.Models.Enumerations.Venue;
+using Nhl.Api.Models.League;
+using Nhl.Api.Models.Enumerations.Franchise;
+
 using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Exceptions;
+
 
 namespace Nhl.Api
 {
@@ -95,7 +94,7 @@ namespace Nhl.Api
 		/// <returns> An NHL franchise, see <see cref="Franchise"/> for more information</returns>
 		public async Task<Franchise> GetFranchiseByIdAsync(FranchiseEnum franchise)
 		{
-			return (await _nhlStatsApiHttpClient.GetAsync<LegaueFranchises>($"/franchises/{((int)franchise)}"))
+			return (await _nhlStatsApiHttpClient.GetAsync<LegaueFranchises>($"/franchises/{(int)franchise}"))
 			.Franchises
 			.SingleOrDefault();
 		}

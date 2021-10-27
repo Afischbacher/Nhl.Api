@@ -5,9 +5,6 @@ using System.Threading.Tasks;
 #endregion
 
 #region Nhl.Api
-using Nhl.Api.Domain.Enumerations.Franchise;
-using Nhl.Api.Domain.Enumerations.Venue;
-using Nhl.Api.Domain.Models.Player;
 using Nhl.Api.Domain.Models.Team;
 using Nhl.Api.Models.Award;
 using Nhl.Api.Models.Conference;
@@ -16,8 +13,10 @@ using Nhl.Api.Models.Draft;
 using Nhl.Api.Models.Enumerations.Award;
 using Nhl.Api.Models.Enumerations.Conference;
 using Nhl.Api.Models.Enumerations.Division;
+using Nhl.Api.Models.Enumerations.Franchise;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Enumerations.Venue;
 using Nhl.Api.Models.Event;
 using Nhl.Api.Models.Franchise;
 using Nhl.Api.Models.Game;

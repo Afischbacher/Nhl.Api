@@ -1,4 +1,4 @@
-﻿namespace Nhl.Api.Domain.Enumerations.Franchise
+﻿namespace Nhl.Api.Models.Enumerations.Franchise
 {
 	/// <summary>
 	/// An enumeration of all NHL franchises

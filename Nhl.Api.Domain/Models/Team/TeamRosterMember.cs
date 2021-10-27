@@ -1,9 +1,8 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Enumerations.Player;
-using Nhl.Api.Domain.Models.Player;
+using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Player;
 
-namespace Nhl.Api.Domain.Models.Team
+namespace Nhl.Api.Models.Team
 {
 	public class TeamRosterMember
 	{

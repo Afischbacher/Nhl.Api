@@ -49,9 +49,9 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(player.Link);
 			Assert.IsNotNull(player.PlayerHeadshotImageLink);
 
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Small));
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Medium));
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Large));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Small));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Medium));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large));
 
 
 		}
@@ -94,9 +94,9 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(player.Link);
 			Assert.IsNotNull(player.PlayerHeadshotImageLink);
 
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Small));
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Medium));
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Large));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Small));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Medium));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large));
 		}
 
 		[TestMethod]

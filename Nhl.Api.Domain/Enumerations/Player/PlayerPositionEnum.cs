@@ -1,4 +1,4 @@
-﻿namespace Nhl.Api.Domain.Enumerations.Player
+﻿namespace Nhl.Api.Models.Enumerations.Player
 {
 	/// <summary>
 	/// An enumeration for all NHL player positions
