@@ -1,0 +1,85 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.0\Nhl.Api.dll" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.0\Nhl.Api.Domain.dll" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll" #>
+<#@ assembly name="NetStandard" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Threading.Tasks" #>
+<#@ import namespace="Newtonsoft.Json" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="Nhl.Api" #>
+<#@ import namespace="Nhl.Api.Models.Venue" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Collections.Concurrent" #>
+<#@ output extension=".cs" #>
+namespace Nhl.Api.Models.Enumerations.Venue
+{
+	/// <summary>
+	/// A collection of all NHL venues <br/>
+	/// <strong>Note:</strong> The Seattle Kraken's Climate Pledge Arena is missing from this list 
+	/// </summary>
+	public enum VenueEnum
+	{
+	<#
+		var nhlApi = new NhlApi();
+		var venues = new ConcurrentBag<LeagueVenue>();
+		var nhlVenueIds = new [] 
+		{
+			5034,
+			5145,
+			5026,
+			5027,
+			5028,
+			5054,
+			5039,
+			5081,
+			5030,
+			5031,
+			5058,
+			5059,
+			5072,
+			5073,
+			5074,
+			5075,
+			5076,
+			5100,
+			5043,
+			5046,
+			5047,
+			5172,
+			5178,
+			5085,
+			5064,
+			5066,
+			5092,
+			5094,
+			5096,
+			5098,
+			5017,
+			5019
+		};
+
+		Parallel.ForEach(nhlVenueIds, new ParallelOptions { MaxDegreeOfParallelism = 32 }, (i) => 
+		{
+			try
+			{
+				LeagueVenue venueObject = null;
+				Task.Run(() => venueObject = nhlApi.GetLeagueVenueByIdAsync(i).Result).Wait();
+				if (venueObject == null) return;
+				venues.Add(venueObject);
+			} catch 
+			{
+			}
+		});
+		
+	#>
+
+	<#foreach(var venue in venues)
+	{#>
+	<#= System.Text.RegularExpressions.Regex.Replace(venue.Name, @"('|\.|\s|-|_|&)","")#> = <#= venue.Id #>,
+	<#}#>
+
+	}
+}

@@ -49,7 +49,7 @@ namespace Nhl.Api.Models.Enumerations.Player
 
 	<#foreach(var player in players)
 	{#>
-	<#= System.Text.RegularExpressions.Regex.Replace(player.FullName, @"('|\.|\s|-|_|)","")#><#=player.Id #> = <#= player.Id #>,
+	<#= System.Text.RegularExpressions.Regex.Replace(player.FullName, @"('|\.|\s|-|_|&|)","")#><#=player.Id #> = <#= player.Id #>,
 	<#}#>
 }
 }
