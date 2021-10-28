@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Domain.Models.Team;
 
 namespace Nhl.Api.Models.Team
 {

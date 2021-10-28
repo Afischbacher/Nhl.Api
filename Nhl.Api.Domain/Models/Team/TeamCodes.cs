@@ -1,5 +1,5 @@
 ﻿
-namespace Nhl.Api.Domain.Models.Team
+namespace Nhl.Api.Models.Team
 {
 	/// <summary>
 	/// All of the NHL team 3 character identifiers

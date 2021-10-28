@@ -1,4 +1,5 @@
 ﻿using System;
+using Nhl.Api.Models.Team;
 
 namespace Nhl.Api.Models.Player
 {
@@ -53,13 +54,19 @@ namespace Nhl.Api.Models.Player
 		public string BirthCountry { get; set; }
 
 		/// <summary>
+		/// Is the player currently active in the NHL
+		/// </summary>
+		public bool IsActive { get; set; }
+
+		/// <summary>
 		/// Date of birth for the NHL player <br/>
 		/// Example: 1961-01-26
 		/// </summary>
 		public DateTime BirthDate { get; set; }
 
 		/// <summary>
-		/// The 3 digit code for the NHL team the NHL player played for <br/>
+		/// The 3 letter code for the NHL team the NHL player played with <br/>
+		/// See <see cref="TeamCodes"/> for more information on 3 letter codes<br/>
 		/// Example: NYR
 		/// </summary>
 		public string LastTeamOfPlay { get; set; }

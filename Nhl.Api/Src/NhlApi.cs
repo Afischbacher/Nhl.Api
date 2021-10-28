@@ -16,7 +16,6 @@ using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Models.Venue;
-using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Enumerations.Division;
@@ -28,6 +27,7 @@ using Nhl.Api.Models.Enumerations.Franchise;
 
 using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Exceptions;
+using Nhl.Api.Common.Http;
 
 
 namespace Nhl.Api
@@ -334,6 +334,7 @@ namespace Nhl.Api
 						PlayerId = int.Parse(playerDataPoints[0]),
 						LastName = playerDataPoints[1],
 						FirstName = playerDataPoints[2],
+						IsActive = int.Parse(playerDataPoints[3]) == 1,
 						Height = playerDataPoints[5],
 						Weight = playerDataPoints[6],
 						BirthCity = playerDataPoints[7],

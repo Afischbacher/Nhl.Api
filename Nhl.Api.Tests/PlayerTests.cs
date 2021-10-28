@@ -344,6 +344,8 @@ namespace Nhl.Api.Tests
 		
 		[TestMethod]
 		[DataRow("Wayne Gretzky")]
+		[DataRow("Alex Ovechkin")]
+		[DataRow("Connor McDavid")]
 		public async Task TestSearchAllPlayersAsync(string query)
 		{
 			// Arrange
@@ -358,15 +360,46 @@ namespace Nhl.Api.Tests
 
 			var playerSearchResult = results.First();
 
-			Assert.AreEqual("Brantford", playerSearchResult.BirthCity);
-			Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
-			Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
-			Assert.AreEqual(DateTime.Parse("1961-01-26"), playerSearchResult.BirthDate);
-			Assert.AreEqual("Wayne", playerSearchResult.FirstName);
-			Assert.AreEqual("Gretzky", playerSearchResult.LastName);
-			Assert.AreEqual("NYR", playerSearchResult.LastTeamOfPlay);
-			Assert.AreEqual("6\u0027 0\"", playerSearchResult.Height);
-			Assert.AreEqual(99, playerSearchResult.PlayerNumber);
+			switch (query)
+			{
+				case "Wayne Gretzky":
+					Assert.AreEqual("Brantford", playerSearchResult.BirthCity);
+					Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
+					Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
+					Assert.AreEqual(DateTime.Parse("1961-01-26"), playerSearchResult.BirthDate);
+					Assert.AreEqual("Wayne", playerSearchResult.FirstName);
+					Assert.AreEqual("Gretzky", playerSearchResult.LastName);
+					Assert.AreEqual("NYR", playerSearchResult.LastTeamOfPlay);
+					Assert.AreEqual("6\u0027 0\"", playerSearchResult.Height);
+					Assert.AreEqual(false, playerSearchResult.IsActive);
+					Assert.AreEqual(99, playerSearchResult.PlayerNumber);
+					break;
+				case "Alex Ovechkin":
+					Assert.AreEqual("Moscow", playerSearchResult.BirthCity);
+					Assert.AreEqual("RUS", playerSearchResult.BirthCountry);
+					Assert.AreEqual("", playerSearchResult.BirthProvinceState);
+					Assert.AreEqual(DateTime.Parse("1985-09-17"), playerSearchResult.BirthDate);
+					Assert.AreEqual("Alex", playerSearchResult.FirstName);
+					Assert.AreEqual("Ovechkin", playerSearchResult.LastName);
+					Assert.AreEqual(true, playerSearchResult.IsActive);
+					Assert.AreEqual("WSH", playerSearchResult.LastTeamOfPlay);
+					Assert.AreEqual("6\u0027 3\"", playerSearchResult.Height);
+					Assert.AreEqual(8, playerSearchResult.PlayerNumber);
+					break;
+
+				case "Connor McDavid":
+					Assert.AreEqual("Richmond Hill", playerSearchResult.BirthCity);
+					Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
+					Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
+					Assert.AreEqual(DateTime.Parse("1997-01-13"), playerSearchResult.BirthDate);
+					Assert.AreEqual("Connor", playerSearchResult.FirstName);
+					Assert.AreEqual("McDavid", playerSearchResult.LastName);
+					Assert.AreEqual(true, playerSearchResult.IsActive);
+					Assert.AreEqual("EDM", playerSearchResult.LastTeamOfPlay);
+					Assert.AreEqual("6\u0027 1\"", playerSearchResult.Height);
+					Assert.AreEqual(97, playerSearchResult.PlayerNumber);
+					break;
+			}
 
 		}
 

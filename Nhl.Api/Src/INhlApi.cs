@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 #endregion
 
 #region Nhl.Api
-using Nhl.Api.Domain.Models.Team;
 using Nhl.Api.Models.Award;
 using Nhl.Api.Models.Conference;
 using Nhl.Api.Models.Division;
