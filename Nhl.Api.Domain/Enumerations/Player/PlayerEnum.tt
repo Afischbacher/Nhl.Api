@@ -31,7 +31,7 @@ namespace Nhl.Api.Models.Enumerations.Player
 	var nhlApi = new NhlApi();
 	var players = new ConcurrentBag<Player>();
 
-	Parallel.For(8444850, 84870000, new ParallelOptions { MaxDegreeOfParallelism = 32 }, (i) => 
+	Parallel.For(8444850, 8487000, new ParallelOptions { MaxDegreeOfParallelism = 32 }, (i) => 
 	{
 		try
 		{
