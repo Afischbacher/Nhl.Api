@@ -71,6 +71,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetLeagueStandingTypesAsync()](#M-Nhl-Api-NhlApi-GetLeagueStandingTypesAsync 'Nhl.Api.NhlApi.GetLeagueStandingTypesAsync')
   - [GetLeagueStandingsAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueStandingsAsync-System-Nullable{System-DateTime}- 'Nhl.Api.NhlApi.GetLeagueStandingsAsync(System.Nullable{System.DateTime})')
   - [GetLeagueTeamRosterMembersAsync()](#M-Nhl-Api-NhlApi-GetLeagueTeamRosterMembersAsync 'Nhl.Api.NhlApi.GetLeagueTeamRosterMembersAsync')
+  - [GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear)](#M-Nhl-Api-NhlApi-GetLeagueTeamRosterMembersBySeasonYearAsync-System-String- 'Nhl.Api.NhlApi.GetLeagueTeamRosterMembersBySeasonYearAsync(System.String)')
   - [GetLeagueVenueByIdAsync(venueId)](#M-Nhl-Api-NhlApi-GetLeagueVenueByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetLeagueVenueByIdAsync(System.Int32)')
   - [GetLeagueVenueByIdAsync(venue)](#M-Nhl-Api-NhlApi-GetLeagueVenueByIdAsync-Nhl-Api-Domain-Enumerations-Venue-VenueEnum- 'Nhl.Api.NhlApi.GetLeagueVenueByIdAsync(Nhl.Api.Domain.Enumerations.Venue.VenueEnum)')
   - [GetLeagueVenuesAsync()](#M-Nhl-Api-NhlApi-GetLeagueVenuesAsync 'Nhl.Api.NhlApi.GetLeagueVenuesAsync')
@@ -89,6 +90,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetTeamStatisticsByIdAsync(team,seasonYear)](#M-Nhl-Api-NhlApi-GetTeamStatisticsByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String- 'Nhl.Api.NhlApi.GetTeamStatisticsByIdAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.String)')
   - [GetTeamsAsync()](#M-Nhl-Api-NhlApi-GetTeamsAsync 'Nhl.Api.NhlApi.GetTeamsAsync')
   - [GetTournamentTypesAsync()](#M-Nhl-Api-NhlApi-GetTournamentTypesAsync 'Nhl.Api.NhlApi.GetTournamentTypesAsync')
+  - [SearchAllPlayersAsync(query)](#M-Nhl-Api-NhlApi-SearchAllPlayersAsync-System-String- 'Nhl.Api.NhlApi.SearchAllPlayersAsync(System.String)')
   - [SearchLeagueTeamRosterMembersAsync(query)](#M-Nhl-Api-NhlApi-SearchLeagueTeamRosterMembersAsync-System-String- 'Nhl.Api.NhlApi.SearchLeagueTeamRosterMembersAsync(System.String)')
 
 
@@ -101,7 +103,7 @@ Nhl.Api
 
 ##### Summary
 
-The Unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
+The official unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
 
 <a name='M-Nhl-Api-NhlApi-GetActiveFranchisesAsync'></a>
 ### GetActiveFranchisesAsync() `method`
@@ -386,7 +388,7 @@ This method has no parameters.
 
 ##### Summary
 
-Returns all of the NHL goalie statistics for a specific NHL season with insightful statistics and NHL game data
+Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
 
 ##### Returns
 
@@ -404,7 +406,7 @@ A collection of all the in-depth NHL goalie statistics per season
 
 ##### Summary
 
-Returns all of the NHL goalie statistics for a specific NHL season with insightful statistics and NHL game data
+Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
 
 ##### Returns
 
@@ -576,6 +578,23 @@ A collection of all NHL players
 
 This method has no parameters.
 
+<a name='M-Nhl-Api-NhlApi-GetLeagueTeamRosterMembersBySeasonYearAsync-System-String-'></a>
+### GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear) `method`
+
+##### Summary
+
+Returns all of the active NHL roster members by a season year
+
+##### Returns
+
+A collection of all NHL players based on the season year provided
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A season year for the entire NHL roster, Example: 19971998, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
 <a name='M-Nhl-Api-NhlApi-GetLeagueVenueByIdAsync-System-Int32-'></a>
 ### GetLeagueVenueByIdAsync(venueId) `method`
 
@@ -681,7 +700,7 @@ An NHL player profile, see [Player](#T-Nhl-Api-Models-Player-Player 'Nhl.Api.Mod
 
 ##### Summary
 
-Returns all of the NHL player statistics for a specific NHL season with insightful statistics and NHL game data
+Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
 
 ##### Returns
 
@@ -699,7 +718,7 @@ A collection of all the in-depth NHL player statistics by type
 
 ##### Summary
 
-Returns all of the NHL player statistics for a specific NHL season with insightful statistics and NHL game data
+Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
 
 ##### Returns
 
@@ -875,12 +894,12 @@ A collection of tournament types, see [TournamentType](#T-Nhl-Api-Models-Game-To
 
 This method has no parameters.
 
-<a name='M-Nhl-Api-NhlApi-SearchLeagueTeamRosterMembersAsync-System-String-'></a>
-### SearchLeagueTeamRosterMembersAsync(query) `method`
+<a name='M-Nhl-Api-NhlApi-SearchAllPlayersAsync-System-String-'></a>
+### SearchAllPlayersAsync(query) `method`
 
 ##### Summary
 
-Returns all of the active NHL players based on the search query provided
+Returns any active or inactive NHL players based on the search query provided
 
 ##### Returns
 
@@ -890,8 +909,24 @@ A collection of all NHL players based on the search query provided
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An search term to find NHL players, Example: "Auston Matthews" or "Carey Pr.." or "John C" |
+| query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" |
 
+<a name='M-Nhl-Api-NhlApi-SearchLeagueTeamRosterMembersAsync-System-String-'></a>
+### SearchLeagueTeamRosterMembersAsync(query) `method`
+
+##### Summary
+
+Returns all of the active rostered NHL players based on the search query provided+
+
+##### Returns
+
+A collection of all rostered and active NHL players based on the search query provided
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An search term to find NHL players, Example: "Auston Matthews" or "Carey Pr.." or "John C" |
 
 ## Bugs 🐛
 If you have any issues with the library or suggestions, please feel free to create an issue and it will be adressed as soon as possible :)

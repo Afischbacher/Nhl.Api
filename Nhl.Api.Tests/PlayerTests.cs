@@ -2,6 +2,7 @@
 using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Season;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -48,9 +49,9 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(player.Link);
 			Assert.IsNotNull(player.PlayerHeadshotImageLink);
 
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Small));
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Medium));
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Large));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Small));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Medium));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large));
 
 
 		}
@@ -93,9 +94,9 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(player.Link);
 			Assert.IsNotNull(player.PlayerHeadshotImageLink);
 
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Small));
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Medium));
-			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(Domain.Enumerations.Player.PlayerHeadshotImageSize.Large));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Small));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Medium));
+			Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large));
 		}
 
 		[TestMethod]
@@ -222,10 +223,10 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act / Assert
-			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>(async () =>
+			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>((System.Func<Task>)(async () =>
 			{
-				await nhlApi.GetPlayerStatisticsBySeasonAsync(PlayerEnum.CraigAnderson8467950, SeasonYear.season20192020);
-			});
+				await nhlApi.GetPlayerStatisticsBySeasonAsync((Models.Enumerations.Player.PlayerEnum)Models.Enumerations.Player.PlayerEnum.CraigAnderson8467950, (string)SeasonYear.season20192020);
+			}));
 		}
 
 		[TestMethod]
@@ -340,6 +341,83 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(statisticsSplits.GoalieStatisticsData.PowerPlayShots);
 		}
 
+		
+		[TestMethod]
+		[DataRow("Wayne Gretzky")]
+		[DataRow("Alex Ovechkin")]
+		[DataRow("Connor McDavid")]
+		public async Task TestSearchAllPlayersAsync(string query)
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var results = await nhlApi.SearchAllPlayersAsync(query);
+
+			// Assert
+			Assert.IsNotNull(results);
+			CollectionAssert.AllItemsAreNotNull(results);
+
+			var playerSearchResult = results.First();
+
+			switch (query)
+			{
+				case "Wayne Gretzky":
+					Assert.AreEqual("Brantford", playerSearchResult.BirthCity);
+					Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
+					Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
+					Assert.AreEqual(DateTime.Parse("1961-01-26"), playerSearchResult.BirthDate);
+					Assert.AreEqual("Wayne", playerSearchResult.FirstName);
+					Assert.AreEqual("Gretzky", playerSearchResult.LastName);
+					Assert.AreEqual("NYR", playerSearchResult.LastTeamOfPlay);
+					Assert.AreEqual("6\u0027 0\"", playerSearchResult.Height);
+					Assert.AreEqual(false, playerSearchResult.IsActive);
+					Assert.AreEqual(99, playerSearchResult.PlayerNumber);
+					break;
+				case "Alex Ovechkin":
+					Assert.AreEqual("Moscow", playerSearchResult.BirthCity);
+					Assert.AreEqual("RUS", playerSearchResult.BirthCountry);
+					Assert.AreEqual("", playerSearchResult.BirthProvinceState);
+					Assert.AreEqual(DateTime.Parse("1985-09-17"), playerSearchResult.BirthDate);
+					Assert.AreEqual("Alex", playerSearchResult.FirstName);
+					Assert.AreEqual("Ovechkin", playerSearchResult.LastName);
+					Assert.AreEqual(true, playerSearchResult.IsActive);
+					Assert.AreEqual("WSH", playerSearchResult.LastTeamOfPlay);
+					Assert.AreEqual("6\u0027 3\"", playerSearchResult.Height);
+					Assert.AreEqual(8, playerSearchResult.PlayerNumber);
+					break;
+
+				case "Connor McDavid":
+					Assert.AreEqual("Richmond Hill", playerSearchResult.BirthCity);
+					Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
+					Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
+					Assert.AreEqual(DateTime.Parse("1997-01-13"), playerSearchResult.BirthDate);
+					Assert.AreEqual("Connor", playerSearchResult.FirstName);
+					Assert.AreEqual("McDavid", playerSearchResult.LastName);
+					Assert.AreEqual(true, playerSearchResult.IsActive);
+					Assert.AreEqual("EDM", playerSearchResult.LastTeamOfPlay);
+					Assert.AreEqual("6\u0027 1\"", playerSearchResult.Height);
+					Assert.AreEqual(97, playerSearchResult.PlayerNumber);
+					break;
+			}
+
+		}
+
+		[TestMethod]
+		public async Task TestSearchAllPlayersNoResultsAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var results = await nhlApi.SearchAllPlayersAsync("");
+
+			// Assert
+			Assert.IsNotNull(results);
+			Assert.AreEqual(0, results.Count);
+
+		}
+
 		[TestMethod]
 		public async Task TestGetGoalieStatisticsByTypeAndSeasonWithPlayerInvalidPlayerTypeAsync()
 		{
@@ -347,10 +425,10 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act / Assert
-			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>(async () =>
+			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>((async () =>
 			{
-				await nhlApi.GetGoalieStatisticsBySeasonAsync(PlayerEnum.AlexOvechkin8471214, SeasonYear.season20192020);
-			});
+				await nhlApi.GetGoalieStatisticsBySeasonAsync(PlayerEnum.AlexOvechkin8471214, (string)SeasonYear.season20192020);
+			}));
 		}
 
 		[TestMethod]

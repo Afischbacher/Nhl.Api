@@ -1,17 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<Version>1.2.0</Version>
+	<Version>1.3.0</Version>
 	<TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-	<None Include="Enumerations\Player\PlayerEnum.cs">
-	  <DesignTime>True</DesignTime>
-	  <AutoGen>True</AutoGen>
-	  <DependentUpon>PlayerEnum.tt</DependentUpon>
-	</None>
-  </ItemGroup>
 
   <ItemGroup>
 	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
@@ -19,15 +11,18 @@
 
   <ItemGroup>
 	<None Update="Enumerations\Player\PlayerEnum.tt">
-	  <Generator>TextTemplatingFileGenerator</Generator>
 	  <LastGenOutput>PlayerEnum.cs</LastGenOutput>
+	  <Generator>TextTemplatingFileGenerator</Generator>
+	</None>
+	<None Update="Enumerations\Venue\VenueEnum.tt">
+	  <Generator>TextTemplatingFileGenerator</Generator>
+	  <LastGenOutput>VenueEnum.cs</LastGenOutput>
 	</None>
   </ItemGroup>
 
   <ItemGroup>
 	<Reference Include="netstandard" />
   </ItemGroup>
-
   <ItemGroup>
 	<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
@@ -48,6 +43,11 @@
 	  <DesignTime>True</DesignTime>
 	  <AutoGen>True</AutoGen>
 	  <DependentUpon>PlayerEnum.tt</DependentUpon>
+	</Compile>
+	<Compile Update="Enumerations\Venue\VenueEnum.cs">
+	  <DesignTime>True</DesignTime>
+	  <AutoGen>True</AutoGen>
+	  <DependentUpon>VenueEnum.tt</DependentUpon>
 	</Compile>
   </ItemGroup>
 

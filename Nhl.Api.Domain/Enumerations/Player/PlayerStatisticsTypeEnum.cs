@@ -1,6 +1,4 @@
-﻿
-
-namespace Nhl.Api.Domain.Enumerations.Player
+﻿namespace Nhl.Api.Models.Enumerations.Player
 {
 	/// <summary>
 	/// An enumeration of all the NHL player statistics

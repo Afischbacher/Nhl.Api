@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Nhl.Api.Domain.Models.Player
+namespace Nhl.Api.Models.Player
 {
 	public class GoalieStatisticsData
 	{

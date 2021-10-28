@@ -1,11 +1,10 @@
-﻿using System;
+﻿#region System
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+#endregion
 
-using Nhl.Api.Domain.Enumerations.Franchise;
-using Nhl.Api.Domain.Enumerations.Venue;
-using Nhl.Api.Domain.Models.Player;
-using Nhl.Api.Domain.Models.Team;
+#region Nhl.Api
 using Nhl.Api.Models.Award;
 using Nhl.Api.Models.Conference;
 using Nhl.Api.Models.Division;
@@ -13,8 +12,10 @@ using Nhl.Api.Models.Draft;
 using Nhl.Api.Models.Enumerations.Award;
 using Nhl.Api.Models.Enumerations.Conference;
 using Nhl.Api.Models.Enumerations.Division;
+using Nhl.Api.Models.Enumerations.Franchise;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Enumerations.Venue;
 using Nhl.Api.Models.Event;
 using Nhl.Api.Models.Franchise;
 using Nhl.Api.Models.Game;
@@ -24,11 +25,12 @@ using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Models.Venue;
+#endregion
 
 namespace Nhl.Api
 {
 	/// <summary>
-	/// The Unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
+	/// The official unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
 	/// </summary>
 	public interface INhlApi
 	{
@@ -181,11 +183,25 @@ namespace Nhl.Api
 		Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersAsync();
 
 		/// <summary>
-		/// Returns all of the active NHL players based on the search query provided
+		/// Returns all of the active NHL roster members by a season year 
+		/// </summary>
+		/// <param name="seasonYear">A season year for the entire NHL roster, Example: 19971998, see <see cref="SeasonYear"/> for more information</param>
+		/// <returns>A collection of all NHL players based on the season year provided</returns>
+		Task<List<TeamRosterMember>> GetLeagueTeamRosterMembersBySeasonYearAsync(string seasonYear);
+
+		/// <summary>
+		/// Returns all of the active rostered NHL players based on the search query provided+
 		/// </summary>
 		/// <param name="query">An search term to find NHL players, Example: "Auston Matthews" or "Carey Pr.." or "John C" </param>
-		/// <returns>A collection of all NHL players based on the search query provided</returns>
+		/// <returns>A collection of all rostered and active NHL players based on the search query provided</returns>
 		Task<List<TeamRosterMember>> SearchLeagueTeamRosterMembersAsync(string query);
+
+		/// <summary>
+		/// Returns any active or inactive NHL players based on the search query provided
+		/// </summary>
+		/// <param name="query">An search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
+		/// <returns>A collection of all NHL players based on the search query provided</returns>
+		Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query);
 
 		/// <summary>
 		/// Returns all of the NHL player statistics for a specific NHL season with insightful statistics and NHL game data
@@ -218,6 +234,7 @@ namespace Nhl.Api
 		/// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
 		/// <returns>A collection of all the in-depth NHL goalie statistics per season</returns>
 		Task<GoalieSeasonStatistics> GetGoalieStatisticsBySeasonAsync(PlayerEnum player, string seasonYear);
+
 
 		#endregion
 

@@ -97,7 +97,6 @@ namespace Nhl.Api.Tests
 		}
 
 		[TestMethod]
-		[Ignore("Currently the API endpoint is not correctly displaying data")]
 		public async Task TestGetPlayoffTournamentTypesAsync()
 		{
 			// Arrange
@@ -108,14 +107,6 @@ namespace Nhl.Api.Tests
 
 			// Assert
 			Assert.IsNotNull(playoffTournamentTypes);
-
-			foreach (var playoffTournamentRound in playoffTournamentTypes.Rounds)
-			{
-				Assert.IsNotNull(playoffTournamentRound.Code);
-				Assert.IsNotNull(playoffTournamentRound.Format);
-				Assert.IsNotNull(playoffTournamentRound.Names);
-				Assert.IsNotNull(playoffTournamentRound.Number);
-			}
 		}
 
 

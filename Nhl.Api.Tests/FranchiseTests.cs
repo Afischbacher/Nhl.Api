@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nhl.Api.Domain.Enumerations.Franchise;
+using Nhl.Api.Models.Enumerations.Franchise;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests

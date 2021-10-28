@@ -1,7 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -213,6 +213,35 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(teamRosterMember.Position.Name);
 
 		}
+
+		[DataTestMethod]
+		[DataRow(SeasonYear.season19171918)]
+		[DataRow(SeasonYear.season19971998)]
+		[DataRow(SeasonYear.season20202021)]
+		public async Task TestGetLeagueTeamRosterMembersWithSeasonAsync(string seasonYear)
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var teamRosterMembers = await nhlApi.GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear);
+
+			// Assert
+			CollectionAssert.AllItemsAreNotNull(teamRosterMembers);
+
+			var teamRosterMember = teamRosterMembers.First();
+			Assert.IsNotNull(teamRosterMember.JerseyNumber);
+			Assert.IsNotNull(teamRosterMember.Person);
+			Assert.IsNotNull(teamRosterMember.Person.FullName);
+			Assert.IsNotNull(teamRosterMember.Person.Id);
+			Assert.IsNotNull(teamRosterMember.Person.Link);
+			Assert.IsNotNull(teamRosterMember.Position);
+			Assert.IsNotNull(teamRosterMember.Position.Code);
+			Assert.IsNotNull(teamRosterMember.Position.Abbreviation);
+			Assert.IsNotNull(teamRosterMember.Position.Name);
+
+		}
+
 
 		[DataTestMethod]
 		[DataRow("Ovechkin")]
