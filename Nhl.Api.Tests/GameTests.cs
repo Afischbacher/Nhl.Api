@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -111,7 +112,7 @@ namespace Nhl.Api.Tests
 
 
 		[TestMethod]
-		public async Task TestGetGetGameScheduleByDateAsnyc()
+		public async Task TestGetGetGameScheduleByDateAsync()
 		{
 			// Arrange
 			INhlApi nhlApi = new NhlApi();
@@ -139,10 +140,12 @@ namespace Nhl.Api.Tests
 
 
 		[TestMethod]
-		public async Task TestGetGetGameScheduleByDateNotNullAsnyc()
+		public async Task TestGetGetGameScheduleByDateNotNullAsync()
 		{
 			// Arrange
 			INhlApi nhlApi = new NhlApi();
+
+			var test = await nhlApi.GetGameScheduleByDateAsync(DateTime.Now);
 
 			// Act
 			var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(DateTime.Parse("2020-01-29"));
@@ -166,7 +169,7 @@ namespace Nhl.Api.Tests
 		}
 
 		[TestMethod]
-		public async Task TestGetGetGameScheduleByDateNotNullWithInAsnyc()
+		public async Task TestGetGetGameScheduleByDateNotNullWithInAsync()
 		{
 			// Arrange
 			INhlApi nhlApi = new NhlApi();
@@ -191,5 +194,20 @@ namespace Nhl.Api.Tests
 				Assert.IsNotNull(gameDate.Events);
 			}
 		}
+
+
+		[TestMethod]
+		public async Task TestGetLiveGameFeedAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var liveGameFeed = await nhlApi.GetLiveGameFeedById(2021020149);
+			
+			// Assert
+			Assert.IsNotNull(liveGameFeed);
+
+		}
 	}
-}
+} 

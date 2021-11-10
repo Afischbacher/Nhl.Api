@@ -28,8 +28,6 @@ using Nhl.Api.Models.Enumerations.Franchise;
 using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Common.Http;
-
-
 namespace Nhl.Api
 {
 	/// <summary>
@@ -307,7 +305,7 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns any active or inactive NHL players based on the search query provided
 		/// </summary>
-		/// <param name="query">An search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
+		/// <param name="query">A search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
 		/// <returns>A collection of all NHL players based on the search query provided</returns>
 		public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query)
 		{
@@ -525,6 +523,15 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
+		/// Return's today's the NHL game schedule and it will provide today's current NHL game schedule 
+		/// </summary>
+		/// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
+		public async Task<GameSchedule> GetGameScheduleAsync()
+		{
+			return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>("/schedule");
+		}
+
+		/// <summary>
 		/// Return's the NHL game schedule based on the provided year, month and day
 		/// </summary>
 		/// <param name="year">The requested year for the NHL game schedule</param>
@@ -534,6 +541,21 @@ namespace Nhl.Api
 		public async Task<GameSchedule> GetGameScheduleByDateAsync(int year, int month, int day)
 		{
 			return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>($"/schedule?date={year}-{month}-{day}");
+		}
+
+		/// <summary>
+		/// Returns the live game feed content for an NHL game
+		/// </summary>
+		/// <param name="liveFeedGameId">The live game feed id, example: 2021020087</param>
+		/// <returns>A detailed collection of information about play by play details, scores, teams, coaches, on ice statistics and more</returns>
+		public async Task<LiveGameFeedResult> GetLiveGameFeedById(int liveFeedGameId)
+		{ 
+			var liveGameFeed = await _nhlStatsApiHttpClient.GetAsync<LiveGameFeed>($"/game/{liveFeedGameId}/feed/live");
+
+			return new LiveGameFeedResult
+			{
+				LiveGameFeed = liveGameFeed
+			};
 		}
 
 		/// <summary>

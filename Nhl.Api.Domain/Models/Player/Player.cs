@@ -167,7 +167,18 @@ namespace Nhl.Api.Models.Player
 		{
 			get
 			{
-				return GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Small);
+				return GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large);
+			}
+		}
+
+		/// <summary>
+		/// Determines if the player is an NHL goalie
+		/// </summary>
+		public bool IsGoalie
+		{
+			get
+			{
+				return PrimaryPosition?.Code == PlayerPositionEnum.G.ToString();
 			}
 		}
 
