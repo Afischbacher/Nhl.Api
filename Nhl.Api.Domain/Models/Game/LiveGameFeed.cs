@@ -35,15 +35,20 @@ namespace Nhl.Api.Models.Game
         private async Task RaiseOnLiveGameFeedChangeEvent()
         {
             var nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
-            var endpoint = LiveGameFeed.Link.Replace("/api/v1", string.Empty);
+            var endpoint = LiveGameFeed?.Link?.Replace("/api/v1", string.Empty) ?? null;
+            if (endpoint == null)
+            {
+                return;
+            }
+            
             var timestamp = LiveGameFeed?.MetaData?.TimeStamp ?? null;
             var numberOfAttempts = 0;
             var maxNumberOfAttempts = 7500;
-            var waitPerRequest = 250;
+            var waitInMsPerRequest = 250;
 
             while (true)
             {
-                await Task.Delay(waitPerRequest);
+                await Task.Delay(waitInMsPerRequest);
 
                 var liveGameFeed = await nhlStatsApiHttpClient.GetAsync<LiveGameFeed>(endpoint);
                 if (liveGameFeed == null)
