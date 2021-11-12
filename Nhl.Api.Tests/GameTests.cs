@@ -203,11 +203,150 @@ namespace Nhl.Api.Tests
 			INhlApi nhlApi = new NhlApi();
 
 			// Act
-			var liveGameFeed = await nhlApi.GetLiveGameFeedById(2021020149);
-			
-			// Assert
-			Assert.IsNotNull(liveGameFeed);
+			const int _gamePkId = 2021020149;
+			var liveGameFeedResult = await nhlApi.GetLiveGameFeedById(_gamePkId);
 
+			// Assert
+			Assert.IsNotNull(liveGameFeedResult);
+
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.Link);
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData);
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GamePk);
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.LiveData);
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.MetaData);
+
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData.Datetime.DateTime);
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData.Datetime.EndDateTime);
+
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData.Game.Type);
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData.Game.Pk);
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData.Game.Season);
+
+			CollectionAssert.AllItemsAreNotNull(liveGameFeedResult.LiveGameFeed.GameData.Players);
+			Assert.IsTrue(liveGameFeedResult.LiveGameFeed.GameData.Players.Count > 0);
+
+			var playerKey = liveGameFeedResult.LiveGameFeed.GameData.Players.Keys.First();
+			Assert.IsNotNull(playerKey);
+
+			var playerValue = liveGameFeedResult.LiveGameFeed.GameData.Players.Values.First();
+			Assert.IsNotNull(playerValue);
+			Assert.IsTrue(playerValue.Active);
+			Assert.IsNotNull(playerValue.AlternateCaptain);
+			Assert.IsNotNull(playerValue.BirthCity);
+			Assert.IsNotNull(playerValue.BirthCountry);
+			Assert.IsNotNull(playerValue.PrimaryNumber);
+			Assert.IsNotNull(playerValue.PrimaryPosition);
+			Assert.IsNotNull(playerValue.PrimaryPosition.Code);
+			Assert.IsNotNull(playerValue.PrimaryPosition.Abbreviation);
+			Assert.IsNotNull(playerValue.Weight);
+			Assert.IsNotNull(playerValue.RosterStatus);
+			Assert.IsNotNull(playerValue.Rookie);
+			Assert.IsNotNull(playerValue.Nationality);
+			Assert.IsNotNull(playerValue.LastName);
+			Assert.IsNotNull(playerValue.FirstName);
+			Assert.IsNotNull(playerValue.FullName);
+			Assert.IsNotNull(playerValue.BirthDate);
+			Assert.IsNotNull(playerValue.CurrentAge);
+			Assert.IsNotNull(playerValue.CurrentTeam);
+			Assert.IsNotNull(playerValue.CurrentTeam.Id);
+			Assert.IsNotNull(playerValue.CurrentTeam.Name);
+			Assert.IsNotNull(playerValue.CurrentTeam.Link);
+			Assert.IsFalse(playerValue.IsGoalie);
+			Assert.IsFalse(playerValue.Captain);
+
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData.Status.StartTimeTBD);
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData.Status.DetailedState);
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData.Status.AbstractGameState);
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData.Status.CodedGameState);
+
+			Assert.AreEqual("Final", liveGameFeedResult.LiveGameFeed.GameData.Status.DetailedState);
+			Assert.AreEqual("7", liveGameFeedResult.LiveGameFeed.GameData.Status.CodedGameState);
+
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData.Teams.Home);
+			Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData.Teams.Away);
+
+			var homeTeam = liveGameFeedResult.LiveGameFeed.GameData.Teams.Home;
+			Assert.IsNotNull(homeTeam.FirstYearOfPlay);
+			Assert.IsNotNull(homeTeam.Abbreviation);
+			Assert.IsNotNull(homeTeam.Active);
+			Assert.IsNotNull(homeTeam.Conference);
+			Assert.IsNotNull(homeTeam.TriCode);
+			Assert.IsNotNull(homeTeam.TeamName);
+			Assert.IsNotNull(homeTeam.OfficialSiteUrl);
+			Assert.IsTrue(homeTeam.Active);
+			Assert.IsNotNull(homeTeam.Division);
+			Assert.IsNotNull(homeTeam.Franchise);
+			Assert.IsNotNull(homeTeam.FranchiseId);
+			Assert.IsNotNull(homeTeam.Id);
+			Assert.IsNotNull(homeTeam.Link);
+			Assert.IsNotNull(homeTeam.Venue);
+			Assert.IsNotNull(homeTeam.ShortName);
+			Assert.IsNotNull(homeTeam.LocationName);
+
+			var venue = liveGameFeedResult.LiveGameFeed.GameData.Venue;
+			Assert.IsNotNull(venue);
+			Assert.IsNotNull(venue.Name);
+
+
+			var liveData = liveGameFeedResult.LiveGameFeed.LiveData;
+			Assert.IsNotNull(liveData.Boxscore);
+			Assert.IsNotNull(liveData.Boxscore.Teams);
+
+			Assert.IsNotNull(liveData.Boxscore.Teams.Home);
+			Assert.IsNotNull(liveData.Boxscore.Teams.Away);
+			Assert.IsNotNull(liveData.Boxscore.Officials);
+			CollectionAssert.AllItemsAreNotNull(liveData.Boxscore.Officials);
+
+			var official = liveData.Boxscore.Officials.First();
+			Assert.IsNotNull(official);
+			Assert.IsNotNull(official.OfficialType);
+			Assert.IsNotNull(official.Official.FullName);
+			Assert.IsNotNull(official.Official.Link);
+			Assert.IsNotNull(official.Official.Id);
+
+			Assert.IsNotNull(liveData.Plays);
+			Assert.IsNotNull(liveData.Plays.PlaysByPeriod);
+			CollectionAssert.AllItemsAreUnique(liveData.Plays.PlaysByPeriod);
+			CollectionAssert.AllItemsAreUnique(liveData.Plays.ScoringPlays);
+			CollectionAssert.AllItemsAreUnique(liveData.Plays.AllPlays);
+			CollectionAssert.AllItemsAreUnique(liveData.Plays.PenaltyPlays);
+			Assert.IsNotNull(liveData.Plays.CurrentPlay);
+
+			var liveGameFeedPlay = liveData.Plays.AllPlays[50];
+			Assert.IsNotNull(liveGameFeedPlay.About.EventIdx);
+			Assert.IsNotNull(liveGameFeedPlay.About.PeriodTime);
+			Assert.IsNotNull(liveGameFeedPlay.About.DateTime);
+			Assert.IsNotNull(liveGameFeedPlay.About.PeriodTimeRemaining);
+			Assert.IsNotNull(liveGameFeedPlay.About.EventId);
+			Assert.IsNotNull(liveGameFeedPlay.About.Period);
+			Assert.IsNotNull(liveGameFeedPlay.About.OrdinalNum);
+
+			Assert.IsNotNull(liveGameFeedPlay.Team.Id);
+			Assert.IsNotNull(liveGameFeedPlay.Team.Name);
+			Assert.IsNotNull(liveGameFeedPlay.Team.Link);
+			Assert.IsNotNull(liveGameFeedPlay.Coordinates);
+			Assert.IsNotNull(liveGameFeedPlay.Result);
+			Assert.IsNotNull(liveGameFeedPlay.Result.EventTypeId);
+			Assert.IsNotNull(liveGameFeedPlay.Result.EventCode);
+			Assert.IsNotNull(liveGameFeedPlay.Result.Description);
+
+			Assert.IsNotNull(liveGameFeedPlay.Players);
+
+			Assert.IsNotNull(liveData.Linescore);
+			Assert.IsNotNull(liveData.Linescore.CurrentPeriod);
+			Assert.IsNotNull(liveData.Linescore.CurrentPeriodOrdinal);
+			Assert.IsNotNull(liveData.Linescore.CurrentPeriodTimeRemaining);
+			Assert.IsNotNull(liveData.Linescore.ShootoutInfo);
+
+			Assert.IsNotNull(liveData.Decisions);
+			Assert.IsNotNull(liveData.Decisions.ThirdStar);
+			Assert.IsNotNull(liveData.Decisions.FirstStar);
+			Assert.IsNotNull(liveData.Decisions.SecondStar);
+
+			var firstStar = liveData.Decisions.FirstStar;
+			Assert.IsNotNull(firstStar.Id);
+			Assert.IsNotNull(firstStar.FullName);
+			Assert.IsNotNull(firstStar.Link);
 		}
 	}
-} 
+}

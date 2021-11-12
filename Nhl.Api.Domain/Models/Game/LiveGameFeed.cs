@@ -2363,7 +2363,6 @@ namespace Nhl.Api.Models.Game
 
     }
 
-
     public class Decisions
     {
         /// <summary>
