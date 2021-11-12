@@ -28,6 +28,7 @@ using Nhl.Api.Models.Enumerations.Franchise;
 using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Common.Http;
+
 namespace Nhl.Api
 {
 	/// <summary>
