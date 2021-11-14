@@ -23,7 +23,7 @@ namespace Nhl.Api.Models.Game
         }
 
         /// <summary>
-        /// The live game feed result from the provided game pk id
+        /// The NHL live game feed result from the provided game pk id
         /// </summary>
         public LiveGameFeed LiveGameFeed { get; set; }
 
@@ -36,7 +36,7 @@ namespace Nhl.Api.Models.Game
         {
             var nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
             var endpoint = LiveGameFeed?.Link?.Replace("/api/v1", string.Empty) ?? null;
-            if (endpoint == null)
+            if (string.IsNullOrWhiteSpace(null))
             {
                 return;
             }
@@ -56,7 +56,7 @@ namespace Nhl.Api.Models.Game
                     break;
                 }
 
-                // If game is completed, stop sending events
+                // If game is completed, stop sending events or the number of attempts exceeds 30 minutes of attempts
                 var isLiveGameFeedCompleted = (liveGameFeed?.GameData?.Status?.AbstractGameState == "Final"
                     || liveGameFeed?.GameData?.Status?.CodedGameState == "7") || (numberOfAttempts >= maxNumberOfAttempts);
                 if (isLiveGameFeedCompleted)
@@ -64,8 +64,12 @@ namespace Nhl.Api.Models.Game
                     break;
                 }
 
+                // Parse timestamps to long and compare
+                var updatedParsedTimeStamp = ParseTimeStamp(liveGameFeed?.MetaData?.TimeStamp);
+                var currentParsedTimeStamp = ParseTimeStamp(timestamp);
+
                 // If the game time stamp and the updated are not equal, send event
-                if (liveGameFeed?.MetaData?.TimeStamp != timestamp)
+                if (updatedParsedTimeStamp > currentParsedTimeStamp)
                 {
                     timestamp = liveGameFeed?.MetaData?.TimeStamp;
                     OnLiveGameFeedChange?.Invoke(this, e: new LiveGameFeedEventArgs
@@ -77,6 +81,14 @@ namespace Nhl.Api.Models.Game
                 }
 
                 numberOfAttempts++;
+            }
+
+            
+            long ParseTimeStamp(string timeStamp)
+            {
+                if (string.IsNullOrWhiteSpace(timeStamp)) return 0;
+
+                return long.Parse(timeStamp.Replace("_", string.Empty));
             }
         }
     }
