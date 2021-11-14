@@ -34,7 +34,7 @@ namespace Nhl.Api.Models.Game
 		/// The metadata of the NHL game schedule
 		/// </summary>
 		[JsonProperty("metaData")]
-		public LiveGameFeedMetaData MetaData { get; set; }
+		public MetaData MetaData { get; set; }
 
 		/// <summary>
 		/// The wait in the NHL schedule
