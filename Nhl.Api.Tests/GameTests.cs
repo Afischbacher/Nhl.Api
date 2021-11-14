@@ -145,10 +145,36 @@ namespace Nhl.Api.Tests
             // Arrange
             INhlApi nhlApi = new NhlApi();
 
-            var test = await nhlApi.GetGameScheduleByDateAsync(DateTime.Now);
-
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(DateTime.Parse("2020-01-29"));
+
+            // Assert
+            Assert.IsNotNull(gameSchedule);
+            Assert.IsNotNull(gameSchedule.MetaData);
+            Assert.IsNotNull(gameSchedule.TotalEvents);
+            Assert.IsNotNull(gameSchedule.TotalGames);
+            Assert.IsNotNull(gameSchedule.TotalItems);
+            Assert.IsNotNull(gameSchedule.TotalMatches);
+
+            foreach (var gameDate in gameSchedule.Dates)
+            {
+                Assert.IsNotNull(gameDate.TotalEvents);
+                Assert.IsNotNull(gameDate.TotalGames);
+                Assert.IsNotNull(gameDate.TotalMatches);
+                Assert.IsNotNull(gameDate.Matches);
+                Assert.IsNotNull(gameDate.Events);
+            }
+        }
+
+
+        [TestMethod]
+        public async Task TestGetGetGameScheduleAsync()
+        {
+            // Arrange
+            INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var gameSchedule = await nhlApi.GetGameScheduleAsync();
 
             // Assert
             Assert.IsNotNull(gameSchedule);

@@ -611,6 +611,15 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
+		/// Returns the standings of every team in the NHL for the current date
+		/// </summary>
+		/// <returns>A collection of all the league standings </returns>
+		public async Task<List<Records>> GetLeagueStandingsAsync()
+		{
+			return (await _nhlStatsApiHttpClient.GetAsync<LeagueStandings>("/standings")).Records;
+		}
+
+		/// <summary>
 		/// Returns all distinct types of NHL statistics types
 		/// </summary>
 		/// <returns>A collection of all the various NHL statistics types, see <see cref="StatisticTypes"/> for more information</returns>

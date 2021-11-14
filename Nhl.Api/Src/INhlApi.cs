@@ -333,6 +333,12 @@ namespace Nhl.Api
         /// <returns>A collection of all the league standings </returns>
         Task<List<Records>> GetLeagueStandingsAsync(DateTime? date);
 
+        /// <summary>
+        /// Returns the standings of every team in the NHL for the current date
+        /// </summary>
+        /// <returns>A collection of all the league standings </returns>
+        Task<List<Records>> GetLeagueStandingsAsync();
+
         #endregion
 
         #region Statistics
