@@ -36,7 +36,7 @@ namespace Nhl.Api.Models.Game
         {
             var nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
             var endpoint = LiveGameFeed?.Link?.Replace("/api/v1", string.Empty) ?? null;
-            if (string.IsNullOrWhiteSpace(null))
+            if (string.IsNullOrWhiteSpace(endpoint))
             {
                 return;
             }
@@ -2234,7 +2234,7 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedBoxscoreAwayTeam Away { get; set; }
     }
 
-    public abstract class LiveGameFeedBoxscoreTeam : LiveGameFeedTeam
+    public abstract class LiveGameFeedBoxscoreTeam 
     {
         /// <summary>
         /// Returns the team information for the NHL live game feed box score team
@@ -2253,6 +2253,54 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("players")]
         public Dictionary<string, LiveGameFeedBoxscorePlayer> Player { get; set; }
+
+        /// <summary>
+        /// Returns the NHL player id's for goalies <br/>
+        /// Example: [ 8476341, 8479406 ]...
+        /// </summary>
+        /// 
+        [JsonProperty("goalies")]
+        public List<int> Goalies { get; set; }
+
+        /// <summary>
+        /// Returns the NHL player id's for skaters <br/>
+        /// Example: [ 8482245, 8480801, 8480064, 8477482, 8474584, 8482116, 8480208, 8476400 ]...
+        /// </summary>
+        [JsonProperty("skaters")]
+        public List<int> Skaters { get; set; }
+
+        /// <summary>
+        /// Returns the NHL player id's on ice <br/>
+        /// Example: 8481102
+        /// </summary>
+        [JsonProperty("onIce")]
+        public List<int> OnIce { get; set; }
+
+        /// <summary>
+        /// Returns the NHL players on ice, including player id, stamina and shift duration in seconds
+        /// </summary>
+        [JsonProperty("onIcePlus")]
+        public List<OnIcePlus> OnIcePlus { get; set; }
+
+        /// <summary>
+        /// Returns the NHL player id's that are scratched <br/>
+        /// Example: [ 8474090 ]
+        /// </summary>
+        [JsonProperty("scratches")]
+        public List<int> Scratches { get; set; }
+
+        /// <summary>
+        /// Returns the NHL player id's in the penalty box <br/>
+        /// Example: [ 8481102 ]
+        /// </summary>
+        [JsonProperty("penaltyBox")]
+        public List<int> PenaltyBox { get; set; }
+
+        /// <summary>
+        /// Returns the coaches for the NHL team
+        /// </summary>
+        [JsonProperty("coaches")]
+        public List<Coach> Coaches { get; set; }
     }
 
     public class LiveGameFeedBoxscoreHomeTeam : LiveGameFeedBoxscoreTeam
