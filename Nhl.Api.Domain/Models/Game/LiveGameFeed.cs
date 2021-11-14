@@ -35,6 +35,7 @@ namespace Nhl.Api.Models.Game
         private async Task RaiseOnLiveGameFeedChangeEvent()
         {
             var nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
+
             var endpoint = LiveGameFeed?.Link?.Replace("/api/v1", string.Empty) ?? null;
             if (string.IsNullOrWhiteSpace(endpoint))
             {
@@ -42,6 +43,11 @@ namespace Nhl.Api.Models.Game
             }
 
             var timestamp = LiveGameFeed?.MetaData?.TimeStamp ?? null;
+            if (string.IsNullOrWhiteSpace(timestamp))
+            {
+                return;
+            }
+
             var numberOfAttempts = 0;
             var maxNumberOfAttempts = 7500;
             var waitInMsPerRequest = 250;
