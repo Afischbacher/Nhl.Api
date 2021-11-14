@@ -2251,7 +2251,7 @@ namespace Nhl.Api.Models.Game
         /// Returns the team statistics for the NHL live game feed box score team
         /// </summary>
         [JsonProperty("teamStats")]
-        public new TeamStats TeamStats { get; set; }
+        public TeamStats TeamStats { get; set; }
 
         /// <summary>
         /// Returns the a key value collection of all the NHL live game feed player box score profiles
