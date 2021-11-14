@@ -40,7 +40,7 @@ namespace Nhl.Api.Models.Game
             {
                 return;
             }
-            
+
             var timestamp = LiveGameFeed?.MetaData?.TimeStamp ?? null;
             var numberOfAttempts = 0;
             var maxNumberOfAttempts = 7500;
@@ -83,7 +83,7 @@ namespace Nhl.Api.Models.Game
                 numberOfAttempts++;
             }
 
-            
+
             long ParseTimeStamp(string timeStamp)
             {
                 if (string.IsNullOrWhiteSpace(timeStamp)) return 0;
@@ -349,7 +349,7 @@ namespace Nhl.Api.Models.Game
         public int FranchiseId { get; set; }
 
         /// <summary>
-        /// Returns if the NHL team / franchise is active
+        /// Returns if the NHL team is active
         /// </summary>
         [JsonProperty("active")]
         public bool Active { get; set; }
@@ -369,20 +369,22 @@ namespace Nhl.Api.Models.Game
         public int ShotsOnGoal { get; set; }
 
         /// <summary>
-        /// Returns the side of the rink the NHL team is on
-        /// Example: 32
+        /// Returns the side of the rink the NHL team is on  <br/>
+        /// Example: left
         /// </summary>
         [JsonProperty("rinkSide")]
         public string RinkSide { get; set; }
 
         /// <summary>
-        /// Return the NHL team scores
+        /// Return the NHL team scores <br/>
+        /// Example: 1
         /// </summary>
         [JsonProperty("scores")]
         public int Scores { get; set; }
 
         /// <summary>
-        /// Returns the number of NHL team scoring attempts
+        /// Returns the number of NHL team scoring attempts  <br/>
+        /// Example: 3
         /// </summary>
         [JsonProperty("attempts")]
         public int Attempts { get; set; }
@@ -400,7 +402,8 @@ namespace Nhl.Api.Models.Game
         public bool GoaliePulled { get; set; }
 
         /// <summary>
-        /// Returns the number of NHL skaters
+        /// Returns the number of NHL skaters <br/>
+        /// Example: 22
         /// </summary>
         [JsonProperty("numSkaters")]
         public int NumSkaters { get; set; }
@@ -412,7 +415,7 @@ namespace Nhl.Api.Models.Game
         public bool PowerPlay { get; set; }
 
         /// <summary>
-        /// Returns the NHL team statistics including, goals, faceoff win percentage and more
+        /// Returns the NHL team statistics including, goals, face off win percentage and more
         /// </summary>
         [JsonProperty("teamStats")]
         public TeamStats TeamStats { get; set; }
@@ -425,7 +428,7 @@ namespace Nhl.Api.Models.Game
 
         /// <summary>
         /// Returns the NHL player id's for goalies <br/>
-        /// Example: 8475883
+        /// Example: [ 8476341, 8479406 ]...
         /// </summary>
         /// 
         [JsonProperty("goalies")]
@@ -433,14 +436,14 @@ namespace Nhl.Api.Models.Game
 
         /// <summary>
         /// Returns the NHL player id's for skaters <br/>
-        /// Example: 8475883
+        /// Example: [ 8482245, 8480801, 8480064, 8477482, 8474584, 8482116, 8480208, 8476400 ]...
         /// </summary>
         [JsonProperty("skaters")]
         public List<int> Skaters { get; set; }
 
         /// <summary>
         /// Returns the NHL player id's on ice <br/>
-        /// Example: 8475883
+        /// Example: 8481102
         /// </summary>
         [JsonProperty("onIce")]
         public List<int> OnIce { get; set; }
@@ -453,14 +456,14 @@ namespace Nhl.Api.Models.Game
 
         /// <summary>
         /// Returns the NHL player id's that are scratched <br/>
-        /// Example: 8474090
+        /// Example: [ 8474090 ]
         /// </summary>
         [JsonProperty("scratches")]
         public List<int> Scratches { get; set; }
 
         /// <summary>
         /// Returns the NHL player id's in the penalty box <br/>
-        /// Example: 8474090
+        /// Example: [ 8481102 ]
         /// </summary>
         [JsonProperty("penaltyBox")]
         public List<int> PenaltyBox { get; set; }
@@ -475,13 +478,13 @@ namespace Nhl.Api.Models.Game
     public class LiveGameFeedGameDataTeams
     {
         /// <summary>
-        /// The live game feed NHL home team
+        /// The NHL live game feed home team
         /// </summary>
         [JsonProperty("home")]
         public LiveGameFeedGameDataHomeTeam Home { get; set; }
 
         /// <summary>
-        /// The live game feed NHL away team
+        /// The NHL live game feed away team
         /// </summary>
         [JsonProperty("away")]
         public LiveGameFeedGameDataAwayTeam Away { get; set; }
@@ -612,13 +615,13 @@ namespace Nhl.Api.Models.Game
     public class LiveGameFeedTeams
     {
         /// <summary>
-        /// The live game feed NHL home team
+        /// The NHL live game feed home team
         /// </summary>
         [JsonProperty("away")]
         public LiveGameFeedAwayTeam Away { get; set; }
 
         /// <summary>
-        /// The live game feed NHL away team
+        /// The NHL live game feed away team
         /// </summary>
         [JsonProperty("home")]
         public LiveGameFeedHomeTeam Home { get; set; }
@@ -691,7 +694,7 @@ namespace Nhl.Api.Models.Game
 
         /// <summary>
         /// The birth state or province of the NHL player <br/>
-        /// <strong>NOTE:</strong> This value is not always present <br/>
+        /// <strong>NOTE: This value is not always present</strong><br/>
         /// Example: SK
         /// </summary>
         [JsonProperty("birthStateProvince")]
@@ -726,7 +729,7 @@ namespace Nhl.Api.Models.Game
         public int Weight { get; set; }
 
         /// <summary>
-        /// Identifies if the NHL player is currently active
+        /// Identifies if the NHL player is currently active in the NHL
         /// </summary>
         [JsonProperty("active")]
         public bool Active { get; set; }
@@ -1715,7 +1718,7 @@ namespace Nhl.Api.Models.Game
 
     }
 
-    public class LiveGameFeedShootoutInfoTeamsa
+    public class LiveGameFeedShootoutInfoTeams
     {
         /// <summary>
         /// The NHL live game feed home team
@@ -1775,7 +1778,7 @@ namespace Nhl.Api.Models.Game
         public double PowerPlayOpportunities { get; set; }
 
         /// <summary>
-        /// The faceoff win percentage by the NHL players on the NHL team <br/>
+        /// The face off win percentage by the NHL players on the NHL team <br/>
         /// Example: 47.3
         /// </summary>
         [JsonProperty("faceOffWinPercentage")]
@@ -1916,14 +1919,14 @@ namespace Nhl.Api.Models.Game
         public int PenaltyMinutes { get; set; }
 
         /// <summary>
-        /// Returns the number of faceoff wins for an NHL player <br/>
+        /// Returns the number of face off wins for an NHL player <br/>
         /// Example: 6
         /// </summary>
         [JsonProperty("faceOffWins")]
         public int FaceOffWins { get; set; }
 
         /// <summary>
-        /// Returns the number of faceoffs for an NHL player <br/>
+        /// Returns the number of face offs taken for an NHL player <br/>
         /// Example: 12
         /// </summary>
         [JsonProperty("faceoffTaken")]
@@ -1994,7 +1997,7 @@ namespace Nhl.Api.Models.Game
 
         /// <summary>
         /// Returns the face off percentage for an NHL player <br/>
-        /// Example: 1:30
+        /// Example: 29.63
         /// </summary>
         [JsonProperty("faceOffPct")]
         public double FaceOffPct { get; set; }
@@ -2164,7 +2167,7 @@ namespace Nhl.Api.Models.Game
     public class Coach
     {
         /// <summary>
-        /// Returns the NHL coach person information, including name, id and more
+        /// Returns the NHL coach information, including name, id etc.
         /// </summary>
         [JsonProperty("person")]
         public LiveGameFeedPerson Person { get; set; }
@@ -2237,16 +2240,16 @@ namespace Nhl.Api.Models.Game
         /// Returns the team information for the NHL live game feed box score team
         /// </summary>
         [JsonProperty("team")]
-        public TeamInformation Team { get; set; }
+        public TeamInformation TeamInformation { get; set; }
 
         /// <summary>
         /// Returns the team statistics for the NHL live game feed box score team
         /// </summary>
         [JsonProperty("teamStats")]
-        public TeamStats TeamStats { get; set; }
+        public new TeamStats TeamStats { get; set; }
 
         /// <summary>
-        /// Returns the a key value collection of all the NHL live game feed player profiles
+        /// Returns the a key value collection of all the NHL live game feed player box score profiles
         /// </summary>
         [JsonProperty("players")]
         public Dictionary<string, LiveGameFeedBoxscorePlayer> Player { get; set; }
@@ -2290,7 +2293,6 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedStats Stats { get; set; }
     }
 
-
     public class Boxscore
     {
         /// <summary>
@@ -2305,7 +2307,6 @@ namespace Nhl.Api.Models.Game
         [JsonProperty("officials")]
         public List<GameOfficial> Officials { get; set; }
     }
-
 
     public abstract class Decision
     {
@@ -2363,7 +2364,6 @@ namespace Nhl.Api.Models.Game
     public class Loser : Decision
     {
     }
-
 
     public class FirstStar : Star
     {
