@@ -21,7 +21,12 @@ dotnet add package Nhl.Api
 Either commands, from Package Manager Console or .NET Core CLI, will download and install all required dependencies.
 
 ## Implementation 🚀
-If you are using any type of a inversion of control or dependency injection library such as the built in library within .NET Core, Unity, or AutoFac. It's very simple to implement, or you can create an instance of the `NhlApi` class and use the API as you would like.
+If you are using any type of a inversion of control or dependency injection library such as the built in library within .NET Core, Unity, or AutoFac. It's very simple to implement, or you can create an instance of the `NhlApi` class and use the API as you would like. 
+
+If you are using the built in .NET Core dependency injection library, there is a NuGet package to easily add the Nhl.Api to your .NET application, click here <a href="https://github.com/Afischbacher/Nhl.Api.Extensions.Microsoft.DependencyInjection"/>Nhl.Api.Extensions.Microsoft.DependencyInjection</a> for more information on implementing the extension, it's highly recommended.
+
+### Nhl.Api.Extensions.Microsoft.DependencyInjection
+`builder.Services.AddNhlApi();`
 
 ### .NET Core
 `builder.Services.AddTransient<INhlApi, NhlApi>();`
@@ -38,7 +43,6 @@ If you are using any type of a inversion of control or dependency injection libr
 ## Documentation 📖
 Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 
-
 ### Contents
 
 - [NhlApi](#T-Nhl-Api-NhlApi 'Nhl.Api.NhlApi')
@@ -53,8 +57,9 @@ Once registered using your dependency injection library of choice or just using 
   - [GetDraftByYear(year)](#M-Nhl-Api-NhlApi-GetDraftByYear-System-String- 'Nhl.Api.NhlApi.GetDraftByYear(System.String)')
   - [GetEventTypesAsync()](#M-Nhl-Api-NhlApi-GetEventTypesAsync 'Nhl.Api.NhlApi.GetEventTypesAsync')
   - [GetFranchiseByIdAsync(franchiseId)](#M-Nhl-Api-NhlApi-GetFranchiseByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetFranchiseByIdAsync(System.Int32)')
-  - [GetFranchiseByIdAsync(franchise)](#M-Nhl-Api-NhlApi-GetFranchiseByIdAsync-Nhl-Api-Domain-Enumerations-Franchise-FranchiseEnum- 'Nhl.Api.NhlApi.GetFranchiseByIdAsync(Nhl.Api.Domain.Enumerations.Franchise.FranchiseEnum)')
+  - [GetFranchiseByIdAsync(franchise)](#M-Nhl-Api-NhlApi-GetFranchiseByIdAsync-Nhl-Api-Models-Enumerations-Franchise-FranchiseEnum- 'Nhl.Api.NhlApi.GetFranchiseByIdAsync(Nhl.Api.Models.Enumerations.Franchise.FranchiseEnum)')
   - [GetFranchisesAsync()](#M-Nhl-Api-NhlApi-GetFranchisesAsync 'Nhl.Api.NhlApi.GetFranchisesAsync')
+  - [GetGameScheduleAsync()](#M-Nhl-Api-NhlApi-GetGameScheduleAsync 'Nhl.Api.NhlApi.GetGameScheduleAsync')
   - [GetGameScheduleByDateAsync(date)](#M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Nullable{System-DateTime}- 'Nhl.Api.NhlApi.GetGameScheduleByDateAsync(System.Nullable{System.DateTime})')
   - [GetGameScheduleByDateAsync(year,month,day)](#M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32- 'Nhl.Api.NhlApi.GetGameScheduleByDateAsync(System.Int32,System.Int32,System.Int32)')
   - [GetGameStatusesAsync()](#M-Nhl-Api-NhlApi-GetGameStatusesAsync 'Nhl.Api.NhlApi.GetGameStatusesAsync')
@@ -70,11 +75,13 @@ Once registered using your dependency injection library of choice or just using 
   - [GetLeagueProspectsAsync()](#M-Nhl-Api-NhlApi-GetLeagueProspectsAsync 'Nhl.Api.NhlApi.GetLeagueProspectsAsync')
   - [GetLeagueStandingTypesAsync()](#M-Nhl-Api-NhlApi-GetLeagueStandingTypesAsync 'Nhl.Api.NhlApi.GetLeagueStandingTypesAsync')
   - [GetLeagueStandingsAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueStandingsAsync-System-Nullable{System-DateTime}- 'Nhl.Api.NhlApi.GetLeagueStandingsAsync(System.Nullable{System.DateTime})')
+  - [GetLeagueStandingsAsync()](#M-Nhl-Api-NhlApi-GetLeagueStandingsAsync 'Nhl.Api.NhlApi.GetLeagueStandingsAsync')
   - [GetLeagueTeamRosterMembersAsync()](#M-Nhl-Api-NhlApi-GetLeagueTeamRosterMembersAsync 'Nhl.Api.NhlApi.GetLeagueTeamRosterMembersAsync')
   - [GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear)](#M-Nhl-Api-NhlApi-GetLeagueTeamRosterMembersBySeasonYearAsync-System-String- 'Nhl.Api.NhlApi.GetLeagueTeamRosterMembersBySeasonYearAsync(System.String)')
   - [GetLeagueVenueByIdAsync(venueId)](#M-Nhl-Api-NhlApi-GetLeagueVenueByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetLeagueVenueByIdAsync(System.Int32)')
-  - [GetLeagueVenueByIdAsync(venue)](#M-Nhl-Api-NhlApi-GetLeagueVenueByIdAsync-Nhl-Api-Domain-Enumerations-Venue-VenueEnum- 'Nhl.Api.NhlApi.GetLeagueVenueByIdAsync(Nhl.Api.Domain.Enumerations.Venue.VenueEnum)')
+  - [GetLeagueVenueByIdAsync(venue)](#M-Nhl-Api-NhlApi-GetLeagueVenueByIdAsync-Nhl-Api-Models-Enumerations-Venue-VenueEnum- 'Nhl.Api.NhlApi.GetLeagueVenueByIdAsync(Nhl.Api.Models.Enumerations.Venue.VenueEnum)')
   - [GetLeagueVenuesAsync()](#M-Nhl-Api-NhlApi-GetLeagueVenuesAsync 'Nhl.Api.NhlApi.GetLeagueVenuesAsync')
+  - [GetLiveGameFeedById(liveFeedGameId)](#M-Nhl-Api-NhlApi-GetLiveGameFeedById-System-Int32- 'Nhl.Api.NhlApi.GetLiveGameFeedById(System.Int32)')
   - [GetPlayTypesAsync()](#M-Nhl-Api-NhlApi-GetPlayTypesAsync 'Nhl.Api.NhlApi.GetPlayTypesAsync')
   - [GetPlayerByIdAsync(playerId)](#M-Nhl-Api-NhlApi-GetPlayerByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetPlayerByIdAsync(System.Int32)')
   - [GetPlayerByIdAsync(player)](#M-Nhl-Api-NhlApi-GetPlayerByIdAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum- 'Nhl.Api.NhlApi.GetPlayerByIdAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum)')
@@ -92,7 +99,6 @@ Once registered using your dependency injection library of choice or just using 
   - [GetTournamentTypesAsync()](#M-Nhl-Api-NhlApi-GetTournamentTypesAsync 'Nhl.Api.NhlApi.GetTournamentTypesAsync')
   - [SearchAllPlayersAsync(query)](#M-Nhl-Api-NhlApi-SearchAllPlayersAsync-System-String- 'Nhl.Api.NhlApi.SearchAllPlayersAsync(System.String)')
   - [SearchLeagueTeamRosterMembersAsync(query)](#M-Nhl-Api-NhlApi-SearchLeagueTeamRosterMembersAsync-System-String- 'Nhl.Api.NhlApi.SearchLeagueTeamRosterMembersAsync(System.String)')
-
 
 <a name='T-Nhl-Api-NhlApi'></a>
 ## NhlApi `type`
@@ -284,13 +290,13 @@ An NHL franchise, see [Franchise](#T-Nhl-Api-Models-Franchise-Franchise 'Nhl.Api
 | ---- | ---- | ----------- |
 | franchiseId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL franchise id, example: Montréal Canadiens - 1 |
 
-<a name='M-Nhl-Api-NhlApi-GetFranchiseByIdAsync-Nhl-Api-Domain-Enumerations-Franchise-FranchiseEnum-'></a>
+<a name='M-Nhl-Api-NhlApi-GetFranchiseByIdAsync-Nhl-Api-Models-Enumerations-Franchise-FranchiseEnum-'></a>
 ### GetFranchiseByIdAsync(franchise) `method`
 
 ##### Summary
 
 Returns an NHL franchise by the franchise id 
-Example: [LosAngelesKings](#F-Nhl-Api-Domain-Enumerations-Franchise-FranchiseEnum-LosAngelesKings 'Nhl.Api.Domain.Enumerations.Franchise.FranchiseEnum.LosAngelesKings')
+Example: [LosAngelesKings](#F-Nhl-Api-Models-Enumerations-Franchise-FranchiseEnum-LosAngelesKings 'Nhl.Api.Models.Enumerations.Franchise.FranchiseEnum.LosAngelesKings')
 
 ##### Returns
 
@@ -300,7 +306,7 @@ An NHL franchise, see [Franchise](#T-Nhl-Api-Models-Franchise-Franchise 'Nhl.Api
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| franchise | [Nhl.Api.Domain.Enumerations.Franchise.FranchiseEnum](#T-Nhl-Api-Domain-Enumerations-Franchise-FranchiseEnum 'Nhl.Api.Domain.Enumerations.Franchise.FranchiseEnum') | The NHL team id, Example: 10 - Toronto Maple Leafs, see [FranchiseEnum](#T-Nhl-Api-Domain-Enumerations-Franchise-FranchiseEnum 'Nhl.Api.Domain.Enumerations.Franchise.FranchiseEnum') for more information on NHL franchises |
+| franchise | [Nhl.Api.Models.Enumerations.Franchise.FranchiseEnum](#T-Nhl-Api-Models-Enumerations-Franchise-FranchiseEnum 'Nhl.Api.Models.Enumerations.Franchise.FranchiseEnum') | The NHL team id, Example: 10 - Toronto Maple Leafs, see [FranchiseEnum](#T-Nhl-Api-Models-Enumerations-Franchise-FranchiseEnum 'Nhl.Api.Models.Enumerations.Franchise.FranchiseEnum') for more information on NHL franchises |
 
 <a name='M-Nhl-Api-NhlApi-GetFranchisesAsync'></a>
 ### GetFranchisesAsync() `method`
@@ -312,6 +318,21 @@ Returns all NHL franchises, including information such as team name, location an
 ##### Returns
 
 A collection of all NHL franchises, see [Franchise](#T-Nhl-Api-Models-Franchise-Franchise 'Nhl.Api.Models.Franchise.Franchise') for more information
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Nhl-Api-NhlApi-GetGameScheduleAsync'></a>
+### GetGameScheduleAsync() `method`
+
+##### Summary
+
+Return's today's the NHL game schedule and it will provide today's current NHL game schedule
+
+##### Returns
+
+NHL game schedule, see [GameSchedule](#T-Nhl-Api-Models-Game-GameSchedule 'Nhl.Api.Models.Game.GameSchedule') for more information
 
 ##### Parameters
 
@@ -563,6 +584,21 @@ A collection of all the league standings
 | ---- | ---- | ----------- |
 | date | [System.Nullable{System.DateTime}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{System.DateTime}') | The NHL league standings date for the request NHL standings |
 
+<a name='M-Nhl-Api-NhlApi-GetLeagueStandingsAsync'></a>
+### GetLeagueStandingsAsync() `method`
+
+##### Summary
+
+Returns the standings of every team in the NHL for the current date
+
+##### Returns
+
+A collection of all the league standings
+
+##### Parameters
+
+This method has no parameters.
+
 <a name='M-Nhl-Api-NhlApi-GetLeagueTeamRosterMembersAsync'></a>
 ### GetLeagueTeamRosterMembersAsync() `method`
 
@@ -613,13 +649,13 @@ An NHL venue, see [LeagueVenue](#T-Nhl-Api-Models-Venue-LeagueVenue 'Nhl.Api.Mod
 | ---- | ---- | ----------- |
 | venueId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The specified id of an NHL venue, |
 
-<a name='M-Nhl-Api-NhlApi-GetLeagueVenueByIdAsync-Nhl-Api-Domain-Enumerations-Venue-VenueEnum-'></a>
+<a name='M-Nhl-Api-NhlApi-GetLeagueVenueByIdAsync-Nhl-Api-Models-Enumerations-Venue-VenueEnum-'></a>
 ### GetLeagueVenueByIdAsync(venue) `method`
 
 ##### Summary
 
 Returns an NHL venue by the venue enumeration 
- Example: [EnterpriseCenter](#F-Nhl-Api-Domain-Enumerations-Venue-VenueEnum-EnterpriseCenter 'Nhl.Api.Domain.Enumerations.Venue.VenueEnum.EnterpriseCenter')
+ Example: [EnterpriseCenter](#F-Nhl-Api-Models-Enumerations-Venue-VenueEnum-EnterpriseCenter 'Nhl.Api.Models.Enumerations.Venue.VenueEnum.EnterpriseCenter')
 
 ##### Returns
 
@@ -629,7 +665,7 @@ An NHL venue, see [LeagueVenue](#T-Nhl-Api-Models-Venue-LeagueVenue 'Nhl.Api.Mod
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| venue | [Nhl.Api.Domain.Enumerations.Venue.VenueEnum](#T-Nhl-Api-Domain-Enumerations-Venue-VenueEnum 'Nhl.Api.Domain.Enumerations.Venue.VenueEnum') | The specified NHL venue, see [VenueEnum](#T-Nhl-Api-Domain-Enumerations-Venue-VenueEnum 'Nhl.Api.Domain.Enumerations.Venue.VenueEnum') for more information on NHL venues |
+| venue | [Nhl.Api.Models.Enumerations.Venue.VenueEnum](#T-Nhl-Api-Models-Enumerations-Venue-VenueEnum 'Nhl.Api.Models.Enumerations.Venue.VenueEnum') | The specified NHL venue, see [VenueEnum](#T-Nhl-Api-Models-Enumerations-Venue-VenueEnum 'Nhl.Api.Models.Enumerations.Venue.VenueEnum') for more information on NHL venues |
 
 <a name='M-Nhl-Api-NhlApi-GetLeagueVenuesAsync'></a>
 ### GetLeagueVenuesAsync() `method`
@@ -645,6 +681,23 @@ A collection of NHL stadiums and arenas, see [LeagueVenue](#T-Nhl-Api-Models-Ven
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-Nhl-Api-NhlApi-GetLiveGameFeedById-System-Int32-'></a>
+### GetLiveGameFeedById(liveGameFeedId) `method`
+
+##### Summary
+
+Returns the live game feed content for an NHL game
+
+##### Returns
+
+A detailed collection of information about play by play details, scores, teams, coaches, on ice statistics, real-time updates and more
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| liveGameFeedId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The live game feed id, example: 2021020087 |
 
 <a name='M-Nhl-Api-NhlApi-GetPlayTypesAsync'></a>
 ### GetPlayTypesAsync() `method`
@@ -909,7 +962,7 @@ A collection of all NHL players based on the search query provided
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" |
+| query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" |
 
 <a name='M-Nhl-Api-NhlApi-SearchLeagueTeamRosterMembersAsync-System-String-'></a>
 ### SearchLeagueTeamRosterMembersAsync(query) `method`
@@ -927,6 +980,7 @@ A collection of all rostered and active NHL players based on the search query pr
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | An search term to find NHL players, Example: "Auston Matthews" or "Carey Pr.." or "John C" |
+
 
 ## Bugs 🐛
 If you have any issues with the library or suggestions, please feel free to create an issue and it will be adressed as soon as possible :)

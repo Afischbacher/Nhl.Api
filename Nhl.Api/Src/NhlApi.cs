@@ -547,11 +547,11 @@ namespace Nhl.Api
 		/// <summary>
 		/// Returns the live game feed content for an NHL game
 		/// </summary>
-		/// <param name="liveFeedGameId">The live game feed id, example: 2021020087</param>
+		/// <param name="liveGameFeedId">The live game feed id, example: 2021020087</param>
 		/// <returns>A detailed collection of information about play by play details, scores, teams, coaches, on ice statistics, real-time updates and more</returns>
-		public async Task<LiveGameFeedResult> GetLiveGameFeedById(int liveFeedGameId)
+		public async Task<LiveGameFeedResult> GetLiveGameFeedById(int liveGameFeedId)
 		{ 
-			var liveGameFeed = await _nhlStatsApiHttpClient.GetAsync<LiveGameFeed>($"/game/{liveFeedGameId}/feed/live");
+			var liveGameFeed = await _nhlStatsApiHttpClient.GetAsync<LiveGameFeed>($"/game/{liveGameFeedId}/feed/live");
 
 			return new LiveGameFeedResult
 			{
