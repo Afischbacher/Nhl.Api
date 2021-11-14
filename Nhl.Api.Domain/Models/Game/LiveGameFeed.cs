@@ -36,7 +36,7 @@ namespace Nhl.Api.Models.Game
         {
             var nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
             var numberOfAttempts = 0;
-            var maxNumberOfAttempts = 7500;
+            var maxNumberOfAttempts = 10000;
             var waitInMsPerRequest = 250;
 
             var endpoint = LiveGameFeed?.Link?.Replace("/api/v1", string.Empty) ?? null;
@@ -61,7 +61,7 @@ namespace Nhl.Api.Models.Game
                     break;
                 }
 
-                // If game is completed, stop sending events or the number of attempts exceeds 30 minutes of attempts
+                // If game is completed, stop sending events or the number of attempts exceeds 41.6 minutes of attempts
                 var isLiveGameFeedCompleted = (liveGameFeed?.GameData?.Status?.AbstractGameState == "Final"
                     || liveGameFeed?.GameData?.Status?.CodedGameState == "7") || (numberOfAttempts >= maxNumberOfAttempts);
                 if (isLiveGameFeedCompleted)
