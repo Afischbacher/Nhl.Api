@@ -31,6 +31,29 @@ namespace Nhl.Api.Tests
 		}
 
 		[TestMethod]
+		public async Task TestGetLeagueStandingsAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueStandings = await nhlApi.GetLeagueStandingsAsync();
+
+			// Assert
+			Assert.IsNotNull(leagueStandings);
+			CollectionAssert.AllItemsAreNotNull(leagueStandings);
+
+			foreach (var record in leagueStandings)
+			{
+				Assert.IsNotNull(record.Conference);
+				Assert.IsNotNull(record.Division);
+				Assert.IsNotNull(record.League);
+				Assert.IsNotNull(record.StandingsType);
+				Assert.IsNotNull(record.TeamRecords);
+			}
+		}
+
+		[TestMethod]
 		public async Task TestGetLeagueStandingsWithDateAsync()
 		{
 			// Arrange
