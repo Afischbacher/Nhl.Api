@@ -81,7 +81,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetLeagueVenueByIdAsync(venueId)](#M-Nhl-Api-NhlApi-GetLeagueVenueByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetLeagueVenueByIdAsync(System.Int32)')
   - [GetLeagueVenueByIdAsync(venue)](#M-Nhl-Api-NhlApi-GetLeagueVenueByIdAsync-Nhl-Api-Models-Enumerations-Venue-VenueEnum- 'Nhl.Api.NhlApi.GetLeagueVenueByIdAsync(Nhl.Api.Models.Enumerations.Venue.VenueEnum)')
   - [GetLeagueVenuesAsync()](#M-Nhl-Api-NhlApi-GetLeagueVenuesAsync 'Nhl.Api.NhlApi.GetLeagueVenuesAsync')
-  - [GetLiveGameFeedById(liveFeedGameId)](#M-Nhl-Api-NhlApi-GetLiveGameFeedById-System-Int32- 'Nhl.Api.NhlApi.GetLiveGameFeedById(System.Int32)')
+  - [GetLiveGameFeedById(liveGameFeedId)](#M-Nhl-Api-NhlApi-GetLiveGameFeedById-System-Int32- 'Nhl.Api.NhlApi.GetLiveGameFeedById(System.Int32)')
   - [GetPlayTypesAsync()](#M-Nhl-Api-NhlApi-GetPlayTypesAsync 'Nhl.Api.NhlApi.GetPlayTypesAsync')
   - [GetPlayerByIdAsync(playerId)](#M-Nhl-Api-NhlApi-GetPlayerByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetPlayerByIdAsync(System.Int32)')
   - [GetPlayerByIdAsync(player)](#M-Nhl-Api-NhlApi-GetPlayerByIdAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum- 'Nhl.Api.NhlApi.GetPlayerByIdAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum)')
