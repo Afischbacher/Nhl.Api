@@ -145,6 +145,21 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(team.FirstYearOfPlay);
 		}
 
+
+		[TestMethod]
+		public async Task TestGetTeamByIdInvalidAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var team = await nhlApi.GetTeamByIdAsync(999);
+
+			// Assert
+			Assert.IsNull(team);
+
+		}
+
 		[TestMethod]
 		public async Task TestGetTeamByIdEnumAsync()
 		{
@@ -173,6 +188,99 @@ namespace Nhl.Api.Tests
 			Assert.IsNotNull(team.FirstYearOfPlay);
 		}
 
+		[TestMethod]
+		public async Task TestGetTeamsByIdsEnumAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var teams = await nhlApi.GetTeamsByIdsAsync(new[] { TeamEnum.BuffaloSabres, TeamEnum.ArizonaCoyotes });
+
+            // Assert
+            foreach (var team in teams)
+            {
+				Assert.IsNotNull(team.Conference);
+				Assert.IsNotNull(team.Abbreviation);
+				Assert.IsNotNull(team.Active);
+				Assert.IsNotNull(team.ShortName);
+				Assert.IsNotNull(team.Venue);
+				Assert.IsNotNull(team.FranchiseId);
+				Assert.IsNotNull(team.LocationName);
+				Assert.IsNotNull(team.TeamName);
+				Assert.IsNotNull(team.OfficialSiteUrl);
+				Assert.IsNotNull(team.Abbreviation);
+				Assert.IsNotNull(team.Division);
+				Assert.IsNotNull(team.Franchise);
+				Assert.IsNotNull(team.Id);
+				Assert.IsNotNull(team.Name);
+				Assert.IsNotNull(team.Link);
+				Assert.IsNotNull(team.FirstYearOfPlay);
+			}
+       
+        }
+
+		[TestMethod]
+		public async Task TestGetTeamsByIdsEnumEmptyArrayAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var teams = await nhlApi.GetTeamsByIdsAsync(new TeamEnum[] { });
+
+			// Assert
+			Assert.IsNotNull(teams);
+			Assert.AreEqual(32, teams.Count);
+
+		}
+
+		[TestMethod]
+		public async Task TestGetTeamsByIdsIntAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var teams = await nhlApi.GetTeamsByIdsAsync(new[] { 8,10 });
+
+			// Assert
+			foreach (var team in teams)
+			{
+				Assert.IsNotNull(team.Conference);
+				Assert.IsNotNull(team.Abbreviation);
+				Assert.IsNotNull(team.Active);
+				Assert.IsNotNull(team.ShortName);
+				Assert.IsNotNull(team.Venue);
+				Assert.IsNotNull(team.FranchiseId);
+				Assert.IsNotNull(team.LocationName);
+				Assert.IsNotNull(team.TeamName);
+				Assert.IsNotNull(team.OfficialSiteUrl);
+				Assert.IsNotNull(team.Abbreviation);
+				Assert.IsNotNull(team.Division);
+				Assert.IsNotNull(team.Franchise);
+				Assert.IsNotNull(team.Id);
+				Assert.IsNotNull(team.Name);
+				Assert.IsNotNull(team.Link);
+				Assert.IsNotNull(team.FirstYearOfPlay);
+			}
+
+		}
+
+		[TestMethod]
+		public async Task TestGetTeamsByIdsIntEmptyArrayAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var teams = await nhlApi.GetTeamsByIdsAsync(new int[] { });
+
+			// Assert
+			Assert.IsNotNull(teams);
+			Assert.AreEqual(32, teams.Count);
+
+		}
 
 		[TestMethod]
 		public async Task TestGetManyTeamsByTasksAsync()

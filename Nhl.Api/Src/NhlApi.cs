@@ -112,6 +112,17 @@ namespace Nhl.Api
 		}
 
 		/// <summary>
+		/// Returns a collection of NHL team by the team id's
+		/// </summary>
+		/// <param name="teamIds">A collection of NHL team id's, Example: 10 - Toronto Maple Leafs</param>
+		/// <returns>A collection of NHL team's with information including name, location, division and more, see <see cref="Team"/> for more information</returns>
+		public async Task<List<Team>> GetTeamsByIdsAsync(IEnumerable<int> teamIds)
+		{
+			var teamValues = teamIds.Aggregate(string.Empty, (currentTeam, nextTeam) => $"{currentTeam},{nextTeam}").TrimStart(',');
+			return (await _nhlStatsApiHttpClient.GetAsync<LeagueTeam>($"/teams?teamId={teamValues}")).Teams;
+		}
+
+		/// <summary>
 		/// Returns an NHL team by the team enumeration <br/>
 		/// Example: <see cref="TeamEnum.SeattleKraken"/>
 		/// </summary>
@@ -122,6 +133,17 @@ namespace Nhl.Api
 			return (await _nhlStatsApiHttpClient.GetAsync<LeagueTeam>($"/teams/{((int)team)}"))
 			.Teams
 			.SingleOrDefault();
+		}
+
+		/// <summary>
+		/// Returns a collection of NHL team's by the team enumeration values
+		/// </summary>
+		/// <param name="teams">A collection of NHL team id's, Example: 10 - Toronto Maple Leafs, see <see cref="TeamEnum"/> for more information on NHL teams</param>
+		/// <returns>A collection of NHL team's with information including name, location, division and more, see <see cref="Team"/> for more information</returns>
+		public async Task<List<Team>> GetTeamsByIdsAsync(IEnumerable<TeamEnum> teams)
+		{
+			var teamValues = teams.Aggregate(string.Empty, (currentTeam, nextTeam) => $"{currentTeam},{(int)nextTeam}").TrimStart(',');
+			return (await _nhlStatsApiHttpClient.GetAsync<LeagueTeam>($"/teams?teamId={teamValues}")).Teams;
 		}
 
 		/// <summary>
@@ -784,5 +806,5 @@ namespace Nhl.Api
 		{
 			return await _nhlStatsApiHttpClient.GetAsync<List<EventType>>("/eventTypes");
 		}
-	}
+    }
 }

@@ -83,12 +83,26 @@ namespace Nhl.Api
         Task<Team> GetTeamByIdAsync(int teamId);
 
         /// <summary>
+        /// Returns a collection of NHL team by the team id's
+        /// </summary>
+        /// <param name="teamIds">A collection of NHL team id's, Example: 10 - Toronto Maple Leafs</param>
+        /// <returns>A collection of NHL team's with information including name, location, division and more, see <see cref="Team"/> for more information</returns>
+        Task<List<Team>> GetTeamsByIdsAsync(IEnumerable<int> teamIds);
+
+        /// <summary>
         /// Returns an NHL team by the team enumeration <br/>
         /// Example: <see cref="TeamEnum.SeattleKraken"/>
         /// </summary>
         /// <param name="team">The NHL team id, Example: 10 - Toronto Maple Leafs, see <see cref="TeamEnum"/> for more information on NHL teams</param>
         /// <returns>An NHL team with information including name, location, division and more, see <see cref="Team"/> for more information on teams</returns>
         Task<Team> GetTeamByIdAsync(TeamEnum team);
+
+        /// <summary>
+        /// Returns a collection of NHL team's by the team enumeration values
+        /// </summary>
+        /// <param name="teams">A collection of NHL team id's, Example: 10 - Toronto Maple Leafs, see <see cref="TeamEnum"/> for more information on NHL teams</param>
+        /// <returns>A collection of NHL team's with information including name, location, division and more, see <see cref="Team"/> for more information</returns>
+        Task<List<Team>> GetTeamsByIdsAsync(IEnumerable<TeamEnum> teams);
 
         /// <summary>
         /// Returns all active and inactive NHL teams
