@@ -9,7 +9,7 @@ namespace Nhl.Api.Common.Http
 	public class NhlStatsApiHttpClient : NhlApiHttpClient
 	{
 		private static readonly object _lock = new object();
-		private HttpClient _httpClient;
+		private static HttpClient _httpClient;
 		public NhlStatsApiHttpClient() : base(clientApiUri: "https://statsapi.web.nhl.com/api/", clientVersion: "v1", timeoutInSeconds: 30)
 		{
 		}
