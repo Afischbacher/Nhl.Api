@@ -122,6 +122,22 @@ namespace Nhl.Api
         /// <returns>A collection of all active NHL teams, see <see cref="Team"/> for more information</returns>
         Task<List<Team>> GetInactiveTeamsAsync();
 
+        /// <summary>
+        /// Returns an the NHL team logo using the NHL team id
+        /// </summary>
+        /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
+        /// <param name="teamLogoImageType">The NHL team logo image type, based on the background of light or dark</param>
+        /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the uri endpoint</returns>
+        Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoImageType = TeamLogoType.Light);
+
+        /// <summary>
+        /// Returns an the NHL team logo based using the NHL team enumeration
+        /// </summary>
+        /// <param name="teamEnum">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
+        /// <param name="teamLogoImageType">The NHL team logo image type, based on the background of light or dark</param>
+        /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the uri endpoint</returns>
+        Task<TeamLogo> GetTeamLogoAsync(TeamEnum teamEnum, TeamLogoType teamLogoImageType = TeamLogoType.Light);
+
         #endregion
 
         #region Divisions

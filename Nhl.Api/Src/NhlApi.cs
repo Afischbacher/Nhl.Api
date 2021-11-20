@@ -38,6 +38,7 @@ namespace Nhl.Api
 	{
 		private readonly NhlStatsApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
 		private readonly NhlSuggestionApiHttpClient _nhlSuggestionApiHttpClient = new NhlSuggestionApiHttpClient();
+		private readonly NhlStaticAssetsApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
 
 		/// <summary>
 		/// Returns all NHL franchises, including information such as team name, location and more
@@ -177,6 +178,45 @@ namespace Nhl.Api
 				.Teams
 				.Where(team => !team.Active)
 				.ToList();
+		}
+
+		/// <summary>
+		/// Returns an the NHL team logo based a dark or light preference using the NHL team id
+		/// </summary>
+		/// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
+		/// <param name="teamLogoImageType">The NHL team logo image type, based on the background of light or dark</param>
+		/// <returns>A byte array and a URI for the NHL team logo</returns>
+		public async Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoImageType = TeamLogoType.Light)
+		{
+			var endpoint = $"images/logos/teams-current-primary-{teamLogoImageType.ToString().ToLower()}/{teamId}.svg";
+			var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint);
+			
+			return new TeamLogo
+			{
+				ImageAsBase64String = Convert.ToBase64String(imageContent),
+				ImageAsByteArray = imageContent,
+				Uri = $"{_nhlStaticAssetsApiHttpClient.Client}{endpoint}"
+			};
+		}
+
+
+		/// <summary>
+		/// Returns an the NHL team logo based a dark or light preference using the NHL team enumeration
+		/// </summary>
+		/// <param name="teamEnum">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
+		/// <param name="teamLogoImageType">The NHL team logo image type, based on the background of light or dark</param>
+		/// <returns>A byte array and a URI for the NHL team logo</returns>
+		public async Task<TeamLogo> GetTeamLogoAsync(TeamEnum teamEnum, TeamLogoType teamLogoImageType = TeamLogoType.Light)
+		{
+			var endpoint = $"images/logos/teams-current-primary-{teamLogoImageType.ToString().ToLower()}/{(int)teamEnum}.svg";
+			var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint);
+			
+			return new TeamLogo
+			{
+				ImageAsBase64String = Convert.ToBase64String(imageContent),
+				ImageAsByteArray = imageContent,
+				Uri = $"{_nhlStaticAssetsApiHttpClient.Client}{endpoint}"
+			};
 		}
 
 		/// <summary>

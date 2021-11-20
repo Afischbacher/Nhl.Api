@@ -263,6 +263,9 @@ namespace Nhl.Api.Tests
 				Assert.IsNotNull(team.Name);
 				Assert.IsNotNull(team.Link);
 				Assert.IsNotNull(team.FirstYearOfPlay);
+				Assert.IsNotNull(team.OfficalDarkTeamLogoUrl);
+				Assert.IsNotNull(team.OfficalLightTeamLogoUrl);
+
 			}
 
 		}
@@ -405,6 +408,100 @@ namespace Nhl.Api.Tests
 
 			// Assert
 			Assert.IsNull(franchise);
+		}
+
+		[DataRow(TeamEnum.TorontoMapleLeafs)]
+		[DataRow(TeamEnum.ArizonaCoyotes)]
+		[DataRow(TeamEnum.DetroitRedWings)]
+		[DataRow(TeamEnum.AnaheimDucks)]
+		[TestMethod]
+		public async Task TestGetTeamLogoLightAsync(TeamEnum teamEnum)
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var teamLogo = await nhlApi.GetTeamLogoAsync(teamEnum, TeamLogoType.Light);
+
+			// Assert
+			Assert.IsNotNull(teamLogo);
+			Assert.IsNotNull(teamLogo.Uri);
+			Assert.IsNotNull(teamLogo.ImageAsByteArray);
+			Assert.IsNotNull(teamLogo.ImageAsBase64String);
+
+			Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 0);
+			Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 0);
+		}
+
+
+		[DataRow(TeamEnum.ColoradoAvalanche)]
+		[DataRow(TeamEnum.SanJoseSharks)]
+		[DataRow(TeamEnum.ColumbusBlueJackets)]
+		[DataRow(TeamEnum.ChicagoBlackhawks)]
+		[TestMethod]
+		public async Task TestGetTeamLogoDarkAsync(TeamEnum teamEnum)
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var teamLogo = await nhlApi.GetTeamLogoAsync(teamEnum, TeamLogoType.Dark);
+
+			// Assert
+			Assert.IsNotNull(teamLogo);
+			Assert.IsNotNull(teamLogo.Uri);
+			Assert.IsNotNull(teamLogo.ImageAsByteArray);
+			Assert.IsNotNull(teamLogo.ImageAsBase64String);
+
+			Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 0);
+			Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 0);
+		}
+
+		[DataRow(10)]
+		[DataRow(55)]
+		[DataRow(7)]
+		[DataRow(24)]
+		[TestMethod]
+		public async Task TestGetTeamLogoLightAsIntAsync(int teamId)
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var teamLogo = await nhlApi.GetTeamLogoAsync(teamId, TeamLogoType.Light);
+
+			// Assert
+			Assert.IsNotNull(teamLogo);
+			Assert.IsNotNull(teamLogo.Uri);
+			Assert.IsNotNull(teamLogo.ImageAsByteArray);
+			Assert.IsNotNull(teamLogo.ImageAsBase64String);
+
+			Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 0);
+			Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 0);
+		}
+
+
+		[DataRow(21)]
+		[DataRow(28)]
+		[DataRow(6)]
+		[DataRow(5)]
+		[TestMethod]
+		public async Task TestGetTeamLogoDarkAsIntAsync(int teamId)
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var teamLogo = await nhlApi.GetTeamLogoAsync(teamId, TeamLogoType.Dark);
+
+			// Assert
+			Assert.IsNotNull(teamLogo);
+			Assert.IsNotNull(teamLogo.Uri);
+			Assert.IsNotNull(teamLogo.ImageAsByteArray);
+			Assert.IsNotNull(teamLogo.ImageAsBase64String);
+
+			Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 0);
+			Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 0);
 		}
 	}
 }

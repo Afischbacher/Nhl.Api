@@ -277,6 +277,8 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(playerValue.CurrentTeam.Id);
             Assert.IsNotNull(playerValue.CurrentTeam.Name);
             Assert.IsNotNull(playerValue.CurrentTeam.Link);
+            Assert.IsNotNull(playerValue.CurrentTeam.OfficalDarkTeamLogoUrl);
+            Assert.IsNotNull(playerValue.CurrentTeam.OfficalLightTeamLogoUrl);
             Assert.IsFalse(playerValue.IsGoalie);
             Assert.IsFalse(playerValue.Captain);
 
