@@ -70,7 +70,6 @@ namespace Nhl.Api.Tests
 			foreach (var record in leagueStandings)
 			{
 				Assert.IsNotNull(record.Conference);
-				Assert.IsNotNull(record.Division);
 				Assert.IsNotNull(record.League);
 				Assert.IsNotNull(record.StandingsType);
 				Assert.IsNotNull(record.TeamRecords);
