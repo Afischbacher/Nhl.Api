@@ -376,6 +376,18 @@ namespace Nhl.Api
         Task<List<Records>> GetLeagueStandingsByConferenceAsync();
 
         /// <summary>
+        /// Returns the standings of every team by division in the NHL by date, if the date is null it will provide the current NHL league standings by division
+        /// </summary>
+        /// <returns>A collection of all the league standings by division for the selected date</returns>
+        Task<List<Records>> GetLeagueStandingsByDivisionAsync(DateTime? date);
+
+        /// <summary>
+        /// Returns the standings of every team in the NHL by conference for the current date, if the date is null it will provide the current NHL league standings by conference
+        /// </summary>
+        /// <returns>A collection of all the league standings by conference for the selected date</returns>
+        Task<List<Records>> GetLeagueStandingsByConferenceAsync(DateTime? date);
+
+        /// <summary>
         /// Returns the standings of every team by division in the NHL for the current date
         /// </summary>
         /// <returns>A collection of all the league standings by division</returns>

@@ -700,11 +700,32 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns the standings of every team in the NHL by conference for the current date, if the date is null it will provide the current NHL league standings by conference
+        /// </summary>
+        /// <returns>A collection of all the league standings by conference for the selected date</returns>
+        public async Task<List<Records>> GetLeagueStandingsByConferenceAsync(DateTime? date)
+        {
+            var httpRequestUri = date.HasValue ? $"/standings/byConference?date={date.Value:yyyy-MM-dd}" : "/standings/byConference";
+            return (await _nhlStatsApiHttpClient.GetAsync<LeagueStandings>(httpRequestUri)).Records;
+        }
+
+        /// <summary>
+        /// Returns the standings of every team by division in the NHL by date, if the date is null it will provide the current NHL league standings by division
+        /// </summary>
+        /// <returns>A collection of all the league standings by division for the selected date</returns>
+        public async Task<List<Records>> GetLeagueStandingsByDivisionAsync(DateTime? date)
+        {
+            var httpRequestUri = date.HasValue ? $"/standings/byDivision?date={date.Value:yyyy-MM-dd}" : "/standings/byDivision";
+            return (await _nhlStatsApiHttpClient.GetAsync<LeagueStandings>(httpRequestUri)).Records;
+        }
+
+        /// <summary>
         /// Returns all distinct types of NHL statistics types
         /// </summary>
         /// <returns>A collection of all the various NHL statistics types, see <see cref="StatisticTypes"/> for more information</returns>
         public async Task<List<StatisticTypes>> GetStatisticTypesAsync()
         {
+
             return await _nhlStatsApiHttpClient.GetAsync<List<StatisticTypes>>("/statTypes");
         }
 
