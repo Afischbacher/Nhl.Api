@@ -53,6 +53,54 @@ namespace Nhl.Api.Tests
 			}
 		}
 
+
+		[TestMethod]
+		public async Task TestGetLeagueStandingsByConferenceAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueStandings = await nhlApi.GetLeagueStandingsByConferenceAsync();
+
+			// Assert
+			Assert.IsNotNull(leagueStandings);
+			CollectionAssert.AllItemsAreNotNull(leagueStandings);
+
+			foreach (var record in leagueStandings)
+			{
+				Assert.IsNotNull(record.Conference);
+				Assert.IsNotNull(record.Division);
+				Assert.IsNotNull(record.League);
+				Assert.IsNotNull(record.StandingsType);
+				Assert.IsNotNull(record.TeamRecords);
+			}
+		}
+
+
+		[TestMethod]
+		public async Task TestGetLeagueStandingsByDivisionAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueStandings = await nhlApi.GetLeagueStandingsByDivisionAsync();
+
+			// Assert
+			Assert.IsNotNull(leagueStandings);
+			CollectionAssert.AllItemsAreNotNull(leagueStandings);
+
+			foreach (var record in leagueStandings)
+			{
+				Assert.IsNotNull(record.Conference);
+				Assert.IsNotNull(record.Division);
+				Assert.IsNotNull(record.League);
+				Assert.IsNotNull(record.StandingsType);
+				Assert.IsNotNull(record.TeamRecords);
+			}
+		}
+
 		[TestMethod]
 		public async Task TestGetLeagueStandingsWithDateAsync()
 		{

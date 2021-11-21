@@ -126,17 +126,17 @@ namespace Nhl.Api
         /// Returns an the NHL team logo using the NHL team id
         /// </summary>
         /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
-        /// <param name="teamLogoImageType">The NHL team logo image type, based on the background of light or dark</param>
+        /// <param name="teamLogoType">The NHL team logo image type, based on the background of light or dark</param>
         /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the uri endpoint</returns>
-        Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoImageType = TeamLogoType.Light);
+        Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light);
 
         /// <summary>
         /// Returns an the NHL team logo based using the NHL team enumeration
         /// </summary>
         /// <param name="teamEnum">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
-        /// <param name="teamLogoImageType">The NHL team logo image type, based on the background of light or dark</param>
+        /// <param name="teamLogoType">The NHL team logo image type, based on the background of light or dark</param>
         /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the uri endpoint</returns>
-        Task<TeamLogo> GetTeamLogoAsync(TeamEnum teamEnum, TeamLogoType teamLogoImageType = TeamLogoType.Light);
+        Task<TeamLogo> GetTeamLogoAsync(TeamEnum teamEnum, TeamLogoType teamLogoType = TeamLogoType.Light);
 
         #endregion
 
@@ -369,6 +369,17 @@ namespace Nhl.Api
         /// <returns>A collection of all the league standings </returns>
         Task<List<Records>> GetLeagueStandingsAsync();
 
+        /// <summary>
+        /// Returns the standings of every team by conference in the NHL for the current date
+        /// </summary>
+        /// <returns>A collection of all the league standings by conference</returns>
+        Task<List<Records>> GetLeagueStandingsByConferenceAsync();
+
+        /// <summary>
+        /// Returns the standings of every team by division in the NHL for the current date
+        /// </summary>
+        /// <returns>A collection of all the league standings by division</returns>
+        Task<List<Records>> GetLeagueStandingsByDivisionAsync();
         #endregion
 
         #region Statistics
