@@ -126,7 +126,7 @@ namespace Nhl.Api
         /// Returns an the NHL team logo using the NHL team id
         /// </summary>
         /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
-        /// <param name="teamLogoType">The NHL team logo image type, based on the background of light or dark</param>
+        /// <param name="teamLogoType">A season year for the all the NHL statistics, based on the background of light or dark</param>
         /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the uri endpoint</returns>
         Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light);
 
@@ -138,6 +138,28 @@ namespace Nhl.Api
         /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the uri endpoint</returns>
         Task<TeamLogo> GetTeamLogoAsync(TeamEnum teamEnum, TeamLogoType teamLogoType = TeamLogoType.Light);
 
+        /// <summary>
+        /// Returns all of the NHL team statistics for the specific NHL team identifier and season
+        /// </summary>
+        /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
+        /// <param name="seasonYear">A season year for the entire NHL roster, Example: 19971998, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of NHL team statistics for the specified season</returns>
+        Task<StatisticsTeam> GetTeamStatisticsBySeasonAsync(int teamId, string seasonYear);
+
+        /// <summary>
+        /// Returns all of the NHL team statistics for the specific NHL team identifier and season
+        /// </summary>
+        /// <param name="team">The NHL team id, Example: <see cref="TeamEnum.AnaheimDucks"/>, see <see cref="TeamEnum"/> for more information</param>
+        /// <param name="seasonYear">A season year for the all the NHL statistics, Example: 19971998, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of NHL team statistics for the specified season</returns>
+        Task<StatisticsTeam> GetTeamStatisticsBySeasonAsync(TeamEnum team, string seasonYear);
+
+        /// <summary>
+        /// Returns all of the NHL team's statistics for the specific NHL season
+        /// </summary>
+        /// <param name="seasonYear">A season year for the all the NHL statistics, Example: 19971998, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of NHL team statistics for the specified season</returns>
+        Task<TeamSeasonStatistics> GetAllTeamsStatisticsBySeasonAsync(string seasonYear);
         #endregion
 
         #region Divisions
@@ -323,9 +345,27 @@ namespace Nhl.Api
         Task<GameSchedule> GetGameScheduleByDateAsync(int year, int month, int day);
 
         /// <summary>
+        /// Return's the NHL game schedule for the specified team based on the provided start date and end date
+        /// </summary>
+        /// <param name="team">The NHL team id, Example: <see cref="TeamEnum.AnaheimDucks"/></param>
+        /// <param name="startDate">The starting date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 2017-01-01</param>
+        /// <param name="endDate">The ending date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 1988-06-01</param>
+        /// <returns>Returns all of the NHL team's game schedules based on the selected start and end dates</returns>
+        Task<GameSchedule> GetGameScheduleForTeamByDateAsync(TeamEnum team, DateTime startDate, DateTime endDate);
+
+        /// <summary>
+        /// Return's the NHL game schedule for the specified team based on the provided start date and end date
+        /// </summary>
+        /// <param name="teamId">The NHL team id, Example: 1</param>
+        /// <param name="startDate">The starting date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 2017-01-01</param>
+        /// <param name="endDate">The ending date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 1988-06-01</param>
+        /// <returns>Returns all of the NHL team's game schedules based on the selected start and end dates</returns>
+        Task<GameSchedule> GetGameScheduleForTeamByDateAsync(int teamId, DateTime startDate, DateTime endDate);
+
+        /// <summary>
         /// Returns the live game feed content for an NHL game
         /// </summary>
-        /// <param name="liveFeedGameId">The live game feed id, example: 2021020087</param>
+        /// <param name="liveFeedGameId">The live game feed id, Example: 2021020087</param>
         /// <returns>A detailed collection of information about play by play details, scores, teams, coaches, on ice statistics, real-time updates and more</returns>
         Task<LiveGameFeedResult> GetLiveGameFeedById(int liveFeedGameId);
 
@@ -405,16 +445,16 @@ namespace Nhl.Api
         /// <summary>
         /// Returns a specified NHL team's statistics for the specified season, the most recent season statistics will be returned
         /// </summary>
-        /// <param name="teamId">The NHL team id, example: Toronto Maple Leafs - 10</param>
-        /// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, example: 20202021</param>
+        /// <param name="teamId">The NHL team id, Example: Toronto Maple Leafs - 10</param>
+        /// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, Example: 20202021</param>
         /// <returns>A collection of all the specified NHL team statistics for the specified season</returns>
         Task<TeamStatistics> GetTeamStatisticsByIdAsync(int teamId, string seasonYear);
 
         /// <summary>
         /// Returns a specified NHL team's statistics for the specified season, the most recent season statistics will be returned
         /// </summary>
-        /// <param name="team">The NHL team id, example: <see cref="TeamEnum.AnaheimDucks"/></param>
-        /// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, example: 20202021</param>
+        /// <param name="team">The NHL team id, Example: <see cref="TeamEnum.AnaheimDucks"/></param>
+        /// <param name="seasonYear">The NHL season year, see <see cref="SeasonYear"/> for all valid seasons, Example: 20202021</param>
         /// <returns>A collection of all the specified NHL team statistics for the specified season</returns>
         Task<TeamStatistics> GetTeamStatisticsByIdAsync(TeamEnum team, string seasonYear);
 

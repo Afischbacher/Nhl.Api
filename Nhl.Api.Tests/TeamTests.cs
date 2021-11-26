@@ -503,5 +503,329 @@ namespace Nhl.Api.Tests
 			Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 0);
 			Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 0);
 		}
+
+		[TestMethod]
+		public async Task TestGetTeamStatisticsBySeasonWithEnumAsync()
+		{
+
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var teamStats = await nhlApi.GetTeamStatisticsBySeasonAsync(TeamEnum.DallasStars, SeasonYear.season20102011);
+
+			// Assert
+			Assert.IsNotNull(teamStats);
+			Assert.IsNotNull(teamStats.Conference);
+			Assert.IsNotNull(teamStats.Abbreviation);
+			Assert.IsNotNull(teamStats.Active);
+			Assert.IsNotNull(teamStats.ShortName);
+			Assert.IsNotNull(teamStats.Venue);
+			Assert.IsNotNull(teamStats.FranchiseId);
+			Assert.IsNotNull(teamStats.LocationName);
+			Assert.IsNotNull(teamStats.TeamName);
+			Assert.IsNotNull(teamStats.OfficialSiteUrl);
+			Assert.IsNotNull(teamStats.Abbreviation);
+			Assert.IsNotNull(teamStats.Division);
+			Assert.IsNotNull(teamStats.Franchise);
+			Assert.IsNotNull(teamStats.Id);
+			Assert.IsNotNull(teamStats.Name);
+			Assert.IsNotNull(teamStats.Link);
+			Assert.IsNotNull(teamStats.FirstYearOfPlay);
+
+			var firstTeamStatistic = teamStats.TeamStatistics.First();
+			Assert.IsNotNull(firstTeamStatistic.Type.GameType);
+			Assert.IsNotNull(firstTeamStatistic.Type.DisplayName);
+
+			var firstTeamStatSplit = firstTeamStatistic.Splits.First();
+			Assert.IsNotNull(firstTeamStatSplit.Team.Id);
+			Assert.IsNotNull(firstTeamStatSplit.Team.Link);
+			Assert.IsNotNull(firstTeamStatSplit.Team.Name);
+			Assert.IsNotNull(firstTeamStatSplit.Team.OfficalDarkTeamLogoUrl);
+			Assert.IsNotNull(firstTeamStatSplit.Team.OfficalLightTeamLogoUrl);
+
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsLost);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsTaken);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinLeadFirstPer);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinLeadSecondPer);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinOppScoreFirst);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinOutshootOpp);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinOutshotByOpp);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.Wins);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinScoreFirst);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.GamesPlayed);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.GoalsAgainstPerGame);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.GoalsPerGame);
+
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.Losses);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.Ot);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayGoalsAgainst);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayOpportunities);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayPercentage);
+
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayGoals);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PenaltyKillPercentage);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.ShootingPctg);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.ShotsPerGame);
+
+			var lastTeamStatSplit = firstTeamStatistic.Splits.Last();
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsLost);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsTaken);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinLeadFirstPer);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinLeadSecondPer);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinOppScoreFirst);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinOutshootOpp);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinOutshotByOpp);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.Wins);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinScoreFirst);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.GamesPlayed);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.GoalsAgainstPerGame);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.GoalsPerGame);
+
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.Losses);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.Ot);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayGoalsAgainst);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayOpportunities);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayPercentage);
+
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayGoals);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PenaltyKillPercentage);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.ShootingPctg);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.ShotsPerGame);
+
+		}
+
+
+		[TestMethod]
+		public async Task TestGetTeamStatisticsBySeasonWithIntAsync()
+		{
+
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var teamStats = await nhlApi.GetTeamStatisticsBySeasonAsync(55, SeasonYear.season20212022);
+
+			// Assert
+			Assert.IsNotNull(teamStats);
+			Assert.IsNotNull(teamStats.Conference);
+			Assert.IsNotNull(teamStats.Abbreviation);
+			Assert.IsNotNull(teamStats.Active);
+			Assert.IsNotNull(teamStats.ShortName);
+			Assert.IsNotNull(teamStats.Venue);
+			Assert.IsNotNull(teamStats.FranchiseId);
+			Assert.IsNotNull(teamStats.LocationName);
+			Assert.IsNotNull(teamStats.TeamName);
+			Assert.IsNotNull(teamStats.OfficialSiteUrl);
+			Assert.IsNotNull(teamStats.Abbreviation);
+			Assert.IsNotNull(teamStats.Division);
+			Assert.IsNotNull(teamStats.Franchise);
+			Assert.IsNotNull(teamStats.Id);
+			Assert.IsNotNull(teamStats.Name);
+			Assert.IsNotNull(teamStats.Link);
+			Assert.IsNotNull(teamStats.FirstYearOfPlay);
+
+			var firstTeamStatistic = teamStats.TeamStatistics.First();
+			Assert.IsNotNull(firstTeamStatistic.Type.GameType);
+			Assert.IsNotNull(firstTeamStatistic.Type.DisplayName);
+
+			var firstTeamStatSplit = firstTeamStatistic.Splits.First();
+			Assert.IsNotNull(firstTeamStatSplit.Team.Id);
+			Assert.IsNotNull(firstTeamStatSplit.Team.Link);
+			Assert.IsNotNull(firstTeamStatSplit.Team.Name);
+			Assert.IsNotNull(firstTeamStatSplit.Team.OfficalDarkTeamLogoUrl);
+			Assert.IsNotNull(firstTeamStatSplit.Team.OfficalLightTeamLogoUrl);
+
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsLost);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsTaken);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinLeadFirstPer);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinLeadSecondPer);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinOppScoreFirst);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinOutshootOpp);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinOutshotByOpp);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.Wins);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinScoreFirst);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.GamesPlayed);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.GoalsAgainstPerGame);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.GoalsPerGame);
+
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.Losses);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.Ot);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayGoalsAgainst);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayOpportunities);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayPercentage);
+
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayGoals);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PenaltyKillPercentage);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.ShootingPctg);
+			Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.ShotsPerGame);
+
+			var lastTeamStatSplit = firstTeamStatistic.Splits.Last();
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsLost);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsTaken);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinLeadFirstPer);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinLeadSecondPer);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinOppScoreFirst);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinOutshootOpp);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinOutshotByOpp);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.Wins);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinScoreFirst);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.GamesPlayed);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.GoalsAgainstPerGame);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.GoalsPerGame);
+
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.Losses);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.Ot);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayGoalsAgainst);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayOpportunities);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayPercentage);
+
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayGoals);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PenaltyKillPercentage);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.ShootingPctg);
+			Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.ShotsPerGame);
+
+		}
+
+
+		[TestMethod]
+		public async Task TestGetAllTeamStatisticsBySeasonWithIntAsync()
+		{
+
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var teamStats = await nhlApi.GetAllTeamsStatisticsBySeasonAsync(SeasonYear.season19881989);
+
+			// Assert
+			Assert.IsNotNull(teamStats);
+
+            foreach (var teamStat in teamStats.Teams)
+            {
+				Assert.IsNotNull(teamStat.Conference);
+				Assert.IsNotNull(teamStat.Abbreviation);
+				Assert.IsNotNull(teamStat.Active);
+				Assert.IsNotNull(teamStat.ShortName);
+				Assert.IsNotNull(teamStat.FranchiseId);
+				Assert.IsNotNull(teamStat.LocationName);
+				Assert.IsNotNull(teamStat.TeamName);
+				Assert.IsNotNull(teamStat.Abbreviation);
+				Assert.IsNotNull(teamStat.Division);
+				Assert.IsNotNull(teamStat.Franchise);
+				Assert.IsNotNull(teamStat.Id);
+				Assert.IsNotNull(teamStat.Name);
+				Assert.IsNotNull(teamStat.Link);
+				Assert.IsNotNull(teamStat.FirstYearOfPlay);
+
+				Assert.IsNotNull(teamStat.TeamStatistics);
+
+                foreach (var teamStatistic in teamStat.TeamStatistics)
+                {
+					Assert.IsNotNull(teamStatistic.Type.GameType);
+					Assert.IsNotNull(teamStatistic.Type.DisplayName);
+
+					var firstTeamStatSplit = teamStatistic.Splits.First();
+					Assert.IsNotNull(firstTeamStatSplit.Team.Id);
+                    Assert.IsNotNull(firstTeamStatSplit.Team.Link);
+                    Assert.IsNotNull(firstTeamStatSplit.Team.Name);
+                    Assert.IsNotNull(firstTeamStatSplit.Team.OfficalDarkTeamLogoUrl);
+                    Assert.IsNotNull(firstTeamStatSplit.Team.OfficalLightTeamLogoUrl);
+
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsLost);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsTaken);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinLeadFirstPer);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinLeadSecondPer);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinOppScoreFirst);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinOutshootOpp);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinOutshotByOpp);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.Wins);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.WinScoreFirst);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.GamesPlayed);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.GoalsAgainstPerGame);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.GoalsPerGame);
+
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.Losses);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.Ot);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayGoalsAgainst);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayOpportunities);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayPercentage);
+
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PowerPlayGoals);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.PenaltyKillPercentage);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.ShootingPctg);
+                    Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.ShotsPerGame);
+
+					var lastTeamStatSplit = teamStatistic.Splits.Last();
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+									 
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsLost);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsTaken);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinLeadFirstPer);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinLeadSecondPer);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinOppScoreFirst);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinOutshootOpp);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinOutshotByOpp);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.Wins);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.WinScoreFirst);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffsWon);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.FaceOffWinPercentage);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.GamesPlayed);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.GoalsAgainstPerGame);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.GoalsPerGame);
+									 
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.Losses);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.Ot);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayGoalsAgainst);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayOpportunities);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayPercentage);
+									 
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PowerPlayGoals);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.PenaltyKillPercentage);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.ShootingPctg);
+					Assert.IsNotNull(lastTeamStatSplit.TeamStatisticsDetails.ShotsPerGame);
+
+
+				}
+			}
+		}
 	}
 }
