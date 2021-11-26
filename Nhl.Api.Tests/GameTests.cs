@@ -331,7 +331,7 @@ namespace Nhl.Api.Tests
 
             // Act
             const int _gamePkId = 2021020149;
-            var liveGameFeedResult = await nhlApi.GetLiveGameFeedById(_gamePkId);
+            var liveGameFeedResult = await nhlApi.GetLiveGameFeedByIdAsync(_gamePkId);
 
             // Assert
             Assert.IsNotNull(liveGameFeedResult);
@@ -486,7 +486,7 @@ namespace Nhl.Api.Tests
 
             // Act
             const int _gamePkId = 9999999;
-            var liveGameFeedResult = await nhlApi.GetLiveGameFeedById(_gamePkId);
+            var liveGameFeedResult = await nhlApi.GetLiveGameFeedByIdAsync(_gamePkId);
 
             // Assert
             Assert.IsNotNull(liveGameFeedResult);
