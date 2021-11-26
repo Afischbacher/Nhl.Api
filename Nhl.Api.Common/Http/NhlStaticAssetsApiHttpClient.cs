@@ -10,11 +10,11 @@ namespace Nhl.Api.Common.Http
 	{
 		private static readonly object _lock = new object();
 		private static HttpClient _httpClient;
-
 		public static string ClientApiUrl;
+
 		public NhlStaticAssetsApiHttpClient() : base(clientApiUri: "https://www-league.nhlstatic.com", clientVersion: string.Empty, timeoutInSeconds: 30)
 		{
-			ClientApiUrl = base.Client;
+			ClientApiUrl = Client;
 		}
 
 		/// <summary>

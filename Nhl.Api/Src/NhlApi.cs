@@ -36,9 +36,9 @@ namespace Nhl.Api
     /// </summary>
     public class NhlApi : INhlApi
     {
-        private readonly NhlStatsApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
-        private readonly NhlSuggestionApiHttpClient _nhlSuggestionApiHttpClient = new NhlSuggestionApiHttpClient();
-        private readonly NhlStaticAssetsApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
+        private static readonly NhlStatsApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
+        private static readonly NhlSuggestionApiHttpClient _nhlSuggestionApiHttpClient = new NhlSuggestionApiHttpClient();
+        private static readonly NhlStaticAssetsApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
 
         /// <summary>
         /// Returns all NHL franchises, including information such as team name, location and more
@@ -942,7 +942,6 @@ namespace Nhl.Api
         {
             return (await _nhlStatsApiHttpClient.GetAsync<LeagueVenues>("/venues")).Venues;
         }
-
 
         /// <summary>
         /// Returns an NHL venue by the venue id <br/>
