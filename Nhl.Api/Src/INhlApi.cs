@@ -133,10 +133,10 @@ namespace Nhl.Api
         /// <summary>
         /// Returns an the NHL team logo based using the NHL team enumeration
         /// </summary>
-        /// <param name="teamEnum">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
+        /// <param name="team">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
         /// <param name="teamLogoType">The NHL team logo image type, based on the background of light or dark</param>
         /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the uri endpoint</returns>
-        Task<TeamLogo> GetTeamLogoAsync(TeamEnum teamEnum, TeamLogoType teamLogoType = TeamLogoType.Light);
+        Task<TeamLogo> GetTeamLogoAsync(TeamEnum team, TeamLogoType teamLogoType = TeamLogoType.Light);
 
         /// <summary>
         /// Returns all of the NHL team statistics for the specific NHL team identifier and season
