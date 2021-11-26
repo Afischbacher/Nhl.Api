@@ -43,11 +43,13 @@ If you are using the built-in .NET Core dependency injection library, there is a
 ## Documentation 📖
 Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 
-### Contents
+
+## Contents
 
 - [NhlApi](#T-Nhl-Api-NhlApi 'Nhl.Api.NhlApi')
   - [GetActiveFranchisesAsync()](#M-Nhl-Api-NhlApi-GetActiveFranchisesAsync 'Nhl.Api.NhlApi.GetActiveFranchisesAsync')
   - [GetActiveTeamsAsync()](#M-Nhl-Api-NhlApi-GetActiveTeamsAsync 'Nhl.Api.NhlApi.GetActiveTeamsAsync')
+  - [GetAllTeamsStatisticsBySeasonAsync(seasonYear)](#M-Nhl-Api-NhlApi-GetAllTeamsStatisticsBySeasonAsync-System-String- 'Nhl.Api.NhlApi.GetAllTeamsStatisticsBySeasonAsync(System.String)')
   - [GetConferenceByIdAsync(conferenceId)](#M-Nhl-Api-NhlApi-GetConferenceByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetConferenceByIdAsync(System.Int32)')
   - [GetConferenceByIdAsync(conference)](#M-Nhl-Api-NhlApi-GetConferenceByIdAsync-Nhl-Api-Models-Enumerations-Conference-ConferenceEnum- 'Nhl.Api.NhlApi.GetConferenceByIdAsync(Nhl.Api.Models.Enumerations.Conference.ConferenceEnum)')
   - [GetConferencesAsync()](#M-Nhl-Api-NhlApi-GetConferencesAsync 'Nhl.Api.NhlApi.GetConferencesAsync')
@@ -62,6 +64,8 @@ Once registered using your dependency injection library of choice or just using 
   - [GetGameScheduleAsync()](#M-Nhl-Api-NhlApi-GetGameScheduleAsync 'Nhl.Api.NhlApi.GetGameScheduleAsync')
   - [GetGameScheduleByDateAsync(date)](#M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Nullable{System-DateTime}- 'Nhl.Api.NhlApi.GetGameScheduleByDateAsync(System.Nullable{System.DateTime})')
   - [GetGameScheduleByDateAsync(year,month,day)](#M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32- 'Nhl.Api.NhlApi.GetGameScheduleByDateAsync(System.Int32,System.Int32,System.Int32)')
+  - [GetGameScheduleForTeamByDateAsync(team,startDate,endDate)](#M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime- 'Nhl.Api.NhlApi.GetGameScheduleForTeamByDateAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateTime,System.DateTime)')
+  - [GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate)](#M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime- 'Nhl.Api.NhlApi.GetGameScheduleForTeamByDateAsync(System.Int32,System.DateTime,System.DateTime)')
   - [GetGameStatusesAsync()](#M-Nhl-Api-NhlApi-GetGameStatusesAsync 'Nhl.Api.NhlApi.GetGameStatusesAsync')
   - [GetGameTypesAsync()](#M-Nhl-Api-NhlApi-GetGameTypesAsync 'Nhl.Api.NhlApi.GetGameTypesAsync')
   - [GetGoalieStatisticsBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetGoalieStatisticsBySeasonAsync(System.Int32,System.String)')
@@ -76,6 +80,10 @@ Once registered using your dependency injection library of choice or just using 
   - [GetLeagueStandingTypesAsync()](#M-Nhl-Api-NhlApi-GetLeagueStandingTypesAsync 'Nhl.Api.NhlApi.GetLeagueStandingTypesAsync')
   - [GetLeagueStandingsAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueStandingsAsync-System-Nullable{System-DateTime}- 'Nhl.Api.NhlApi.GetLeagueStandingsAsync(System.Nullable{System.DateTime})')
   - [GetLeagueStandingsAsync()](#M-Nhl-Api-NhlApi-GetLeagueStandingsAsync 'Nhl.Api.NhlApi.GetLeagueStandingsAsync')
+  - [GetLeagueStandingsByConferenceAsync()](#M-Nhl-Api-NhlApi-GetLeagueStandingsByConferenceAsync 'Nhl.Api.NhlApi.GetLeagueStandingsByConferenceAsync')
+  - [GetLeagueStandingsByConferenceAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueStandingsByConferenceAsync-System-Nullable{System-DateTime}- 'Nhl.Api.NhlApi.GetLeagueStandingsByConferenceAsync(System.Nullable{System.DateTime})')
+  - [GetLeagueStandingsByDivisionAsync()](#M-Nhl-Api-NhlApi-GetLeagueStandingsByDivisionAsync 'Nhl.Api.NhlApi.GetLeagueStandingsByDivisionAsync')
+  - [GetLeagueStandingsByDivisionAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueStandingsByDivisionAsync-System-Nullable{System-DateTime}- 'Nhl.Api.NhlApi.GetLeagueStandingsByDivisionAsync(System.Nullable{System.DateTime})')
   - [GetLeagueTeamRosterMembersAsync()](#M-Nhl-Api-NhlApi-GetLeagueTeamRosterMembersAsync 'Nhl.Api.NhlApi.GetLeagueTeamRosterMembersAsync')
   - [GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear)](#M-Nhl-Api-NhlApi-GetLeagueTeamRosterMembersBySeasonYearAsync-System-String- 'Nhl.Api.NhlApi.GetLeagueTeamRosterMembersBySeasonYearAsync(System.String)')
   - [GetLeagueVenueByIdAsync(venueId)](#M-Nhl-Api-NhlApi-GetLeagueVenueByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetLeagueVenueByIdAsync(System.Int32)')
@@ -93,9 +101,15 @@ Once registered using your dependency injection library of choice or just using 
   - [GetStatisticTypesAsync()](#M-Nhl-Api-NhlApi-GetStatisticTypesAsync 'Nhl.Api.NhlApi.GetStatisticTypesAsync')
   - [GetTeamByIdAsync(teamId)](#M-Nhl-Api-NhlApi-GetTeamByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetTeamByIdAsync(System.Int32)')
   - [GetTeamByIdAsync(team)](#M-Nhl-Api-NhlApi-GetTeamByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum- 'Nhl.Api.NhlApi.GetTeamByIdAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum)')
+  - [GetTeamLogoAsync(teamId,teamLogoType)](#M-Nhl-Api-NhlApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType- 'Nhl.Api.NhlApi.GetTeamLogoAsync(System.Int32,Nhl.Api.Models.Team.TeamLogoType)')
+  - [GetTeamLogoAsync(teamEnum,teamLogoType)](#M-Nhl-Api-NhlApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType- 'Nhl.Api.NhlApi.GetTeamLogoAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,Nhl.Api.Models.Team.TeamLogoType)')
   - [GetTeamStatisticsByIdAsync(teamId,seasonYear)](#M-Nhl-Api-NhlApi-GetTeamStatisticsByIdAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetTeamStatisticsByIdAsync(System.Int32,System.String)')
   - [GetTeamStatisticsByIdAsync(team,seasonYear)](#M-Nhl-Api-NhlApi-GetTeamStatisticsByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String- 'Nhl.Api.NhlApi.GetTeamStatisticsByIdAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.String)')
+  - [GetTeamStatisticsBySeasonAsync(teamId,seasonYear)](#M-Nhl-Api-NhlApi-GetTeamStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetTeamStatisticsBySeasonAsync(System.Int32,System.String)')
+  - [GetTeamStatisticsBySeasonAsync(team,seasonYear)](#M-Nhl-Api-NhlApi-GetTeamStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String- 'Nhl.Api.NhlApi.GetTeamStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.String)')
   - [GetTeamsAsync()](#M-Nhl-Api-NhlApi-GetTeamsAsync 'Nhl.Api.NhlApi.GetTeamsAsync')
+  - [GetTeamsByIdsAsync(teamIds)](#M-Nhl-Api-NhlApi-GetTeamsByIdsAsync-System-Collections-Generic-IEnumerable{System-Int32}- 'Nhl.Api.NhlApi.GetTeamsByIdsAsync(System.Collections.Generic.IEnumerable{System.Int32})')
+  - [GetTeamsByIdsAsync(teams)](#M-Nhl-Api-NhlApi-GetTeamsByIdsAsync-System-Collections-Generic-IEnumerable{Nhl-Api-Models-Enumerations-Team-TeamEnum}- 'Nhl.Api.NhlApi.GetTeamsByIdsAsync(System.Collections.Generic.IEnumerable{Nhl.Api.Models.Enumerations.Team.TeamEnum})')
   - [GetTournamentTypesAsync()](#M-Nhl-Api-NhlApi-GetTournamentTypesAsync 'Nhl.Api.NhlApi.GetTournamentTypesAsync')
   - [SearchAllPlayersAsync(query)](#M-Nhl-Api-NhlApi-SearchAllPlayersAsync-System-String- 'Nhl.Api.NhlApi.SearchAllPlayersAsync(System.String)')
   - [SearchLeagueTeamRosterMembersAsync(query)](#M-Nhl-Api-NhlApi-SearchLeagueTeamRosterMembersAsync-System-String- 'Nhl.Api.NhlApi.SearchLeagueTeamRosterMembersAsync(System.String)')
@@ -141,6 +155,23 @@ A collection of all active NHL teams, see [Team](#T-Nhl-Api-Models-Team-Team 'Nh
 
 This method has no parameters.
 
+<a name='M-Nhl-Api-NhlApi-GetAllTeamsStatisticsBySeasonAsync-System-String-'></a>
+### GetAllTeamsStatisticsBySeasonAsync(seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL team's statistics for the specific NHL season
+
+##### Returns
+
+A collection of NHL team statistics for the specified season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A season year for the all the NHL statistics, Example: 19971998, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
 <a name='M-Nhl-Api-NhlApi-GetConferenceByIdAsync-System-Int32-'></a>
 ### GetConferenceByIdAsync(conferenceId) `method`
 
@@ -156,7 +187,7 @@ An NHL conference, see [Conference](#T-Nhl-Api-Models-Conference-Conference 'Nhl
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| conferenceId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL conference id, example: Eastern Conference is the number 6 |
+| conferenceId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL conference id, Example: Eastern Conference is the number 6 |
 
 <a name='M-Nhl-Api-NhlApi-GetConferenceByIdAsync-Nhl-Api-Models-Enumerations-Conference-ConferenceEnum-'></a>
 ### GetConferenceByIdAsync(conference) `method`
@@ -206,7 +237,7 @@ Returns an NHL division, see [Division](#T-Nhl-Api-Models-Division-Division 'Nhl
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| divisionId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL division id, example: Atlantic division is the number 17 |
+| divisionId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL division id, Example: Atlantic division is the number 17 |
 
 <a name='M-Nhl-Api-NhlApi-GetDivisionByIdAsync-Nhl-Api-Models-Enumerations-Division-DivisionEnum-'></a>
 ### GetDivisionByIdAsync(division) `method`
@@ -288,7 +319,7 @@ An NHL franchise, see [Franchise](#T-Nhl-Api-Models-Franchise-Franchise 'Nhl.Api
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| franchiseId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL franchise id, example: Montréal Canadiens - 1 |
+| franchiseId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL franchise id, Example: Montréal Canadiens - 1 |
 
 <a name='M-Nhl-Api-NhlApi-GetFranchiseByIdAsync-Nhl-Api-Models-Enumerations-Franchise-FranchiseEnum-'></a>
 ### GetFranchiseByIdAsync(franchise) `method`
@@ -373,6 +404,44 @@ NHL game schedule, see [GameSchedule](#T-Nhl-Api-Models-Game-GameSchedule 'Nhl.A
 | year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The requested year for the NHL game schedule |
 | month | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The requested month for the NHL game schedule |
 | day | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The requested day for the NHL game schedule |
+
+<a name='M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime-'></a>
+### GetGameScheduleForTeamByDateAsync(team,startDate,endDate) `method`
+
+##### Summary
+
+Return's the NHL game schedule for the specified team based on the provided start date and end date
+
+##### Returns
+
+Returns all of the NHL team's game schedules based on the selected start and end dates
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team id, Example: [AnaheimDucks](#F-Nhl-Api-Models-Enumerations-Team-TeamEnum-AnaheimDucks 'Nhl.Api.Models.Enumerations.Team.TeamEnum.AnaheimDucks') |
+| startDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The starting date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 2017-01-01 |
+| endDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The ending date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 1988-06-01 |
+
+<a name='M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime-'></a>
+### GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate) `method`
+
+##### Summary
+
+Return's the NHL game schedule for the specified team based on the provided start date and end date
+
+##### Returns
+
+Returns all of the NHL team's game schedules based on the selected start and end dates
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team id, Example: 1 |
+| startDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The starting date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 2017-01-01 |
+| endDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The ending date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 1988-06-01 |
 
 <a name='M-Nhl-Api-NhlApi-GetGameStatusesAsync'></a>
 ### GetGameStatusesAsync() `method`
@@ -599,6 +668,70 @@ A collection of all the league standings
 
 This method has no parameters.
 
+<a name='M-Nhl-Api-NhlApi-GetLeagueStandingsByConferenceAsync'></a>
+### GetLeagueStandingsByConferenceAsync() `method`
+
+##### Summary
+
+Returns the standings of every team in the NHL by conference for the current date
+
+##### Returns
+
+A collection of all the league standings by conference
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Nhl-Api-NhlApi-GetLeagueStandingsByConferenceAsync-System-Nullable{System-DateTime}-'></a>
+### GetLeagueStandingsByConferenceAsync(date) `method`
+
+##### Summary
+
+Returns the standings of every team in the NHL by conference for the current date, if the date is null it will provide the current NHL league standings by conference
+
+##### Returns
+
+A collection of all the league standings by conference for the selected date
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| date | [System.Nullable{System.DateTime}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{System.DateTime}') | The NHL league standings date for the request NHL standings by conference |
+
+<a name='M-Nhl-Api-NhlApi-GetLeagueStandingsByDivisionAsync'></a>
+### GetLeagueStandingsByDivisionAsync() `method`
+
+##### Summary
+
+Returns the standings of every team by division in the NHL for the current date
+
+##### Returns
+
+A collection of all the league standings by division
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Nhl-Api-NhlApi-GetLeagueStandingsByDivisionAsync-System-Nullable{System-DateTime}-'></a>
+### GetLeagueStandingsByDivisionAsync(date) `method`
+
+##### Summary
+
+Returns the standings of every team by division in the NHL by date, if the date is null it will provide the current NHL league standings by division
+
+##### Returns
+
+A collection of all the league standings by division for the selected date
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| date | [System.Nullable{System.DateTime}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{System.DateTime}') | The NHL league standings date for the request NHL standings by division |
+
 <a name='M-Nhl-Api-NhlApi-GetLeagueTeamRosterMembersAsync'></a>
 ### GetLeagueTeamRosterMembersAsync() `method`
 
@@ -697,7 +830,7 @@ A detailed collection of information about play by play details, scores, teams, 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| liveGameFeedId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The live game feed id, example: 2021020087 |
+| liveGameFeedId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The live game feed id, Example: 2021020087 |
 
 <a name='M-Nhl-Api-NhlApi-GetPlayTypesAsync'></a>
 ### GetPlayTypesAsync() `method`
@@ -729,7 +862,7 @@ An NHL player profile, see [Player](#T-Nhl-Api-Models-Player-Player 'Nhl.Api.Mod
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | An NHL player id, example: 8478402 is Connor McDavid |
+| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | An NHL player id, Example: 8478402 is Connor McDavid |
 
 <a name='M-Nhl-Api-NhlApi-GetPlayerByIdAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum-'></a>
 ### GetPlayerByIdAsync(player) `method`
@@ -808,7 +941,7 @@ Returns the NHL season information based on the provided season years
 
 ##### Returns
 
-An NHL season based on the provided season year, example: '20172018'
+An NHL season based on the provided season year, Example: '20172018'
 
 ##### Parameters
 
@@ -861,7 +994,7 @@ An NHL team with information including name, location, division and more, see [T
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team id, example: Toronto Maple Leafs - 10 |
+| teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team id, Example: Toronto Maple Leafs - 10 |
 
 <a name='M-Nhl-Api-NhlApi-GetTeamByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum-'></a>
 ### GetTeamByIdAsync(team) `method`
@@ -881,6 +1014,42 @@ An NHL team with information including name, location, division and more, see [T
 | ---- | ---- | ----------- |
 | team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team id, Example: 10 - Toronto Maple Leafs, see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information on NHL teams |
 
+<a name='M-Nhl-Api-NhlApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType-'></a>
+### GetTeamLogoAsync(teamId,teamLogoType) `method`
+
+##### Summary
+
+Returns an the NHL team logo based a dark or light preference using the NHL team id
+
+##### Returns
+
+Returns NHL team logo information including a byte array, base64 encoded string and the uri endpoint
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team identifier - Seattle Kraken: 55 |
+| teamLogoType | [Nhl.Api.Models.Team.TeamLogoType](#T-Nhl-Api-Models-Team-TeamLogoType 'Nhl.Api.Models.Team.TeamLogoType') | The NHL team logo image type, based on the background of light or dark |
+
+<a name='M-Nhl-Api-NhlApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType-'></a>
+### GetTeamLogoAsync(teamEnum,teamLogoType) `method`
+
+##### Summary
+
+Returns an the NHL team logo based a dark or light preference using the NHL team enumeration
+
+##### Returns
+
+Returns NHL team logo information including a byte array, base64 encoded string and the uri endpoint
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| teamEnum | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team identifier, 55 - Seattle Kraken, see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information |
+| teamLogoType | [Nhl.Api.Models.Team.TeamLogoType](#T-Nhl-Api-Models-Team-TeamLogoType 'Nhl.Api.Models.Team.TeamLogoType') | The NHL team logo image type, based on the background of light or dark |
+
 <a name='M-Nhl-Api-NhlApi-GetTeamStatisticsByIdAsync-System-Int32,System-String-'></a>
 ### GetTeamStatisticsByIdAsync(teamId,seasonYear) `method`
 
@@ -896,8 +1065,8 @@ A collection of all the specified NHL team statistics for the specified season
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team id, example: Toronto Maple Leafs - 10 |
-| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for all valid seasons, example: 20202021 |
+| teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team id, Example: Toronto Maple Leafs - 10 |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for all valid seasons, Example: 20202021 |
 
 <a name='M-Nhl-Api-NhlApi-GetTeamStatisticsByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String-'></a>
 ### GetTeamStatisticsByIdAsync(team,seasonYear) `method`
@@ -914,8 +1083,44 @@ A collection of all the specified NHL team statistics for the specified season
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team id, example: [AnaheimDucks](#F-Nhl-Api-Models-Enumerations-Team-TeamEnum-AnaheimDucks 'Nhl.Api.Models.Enumerations.Team.TeamEnum.AnaheimDucks') |
-| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for all valid seasons, example: 20202021 |
+| team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team id, Example: [AnaheimDucks](#F-Nhl-Api-Models-Enumerations-Team-TeamEnum-AnaheimDucks 'Nhl.Api.Models.Enumerations.Team.TeamEnum.AnaheimDucks') |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for all valid seasons, Example: 20202021 |
+
+<a name='M-Nhl-Api-NhlApi-GetTeamStatisticsBySeasonAsync-System-Int32,System-String-'></a>
+### GetTeamStatisticsBySeasonAsync(teamId,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL team statistics for the specific NHL team identifier and season
+
+##### Returns
+
+A collection of NHL team statistics for the specified season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team identifier - Seattle Kraken: 55 |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A season year for the entire NHL roster, Example: 19971998, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlApi-GetTeamStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String-'></a>
+### GetTeamStatisticsBySeasonAsync(team,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL team statistics for the specific NHL team identifier and season
+
+##### Returns
+
+A collection of NHL team statistics for the specified season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team id, Example: [AnaheimDucks](#F-Nhl-Api-Models-Enumerations-Team-TeamEnum-AnaheimDucks 'Nhl.Api.Models.Enumerations.Team.TeamEnum.AnaheimDucks'), see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A season year for the entire NHL roster, Example: 19971998, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
 
 <a name='M-Nhl-Api-NhlApi-GetTeamsAsync'></a>
 ### GetTeamsAsync() `method`
@@ -931,6 +1136,40 @@ A collection of all NHL teams, see [Team](#T-Nhl-Api-Models-Team-Team 'Nhl.Api.M
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-Nhl-Api-NhlApi-GetTeamsByIdsAsync-System-Collections-Generic-IEnumerable{System-Int32}-'></a>
+### GetTeamsByIdsAsync(teamIds) `method`
+
+##### Summary
+
+Returns a collection of NHL team by the team id's
+
+##### Returns
+
+A collection of NHL team's with information including name, location, division and more, see [Team](#T-Nhl-Api-Models-Team-Team 'Nhl.Api.Models.Team.Team') for more information
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| teamIds | [System.Collections.Generic.IEnumerable{System.Int32}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{System.Int32}') | A collection of NHL team id's, Example: 10 - Toronto Maple Leafs |
+
+<a name='M-Nhl-Api-NhlApi-GetTeamsByIdsAsync-System-Collections-Generic-IEnumerable{Nhl-Api-Models-Enumerations-Team-TeamEnum}-'></a>
+### GetTeamsByIdsAsync(teams) `method`
+
+##### Summary
+
+Returns a collection of NHL team's by the team enumeration values
+
+##### Returns
+
+A collection of NHL team's with information including name, location, division and more, see [Team](#T-Nhl-Api-Models-Team-Team 'Nhl.Api.Models.Team.Team') for more information
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| teams | [System.Collections.Generic.IEnumerable{Nhl.Api.Models.Enumerations.Team.TeamEnum}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Nhl.Api.Models.Enumerations.Team.TeamEnum}') | A collection of NHL team id's, Example: 10 - Toronto Maple Leafs, see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information on NHL teams |
 
 <a name='M-Nhl-Api-NhlApi-GetTournamentTypesAsync'></a>
 ### GetTournamentTypesAsync() `method`
