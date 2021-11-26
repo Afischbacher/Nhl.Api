@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Common;
 
 namespace Nhl.Api.Models.Team
@@ -25,5 +26,29 @@ namespace Nhl.Api.Models.Team
 		/// </summary>
 		[JsonProperty("link")]
 		public string Link { get; set; }
+
+		/// <summary>
+		/// Returns the team logo url as a light background <br/>
+		/// Example: https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/10.svg
+		/// </summary>
+		public string OfficalLightTeamLogoUrl
+		{
+			get
+			{
+				return $"{NhlStaticAssetsApiHttpClient.ClientApiUrl}/images/logos/teams-current-primary-light/{Id}.svg";
+			}
+		}
+
+		/// <summary>
+		/// Returns the team logo url as a dark background 
+		/// Example: https://www-league.nhlstatic.com/images/logos/teams-current-primary-dark/6.svg
+		/// </summary>
+		public string OfficalDarkTeamLogoUrl
+		{
+			get
+			{
+				return $"{NhlStaticAssetsApiHttpClient.ClientApiUrl}/images/logos/teams-current-primary-dark/{Id}.svg";
+			}
+		}
 	}
 }

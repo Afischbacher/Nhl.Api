@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Enumerations.Award;
+using System;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -52,6 +53,140 @@ namespace Nhl.Api.Tests
 				Assert.IsNotNull(record.TeamRecords);
 			}
 		}
+
+
+		[TestMethod]
+		public async Task TestGetLeagueStandingsByConferenceAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueStandings = await nhlApi.GetLeagueStandingsByConferenceAsync();
+
+			// Assert
+			Assert.IsNotNull(leagueStandings);
+			CollectionAssert.AllItemsAreNotNull(leagueStandings);
+
+			foreach (var record in leagueStandings)
+			{
+				Assert.IsNotNull(record.Conference);
+				Assert.IsNotNull(record.League);
+				Assert.IsNotNull(record.StandingsType);
+				Assert.IsNotNull(record.TeamRecords);
+			}
+		}
+
+
+		[TestMethod]
+		public async Task TestGetLeagueStandingsByDivisionAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueStandings = await nhlApi.GetLeagueStandingsByDivisionAsync();
+
+			// Assert
+			Assert.IsNotNull(leagueStandings);
+			CollectionAssert.AllItemsAreNotNull(leagueStandings);
+
+			foreach (var record in leagueStandings)
+			{
+				Assert.IsNotNull(record.Conference);
+				Assert.IsNotNull(record.Division);
+				Assert.IsNotNull(record.League);
+				Assert.IsNotNull(record.StandingsType);
+				Assert.IsNotNull(record.TeamRecords);
+			}
+		}
+
+		[TestMethod]
+		public async Task TestGetLeagueStandingsByDivisionWithDateAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueStandings = await nhlApi.GetLeagueStandingsByDivisionAsync(DateTime.Parse("1967-03-24"));
+
+			// Assert
+			Assert.IsNotNull(leagueStandings);
+			CollectionAssert.AllItemsAreNotNull(leagueStandings);
+
+			foreach (var record in leagueStandings)
+			{
+				Assert.IsNotNull(record.League);
+				Assert.IsNotNull(record.StandingsType);
+				Assert.IsNotNull(record.TeamRecords);
+			}
+		}
+
+		[TestMethod]
+		public async Task TestGetLeagueStandingsByConferenceWithDateAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueStandings = await nhlApi.GetLeagueStandingsByConferenceAsync(DateTime.Parse("1999-02-05"));
+
+			// Assert
+			Assert.IsNotNull(leagueStandings);
+			CollectionAssert.AllItemsAreNotNull(leagueStandings);
+
+			foreach (var record in leagueStandings)
+			{
+				Assert.IsNotNull(record.Conference);
+				Assert.IsNotNull(record.League);
+				Assert.IsNotNull(record.StandingsType);
+				Assert.IsNotNull(record.TeamRecords);
+			}
+		}
+
+		[TestMethod]
+		public async Task TestGetLeagueStandingsByDivisionWithNullDateAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueStandings = await nhlApi.GetLeagueStandingsByDivisionAsync(null);
+
+			// Assert
+			Assert.IsNotNull(leagueStandings);
+			CollectionAssert.AllItemsAreNotNull(leagueStandings);
+
+			foreach (var record in leagueStandings)
+			{
+				Assert.IsNotNull(record.League);
+				Assert.IsNotNull(record.StandingsType);
+				Assert.IsNotNull(record.TeamRecords);
+			}
+		}
+
+		[TestMethod]
+		public async Task TestGetLeagueStandingsByConferenceWithNullDateAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var leagueStandings = await nhlApi.GetLeagueStandingsByConferenceAsync(null);
+
+			// Assert
+			Assert.IsNotNull(leagueStandings);
+			CollectionAssert.AllItemsAreNotNull(leagueStandings);
+
+			foreach (var record in leagueStandings)
+			{
+				Assert.IsNotNull(record.Conference);
+				Assert.IsNotNull(record.League);
+				Assert.IsNotNull(record.StandingsType);
+				Assert.IsNotNull(record.TeamRecords);
+			}
+		}
+
 
 		[TestMethod]
 		public async Task TestGetLeagueStandingsWithDateAsync()

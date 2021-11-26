@@ -30,6 +30,6 @@ namespace Nhl.Api.Models.Enumerations.Award
 		MarkMessierNHLLeadershipAward = 22,
 		JimGregoryGeneralManageroftheYearAward = 23,
 		EJMcGuireAwardofExcellence = 24,
-		WillieOReeCommunityHeroAward = 25,
+		WillieOReeCommunityHeroAward = 25
 	}
 }

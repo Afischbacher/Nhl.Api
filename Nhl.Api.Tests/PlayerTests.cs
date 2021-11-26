@@ -1,8 +1,10 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Models.Enumerations.Player;
+using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -415,6 +417,37 @@ namespace Nhl.Api.Tests
 			// Assert
 			Assert.IsNotNull(results);
 			Assert.AreEqual(0, results.Count);
+
+		}
+
+		[TestMethod]
+		public async Task TestGetManyPlayersByIdAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act 
+			var results = new List<Task<Player>> 
+			{ 
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.ConnorMcDavid8478402),
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.SidneyCrosby8471675),
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.AustonMatthews8479318),
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.MitchellMarner8478483),
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.NathanMacKinnon8477492),
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.JacobMarkstrom8474593),
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.ZackKassian8475178),
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.AlexOvechkin8471214),
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.StevenStamkos8474564),
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.BraydenPoint8478010),
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.TJMiller8473529),
+				nhlApi.GetPlayerByIdAsync(PlayerEnum.EliasPettersson8480012)
+			};
+
+			var players = await Task.WhenAll(results);
+
+			// Assert
+			Assert.IsNotNull(players);
+			Assert.AreEqual(12, players.Count());
 
 		}
 

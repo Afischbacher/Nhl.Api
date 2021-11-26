@@ -8,7 +8,6 @@
 		Pacific = 15,
 		Central = 16,
 		Atlantic = 17,
-		Metropolitan = 18,
-
+		Metropolitan = 18
 	}
 }

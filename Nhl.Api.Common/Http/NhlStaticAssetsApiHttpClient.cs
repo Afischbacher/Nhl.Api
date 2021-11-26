@@ -4,18 +4,21 @@ using System.Net.Http;
 namespace Nhl.Api.Common.Http
 {
 	/// <summary>
-	/// The dedicated NHL statistics HTTP Client for the NHL API
+	/// The dedicated NHL static assets HTTP Client for the NHL API
 	/// </summary>
-	public class NhlStatsApiHttpClient : NhlApiHttpClient
+	public class NhlStaticAssetsApiHttpClient : NhlApiHttpClient
 	{
 		private static readonly object _lock = new object();
 		private static HttpClient _httpClient;
-		public NhlStatsApiHttpClient() : base(clientApiUri: "https://statsapi.web.nhl.com/api/", clientVersion: "v1", timeoutInSeconds: 30)
+		public static string ClientApiUrl;
+
+		public NhlStaticAssetsApiHttpClient() : base(clientApiUri: "https://www-league.nhlstatic.com", clientVersion: string.Empty, timeoutInSeconds: 30)
 		{
+			ClientApiUrl = Client;
 		}
 
 		/// <summary>
-		/// The HTTP client for the NHL API
+		/// The HTTP client for the NHL static assets API
 		/// </summary>
 		public override HttpClient HttpClient
 		{

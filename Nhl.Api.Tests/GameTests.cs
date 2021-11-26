@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhl.Api.Models.Enumerations.Team;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -164,6 +165,17 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(gameDate.Matches);
                 Assert.IsNotNull(gameDate.Events);
             }
+
+            var game = gameSchedule.Dates.First(date => date.Games.Count > 0).Games.First();
+
+            Assert.IsNotNull(game);
+            Assert.IsNotNull(game.Content);
+            Assert.IsNotNull(game.Teams);
+            Assert.IsNotNull(game.Teams.AwayTeam);
+            Assert.IsNotNull(game.Teams.HomeTeam);
+            Assert.IsNotNull(game.Venue);
+            Assert.IsNotNull(game.Season);
+            Assert.IsNotNull(game.Content);
         }
 
 
@@ -219,7 +231,96 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(gameDate.Matches);
                 Assert.IsNotNull(gameDate.Events);
             }
+
+            var game = gameSchedule.Dates.First(date => date.Games.Count > 0).Games.First();
+
+            Assert.IsNotNull(game);
+            Assert.IsNotNull(game.Content);
+            Assert.IsNotNull(game.Teams);
+            Assert.IsNotNull(game.Teams.AwayTeam);
+            Assert.IsNotNull(game.Teams.HomeTeam);
+            Assert.IsNotNull(game.Venue);
+            Assert.IsNotNull(game.Season);
+            Assert.IsNotNull(game.Content);
         }
+
+
+        [TestMethod]
+        public async Task TestGetGetGameScheduleByDateWithTeamEnumAsync()
+        {
+            // Arrange
+            INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var gameSchedule = await nhlApi.GetGameScheduleForTeamByDateAsync(TeamEnum.ColoradoAvalanche, DateTime.Parse("2018-10-15"), DateTime.Parse("2019-02-15"));
+
+            // Assert
+            Assert.IsNotNull(gameSchedule);
+            Assert.IsNotNull(gameSchedule.MetaData);
+            Assert.IsNotNull(gameSchedule.TotalEvents);
+            Assert.IsNotNull(gameSchedule.TotalGames);
+            Assert.IsNotNull(gameSchedule.TotalItems);
+            Assert.IsNotNull(gameSchedule.TotalMatches);
+
+            foreach (var gameDate in gameSchedule.Dates)
+            {
+                Assert.IsNotNull(gameDate.TotalEvents);
+                Assert.IsNotNull(gameDate.TotalGames);
+                Assert.IsNotNull(gameDate.TotalMatches);
+                Assert.IsNotNull(gameDate.Matches);
+                Assert.IsNotNull(gameDate.Events);
+            }
+
+            var game = gameSchedule.Dates.First(date => date.Games.Count > 0).Games.First();
+
+            Assert.IsNotNull(game);
+            Assert.IsNotNull(game.Content);
+            Assert.IsNotNull(game.Teams);
+            Assert.IsNotNull(game.Teams.AwayTeam);
+            Assert.IsNotNull(game.Teams.HomeTeam);
+            Assert.IsNotNull(game.Venue);
+            Assert.IsNotNull(game.Season);
+            Assert.IsNotNull(game.Content);
+        }
+
+        [TestMethod]
+        public async Task TestGetGetGameScheduleByDateWithTeamIdAsync()
+        {
+            // Arrange
+            INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var gameSchedule = await nhlApi.GetGameScheduleForTeamByDateAsync(22, DateTime.Parse("1984-11-25"), DateTime.Parse("1985-04-06"));
+
+            // Assert
+            Assert.IsNotNull(gameSchedule);
+            Assert.IsNotNull(gameSchedule.MetaData);
+            Assert.IsNotNull(gameSchedule.TotalEvents);
+            Assert.IsNotNull(gameSchedule.TotalGames);
+            Assert.IsNotNull(gameSchedule.TotalItems);
+            Assert.IsNotNull(gameSchedule.TotalMatches);
+
+            foreach (var gameDate in gameSchedule.Dates)
+            {
+                Assert.IsNotNull(gameDate.TotalEvents);
+                Assert.IsNotNull(gameDate.TotalGames);
+                Assert.IsNotNull(gameDate.TotalMatches);
+                Assert.IsNotNull(gameDate.Matches);
+                Assert.IsNotNull(gameDate.Events);
+            }
+
+            var game = gameSchedule.Dates.First(date => date.Games.Count > 0).Games.First();
+
+            Assert.IsNotNull(game);
+            Assert.IsNotNull(game.Content);
+            Assert.IsNotNull(game.Teams);
+            Assert.IsNotNull(game.Teams.AwayTeam);
+            Assert.IsNotNull(game.Teams.HomeTeam);
+            Assert.IsNotNull(game.Venue);
+            Assert.IsNotNull(game.Season);
+            Assert.IsNotNull(game.Content);
+        }
+
 
 
         [TestMethod]
@@ -277,6 +378,8 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(playerValue.CurrentTeam.Id);
             Assert.IsNotNull(playerValue.CurrentTeam.Name);
             Assert.IsNotNull(playerValue.CurrentTeam.Link);
+            Assert.IsNotNull(playerValue.CurrentTeam.OfficalDarkTeamLogoUrl);
+            Assert.IsNotNull(playerValue.CurrentTeam.OfficalLightTeamLogoUrl);
             Assert.IsFalse(playerValue.IsGoalie);
             Assert.IsFalse(playerValue.Captain);
 
