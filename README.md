@@ -44,7 +44,7 @@ If you are using the built-in .NET Core dependency injection library, there is a
 Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 
 
-## Contents
+### Contents
 
 - [NhlApi](#T-Nhl-Api-NhlApi 'Nhl.Api.NhlApi')
   - [GetActiveFranchisesAsync()](#M-Nhl-Api-NhlApi-GetActiveFranchisesAsync 'Nhl.Api.NhlApi.GetActiveFranchisesAsync')
