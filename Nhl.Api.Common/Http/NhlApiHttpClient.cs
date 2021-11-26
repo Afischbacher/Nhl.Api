@@ -15,7 +15,27 @@ namespace Nhl.Api.Common.Http
         /// <returns>The deserialized JSON payload of the generic type</returns>
         Task<T> GetAsync<T>(string route) where T : class, new();
 
+        /// <summary>
+        /// Performs a HTTP GET request and returns a byte array
+        /// </summary>
+        /// <param name="route">The NHL API endpoint</param>
+        /// <returns>A byte array payload from the HTTP GET request</returns>
+        Task<byte[]> GetByteArrayAsync(string route);
+
+        /// <summary>
+        /// The HTTP Client for the NHL API
+        /// </summary>
         HttpClient HttpClient { get; }
+
+        /// <summary>
+        /// The official client for the NHL API
+        /// </summary>
+        string Client { get; }
+
+        /// <summary>
+        /// The client version for HTTP requests for the NHL API
+        /// </summary>
+        string ClientVersion { get; }
     }
 
     public abstract class NhlApiHttpClient : INhlApiHttpClient
@@ -71,10 +91,10 @@ namespace Nhl.Api.Common.Http
         }
 
         /// <summary>
-        /// Performs a HTTP GET request and retrieves a byte array
+        /// Performs a HTTP GET request and returns a byte array
         /// </summary>
         /// <param name="route">The NHL API endpoint</param>
-        /// <returns>A byte array payload</returns>
+        /// <returns>A byte array payload from the HTTP GET request</returns>
         public async Task<byte[]> GetByteArrayAsync(string route)
         {
             if (string.IsNullOrWhiteSpace(route))

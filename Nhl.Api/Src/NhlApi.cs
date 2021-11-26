@@ -36,9 +36,9 @@ namespace Nhl.Api
     /// </summary>
     public class NhlApi : INhlApi
     {
-        private static readonly NhlStatsApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
-        private static readonly NhlSuggestionApiHttpClient _nhlSuggestionApiHttpClient = new NhlSuggestionApiHttpClient();
-        private static readonly NhlStaticAssetsApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
+        private static readonly INhlApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
+        private static readonly INhlApiHttpClient _nhlSuggestionApiHttpClient = new NhlSuggestionApiHttpClient();
+        private static readonly INhlApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
 
         /// <summary>
         /// Returns all NHL franchises, including information such as team name, location and more
