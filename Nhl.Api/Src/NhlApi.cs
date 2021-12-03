@@ -28,6 +28,8 @@ using Nhl.Api.Models.Enumerations.Franchise;
 using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Common.Http;
+using System.Collections.Concurrent;
+using System.Threading;
 
 namespace Nhl.Api
 {
@@ -380,6 +382,63 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns a collection of NHL players by their player id, includes information such as age, weight, position and more
+        /// </summary>
+        /// <param name="playerIds">A collection of NHL player identifiers, Example: 8478402 - Connor McDavid </param>
+        /// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
+        public async Task<List<Player>> GetPlayersByIdAsync(IEnumerable<int> playerIds)
+        {
+            var playerTasks = playerIds.Select(playerId => GetPlayerByIdAsync(playerId)).ToArray();
+
+            return (await Task.WhenAll(playerTasks)).ToList();
+
+        }
+
+        /// <summary>
+        /// Returns a collection of NHL players by their player id, includes information such as age, weight, position and more
+        /// </summary>
+        /// <param name="players">A collection of NHL player identifiers, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+        /// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
+        public async Task<List<Player>> GetPlayersByIdAsync(IEnumerable<PlayerEnum> players)
+        {
+            var playerTasks = players.Select(player => GetPlayerByIdAsync(player)).ToArray();
+
+            return (await Task.WhenAll(playerTasks)).ToList();
+        }
+
+        /// <summary>
+        /// Returns every active and inactive NHL player since the league inception
+        /// </summary>
+        /// <returns>Returns all NHL players since the league inception</returns>
+        public async Task<List<Player>> GetAllPlayersAsync()
+        {
+            var playerIds = Enum.GetValues(typeof(PlayerEnum)).Cast<int>();
+            var playerTasks = new List<Task<Player>>();
+            var semaphore = new SemaphoreSlim(initialCount: 32);
+            
+            foreach (var playerId in playerIds)
+            {
+                await semaphore.WaitAsync();
+
+                playerTasks.Add(
+                    Task.Run(async () =>
+                    {
+                        try
+                        {
+                            return await GetPlayerByIdAsync(playerId);
+                        }
+                        finally
+                        {
+                            semaphore.Release();
+                        }
+                    }));
+            }
+
+            return (await Task.WhenAll(playerTasks)).ToList();
+
+        }
+
+        /// <summary>
         /// Returns all of the active NHL players
         /// </summary>
         /// <returns>A collection of all NHL players</returns>
@@ -598,6 +657,26 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns the on pace regular season NHL player statistics for the current NHL season with insightful statistics
+        /// </summary>
+        /// <param name="player">The identifier for the NHL player</param>
+        /// <returns>A collection of all the on pace expected NHL player statistics by type</returns>
+        public async Task<PlayerSeasonStatistics> GetOnPaceRegularSeasonPlayerStatisticsAsync(PlayerEnum player)
+        {
+            return await _nhlStatsApiHttpClient.GetAsync<PlayerSeasonStatistics>($"/people/{((int)player)}/stats?stats={nameof(PlayerStatisticsTypeEnum.OnPaceRegularSeason).ToCamelCase()}");
+        }
+
+        /// <summary>
+        /// Returns the on pace regular season NHL player statistics for the current NHL season with insightful statistics
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL player</param>
+        /// <returns>A collection of all the on pace expected NHL player statistics by type</returns>
+        public async Task<PlayerSeasonStatistics> GetOnPaceRegularSeasonPlayerStatisticsAsync(int playerId)
+        {
+            return await _nhlStatsApiHttpClient.GetAsync<PlayerSeasonStatistics>($"/people/{playerId}/stats?stats={nameof(PlayerStatisticsTypeEnum.OnPaceRegularSeason).ToCamelCase()}");
+        }
+
+        /// <summary>
         /// Returns all of the NHL game types within a season and within special events
         /// </summary>
         /// <returns>A collection of NHL and other sporting event game types, see <see cref="GameType"/> for more information </returns>
@@ -720,6 +799,39 @@ namespace Nhl.Api
         public async Task<List<Season>> GetSeasonsAsync()
         {
             return (await _nhlStatsApiHttpClient.GetAsync<LeagueSeasons>("/seasons")).Seasons;
+        }
+
+        /// <summary>
+        /// Determines whether the NHL regular season is currently active or inactive
+        /// </summary>
+        /// <returns>A result if the current NHL regular season is active (true) or inactive (false)</returns>
+        public async Task<bool> IsRegularSeasonActiveAsync()
+        {
+            var currentSeason = (await GetSeasonsAsync()).OrderBy(x => x.SeasonId).Last();
+
+            return DateTime.UtcNow.Date > currentSeason.RegularSeasonStartDate && DateTime.UtcNow.Date < currentSeason.RegularSeasonEndDate;
+        }
+
+        /// <summary>
+        /// Determines whether the NHL playoff season is currently active or inactive
+        /// </summary>
+        /// <returns>A result if the current NHL playoff season is active (true) or inactive (false)</returns>
+        public async Task<bool> IsPlayoffsActiveAsync()
+        {
+            var currentSeason = (await GetSeasonsAsync()).OrderBy(x => x.SeasonId).Last();
+
+            return DateTime.UtcNow.Date > currentSeason.RegularSeasonEndDate && DateTime.UtcNow.Date < currentSeason.SeasonEndDate;
+        }
+
+        /// <summary>
+        /// Determines whether the NHL season is currently active or inactive
+        /// </summary>
+        /// <returns>A result if the current NHL season is active (true) or inactive (false)</returns>
+        public async Task<bool> IsSeasonActiveAsync()
+        {
+            var currentSeason = (await GetSeasonsAsync()).OrderBy(x => x.SeasonId).Last();
+
+            return DateTime.UtcNow.Date > currentSeason.RegularSeasonEndDate && DateTime.UtcNow.Date < currentSeason.SeasonEndDate;
         }
 
         /// <summary>
@@ -940,7 +1052,9 @@ namespace Nhl.Api
         /// <returns>A collection of NHL stadiums and arenas, see <see cref="LeagueVenue"/> for more information</returns>
         public async Task<List<LeagueVenue>> GetLeagueVenuesAsync()
         {
-            return (await _nhlStatsApiHttpClient.GetAsync<LeagueVenues>("/venues")).Venues;
+            var venueTasks = Enum.GetValues(typeof(VenueEnum)).Cast<int>().Select(venueId => GetLeagueVenueByIdAsync(venueId));
+
+            return (await Task.WhenAll(venueTasks)).ToList();
         }
 
         /// <summary>

@@ -229,6 +229,20 @@ namespace Nhl.Api
         Task<Player> GetPlayerByIdAsync(PlayerEnum player);
 
         /// <summary>
+        /// Returns a collection of NHL players by their player id, includes information such as age, weight, position and more
+        /// </summary>
+        /// <param name="playerIds">A collection of NHL player identifiers, Example: 8478402 - Connor McDavid </param>
+        /// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
+        Task<List<Player>> GetPlayersByIdAsync(IEnumerable<int> playerIds);
+
+        /// <summary>
+        /// Returns a collection of NHL players by their player id, includes information such as age, weight, position and more
+        /// </summary>
+        /// <param name="players">A collection of NHL player identifiers, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+        /// <returns>An NHL player profile, see <see cref="Player"/> for more information</returns>
+        Task<List<Player>> GetPlayersByIdAsync(IEnumerable<PlayerEnum> players);
+
+        /// <summary>
         /// Returns all of the active NHL roster members 
         /// </summary>
         /// <returns>A collection of all NHL players</returns>
@@ -254,6 +268,12 @@ namespace Nhl.Api
         /// <param name="query">An search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
         /// <returns>A collection of all NHL players based on the search query provided</returns>
         Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query);
+
+        /// <summary>
+        /// Returns NHL player since the league inception in 1917-1918
+        /// </summary>
+        /// <returns>Returns all NHL players since the league inception</returns>
+        Task<List<Player>> GetAllPlayersAsync();
 
         #endregion
 
@@ -345,6 +365,24 @@ namespace Nhl.Api
         /// </summary>
         /// <returns>A collection of seasons since the inception of the NHL</returns>
         Task<List<Season>> GetSeasonsAsync();
+
+        /// <summary>
+        /// Determines whether the NHL season is currently active or inactive
+        /// </summary>
+        /// <returns>A result if the current NHL season is active (true) or inactive (false)</returns>
+        Task<bool> IsSeasonActiveAsync();
+
+        /// <summary>
+        /// Determines whether the NHL regular season is currently active or inactive
+        /// </summary>
+        /// <returns>A result if the current NHL regular season is active (true) or inactive (false)</returns>
+        Task<bool> IsRegularSeasonActiveAsync();
+
+        /// <summary>
+        /// Determines whether the NHL playoff season is currently active or inactive
+        /// </summary>
+        /// <returns>A result if the current NHL playoff season is active (true) or inactive (false)</returns>
+        Task<bool> IsPlayoffsActiveAsync();
 
         /// <summary>
         /// Returns the NHL season information based on the provided season years
@@ -442,6 +480,20 @@ namespace Nhl.Api
         /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
         /// <returns>A collection of all the in-depth NHL player statistics by type</returns>
         Task<PlayerSeasonStatistics> GetPlayerStatisticsBySeasonAsync(PlayerEnum player, string seasonYear);
+
+        /// <summary>
+        /// Returns the on pace regular season NHL player statistics for the current NHL season with insightful statistics
+        /// </summary>
+        /// <param name="player">The identifier for the NHL player</param>
+        /// <returns>A collection of all the on pace expected NHL player statistics by type</returns>
+        Task<PlayerSeasonStatistics> GetOnPaceRegularSeasonPlayerStatisticsAsync(PlayerEnum player);
+
+        /// <summary>
+        /// Returns the on pace regular season NHL player statistics for the current NHL season with insightful statistics
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL player</param>
+        /// <returns>A collection of all the on pace expected NHL player statistics by type</returns>
+        Task<PlayerSeasonStatistics> GetOnPaceRegularSeasonPlayerStatisticsAsync(int playerId);
 
         /// <summary>
         /// Returns all of the NHL goalie statistics for a specific NHL season with insightful statistics and NHL game data

@@ -228,7 +228,7 @@
         /// </summary>
         public const string endOf20192020Season = "2020-09-28";
         public const string endOf20202021Season = "2021-07-07";
-        public const string endOf20212022Season = "2022-06-24";
+        public const string endOf20212022Season = "2022-06-29";
 
     }
 }

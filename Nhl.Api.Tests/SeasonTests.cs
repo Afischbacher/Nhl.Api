@@ -74,5 +74,44 @@ namespace Nhl.Api.Tests
 			}
 
 		}
+
+		[TestMethod]
+		public async Task TestIsSeasonActiveAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var isSeasonActive = await nhlApi.IsSeasonActiveAsync();
+
+			// Assert
+			Assert.IsNotNull(isSeasonActive);
+		}
+
+		[TestMethod]
+		public async Task TestIsRegularSeasonActiveAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var isSeasonActive = await nhlApi.IsRegularSeasonActiveAsync();
+
+			// Assert
+			Assert.IsNotNull(isSeasonActive);
+		}
+
+		[TestMethod]
+		public async Task TestIsPlayoffSeasonActiveAsync()
+		{
+			// Arrange
+			INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var isSeasonActive = await nhlApi.IsPlayoffsActiveAsync();
+
+			// Assert
+			Assert.IsNotNull(isSeasonActive);
+		}
 	}
 }

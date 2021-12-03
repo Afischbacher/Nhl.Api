@@ -8,6 +8,10 @@
 		/// <summary>
 		/// The statistics for a single NHL season
 		/// </summary>
-		StatsSingleSeason
+		StatsSingleSeason,
+		/// <summary>
+		/// The statistics for a player who is on pace for a single NHL season
+		/// </summary>
+		OnPaceRegularSeason
 	}
 }

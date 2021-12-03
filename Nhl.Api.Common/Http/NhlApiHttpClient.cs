@@ -43,7 +43,7 @@ namespace Nhl.Api.Common.Http
         public NhlApiHttpClient(string clientApiUri, string clientVersion, int timeoutInSeconds = 30)
         {
             ServicePointManager.ReusePort = true;
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
             Client = clientApiUri;
             ClientVersion = clientVersion;
