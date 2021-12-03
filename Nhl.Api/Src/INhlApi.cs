@@ -32,7 +32,7 @@ namespace Nhl.Api
     /// <summary>
     /// The official unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
     /// </summary>
-    public interface INhlApi
+    public interface INhlApi : IDisposable
     {
 
         #region Franchises

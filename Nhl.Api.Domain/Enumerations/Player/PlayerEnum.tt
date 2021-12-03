@@ -1,13 +1,15 @@
 ﻿<#@ template debug="false" hostspecific="false" language="C#" #>
 
 <#@ assembly name="System.Core" #>
+
 <#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.0\Nhl.Api.dll" #>
 <#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.0\Nhl.Api.Domain.dll" #>
 <#@ assembly name="$(SolutionDir)Nhl.Api.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll" #>
-<#@ assembly name="NetStandard" #>
 
+<#@ assembly name="NetStandard" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Threading.Tasks" #>
+<#@ import namespace="System.Threading" #>
 <#@ import namespace="Newtonsoft.Json" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
@@ -18,6 +20,8 @@
 <#@ import namespace="Nhl.Api.Models.Player" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Collections.Concurrent" #>
+<#@ import namespace="Nhl.Api.Models.Enumerations" #>
+
 <#@ output extension=".cs" #>
 
 namespace Nhl.Api.Models.Enumerations.Player
@@ -28,23 +32,9 @@ namespace Nhl.Api.Models.Enumerations.Player
 	public enum PlayerEnum
 	{
 	<#
-	var nhlApi = new NhlApi();
-	var players = new ConcurrentBag<Player>();
-
-	Parallel.For(8444850, 8487000, new ParallelOptions { MaxDegreeOfParallelism = 32 }, (i) => 
-	{
-		try
-		{
-			Player playerObject = null;
-			Task.Run(() => playerObject = nhlApi.GetPlayerByIdAsync(i).Result).Wait();
-			if (playerObject == null) return;
-			players.Add(playerObject);
-		} catch 
-		{
-			throw;
-		}
-	});
 		
+		var players = Nhl.Api.Models.Enumerations.Player.PlayerEnumHelper.GetAllPlayersAsync().Result;
+	
 	#>
 
 	<#foreach(var player in players)

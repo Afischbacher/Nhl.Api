@@ -17,7 +17,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetPlayerByIdAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			// Connor McDavid - Player Id - 8478402
@@ -62,7 +62,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetPlayerByIdEnumAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			// William Nylander - Player Id - 8477939
@@ -105,7 +105,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetManyPlayersByIdEnumAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			var players = await nhlApi.GetPlayersByIdAsync(new[] { PlayerEnum.WilliamNylander8477939, PlayerEnum.NicoHischier8480002, PlayerEnum.AndreiVasilevskiy8476883 });
@@ -150,7 +150,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetManyPlayersByIdAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			var players = await nhlApi.GetPlayersByIdAsync( new[] { 8477939, 8480002, 8474141 });
@@ -196,7 +196,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetPlayerByInvalidIdAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			var player = await nhlApi.GetPlayerByIdAsync(1000);
@@ -209,7 +209,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetPlayerStatisticsByTypeAndSeasonAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			var playerStatistics = await nhlApi.GetPlayerStatisticsBySeasonAsync(PlayerEnum.AaronEkblad8477932, SeasonYear.season20202021);
@@ -261,7 +261,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetPlayerStatisticsByTypeAndSeasonWithPlayerIdAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			var playerStatistics = await nhlApi.GetPlayerStatisticsBySeasonAsync(8477495, SeasonYear.season20192020);
@@ -326,7 +326,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetPlayerStatisticsByTypeAndSeasonWithPlayerIdInvalidPlayerTypeAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act / Assert
 			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>(async () =>
@@ -339,7 +339,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetGoalieStatisticsByTypeAndSeasonAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			var goalieStatistics = await nhlApi.GetGoalieStatisticsBySeasonAsync(PlayerEnum.CareyPrice8471679, SeasonYear.season20202021);
@@ -390,7 +390,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetGoalieStatisticsWithPlayerIdAndSeasonAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			var goalieStatistics = await nhlApi.GetGoalieStatisticsBySeasonAsync(8476412, SeasonYear.season20192020);
@@ -442,7 +442,7 @@ namespace Nhl.Api.Tests
 		public async Task TestSearchAllPlayersAsync(string query)
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			var results = await nhlApi.SearchAllPlayersAsync(query);
@@ -515,7 +515,7 @@ namespace Nhl.Api.Tests
 		public async Task TestPlayersByIdWithTasksAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			var results = new List<Task<Player>> 
@@ -552,7 +552,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetOnPaceRegularSeasonPlayerStatisticsWithEnumAsync(PlayerEnum playerEnum)
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			var playerOnPaceRegularSeason = await nhlApi.GetOnPaceRegularSeasonPlayerStatisticsAsync(playerEnum);
@@ -609,7 +609,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetOnPaceRegularSeasonPlayerStatisticsWithIdAsync(int playerId)
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act 
 			var playerOnPaceRegularSeason = await nhlApi.GetOnPaceRegularSeasonPlayerStatisticsAsync(playerId);
@@ -661,7 +661,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetGoalieStatisticsByTypeAndSeasonWithPlayerInvalidPlayerTypeAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act / Assert
 			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>((async () =>
@@ -674,7 +674,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetGoalieStatisticsByTypeAndSeasonWithPlayerIdInvalidPlayerTypeAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act / Assert
 			await Assert.ThrowsExceptionAsync<InvalidPlayerPositionException>(async () =>
@@ -687,13 +687,16 @@ namespace Nhl.Api.Tests
 		public async Task TestGetAllPlayersAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var players = await nhlApi.GetAllPlayersAsync();
 
+			players = await nhlApi.GetAllPlayersAsync();
+
 			// Assert
 			Assert.IsNotNull(players);
+			CollectionAssert.AllItemsAreUnique(players);
 			Assert.IsTrue(players.Any());
 			Assert.IsTrue(players.Count() > 21000);
 		}

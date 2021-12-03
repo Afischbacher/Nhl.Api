@@ -24,11 +24,11 @@ using Nhl.Api.Models.Enumerations.Award;
 using Nhl.Api.Models.Enumerations.Venue;
 using Nhl.Api.Models.League;
 using Nhl.Api.Models.Enumerations.Franchise;
+using Nhl.Api.Common.Services;
 
 using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Common.Http;
-using System.Collections.Concurrent;
 using System.Threading;
 
 namespace Nhl.Api
@@ -41,6 +41,7 @@ namespace Nhl.Api
         private static readonly INhlApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
         private static readonly INhlApiHttpClient _nhlSuggestionApiHttpClient = new NhlSuggestionApiHttpClient();
         private static readonly INhlApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
+        private static readonly ICachingService _cachingService = new CachingService();
 
         /// <summary>
         /// Returns all NHL franchises, including information such as team name, location and more
@@ -407,15 +408,22 @@ namespace Nhl.Api
         }
 
         /// <summary>
-        /// Returns every active and inactive NHL player since the league inception
+        /// Returns every single NHL player to ever play
         /// </summary>
-        /// <returns>Returns all NHL players since the league inception</returns>
+        /// <returns>Returns every single NHL player since the league inception</returns>
         public async Task<List<Player>> GetAllPlayersAsync()
         {
+
             var playerIds = Enum.GetValues(typeof(PlayerEnum)).Cast<int>();
             var playerTasks = new List<Task<Player>>();
             var semaphore = new SemaphoreSlim(initialCount: 32);
-            
+
+            var cachedPlayers = await _cachingService.TryGet<List<Player>>("GetAllPlayersAsync");
+            if (cachedPlayers != null)
+            {
+                return cachedPlayers;
+            }
+
             foreach (var playerId in playerIds)
             {
                 await semaphore.WaitAsync();
@@ -434,7 +442,10 @@ namespace Nhl.Api
                     }));
             }
 
-            return (await Task.WhenAll(playerTasks)).ToList();
+            var players = (await Task.WhenAll(playerTasks)).ToList();
+            await _cachingService.TryAdd("GetAllPlayersAsync", players);
+
+            return players;
 
         }
 
@@ -1090,6 +1101,14 @@ namespace Nhl.Api
         public async Task<List<EventType>> GetEventTypesAsync()
         {
             return await _nhlStatsApiHttpClient.GetAsync<List<EventType>>("/eventTypes");
+        }
+
+        /// <summary>
+        /// Releases and disposes all unneeded resources
+        /// </summary>
+        public void Dispose()
+        {
+            _cachingService?.Dispose();
         }
     }
 }
