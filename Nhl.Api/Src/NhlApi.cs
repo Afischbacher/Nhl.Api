@@ -413,17 +413,21 @@ namespace Nhl.Api
         /// <returns>Returns every single NHL player since the league inception</returns>
         public async Task<List<Player>> GetAllPlayersAsync()
         {
-
+            // Retrieve all player identifiers known
             var playerIds = Enum.GetValues(typeof(PlayerEnum)).Cast<int>();
-            var playerTasks = new List<Task<Player>>();
-            var semaphore = new SemaphoreSlim(initialCount: 32);
 
-            var cachedPlayers = await _cachingService.TryGet<List<Player>>("GetAllPlayersAsync");
+            // If values are cached, returned cached value
+            var cachedPlayers = _cachingService.TryGet<List<Player>>("GetAllPlayersAsync");
             if (cachedPlayers != null)
             {
                 return cachedPlayers;
             }
 
+            // If cache is not set, return from NHL API
+            var playerTasks = new List<Task<Player>>();
+            var semaphore = new SemaphoreSlim(initialCount: 32);
+
+            // Create Tasks with a parallelization limit of 32 when retrieving all players
             foreach (var playerId in playerIds)
             {
                 await semaphore.WaitAsync();
@@ -442,9 +446,11 @@ namespace Nhl.Api
                     }));
             }
 
+            // Cache values for future requests
             var players = (await Task.WhenAll(playerTasks)).ToList();
-            await _cachingService.TryAdd("GetAllPlayersAsync", players);
+            _cachingService.TryAddUpdate("GetAllPlayersAsync", players);
 
+            // Return all known NHL players
             return players;
 
         }
@@ -1104,7 +1110,7 @@ namespace Nhl.Api
         }
 
         /// <summary>
-        /// Releases and disposes all unneeded resources
+        /// Releases and disposes all unused or garbage collected resources for the Nhl.Api
         /// </summary>
         public void Dispose()
         {

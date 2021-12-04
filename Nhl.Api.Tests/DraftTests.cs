@@ -13,7 +13,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetDraftByYear()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueStandingTypes = await nhlApi.GetDraftByYear(DraftYear.draftYear2010);
@@ -50,7 +50,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetProspectsAsnyc()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueProspects = await nhlApi.GetLeagueProspectsAsync();
@@ -82,7 +82,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetProspectsByIdAsnyc()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueProspectId = (await nhlApi.GetLeagueProspectsAsync()).First().Id;

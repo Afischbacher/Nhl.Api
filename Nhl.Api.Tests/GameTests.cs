@@ -14,11 +14,10 @@ namespace Nhl.Api.Tests
         public async Task TestGetGameTypesAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameTypes = await nhlApi.GetGameTypesAsync();
-
             // Assert
             Assert.IsNotNull(gameTypes);
             CollectionAssert.AllItemsAreNotNull(gameTypes);
@@ -35,7 +34,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGameStatusesAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameStatuses = await nhlApi.GetGameStatusesAsync();
@@ -58,7 +57,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGamePlayTypesAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var playTypes = await nhlApi.GetPlayTypesAsync();
@@ -81,7 +80,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetTournamentTypesAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var tournamentTypes = await nhlApi.GetTournamentTypesAsync();
@@ -102,7 +101,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetPlayoffTournamentTypesAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var playoffTournamentTypes = await nhlApi.GetPlayoffTournamentTypesAsync();
@@ -116,7 +115,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleByDateAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(null);
@@ -144,7 +143,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleByDateNotNullAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(DateTime.Parse("2020-01-29"));
@@ -183,7 +182,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleAsync();
@@ -210,7 +209,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleByDateNotNullWithIntegerAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(2020, 1, 29);
@@ -249,7 +248,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleByDateWithTeamEnumAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleForTeamByDateAsync(TeamEnum.ColoradoAvalanche, DateTime.Parse("2018-10-15"), DateTime.Parse("2019-02-15"));
@@ -287,7 +286,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleByDateWithTeamIdAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleForTeamByDateAsync(22, DateTime.Parse("1984-11-25"), DateTime.Parse("1985-04-06"));
@@ -327,7 +326,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetLiveGameFeedAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             const int _gamePkId = 2021020149;
@@ -482,7 +481,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetLiveGameFeedInvalidGamePkAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             const int _gamePkId = 9999999;

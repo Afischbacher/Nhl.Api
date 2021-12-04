@@ -9,6 +9,14 @@ namespace Nhl.Api.Common.Extensions
     /// </summary>
     public static class LinqExtensions
     {
+        /// <summary>
+        /// An extension method for finding elements in an array distinctly by a specific key or set of keys
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="keySelector"></param>
+        /// <returns></returns>
         public static IEnumerable<TSource> DistinctBy<TSource, TKey> (this IEnumerable<TSource> source, Func<TSource, TKey> keySelector)
         {
             HashSet<TKey> seenKeys = new HashSet<TKey>();

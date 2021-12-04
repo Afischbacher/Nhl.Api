@@ -12,7 +12,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetStatisticsTypesAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var statisticsTypes = await nhlApi.GetStatisticTypesAsync();
@@ -32,7 +32,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetTeamStatisticByIdAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(10, null);
@@ -98,7 +98,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetTeamStatisticByIdEnumAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(TeamEnum.ArizonaCoyotes, null);
@@ -164,7 +164,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetTeamStatisticByIdWithSeasonYearAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(10, SeasonYear.season19171918);
@@ -230,7 +230,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetTeamStatisticByIdWithEnumAndSeasonYearAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(TeamEnum.CalgaryFlames, SeasonYear.season20052006);

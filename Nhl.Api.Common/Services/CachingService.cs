@@ -1,18 +1,17 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Concurrent;
-using System.Threading.Tasks;
 
 namespace Nhl.Api.Common.Services
 {
 
     public interface ICachingService : IDisposable
     {
-        Task TryAdd<T>(string key, T value) where T : class;
+        void TryAddUpdate<T>(string key, T value) where T : class;
 
-        Task<bool> Remove(string key);
+        bool Remove(string key);
 
-        Task<T> TryGet<T>(string key) where T : class;
+        T TryGet<T>(string key) where T : class;
     }
 
     public class CachingService : ICachingService
@@ -24,17 +23,17 @@ namespace Nhl.Api.Common.Services
             _cacheStore?.Clear();
         }
 
-        public async Task<bool> Remove(string key)
+        public bool Remove(string key)
         {
             return _cacheStore.TryRemove(key, out var value);
         }
 
-        public async Task TryAdd<T>(string key, T value) where T : class
+        public void TryAddUpdate<T>(string key, T value) where T : class
         {
-            _cacheStore.TryAdd(key, JsonConvert.SerializeObject(value));
+            _cacheStore.AddOrUpdate(key, JsonConvert.SerializeObject(value), (a, b) => JsonConvert.SerializeObject(value));
         }
 
-        public async Task<T> TryGet<T>(string key) where T : class
+        public T TryGet<T>(string key) where T : class
         {
             var hasCachedValue = _cacheStore.TryGetValue(key, out var value);
             if (hasCachedValue)
@@ -43,7 +42,6 @@ namespace Nhl.Api.Common.Services
             }
 
             return null;
-        
         }
     }
 }

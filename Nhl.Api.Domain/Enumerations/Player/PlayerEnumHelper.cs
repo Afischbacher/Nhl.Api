@@ -1,5 +1,6 @@
 ﻿using Nhl.Api.Common.Extensions;
 using Nhl.Api.Models.Player;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -20,7 +21,7 @@ namespace Nhl.Api.Models.Enumerations.Player
         public static async Task<List<Models.Player.Player>> GetAllPlayersAsync()
         {
             var nhlStatsApiHttpClient = new Api.Common.Http.NhlStatsApiHttpClient();
-            var playerTasks = new List<Task<Models.Player.Player>>();
+            var playerTasks = new ConcurrentBag<Task<Models.Player.Player>>();
             var semaphore = new SemaphoreSlim(initialCount: 1);
 
             for (var playerId = 8440000; playerId < 8490000; playerId++)

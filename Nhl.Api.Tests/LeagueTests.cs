@@ -12,7 +12,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueStandingsNullDateAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueStandings = await nhlApi.GetLeagueStandingsAsync(null);
@@ -35,7 +35,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueStandingsAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueStandings = await nhlApi.GetLeagueStandingsAsync();
@@ -59,7 +59,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueStandingsByConferenceAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueStandings = await nhlApi.GetLeagueStandingsByConferenceAsync();
@@ -82,7 +82,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueStandingsByDivisionAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueStandings = await nhlApi.GetLeagueStandingsByDivisionAsync();
@@ -105,7 +105,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueStandingsByDivisionWithDateAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueStandings = await nhlApi.GetLeagueStandingsByDivisionAsync(DateTime.Parse("1967-03-24"));
@@ -126,7 +126,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueStandingsByConferenceWithDateAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueStandings = await nhlApi.GetLeagueStandingsByConferenceAsync(DateTime.Parse("1999-02-05"));
@@ -148,7 +148,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueStandingsByDivisionWithNullDateAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueStandings = await nhlApi.GetLeagueStandingsByDivisionAsync(null);
@@ -169,7 +169,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueStandingsByConferenceWithNullDateAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueStandings = await nhlApi.GetLeagueStandingsByConferenceAsync(null);
@@ -192,7 +192,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueStandingsWithDateAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueStandings = await nhlApi.GetLeagueStandingsAsync(System.DateTime.Parse("2019-03-12"));
@@ -215,7 +215,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueAwardsAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueAwards = await nhlApi.GetLeagueAwardsAsync();
@@ -240,7 +240,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueAwardsByIdAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueAward = await nhlApi.GetLeagueAwardByIdAsync(1);
@@ -263,7 +263,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetLeagueAwardsByIdEnumAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var leagueAward = await nhlApi.GetLeagueAwardByIdAsync(AwardEnum.HartMemorialTrophy);
@@ -288,7 +288,7 @@ namespace Nhl.Api.Tests
 		public async Task TestGetEventTypesAsync()
 		{
 			// Arrange
-			INhlApi nhlApi = new NhlApi();
+			using INhlApi nhlApi = new NhlApi();
 
 			// Act
 			var eventTypes = await nhlApi.GetEventTypesAsync();
