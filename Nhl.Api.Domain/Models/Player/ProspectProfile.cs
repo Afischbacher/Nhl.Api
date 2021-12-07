@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Nhl.Api.Common.Helpers;
 using Nhl.Api.Models.Draft;
 using Nhl.Api.Models.League;
 using Nhl.Api.Models.Team;
@@ -70,6 +71,18 @@ namespace Nhl.Api.Models.Player
 		/// </summary>
 		[JsonProperty("birthCountry")]
 		public string BirthCountry { get; set; }
+
+		/// <summary>
+		/// The full name of the birth country of the NHL Player <br/>
+		/// Example: Canada
+		/// </summary>
+		public string FullBirthCountry
+		{
+			get
+			{
+				return CountryCodeHelper.ConvertThreeDigitCountryCodeToFullCountryName(BirthCountry);
+			}
+		}
 
 		/// <summary>
 		/// The height in feet and inches of the NHL draft prospect <br/>

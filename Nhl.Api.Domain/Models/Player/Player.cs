@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Nhl.Api.Common.Helpers;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Team;
 using System;
@@ -87,6 +88,18 @@ namespace Nhl.Api.Models.Player
 		/// </summary>
 		[JsonProperty("birthCountry")]
 		public string BirthCountry { get; set; }
+
+		/// <summary>
+		/// The full name of the birth country of the NHL Player <br/>
+		/// Example: Canada
+		/// </summary>
+		public string FullBirthCountry
+		{
+			get
+			{
+				return CountryCodeHelper.ConvertThreeDigitCountryCodeToFullCountryName(BirthCountry);
+			}
+		}
 
 		/// <summary>
 		/// The nationality of the NHL player <br/>

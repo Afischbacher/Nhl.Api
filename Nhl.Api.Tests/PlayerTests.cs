@@ -458,6 +458,7 @@ namespace Nhl.Api.Tests
                 case "Wayne Gretzky":
                     Assert.AreEqual("Brantford", playerSearchResult.BirthCity);
                     Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
+                    Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
                     Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
                     Assert.AreEqual(DateTime.Parse("1961-01-26"), playerSearchResult.BirthDate);
                     Assert.AreEqual("Wayne", playerSearchResult.FirstName);
@@ -470,6 +471,7 @@ namespace Nhl.Api.Tests
                 case "Alex Ovechkin":
                     Assert.AreEqual("Moscow", playerSearchResult.BirthCity);
                     Assert.AreEqual("RUS", playerSearchResult.BirthCountry);
+                    Assert.AreEqual("Russian Federation", playerSearchResult.FullBirthCountry);
                     Assert.AreEqual("", playerSearchResult.BirthProvinceState);
                     Assert.AreEqual(DateTime.Parse("1985-09-17"), playerSearchResult.BirthDate);
                     Assert.AreEqual("Alex", playerSearchResult.FirstName);
@@ -483,6 +485,7 @@ namespace Nhl.Api.Tests
                 case "Connor McDavid":
                     Assert.AreEqual("Richmond Hill", playerSearchResult.BirthCity);
                     Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
+                    Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
                     Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
                     Assert.AreEqual(DateTime.Parse("1997-01-13"), playerSearchResult.BirthDate);
                     Assert.AreEqual("Connor", playerSearchResult.FirstName);

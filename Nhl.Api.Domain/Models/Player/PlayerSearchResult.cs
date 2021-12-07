@@ -1,4 +1,5 @@
 ﻿using System;
+using Nhl.Api.Common.Helpers;
 using Nhl.Api.Models.Team;
 
 namespace Nhl.Api.Models.Player
@@ -52,6 +53,18 @@ namespace Nhl.Api.Models.Player
 		/// Example: CAN
 		/// </summary>
 		public string BirthCountry { get; set; }
+
+		/// <summary>
+		/// The full name of the birth country of the NHL Player <br/>
+		/// Example: Canada
+		/// </summary>
+		public string FullBirthCountry
+		{
+			get
+			{
+				return CountryCodeHelper.ConvertThreeDigitCountryCodeToFullCountryName(BirthCountry);
+			}
+		}
 
 		/// <summary>
 		/// Is the player currently active in the NHL

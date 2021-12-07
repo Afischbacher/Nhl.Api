@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Nhl.Api.Common.Helpers;
 using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Player;
@@ -713,6 +714,18 @@ namespace Nhl.Api.Models.Game
         public string BirthCountry { get; set; }
 
         /// <summary>
+        /// The full name of the birth country of the NHL Player <br/>
+        /// Example: Canada
+        /// </summary>
+        public string FullBirthCountry
+        {
+            get
+            {
+                return CountryCodeHelper.ConvertThreeDigitCountryCodeToFullCountryName(BirthCountry);
+            }
+        }
+
+        /// <summary>
         /// The nationality of the NHL player <br/>
         /// Example: CAN
         /// </summary>
@@ -967,6 +980,18 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("birthCountry")]
         public string BirthCountry { get; set; }
+        
+        /// <summary>
+        /// The full name of the birth country of the NHL Player <br/>
+        /// Example: Canada
+        /// </summary>
+        public string FullBirthCountry
+        {
+            get
+            {
+                return CountryCodeHelper.ConvertThreeDigitCountryCodeToFullCountryName(BirthCountry);
+            }
+        }
 
         /// <summary>
         /// The nationality of the NHL player <br/>
