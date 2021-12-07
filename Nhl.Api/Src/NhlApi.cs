@@ -809,6 +809,16 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns the line score content for an NHL game
+        /// </summary>
+        /// <param name="liveFeedGameId">The live game feed id, Example: 2021020087</param>
+        /// <returns>Returns information about the current score, strength of the play, time remaining, shots on goal and more</returns>
+        public async Task<Linescore> GetLineScoreByIdAsync(int liveFeedGameId)
+        {
+            return await _nhlStatsApiHttpClient.GetAsync<Linescore>($"/game/{liveFeedGameId}/linescore");
+        }
+
+        /// <summary>
         /// Returns all of the NHL seasons since the inception of the league in 1917-1918
         /// </summary>
         /// <returns>A collection of seasons since the inception of the NHL</returns>

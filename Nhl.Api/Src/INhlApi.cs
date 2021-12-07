@@ -357,6 +357,13 @@ namespace Nhl.Api
         /// <returns>A detailed collection of information about play by play details, scores, teams, coaches, on ice statistics, real-time updates and more</returns>
         Task<LiveGameFeedResult> GetLiveGameFeedByIdAsync(int liveFeedGameId);
 
+        /// <summary>
+        /// Returns the line score content for an NHL game
+        /// </summary>
+        /// <param name="liveFeedGameId">The live game feed id, Example: 2021020087</param>
+        /// <returns>Returns information about the current score, strength of the play, time remaining, shots on goal and more</returns>
+        Task<Linescore> GetLineScoreByIdAsync(int liveFeedGameId);
+
         #endregion
 
         #region Seasons

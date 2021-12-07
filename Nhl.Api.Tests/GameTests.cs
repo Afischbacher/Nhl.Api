@@ -497,5 +497,54 @@ namespace Nhl.Api.Tests
             Assert.IsNull(liveGameFeedResult.LiveGameFeed.MetaData);
 
         }
+
+        [TestMethod]
+        public async Task TestGetLineScoreAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 2021020197;
+            var lineScore = await nhlApi.GetLineScoreByIdAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(lineScore);
+            Assert.IsNotNull(lineScore.Teams);
+            Assert.IsNotNull(lineScore.Teams.Home);
+            Assert.IsNotNull(lineScore.Teams.Away);
+
+            Assert.IsNotNull(lineScore.Teams.Home.Team);
+            Assert.IsNotNull(lineScore.Teams.Away.Team);
+            Assert.IsNotNull(lineScore.Teams.Home.Team.Id);
+            Assert.IsNotNull(lineScore.Teams.Away.Team.Id);
+            Assert.IsNotNull(lineScore.Teams.Home.Team.Name);
+            Assert.IsNotNull(lineScore.CurrentPeriod);
+            Assert.IsNotNull(lineScore.CurrentPeriodOrdinal);
+            Assert.IsNotNull(lineScore.CurrentPeriod);
+            Assert.IsNotNull(lineScore.CurrentPeriodTimeRemaining);
+            Assert.IsNotNull(lineScore.PowerPlayInfo);
+            Assert.IsNotNull(lineScore.PowerPlayStrength);
+            Assert.IsNotNull(lineScore.IntermissionInfo);
+            Assert.IsFalse(lineScore.HasShootout);
+
+        }
+
+        [TestMethod]
+        public async Task TestGetLineScoreWithInvalidIdAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 99999999;
+            var lineScore = await nhlApi.GetLineScoreByIdAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(lineScore);
+            Assert.IsNull(lineScore.Teams);
+            Assert.IsNull(lineScore.Periods);
+
+        }
     }
 }
