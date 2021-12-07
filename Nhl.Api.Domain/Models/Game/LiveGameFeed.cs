@@ -2299,7 +2299,7 @@ namespace Nhl.Api.Models.Game
         /// Example: [ 8481102 ]
         /// </summary>
         [JsonProperty("penaltyBox")]
-        public List<int> PenaltyBox { get; set; }
+        public List<object> PenaltyBox { get; set; }
 
         /// <summary>
         /// Returns the coaches for the NHL team

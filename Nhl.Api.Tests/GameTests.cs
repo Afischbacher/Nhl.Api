@@ -506,7 +506,7 @@ namespace Nhl.Api.Tests
 
             // Act
             const int _gamePkId = 2021020197;
-            var lineScore = await nhlApi.GetLiveLineScoreByIdAsync(_gamePkId);
+            var lineScore = await nhlApi.GetLineScoreByIdAsync(_gamePkId);
 
             // Assert
             Assert.IsNotNull(lineScore);
@@ -538,12 +538,73 @@ namespace Nhl.Api.Tests
 
             // Act
             const int _gamePkId = 99999999;
-            var lineScore = await nhlApi.GetLiveLineScoreByIdAsync(_gamePkId);
+            var lineScore = await nhlApi.GetLineScoreByIdAsync(_gamePkId);
 
             // Assert
             Assert.IsNotNull(lineScore);
             Assert.IsNull(lineScore.Teams);
             Assert.IsNull(lineScore.Periods);
+
+        }
+
+
+        [TestMethod]
+        public async Task TestGetBoxScoreAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 2021020197;
+            var boxScore = await nhlApi.GetBoxScoreByIdAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(boxScore);
+
+            foreach (var referee in boxScore.Officials)
+            {
+                Assert.IsNotNull(referee.Official.Id);
+                Assert.IsNotNull(referee.Official.FullName);
+                Assert.IsNotNull(referee.Official.Link);
+            }
+
+            Assert.IsNotNull(boxScore.Teams);
+            Assert.IsNotNull(boxScore.Teams.Home);
+            Assert.IsNotNull(boxScore.Teams.Away);
+
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.Shots);
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.FaceOffWinPercentage);
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.Hits);
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.Goals);
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.Pim);
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.PowerPlayOpportunities);
+
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.Shots);
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.FaceOffWinPercentage);
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.Hits);
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.Goals);
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.Pim);
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.PowerPlayOpportunities);
+
+            Assert.IsNotNull(boxScore.Teams.Away.Coaches.First().Person);
+            Assert.IsNotNull(boxScore.Teams.Home.Coaches.First().Person);
+
+
+        }
+
+        [TestMethod]
+        public async Task TestGetBoxScoreWithInvalidIdAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 99999999;
+            var boxScore = await nhlApi.GetBoxScoreByIdAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(boxScore);
+            Assert.IsNull(boxScore.Teams);
 
         }
     }

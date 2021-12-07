@@ -813,9 +813,19 @@ namespace Nhl.Api
         /// </summary>
         /// <param name="gameId">The game id, Example: 2021020087</param>
         /// <returns>Returns information about the current score, strength of the play, time remaining, shots on goal and more</returns>
-        public async Task<Linescore> GetLiveLineScoreByIdAsync(int gameId)
+        public async Task<Linescore> GetLineScoreByIdAsync(int gameId)
         {
             return await _nhlStatsApiHttpClient.GetAsync<Linescore>($"/game/{gameId}/linescore");
+        }
+
+        /// <summary>
+        /// Returns the box score content for an NHL game
+        /// </summary>
+        /// <param name="gameId">The game id, Example: 2021020087</param>
+        /// <returns>Returns information about the current score, strength of the play, time remaining, shots on goal and more</returns>
+        public async Task<Boxscore> GetBoxScoreByIdAsync(int gameId)
+        {
+            return await _nhlStatsApiHttpClient.GetAsync<Boxscore>($"/game/{gameId}/boxscore");
         }
 
         /// <summary>
