@@ -368,7 +368,7 @@ namespace Nhl.Api
         /// Returns the box score content for an NHL game
         /// </summary>
         /// <param name="gameId">The game id, Example: 2021020087</param>
-        /// <returns>Returns information about the current score, strength of the play, time remaining, shots on goal and more</returns>
+        /// <returns>Returns information about the current score, penalties, players, team statistics and more</returns>
         Task<Boxscore> GetBoxScoreByIdAsync(int gameId);
 
         #endregion
