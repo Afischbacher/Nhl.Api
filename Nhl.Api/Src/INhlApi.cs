@@ -360,9 +360,9 @@ namespace Nhl.Api
         /// <summary>
         /// Returns the line score content for an NHL game
         /// </summary>
-        /// <param name="liveFeedGameId">The live game feed id, Example: 2021020087</param>
+        /// <param name="gameId">The game id, Example: 2021020087</param>
         /// <returns>Returns information about the current score, strength of the play, time remaining, shots on goal and more</returns>
-        Task<Linescore> GetLineScoreByIdAsync(int liveFeedGameId);
+        Task<Linescore> GetLiveLineScoreByIdAsync(int gameId);
 
         #endregion
 
@@ -398,6 +398,12 @@ namespace Nhl.Api
         /// <param name="seasonYear">See <see cref="SeasonYear"/> for all valid season year arguments</param>
         /// <returns>An NHL season based on the provided season year, Example - "20172018"</returns>
         Task<Season> GetSeasonByYearAsync(string seasonYear);
+
+        /// <summary>
+        /// Return the current and most recent NHL season
+        /// </summary>
+        /// <returns>The most recent NHL season</returns>
+        Task<Season> GetCurrentSeasonAsync();
 
         #endregion
 

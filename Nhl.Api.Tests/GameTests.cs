@@ -506,7 +506,7 @@ namespace Nhl.Api.Tests
 
             // Act
             const int _gamePkId = 2021020197;
-            var lineScore = await nhlApi.GetLineScoreByIdAsync(_gamePkId);
+            var lineScore = await nhlApi.GetLiveLineScoreByIdAsync(_gamePkId);
 
             // Assert
             Assert.IsNotNull(lineScore);
@@ -538,7 +538,7 @@ namespace Nhl.Api.Tests
 
             // Act
             const int _gamePkId = 99999999;
-            var lineScore = await nhlApi.GetLineScoreByIdAsync(_gamePkId);
+            var lineScore = await nhlApi.GetLiveLineScoreByIdAsync(_gamePkId);
 
             // Assert
             Assert.IsNotNull(lineScore);

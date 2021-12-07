@@ -50,6 +50,29 @@ namespace Nhl.Api.Tests
 
 		}
 
+
+		[TestMethod]
+		public async Task TestGetCurrentSeasonAsync()
+		{
+			// Arrange
+			using INhlApi nhlApi = new NhlApi();
+
+			// Act
+			var season = await nhlApi.GetCurrentSeasonAsync();
+
+			// Assert
+			Assert.IsNotNull(season);
+			Assert.IsNotNull(season.ConferencesInUse);
+			Assert.IsNotNull(season.DivisionsInUse);
+			Assert.IsNotNull(season.NumberOfGames);
+			Assert.IsNotNull(season.OlympicsParticipation);
+			Assert.IsNotNull(season.RegularSeasonStartDate);
+			Assert.IsNotNull(season.RegularSeasonEndDate);
+			Assert.IsNotNull(season.SeasonEndDate);
+			Assert.IsNotNull(season.SeasonId);
+
+		}
+
 		[TestMethod]
 		public async Task TestGetAllSeasonsAsync()
 		{

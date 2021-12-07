@@ -811,11 +811,11 @@ namespace Nhl.Api
         /// <summary>
         /// Returns the line score content for an NHL game
         /// </summary>
-        /// <param name="liveFeedGameId">The live game feed id, Example: 2021020087</param>
+        /// <param name="gameId">The game id, Example: 2021020087</param>
         /// <returns>Returns information about the current score, strength of the play, time remaining, shots on goal and more</returns>
-        public async Task<Linescore> GetLineScoreByIdAsync(int liveFeedGameId)
+        public async Task<Linescore> GetLiveLineScoreByIdAsync(int gameId)
         {
-            return await _nhlStatsApiHttpClient.GetAsync<Linescore>($"/game/{liveFeedGameId}/linescore");
+            return await _nhlStatsApiHttpClient.GetAsync<Linescore>($"/game/{gameId}/linescore");
         }
 
         /// <summary>
@@ -825,6 +825,15 @@ namespace Nhl.Api
         public async Task<List<Season>> GetSeasonsAsync()
         {
             return (await _nhlStatsApiHttpClient.GetAsync<LeagueSeasons>("/seasons")).Seasons;
+        }
+
+        /// <summary>
+        /// Return the current and most recent NHL season
+        /// </summary>
+        /// <returns>The most recent NHL season</returns>
+        public async Task<Season> GetCurrentSeasonAsync()
+        {
+            return (await GetSeasonsAsync()).OrderBy(x => x.SeasonId).Last();
         }
 
         /// <summary>
