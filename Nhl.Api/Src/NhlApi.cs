@@ -189,7 +189,7 @@ namespace Nhl.Api
         /// </summary>
         /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
         /// <param name="teamLogoType">The NHL team logo image type, based on the background of light or dark</param>
-        /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the uri endpoint</returns>
+        /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
         public async Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light)
         {
             var endpoint = $"images/logos/teams-current-primary-{teamLogoType.ToString().ToLower()}/{teamId}.svg";
@@ -209,7 +209,7 @@ namespace Nhl.Api
         /// </summary>
         /// <param name="team">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
         /// <param name="teamLogoType">The NHL team logo image type, based on the background of light or dark</param>
-        /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the uri endpoint</returns>
+        /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
         public async Task<TeamLogo> GetTeamLogoAsync(TeamEnum team, TeamLogoType teamLogoType = TeamLogoType.Light)
         {
             var endpoint = $"images/logos/teams-current-primary-{teamLogoType.ToString().ToLower()}/{(int)team}.svg";
@@ -902,7 +902,7 @@ namespace Nhl.Api
         }
 
         /// <summary>
-        /// Returns all of the NHL league standing types, this includes playoff and preseason standings
+        /// Returns all of the NHL league standing types, this includes playoff and pre-season standings
         /// </summary>
         /// <returns>A collection of all the NHL standing types, see <see cref="LeagueStandingType"/> for more information</returns>
         public async Task<List<LeagueStandingType>> GetLeagueStandingTypesAsync()
@@ -1059,7 +1059,7 @@ namespace Nhl.Api
         /// <summary>
         /// Returns an NHL prospect profile by their prospect id
         /// </summary>
-        /// <param name="prospect">The NHL prospect id, Example: 86515 - Francesco Pinelli</param>
+        /// <param name="prospect">The NHL prospect id, Example: 86515 - Francesco Pinelli, see <see cref="ProspectEnum"/> for more information</param>
         /// <returns>An NHL prospect, see <see cref="ProspectProfile"/> for more information </returns>
         public async Task<ProspectProfile> GetLeagueProspectByIdAsync(ProspectEnum prospect)
         {
