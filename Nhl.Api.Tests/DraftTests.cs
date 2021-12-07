@@ -85,8 +85,31 @@ namespace Nhl.Api.Tests
 			using INhlApi nhlApi = new NhlApi();
 
 			// Act
-			var leagueProspectId = (await nhlApi.GetLeagueProspectsAsync()).First().Id;
-			var prospect = await nhlApi.GetLeagueProspectByIdAsync(leagueProspectId);
+			var prospect = await nhlApi.GetLeagueProspectByIdAsync(84055);
+
+			// Assert
+			Assert.IsNotNull(prospect.BirthCountry);
+			Assert.IsNotNull(prospect.DraftStatus);
+			Assert.IsNotNull(prospect.ShootsCatches);
+			Assert.IsNotNull(prospect.Weight);
+			Assert.IsNotNull(prospect.FullName);
+			Assert.IsNotNull(prospect.Height);
+			Assert.IsNotNull(prospect.Id);
+			Assert.IsNotNull(prospect.AmateurLeague);
+			Assert.IsNotNull(prospect.AmateurTeam);
+			Assert.IsNotNull(prospect.BirthCity);
+			Assert.IsNotNull(prospect.FullName);
+			Assert.IsNotNull(prospect.FirstName);
+			Assert.IsNotNull(prospect.LastName);
+		}
+
+		[TestMethod]
+		public async Task TestGetProspectsByIdEnumAsnyc()
+		{
+			// Arrange
+			using INhlApi nhlApi = new NhlApi();
+
+			var prospect = await nhlApi.GetLeagueProspectByIdAsync(Models.Enumerations.Prospect.ProspectEnum.SadinBasic77142);
 
 			// Assert
 			Assert.IsNotNull(prospect.BirthCountry);

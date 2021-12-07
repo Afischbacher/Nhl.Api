@@ -18,6 +18,10 @@
 	  <LastGenOutput>PlayerEnum.cs</LastGenOutput>
 	  <Generator>TextTemplatingFileGenerator</Generator>
 	</None>
+	<None Update="Enumerations\Prospect\ProspectEnum.tt">
+	  <Generator>TextTemplatingFileGenerator</Generator>
+	  <LastGenOutput>ProspectEnum.cs</LastGenOutput>
+	</None>
 	<None Update="Enumerations\Venue\VenueEnum.tt">
 	  <Generator>TextTemplatingFileGenerator</Generator>
 	  <LastGenOutput>VenueEnum.cs</LastGenOutput>
@@ -47,6 +51,11 @@
 	  <DesignTime>True</DesignTime>
 	  <AutoGen>True</AutoGen>
 	  <DependentUpon>PlayerEnum.tt</DependentUpon>
+	</Compile>
+	<Compile Update="Enumerations\Prospect\ProspectEnum.cs">
+	  <DesignTime>True</DesignTime>
+	  <AutoGen>True</AutoGen>
+	  <DependentUpon>ProspectEnum.tt</DependentUpon>
 	</Compile>
 	<Compile Update="Enumerations\Venue\VenueEnum.cs">
 	  <DesignTime>True</DesignTime>

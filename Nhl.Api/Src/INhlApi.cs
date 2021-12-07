@@ -14,6 +14,7 @@ using Nhl.Api.Models.Enumerations.Conference;
 using Nhl.Api.Models.Enumerations.Division;
 using Nhl.Api.Models.Enumerations.Franchise;
 using Nhl.Api.Models.Enumerations.Player;
+using Nhl.Api.Models.Enumerations.Prospect;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Enumerations.Venue;
 using Nhl.Api.Models.Event;
@@ -540,6 +541,13 @@ namespace Nhl.Api
         /// <param name="prospectId">The NHL prospect id, Example: 86515 - Francesco Pinelli</param>
         /// <returns>An NHL prospect, see <see cref="ProspectProfile"/> for more information </returns>
         Task<ProspectProfile> GetLeagueProspectByIdAsync(int prospectId);
+
+        /// <summary>
+        /// Returns an NHL prospect profile by their prospect id
+        /// </summary>
+        /// <param name="prospect">The NHL prospect id, Example: 86515 - Francesco Pinelli</param>
+        /// <returns>An NHL prospect, see <see cref="ProspectProfile"/> for more information </returns>
+        Task<ProspectProfile> GetLeagueProspectByIdAsync(ProspectEnum prospect);
 
         #endregion
 

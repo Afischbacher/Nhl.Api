@@ -25,6 +25,7 @@ using Nhl.Api.Models.Enumerations.Venue;
 using Nhl.Api.Models.League;
 using Nhl.Api.Models.Enumerations.Franchise;
 using Nhl.Api.Common.Services;
+using Nhl.Api.Models.Enumerations.Prospect;
 
 using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Exceptions;
@@ -390,7 +391,6 @@ namespace Nhl.Api
         public async Task<List<Player>> GetPlayersByIdAsync(IEnumerable<int> playerIds)
         {
             var playerTasks = playerIds.Select(playerId => GetPlayerByIdAsync(playerId)).ToArray();
-
             return (await Task.WhenAll(playerTasks)).ToList();
 
         }
@@ -403,7 +403,6 @@ namespace Nhl.Api
         public async Task<List<Player>> GetPlayersByIdAsync(IEnumerable<PlayerEnum> players)
         {
             var playerTasks = players.Select(player => GetPlayerByIdAsync(player)).ToArray();
-
             return (await Task.WhenAll(playerTasks)).ToList();
         }
 
@@ -1024,6 +1023,18 @@ namespace Nhl.Api
         public async Task<ProspectProfile> GetLeagueProspectByIdAsync(int prospectId)
         {
             return (await _nhlStatsApiHttpClient.GetAsync<LeagueProspects>($"/draft/prospects/{prospectId}"))
+                .ProspectProfiles
+                .SingleOrDefault();
+        }
+
+        /// <summary>
+        /// Returns an NHL prospect profile by their prospect id
+        /// </summary>
+        /// <param name="prospect">The NHL prospect id, Example: 86515 - Francesco Pinelli</param>
+        /// <returns>An NHL prospect, see <see cref="ProspectProfile"/> for more information </returns>
+        public async Task<ProspectProfile> GetLeagueProspectByIdAsync(ProspectEnum prospect)
+        {
+            return (await _nhlStatsApiHttpClient.GetAsync<LeagueProspects>($"/draft/prospects/{(int)prospect}"))
                 .ProspectProfiles
                 .SingleOrDefault();
         }
