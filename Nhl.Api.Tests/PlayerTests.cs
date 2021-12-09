@@ -468,6 +468,7 @@ namespace Nhl.Api.Tests
                     Assert.AreEqual(false, playerSearchResult.IsActive);
                     Assert.AreEqual(99, playerSearchResult.PlayerNumber);
                     break;
+
                 case "Alex Ovechkin":
                     Assert.AreEqual("Moscow", playerSearchResult.BirthCity);
                     Assert.AreEqual("RUS", playerSearchResult.BirthCountry);
