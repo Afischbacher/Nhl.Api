@@ -166,7 +166,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetGameStatusesAsync()](#M-Nhl-Api-NhlGameApi-GetGameStatusesAsync 'Nhl.Api.NhlGameApi.GetGameStatusesAsync')
   - [GetGameTypesAsync()](#M-Nhl-Api-NhlGameApi-GetGameTypesAsync 'Nhl.Api.NhlGameApi.GetGameTypesAsync')
   - [GetLineScoreByIdAsync(gameId)](#M-Nhl-Api-NhlGameApi-GetLineScoreByIdAsync-System-Int32- 'Nhl.Api.NhlGameApi.GetLineScoreByIdAsync(System.Int32)')
-  - [GetLiveGameFeedByIdAsync(liveGameFeedId)](#M-Nhl-Api-NhlGameApi-GetLiveGameFeedByIdAsync-System-Int32- 'Nhl.Api.NhlGameApi.GetLiveGameFeedByIdAsync(System.Int32)')
+  - [GetLiveGameFeedByIdAsync(gameId)](#M-Nhl-Api-NhlGameApi-GetLiveGameFeedByIdAsync-System-Int32- 'Nhl.Api.NhlGameApi.GetLiveGameFeedByIdAsync(System.Int32)')
   - [GetPlayTypesAsync()](#M-Nhl-Api-NhlGameApi-GetPlayTypesAsync 'Nhl.Api.NhlGameApi.GetPlayTypesAsync')
   - [GetPlayoffTournamentTypesAsync()](#M-Nhl-Api-NhlGameApi-GetPlayoffTournamentTypesAsync 'Nhl.Api.NhlGameApi.GetPlayoffTournamentTypesAsync')
   - [GetTournamentTypesAsync()](#M-Nhl-Api-NhlGameApi-GetTournamentTypesAsync 'Nhl.Api.NhlGameApi.GetTournamentTypesAsync')
@@ -1717,7 +1717,7 @@ Returns information about the current score, strength of the play, time remainin
 | gameId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The game id, Example: 2021020087 |
 
 <a name='M-Nhl-Api-NhlGameApi-GetLiveGameFeedByIdAsync-System-Int32-'></a>
-### GetLiveGameFeedByIdAsync(liveGameFeedId) `method`
+### GetLiveGameFeedByIdAsync(gameId) `method`
 
 ##### Summary
 
@@ -1731,7 +1731,7 @@ A detailed collection of information about play by play details, scores, teams, 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| liveGameFeedId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The live game feed id, Example: 2021020087 |
+| gameId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The live game feed id, Example: 2021020087 |
 
 <a name='M-Nhl-Api-NhlGameApi-GetPlayTypesAsync'></a>
 ### GetPlayTypesAsync() `method`
