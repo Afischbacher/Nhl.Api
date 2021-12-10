@@ -208,7 +208,7 @@
         /// <summary>
         /// Due to the 2004/2005 NHL lockout, there is no season end date
         /// </summary>
-        public const string endOf20042005Season = ""; 
+        public const string endOf20042005Season = "";
         public const string endOf20052006Season = "2006-06-19";
         public const string endOf20062007Season = "2007-06-06";
         public const string endOf20072008Season = "2008-06-04";

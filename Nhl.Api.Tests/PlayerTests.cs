@@ -105,7 +105,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetManyPlayersByIdEnumAsync()
         {
             // Arrange
-            using  INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act 
             var players = await nhlApi.GetPlayersByIdAsync(new[] { PlayerEnum.WilliamNylander8477939, PlayerEnum.NicoHischier8480002, PlayerEnum.AndreiVasilevskiy8476883 });

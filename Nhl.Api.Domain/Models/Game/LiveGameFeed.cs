@@ -162,7 +162,7 @@ namespace Nhl.Api.Models.Game
         {
             get
             {
-               return TimeStampHelper.ParseTimeStampToDateTimeOffset(TimeStamp);
+                return TimeStampHelper.ParseTimeStampToDateTimeOffset(TimeStamp);
             }
         }
     }
@@ -988,7 +988,7 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("birthCountry")]
         public string BirthCountry { get; set; }
-        
+
         /// <summary>
         /// The full name of the birth country of the NHL Player <br/>
         /// Example: Canada
@@ -2272,7 +2272,7 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedBoxscoreAwayTeam Away { get; set; }
     }
 
-    public abstract class LiveGameFeedBoxscoreTeam 
+    public abstract class LiveGameFeedBoxscoreTeam
     {
         /// <summary>
         /// Returns the team information for the NHL live game feed box score team

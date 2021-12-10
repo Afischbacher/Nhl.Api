@@ -14,18 +14,18 @@ namespace Nhl.Api.Common.Helpers
         /// <returns>A parsed DateTimeOffset time stamp in UTC</returns>
         public static DateTimeOffset? ParseTimeStampToDateTimeOffset(string timeStamp)
         {
-            if (string.IsNullOrWhiteSpace(timeStamp)) 
+            if (string.IsNullOrWhiteSpace(timeStamp))
             {
-                return null; 
+                return null;
             }
 
-            if (timeStamp.Length != 15) 
+            if (timeStamp.Length != 15)
             {
-                return null; 
+                return null;
             }
 
             var datetime = timeStamp.Split('_');
-            if(datetime.Length != 2)
+            if (datetime.Length != 2)
             {
                 return null;
             }

@@ -1,7 +1,7 @@
 ﻿
 namespace Nhl.Api.Models.Team
 {
-	public class AwayTeam : TeamWithLeagueRecord
-	{
-	}
+    public class AwayTeam : TeamWithLeagueRecord
+    {
+    }
 }
