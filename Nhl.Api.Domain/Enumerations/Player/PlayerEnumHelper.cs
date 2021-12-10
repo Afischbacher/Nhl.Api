@@ -24,7 +24,7 @@ namespace Nhl.Api.Models.Enumerations.Player
             var playerTasks = new ConcurrentBag<Task<Models.Player.Player>>();
             var semaphore = new SemaphoreSlim(initialCount: 1);
 
-            for (var playerId = 8440000; playerId < 8490000; playerId++)
+            for (var i = 8440000; i < 8490000; i++)
             {
                 await semaphore.WaitAsync();
 
@@ -33,7 +33,7 @@ namespace Nhl.Api.Models.Enumerations.Player
                     {
                         try
                         {
-                            return (await nhlStatsApiHttpClient.GetAsync<LeaguePlayers>($"/people/{playerId}"))
+                            return (await nhlStatsApiHttpClient.GetAsync<LeaguePlayers>($"/people/{i}"))
                             .Players
                             .SingleOrDefault();
                         }

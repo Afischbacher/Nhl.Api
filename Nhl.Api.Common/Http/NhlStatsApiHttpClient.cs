@@ -27,13 +27,7 @@ namespace Nhl.Api.Common.Http
                 {
                     if (_httpClient == null)
                     {
-                        var clientHandler = new HttpClientHandler
-                        {
-                            Proxy = null,
-                            ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; }
-                        };
-
-                        _httpClient = new HttpClient(clientHandler)
+                        _httpClient = new HttpClient()
                         {
                             BaseAddress = new Uri($"{Client}{ClientVersion}"),
                             Timeout = Timeout

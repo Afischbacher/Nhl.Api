@@ -87,9 +87,9 @@ namespace Nhl.Api
         /// <summary>
         /// Returns the live game feed content for an NHL game
         /// </summary>
-        /// <param name="id">The live game feed id, Example: 2021020087</param>
+        /// <param name="gameId">The live game feed id, Example: 2021020087</param>
         /// <returns>A detailed collection of information about play by play details, scores, teams, coaches, on ice statistics, real-time updates and more</returns>
-        Task<LiveGameFeedResult> GetLiveGameFeedByIdAsync(int id);
+        Task<LiveGameFeedResult> GetLiveGameFeedByIdAsync(int gameId);
 
         /// <summary>
         /// Returns the line score content for an NHL game

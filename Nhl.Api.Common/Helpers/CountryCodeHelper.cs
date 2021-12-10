@@ -1,7 +1,14 @@
 ﻿namespace Nhl.Api.Common.Helpers
 {
+    /// <summary>
+    /// A helper class for converting ISO standard country codes to the full country name
+    /// </summary>
     public static class CountryCodeHelper
     {
+        /// <summary>
+        /// Converts the ISO 3166 country code to the full country name <br/>
+        /// Example: CAN - Canada
+        /// </summary>
         public static string ConvertThreeDigitCountryCodeToFullCountryName(string countryCode)
         {
             if (countryCode == "AFG") return "Afghanistan";

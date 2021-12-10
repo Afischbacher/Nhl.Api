@@ -13,7 +13,7 @@ namespace Nhl.Api.Tests
         {
             ICachingService service = new CachingService();
 
-            (string key, string value) = (key: "key", value: "value");
+            (string key, string value) = ("key", "value");
 
             service.TryAddUpdate(key, value);
 
@@ -27,7 +27,7 @@ namespace Nhl.Api.Tests
         {
             ICachingService service = new CachingService();
 
-            (string key, string value) = (key: "key", value: "value");
+            (string key, string value) = ("key", "value");
 
             service.TryAddUpdate(key, value);
 
@@ -47,7 +47,7 @@ namespace Nhl.Api.Tests
         {
             ICachingService service = new CachingService();
 
-            (string key, string value) = (key: "key", value: "value");
+            (string key, string value) = ("key", "value");
 
             service.TryAddUpdate(key, value);
 
