@@ -40,39 +40,39 @@ If you are using the built-in .NET Core dependency injection library, there is a
 ### Simple Object Instantiation
 `var nhlApi = new NhlApi();`
 
-You can also use a subset of the Nhl.Api for specific data within the Nhl.Api, such as only game data, player data, statistics or league information. These 
-individual API's make up the Nhl.Api in it's entirety. Or if you are using the  <a href="https://github.com/Afischbacher/Nhl.Api.Extensions.Microsoft.DependencyInjection">Nhl.Api.Extensions.Microsoft.DependencyInjection</a> NuGet, these API's are 
+<br/>
+You can also use a subset of the Nhl.Api for specific data within the Nhl.Api, such as only game data, player data, statistics or league information.<br/> These 
+individual API's make up the Nhl.Api in it's entirety. <br/>
+If you are using the  <a href="https://github.com/Afischbacher/Nhl.Api.Extensions.Microsoft.DependencyInjection">Nhl.Api.Extensions.Microsoft.DependencyInjection</a> NuGet, these API's are 
 included automatically within your .NET Core project.
 
 ### Nhl Player Api
-`builder.Services.AddTransient<INhlPlayerApi, NhlPlayerApi>();`
-`container.RegisterType<INhlPlayerApi, NhlPlayerApi>();`
-`builder.RegisterType<NhlPlayerApi>().As<INhlPlayerApi>();`
-`var nhlPlayerApi = new NhlPlayerApi();`
+`builder.Services.AddTransient<INhlPlayerApi, NhlPlayerApi>();` <br/>
+`container.RegisterType<INhlPlayerApi, NhlPlayerApi>();`<br/>
+`builder.RegisterType<NhlPlayerApi>().As<INhlPlayerApi>();`<br/>
+`var nhlPlayerApi = new NhlPlayerApi();`<br/>
 
 ### Nhl Game Api
-`builder.Services.AddTransient<INhlGameApi, NhlGameApi>();`
-`container.RegisterType<INhlGameApi, NhlGameApi>();`
-`builder.RegisterType<NhlGameApi>().As<INhlGameApi>();`
-`var nhlGameApi = new NhlGameApi();`
+`builder.Services.AddTransient<INhlGameApi, NhlGameApi>();`<br/>
+`container.RegisterType<INhlGameApi, NhlGameApi>();`<br/>
+`builder.RegisterType<NhlGameApi>().As<INhlGameApi>();`<br/>
+`var nhlGameApi = new NhlGameApi();`<br/>
 
 ### Nhl Statistics Api
-`builder.Services.AddTransient<INhlStatisticsApi, NhlStatisticsApi>();`
-`container.RegisterType<INhlStatisticsApi, NhlStatisticsApi>();`
-`builder.RegisterType<NhlStatisticsApi>().As<INhlStatisticsApi>();`
-`var nhlStatisticsApi = new NhlStatisticsApi();`
+`builder.Services.AddTransient<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
+`container.RegisterType<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
+`builder.RegisterType<NhlStatisticsApi>().As<INhlStatisticsApi>();`<br/>
+`var nhlStatisticsApi = new NhlStatisticsApi();`<br/>
 
 ### Nhl League Api
-`builder.Services.AddTransient<INhlLeagueApi, NhlLeagueApi>();`
-`container.RegisterType<INhlLeagueApi, NhlLeagueApi>();`
-`builder.RegisterType<NhlLeagueApi>().As<INhlLeagueApi>();`
-`var nhlLeagueApi = new NhlLeagueApi();`
+`builder.Services.AddTransient<INhlLeagueApi, NhlLeagueApi>();`<br/>
+`container.RegisterType<INhlLeagueApi, NhlLeagueApi>();`<br/>
+`builder.RegisterType<NhlLeagueApi>().As<INhlLeagueApi>();`<br/>
+`var nhlLeagueApi = new NhlLeagueApi();`<br/>
 
 ## Documentation 📖
 Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 
-<a name='assembly'></a>
-# Nhl.Api
 
 ### Contents
 
