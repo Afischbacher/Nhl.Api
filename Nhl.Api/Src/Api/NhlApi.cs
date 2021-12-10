@@ -32,9 +32,9 @@ namespace Nhl.Api
     /// </summary>
     public class NhlApi : INhlApi
     {
-        private static readonly INhlPlayerApi _nhlPlayerApi = new NhlPlayerApi();
-        private static readonly INhlGameApi _nhlGameApi = new NhlGameApi();
         private static readonly INhlLeagueApi _nhlLeagueApi = new NhlLeagueApi();
+        private static readonly INhlGameApi _nhlGameApi = new NhlGameApi();
+        private static readonly INhlPlayerApi _nhlPlayerApi = new NhlPlayerApi();
         private static readonly INhlStatisticsApi _nhlStatisticsApi = new NhlStatisticsApi();
 
         /// <summary>
