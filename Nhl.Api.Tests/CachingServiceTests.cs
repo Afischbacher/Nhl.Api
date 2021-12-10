@@ -9,53 +9,53 @@ namespace Nhl.Api.Tests
     {
 
         [TestMethod]
-        public void TestTryAddAsync()
+        public async Task TestTryAddAsync()
         {
             ICachingService service = new CachingService();
 
             (string key, string value) = ("key", "value");
 
-            service.TryAddUpdate(key, value);
+            await service.TryAddUpdateAsync(key, value);
 
-            var retrievedValue = service.TryGet<string>(key);
+            var retrievedValue = service.TryGetAsync<string>(key);
 
             Assert.IsNotNull(retrievedValue);
         }
 
         [TestMethod]
-        public void TestTryAddUpdateAsync()
+        public async Task TestTryAddUpdateAsync()
         {
             ICachingService service = new CachingService();
 
             (string key, string value) = ("key", "value");
 
-            service.TryAddUpdate(key, value);
+            await service.TryAddUpdateAsync(key, value);
 
-            var retrievedValue = service.TryGet<string>(key);
+            var retrievedValue = await service.TryGetAsync<string>(key);
 
             Assert.IsNotNull(retrievedValue);
 
-            service.TryAddUpdate(key, "new value");
-            retrievedValue = service.TryGet<string>(key);
+            await service.TryAddUpdateAsync(key, "new value");
+            retrievedValue = await service.TryGetAsync<string>(key);
 
             Assert.IsNotNull(retrievedValue);
             Assert.AreEqual(retrievedValue, "new value");
         }
 
         [TestMethod]
-        public void TestTryRemoveAsync()
+        public async Task TestTryRemoveAsync()
         {
             ICachingService service = new CachingService();
 
             (string key, string value) = ("key", "value");
 
-            service.TryAddUpdate(key, value);
+            await service.TryAddUpdateAsync(key, value);
 
-            var retrievedValue = service.TryGet<string>(key);
+            var retrievedValue = await service.TryGetAsync<string>(key);
 
             Assert.IsNotNull(retrievedValue);
 
-            var isRemoved = service.Remove(key);
+            var isRemoved = await service.RemoveAsync(key);
 
             Assert.IsTrue(isRemoved);
         }

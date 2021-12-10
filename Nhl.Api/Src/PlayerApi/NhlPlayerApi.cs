@@ -5,6 +5,7 @@ using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Prospect;
 using Nhl.Api.Models.League;
 using Nhl.Api.Models.Player;
+using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
 using System;
 using System.Collections.Generic;
@@ -33,12 +34,14 @@ namespace Nhl.Api
             // Retrieve all player identifiers known
             var playerIds = Enum.GetValues(typeof(PlayerEnum)).Cast<int>();
 
+
             // If values are cached, returned cached value
-            var cachedPlayers = _cachingService.TryGet<List<Player>>("GetAllPlayersAsync");
+            var cachedPlayers = await _cachingService.TryGetAsync<List<Player>>("GetAllPlayersAsync");
             if (cachedPlayers != null)
             {
                 return cachedPlayers;
             }
+
 
             // If cache is not set, return from NHL API
             var playerTasks = new List<Task<Player>>();
@@ -65,7 +68,7 @@ namespace Nhl.Api
 
             // Cache values for future requests
             var players = (await Task.WhenAll(playerTasks)).ToList();
-            _cachingService.TryAddUpdate("GetAllPlayersAsync", players);
+            await _cachingService.TryAddUpdateAsync("GetAllPlayersAsync", players);
 
             // Return all known NHL players
             return players;

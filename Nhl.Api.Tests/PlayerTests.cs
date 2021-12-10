@@ -5,6 +5,7 @@ using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -693,8 +694,24 @@ namespace Nhl.Api.Tests
             // Arrange
             using INhlApi nhlApi = new NhlApi();
 
+            var stopWatch = new Stopwatch();
+
+            stopWatch.Start();
             // Act
             var players = await nhlApi.GetAllPlayersAsync();
+
+            stopWatch.Stop();
+
+            Assert.IsTrue(stopWatch.Elapsed.TotalSeconds < 60);
+
+            stopWatch.Reset();
+            stopWatch.Start();
+
+            // Calling again to ensure caching is enabled
+            players = await nhlApi.GetAllPlayersAsync();
+            stopWatch.Stop();
+
+            Assert.IsTrue(stopWatch.Elapsed.TotalSeconds < 3);
 
             // Assert
             Assert.IsNotNull(players);

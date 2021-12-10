@@ -1,6 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Concurrent;
+using System.IO;
+using System.IO.Compression;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Nhl.Api.Common.Services
 {
@@ -10,16 +14,16 @@ namespace Nhl.Api.Common.Services
     /// </summary>
     public interface ICachingService : IDisposable
     {
-        void TryAddUpdate<T>(string key, T value) where T : class;
+        Task TryAddUpdateAsync<T>(string key, T value) where T : class;
 
-        bool Remove(string key);
+        Task<bool> RemoveAsync(string key);
 
-        T TryGet<T>(string key) where T : class;
+        Task<T> TryGetAsync<T>(string key) where T : class;
     }
 
     public class CachingService : ICachingService
     {
-        private static readonly ConcurrentDictionary<string, string> _cacheStore = new ConcurrentDictionary<string, string>();
+        private static readonly ConcurrentDictionary<string, byte[]> _cacheStore = new ConcurrentDictionary<string, byte[]>();
 
         /// <summary>
         /// Clears all cached values
@@ -32,31 +36,82 @@ namespace Nhl.Api.Common.Services
         /// <summary>
         /// Removes the cached item by the key
         /// </summary>
-        public bool Remove(string key)
+        public async Task<bool> RemoveAsync(string key)
         {
-            return _cacheStore.TryRemove(key, out var value);
+            return await Task.Run(() => _cacheStore.TryRemove(key, out var value));
         }
 
         /// <summary>
         /// Add's or updates the cached value based on the provided key and value
         /// </summary>
-        public void TryAddUpdate<T>(string key, T value) where T : class
+        public async Task TryAddUpdateAsync<T>(string key, T value) where T : class
         {
-            _cacheStore.AddOrUpdate(key, JsonConvert.SerializeObject(value), (a, b) => JsonConvert.SerializeObject(value));
+            _cacheStore.AddOrUpdate(key, await Compress(JsonConvert.SerializeObject(value)), (a, b) => Compress(JsonConvert.SerializeObject(value)).Result);
         }
 
         /// <summary>
         /// Attempts to retrieve the cached value based on the provided key and generic type
         /// </summary>
-        public T TryGet<T>(string key) where T : class
+        public async Task<T> TryGetAsync<T>(string key) where T : class
         {
             var hasCachedValue = _cacheStore.TryGetValue(key, out var value);
             if (hasCachedValue)
             {
-                return JsonConvert.DeserializeObject<T>(value);
+                var stringValue = await Decompress(value);
+                return JsonConvert.DeserializeObject<T>(stringValue);
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Copies from source to destination stream
+        /// </summary>
+        private static async Task CopyTo(Stream src, Stream dest)
+        {
+            var bytes = new byte[4096];
+            int count;
+
+            while ((count = src.Read(bytes, 0, bytes.Length)) != 0)
+            {
+                await dest.WriteAsync(bytes, 0, count);
+            }
+        }
+
+        /// <summary>
+        /// Compresses a string value into a GZip stream
+        /// </summary>
+        private static async Task<byte[]> Compress(string str)
+        {
+            var bytes = Encoding.UTF8.GetBytes(str);
+
+            using (var sourceMemoryStream = new MemoryStream(bytes))
+            using (var destinationMemoryStream = new MemoryStream())
+            {
+                using (var gzipStream = new GZipStream(destinationMemoryStream, CompressionMode.Compress))
+                {
+                    await CopyTo(sourceMemoryStream, gzipStream);
+                }
+
+                return destinationMemoryStream.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// Decompresses a GZip stream into a string
+        /// </summary>
+        private static async Task<string> Decompress(byte[] bytes)
+        {
+            using (var sourceMemoryStream = new MemoryStream(bytes))
+            using (var destinationMemoryStream = new MemoryStream())
+            {
+                using (var gzipStream = new GZipStream(sourceMemoryStream, CompressionMode.Decompress))
+                {
+                    await CopyTo(gzipStream, destinationMemoryStream);
+                }
+
+                return Encoding.UTF8.GetString(destinationMemoryStream.ToArray());
+            }
         }
     }
 }
