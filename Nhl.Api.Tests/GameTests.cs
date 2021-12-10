@@ -256,6 +256,8 @@ namespace Nhl.Api.Tests
             // Assert
             Assert.IsNotNull(gameSchedule);
             Assert.IsNotNull(gameSchedule.MetaData);
+            Assert.IsNotNull(gameSchedule.MetaData.TimeStamp);
+            Assert.IsNotNull(gameSchedule.MetaData.TimeStampAsDateTimeOffset);
             Assert.IsNotNull(gameSchedule.TotalEvents);
             Assert.IsNotNull(gameSchedule.TotalGames);
             Assert.IsNotNull(gameSchedule.TotalItems);
@@ -334,6 +336,8 @@ namespace Nhl.Api.Tests
 
             // Assert
             Assert.IsNotNull(liveGameFeedResult);
+
+            Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.MetaData.TimeStampAsDateTimeOffset);
 
             Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.Link);
             Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData);

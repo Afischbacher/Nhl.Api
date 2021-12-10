@@ -157,6 +157,14 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("timeStamp")]
         public string TimeStamp { get; set; }
+
+        public DateTimeOffset? TimeStampAsDateTimeOffset
+        {
+            get
+            {
+               return TimeStampHelper.ParseTimeStampToDateTimeOffset(TimeStamp);
+            }
+        }
     }
 
     public class LiveGameFeedGame

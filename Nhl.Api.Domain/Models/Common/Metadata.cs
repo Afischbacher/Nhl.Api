@@ -1,4 +1,6 @@
 ﻿using Newtonsoft.Json;
+using Nhl.Api.Common.Helpers;
+using System;
 
 namespace Nhl.Api.Models.Common
 {
@@ -9,5 +11,13 @@ namespace Nhl.Api.Models.Common
 		/// </summary>
 		[JsonProperty("timeStamp")]
 		public string TimeStamp { get; set; }
+
+		public DateTimeOffset? TimeStampAsDateTimeOffset
+		{
+			get
+			{
+				return TimeStampHelper.ParseTimeStampToDateTimeOffset(TimeStamp);
+			}
+		}
 	}
 }
