@@ -47,27 +47,43 @@ If you are using the  <a href="https://github.com/Afischbacher/Nhl.Api.Extension
 included automatically within your .NET Core project.
 
 ### Nhl Player Api
+#### .NET Core
 `builder.Services.AddTransient<INhlPlayerApi, NhlPlayerApi>();` <br/>
+#### Unity
 `container.RegisterType<INhlPlayerApi, NhlPlayerApi>();`<br/>
+#### AutoFac
 `builder.RegisterType<NhlPlayerApi>().As<INhlPlayerApi>();`<br/>
+#### Simple Object Instantiation
 `var nhlPlayerApi = new NhlPlayerApi();`<br/>
 
 ### Nhl Game Api
+#### .NET Core
 `builder.Services.AddTransient<INhlGameApi, NhlGameApi>();`<br/>
+#### Unity
 `container.RegisterType<INhlGameApi, NhlGameApi>();`<br/>
+#### AutoFac
 `builder.RegisterType<NhlGameApi>().As<INhlGameApi>();`<br/>
+#### Simple Object Instantiation
 `var nhlGameApi = new NhlGameApi();`<br/>
 
 ### Nhl Statistics Api
+#### .NET Core
 `builder.Services.AddTransient<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
+#### Unity
 `container.RegisterType<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
+#### AutoFac
 `builder.RegisterType<NhlStatisticsApi>().As<INhlStatisticsApi>();`<br/>
+#### Simple Object Instantiation
 `var nhlStatisticsApi = new NhlStatisticsApi();`<br/>
 
 ### Nhl League Api
+#### .NET Core
 `builder.Services.AddTransient<INhlLeagueApi, NhlLeagueApi>();`<br/>
+#### Unity
 `container.RegisterType<INhlLeagueApi, NhlLeagueApi>();`<br/>
+#### AutoFac
 `builder.RegisterType<NhlLeagueApi>().As<INhlLeagueApi>();`<br/>
+#### Simple Object Instantiation
 `var nhlLeagueApi = new NhlLeagueApi();`<br/>
 
 ## Documentation 📖
