@@ -1,6 +1,4 @@
-﻿#region System
-using System;
-#endregion
+﻿using System;
 
 namespace Nhl.Api
 {
