@@ -16,7 +16,7 @@ namespace Nhl.Api.Tests
             using INhlApi nhlApi = new NhlApi();
 
             // Act
-            var leagueStandingTypes = await nhlApi.GetDraftByYear(DraftYear.draftYear2010);
+            var leagueStandingTypes = await nhlApi.GetDraftByYearAsync(DraftYear.draftYear2010);
 
             // Assert
             Assert.IsNotNull(leagueStandingTypes);

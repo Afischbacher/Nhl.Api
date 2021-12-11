@@ -252,7 +252,7 @@ namespace Nhl.Api
         /// </summary>
         /// <param name="year">The specified year of the NHL draft, see <see cref="DraftYear"/> for all NHL draft years</param>
         /// <returns>The NHL league draft, which includes draft rounds, player information and more, see <see cref="LeagueDraft"/> for more information</returns>
-        Task<LeagueDraft> GetDraftByYear(string year);
+        Task<LeagueDraft> GetDraftByYearAsync(string year);
 
         /// <summary>
         /// Returns all of the NHL awards, including the description, history, and images

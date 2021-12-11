@@ -138,7 +138,7 @@ namespace Nhl.Api
         /// </summary>
         /// <param name="year">The specified year of the NHL draft, see <see cref="DraftYear"/> for all NHL draft years</param>
         /// <returns>The NHL league draft, which includes draft rounds, player information and more, see <see cref="LeagueDraft"/> for more information</returns>
-        public async Task<LeagueDraft> GetDraftByYear(string year)
+        public async Task<LeagueDraft> GetDraftByYearAsync(string year)
         {
             if (string.IsNullOrEmpty(year))
             {
