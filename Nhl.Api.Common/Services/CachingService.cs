@@ -72,7 +72,7 @@ namespace Nhl.Api.Common.Services
             var bytes = new byte[4096];
             int count;
 
-            while ((count = src.Read(bytes, 0, bytes.Length)) != 0)
+            while ((count = await src.ReadAsync(bytes, 0, bytes.Length)) != 0)
             {
                 await dest.WriteAsync(bytes, 0, count);
             }
