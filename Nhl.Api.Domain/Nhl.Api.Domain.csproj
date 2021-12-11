@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<Version>1.5.1</Version>
+	<Version>1.6.0</Version>
 	<TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
@@ -17,6 +17,10 @@
 	<None Update="Enumerations\Player\PlayerEnum.tt">
 	  <LastGenOutput>PlayerEnum.cs</LastGenOutput>
 	  <Generator>TextTemplatingFileGenerator</Generator>
+	</None>
+	<None Update="Enumerations\Prospect\ProspectEnum.tt">
+	  <Generator>TextTemplatingFileGenerator</Generator>
+	  <LastGenOutput>ProspectEnum.cs</LastGenOutput>
 	</None>
 	<None Update="Enumerations\Venue\VenueEnum.tt">
 	  <Generator>TextTemplatingFileGenerator</Generator>
@@ -47,6 +51,11 @@
 	  <DesignTime>True</DesignTime>
 	  <AutoGen>True</AutoGen>
 	  <DependentUpon>PlayerEnum.tt</DependentUpon>
+	</Compile>
+	<Compile Update="Enumerations\Prospect\ProspectEnum.cs">
+	  <DesignTime>True</DesignTime>
+	  <AutoGen>True</AutoGen>
+	  <DependentUpon>ProspectEnum.tt</DependentUpon>
 	</Compile>
 	<Compile Update="Enumerations\Venue\VenueEnum.cs">
 	  <DesignTime>True</DesignTime>

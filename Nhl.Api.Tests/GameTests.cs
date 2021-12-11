@@ -14,11 +14,10 @@ namespace Nhl.Api.Tests
         public async Task TestGetGameTypesAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameTypes = await nhlApi.GetGameTypesAsync();
-
             // Assert
             Assert.IsNotNull(gameTypes);
             CollectionAssert.AllItemsAreNotNull(gameTypes);
@@ -35,7 +34,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGameStatusesAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameStatuses = await nhlApi.GetGameStatusesAsync();
@@ -58,7 +57,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGamePlayTypesAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var playTypes = await nhlApi.GetPlayTypesAsync();
@@ -81,7 +80,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetTournamentTypesAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var tournamentTypes = await nhlApi.GetTournamentTypesAsync();
@@ -102,7 +101,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetPlayoffTournamentTypesAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var playoffTournamentTypes = await nhlApi.GetPlayoffTournamentTypesAsync();
@@ -116,7 +115,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleByDateAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(null);
@@ -144,7 +143,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleByDateNotNullAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(DateTime.Parse("2020-01-29"));
@@ -183,7 +182,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleAsync();
@@ -210,7 +209,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleByDateNotNullWithIntegerAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(2020, 1, 29);
@@ -249,7 +248,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleByDateWithTeamEnumAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleForTeamByDateAsync(TeamEnum.ColoradoAvalanche, DateTime.Parse("2018-10-15"), DateTime.Parse("2019-02-15"));
@@ -257,6 +256,8 @@ namespace Nhl.Api.Tests
             // Assert
             Assert.IsNotNull(gameSchedule);
             Assert.IsNotNull(gameSchedule.MetaData);
+            Assert.IsNotNull(gameSchedule.MetaData.TimeStamp);
+            Assert.IsNotNull(gameSchedule.MetaData.TimeStampAsDateTimeOffset);
             Assert.IsNotNull(gameSchedule.TotalEvents);
             Assert.IsNotNull(gameSchedule.TotalGames);
             Assert.IsNotNull(gameSchedule.TotalItems);
@@ -287,7 +288,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetGetGameScheduleByDateWithTeamIdAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             var gameSchedule = await nhlApi.GetGameScheduleForTeamByDateAsync(22, DateTime.Parse("1984-11-25"), DateTime.Parse("1985-04-06"));
@@ -327,7 +328,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetLiveGameFeedAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             const int _gamePkId = 2021020149;
@@ -335,6 +336,8 @@ namespace Nhl.Api.Tests
 
             // Assert
             Assert.IsNotNull(liveGameFeedResult);
+
+            Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.MetaData.TimeStampAsDateTimeOffset);
 
             Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.Link);
             Assert.IsNotNull(liveGameFeedResult.LiveGameFeed.GameData);
@@ -482,7 +485,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetLiveGameFeedInvalidGamePkAsync()
         {
             // Arrange
-            INhlApi nhlApi = new NhlApi();
+            using INhlApi nhlApi = new NhlApi();
 
             // Act
             const int _gamePkId = 9999999;
@@ -496,6 +499,116 @@ namespace Nhl.Api.Tests
             Assert.IsNull(liveGameFeedResult.LiveGameFeed.GameData);
             Assert.IsNull(liveGameFeedResult.LiveGameFeed.LiveData);
             Assert.IsNull(liveGameFeedResult.LiveGameFeed.MetaData);
+
+        }
+
+        [TestMethod]
+        public async Task TestGetLineScoreAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 2021020197;
+            var lineScore = await nhlApi.GetLineScoreByIdAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(lineScore);
+            Assert.IsNotNull(lineScore.Teams);
+            Assert.IsNotNull(lineScore.Teams.Home);
+            Assert.IsNotNull(lineScore.Teams.Away);
+
+            Assert.IsNotNull(lineScore.Teams.Home.Team);
+            Assert.IsNotNull(lineScore.Teams.Away.Team);
+            Assert.IsNotNull(lineScore.Teams.Home.Team.Id);
+            Assert.IsNotNull(lineScore.Teams.Away.Team.Id);
+            Assert.IsNotNull(lineScore.Teams.Home.Team.Name);
+            Assert.IsNotNull(lineScore.CurrentPeriod);
+            Assert.IsNotNull(lineScore.CurrentPeriodOrdinal);
+            Assert.IsNotNull(lineScore.CurrentPeriod);
+            Assert.IsNotNull(lineScore.CurrentPeriodTimeRemaining);
+            Assert.IsNotNull(lineScore.PowerPlayInfo);
+            Assert.IsNotNull(lineScore.PowerPlayStrength);
+            Assert.IsNotNull(lineScore.IntermissionInfo);
+            Assert.IsFalse(lineScore.HasShootout);
+
+        }
+
+        [TestMethod]
+        public async Task TestGetLineScoreWithInvalidIdAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 99999999;
+            var lineScore = await nhlApi.GetLineScoreByIdAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(lineScore);
+            Assert.IsNull(lineScore.Teams);
+            Assert.IsNull(lineScore.Periods);
+
+        }
+
+
+        [TestMethod]
+        public async Task TestGetBoxScoreAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 2021020197;
+            var boxScore = await nhlApi.GetBoxScoreByIdAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(boxScore);
+
+            foreach (var referee in boxScore.Officials)
+            {
+                Assert.IsNotNull(referee.Official.Id);
+                Assert.IsNotNull(referee.Official.FullName);
+                Assert.IsNotNull(referee.Official.Link);
+            }
+
+            Assert.IsNotNull(boxScore.Teams);
+            Assert.IsNotNull(boxScore.Teams.Home);
+            Assert.IsNotNull(boxScore.Teams.Away);
+
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.Shots);
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.FaceOffWinPercentage);
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.Hits);
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.Goals);
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.Pim);
+            Assert.IsNotNull(boxScore.Teams.Home.TeamStats.TeamSkaterStats.PowerPlayOpportunities);
+
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.Shots);
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.FaceOffWinPercentage);
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.Hits);
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.Goals);
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.Pim);
+            Assert.IsNotNull(boxScore.Teams.Away.TeamStats.TeamSkaterStats.PowerPlayOpportunities);
+
+            Assert.IsNotNull(boxScore.Teams.Away.Coaches.First().Person);
+            Assert.IsNotNull(boxScore.Teams.Home.Coaches.First().Person);
+
+
+        }
+
+        [TestMethod]
+        public async Task TestGetBoxScoreWithInvalidIdAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 99999999;
+            var boxScore = await nhlApi.GetBoxScoreByIdAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(boxScore);
+            Assert.IsNull(boxScore.Teams);
 
         }
     }

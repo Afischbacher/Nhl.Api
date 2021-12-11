@@ -208,7 +208,7 @@
         /// <summary>
         /// Due to the 2004/2005 NHL lockout, there is no season end date
         /// </summary>
-        public const string endOf20042005Season = ""; 
+        public const string endOf20042005Season = "";
         public const string endOf20052006Season = "2006-06-19";
         public const string endOf20062007Season = "2007-06-06";
         public const string endOf20072008Season = "2008-06-04";
@@ -228,7 +228,7 @@
         /// </summary>
         public const string endOf20192020Season = "2020-09-28";
         public const string endOf20202021Season = "2021-07-07";
-        public const string endOf20212022Season = "2022-06-24";
+        public const string endOf20212022Season = "2022-06-29";
 
     }
 }

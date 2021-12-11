@@ -18,7 +18,7 @@
 
     public class TeamLogo
     {
-       
+
         /// <summary>
         /// Returns the Uri for the NHL team logo <br/>
         /// Example: https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/53.svg

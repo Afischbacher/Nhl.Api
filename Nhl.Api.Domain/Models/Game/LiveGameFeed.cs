@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Nhl.Api.Common.Helpers;
 using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Player;
@@ -156,6 +157,14 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("timeStamp")]
         public string TimeStamp { get; set; }
+
+        public DateTimeOffset? TimeStampAsDateTimeOffset
+        {
+            get
+            {
+                return TimeStampHelper.ParseTimeStampToDateTimeOffset(TimeStamp);
+            }
+        }
     }
 
     public class LiveGameFeedGame
@@ -713,6 +722,18 @@ namespace Nhl.Api.Models.Game
         public string BirthCountry { get; set; }
 
         /// <summary>
+        /// The full name of the birth country of the NHL Player <br/>
+        /// Example: Canada
+        /// </summary>
+        public string FullBirthCountry
+        {
+            get
+            {
+                return CountryCodeHelper.ConvertThreeDigitCountryCodeToFullCountryName(BirthCountry);
+            }
+        }
+
+        /// <summary>
         /// The nationality of the NHL player <br/>
         /// Example: CAN
         /// </summary>
@@ -967,6 +988,18 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("birthCountry")]
         public string BirthCountry { get; set; }
+
+        /// <summary>
+        /// The full name of the birth country of the NHL Player <br/>
+        /// Example: Canada
+        /// </summary>
+        public string FullBirthCountry
+        {
+            get
+            {
+                return CountryCodeHelper.ConvertThreeDigitCountryCodeToFullCountryName(BirthCountry);
+            }
+        }
 
         /// <summary>
         /// The nationality of the NHL player <br/>
@@ -2239,7 +2272,7 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedBoxscoreAwayTeam Away { get; set; }
     }
 
-    public abstract class LiveGameFeedBoxscoreTeam 
+    public abstract class LiveGameFeedBoxscoreTeam
     {
         /// <summary>
         /// Returns the team information for the NHL live game feed box score team
@@ -2299,7 +2332,7 @@ namespace Nhl.Api.Models.Game
         /// Example: [ 8481102 ]
         /// </summary>
         [JsonProperty("penaltyBox")]
-        public List<int> PenaltyBox { get; set; }
+        public List<object> PenaltyBox { get; set; }
 
         /// <summary>
         /// Returns the coaches for the NHL team
