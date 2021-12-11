@@ -10,7 +10,7 @@ namespace Nhl.Api.Common.Helpers
         /// <summary>
         /// Parses a meta data time stamp from the NHL API
         /// </summary>
-        /// <param name="timeStamp">The timestamp, Example: 20211105_201423</param>
+        /// <param name="timeStamp">The time stamp, Example: 20211105_201423</param>
         /// <returns>A parsed DateTimeOffset time stamp in UTC</returns>
         public static DateTimeOffset? ParseTimeStampToDateTimeOffset(string timeStamp)
         {
