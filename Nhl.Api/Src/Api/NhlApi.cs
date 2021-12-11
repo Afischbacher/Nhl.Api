@@ -357,6 +357,17 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns only active NHL players based on the search query provided
+        /// </summary>
+        /// <param name="query">A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" </param>
+        /// <returns>A collection of all NHL players based on the search query provided</returns>
+        public async Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query)
+        {
+            return await _nhlPlayerApi.SearchAllActivePlayersAsync(query);
+
+        }
+
+        /// <summary>
         /// Returns all of the NHL player statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
         /// </summary>
         /// <param name="playerId">The identifier for the NHL player</param>

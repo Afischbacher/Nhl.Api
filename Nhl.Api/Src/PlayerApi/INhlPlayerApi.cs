@@ -71,6 +71,13 @@ namespace Nhl.Api
         Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query);
 
         /// <summary>
+        /// Returns only active NHL players based on the search query provided
+        /// </summary>
+        /// <param name="query">A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" </param>
+        /// <returns>A collection of all NHL players based on the search query provided</returns>
+        Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query);
+
+        /// <summary>
         /// Returns NHL player since the league inception in 1917-1918
         /// </summary>
         /// <returns>Returns all NHL players since the league inception</returns>

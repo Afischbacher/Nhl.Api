@@ -14,11 +14,25 @@ namespace Nhl.Api.Common.Services
     /// </summary>
     public interface ICachingService : IDisposable
     {
+        /// <summary>
+        /// Add's or updates the cached value based on the provided key and value
+        /// </summary>
         Task TryAddUpdateAsync<T>(string key, T value) where T : class;
 
+        /// <summary>
+        /// Removes the cached item by the key
+        /// </summary>
         Task<bool> RemoveAsync(string key);
-
+        
+        /// <summary>
+        /// Attempts to retrieve the cached value based on the provided key and generic type
+        /// </summary>
         Task<T> TryGetAsync<T>(string key) where T : class;
+
+        /// <summary>
+        /// Determines if the key is available within the caching service
+        /// </summary>
+        Task<bool> ContainsKeyAsync(string key);
     }
 
     public class CachingService : ICachingService
@@ -39,6 +53,14 @@ namespace Nhl.Api.Common.Services
         public async Task<bool> RemoveAsync(string key)
         {
             return await Task.Run(() => _cacheStore.TryRemove(key, out var value));
+        }
+
+        /// <summary>
+        /// Determines if the key is available within the caching service
+        /// </summary>
+        public async Task<bool> ContainsKeyAsync(string key)
+        {
+            return await Task.Run(() => _cacheStore.ContainsKey(key));
         }
 
         /// <summary>

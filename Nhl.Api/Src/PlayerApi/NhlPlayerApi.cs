@@ -36,12 +36,11 @@ namespace Nhl.Api
 
 
             // If values are cached, returned cached value
-            var cachedPlayers = await _cachingService.TryGetAsync<List<Player>>("GetAllPlayersAsync");
-            if (cachedPlayers != null)
+            var containsKey = await _cachingService.ContainsKeyAsync(nameof(GetAllPlayersAsync));
+            if (containsKey)
             {
-                return cachedPlayers;
+                return await _cachingService.TryGetAsync<List<Player>>(nameof(GetAllPlayersAsync));
             }
-
 
             // If cache is not set, return from NHL API
             var playerTasks = new List<Task<Player>>();
@@ -68,7 +67,7 @@ namespace Nhl.Api
 
             // Cache values for future requests
             var players = (await Task.WhenAll(playerTasks)).ToList();
-            await _cachingService.TryAddUpdateAsync("GetAllPlayersAsync", players);
+            await _cachingService.TryAddUpdateAsync(nameof(GetAllPlayersAsync), players);
 
             // Return all known NHL players
             return players;
@@ -82,7 +81,16 @@ namespace Nhl.Api
         /// <returns>A collection of all the NHL prospects, see <see cref="ProspectProfile"/> for more information </returns>
         public async Task<List<ProspectProfile>> GetLeagueProspectsAsync()
         {
-            return (await _nhlStatsApiHttpClient.GetAsync<LeagueProspects>("/draft/prospects")).ProspectProfiles;
+            var containsKey = await _cachingService.ContainsKeyAsync(nameof(GetLeagueProspectsAsync));
+            if (containsKey)
+            {
+                return await _cachingService.TryGetAsync<List<ProspectProfile>>(nameof(GetLeagueProspectsAsync));
+            }
+
+            var prospectProfiles = (await _nhlStatsApiHttpClient.GetAsync<LeagueProspects>("/draft/prospects")).ProspectProfiles;
+            await _cachingService.TryAddUpdateAsync(nameof(GetLeagueProspectsAsync), prospectProfiles);
+
+            return prospectProfiles;
         }
 
         /// <summary>
@@ -225,6 +233,56 @@ namespace Nhl.Api
 
             var playerSearchResults = new List<PlayerSearchResult>();
             var rawPlayerSearchResults = await _nhlSuggestionApiHttpClient.GetAsync<PlayerSearchResponse>($"/minplayers/{query}");
+            foreach (var rawPlayerSearchResult in rawPlayerSearchResults.Suggestions)
+            {
+                try
+                {
+                    var playerDataPoints = rawPlayerSearchResult.Split('|');
+
+                    if (playerDataPoints.Count() < 15)
+                    {
+                        continue;
+                    }
+
+                    playerSearchResults.Add(new PlayerSearchResult
+                    {
+                        PlayerId = int.Parse(playerDataPoints[0]),
+                        LastName = playerDataPoints[1],
+                        FirstName = playerDataPoints[2],
+                        IsActive = int.Parse(playerDataPoints[3]) == 1,
+                        Height = playerDataPoints[5],
+                        Weight = playerDataPoints[6],
+                        BirthCity = playerDataPoints[7],
+                        BirthProvinceState = playerDataPoints[8],
+                        BirthCountry = playerDataPoints[9],
+                        BirthDate = DateTime.Parse(playerDataPoints[10]),
+                        LastTeamOfPlay = playerDataPoints[11],
+                        Position = playerDataPoints[12],
+                        PlayerNumber = int.Parse(playerDataPoints[13]),
+                    });
+                }
+                catch
+                {
+                }
+            }
+
+            return playerSearchResults;
+        }
+
+        /// <summary>
+        /// Returns only active NHL players based on the search query provided
+        /// </summary>
+        /// <param name="query">A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" </param>
+        /// <returns>A collection of all NHL players based on the search query provided</returns>
+        public async Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query)
+        {
+            if (string.IsNullOrWhiteSpace(query))
+            {
+                return new List<PlayerSearchResult>();
+            }
+
+            var playerSearchResults = new List<PlayerSearchResult>();
+            var rawPlayerSearchResults = await _nhlSuggestionApiHttpClient.GetAsync<PlayerSearchResponse>($"/minactiveplayers/{query}");
             foreach (var rawPlayerSearchResult in rawPlayerSearchResults.Suggestions)
             {
                 try

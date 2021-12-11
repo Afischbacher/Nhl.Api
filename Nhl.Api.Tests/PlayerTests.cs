@@ -501,6 +501,87 @@ namespace Nhl.Api.Tests
 
         }
 
+
+        [TestMethod]
+        [DataRow("Carter Hart")]
+        [DataRow("David Pastrnak")]
+        [DataRow("Connor McDavid")]
+        [DataRow("Frederik Andersen")]
+        public async Task TestSearchAllActivePlayersAsync(string query)
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act 
+            var results = await nhlApi.SearchAllActivePlayersAsync(query);
+
+            // Assert
+            Assert.IsNotNull(results);
+            CollectionAssert.AllItemsAreNotNull(results);
+
+            var playerSearchResult = results.First();
+
+            switch (query)
+            {
+                case "David Pastrnak":
+                    Assert.AreEqual("Havirov", playerSearchResult.BirthCity);
+                    Assert.AreEqual("CZE", playerSearchResult.BirthCountry);
+                    Assert.AreEqual("Czech Republic", playerSearchResult.FullBirthCountry);
+                    Assert.AreEqual("", playerSearchResult.BirthProvinceState);
+                    Assert.AreEqual(DateTime.Parse("1996-05-25"), playerSearchResult.BirthDate);
+                    Assert.AreEqual("David", playerSearchResult.FirstName);
+                    Assert.AreEqual("Pastrnak", playerSearchResult.LastName);
+                    Assert.AreEqual("BOS", playerSearchResult.LastTeamOfPlay);
+                    Assert.AreEqual("6\u0027 0\"", playerSearchResult.Height);
+                    Assert.AreEqual(true, playerSearchResult.IsActive);
+                    Assert.AreEqual(88, playerSearchResult.PlayerNumber);
+                    break;
+
+                case "Carter Hart":
+                    Assert.AreEqual("Sherwood Park", playerSearchResult.BirthCity);
+                    Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
+                    Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
+                    Assert.AreEqual("AB", playerSearchResult.BirthProvinceState);
+                    Assert.AreEqual(DateTime.Parse("1998-08-13"), playerSearchResult.BirthDate);
+                    Assert.AreEqual("Carter", playerSearchResult.FirstName);
+                    Assert.AreEqual("Hart", playerSearchResult.LastName);
+                    Assert.AreEqual(true, playerSearchResult.IsActive);
+                    Assert.AreEqual("PHI", playerSearchResult.LastTeamOfPlay);
+                    Assert.AreEqual("6\u0027 2\"", playerSearchResult.Height);
+                    Assert.AreEqual(79, playerSearchResult.PlayerNumber);
+                    break;
+
+                case "Connor McDavid":
+                    Assert.AreEqual("Richmond Hill", playerSearchResult.BirthCity);
+                    Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
+                    Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
+                    Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
+                    Assert.AreEqual(DateTime.Parse("1997-01-13"), playerSearchResult.BirthDate);
+                    Assert.AreEqual("Connor", playerSearchResult.FirstName);
+                    Assert.AreEqual("McDavid", playerSearchResult.LastName);
+                    Assert.AreEqual(true, playerSearchResult.IsActive);
+                    Assert.AreEqual("EDM", playerSearchResult.LastTeamOfPlay);
+                    Assert.AreEqual("6\u0027 1\"", playerSearchResult.Height);
+                    Assert.AreEqual(97, playerSearchResult.PlayerNumber);
+                    break;
+
+                case "Frederik Andersen":
+                    Assert.AreEqual("Herning", playerSearchResult.BirthCity);
+                    Assert.AreEqual("DNK", playerSearchResult.BirthCountry);
+                    Assert.AreEqual("Denmark", playerSearchResult.FullBirthCountry);
+                    Assert.AreEqual("", playerSearchResult.BirthProvinceState);
+                    Assert.AreEqual(DateTime.Parse("1989-10-02"), playerSearchResult.BirthDate);
+                    Assert.AreEqual("Frederik", playerSearchResult.FirstName);
+                    Assert.AreEqual("Andersen", playerSearchResult.LastName);
+                    Assert.AreEqual(true, playerSearchResult.IsActive);
+                    Assert.AreEqual("CAR", playerSearchResult.LastTeamOfPlay);
+                    Assert.AreEqual("6\u0027 4\"", playerSearchResult.Height);
+                    Assert.AreEqual(31, playerSearchResult.PlayerNumber);
+                    break;
+            }
+
+        }
+
         [TestMethod]
         public async Task TestSearchAllPlayersNoResultsAsync()
         {
@@ -509,6 +590,22 @@ namespace Nhl.Api.Tests
 
             // Act 
             var results = await nhlApi.SearchAllPlayersAsync("");
+
+            // Assert
+            Assert.IsNotNull(results);
+            Assert.AreEqual(0, results.Count);
+
+        }
+
+
+        [TestMethod]
+        public async Task TestSearchAllActivePlayersNoResultsAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act 
+            var results = await nhlApi.SearchAllActivePlayersAsync("");
 
             // Assert
             Assert.IsNotNull(results);
