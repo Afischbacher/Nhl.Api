@@ -39,7 +39,7 @@ namespace Nhl.Api
         /// <returns>A collection of all NHL franchises, see <see cref="Franchise"/> for more information</returns>
         public async Task<List<Franchise>> GetFranchisesAsync()
         {
-            return (await _nhlStatsApiHttpClient.GetAsync<LegaueFranchises>("/franchises")).Franchises;
+            return (await _nhlStatsApiHttpClient.GetAsync<LeagueFranchises>("/franchises")).Franchises;
         }
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace Nhl.Api
         /// <returns>A collection of all active NHL franchises, see <see cref="Franchise"/> for more information</returns>
         public async Task<List<Franchise>> GetActiveFranchisesAsync()
         {
-            return (await _nhlStatsApiHttpClient.GetAsync<LegaueFranchises>("/franchises"))
+            return (await _nhlStatsApiHttpClient.GetAsync<LeagueFranchises>("/franchises"))
                 .Franchises
                 .Where(franchise => !franchise.LastSeasonId.HasValue)
                 .ToList();
@@ -168,7 +168,7 @@ namespace Nhl.Api
         /// <returns> An NHL franchise, see <see cref="Franchise"/> for more information</returns>
         public async Task<Franchise> GetFranchiseByIdAsync(int franchiseId)
         {
-            return (await _nhlStatsApiHttpClient.GetAsync<LegaueFranchises>($"/franchises/{franchiseId}"))
+            return (await _nhlStatsApiHttpClient.GetAsync<LeagueFranchises>($"/franchises/{franchiseId}"))
                 .Franchises
                 .SingleOrDefault();
         }
@@ -179,7 +179,7 @@ namespace Nhl.Api
         /// <returns>A collection of all inactive NHL franchises, see <see cref="Franchise"/> for more information</returns>
         public async Task<List<Franchise>> GetInactiveFranchisesAsync()
         {
-            return (await _nhlStatsApiHttpClient.GetAsync<LegaueFranchises>("/franchises"))
+            return (await _nhlStatsApiHttpClient.GetAsync<LeagueFranchises>("/franchises"))
                 .Franchises
                 .Where(franchise => franchise.LastSeasonId.HasValue)
                 .ToList();
@@ -483,7 +483,7 @@ namespace Nhl.Api
         /// <returns> An NHL franchise, see <see cref="Franchise"/> for more information</returns>
         public async Task<Franchise> GetFranchiseByIdAsync(FranchiseEnum franchise)
         {
-            return (await _nhlStatsApiHttpClient.GetAsync<LegaueFranchises>($"/franchises/{(int)franchise}"))
+            return (await _nhlStatsApiHttpClient.GetAsync<LeagueFranchises>($"/franchises/{(int)franchise}"))
             .Franchises
             .SingleOrDefault();
         }

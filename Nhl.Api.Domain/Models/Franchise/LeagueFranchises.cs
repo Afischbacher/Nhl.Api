@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Franchise
 {
-    public class LegaueFranchises
+    public class LeagueFranchises
     {
         /// <summary>
         /// A collection of all the NHL franchises
