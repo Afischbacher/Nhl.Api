@@ -370,14 +370,14 @@ namespace Nhl.Api
         /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
         public async Task<TeamLogo> GetTeamLogoAsync(TeamEnum team, TeamLogoType teamLogoType = TeamLogoType.Light)
         {
-            var endpoint = $"/images/logos/teams-current-primary-{teamLogoType.ToString().ToLower()}/{(int)team}.svg";
+            var endpoint = $"images/logos/teams-current-primary-{teamLogoType.ToString().ToLower()}/{(int)team}.svg";
             var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint);
 
             return new TeamLogo
             {
                 ImageAsBase64String = $"data:image/svg+xml;base64,{Convert.ToBase64String(imageContent)}",
                 ImageAsByteArray = imageContent,
-                Uri = $"{_nhlStaticAssetsApiHttpClient.Client}{endpoint}"
+                Uri = $"{_nhlStaticAssetsApiHttpClient.Client}/{endpoint}"
             };
         }
 
@@ -389,14 +389,14 @@ namespace Nhl.Api
         /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
         public async Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light)
         {
-            var endpoint = $"/images/logos/teams-current-primary-{teamLogoType.ToString().ToLower()}/{teamId}.svg";
+            var endpoint = $"images/logos/teams-current-primary-{teamLogoType.ToString().ToLower()}/{teamId}.svg";
             var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint);
 
             return new TeamLogo
             {
                 ImageAsBase64String = $"data:image/svg+xml;base64,{Convert.ToBase64String(imageContent)}",
                 ImageAsByteArray = imageContent,
-                Uri = $"{_nhlStaticAssetsApiHttpClient.Client}{endpoint}"
+                Uri = $"{_nhlStaticAssetsApiHttpClient.Client}/{endpoint}"
             };
         }
 

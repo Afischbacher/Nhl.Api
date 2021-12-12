@@ -101,8 +101,8 @@ namespace Nhl.Api.Common.Http
             {
                 throw new ArgumentNullException(nameof(route));
             }
-
-            return await HttpClient.GetByteArrayAsync($"{HttpClient.BaseAddress}{route}");
+            var endpoint = $"{HttpClient.BaseAddress}{route}";
+            return await HttpClient.GetByteArrayAsync(endpoint);
         }
     }
 }
