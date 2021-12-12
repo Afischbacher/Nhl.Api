@@ -429,8 +429,8 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(teamLogo.ImageAsByteArray);
             Assert.IsNotNull(teamLogo.ImageAsBase64String);
 
-            Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 0);
-            Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 0);
+            Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 1000);
+            Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 100);
         }
 
 
@@ -453,8 +453,8 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(teamLogo.ImageAsByteArray);
             Assert.IsNotNull(teamLogo.ImageAsBase64String);
 
-            Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 0);
-            Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 0);
+            Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 1000);
+            Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 100);
         }
 
         [DataRow(10)]
