@@ -106,7 +106,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetDivisionByIdAsync(divisionId)](#M-Nhl-Api-NhlApi-GetDivisionByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetDivisionByIdAsync(System.Int32)')
   - [GetDivisionByIdAsync(division)](#M-Nhl-Api-NhlApi-GetDivisionByIdAsync-Nhl-Api-Models-Enumerations-Division-DivisionEnum- 'Nhl.Api.NhlApi.GetDivisionByIdAsync(Nhl.Api.Models.Enumerations.Division.DivisionEnum)')
   - [GetDivisionsAsync()](#M-Nhl-Api-NhlApi-GetDivisionsAsync 'Nhl.Api.NhlApi.GetDivisionsAsync')
-  - [GetDraftByYear(year)](#M-Nhl-Api-NhlApi-GetDraftByYear-System-String- 'Nhl.Api.NhlApi.GetDraftByYear(System.String)')
+  - [GetDraftByYearAsync(year)](#M-Nhl-Api-NhlApi-GetDraftByYearAsync-System-String- 'Nhl.Api.NhlApi.GetDraftByYearAsync(System.String)')
   - [GetEventTypesAsync()](#M-Nhl-Api-NhlApi-GetEventTypesAsync 'Nhl.Api.NhlApi.GetEventTypesAsync')
   - [GetFranchiseByIdAsync(franchiseId)](#M-Nhl-Api-NhlApi-GetFranchiseByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetFranchiseByIdAsync(System.Int32)')
   - [GetFranchiseByIdAsync(franchise)](#M-Nhl-Api-NhlApi-GetFranchiseByIdAsync-Nhl-Api-Models-Enumerations-Franchise-FranchiseEnum- 'Nhl.Api.NhlApi.GetFranchiseByIdAsync(Nhl.Api.Models.Enumerations.Franchise.FranchiseEnum)')
@@ -197,7 +197,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetDivisionByIdAsync(division)](#M-Nhl-Api-NhlLeagueApi-GetDivisionByIdAsync-Nhl-Api-Models-Enumerations-Division-DivisionEnum- 'Nhl.Api.NhlLeagueApi.GetDivisionByIdAsync(Nhl.Api.Models.Enumerations.Division.DivisionEnum)')
   - [GetDivisionByIdAsync(divisionId)](#M-Nhl-Api-NhlLeagueApi-GetDivisionByIdAsync-System-Int32- 'Nhl.Api.NhlLeagueApi.GetDivisionByIdAsync(System.Int32)')
   - [GetDivisionsAsync()](#M-Nhl-Api-NhlLeagueApi-GetDivisionsAsync 'Nhl.Api.NhlLeagueApi.GetDivisionsAsync')
-  - [GetDraftByYear(year)](#M-Nhl-Api-NhlLeagueApi-GetDraftByYear-System-String- 'Nhl.Api.NhlLeagueApi.GetDraftByYear(System.String)')
+  - [GetDraftByYearAsync(year)](#M-Nhl-Api-NhlLeagueApi-GetDraftByYearAsync-System-String- 'Nhl.Api.NhlLeagueApi.GetDraftByYearAsync(System.String)')
   - [GetEventTypesAsync()](#M-Nhl-Api-NhlLeagueApi-GetEventTypesAsync 'Nhl.Api.NhlLeagueApi.GetEventTypesAsync')
   - [GetFranchiseByIdAsync(franchiseId)](#M-Nhl-Api-NhlLeagueApi-GetFranchiseByIdAsync-System-Int32- 'Nhl.Api.NhlLeagueApi.GetFranchiseByIdAsync(System.Int32)')
   - [GetFranchiseByIdAsync(franchise)](#M-Nhl-Api-NhlLeagueApi-GetFranchiseByIdAsync-Nhl-Api-Models-Enumerations-Franchise-FranchiseEnum- 'Nhl.Api.NhlLeagueApi.GetFranchiseByIdAsync(Nhl.Api.Models.Enumerations.Franchise.FranchiseEnum)')
@@ -475,8 +475,8 @@ A collection of all the NHL divisions, see [Division](#T-Nhl-Api-Models-Division
 
 This method has no parameters.
 
-<a name='M-Nhl-Api-NhlApi-GetDraftByYear-System-String-'></a>
-### GetDraftByYear(year) `method`
+<a name='M-Nhl-Api-NhlApi-GetDraftByYearAsync-System-String-'></a>
+### GetDraftByYearAsync(year) `method`
 
 ##### Summary
 
@@ -1969,8 +1969,8 @@ A collection of all the NHL divisions, see [Division](#T-Nhl-Api-Models-Division
 
 This method has no parameters.
 
-<a name='M-Nhl-Api-NhlLeagueApi-GetDraftByYear-System-String-'></a>
-### GetDraftByYear(year) `method`
+<a name='M-Nhl-Api-NhlLeagueApi-GetDraftByYearAsync-System-String-'></a>
+### GetDraftByYearAsync(year) `method`
 
 ##### Summary
 
