@@ -119,8 +119,8 @@ namespace Nhl.Api
         public async Task<LiveGameFeedResult> GetLiveGameFeedByIdAsync(int liveGameFeedId)
         {
             var liveGameFeed = await _nhlStatsApiHttpClient.GetAsync<LiveGameFeed>($"/game/{liveGameFeedId}/feed/live");
-            
-            
+
+
             SetCorrectedRinkSideLiveGameFeed(liveGameFeed);
 
             return new LiveGameFeedResult
@@ -173,36 +173,19 @@ namespace Nhl.Api
             // Left side is away team if X < 0 and shot result event is the team id of the home team
             if (firstPeriodShotPlay.Team.Id == homeTeam.Id && firstPeriodShotPlay.Coordinates.X < 0)
             {
-                liveGameFeed.LiveData.Linescore.Periods[0].Home.CorrectedRinkSide = "right";
-                liveGameFeed.LiveData.Linescore.Periods[0].Away.CorrectedRinkSide = "left";
-
-                liveGameFeed.LiveData.Linescore.Periods[1].Home.CorrectedRinkSide = "left";
-                liveGameFeed.LiveData.Linescore.Periods[1].Away.CorrectedRinkSide = "right";
-
-                liveGameFeed.LiveData.Linescore.Periods[2].Home.CorrectedRinkSide = "right";
-                liveGameFeed.LiveData.Linescore.Periods[2].Away.CorrectedRinkSide = "left";
+                for (int i = 0; i < liveGameFeed.LiveData.Linescore.Periods.Count; i++)
+                {
+                    liveGameFeed.LiveData.Linescore.Periods[i].Home.CorrectedRinkSide = i % 2 == 0 ? "right" : "left";
+                    liveGameFeed.LiveData.Linescore.Periods[i].Away.CorrectedRinkSide = i % 2 == 0 ? "left" : "right";
+                }
             }
             else if (firstPeriodShotPlay.Team.Id != homeTeam.Id && firstPeriodShotPlay.Coordinates.X < 0)
             {
-                liveGameFeed.LiveData.Linescore.Periods[0].Home.CorrectedRinkSide = "left";
-                liveGameFeed.LiveData.Linescore.Periods[0].Away.CorrectedRinkSide = "right";
-
-                liveGameFeed.LiveData.Linescore.Periods[1].Home.CorrectedRinkSide = "right";
-                liveGameFeed.LiveData.Linescore.Periods[1].Away.CorrectedRinkSide = "left";
-
-                liveGameFeed.LiveData.Linescore.Periods[2].Home.CorrectedRinkSide = "left";
-                liveGameFeed.LiveData.Linescore.Periods[2].Away.CorrectedRinkSide = "right";
-            }
-            else
-            {
-                liveGameFeed.LiveData.Linescore.Periods[0].Home.CorrectedRinkSide = "right";
-                liveGameFeed.LiveData.Linescore.Periods[0].Away.CorrectedRinkSide = "left";
-
-                liveGameFeed.LiveData.Linescore.Periods[1].Home.CorrectedRinkSide = "left";
-                liveGameFeed.LiveData.Linescore.Periods[1].Away.CorrectedRinkSide = "right";
-
-                liveGameFeed.LiveData.Linescore.Periods[2].Home.CorrectedRinkSide = "right";
-                liveGameFeed.LiveData.Linescore.Periods[2].Away.CorrectedRinkSide = "left";
+                for (int i = 0; i < liveGameFeed.LiveData.Linescore.Periods.Count; i++)
+                {
+                    liveGameFeed.LiveData.Linescore.Periods[i].Home.CorrectedRinkSide = i % 2 == 0 ? "left" : "right";
+                    liveGameFeed.LiveData.Linescore.Periods[i].Away.CorrectedRinkSide = i % 2 == 0 ? "right" : "left";
+                }
             }
         }
     }
