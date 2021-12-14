@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using System.Threading.Tasks;
@@ -290,6 +291,15 @@ namespace Nhl.Api.Tests
                 }
 
             }
+        }
+
+
+        [TestMethod]
+        public async Task TestGetPlayerWithTopStatisticBySeasonAsync()
+        {
+            using INhlApi nhlApi = new NhlApi();
+
+            var player = await nhlApi.GetPlayerWithTopStatisticBySeasonAsync(PlayerStatisticEnum.Goals, SeasonYear.season20192020);
         }
     }
 }

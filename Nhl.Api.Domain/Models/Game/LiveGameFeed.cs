@@ -1637,6 +1637,13 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("rinkSide")]
         public string RinkSide { get; set; }
+
+        /// <summary>
+        /// Returns the adjusted and correct side of the rink for the NHL live game feed team, due to data discrepancies, <br/>
+        /// there are cases when the NHL API incorrectly marks the left and right sides of the rink for some matches within each period <br/>
+        /// Example: left/right
+        /// </summary>
+        public string CorrectedRinkSide { get; set; }
     }
 
     public class LiveGameFeedLineScorePeriodHomeTeam : LiveGameFeedLineScorePeriodTeam

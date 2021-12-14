@@ -502,6 +502,28 @@ namespace Nhl.Api.Tests
 
         }
 
+
+        [DataRow(2010020005)]
+        [TestMethod]
+        public async Task TestGetLiveGameFeedGetCorrectRinkSideAsync(int gameId)
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var liveGameFeedResult = await nhlApi.GetLiveGameFeedByIdAsync(gameId);
+
+            var homeCorrectedRinkSide = liveGameFeedResult.LiveGameFeed.LiveData.Linescore.Periods.First().Home.CorrectedRinkSide;
+            var awayCorrectedRinkSide = liveGameFeedResult.LiveGameFeed.LiveData.Linescore.Periods.First().Away.CorrectedRinkSide;
+
+            var homeRinkSide = liveGameFeedResult.LiveGameFeed.LiveData.Linescore.Periods.First().Home.RinkSide;
+            var awayRinkSide = liveGameFeedResult.LiveGameFeed.LiveData.Linescore.Periods.First().Away.RinkSide;
+
+            // Assert
+            Assert.AreNotEqual(homeRinkSide, homeCorrectedRinkSide);
+            Assert.AreNotEqual(awayRinkSide, awayCorrectedRinkSide);
+        }
+
         [TestMethod]
         public async Task TestGetLineScoreAsync()
         {

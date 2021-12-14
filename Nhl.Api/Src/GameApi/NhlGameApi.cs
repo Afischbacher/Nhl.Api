@@ -5,6 +5,7 @@ using Nhl.Api.Models.Season;
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Nhl.Api
@@ -118,6 +119,9 @@ namespace Nhl.Api
         public async Task<LiveGameFeedResult> GetLiveGameFeedByIdAsync(int liveGameFeedId)
         {
             var liveGameFeed = await _nhlStatsApiHttpClient.GetAsync<LiveGameFeed>($"/game/{liveGameFeedId}/feed/live");
+            
+            
+            SetCorrectedRinkSideLiveGameFeed(liveGameFeed);
 
             return new LiveGameFeedResult
             {
@@ -150,6 +154,56 @@ namespace Nhl.Api
         public async Task<List<TournamentType>> GetTournamentTypesAsync()
         {
             return await _nhlStatsApiHttpClient.GetAsync<List<TournamentType>>($"/tournamentTypes");
+        }
+
+        /// <summary>
+        /// Sets the correct rink side for both the NHL home and away team
+        /// </summary>
+        /// <param name="liveGameFeed"></param>
+        private void SetCorrectedRinkSideLiveGameFeed(LiveGameFeed liveGameFeed)
+        {
+            var homeTeam = liveGameFeed.GameData.Teams.Home;
+            var awayTeam = liveGameFeed.GameData.Teams.Away;
+
+            var firstPeriodShotPlay = liveGameFeed.LiveData.Plays.AllPlays
+                .GetRange(liveGameFeed.LiveData.Plays.PlaysByPeriod.First().StartIndex, liveGameFeed.LiveData.Plays.PlaysByPeriod.First().Plays.Count - 1)
+                .Where(periodPlay => periodPlay.Team != null && periodPlay.Coordinates.X != null && periodPlay.Coordinates.Y != null && periodPlay.Result.Event.ToLower() == "shot")
+                .First();
+
+            // Left side is away team if X < 0 and shot result event is the team id of the home team
+            if (firstPeriodShotPlay.Team.Id == homeTeam.Id && firstPeriodShotPlay.Coordinates.X < 0)
+            {
+                liveGameFeed.LiveData.Linescore.Periods[0].Home.CorrectedRinkSide = "right";
+                liveGameFeed.LiveData.Linescore.Periods[0].Away.CorrectedRinkSide = "left";
+
+                liveGameFeed.LiveData.Linescore.Periods[1].Home.CorrectedRinkSide = "left";
+                liveGameFeed.LiveData.Linescore.Periods[1].Away.CorrectedRinkSide = "right";
+
+                liveGameFeed.LiveData.Linescore.Periods[2].Home.CorrectedRinkSide = "right";
+                liveGameFeed.LiveData.Linescore.Periods[2].Away.CorrectedRinkSide = "left";
+            }
+            else if (firstPeriodShotPlay.Team.Id != homeTeam.Id && firstPeriodShotPlay.Coordinates.X < 0)
+            {
+                liveGameFeed.LiveData.Linescore.Periods[0].Home.CorrectedRinkSide = "left";
+                liveGameFeed.LiveData.Linescore.Periods[0].Away.CorrectedRinkSide = "right";
+
+                liveGameFeed.LiveData.Linescore.Periods[1].Home.CorrectedRinkSide = "right";
+                liveGameFeed.LiveData.Linescore.Periods[1].Away.CorrectedRinkSide = "left";
+
+                liveGameFeed.LiveData.Linescore.Periods[2].Home.CorrectedRinkSide = "left";
+                liveGameFeed.LiveData.Linescore.Periods[2].Away.CorrectedRinkSide = "right";
+            }
+            else
+            {
+                liveGameFeed.LiveData.Linescore.Periods[0].Home.CorrectedRinkSide = "right";
+                liveGameFeed.LiveData.Linescore.Periods[0].Away.CorrectedRinkSide = "left";
+
+                liveGameFeed.LiveData.Linescore.Periods[1].Home.CorrectedRinkSide = "left";
+                liveGameFeed.LiveData.Linescore.Periods[1].Away.CorrectedRinkSide = "right";
+
+                liveGameFeed.LiveData.Linescore.Periods[2].Home.CorrectedRinkSide = "right";
+                liveGameFeed.LiveData.Linescore.Periods[2].Away.CorrectedRinkSide = "left";
+            }
         }
     }
 }

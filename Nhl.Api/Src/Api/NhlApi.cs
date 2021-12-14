@@ -24,7 +24,6 @@ using Nhl.Api.Models.Enumerations.Venue;
 using Nhl.Api.Models.Enumerations.Franchise;
 using Nhl.Api.Models.Enumerations.Prospect;
 
-
 namespace Nhl.Api
 {
     /// <summary>
@@ -429,6 +428,27 @@ namespace Nhl.Api
         public async Task<PlayerSeasonStatistics> GetOnPaceRegularSeasonPlayerStatisticsAsync(int playerId)
         {
             return await _nhlStatisticsApi.GetOnPaceRegularSeasonPlayerStatisticsAsync(playerId);
+        }
+
+        /// <summary>
+        /// Returns the player with the most goals based on the selected season year
+        /// </summary>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>The player profile for the most goals in the specified NHL season</returns>
+        public async Task<PlayerStatisticResult> GetPlayerWithTopStatisticBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear)
+        {
+            return await _nhlStatisticsApi.GetPlayerWithTopStatisticBySeasonAsync(playerStatisticEnum, seasonYear);
+        }
+
+        /// <summary>
+        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
+        /// </summary>
+        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
+        public async Task<PlayerStatisticResult> GetGoalieWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

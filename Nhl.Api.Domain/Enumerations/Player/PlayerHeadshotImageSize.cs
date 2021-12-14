@@ -5,7 +5,7 @@ using System.Text;
 namespace Nhl.Api.Models.Enumerations.Player
 {
     /// <summary>
-    /// Enumeration for the size of the NHL player headshot image
+    /// Enumeration for the size of the NHL player head shot image
     /// </summary>
     public enum PlayerHeadshotImageSize
     {
