@@ -120,7 +120,6 @@ namespace Nhl.Api
         {
             var liveGameFeed = await _nhlStatsApiHttpClient.GetAsync<LiveGameFeed>($"/game/{liveGameFeedId}/feed/live");
 
-
             SetCorrectedRinkSideLiveGameFeed(liveGameFeed);
 
             return new LiveGameFeedResult
