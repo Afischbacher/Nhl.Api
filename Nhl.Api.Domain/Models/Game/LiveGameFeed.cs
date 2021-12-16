@@ -1336,6 +1336,15 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("team")]
         public TeamInformation Team { get; set; }
+
+        public ActivePlayersOnIce ActivePlayersOnIce { get; set; }
+    }
+
+    public class ActivePlayersOnIce
+    {
+        public List<int> HomePlayers { get; set; }
+
+        public List<int> AwayPlayers { get; set; }
     }
 
     public class LiveGameFeedAllPlayPlayer

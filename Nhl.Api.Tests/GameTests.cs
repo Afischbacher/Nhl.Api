@@ -1,9 +1,11 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Models.Enumerations.Team;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
+[assembly: Parallelize(Workers = 0, Scope = ExecutionScope.MethodLevel)]
 namespace Nhl.Api.Tests
 {
     [TestClass]
@@ -284,6 +286,79 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(game.Content);
         }
 
+        [DataRow("19831984", false)]
+        [DataRow("19971998", true)]
+        [DataRow("20092010", true)]
+        [DataRow("20202021", false)]
+        [TestMethod]
+        public async Task TestGetGetGameSchedulesBySeasonAsync(string seasonYear, bool includePlayoffGames)
+        {
+
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var gameSchedule = await nhlApi.GetGameSchedulesBySeasonAsync(seasonYear, includePlayoffGames);
+
+            // Assert
+            Assert.IsNotNull(gameSchedule);
+            Assert.IsNotNull(gameSchedule.MetaData);
+            Assert.IsNotNull(gameSchedule.MetaData.TimeStamp);
+            Assert.IsNotNull(gameSchedule.MetaData.TimeStampAsDateTimeOffset);
+            Assert.IsNotNull(gameSchedule.TotalEvents);
+            Assert.IsNotNull(gameSchedule.TotalGames);
+            Assert.IsNotNull(gameSchedule.TotalItems);
+            Assert.IsNotNull(gameSchedule.TotalMatches);
+
+            foreach (var gameDate in gameSchedule.Dates)
+            {
+                Assert.IsNotNull(gameDate.TotalEvents);
+                Assert.IsNotNull(gameDate.TotalGames);
+                Assert.IsNotNull(gameDate.TotalMatches);
+                Assert.IsNotNull(gameDate.Matches);
+                Assert.IsNotNull(gameDate.Events);
+            }
+
+            var game = gameSchedule.Dates.First(date => date.Games.Count > 0).Games.First();
+
+            Assert.IsNotNull(game);
+            Assert.IsNotNull(game.Content);
+            Assert.IsNotNull(game.Teams);
+            Assert.IsNotNull(game.Teams.AwayTeam);
+            Assert.IsNotNull(game.Teams.HomeTeam);
+            Assert.IsNotNull(game.Venue);
+            Assert.IsNotNull(game.Season);
+        }
+
+        [TestMethod]
+        public async Task TestGetGetGameSchedulesBySeasonInvalidSeasonYearLengthAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act / Assert
+            await Assert.ThrowsExceptionAsync<ArgumentException>(async () =>
+            {
+                var gameSchedule = await nhlApi.GetGameSchedulesBySeasonAsync("123456789");
+
+            });
+            
+        }
+
+        [TestMethod]
+        public async Task TestGetGetGameSchedulesBySeasonInvalidSeasonYearValueAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act / Assert
+            await Assert.ThrowsExceptionAsync<InvalidSeasonException>(async () =>
+            {
+                var gameSchedule = await nhlApi.GetGameSchedulesBySeasonAsync("18991900");
+
+            });
+        }
+
         [TestMethod]
         public async Task TestGetGetGameScheduleByDateWithTeamIdAsync()
         {
@@ -502,8 +577,157 @@ namespace Nhl.Api.Tests
 
         }
 
-
         [DataRow(2010020005)]
+        [DataRow(2010020006)]
+        [DataRow(2010020008)]
+        [DataRow(2010020011)]
+        [DataRow(2010020012)]
+        [DataRow(2010020015)]
+        [DataRow(2010020019)]
+        [DataRow(2010020020)]
+        [DataRow(2010020022)]
+        [DataRow(2010020023)]
+        [DataRow(2010020024)]
+        [DataRow(2010020026)]
+        [DataRow(2010020028)]
+        [DataRow(2010020033)]
+        [DataRow(2010020044)]
+        [DataRow(2010020057)]
+        [DataRow(2011020003)]
+        [DataRow(2011020007)]
+        [DataRow(2011020009)]
+        [DataRow(2011020014)]
+        [DataRow(2011020022)]
+        [DataRow(2011020024)]
+        [DataRow(2011020027)]
+        [DataRow(2011020038)]
+        [DataRow(2011020043)]
+        [DataRow(2011020051)]
+        [DataRow(2011020055)]
+        [DataRow(2011020057)]
+        [DataRow(2011020061)]
+        [DataRow(2011020067)]
+        [DataRow(2011020076)]
+        [DataRow(2011020077)]
+        [DataRow(2011020088)]
+        [DataRow(2011020090)]
+        [DataRow(2011020096)]
+        [DataRow(2011020107)]
+        [DataRow(2011020114)]
+        [DataRow(2011020117)]
+        [DataRow(2011020119)]
+        [DataRow(2011020120)]
+        [DataRow(2011020124)]
+        [DataRow(2012020006)]
+        [DataRow(2012020019)]
+        [DataRow(2012020021)]
+        [DataRow(2012020025)]
+        [DataRow(2012020035)]
+        [DataRow(2012020039)]
+        [DataRow(2012020048)]
+        [DataRow(2012020059)]
+        [DataRow(2012020062)]
+        [DataRow(2012020074)]
+        [DataRow(2012020075)]
+        [DataRow(2012020076)]
+        [DataRow(2012020090)]
+        [DataRow(2012020096)]
+        [DataRow(2012020114)]
+        [DataRow(2012020115)]
+        [DataRow(2013020003)]
+        [DataRow(2013020013)]
+        [DataRow(2013020018)]
+        [DataRow(2013020024)]
+        [DataRow(2013020035)]
+        [DataRow(2013020038)]
+        [DataRow(2013020055)]
+        [DataRow(2013020068)]
+        [DataRow(2013020083)]
+        [DataRow(2013020093)]
+        [DataRow(2013020098)]
+        [DataRow(2013020117)]
+        [DataRow(2013020120)]
+        [DataRow(2013020123)]
+        [DataRow(2013020130)]
+        [DataRow(2013020131)]
+        [DataRow(2013020136)]
+        [DataRow(2013020147)]
+        [DataRow(2013020150)]
+        [DataRow(2013020160)]
+        [DataRow(2013020164)]
+        [DataRow(2013020168)]
+        [DataRow(2013020176)]
+        [DataRow(2013020182)]
+        [DataRow(2013020183)]
+        [DataRow(2013020190)]
+        [DataRow(2013020204)]
+        [DataRow(2014020015)]
+        [DataRow(2014020023)]
+        [DataRow(2014020025)]
+        [DataRow(2014020042)]
+        [DataRow(2014020050)]
+        [DataRow(2014020058)]
+        [DataRow(2014020061)]
+        [DataRow(2014020078)]
+        [DataRow(2014020081)]
+        [DataRow(2014020091)]
+        [DataRow(2014020104)]
+        [DataRow(2014020110)]
+        [DataRow(2014020123)]
+        [DataRow(2014020125)]
+        [DataRow(2014020128)]
+        [DataRow(2014020137)]
+        [DataRow(2014020148)]
+        [DataRow(2014020163)]
+        [DataRow(2014020176)]
+        [DataRow(2014020208)]
+        [DataRow(2014020221)]
+        [DataRow(2014020240)]
+        [DataRow(2015020013)]
+        [DataRow(2015020015)]
+        [DataRow(2015020033)]
+        [DataRow(2015020046)]
+        [DataRow(2015020050)]
+        [DataRow(2015020056)]
+        [DataRow(2015020059)]
+        [DataRow(2015020071)]
+        [DataRow(2015020084)]
+        [DataRow(2015020090)]
+        [DataRow(2015020101)]
+        [DataRow(2015020104)]
+        [DataRow(2015020120)]
+        [DataRow(2015020121)]
+        [DataRow(2015020137)]
+        [DataRow(2015020144)]
+        [DataRow(2015020161)]
+        [DataRow(2015020163)]
+        [DataRow(2015020167)]
+        [DataRow(2016020077)]
+        [DataRow(2016020559)]
+        [DataRow(2016020562)]
+        [DataRow(2016020908)]
+        [DataRow(2017020498)]
+        [DataRow(2017021005)]
+        [DataRow(2018020192)]
+        [DataRow(2018020401)]
+        [DataRow(2018020461)]
+        [DataRow(2018020953)]
+        [DataRow(2019020249)]
+        [DataRow(2019020902)]
+        [DataRow(2020020290)]
+        [DataRow(2021020590)]
+        [DataRow(2021020592)]
+        [DataRow(2021020594)]
+        [DataRow(2021020597)]
+        [DataRow(2021020599)]
+        [DataRow(2021020600)]
+        [DataRow(2021020602)]
+        [DataRow(2021020668)]
+        [DataRow(2021020670)]
+        [DataRow(2021020674)]
+        [DataRow(2021020677)]
+        [DataRow(2021020678)]
+        [DataRow(2021020682)]
         [TestMethod]
         public async Task TestGetLiveGameFeedGetCorrectRinkSideAsync(int gameId)
         {
@@ -513,6 +737,11 @@ namespace Nhl.Api.Tests
             // Act
             var liveGameFeedResult = await nhlApi.GetLiveGameFeedByIdAsync(gameId);
 
+            if (!liveGameFeedResult.LiveGameFeed.LiveData.Plays.AllPlays.Any())
+            {
+                return;
+            }
+
             var homeCorrectedRinkSide = liveGameFeedResult.LiveGameFeed.LiveData.Linescore.Periods.First().Home.CorrectedRinkSide;
             var awayCorrectedRinkSide = liveGameFeedResult.LiveGameFeed.LiveData.Linescore.Periods.First().Away.CorrectedRinkSide;
 
@@ -520,6 +749,8 @@ namespace Nhl.Api.Tests
             var awayRinkSide = liveGameFeedResult.LiveGameFeed.LiveData.Linescore.Periods.First().Away.RinkSide;
 
             // Assert
+            Assert.IsNotNull(homeCorrectedRinkSide);
+            Assert.IsNotNull(awayCorrectedRinkSide);
             Assert.AreNotEqual(homeRinkSide, homeCorrectedRinkSide);
             Assert.AreNotEqual(awayRinkSide, awayCorrectedRinkSide);
         }

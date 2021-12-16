@@ -552,6 +552,17 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Return's the entire collection of NHL game schedules for the specified season
+        /// </summary>
+        /// <param name="seasonYear">The NHL season year, Example: 19992000, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="includePlayoffGames">Includes the NHL playoff games if set to true, default value is false</param>
+        /// <returns>Returns all of the NHL team's game schedules based on the selected NHL season</returns>
+        public async Task<GameSchedule> GetGameSchedulesBySeasonAsync(string seasonYear, bool includePlayoffGames = false)
+        {
+            return await _nhlGameApi.GetGameSchedulesBySeasonAsync(seasonYear, includePlayoffGames);
+        }
+
+        /// <summary>
         /// Returns the live game feed content for an NHL game
         /// </summary>
         /// <param name="gameId">The game id, Example: 2021020087</param>
