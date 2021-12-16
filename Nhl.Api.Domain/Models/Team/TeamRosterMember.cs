@@ -33,7 +33,7 @@ namespace Nhl.Api.Models.Team
         {
             get
             {
-                return GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Small);
+                return GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large);
             }
         }
 

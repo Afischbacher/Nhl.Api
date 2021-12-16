@@ -10,7 +10,9 @@ namespace Nhl.Api.Common.Http
     {
         private static readonly object _lock = new object();
         private static HttpClient _httpClient;
-        public NhlSuggestionApiHttpClient() : base(clientApiUri: "https://suggest.svc.nhl.com/svc/suggest/", clientVersion: "v1", timeoutInSeconds: 30)
+        public const string ClientApiUrl = "https://suggest.svc.nhl.com/svc/suggest/";
+
+        public NhlSuggestionApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: "v1", timeoutInSeconds: 30)
         {
         }
 

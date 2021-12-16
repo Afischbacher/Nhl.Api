@@ -375,9 +375,9 @@ namespace Nhl.Api
 
             return new TeamLogo
             {
-                ImageAsBase64String = $"data:image/png;base64,{Convert.ToBase64String(imageContent)}",
+                ImageAsBase64String = $"data:image/svg+xml;base64,{Convert.ToBase64String(imageContent)}",
                 ImageAsByteArray = imageContent,
-                Uri = $"{_nhlStaticAssetsApiHttpClient.Client}{endpoint}"
+                Uri = $"{_nhlStaticAssetsApiHttpClient.Client}/{endpoint}"
             };
         }
 
@@ -394,9 +394,9 @@ namespace Nhl.Api
 
             return new TeamLogo
             {
-                ImageAsBase64String = $"data:image/png;base64,{Convert.ToBase64String(imageContent)}",
+                ImageAsBase64String = $"data:image/svg+xml;base64,{Convert.ToBase64String(imageContent)}",
                 ImageAsByteArray = imageContent,
-                Uri = $"{_nhlStaticAssetsApiHttpClient.Client}{endpoint}"
+                Uri = $"{_nhlStaticAssetsApiHttpClient.Client}/{endpoint}"
             };
         }
 

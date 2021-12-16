@@ -22,6 +22,7 @@ namespace Nhl.Api.Models.Team
         /// </summary>
         [JsonProperty("name")]
         public string Name { get; set; }
+
         /// <summary>
         /// The link to the NHL API endpoint for the NHL team information <br/>
         /// Example: /api/v1/teams/30
