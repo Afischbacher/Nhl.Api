@@ -6,6 +6,22 @@
     public enum GoalieStatisticEnum
     {
         SavePercentage,
-        Wins
+        Shutouts,
+        Ties,
+        Wins,
+        OvertimeWins,
+        Losses,
+        Saves,
+        PowerPlaySaves,
+        PowerPlayShots,
+        EvenShots,
+        ShortHandedShots,
+        EvenSaves,
+        ShortHandedSaves,
+        GoalAgainstAverage,
+        GoalsAgainst,
+        EvenStrengthSavePercentage,
+        ShortHandedSavePercentage,
+        PowerPlaySavePercentage
     }
 }

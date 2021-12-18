@@ -103,17 +103,6 @@ namespace Nhl.Api
         }
 
         /// <summary>
-        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
-        /// </summary>
-        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
-        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
-        /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
-        public Task<PlayerStatisticResult> GetGoalieWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
         /// Returns the on pace regular season NHL player statistics for the current NHL season with insightful statistics
         /// </summary>
         /// <param name="player">The identifier for the NHL player</param>
@@ -122,7 +111,6 @@ namespace Nhl.Api
         {
             return await _nhlStatsApiHttpClient.GetAsync<PlayerSeasonStatistics>($"/people/{((int)player)}/stats?stats={nameof(PlayerStatisticsTypeEnum.OnPaceRegularSeason).ToCamelCase()}");
         }
-
         /// <summary>
         /// Returns the on pace regular season NHL player statistics for the current NHL season with insightful statistics
         /// </summary>
@@ -309,12 +297,139 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
+        /// </summary>
+        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
+        public async Task<GoalieStatisticResult> GetGoalieWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear)
+        {
+            var goalieIds = (await _nhlPlayerApi.GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear)).Select(player => player.Person.Id);
+            var goalies = await _nhlPlayerApi.GetPlayersByIdAsync(goalieIds);
+
+            var goalieStatisticsTasks = goalies.Where(player => player.IsGoalie).Select(async player =>
+            {
+                return new
+                {
+                    Player = player,
+                    GoalieStatistics = await GetGoalieStatisticsBySeasonAsync(player.Id, seasonYear)
+                };
+            });
+
+            var goalieStatistics = await Task.WhenAll(goalieStatisticsTasks);
+
+            var validGoalieStatistics = goalieStatistics.Select(playerStatistic =>
+            {
+                return new GoalieStatisticResult
+                {
+                    Player = playerStatistic.Player,
+                    GoalieStatisticsData = playerStatistic.GoalieStatistics.Statistics.FirstOrDefault()?.Splits.FirstOrDefault()?.GoalieStatisticsData
+                };
+
+            }).Where(playerStatistic => playerStatistic.GoalieStatisticsData != null);
+
+            switch (goalieStatisticEnum)
+            {
+                case GoalieStatisticEnum.SavePercentage:
+                    return validGoalieStatistics
+                       .OrderByDescending(ps => ps.GoalieStatisticsData.SavePercentage)
+                       .First();
+
+                case GoalieStatisticEnum.Shutouts:
+                    return validGoalieStatistics
+                       .OrderByDescending(ps => ps.GoalieStatisticsData.Shutouts)
+                       .First();
+
+                case GoalieStatisticEnum.Ties:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.Ties)
+                        .First();
+
+                case GoalieStatisticEnum.Wins:
+                    return validGoalieStatistics
+                       .OrderByDescending(ps => ps.GoalieStatisticsData.Wins)
+                       .First();
+
+                case GoalieStatisticEnum.OvertimeWins:
+                    return validGoalieStatistics
+                       .OrderByDescending(ps => ps.GoalieStatisticsData.Ot)
+                       .First();
+
+                case GoalieStatisticEnum.Losses:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.Losses)
+                        .First();
+
+                case GoalieStatisticEnum.Saves:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.Saves)
+                        .First();
+
+                case GoalieStatisticEnum.PowerPlaySaves:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.PowerPlaySaves)
+                        .First();
+
+                case GoalieStatisticEnum.PowerPlayShots:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.PowerPlayShots)
+                        .First();
+
+                case GoalieStatisticEnum.EvenShots:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.EvenShots)
+                        .First();
+
+                case GoalieStatisticEnum.ShortHandedShots:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.ShortHandedShots)
+                        .First();
+
+                case GoalieStatisticEnum.EvenSaves:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.EvenSaves)
+                        .First();
+
+                case GoalieStatisticEnum.ShortHandedSaves:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.ShortHandedSaves)
+                        .First();
+
+                case GoalieStatisticEnum.GoalAgainstAverage:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.GoalAgainstAverage)
+                        .First();
+
+                case GoalieStatisticEnum.GoalsAgainst:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.GoalsAgainst)
+                        .First();
+
+                case GoalieStatisticEnum.EvenStrengthSavePercentage:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.EvenStrengthSavePercentage)
+                        .First();
+
+                case GoalieStatisticEnum.ShortHandedSavePercentage:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.ShortHandedSavePercentage)
+                        .First();
+
+                case GoalieStatisticEnum.PowerPlaySavePercentage:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.PowerPlaySavePercentage)
+                        .First();
+                default:
+                    return null;
+            }
+        }
+
+        /// <summary>
         /// Returns all distinct types of NHL statistics types
         /// </summary>
         /// <returns>A collection of all the various NHL statistics types, see <see cref="StatisticTypes"/> for more information</returns>
         public async Task<List<StatisticTypes>> GetStatisticTypesAsync()
         {
-
             return await _nhlStatsApiHttpClient.GetAsync<List<StatisticTypes>>("/statTypes");
         }
 

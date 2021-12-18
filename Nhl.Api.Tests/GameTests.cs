@@ -424,6 +424,31 @@ namespace Nhl.Api.Tests
 
         }
 
+        [TestMethod]
+        public async Task TestGetLiveGameFeedWithConfigurationSettingsWithCancellationAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 2021020149;
+            var liveGameFeedResult = await nhlApi.GetLiveGameFeedByIdAsync(_gamePkId, new LiveGameFeedConfiguration
+            {
+                IsEnabled = true,
+                MaxNumberOfAttempts = 500,
+                PollTimeInMilliseconds = 10000
+            });
+
+            liveGameFeedResult.CancelOnLiveGameFeedChange(500);
+
+            // Assert
+            Assert.IsNotNull(liveGameFeedResult);
+            Assert.IsNotNull(liveGameFeedResult.Configuration);
+            Assert.AreEqual(true, liveGameFeedResult.Configuration.IsEnabled);
+            Assert.AreEqual(500, liveGameFeedResult.Configuration.MaxNumberOfAttempts);
+            Assert.AreEqual(10000, liveGameFeedResult.Configuration.PollTimeInMilliseconds);
+
+        }
 
         [TestMethod]
         public async Task TestGetLiveGameFeedWithDefaultConfigurationSettingsAsync()

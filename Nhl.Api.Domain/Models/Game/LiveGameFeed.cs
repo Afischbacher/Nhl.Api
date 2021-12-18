@@ -7,6 +7,7 @@ using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Team;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Models.Game
@@ -20,7 +21,7 @@ namespace Nhl.Api.Models.Game
     {
         public LiveGameFeedResult()
         {
-            Task.Run(async () => await RaiseOnLiveGameFeedChangeEvent());
+            Task.Run(async () => await RaiseOnLiveGameFeedChangeEvent(), LiveGameFeedEventCancellationTokenSource.Token);
         }
 
         /// <summary>
@@ -38,12 +39,39 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         public LiveGameFeedConfiguration Configuration { get; set; }
 
-        private async Task RaiseOnLiveGameFeedChangeEvent()
+        /// <summary>
+        /// The cancellation token source for the NHL live game feed event to stop the NHL live game feed event from sending updates
+        /// </summary>
+        private CancellationTokenSource LiveGameFeedEventCancellationTokenSource { get; set; } = new CancellationTokenSource();
+
+        /// <summary>
+        /// Cancel's and stops any of the NHL live game feed change event updates immediately or with a time delay in milliseconds
+        /// </summary>
+        /// <param name="delayTimeInMilliseconds">The time to delay the NHL live game feed, the default value is 0, thus canceling it immediately</param>
+        public void CancelOnLiveGameFeedChange(int delayTimeInMilliseconds = 0)
+        {
+            try
+            {
+                if (delayTimeInMilliseconds > 0)
+                {
+                    LiveGameFeedEventCancellationTokenSource.CancelAfter(millisecondsDelay: delayTimeInMilliseconds);
+                }
+                else
+                {
+                    LiveGameFeedEventCancellationTokenSource.Cancel();
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private async Task<bool> RaiseOnLiveGameFeedChangeEvent()
         {
             // If not enabled do not send live game events
             if (!Configuration.IsEnabled)
             {
-                return;
+                return false;
             }
 
             var nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
@@ -54,13 +82,13 @@ namespace Nhl.Api.Models.Game
             var endpoint = LiveGameFeed?.Link?.Replace("/api/v1", string.Empty) ?? null;
             if (string.IsNullOrWhiteSpace(endpoint))
             {
-                return;
+                return false;
             }
 
             var timestamp = LiveGameFeed?.MetaData?.TimeStamp ?? null;
             if (string.IsNullOrWhiteSpace(timestamp))
             {
-                return;
+                return false;
             }
 
             while (numberOfAttempts >= maxNumberOfAttempts)
@@ -100,6 +128,7 @@ namespace Nhl.Api.Models.Game
                 numberOfAttempts++;
             }
 
+            return true;
 
             long ParseTimeStamp(string timeStamp)
             {

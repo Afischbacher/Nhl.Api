@@ -446,9 +446,9 @@ namespace Nhl.Api
         /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
         /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
         /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
-        public async Task<PlayerStatisticResult> GetGoalieWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear)
+        public async Task<GoalieStatisticResult> GetGoalieWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear)
         {
-            throw new NotImplementedException();
+            return await _nhlStatisticsApi.GetGoalieWithTopStatisticBySeasonAsync(goalieStatisticEnum, seasonYear);
         }
 
         /// <summary>

@@ -13,7 +13,6 @@ namespace Nhl.Api.Services
     /// </summary>
     public interface INhlGameService
     {
-
         /// <summary>
         /// Set's and add's the active players on each live game feed play
         /// </summary>
