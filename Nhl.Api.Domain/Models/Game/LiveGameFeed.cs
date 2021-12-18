@@ -33,12 +33,23 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         public event OnLiveGameFeedChangeEventHandler OnLiveGameFeedChange;
 
+        /// <summary>
+        /// Enables configuration of the NHL live game feed event handler, including poll time and number of attempts
+        /// </summary>
+        public LiveGameFeedConfiguration Configuration { get; set; }
+
         private async Task RaiseOnLiveGameFeedChangeEvent()
         {
+            // If not enabled do not send live game events
+            if (!Configuration.IsEnabled)
+            {
+                return;
+            }
+
             var nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
             var numberOfAttempts = 0;
-            var maxNumberOfAttempts = 10000;
-            var waitInMsPerRequest = 250;
+            var maxNumberOfAttempts = Configuration.MaxNumberOfAttempts;
+            var waitInMsPerRequest = Configuration.PollTimeInMilliseconds;
 
             var endpoint = LiveGameFeed?.Link?.Replace("/api/v1", string.Empty) ?? null;
             if (string.IsNullOrWhiteSpace(endpoint))
@@ -52,7 +63,7 @@ namespace Nhl.Api.Models.Game
                 return;
             }
 
-            while (true)
+            while (numberOfAttempts >= maxNumberOfAttempts)
             {
                 await Task.Delay(waitInMsPerRequest);
 
@@ -62,9 +73,9 @@ namespace Nhl.Api.Models.Game
                     break;
                 }
 
-                // If game is completed, stop sending events or the number of attempts exceeds 41.6 minutes of attempts
+                // If game is completed, stop sending events or the number of attempts exceeds attempts
                 var isLiveGameFeedCompleted = (liveGameFeed?.GameData?.Status?.AbstractGameState == "Final"
-                    || liveGameFeed?.GameData?.Status?.CodedGameState == "7") || (numberOfAttempts >= maxNumberOfAttempts);
+                    || liveGameFeed?.GameData?.Status?.CodedGameState == "7");
                 if (isLiveGameFeedCompleted)
                 {
                     break;
@@ -105,6 +116,27 @@ namespace Nhl.Api.Models.Game
         /// The NHL live game feed
         /// </summary>
         public LiveGameFeed LiveGameFeed { get; set; }
+    }
+
+    /// <summary>
+    /// The NHL live game feed configuration for the NHL live game feed
+    /// </summary>
+    public class LiveGameFeedConfiguration
+    {
+        /// <summary>
+        /// Sets the NHL live game feed to be enabled or disabled the NHL live game feed event, default is false
+        /// </summary>
+        public bool IsEnabled { get; set; } = false;
+
+        /// <summary>
+        /// The time in milliseconds to request the latest NHL live game feed, default value is 1,000 milliseconds or 1 seconds
+        /// </summary>
+        public int PollTimeInMilliseconds { get; set; } = 1000;
+
+        /// <summary>
+        /// The number of attempts to request a NHL live game feed change, the default value is 1,000 attempts
+        /// </summary>
+        public int MaxNumberOfAttempts { get; set; } = 1000;
     }
 
     public class LiveGameFeed
@@ -1337,15 +1369,22 @@ namespace Nhl.Api.Models.Game
         [JsonProperty("team")]
         public TeamInformation Team { get; set; }
 
-        public ActivePlayersOnIce ActivePlayersOnIce { get; set; }
+        public PlayersOnIce ActivePlayersOnIce { get; set; }
     }
 
-    public class ActivePlayersOnIce
+    public class PlayersOnIce
     {
-        public List<int> HomePlayers { get; set; }
+        /// <summary>
+        /// A collection of NHL player identifiers for the home team
+        /// </summary>
+        public List<int> HomeTeam { get; set; }
 
-        public List<int> AwayPlayers { get; set; }
+        /// <summary>
+        /// A collection of NHL player identifiers for the away team
+        /// </summary>
+        public List<int> AwayTeam { get; set; }
     }
+
 
     public class LiveGameFeedAllPlayPlayer
     {
@@ -2306,7 +2345,7 @@ namespace Nhl.Api.Models.Game
         /// Returns the a key value collection of all the NHL live game feed player box score profiles
         /// </summary>
         [JsonProperty("players")]
-        public Dictionary<string, LiveGameFeedBoxscorePlayer> Player { get; set; }
+        public Dictionary<string, LiveGameFeedBoxscorePlayer> Players { get; set; }
 
         /// <summary>
         /// Returns the NHL player id's for goalies <br/>

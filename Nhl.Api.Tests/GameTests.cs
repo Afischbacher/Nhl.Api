@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Game;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -400,6 +401,50 @@ namespace Nhl.Api.Tests
 
 
         [TestMethod]
+        public async Task TestGetLiveGameFeedWithConfigurationSettingsAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 2021020149;
+            var liveGameFeedResult = await nhlApi.GetLiveGameFeedByIdAsync(_gamePkId, new LiveGameFeedConfiguration
+            {
+                IsEnabled = true,
+                MaxNumberOfAttempts = 500,
+                PollTimeInMilliseconds = 10000
+            });
+
+            // Assert
+            Assert.IsNotNull(liveGameFeedResult);
+            Assert.IsNotNull(liveGameFeedResult.Configuration);
+            Assert.AreEqual(true, liveGameFeedResult.Configuration.IsEnabled);
+            Assert.AreEqual(500, liveGameFeedResult.Configuration.MaxNumberOfAttempts);
+            Assert.AreEqual(10000, liveGameFeedResult.Configuration.PollTimeInMilliseconds);
+
+        }
+
+
+        [TestMethod]
+        public async Task TestGetLiveGameFeedWithDefaultConfigurationSettingsAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 2021020149;
+            var liveGameFeedResult = await nhlApi.GetLiveGameFeedByIdAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(liveGameFeedResult);
+            Assert.IsNotNull(liveGameFeedResult.Configuration);
+            Assert.AreEqual(false, liveGameFeedResult.Configuration.IsEnabled);
+            Assert.AreEqual(1000, liveGameFeedResult.Configuration.MaxNumberOfAttempts);
+            Assert.AreEqual(1000, liveGameFeedResult.Configuration.PollTimeInMilliseconds);
+
+        }
+
+        [TestMethod]
         public async Task TestGetLiveGameFeedAsync()
         {
             // Arrange
@@ -577,8 +622,8 @@ namespace Nhl.Api.Tests
 
         }
 
-        [DataRow(2010020005)]
-        [DataRow(2010020006)]
+        //[DataRow(2010020005)]
+        //[DataRow(2010020006)]
         [DataRow(2010020008)]
         [DataRow(2010020011)]
         [DataRow(2010020012)]
