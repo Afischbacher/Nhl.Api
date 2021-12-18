@@ -172,7 +172,6 @@ namespace Nhl.Api.Services
                     numberOfShotsFromFirstPeriod["homeTeamLeftTeamShot"] += 1;
                 }
 
-                // What if the shot is before the center line? Then in the case of 2010020405 game id 
                 else if (shotPlay.Team.Id != homeTeam.Id && shotPlay.Coordinates.X < 0)
                 {
                     numberOfShotsFromFirstPeriod["awayTeamLeftTeamShot"] += 1;
