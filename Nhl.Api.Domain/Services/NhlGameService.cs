@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Nhl.Api.Services
 {
+    /// <summary>
+    /// The NHL game service, enabling data enrichment and functionality to the NHL API
+    /// </summary>
     public interface INhlGameService
     {
 
@@ -22,6 +25,9 @@ namespace Nhl.Api.Services
         void SetCorrectedRinkSideLiveGameFeed(LiveGameFeed liveGameFeed);
     }
 
+    /// <summary>
+    /// The NHL game service, enabling data enrichment and functionality to the NHL API
+    /// </summary>
     public class NhlGameService : INhlGameService
     {
         private static readonly INhlApiHttpClient _nhlShiftChartHttpClient = new NhlShiftChartHttpClient();
