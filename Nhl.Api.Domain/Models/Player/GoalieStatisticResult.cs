@@ -8,7 +8,7 @@ namespace Nhl.Api.Models.Player
     public class GoalieStatisticResult
     {
         /// <summary>
-        /// Returns NHL goalie information including identifier, name, date of birth, team and more
+        /// Returns NHL goalie information including identifier, name, date of birth and more
         /// </summary>
         public Player Player { get; set; }
 

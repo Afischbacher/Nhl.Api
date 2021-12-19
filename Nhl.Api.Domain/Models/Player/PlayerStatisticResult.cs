@@ -6,7 +6,7 @@ namespace Nhl.Api.Models.Player
     public class PlayerStatisticResult
     {
         /// <summary>
-        /// Returns NHL player information including identifier, name, date of birth, team and more
+        /// Returns NHL player information including identifier, name, date of birth and more
         /// </summary>
         public Player Player { get; set; }
 
