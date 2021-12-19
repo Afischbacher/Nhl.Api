@@ -146,6 +146,11 @@ namespace Nhl.Api.Services
             var startRange = liveGameFeed.LiveData.Plays.PlaysByPeriod.FirstOrDefault()?.StartIndex ?? 0;
             var endRange = liveGameFeed.LiveData.Plays.PlaysByPeriod.FirstOrDefault()?.EndIndex ?? 0;
 
+            if (endRange == 0)
+            {
+                return;
+            }
+
             // Categorize shots from home and away teams to determine correct rink side for each team for each regular period
             var numberOfShotsFromFirstPeriod = new Dictionary<string, int>()
             {
