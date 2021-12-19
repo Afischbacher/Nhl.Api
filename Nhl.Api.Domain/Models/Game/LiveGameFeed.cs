@@ -37,7 +37,7 @@ namespace Nhl.Api.Models.Game
         /// <summary>
         /// Enables configuration of the NHL live game feed event handler, including poll time and number of attempts
         /// </summary>
-        public LiveGameFeedConfiguration Configuration { get; set; }
+        public LiveGameFeedConfiguration Configuration { get; set; } = new LiveGameFeedConfiguration();
 
         /// <summary>
         /// The cancellation token source for the NHL live game feed event to stop the NHL live game feed event from sending updates

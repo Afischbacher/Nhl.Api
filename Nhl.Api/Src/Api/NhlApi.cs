@@ -431,10 +431,11 @@ namespace Nhl.Api
         }
 
         /// <summary>
-        /// Returns the player with the most goals based on the selected season year
+        /// Returns the player with the top NHL player statistic based on the selected season year
         /// </summary>
         /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
-        /// <returns>The player profile for the most goals in the specified NHL season</returns>
+        /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
+        /// <returns>Returns the player profile with the top player statistic in the specified NHL season</returns>
         public async Task<PlayerStatisticResult> GetPlayerWithTopStatisticBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear)
         {
             return await _nhlStatisticsApi.GetPlayerWithTopStatisticBySeasonAsync(playerStatisticEnum, seasonYear);

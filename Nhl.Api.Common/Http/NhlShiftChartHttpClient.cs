@@ -11,7 +11,8 @@ namespace Nhl.Api.Common.Http
     {
         private static readonly object _lock = new object();
         private static HttpClient _httpClient;
-        public NhlShiftChartHttpClient() : base(clientApiUri: "https://api.nhle.com/stats/rest/en/shiftcharts", clientVersion: string.Empty, timeoutInSeconds: 30)
+        public const string ClientApiUrl = "https://api.nhle.com/stats/rest/en/shiftcharts";
+        public NhlShiftChartHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
         {
         }
 

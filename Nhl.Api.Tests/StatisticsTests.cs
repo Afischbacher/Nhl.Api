@@ -336,7 +336,7 @@ namespace Nhl.Api.Tests
 
             foreach (var goalieStatistic in enumValues)
             {
-                var player = await nhlApi.GetGoalieWithTopStatisticBySeasonAsync(goalieStatistic, SeasonYear.season20192020);
+                var player = await nhlApi.GetGoalieWithTopStatisticBySeasonAsync(goalieStatistic, SeasonYear.season19751976);
 
                 Assert.IsNotNull(player);
 
