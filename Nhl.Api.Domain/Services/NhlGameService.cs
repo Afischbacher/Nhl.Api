@@ -57,13 +57,22 @@ namespace Nhl.Api.Services
                     return;
                 }
 
-                var homeTeamId = liveGameFeed.LiveData.Boxscore.Teams.Home.TeamInformation.Id;
-                var awayTeamId = liveGameFeed.LiveData.Boxscore.Teams.Away.TeamInformation.Id;
+                var homeTeam = liveGameFeed?.LiveData?.Boxscore?.Teams?.Home?.TeamInformation;
+                var awayTeam = liveGameFeed?.LiveData?.Boxscore?.Teams?.Away?.TeamInformation;
+
+                if (homeTeam == null || awayTeam == null)
+                {
+                    return;
+                }
 
                 // Iterate through each play for the live game feed
                 foreach (var gamePlay in liveGameFeed.LiveData.Plays.AllPlays)
                 {
-                    var playersByTeam = new Dictionary<int, List<int>>();
+                    var playersByTeam = new Dictionary<int, List<int>>
+                    {
+                        { homeTeam.Id, new List<int>() },
+                        { awayTeam.Id, new List<int>() }
+                    };
 
                     // The current time of the period
                     var periodTime = TimeSpan.Parse($"00:{gamePlay.About.PeriodTime}");
@@ -80,36 +89,24 @@ namespace Nhl.Api.Services
                     {
                         if (liveGameFeed.LiveData.Boxscore.Teams.Home.Players.ContainsKey($"ID{playerOnIce.PlayerId}"))
                         {
-                            if (!playersByTeam.ContainsKey(homeTeamId))
-                            {
-                                playersByTeam.Add(homeTeamId, new List<int> { playerOnIce.PlayerId });
-                                continue;
-                            }
-
-                            playersByTeam[homeTeamId].Add(playerOnIce.PlayerId);
+                            playersByTeam[homeTeam.Id].Add(playerOnIce.PlayerId);
                         }
 
                         if (liveGameFeed.LiveData.Boxscore.Teams.Away.Players.ContainsKey($"ID{playerOnIce.PlayerId}"))
                         {
-                            if (!playersByTeam.ContainsKey(awayTeamId))
-                            {
-                                playersByTeam.Add(awayTeamId, new List<int> { playerOnIce.PlayerId });
-                                continue;
-                            }
-
-                            playersByTeam[awayTeamId].Add(playerOnIce.PlayerId);
+                            playersByTeam[awayTeam.Id].Add(playerOnIce.PlayerId);
                         }
                     }
 
-                    // Note: There are cases where players are changing shifts or taking a penalty shot and you may see more or less 6 players on each team
-                    playersByTeam.TryGetValue(homeTeamId, out var homeTeam);
-                    playersByTeam.TryGetValue(awayTeamId, out var awayTeam);
+                    // There are cases where players are changing shifts or taking a penalty shot and you may see more or less 6 players on each team
+                    playersByTeam.TryGetValue(homeTeam.Id, out var homeTeamPlayers);
+                    playersByTeam.TryGetValue(awayTeam.Id, out var awayTeamPlayers);
 
                     // Add player id's to each play
                     gamePlay.ActivePlayersOnIce = new PlayersOnIce
                     {
-                        HomeTeam = homeTeam,
-                        AwayTeam = awayTeam
+                        HomeTeam = homeTeamPlayers,
+                        AwayTeam = awayTeamPlayers
                     };
                 }
             }
