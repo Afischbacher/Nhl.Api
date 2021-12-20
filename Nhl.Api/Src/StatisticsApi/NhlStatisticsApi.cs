@@ -213,8 +213,8 @@ namespace Nhl.Api
             {
                 case PlayerStatisticEnum.Goals:
                     return validPlayerStatistics
-                        .OrderByDescending(ps => ps.PlayerStatisticsData.Goals)
-                        .ThenByDescending(ps => ps.PlayerStatisticsData.Shots)
+                        .OrderByDescending(ps => ps.PlayerStatisticsData.Shots)
+                        .ThenByDescending(ps => ps.PlayerStatisticsData.Goals)
                         .First();
 
                 case PlayerStatisticEnum.Assists:
@@ -239,7 +239,7 @@ namespace Nhl.Api
 
                 case PlayerStatisticEnum.ShotPercentage:
                     return validPlayerStatistics
-                      .OrderByDescending(ps => ps.PlayerStatisticsData.Hits)
+                      .OrderByDescending(ps => ps.PlayerStatisticsData.ShotPct)
                       .First();
 
                 case PlayerStatisticEnum.Hits:
