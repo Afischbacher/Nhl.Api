@@ -89,8 +89,6 @@ included automatically within your .NET Core project.
 ## Documentation 📖
 Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 
-<a name='assembly'></a>
-# Nhl.Api
 
 ### Contents
 

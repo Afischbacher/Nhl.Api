@@ -158,9 +158,9 @@ namespace Nhl.Api.Models.Game
         public bool IsEnabled { get; set; } = false;
 
         /// <summary>
-        /// The time in milliseconds to request the latest NHL live game feed, default value is 1,000 milliseconds or 1 seconds
+        /// The time in milliseconds to request the latest NHL live game feed, default value is 5,000 milliseconds or 5 seconds
         /// </summary>
-        public int PollTimeInMilliseconds { get; set; } = 1000;
+        public int PollTimeInMilliseconds { get; set; } = 5000;
 
         /// <summary>
         /// The number of attempts to request a NHL live game feed change, the default value is 1,000 attempts
