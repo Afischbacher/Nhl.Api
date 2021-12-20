@@ -465,7 +465,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(liveGameFeedResult.Configuration);
             Assert.AreEqual(false, liveGameFeedResult.Configuration.IsEnabled);
             Assert.AreEqual(1000, liveGameFeedResult.Configuration.MaxNumberOfAttempts);
-            Assert.AreEqual(1000, liveGameFeedResult.Configuration.PollTimeInMilliseconds);
+            Assert.AreEqual(5000, liveGameFeedResult.Configuration.PollTimeInMilliseconds);
 
         }
 
