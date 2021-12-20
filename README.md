@@ -118,7 +118,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetGameScheduleByDateAsync(year,month,day)](#M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32- 'Nhl.Api.NhlApi.GetGameScheduleByDateAsync(System.Int32,System.Int32,System.Int32)')
   - [GetGameScheduleForTeamByDateAsync(team,startDate,endDate)](#M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime- 'Nhl.Api.NhlApi.GetGameScheduleForTeamByDateAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateTime,System.DateTime)')
   - [GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate)](#M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime- 'Nhl.Api.NhlApi.GetGameScheduleForTeamByDateAsync(System.Int32,System.DateTime,System.DateTime)')
-  - [GetGameSchedulesBySeasonAsync(seasonYear,includePlayoffGames)](#M-Nhl-Api-NhlApi-GetGameSchedulesBySeasonAsync-System-String,System-Boolean- 'Nhl.Api.NhlApi.GetGameSchedulesBySeasonAsync(System.String,System.Boolean)')
+  - [GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames)](#M-Nhl-Api-NhlApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean- 'Nhl.Api.NhlApi.GetGameScheduleBySeasonAsync(System.String,System.Boolean)')
   - [GetGameStatusesAsync()](#M-Nhl-Api-NhlApi-GetGameStatusesAsync 'Nhl.Api.NhlApi.GetGameStatusesAsync')
   - [GetGameTypesAsync()](#M-Nhl-Api-NhlApi-GetGameTypesAsync 'Nhl.Api.NhlApi.GetGameTypesAsync')
   - [GetGoalieStatisticsBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetGoalieStatisticsBySeasonAsync(System.Int32,System.String)')
@@ -185,7 +185,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetGameScheduleByDateAsync(year,month,day)](#M-Nhl-Api-NhlGameApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32- 'Nhl.Api.NhlGameApi.GetGameScheduleByDateAsync(System.Int32,System.Int32,System.Int32)')
   - [GetGameScheduleForTeamByDateAsync(team,startDate,endDate)](#M-Nhl-Api-NhlGameApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime- 'Nhl.Api.NhlGameApi.GetGameScheduleForTeamByDateAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateTime,System.DateTime)')
   - [GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate)](#M-Nhl-Api-NhlGameApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime- 'Nhl.Api.NhlGameApi.GetGameScheduleForTeamByDateAsync(System.Int32,System.DateTime,System.DateTime)')
-  - [GetGameSchedulesBySeasonAsync(seasonYear,includePlayoffGames)](#M-Nhl-Api-NhlGameApi-GetGameSchedulesBySeasonAsync-System-String,System-Boolean- 'Nhl.Api.NhlGameApi.GetGameSchedulesBySeasonAsync(System.String,System.Boolean)')
+  - [GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames)](#M-Nhl-Api-NhlGameApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean- 'Nhl.Api.NhlGameApi.GetGameScheduleBySeasonAsync(System.String,System.Boolean)')
   - [GetGameStatusesAsync()](#M-Nhl-Api-NhlGameApi-GetGameStatusesAsync 'Nhl.Api.NhlGameApi.GetGameStatusesAsync')
   - [GetGameTypesAsync()](#M-Nhl-Api-NhlGameApi-GetGameTypesAsync 'Nhl.Api.NhlGameApi.GetGameTypesAsync')
   - [GetLineScoreByIdAsync(gameId)](#M-Nhl-Api-NhlGameApi-GetLineScoreByIdAsync-System-Int32- 'Nhl.Api.NhlGameApi.GetLineScoreByIdAsync(System.Int32)')
@@ -653,8 +653,8 @@ Returns all of the NHL team's game schedules based on the selected start and end
 | startDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The starting date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 2017-01-01 |
 | endDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The ending date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 1988-06-01 |
 
-<a name='M-Nhl-Api-NhlApi-GetGameSchedulesBySeasonAsync-System-String,System-Boolean-'></a>
-### GetGameSchedulesBySeasonAsync(seasonYear,includePlayoffGames) `method`
+<a name='M-Nhl-Api-NhlApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean-'></a>
+### GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames) `method`
 
 ##### Summary
 
@@ -1766,8 +1766,8 @@ Returns all of the NHL team's game schedules based on the selected start and end
 | startDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The starting date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 2017-01-01 |
 | endDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The ending date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 1988-06-01 |
 
-<a name='M-Nhl-Api-NhlGameApi-GetGameSchedulesBySeasonAsync-System-String,System-Boolean-'></a>
-### GetGameSchedulesBySeasonAsync(seasonYear,includePlayoffGames) `method`
+<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean-'></a>
+### GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames) `method`
 
 ##### Summary
 

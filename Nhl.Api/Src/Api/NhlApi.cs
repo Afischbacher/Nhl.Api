@@ -558,9 +558,9 @@ namespace Nhl.Api
         /// <param name="seasonYear">The NHL season year, Example: 19992000, see <see cref="SeasonYear"/> for more information</param>
         /// <param name="includePlayoffGames">Includes the NHL playoff games if set to true, default value is false</param>
         /// <returns>Returns all of the NHL team's game schedules based on the selected NHL season</returns>
-        public async Task<GameSchedule> GetGameSchedulesBySeasonAsync(string seasonYear, bool includePlayoffGames = false)
+        public async Task<GameSchedule> GetGameScheduleBySeasonAsync(string seasonYear, bool includePlayoffGames = false)
         {
-            return await _nhlGameApi.GetGameSchedulesBySeasonAsync(seasonYear, includePlayoffGames);
+            return await _nhlGameApi.GetGameScheduleBySeasonAsync(seasonYear, includePlayoffGames);
         }
 
         /// <summary>

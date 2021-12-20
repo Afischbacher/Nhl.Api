@@ -299,7 +299,7 @@ namespace Nhl.Api.Tests
             using INhlApi nhlApi = new NhlApi();
 
             // Act
-            var gameSchedule = await nhlApi.GetGameSchedulesBySeasonAsync(seasonYear, includePlayoffGames);
+            var gameSchedule = await nhlApi.GetGameScheduleBySeasonAsync(seasonYear, includePlayoffGames);
 
             // Assert
             Assert.IsNotNull(gameSchedule);
@@ -340,7 +340,7 @@ namespace Nhl.Api.Tests
             // Act / Assert
             await Assert.ThrowsExceptionAsync<ArgumentException>(async () =>
             {
-                var gameSchedule = await nhlApi.GetGameSchedulesBySeasonAsync("123456789");
+                var gameSchedule = await nhlApi.GetGameScheduleBySeasonAsync("123456789");
 
             });
             
@@ -355,7 +355,7 @@ namespace Nhl.Api.Tests
             // Act / Assert
             await Assert.ThrowsExceptionAsync<InvalidSeasonException>(async () =>
             {
-                var gameSchedule = await nhlApi.GetGameSchedulesBySeasonAsync("18991900");
+                var gameSchedule = await nhlApi.GetGameScheduleBySeasonAsync("18991900");
 
             });
         }
