@@ -121,7 +121,7 @@ namespace Nhl.Api.Services
         /// </summary>
         public void SetCorrectedRinkSideLiveGameFeed(LiveGameFeed liveGameFeed)
         {
-
+            
             // Ensure live game feed is valid
             var isValidLiveGameFeed = liveGameFeed != null
                 && liveGameFeed.LiveData != null
