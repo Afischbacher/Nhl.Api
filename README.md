@@ -87,8 +87,8 @@ included automatically within your .NET Core project.
 `var nhlLeagueApi = new NhlLeagueApi();`<br/>
 
 ## Documentation 📖
-Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 
+Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 
 ### Contents
 
