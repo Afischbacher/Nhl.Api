@@ -808,7 +808,7 @@ namespace Nhl.Api.Tests
             players = await nhlApi.GetAllPlayersAsync();
             stopWatch.Stop();
 
-            Assert.IsTrue(stopWatch.Elapsed.TotalSeconds < 5);
+            Assert.IsTrue(stopWatch.Elapsed.TotalSeconds < 10);
 
             // Assert
             Assert.IsNotNull(players);
