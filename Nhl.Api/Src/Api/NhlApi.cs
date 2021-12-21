@@ -575,6 +575,16 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns all of the individual shifts of each NHL player for a specific NHL game id
+        /// </summary>
+        /// <param name="gameId">The game id, Example: 2021020087</param>
+        /// <returns>A collection of all the NHL player game shifts for a specific game, including start and end times, on ice duration and more</returns>
+        public async Task<LiveGameFeedPlayerShifts> GetLiveGameFeedPlayerShiftsAsync(string gameId)
+        {
+            return await _nhlGameApi.GetLiveGameFeedPlayerShiftsAsync(gameId);
+        }
+
+        /// <summary>
         /// Returns the line score content for an NHL game
         /// </summary>
         /// <param name="gameId">The game id, Example: 2021020087</param>
