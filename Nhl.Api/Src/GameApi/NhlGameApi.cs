@@ -1,8 +1,9 @@
-﻿using Nhl.Api.Common.Http;
+﻿using Nhl.Api.Common.Exceptions;
+using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Season;
-
+using Nhl.Api.Services;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -15,6 +16,9 @@ namespace Nhl.Api
     public class NhlGameApi : INhlGameApi
     {
         private static readonly INhlApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
+        private static readonly INhlLeagueApi _nhlLeagueApi = new NhlLeagueApi();
+        private static readonly INhlGameService _nhlGameService = new NhlGameService();
+
 
         /// <summary>
         /// Returns the box score content for an NHL game
@@ -83,6 +87,37 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Return's the entire collection of NHL game schedules for the specified season
+        /// </summary>
+        /// <param name="seasonYear">The NHL season year, Example: 19992000, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="includePlayoffGames">Includes all of the NHL playoff games, default value is false</param>
+        /// <returns>Returns all of the NHL team's game schedules based on the selected NHL season</returns>
+        public async Task<GameSchedule> GetGameScheduleBySeasonAsync(string seasonYear, bool includePlayoffGames = false)
+        {
+            if (string.IsNullOrEmpty(seasonYear))
+            {
+                throw new ArgumentNullException(nameof(seasonYear));
+            }
+
+            if (seasonYear.Length > 8)
+            {
+                throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+            }
+
+            var selectedSeason = await _nhlLeagueApi.GetSeasonByYearAsync(seasonYear);
+            if (selectedSeason == null)
+            {
+                throw new InvalidSeasonException($"{seasonYear} is not a valid NHL season");
+            }
+
+            var startDate = selectedSeason.RegularSeasonStartDate;
+            var endDate = includePlayoffGames ? selectedSeason.SeasonEndDate : selectedSeason.RegularSeasonEndDate;
+
+            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>($"/schedule?&startDate={startDate:yyyy-MM-dd}&endDate={endDate:yyyy-MM-dd}");
+        }
+
+
+        /// <summary>
         /// Returns all of the valid NHL game statuses of an NHL game
         /// </summary>
         /// <returns>A collection of NHL game statues, see <see cref="GameStatus"/> for more information</returns>
@@ -113,14 +148,24 @@ namespace Nhl.Api
         /// <summary>
         /// Returns the live game feed content for an NHL game
         /// </summary>
-        /// <param name="liveGameFeedId">The live game feed id, Example: 2021020087</param>
+        /// <param name="gameId">The live game feed id, Example: 2021020087</param>
+        /// <param name="liveGameFeedConfiguration">The NHL live game feed event configuration settings for NHL live game feed updates</param>
         /// <returns>A detailed collection of information about play by play details, scores, teams, coaches, on ice statistics, real-time updates and more</returns>
-        public async Task<LiveGameFeedResult> GetLiveGameFeedByIdAsync(int liveGameFeedId)
+        public async Task<LiveGameFeedResult> GetLiveGameFeedByIdAsync(int gameId, LiveGameFeedConfiguration liveGameFeedConfiguration = null)
         {
-            var liveGameFeed = await _nhlStatsApiHttpClient.GetAsync<LiveGameFeed>($"/game/{liveGameFeedId}/feed/live");
+            var liveGameFeed = await _nhlStatsApiHttpClient.GetAsync<LiveGameFeed>($"/game/{gameId}/feed/live");
+
+            _nhlGameService.SetCorrectedRinkSideLiveGameFeed(liveGameFeed);
+            await _nhlGameService.SetActivePlayersOnIceForAllPlaysAsync(liveGameFeed);
+
+            if (liveGameFeedConfiguration == null)
+            {
+                liveGameFeedConfiguration = new LiveGameFeedConfiguration();
+            }
 
             return new LiveGameFeedResult
             {
+                Configuration = liveGameFeedConfiguration,
                 LiveGameFeed = liveGameFeed
             };
         }

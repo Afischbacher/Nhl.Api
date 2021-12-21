@@ -7,6 +7,7 @@ using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Team;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Models.Game
@@ -20,7 +21,7 @@ namespace Nhl.Api.Models.Game
     {
         public LiveGameFeedResult()
         {
-            Task.Run(async () => await RaiseOnLiveGameFeedChangeEvent());
+            Task.Run(async () => await RaiseOnLiveGameFeedChangeEvent(), LiveGameFeedEventCancellationTokenSource.Token);
         }
 
         /// <summary>
@@ -33,26 +34,64 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         public event OnLiveGameFeedChangeEventHandler OnLiveGameFeedChange;
 
-        private async Task RaiseOnLiveGameFeedChangeEvent()
+        /// <summary>
+        /// Enables configuration of the NHL live game feed event handler, including poll time and number of attempts
+        /// </summary>
+        public LiveGameFeedConfiguration Configuration { get; set; } = new LiveGameFeedConfiguration();
+
+        /// <summary>
+        /// The cancellation token source for the NHL live game feed event to stop the NHL live game feed event from sending updates
+        /// </summary>
+        private CancellationTokenSource LiveGameFeedEventCancellationTokenSource { get; set; } = new CancellationTokenSource();
+
+        /// <summary>
+        /// Cancel's and stops any of the NHL live game feed change event updates immediately or with a time delay in milliseconds
+        /// </summary>
+        /// <param name="delayTimeInMilliseconds">The time to delay the NHL live game feed, the default value is 0, thus canceling it immediately</param>
+        public void CancelOnLiveGameFeedChange(int delayTimeInMilliseconds = 0)
         {
+            try
+            {
+                if (delayTimeInMilliseconds > 0)
+                {
+                    LiveGameFeedEventCancellationTokenSource.CancelAfter(millisecondsDelay: delayTimeInMilliseconds);
+                }
+                else
+                {
+                    LiveGameFeedEventCancellationTokenSource.Cancel();
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private async Task<bool> RaiseOnLiveGameFeedChangeEvent()
+        {
+            // If not enabled do not send live game events
+            if (!Configuration.IsEnabled)
+            {
+                return false;
+            }
+
             var nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
             var numberOfAttempts = 0;
-            var maxNumberOfAttempts = 10000;
-            var waitInMsPerRequest = 250;
+            var maxNumberOfAttempts = Configuration.MaxNumberOfAttempts;
+            var waitInMsPerRequest = Configuration.PollTimeInMilliseconds;
 
             var endpoint = LiveGameFeed?.Link?.Replace("/api/v1", string.Empty) ?? null;
             if (string.IsNullOrWhiteSpace(endpoint))
             {
-                return;
+                return false;
             }
 
             var timestamp = LiveGameFeed?.MetaData?.TimeStamp ?? null;
             if (string.IsNullOrWhiteSpace(timestamp))
             {
-                return;
+                return false;
             }
 
-            while (true)
+            while (numberOfAttempts >= maxNumberOfAttempts)
             {
                 await Task.Delay(waitInMsPerRequest);
 
@@ -62,9 +101,9 @@ namespace Nhl.Api.Models.Game
                     break;
                 }
 
-                // If game is completed, stop sending events or the number of attempts exceeds 41.6 minutes of attempts
+                // If game is completed, stop sending events or the number of attempts exceeds attempts
                 var isLiveGameFeedCompleted = (liveGameFeed?.GameData?.Status?.AbstractGameState == "Final"
-                    || liveGameFeed?.GameData?.Status?.CodedGameState == "7") || (numberOfAttempts >= maxNumberOfAttempts);
+                    || liveGameFeed?.GameData?.Status?.CodedGameState == "7");
                 if (isLiveGameFeedCompleted)
                 {
                     break;
@@ -89,6 +128,7 @@ namespace Nhl.Api.Models.Game
                 numberOfAttempts++;
             }
 
+            return true;
 
             long ParseTimeStamp(string timeStamp)
             {
@@ -105,6 +145,27 @@ namespace Nhl.Api.Models.Game
         /// The NHL live game feed
         /// </summary>
         public LiveGameFeed LiveGameFeed { get; set; }
+    }
+
+    /// <summary>
+    /// The NHL live game feed configuration for the NHL live game feed
+    /// </summary>
+    public class LiveGameFeedConfiguration
+    {
+        /// <summary>
+        /// Sets the NHL live game feed to be enabled or disabled the NHL live game feed event, default is false
+        /// </summary>
+        public bool IsEnabled { get; set; } = false;
+
+        /// <summary>
+        /// The time in milliseconds to request the latest NHL live game feed, default value is 5,000 milliseconds or 5 seconds
+        /// </summary>
+        public int PollTimeInMilliseconds { get; set; } = 5000;
+
+        /// <summary>
+        /// The number of attempts to request a NHL live game feed change, the default value is 1,000 attempts
+        /// </summary>
+        public int MaxNumberOfAttempts { get; set; } = 1000;
     }
 
     public class LiveGameFeed
@@ -1336,7 +1397,23 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("team")]
         public TeamInformation Team { get; set; }
+
+        public PlayersOnIce ActivePlayersOnIce { get; set; }
     }
+
+    public class PlayersOnIce
+    {
+        /// <summary>
+        /// A collection of NHL player identifiers for the home team
+        /// </summary>
+        public List<int> HomeTeam { get; set; }
+
+        /// <summary>
+        /// A collection of NHL player identifiers for the away team
+        /// </summary>
+        public List<int> AwayTeam { get; set; }
+    }
+
 
     public class LiveGameFeedAllPlayPlayer
     {
@@ -1637,6 +1714,13 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("rinkSide")]
         public string RinkSide { get; set; }
+
+        /// <summary>
+        /// Returns the adjusted and correct side of the rink for the NHL live game feed team, due to data discrepancies, <br/>
+        /// there are cases when the NHL API incorrectly marks the left and right sides of the rink for some matches within each period <br/>
+        /// Example: left/right
+        /// </summary>
+        public string CorrectedRinkSide { get; set; }
     }
 
     public class LiveGameFeedLineScorePeriodHomeTeam : LiveGameFeedLineScorePeriodTeam
@@ -2290,7 +2374,7 @@ namespace Nhl.Api.Models.Game
         /// Returns the a key value collection of all the NHL live game feed player box score profiles
         /// </summary>
         [JsonProperty("players")]
-        public Dictionary<string, LiveGameFeedBoxscorePlayer> Player { get; set; }
+        public Dictionary<string, LiveGameFeedBoxscorePlayer> Players { get; set; }
 
         /// <summary>
         /// Returns the NHL player id's for goalies <br/>

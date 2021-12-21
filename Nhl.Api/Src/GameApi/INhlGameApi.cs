@@ -88,8 +88,9 @@ namespace Nhl.Api
         /// Returns the live game feed content for an NHL game
         /// </summary>
         /// <param name="gameId">The live game feed id, Example: 2021020087</param>
+        /// <param name="liveGameFeedConfiguration">The NHL live game feed configuration settings for NHL live game feed updates</param>
         /// <returns>A detailed collection of information about play by play details, scores, teams, coaches, on ice statistics, real-time updates and more</returns>
-        Task<LiveGameFeedResult> GetLiveGameFeedByIdAsync(int gameId);
+        Task<LiveGameFeedResult> GetLiveGameFeedByIdAsync(int gameId, LiveGameFeedConfiguration liveGameFeedConfiguration = null);
 
         /// <summary>
         /// Returns the line score content for an NHL game
@@ -104,5 +105,13 @@ namespace Nhl.Api
         /// <param name="gameId">The game id, Example: 2021020087</param>
         /// <returns>Returns information about the current score, penalties, players, team statistics and more</returns>
         Task<Boxscore> GetBoxScoreByIdAsync(int gameId);
+
+        /// <summary>
+        /// Return's the entire collection of NHL game schedules for the specified season
+        /// </summary>
+        /// <param name="seasonYear">The NHL season year, Example: 19992000, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="includePlayoffGames">Includes the NHL playoff games if set to true, default value is false</param>
+        /// <returns>Returns all of the NHL team's game schedules based on the selected NHL season</returns>
+        Task<GameSchedule> GetGameScheduleBySeasonAsync(string seasonYear, bool includePlayoffGames = false);
     }
 }

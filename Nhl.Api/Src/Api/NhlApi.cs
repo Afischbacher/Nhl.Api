@@ -24,7 +24,6 @@ using Nhl.Api.Models.Enumerations.Venue;
 using Nhl.Api.Models.Enumerations.Franchise;
 using Nhl.Api.Models.Enumerations.Prospect;
 
-
 namespace Nhl.Api
 {
     /// <summary>
@@ -432,6 +431,28 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns the player with the top NHL player statistic based on the selected season year
+        /// </summary>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
+        /// <returns>Returns the player profile with the top player statistic in the specified NHL season</returns>
+        public async Task<PlayerStatisticResult> GetPlayerWithTopStatisticBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear)
+        {
+            return await _nhlStatisticsApi.GetPlayerWithTopStatisticBySeasonAsync(playerStatisticEnum, seasonYear);
+        }
+
+        /// <summary>
+        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
+        /// </summary>
+        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
+        public async Task<GoalieStatisticResult> GetGoalieWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear)
+        {
+            return await _nhlStatisticsApi.GetGoalieWithTopStatisticBySeasonAsync(goalieStatisticEnum, seasonYear);
+        }
+
+        /// <summary>
         /// Returns all of the NHL game types within a season and within special events
         /// </summary>
         /// <returns>A collection of NHL and other sporting event game types, see <see cref="GameType"/> for more information </returns>
@@ -532,13 +553,25 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Return's the entire collection of NHL game schedules for the specified season
+        /// </summary>
+        /// <param name="seasonYear">The NHL season year, Example: 19992000, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="includePlayoffGames">Includes the NHL playoff games if set to true, default value is false</param>
+        /// <returns>Returns all of the NHL team's game schedules based on the selected NHL season</returns>
+        public async Task<GameSchedule> GetGameScheduleBySeasonAsync(string seasonYear, bool includePlayoffGames = false)
+        {
+            return await _nhlGameApi.GetGameScheduleBySeasonAsync(seasonYear, includePlayoffGames);
+        }
+
+        /// <summary>
         /// Returns the live game feed content for an NHL game
         /// </summary>
-        /// <param name="gameId">The game id, Example: 2021020087</param>
+        /// <param name="gameId">The live game feed id, Example: 2021020087</param>
+        /// <param name="liveGameFeedConfiguration">The NHL live game feed configuration settings for NHL live game feed updates</param>
         /// <returns>A detailed collection of information about play by play details, scores, teams, coaches, on ice statistics, real-time updates and more</returns>
-        public async Task<LiveGameFeedResult> GetLiveGameFeedByIdAsync(int gameId)
+        public async Task<LiveGameFeedResult> GetLiveGameFeedByIdAsync(int gameId, LiveGameFeedConfiguration liveGameFeedConfiguration = null)
         {
-            return await _nhlGameApi.GetLiveGameFeedByIdAsync(gameId);
+            return await _nhlGameApi.GetLiveGameFeedByIdAsync(gameId, liveGameFeedConfiguration);
         }
 
         /// <summary>
