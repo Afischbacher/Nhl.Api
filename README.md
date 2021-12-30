@@ -90,7 +90,6 @@ included automatically within your .NET Core project.
 
 Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 ### Contents
-
 - [NhlApi](#T-Nhl-Api-NhlApi 'Nhl.Api.NhlApi')
   - [Dispose()](#M-Nhl-Api-NhlApi-Dispose 'Nhl.Api.NhlApi.Dispose')
   - [GetActiveFranchisesAsync()](#M-Nhl-Api-NhlApi-GetActiveFranchisesAsync 'Nhl.Api.NhlApi.GetActiveFranchisesAsync')
@@ -143,7 +142,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetLeagueVenuesAsync()](#M-Nhl-Api-NhlApi-GetLeagueVenuesAsync 'Nhl.Api.NhlApi.GetLeagueVenuesAsync')
   - [GetLineScoreByIdAsync(gameId)](#M-Nhl-Api-NhlApi-GetLineScoreByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetLineScoreByIdAsync(System.Int32)')
   - [GetLiveGameFeedByIdAsync(gameId,liveGameFeedConfiguration)](#M-Nhl-Api-NhlApi-GetLiveGameFeedByIdAsync-System-Int32,Nhl-Api-Models-Game-LiveGameFeedConfiguration- 'Nhl.Api.NhlApi.GetLiveGameFeedByIdAsync(System.Int32,Nhl.Api.Models.Game.LiveGameFeedConfiguration)')
-  - [GetLiveGameFeedPlayerShiftsAsync(gameId)](#M-Nhl-Api-NhlApi-GetLiveGameFeedPlayerShiftsAsync-System-String- 'Nhl.Api.NhlApi.GetLiveGameFeedPlayerShiftsAsync(System.String)')
+  - [GetLiveGameFeedPlayerShiftsAsync(gameId)](#M-Nhl-Api-NhlApi-GetLiveGameFeedPlayerShiftsAsync-System-Int32- 'Nhl.Api.NhlApi.GetLiveGameFeedPlayerShiftsAsync(System.Int32)')
   - [GetOnPaceRegularSeasonPlayerStatisticsAsync(player)](#M-Nhl-Api-NhlApi-GetOnPaceRegularSeasonPlayerStatisticsAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum- 'Nhl.Api.NhlApi.GetOnPaceRegularSeasonPlayerStatisticsAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum)')
   - [GetOnPaceRegularSeasonPlayerStatisticsAsync(playerId)](#M-Nhl-Api-NhlApi-GetOnPaceRegularSeasonPlayerStatisticsAsync-System-Int32- 'Nhl.Api.NhlApi.GetOnPaceRegularSeasonPlayerStatisticsAsync(System.Int32)')
   - [GetPlayTypesAsync()](#M-Nhl-Api-NhlApi-GetPlayTypesAsync 'Nhl.Api.NhlApi.GetPlayTypesAsync')
@@ -188,7 +187,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetGameTypesAsync()](#M-Nhl-Api-NhlGameApi-GetGameTypesAsync 'Nhl.Api.NhlGameApi.GetGameTypesAsync')
   - [GetLineScoreByIdAsync(gameId)](#M-Nhl-Api-NhlGameApi-GetLineScoreByIdAsync-System-Int32- 'Nhl.Api.NhlGameApi.GetLineScoreByIdAsync(System.Int32)')
   - [GetLiveGameFeedByIdAsync(gameId,liveGameFeedConfiguration)](#M-Nhl-Api-NhlGameApi-GetLiveGameFeedByIdAsync-System-Int32,Nhl-Api-Models-Game-LiveGameFeedConfiguration- 'Nhl.Api.NhlGameApi.GetLiveGameFeedByIdAsync(System.Int32,Nhl.Api.Models.Game.LiveGameFeedConfiguration)')
-  - [GetLiveGameFeedPlayerShiftsAsync(gameId)](#M-Nhl-Api-NhlGameApi-GetLiveGameFeedPlayerShiftsAsync-System-String- 'Nhl.Api.NhlGameApi.GetLiveGameFeedPlayerShiftsAsync(System.String)')
+  - [GetLiveGameFeedPlayerShiftsAsync(gameId)](#M-Nhl-Api-NhlGameApi-GetLiveGameFeedPlayerShiftsAsync-System-Int32- 'Nhl.Api.NhlGameApi.GetLiveGameFeedPlayerShiftsAsync(System.Int32)')
   - [GetPlayTypesAsync()](#M-Nhl-Api-NhlGameApi-GetPlayTypesAsync 'Nhl.Api.NhlGameApi.GetPlayTypesAsync')
   - [GetPlayoffTournamentTypesAsync()](#M-Nhl-Api-NhlGameApi-GetPlayoffTournamentTypesAsync 'Nhl.Api.NhlGameApi.GetPlayoffTournamentTypesAsync')
   - [GetTournamentTypesAsync()](#M-Nhl-Api-NhlGameApi-GetTournamentTypesAsync 'Nhl.Api.NhlGameApi.GetTournamentTypesAsync')
@@ -1112,7 +1111,7 @@ A detailed collection of information about play by play details, scores, teams, 
 | gameId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The live game feed id, Example: 2021020087 |
 | liveGameFeedConfiguration | [Nhl.Api.Models.Game.LiveGameFeedConfiguration](#T-Nhl-Api-Models-Game-LiveGameFeedConfiguration 'Nhl.Api.Models.Game.LiveGameFeedConfiguration') | The NHL live game feed configuration settings for NHL live game feed updates |
 
-<a name='M-Nhl-Api-NhlApi-GetLiveGameFeedPlayerShiftsAsync-System-String-'></a>
+<a name='M-Nhl-Api-NhlApi-GetLiveGameFeedPlayerShiftsAsync-System-Int32-'></a>
 ### GetLiveGameFeedPlayerShiftsAsync(gameId) `method`
 
 ##### Summary
@@ -1127,7 +1126,7 @@ A collection of all the NHL player game shifts for a specific game, including st
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| gameId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The game id, Example: 2021020087 |
+| gameId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The game id, Example: 2021020087 |
 
 <a name='M-Nhl-Api-NhlApi-GetOnPaceRegularSeasonPlayerStatisticsAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum-'></a>
 ### GetOnPaceRegularSeasonPlayerStatisticsAsync(player) `method`
@@ -1865,7 +1864,7 @@ A detailed collection of information about play by play details, scores, teams, 
 | gameId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The live game feed id, Example: 2021020087 |
 | liveGameFeedConfiguration | [Nhl.Api.Models.Game.LiveGameFeedConfiguration](#T-Nhl-Api-Models-Game-LiveGameFeedConfiguration 'Nhl.Api.Models.Game.LiveGameFeedConfiguration') | The NHL live game feed event configuration settings for NHL live game feed updates |
 
-<a name='M-Nhl-Api-NhlGameApi-GetLiveGameFeedPlayerShiftsAsync-System-String-'></a>
+<a name='M-Nhl-Api-NhlGameApi-GetLiveGameFeedPlayerShiftsAsync-System-Int32-'></a>
 ### GetLiveGameFeedPlayerShiftsAsync(gameId) `method`
 
 ##### Summary
@@ -1880,7 +1879,7 @@ A collection of all the NHL player game shifts for a specific game, including st
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| gameId | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The game id, Example: 2021020087 |
+| gameId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The game id, Example: 2021020087 |
 
 <a name='M-Nhl-Api-NhlGameApi-GetPlayTypesAsync'></a>
 ### GetPlayTypesAsync() `method`
