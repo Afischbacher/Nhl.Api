@@ -3,6 +3,7 @@ using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
+using Polly;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -786,64 +787,70 @@ namespace Nhl.Api.Tests
         }
 
         [TestMethod]
-        public async Task TestGetAllPlayersAsync()
+        public void TestGetAllPlayersAsync()
         {
-            // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            Policy
+                .Handle<Exception>()
+                .WaitAndRetryAsync(3, (attempt) => TimeSpan.FromSeconds(attempt * 5),
+                 async (exception, timeSpan) =>
+                {
+                    // Arrange
+                    using INhlApi nhlApi = new NhlApi();
 
-            var stopWatch = new Stopwatch();
+                    var stopWatch = new Stopwatch();
 
-            stopWatch.Start();
-            // Act
-            var players = await nhlApi.GetAllPlayersAsync();
+                    stopWatch.Start();
+                    // Act
+                    var players = await nhlApi.GetAllPlayersAsync();
 
-            stopWatch.Stop();
+                    stopWatch.Stop();
 
-            Assert.IsTrue(stopWatch.Elapsed.TotalSeconds < 60);
+                    Assert.IsTrue(stopWatch.Elapsed.TotalSeconds < 60);
 
-            stopWatch.Reset();
-            stopWatch.Start();
+                    stopWatch.Reset();
+                    stopWatch.Start();
 
-            // Calling again to ensure caching is enabled
-            players = await nhlApi.GetAllPlayersAsync();
-            stopWatch.Stop();
+                    // Calling again to ensure caching is enabled
+                    players = await nhlApi.GetAllPlayersAsync();
+                    stopWatch.Stop();
 
-            Assert.IsTrue(stopWatch.Elapsed.TotalSeconds < 10);
+                    Assert.IsTrue(stopWatch.Elapsed.TotalSeconds < 10);
 
-            // Assert
-            Assert.IsNotNull(players);
-            CollectionAssert.AllItemsAreUnique(players);
-            Assert.IsTrue(players.Any());
-            Assert.IsTrue(players.Count() > 21000);
+                    // Assert
+                    Assert.IsNotNull(players);
+                    CollectionAssert.AllItemsAreUnique(players);
+                    Assert.IsTrue(players.Any());
+                    Assert.IsTrue(players.Count() > 21000);
 
-            var lastPlayer = players.Last();
+                    var lastPlayer = players.Last();
 
-            Assert.IsNotNull(lastPlayer);
+                    Assert.IsNotNull(lastPlayer);
 
-            Assert.IsNotNull(lastPlayer.Active);
-            Assert.IsNotNull(lastPlayer.AlternateCaptain);
-            Assert.IsNotNull(lastPlayer.BirthCountry);
-            Assert.IsNotNull(lastPlayer.BirthCity);
+                    Assert.IsNotNull(lastPlayer.Active);
+                    Assert.IsNotNull(lastPlayer.AlternateCaptain);
+                    Assert.IsNotNull(lastPlayer.BirthCountry);
+                    Assert.IsNotNull(lastPlayer.BirthCity);
 
-            Assert.IsNotNull(lastPlayer.BirthDate);
-            Assert.IsNotNull(lastPlayer.Captain);
-            Assert.IsNotNull(lastPlayer.CurrentAge);
+                    Assert.IsNotNull(lastPlayer.BirthDate);
+                    Assert.IsNotNull(lastPlayer.Captain);
+                    Assert.IsNotNull(lastPlayer.CurrentAge);
 
-            Assert.IsNotNull(lastPlayer.FirstName);
-            Assert.IsNotNull(lastPlayer.LastName);
-            Assert.IsNotNull(lastPlayer.FullName);
-            Assert.IsNotNull(lastPlayer.Height);
-            Assert.IsNotNull(lastPlayer.ShootsCatches);
-            Assert.IsNotNull(lastPlayer.RosterStatus);
-            Assert.IsNotNull(lastPlayer.Weight);
-            Assert.IsNotNull(lastPlayer.Rookie);
-            Assert.IsNotNull(lastPlayer.Nationality);
-            Assert.IsNotNull(lastPlayer.Id);
-            Assert.IsNotNull(lastPlayer.Link);
-            Assert.IsNotNull(lastPlayer.PlayerHeadshotImageLink);
-            Assert.IsNotNull(lastPlayer.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Small));
-            Assert.IsNotNull(lastPlayer.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Medium));
-            Assert.IsNotNull(lastPlayer.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large));
+                    Assert.IsNotNull(lastPlayer.FirstName);
+                    Assert.IsNotNull(lastPlayer.LastName);
+                    Assert.IsNotNull(lastPlayer.FullName);
+                    Assert.IsNotNull(lastPlayer.Height);
+                    Assert.IsNotNull(lastPlayer.ShootsCatches);
+                    Assert.IsNotNull(lastPlayer.RosterStatus);
+                    Assert.IsNotNull(lastPlayer.Weight);
+                    Assert.IsNotNull(lastPlayer.Rookie);
+                    Assert.IsNotNull(lastPlayer.Nationality);
+                    Assert.IsNotNull(lastPlayer.Id);
+                    Assert.IsNotNull(lastPlayer.Link);
+                    Assert.IsNotNull(lastPlayer.PlayerHeadshotImageLink);
+                    Assert.IsNotNull(lastPlayer.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Small));
+                    Assert.IsNotNull(lastPlayer.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Medium));
+                    Assert.IsNotNull(lastPlayer.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large));
+                });
         }
     }
 }

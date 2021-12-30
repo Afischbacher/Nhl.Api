@@ -647,8 +647,6 @@ namespace Nhl.Api.Tests
 
         }
 
-        //[DataRow(2010020005)]
-        //[DataRow(2010020006)]
         [DataRow(2010020008)]
         [DataRow(2010020011)]
         [DataRow(2010020012)]
