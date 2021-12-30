@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Venue
-{
+{    /// <summary>
+     /// A collection of NHL venues
+     /// </summary>
     public class LeagueVenues
     {
         /// <summary>

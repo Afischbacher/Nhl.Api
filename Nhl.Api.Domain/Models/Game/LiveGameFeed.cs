@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 
 namespace Nhl.Api.Models.Game
 {
+    /// <summary>
+    /// The delegate for the NHL Live Game Feed Updates
+    /// </summary>
     public delegate void OnLiveGameFeedChangeEventHandler(object sender, LiveGameFeedEventArgs e);
 
     /// <summary>
@@ -19,6 +22,9 @@ namespace Nhl.Api.Models.Game
     /// </summary>
     public class LiveGameFeedResult
     {
+        /// <summary>
+        /// The NHL live game feed result, includes various statistics, scores, players, goalies, game updates and more
+        /// </summary>
         public LiveGameFeedResult()
         {
             Task.Run(async () => await RaiseOnLiveGameFeedChangeEvent(), LiveGameFeedEventCancellationTokenSource.Token);
@@ -139,6 +145,9 @@ namespace Nhl.Api.Models.Game
         }
     }
 
+    /// <summary>
+    /// Live Game Feed Event Args
+    /// </summary>
     public class LiveGameFeedEventArgs : EventArgs
     {
         /// <summary>
@@ -168,6 +177,9 @@ namespace Nhl.Api.Models.Game
         public int MaxNumberOfAttempts { get; set; } = 1000;
     }
 
+    /// <summary>
+    /// Live Game Feed
+    /// </summary>
     public class LiveGameFeed
     {
         /// <summary>
@@ -203,6 +215,9 @@ namespace Nhl.Api.Models.Game
         public LiveData LiveData { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Meta Data
+    /// </summary>
     public class LiveGameFeedMetaData
     {
         /// <summary>
@@ -219,6 +234,9 @@ namespace Nhl.Api.Models.Game
         [JsonProperty("timeStamp")]
         public string TimeStamp { get; set; }
 
+        /// <summary>
+        /// The DateTimeOffset time stamp 
+        /// </summary>
         public DateTimeOffset? TimeStampAsDateTimeOffset
         {
             get
@@ -228,6 +246,10 @@ namespace Nhl.Api.Models.Game
         }
     }
 
+
+    /// <summary>
+    /// Live Game Feed Game
+    /// </summary>
     public class LiveGameFeedGame
     {
 
@@ -253,6 +275,9 @@ namespace Nhl.Api.Models.Game
         public string Type { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Date Time
+    /// </summary>
     public class LiveGameFeedDatetime
     {
         /// <summary>
@@ -270,6 +295,9 @@ namespace Nhl.Api.Models.Game
         public DateTime EndDateTime { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Status
+    /// </summary>
     public class LiveGameFeedStatus
     {
         /// <summary>
@@ -308,16 +336,25 @@ namespace Nhl.Api.Models.Game
         public bool StartTimeTBD { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Away Team
+    /// </summary>
     public class LiveGameFeedAwayTeam : LiveGameFeedTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Home Team
+    /// </summary>
     public class LiveGameFeedHomeTeam : LiveGameFeedTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Team
+    /// </summary>
     public abstract class LiveGameFeedTeam
     {
         /// <summary>
@@ -550,6 +587,9 @@ namespace Nhl.Api.Models.Game
         public List<Coach> Coaches { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Game Data Teams
+    /// </summary>
     public class LiveGameFeedGameDataTeams
     {
         /// <summary>
@@ -565,6 +605,9 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedGameDataAwayTeam Away { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Game Data Team
+    /// </summary>
     public abstract class LiveGameFeedGameDataTeam
     {
         /// <summary>
@@ -677,16 +720,25 @@ namespace Nhl.Api.Models.Game
         public bool Active { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Game Data Home Team
+    /// </summary>
     public class LiveGameFeedGameDataHomeTeam : LiveGameFeedGameDataTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Game Data Away Team
+    /// </summary>
     public class LiveGameFeedGameDataAwayTeam : LiveGameFeedGameDataTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Teams
+    /// </summary>
     public class LiveGameFeedTeams
     {
         /// <summary>
@@ -702,6 +754,9 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedHomeTeam Home { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Player
+    /// </summary>
     public class LiveGameFeedPlayer
     {
         /// <summary>
@@ -930,6 +985,9 @@ namespace Nhl.Api.Models.Game
         }
     }
 
+    /// <summary>
+    /// Game Data
+    /// </summary>
     public class GameData
     {
         /// <summary>
@@ -969,6 +1027,9 @@ namespace Nhl.Api.Models.Game
         public Venue.Venue Venue { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Game Data Player
+    /// </summary>
     public class LiveGameFeedGameDataPlayer
     {
 
@@ -1179,6 +1240,9 @@ namespace Nhl.Api.Models.Game
         }
     }
 
+    /// <summary>
+    /// Strength
+    /// </summary>
     public class Strength
     {
         /// <summary>
@@ -1196,6 +1260,9 @@ namespace Nhl.Api.Models.Game
         public string Name { get; set; }
     }
 
+    /// <summary>
+    /// Result
+    /// </summary>
     public class Result
     {
         /// <summary>
@@ -1266,6 +1333,9 @@ namespace Nhl.Api.Models.Game
         public int? PenaltyMinutes { get; set; }
     }
 
+    /// <summary>
+    /// Goals
+    /// </summary>
     public class Goals
     {
         /// <summary>
@@ -1283,6 +1353,9 @@ namespace Nhl.Api.Models.Game
         public int Home { get; set; }
     }
 
+    /// <summary>
+    /// About
+    /// </summary>
     public class About
     {
         /// <summary>
@@ -1349,6 +1422,9 @@ namespace Nhl.Api.Models.Game
         public Goals Goals { get; set; }
     }
 
+    /// <summary>
+    /// Coordinates
+    /// </summary>
     public class Coordinates
     {
         /// <summary>
@@ -1366,6 +1442,9 @@ namespace Nhl.Api.Models.Game
         public double? Y { get; set; }
     }
 
+    /// <summary>
+    /// All Play
+    /// </summary>
     public class AllPlay
     {
         /// <summary>
@@ -1398,9 +1477,15 @@ namespace Nhl.Api.Models.Game
         [JsonProperty("team")]
         public TeamInformation Team { get; set; }
 
+        /// <summary>
+        /// Returns all of the active NHL players on the ice at the time of play for both Home and Away Teams
+        /// </summary>
         public PlayersOnIce ActivePlayersOnIce { get; set; }
     }
 
+    /// <summary>
+    /// Players On Ice
+    /// </summary>
     public class PlayersOnIce
     {
         /// <summary>
@@ -1414,7 +1499,9 @@ namespace Nhl.Api.Models.Game
         public List<int> AwayTeam { get; set; }
     }
 
-
+    /// <summary>
+    /// Live Game Feed All Play Player
+    /// </summary>
     public class LiveGameFeedAllPlayPlayer
     {
         /// <summary>
@@ -1431,6 +1518,9 @@ namespace Nhl.Api.Models.Game
         public string PlayerType { get; set; }
     }
 
+    /// <summary>
+    /// Plays By Period
+    /// </summary>
     public class PlaysByPeriod
     {
         /// <summary>
@@ -1454,6 +1544,9 @@ namespace Nhl.Api.Models.Game
         public int EndIndex { get; set; }
     }
 
+    /// <summary>
+    /// Current Play
+    /// </summary>
     public class CurrentPlay
     {
         /// <summary>
@@ -1475,6 +1568,9 @@ namespace Nhl.Api.Models.Game
         public Coordinates Coordinates { get; set; }
     }
 
+    /// <summary>
+    /// Plays
+    /// </summary>
     public class Plays
     {
         /// <summary>
@@ -1511,6 +1607,9 @@ namespace Nhl.Api.Models.Game
         public CurrentPlay CurrentPlay { get; set; }
     }
 
+    /// <summary>
+    /// Period
+    /// </summary>
     public class Period
     {
         /// <summary>
@@ -1563,6 +1662,10 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedLineScorePeriodAwayTeam Away { get; set; }
     }
 
+
+    /// <summary>
+    /// Shootout Info
+    /// </summary>
     public class ShootoutInfo
     {
         /// <summary>
@@ -1578,6 +1681,10 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedShootoutInfoHomeTeam Home { get; set; }
     }
 
+
+    /// <summary>
+    /// Intermission Info
+    /// </summary>
     public class IntermissionInfo
     {
         /// <summary>
@@ -1601,6 +1708,10 @@ namespace Nhl.Api.Models.Game
         public bool InIntermission { get; set; }
     }
 
+
+    /// <summary>
+    /// Power Play Info
+    /// </summary>
     public class PowerPlayInfo
     {
 
@@ -1625,6 +1736,9 @@ namespace Nhl.Api.Models.Game
         public bool InSituation { get; set; }
     }
 
+    /// <summary>
+    /// Linescore
+    /// </summary>
     public class Linescore
     {
         /// <summary>
@@ -1692,6 +1806,10 @@ namespace Nhl.Api.Models.Game
         public PowerPlayInfo PowerPlayInfo { get; set; }
     }
 
+
+    /// <summary>
+    /// Live Game Feed Line Score Period Team
+    /// </summary>
     public abstract class LiveGameFeedLineScorePeriodTeam
     {
         /// <summary>
@@ -1723,16 +1841,25 @@ namespace Nhl.Api.Models.Game
         public string CorrectedRinkSide { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Line Score Period Home Team
+    /// </summary>
     public class LiveGameFeedLineScorePeriodHomeTeam : LiveGameFeedLineScorePeriodTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Line Score Period Away Team
+    /// </summary>
     public class LiveGameFeedLineScorePeriodAwayTeam : LiveGameFeedLineScorePeriodTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Line Score Period Teams
+    /// </summary>
     public class LiveGameFeedLineScorePeriodTeams
     {
         /// <summary>
@@ -1748,6 +1875,9 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedLineScorePeriodAwayTeam Away { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Line Score Team
+    /// </summary>
     public abstract class LiveGameFeedLineScoreTeam
     {
         /// <summary>
@@ -1790,16 +1920,26 @@ namespace Nhl.Api.Models.Game
         public bool PowerPlay { get; set; }
     }
 
+
+    /// <summary>
+    /// Live Game Feed Line Score Home Team
+    /// </summary>
     public class LiveGameFeedLineScoreHomeTeam : LiveGameFeedLineScoreTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Line Score Away Team
+    /// </summary>
     public class LiveGameFeedLineScoreAwayTeam : LiveGameFeedLineScoreTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Line Score Teams
+    /// </summary>
     public class LiveGameFeedLineScoreTeams
     {
         /// <summary>
@@ -1815,6 +1955,9 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedLineScoreAwayTeam Away { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Shootout Info Team
+    /// </summary>
     public abstract class LiveGameFeedShootoutInfoTeam
     {
         /// <summary>
@@ -1830,16 +1973,25 @@ namespace Nhl.Api.Models.Game
         public int Attempts { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Shootout Info Home Team
+    /// </summary>
     public class LiveGameFeedShootoutInfoHomeTeam : LiveGameFeedShootoutInfoTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Shootout Info Away Team
+    /// </summary>
     public class LiveGameFeedShootoutInfoAwayTeam : LiveGameFeedShootoutInfoTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Shootout Info Teams
+    /// </summary>
     public class LiveGameFeedShootoutInfoTeams
     {
         /// <summary>
@@ -1855,6 +2007,9 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedShootoutInfoAwayTeam Away { get; set; }
     }
 
+    /// <summary>
+    /// Team Skater Stats
+    /// </summary>
     public class TeamSkaterStats
     {
         /// <summary>
@@ -1935,6 +2090,9 @@ namespace Nhl.Api.Models.Game
         public int Hits { get; set; }
     }
 
+    /// <summary>
+    /// Team Statistics
+    /// </summary>
     public class TeamStats
     {
         /// <summary>
@@ -1944,6 +2102,9 @@ namespace Nhl.Api.Models.Game
         public TeamSkaterStats TeamSkaterStats { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Person
+    /// </summary>
     public class LiveGameFeedPerson
     {
         /// <summary>
@@ -1982,6 +2143,9 @@ namespace Nhl.Api.Models.Game
         public string RosterStatus { get; set; }
     }
 
+    /// <summary>
+    /// Skaters Statistics
+    /// </summary>
     public class SkaterStats
     {
         /// <summary>
@@ -2125,6 +2289,9 @@ namespace Nhl.Api.Models.Game
         public double FaceOffPct { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Statistics
+    /// </summary>
     public class LiveGameFeedStats
     {
         /// <summary>
@@ -2140,6 +2307,10 @@ namespace Nhl.Api.Models.Game
         public GoalieStats GoalieStats { get; set; }
     }
 
+
+    /// <summary>
+    /// Goalie Stats
+    /// </summary>
     public class GoalieStats
     {
         /// <summary>
@@ -2262,6 +2433,9 @@ namespace Nhl.Api.Models.Game
         public double ShortHandedSavePercentage { get; set; }
     }
 
+    /// <summary>
+    /// On Ice Plus
+    /// </summary>
     public class OnIcePlus
     {
         /// <summary>
@@ -2286,6 +2460,9 @@ namespace Nhl.Api.Models.Game
         public int Stamina { get; set; }
     }
 
+    /// <summary>
+    /// Coach
+    /// </summary>
     public class Coach
     {
         /// <summary>
@@ -2301,6 +2478,9 @@ namespace Nhl.Api.Models.Game
         public PrimaryPosition Position { get; set; }
     }
 
+    /// <summary>
+    /// Official
+    /// </summary>
     public class Official
     {
         /// <summary>
@@ -2325,6 +2505,9 @@ namespace Nhl.Api.Models.Game
         public string Link { get; set; }
     }
 
+    /// <summary>
+    /// Game Official
+    /// </summary>
     public class GameOfficial
     {
         /// <summary>
@@ -2341,6 +2524,9 @@ namespace Nhl.Api.Models.Game
         public string OfficialType { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Box Score Teams
+    /// </summary>
     public class LiveGameFeedBoxscoreTeams
     {
         /// <summary>
@@ -2356,6 +2542,9 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedBoxscoreAwayTeam Away { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Box Score Team
+    /// </summary>
     public abstract class LiveGameFeedBoxscoreTeam
     {
         /// <summary>
@@ -2425,16 +2614,25 @@ namespace Nhl.Api.Models.Game
         public List<Coach> Coaches { get; set; }
     }
 
+    /// <summary>
+    /// Live Game Feed Boxscore Home Team
+    /// </summary>
     public class LiveGameFeedBoxscoreHomeTeam : LiveGameFeedBoxscoreTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Boxscore Away Team
+    /// </summary>
     public class LiveGameFeedBoxscoreAwayTeam : LiveGameFeedBoxscoreTeam
     {
 
     }
 
+    /// <summary>
+    /// Live Game Feed Boxscore Player
+    /// </summary>
     public class LiveGameFeedBoxscorePlayer
     {
         /// <summary>
@@ -2463,6 +2661,9 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeedStats Stats { get; set; }
     }
 
+    /// <summary>
+    /// Box Score
+    /// </summary>
     public class Boxscore
     {
         /// <summary>
@@ -2478,6 +2679,9 @@ namespace Nhl.Api.Models.Game
         public List<GameOfficial> Officials { get; set; }
     }
 
+    /// <summary>
+    /// Decision
+    /// </summary>
     public abstract class Decision
     {
         /// <summary>
@@ -2502,6 +2706,9 @@ namespace Nhl.Api.Models.Game
         public string Link { get; set; }
     }
 
+    /// <summary>
+    /// Star
+    /// </summary>
     public abstract class Star
     {
         /// <summary>
@@ -2526,30 +2733,48 @@ namespace Nhl.Api.Models.Game
         public string Link { get; set; }
     }
 
+    /// <summary>
+    /// Winner Star
+    /// </summary>
     public class Winner : Decision
     {
 
     }
 
+    /// <summary>
+    /// Loser Star
+    /// </summary>
     public class Loser : Decision
     {
     }
 
+    /// <summary>
+    /// First Star
+    /// </summary>
     public class FirstStar : Star
     {
 
     }
 
+    /// <summary>
+    /// Second Star
+    /// </summary>
     public class SecondStar : Star
     {
 
     }
 
+    /// <summary>
+    /// Third Star
+    /// </summary>
     public class ThirdStar : Star
     {
 
     }
 
+    /// <summary>
+    /// NHL Live Game Feed Decisions
+    /// </summary>
     public class Decisions
     {
         /// <summary>
@@ -2583,6 +2808,9 @@ namespace Nhl.Api.Models.Game
         public ThirdStar ThirdStar { get; set; }
     }
 
+    /// <summary>
+    /// NHL Live Data
+    /// </summary>
     public class LiveData
     {
         /// <summary>

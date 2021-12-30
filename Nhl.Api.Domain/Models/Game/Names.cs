@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Game
 {
+    /// <summary>
+    /// NHL Playoff Names
+    /// </summary>
     public class Names
     {
         /// <summary>

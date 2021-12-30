@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
+using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 
 namespace Nhl.Api
@@ -113,5 +114,12 @@ namespace Nhl.Api
         /// <param name="includePlayoffGames">Includes the NHL playoff games if set to true, default value is false</param>
         /// <returns>Returns all of the NHL team's game schedules based on the selected NHL season</returns>
         Task<GameSchedule> GetGameScheduleBySeasonAsync(string seasonYear, bool includePlayoffGames = false);
+
+        /// <summary>
+        /// Returns all of the individual shifts of each NHL player for a specific NHL game id
+        /// </summary>
+        /// <param name="gameId">The game id, Example: 2021020087</param>
+        /// <returns>A collection of all the NHL player game shifts for a specific game, including start and end times, on ice duration and more</returns>
+        Task<LiveGameFeedPlayerShifts> GetLiveGameFeedPlayerShiftsAsync(int gameId);
     }
 }

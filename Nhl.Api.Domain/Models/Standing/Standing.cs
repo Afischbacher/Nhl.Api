@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Standing
 {
+    /// <summary>
+    /// The NHL records for standings
+    /// </summary>
     public class Records
     {
         /// <summary>

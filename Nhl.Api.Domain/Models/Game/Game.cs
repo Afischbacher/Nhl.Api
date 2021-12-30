@@ -5,6 +5,9 @@ using Nhl.Api.Models.Team;
 
 namespace Nhl.Api.Models.Game
 {
+    /// <summary>
+    /// NHL Game
+    /// </summary>
     public class Game
     {
         /// <summary>

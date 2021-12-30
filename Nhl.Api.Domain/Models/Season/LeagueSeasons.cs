@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Season
 {
+    /// <summary>
+    /// NHL League Seasons
+    /// </summary>
     public class LeagueSeasons
     {
         /// <summary>

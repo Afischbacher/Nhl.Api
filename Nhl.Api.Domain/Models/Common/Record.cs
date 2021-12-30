@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Common
 {
+    /// <summary>
+    /// NHL Record
+    /// </summary>
     public class Record
     {
         /// <summary>

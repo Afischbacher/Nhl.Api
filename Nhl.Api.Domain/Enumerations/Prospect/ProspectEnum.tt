@@ -32,7 +32,10 @@ namespace Nhl.Api.Models.Enumerations.Prospect
 	#>
 
 	<#foreach(var prospect in prospects)
-	{#>
+	{#>	
+	/// <summary>
+	/// <#= prospect.FullName #> - <#= prospect.Id #>
+	/// </summary>
 	<#= System.Text.RegularExpressions.Regex.Replace(prospect.FullName, @"('|\.|\s|-|_|&|\(|\))","")#><#=prospect.Id #> = <#= prospect.Id #>,
 	<#}#>
 }

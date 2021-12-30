@@ -6,7 +6,13 @@ namespace Nhl.Api.Models.Enumerations.Conference
     /// </summary>
     public enum ConferenceEnum
     {
+        /// <summary>
+        /// The Western Conference
+        /// </summary>
         Western = 5,
+        /// <summary>
+        /// The Eastern Conference
+        /// </summary>
         Eastern = 6
     }
 }

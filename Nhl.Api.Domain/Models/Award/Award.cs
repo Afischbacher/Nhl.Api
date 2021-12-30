@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Award
 {
+    /// <summary>
+    /// NHL Award
+    /// </summary>
     public class Award
     {
         /// <summary>

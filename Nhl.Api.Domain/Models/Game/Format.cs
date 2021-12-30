@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Game
 {
+    /// <summary>
+    /// NHL Playoff Game Format
+    /// </summary>
     public class Format
     {
         /// <summary>

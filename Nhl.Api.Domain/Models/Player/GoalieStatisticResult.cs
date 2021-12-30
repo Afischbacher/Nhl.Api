@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Nhl.Api.Models.Player
 {
+    /// <summary>
+    /// NHL Goalie Statistic Result
+    /// </summary>
     public class GoalieStatisticResult
     {
         /// <summary>

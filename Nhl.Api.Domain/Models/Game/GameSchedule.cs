@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Game
 {
+    /// <summary>
+    /// NHL Game Schedule
+    /// </summary>
     public class GameSchedule
     {
         /// <summary>

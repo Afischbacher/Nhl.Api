@@ -3,6 +3,9 @@ using Nhl.Api.Models.Team;
 
 namespace Nhl.Api.Models.Statistics
 {
+    /// <summary>
+    /// The NHL team statistic split
+    /// </summary>
     public class Split
     {
         /// <summary>

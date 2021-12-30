@@ -3,6 +3,9 @@ using Nhl.Api.Models.Game;
 
 namespace Nhl.Api.Models.Statistics
 {
+    /// <summary>
+    /// The NHL statistic type
+    /// </summary>
     public class Type
     {
         /// <summary>

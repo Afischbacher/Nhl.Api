@@ -10,8 +10,14 @@ namespace Nhl.Api.Common.Http
     {
         private static readonly object _lock = new object();
         private static HttpClient _httpClient;
+        /// <summary>
+        /// The dedicated NHL static assets NHL HTTP API endpoint
+        /// </summary>
         public const string ClientApiUrl = "https://www-league.nhlstatic.com";
 
+        /// <summary>
+        /// The dedicated NHL static assets HTTP Client for the NHL API
+        /// </summary>
         public NhlStaticAssetsApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
         {
         }

@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Draft
 {
+    /// <summary>
+    /// NHL League Prospects
+    /// </summary>
     public class LeagueProspects
     {
         /// <summary>

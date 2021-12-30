@@ -4,6 +4,9 @@ using Nhl.Api.Models.Common;
 
 namespace Nhl.Api.Models.Division
 {
+    /// <summary>
+    /// NHL Division
+    /// </summary>
     public class Division : INhlApiMetaData
     {
         /// <summary>

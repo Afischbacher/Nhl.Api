@@ -1,67 +1,68 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-	<Version>1.7.0</Version>
-	<TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Version>1.8.0</Version>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-	<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Nhl.Api.Common\Nhl.Api.Common.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Nhl.Api.Common\Nhl.Api.Common.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-	<None Update="Enumerations\Player\PlayerEnum.tt">
-	  <LastGenOutput>PlayerEnum.cs</LastGenOutput>
-	  <Generator>TextTemplatingFileGenerator</Generator>
-	</None>
-	<None Update="Enumerations\Prospect\ProspectEnum.tt">
-	  <Generator>TextTemplatingFileGenerator</Generator>
-	  <LastGenOutput>ProspectEnum.cs</LastGenOutput>
-	</None>
-	<None Update="Enumerations\Venue\VenueEnum.tt">
-	  <Generator>TextTemplatingFileGenerator</Generator>
-	  <LastGenOutput>VenueEnum.cs</LastGenOutput>
-	</None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="Enumerations\Player\PlayerEnum.tt">
+			<LastGenOutput>PlayerEnum.cs</LastGenOutput>
+			<Generator>TextTemplatingFileGenerator</Generator>
+		</None>
+		<None Update="Enumerations\Prospect\ProspectEnum.tt">
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>ProspectEnum.cs</LastGenOutput>
+		</None>
+		<None Update="Enumerations\Venue\VenueEnum.tt">
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>VenueEnum.cs</LastGenOutput>
+		</None>
+	</ItemGroup>
 
-  <ItemGroup>
-	<Reference Include="netstandard" />
-  </ItemGroup>
-  <ItemGroup>
-	<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="netstandard" />
+	</ItemGroup>
+	<ItemGroup>
+		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
 
-  <PropertyGroup>
-	<T4TargetPath>$(TargetPath)</T4TargetPath>
-  </PropertyGroup>
-  
-  <ItemGroup>
-	<T4ParameterValues Include="T4ProjectDir">
-	  <Value>$(T4TargetPath)</Value>
-	  <Visible>false</Visible>
-	</T4ParameterValues>
-</ItemGroup>
+	<PropertyGroup>
+		<T4TargetPath>$(TargetPath)</T4TargetPath>
+	</PropertyGroup>
 
-<ItemGroup>
-	<Compile Update="Enumerations\Player\PlayerEnum.cs">
-	  <DesignTime>True</DesignTime>
-	  <AutoGen>True</AutoGen>
-	  <DependentUpon>PlayerEnum.tt</DependentUpon>
-	</Compile>
-	<Compile Update="Enumerations\Prospect\ProspectEnum.cs">
-	  <DesignTime>True</DesignTime>
-	  <AutoGen>True</AutoGen>
-	  <DependentUpon>ProspectEnum.tt</DependentUpon>
-	</Compile>
-	<Compile Update="Enumerations\Venue\VenueEnum.cs">
-	  <DesignTime>True</DesignTime>
-	  <AutoGen>True</AutoGen>
-	  <DependentUpon>VenueEnum.tt</DependentUpon>
-	</Compile>
-  </ItemGroup>
+	<ItemGroup>
+		<T4ParameterValues Include="T4ProjectDir">
+			<Value>$(T4TargetPath)</Value>
+			<Visible>false</Visible>
+		</T4ParameterValues>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Update="Enumerations\Player\PlayerEnum.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>PlayerEnum.tt</DependentUpon>
+		</Compile>
+		<Compile Update="Enumerations\Prospect\ProspectEnum.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>ProspectEnum.tt</DependentUpon>
+		</Compile>
+		<Compile Update="Enumerations\Venue\VenueEnum.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>VenueEnum.tt</DependentUpon>
+		</Compile>
+	</ItemGroup>
 
 </Project>

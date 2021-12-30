@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Franchise
 {
+    /// <summary>
+    /// NHL League Franchises
+    /// </summary>
     public class LeagueFranchises
     {
         /// <summary>

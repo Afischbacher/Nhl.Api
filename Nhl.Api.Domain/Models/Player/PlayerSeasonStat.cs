@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Player
 {
+    /// <summary>
+    /// NHL Player Season Statistic
+    /// </summary>
     public class PlayerSeasonStat
     {
         /// <summary>

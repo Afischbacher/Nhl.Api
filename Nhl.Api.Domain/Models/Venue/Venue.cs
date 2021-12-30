@@ -3,6 +3,9 @@ using Nhl.Api.Models.Common;
 
 namespace Nhl.Api.Models.Venue
 {
+    /// <summary>
+    /// NHL venue
+    /// </summary>
     public class Venue
     {
         /// <summary>

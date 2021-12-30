@@ -16,6 +16,9 @@
         Dark
     }
 
+    /// <summary>
+    /// NHL team logo
+    /// </summary>
     public class TeamLogo
     {
 

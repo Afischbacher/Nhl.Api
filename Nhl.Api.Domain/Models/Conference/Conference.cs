@@ -3,6 +3,9 @@ using Nhl.Api.Models.Common;
 
 namespace Nhl.Api.Models.Conference
 {
+    /// <summary>
+    /// NHL Conference
+    /// </summary>
     public class Conference : INhlApiMetaData
     {
         /// <summary>

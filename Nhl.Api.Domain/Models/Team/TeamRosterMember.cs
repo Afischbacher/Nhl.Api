@@ -4,6 +4,9 @@ using Nhl.Api.Models.Player;
 
 namespace Nhl.Api.Models.Team
 {
+    /// <summary>
+    /// An NHL team roster member
+    /// </summary>
     public class TeamRosterMember
     {
         /// <summary>

@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Player
 {
+    /// <summary>
+    /// NHL Player Season Statistics Split
+    /// </summary>
     public class PlayerSeasonStatisticsSplit
     {
         /// <summary>
