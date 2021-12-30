@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Game
 {
+    /// <summary>
+    /// NHL Playoff Round
+    /// </summary>
     public class Round
     {
         /// <summary>

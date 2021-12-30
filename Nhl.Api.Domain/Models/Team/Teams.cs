@@ -1,6 +1,9 @@
 ﻿using Newtonsoft.Json;
 namespace Nhl.Api.Models.Team
 {
+    /// <summary>
+    /// The NHL home and away teams
+    /// </summary>
     public class Teams
     {
         /// <summary>

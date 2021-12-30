@@ -3,6 +3,9 @@ using Newtonsoft.Json;
 
 namespace Nhl.Api.Models.Statistics
 {
+    /// <summary>
+    /// The NHL team statistics
+    /// </summary>
     public class TeamStatistics
     {
         /// <summary>

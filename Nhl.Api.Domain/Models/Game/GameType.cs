@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Game
 {
+    /// <summary>
+    /// NHL Game Type
+    /// </summary>
     public class GameType
     {
         /// <summary>

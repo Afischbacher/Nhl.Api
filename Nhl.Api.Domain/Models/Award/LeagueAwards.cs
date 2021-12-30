@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Award
 {
+    /// <summary>
+    /// NHL League Awards
+    /// </summary>
     public class LeagueAwards
     {
         /// <summary>

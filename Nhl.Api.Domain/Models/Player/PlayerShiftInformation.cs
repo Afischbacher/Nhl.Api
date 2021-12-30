@@ -4,6 +4,9 @@ using System.Collections.Generic;
 namespace Nhl.Api.Models.Player
 {
 
+    /// <summary>
+    /// NHL Live Game Feed Player 
+    /// </summary>
     public class LiveGameFeedPlayerShifts
     {
         /// <summary>

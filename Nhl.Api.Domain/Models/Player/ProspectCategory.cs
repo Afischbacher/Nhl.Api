@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Player
 {
+    /// <summary>
+    /// NHL Prospect Category
+    /// </summary>
     public class ProspectCategory
     {
         /// <summary>

@@ -35,6 +35,9 @@ namespace Nhl.Api.Common.Services
         Task<bool> ContainsKeyAsync(string key);
     }
 
+    /// <summary>
+    /// A caching service for storing information for easy and quick access within the Nhl.Api
+    /// </summary>
     public class CachingService : ICachingService
     {
         private static readonly ConcurrentDictionary<string, byte[]> _cacheStore = new ConcurrentDictionary<string, byte[]>();

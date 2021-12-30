@@ -4,6 +4,9 @@ using Nhl.Api.Models.Team;
 
 namespace Nhl.Api.Models.Draft
 {
+    /// <summary>
+    /// NHL Draft Pick
+    /// </summary>
     public class Pick
     {
         /// <summary>

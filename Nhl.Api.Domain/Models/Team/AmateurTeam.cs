@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Team
 {
+    /// <summary>
+    /// The amateur team for an NHL prospect
+    /// </summary>
     public class AmateurTeam
     {
         /// <summary>

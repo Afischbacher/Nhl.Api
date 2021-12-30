@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Team
 {
+    /// <summary>
+    /// The NHL league team
+    /// </summary>
     public class LeagueTeam
     {
         /// <summary>

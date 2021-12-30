@@ -11,11 +11,22 @@ namespace Nhl.Api.Common.Http
     {
         private static readonly object _lock = new object();
         private static HttpClient _httpClient;
+
+        /// <summary>
+        /// The dedicated NHL HTTP API endpoint URI for the shift charts for individual live game feeds
+        /// </summary>
         public const string ClientApiUrl = "https://api.nhle.com/stats/rest/en/shiftcharts";
+
+        /// <summary>
+        /// The dedicated NHL HTTP client for the shift charts for individual live game feeds
+        /// </summary>
         public NhlShiftChartHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
         {
         }
 
+        /// <summary>
+        /// The NHL shift chart HTTP client
+        /// </summary>
         public override HttpClient HttpClient
         {
             get

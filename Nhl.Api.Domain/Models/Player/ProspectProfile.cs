@@ -7,6 +7,9 @@ using System;
 
 namespace Nhl.Api.Models.Player
 {
+    /// <summary>
+    /// NHL Prospect Profile
+    /// </summary>
     public class ProspectProfile
     {
         /// <summary>

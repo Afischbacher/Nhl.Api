@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Player
 {
+    /// <summary>
+    /// NHL Person
+    /// </summary>
     public class Person
     {
         /// <summary>

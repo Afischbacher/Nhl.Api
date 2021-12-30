@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.League
 {
+    /// <summary>
+    /// Amateur League
+    /// </summary>
     public class AmateurLeague
     {
         /// <summary>

@@ -3,6 +3,9 @@ using Newtonsoft.Json;
 
 namespace Nhl.Api.Models.Player
 {
+    /// <summary>
+    /// NHL Goalie Season Statistics
+    /// </summary>
     public class GoalieSeasonStatistics
     {
         /// <summary>

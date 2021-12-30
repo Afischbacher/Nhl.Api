@@ -5,6 +5,9 @@ using Nhl.Api.Models.Standing;
 
 namespace Nhl.Api.Models.Team
 {
+    /// <summary>
+    /// An NHL team record
+    /// </summary>
     public class TeamRecord
     {
         /// <summary>

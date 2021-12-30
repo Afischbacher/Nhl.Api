@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Event
 {
+    /// <summary>
+    /// NHL Event Type
+    /// </summary>
     public class EventType
     {
         /// <summary>

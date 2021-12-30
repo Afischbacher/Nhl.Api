@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Game
 {
+    /// <summary>
+    /// NHL Playoff Tournamnet Type
+    /// </summary>
     public class PlayoffTournamentType
     {
         /// <summary>

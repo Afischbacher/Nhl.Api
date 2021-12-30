@@ -3,6 +3,9 @@ using System;
 
 namespace Nhl.Api.Models.Season
 {
+    /// <summary>
+    /// NHL Season
+    /// </summary>
     public class Season
     {
         /// <summary>

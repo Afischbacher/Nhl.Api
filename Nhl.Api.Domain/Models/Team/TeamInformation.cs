@@ -4,6 +4,9 @@ using Nhl.Api.Models.Common;
 
 namespace Nhl.Api.Models.Team
 {
+    /// <summary>
+    /// The NHL team information
+    /// </summary>
     public class TeamInformation : INhlApiMetaData
     {
         /// <summary>

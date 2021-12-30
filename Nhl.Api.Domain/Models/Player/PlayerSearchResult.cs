@@ -4,6 +4,9 @@ using Nhl.Api.Models.Team;
 
 namespace Nhl.Api.Models.Player
 {
+    /// <summary>
+    /// NHL Player Search Result
+    /// </summary>
     public class PlayerSearchResult
     {
         /// <summary>

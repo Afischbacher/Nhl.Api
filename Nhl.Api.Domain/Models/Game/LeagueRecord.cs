@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Game
 {
+    /// <summary>
+    /// NHL Team League Record
+    /// </summary>
     public class LeagueRecord
     {
         /// <summary>

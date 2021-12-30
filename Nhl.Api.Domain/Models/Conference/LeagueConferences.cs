@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Conference
 {
+    /// <summary>
+    /// NHL League Conferences
+    /// </summary>
     public class LeagueConferences
     {
         /// <summary>

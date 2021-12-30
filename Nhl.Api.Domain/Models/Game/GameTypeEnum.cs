@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Game
 {
+    /// <summary>
+    /// NHL Game Type Enum
+    /// </summary>
     public class GameTypeEnum
     {
         /// <summary>

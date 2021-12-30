@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Common
 {
+    /// <summary>
+    /// Content
+    /// </summary>
     public class Content
     {
         /// <summary>

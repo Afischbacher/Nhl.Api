@@ -3,6 +3,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Division
 {
+    /// <summary>
+    /// NHL League Divisions
+    /// </summary>
     public class LeagueDivisions
     {
         /// <summary>

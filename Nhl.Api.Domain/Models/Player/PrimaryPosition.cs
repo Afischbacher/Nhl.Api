@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Player
 {
+    /// <summary>
+    /// NHL Primary Position
+    /// </summary>
     public class PrimaryPosition
     {
         /// <summary>

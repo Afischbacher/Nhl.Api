@@ -2,7 +2,9 @@
 
 namespace Nhl.Api.Models.Game
 {
-
+    /// <summary>
+    /// NHL Game Status
+    /// </summary>
     public class GameStatus
     {
         /// <summary>

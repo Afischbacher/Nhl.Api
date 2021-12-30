@@ -7,6 +7,9 @@ namespace Nhl.Api.Common.Exceptions
     /// </summary>
     public class NhlApiRequestException : Exception
     {
+        /// <summary>
+        /// An exception for a failed NHL API HTTP request
+        /// </summary>
         public NhlApiRequestException(string message) : base(message)
         {
 

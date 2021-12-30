@@ -3,6 +3,9 @@ using Nhl.Api.Models.Common;
 
 namespace Nhl.Api.Models.Venue
 {
+    /// <summary>
+    /// An NHL League Venue
+    /// </summary>
     public class LeagueVenue : INhlApiMetaData
     {
         /// <summary>

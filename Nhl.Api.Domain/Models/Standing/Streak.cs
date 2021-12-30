@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Standing
 {
+    /// <summary>
+    /// The NHL team streak
+    /// </summary>
     public class Streak
     {
         /// <summary>

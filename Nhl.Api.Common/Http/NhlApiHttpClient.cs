@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Nhl.Api.Common.Http
 {
+    /// <summary>
+    /// The NHL API HTTP Client
+    /// </summary>
     public interface INhlApiHttpClient
     {
         /// <summary>
@@ -38,8 +41,14 @@ namespace Nhl.Api.Common.Http
         string ClientVersion { get; }
     }
 
+    /// <summary>
+    /// The NHL API HTTP Client
+    /// </summary>
     public abstract class NhlApiHttpClient : INhlApiHttpClient
     {
+        /// <summary>
+        /// The NHL API HTTP Client
+        /// </summary>
         public NhlApiHttpClient(string clientApiUri, string clientVersion, int timeoutInSeconds = 30)
         {
             ServicePointManager.ReusePort = true;

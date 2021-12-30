@@ -3,6 +3,9 @@ using Nhl.Api.Models.Common;
 
 namespace Nhl.Api.Models.League
 {
+    /// <summary>
+    /// NHL League
+    /// </summary>
     public class League : INhlApiMetaData
     {
         /// <summary>

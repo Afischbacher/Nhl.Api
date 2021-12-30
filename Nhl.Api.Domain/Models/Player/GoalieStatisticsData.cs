@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Player
 {
+    /// <summary>
+    /// NHL Goalie Statistics Data
+    /// </summary>
     public class GoalieStatisticsData
     {
         /// <summary>

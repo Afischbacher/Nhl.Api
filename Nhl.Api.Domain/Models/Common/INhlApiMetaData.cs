@@ -7,12 +7,21 @@ namespace Nhl.Api.Models.Common
     /// </summary>
     public interface INhlApiMetaData
     {
+        /// <summary>
+        /// Identifier
+        /// </summary>
         [JsonProperty("id")]
         int Id { get; set; }
 
+        /// <summary>
+        /// Name
+        /// </summary>
         [JsonProperty("name")]
         string Name { get; set; }
 
+        /// <summary>
+        /// Link
+        /// </summary>
         [JsonProperty("link")]
         string Link { get; set; }
     }

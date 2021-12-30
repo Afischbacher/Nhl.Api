@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Franchise
 {
+    /// <summary>
+    /// NHL Franchise
+    /// </summary>
     public class Franchise
     {
         /// <summary>

@@ -2,6 +2,9 @@
 
 namespace Nhl.Api.Models.Common
 {
+    /// <summary>
+    /// NHL Time Zone
+    /// </summary>
     public class TimeZone
     {
         /// <summary>

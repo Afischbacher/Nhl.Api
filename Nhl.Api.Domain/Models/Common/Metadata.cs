@@ -4,6 +4,9 @@ using System;
 
 namespace Nhl.Api.Models.Common
 {
+    /// <summary>
+    /// MetaData
+    /// </summary>
     public class MetaData
     {
         /// <summary>
@@ -12,6 +15,9 @@ namespace Nhl.Api.Models.Common
         [JsonProperty("timeStamp")]
         public string TimeStamp { get; set; }
 
+        /// <summary>
+        /// Time Stamp As DateTimeOffset
+        /// </summary>
         public DateTimeOffset? TimeStampAsDateTimeOffset
         {
             get
