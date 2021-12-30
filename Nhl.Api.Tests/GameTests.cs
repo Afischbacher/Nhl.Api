@@ -934,5 +934,48 @@ namespace Nhl.Api.Tests
             Assert.IsNull(boxScore.Teams);
 
         }
+
+        [TestMethod]
+        public async Task TestGetLiveGameFeedShiftChartAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 2021020197;
+            var liveGameFeedPlayerShifts = await nhlApi.GetLiveGameFeedPlayerShiftsAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(liveGameFeedPlayerShifts);
+            Assert.IsTrue(liveGameFeedPlayerShifts.PlayerShifts.Any());
+
+            var firstShift = liveGameFeedPlayerShifts.PlayerShifts[0];
+
+            Assert.IsNotNull(firstShift.EndTime);
+            Assert.IsNotNull(firstShift.StartTime);
+            Assert.IsNotNull(firstShift.ShiftNumber);
+            Assert.IsNotNull(firstShift.TeamId);
+            Assert.IsNotNull(firstShift.TeamAbbrev);
+            Assert.IsNotNull(firstShift.PlayerId);
+            Assert.IsNotNull(firstShift.FirstName);
+            Assert.IsNotNull(firstShift.LastName);
+            Assert.IsNotNull(firstShift.HexValue);
+        }
+
+        [TestMethod]
+        public async Task TestGetLiveGameFeedShiftChartInvalidGameIdAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 9999999;
+            var liveGameFeedPlayerShifts = await nhlApi.GetLiveGameFeedPlayerShiftsAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(liveGameFeedPlayerShifts);
+            Assert.IsFalse(liveGameFeedPlayerShifts.PlayerShifts.Any());
+
+        }
     }
 }

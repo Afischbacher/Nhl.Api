@@ -120,6 +120,6 @@ namespace Nhl.Api
         /// </summary>
         /// <param name="gameId">The game id, Example: 2021020087</param>
         /// <returns>A collection of all the NHL player game shifts for a specific game, including start and end times, on ice duration and more</returns>
-        Task<LiveGameFeedPlayerShifts> GetLiveGameFeedPlayerShiftsAsync(string gameId);
+        Task<LiveGameFeedPlayerShifts> GetLiveGameFeedPlayerShiftsAsync(int gameId);
     }
 }
