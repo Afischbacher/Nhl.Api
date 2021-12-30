@@ -13,7 +13,7 @@ namespace Nhl.Api.Common.Http
         private static HttpClient _httpClient;
 
         /// <summary>
-        /// The dedicated NHL HTTP API endpoint URI for the shift charts for individual live game feeds
+        /// The dedicated NHL HTTP API endpoint for the shift charts for individual live game feeds
         /// </summary>
         public const string ClientApiUrl = "https://api.nhle.com/stats/rest/en/shiftcharts";
 

@@ -12,7 +12,7 @@ namespace Nhl.Api.Common.Http
         private static HttpClient _httpClient;
 
         /// <summary>
-        /// The NHL statistics HTTP Client URI for the NHL API
+        /// The NHL statistics NHL HTTP API endpoint
         /// </summary>
         public const string ClientApiUrl = "https://statsapi.web.nhl.com/api/";
 
