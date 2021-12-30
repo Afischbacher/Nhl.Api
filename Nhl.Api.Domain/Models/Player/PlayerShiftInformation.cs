@@ -5,7 +5,7 @@ namespace Nhl.Api.Models.Player
 {
 
     /// <summary>
-    /// NHL Live Game Feed Player 
+    /// NHL Live Game Feed Player Shifts
     /// </summary>
     public class LiveGameFeedPlayerShifts
     {
