@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Nhl.Api.Models.Player
 {
     /// <summary>
-    /// NHL League PlayersS
+    /// NHL League Players
     /// </summary>
     public class LeaguePlayers
     {
