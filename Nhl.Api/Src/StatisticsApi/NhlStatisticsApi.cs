@@ -16,12 +16,20 @@ using Nhl.Api.Models.Team;
 namespace Nhl.Api
 {
     /// <summary>
-    /// NHL Statistics API
+    /// The official unofficial NHL Statistics API providing various NHL information about in-depth player statistics, team statistics and more
     /// </summary>
     public class NhlStatisticsApi : INhlStatisticsApi
     {
         private static readonly INhlApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
         private static readonly INhlPlayerApi _nhlPlayerApi = new NhlPlayerApi();
+
+        /// <summary>
+        /// The official unofficial NHL Statistics API providing various NHL information about in-depth player statistics, team statistics and more
+        /// </summary>
+        public NhlStatisticsApi()
+        {
+
+        }
 
         /// <summary>
         /// Returns all of the NHL team's statistics for the specific NHL season

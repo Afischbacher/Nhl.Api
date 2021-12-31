@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 namespace Nhl.Api
 {
     /// <summary>
-    /// NHL Player API
+    /// The official unofficial NHL Player API providing various NHL information about players, draft prospects, rosters and more
     /// </summary>
     public class NhlPlayerApi : INhlPlayerApi
     {
@@ -24,6 +24,13 @@ namespace Nhl.Api
         private static readonly INhlApiHttpClient _nhlSuggestionApiHttpClient = new NhlSuggestionApiHttpClient();
         private static readonly ICachingService _cachingService = new CachingService();
 
+        /// <summary>
+        /// The official unofficial NHL Player API providing various NHL information about players, draft prospects, rosters and more
+        /// </summary>
+        public NhlPlayerApi()
+        {
+
+        }
 
         /// <summary>
         /// Returns every single NHL player to ever play

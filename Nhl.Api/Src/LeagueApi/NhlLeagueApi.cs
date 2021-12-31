@@ -25,13 +25,20 @@ using System.Threading.Tasks;
 namespace Nhl.Api
 {
     /// <summary>
-    /// NHL League API
+    /// The official unofficial NHL League API providing various NHL league information including teams, franchises, standings, awards and more
     /// </summary>
     public class NhlLeagueApi : INhlLeagueApi
     {
-
         private static readonly INhlApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
         private static readonly INhlApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
+
+        /// <summary>
+        /// The official unofficial NHL League API providing various NHL league information including teams, franchises, standings, awards and more
+        /// </summary>
+        public NhlLeagueApi()
+        {
+
+        }
 
         /// <summary>
         /// Returns all NHL franchises, including information such as team name, location and more

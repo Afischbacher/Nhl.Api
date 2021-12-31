@@ -37,6 +37,14 @@ namespace Nhl.Api
         private static readonly INhlStatisticsApi _nhlStatisticsApi = new NhlStatisticsApi();
 
         /// <summary>
+        /// The official unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
+        /// </summary>
+        public NhlApi()
+        {
+
+        }
+
+        /// <summary>
         /// Returns all NHL franchises, including information such as team name, location and more
         /// </summary>
         /// <returns>A collection of all NHL franchises, see <see cref="Franchise"/> for more information</returns>

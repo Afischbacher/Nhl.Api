@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Nhl.Api
 {
     /// <summary>
-    /// NHL Game API
+    /// The official unofficial NHL Game API providing various NHL information game information, game schedules, live game feeds and more
     /// </summary>
     public class NhlGameApi : INhlGameApi
     {
@@ -21,6 +21,13 @@ namespace Nhl.Api
         private static readonly INhlLeagueApi _nhlLeagueApi = new NhlLeagueApi();
         private static readonly INhlGameService _nhlGameService = new NhlGameService();
 
+        /// <summary>
+        /// The official unofficial NHL Game API providing various NHL information game information, game schedules, live game feeds and more
+        /// </summary>
+        public NhlGameApi()
+        {
+
+        }
 
         /// <summary>
         /// Returns the box score content for an NHL game
