@@ -8,7 +8,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Afischbacher/Nhl.Api/graphs/commit-activity)
 
 # The Official Unofficial .NET NHL API 🏒
-A C# .NET Standard 2.0 library for the .NET NHL API
+A C# .NET Standard 2.0 library for the .NET NHL API providing various NHL information about players, games, teams, conferences, divisions, statistics and more
 
 ## Installing Nhl.Api 💭
 You should install Nhl.Api with NuGet:
