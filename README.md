@@ -5,7 +5,6 @@
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Nhl.Api.svg)](https://www.nuget.org/packages/Nhl.Api/)
 [![Issues](https://img.shields.io/github/issues/Afischbacher/Nhl.Api.svg)](https://github.com/Afischbacher/Nhl.Api/issues)
 [![License](https://img.shields.io/github/license/Afischbacher/Nhl.Api)](https://github.com/Afischbacher/Nhl.Api/blob/master/LICENSE)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Afischbacher/Nhl.Api/graphs/commit-activity)
 
 # The Official Unofficial .NET NHL API 🏒
 A C# .NET Standard 2.0 library for the .NET NHL API providing various NHL information about players, games, teams, conferences, divisions, statistics and more
