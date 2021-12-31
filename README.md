@@ -29,7 +29,7 @@ If you are using the built-in .NET Core dependency injection library, there is a
 `builder.Services.AddNhlApi();`
 
 ### .NET Core
-`builder.Services.AddTransient<INhlApi, NhlApi>();`
+`builder.Services.AddSingleton<INhlApi, NhlApi>();`
 
 ### Unity
 `container.RegisterType<INhlApi, NhlApi>();`
@@ -48,7 +48,7 @@ included automatically within your .NET Core project.
 
 ### Nhl Player Api
 #### .NET Core
-`builder.Services.AddTransient<INhlPlayerApi, NhlPlayerApi>();` <br/>
+`builder.Services.AddSingleton<INhlPlayerApi, NhlPlayerApi>();` <br/>
 #### Unity
 `container.RegisterType<INhlPlayerApi, NhlPlayerApi>();`<br/>
 #### AutoFac
@@ -58,7 +58,7 @@ included automatically within your .NET Core project.
 
 ### Nhl Game Api
 #### .NET Core
-`builder.Services.AddTransient<INhlGameApi, NhlGameApi>();`<br/>
+`builder.Services.AddSingleton<INhlGameApi, NhlGameApi>();`<br/>
 #### Unity
 `container.RegisterType<INhlGameApi, NhlGameApi>();`<br/>
 #### AutoFac
@@ -68,7 +68,7 @@ included automatically within your .NET Core project.
 
 ### Nhl Statistics Api
 #### .NET Core
-`builder.Services.AddTransient<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
+`builder.Services.AddSingleton<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
 #### Unity
 `container.RegisterType<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
 #### AutoFac
@@ -78,7 +78,7 @@ included automatically within your .NET Core project.
 
 ### Nhl League Api
 #### .NET Core
-`builder.Services.AddTransient<INhlLeagueApi, NhlLeagueApi>();`<br/>
+`builder.Services.AddSingleton<INhlLeagueApi, NhlLeagueApi>();`<br/>
 #### Unity
 `container.RegisterType<INhlLeagueApi, NhlLeagueApi>();`<br/>
 #### AutoFac
