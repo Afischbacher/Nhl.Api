@@ -43,7 +43,7 @@ namespace Nhl.Api.Models.Team
         }
 
         /// <summary>
-        /// Returns the team logo url as a dark background 
+        /// Returns the team logo url as a dark background <br/>
         /// Example: https://www-league.nhlstatic.com/images/logos/teams-current-primary-dark/6.svg
         /// </summary>
         public string OfficalDarkTeamLogoUrl
