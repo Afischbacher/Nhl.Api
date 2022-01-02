@@ -59,13 +59,12 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(leagueProspects);
             CollectionAssert.AllItemsAreNotNull(leagueProspects);
 
-            foreach (var prospect in leagueProspects.Take(10))
+            foreach (var prospect in leagueProspects.Take(5))
             {
                 Assert.IsNotNull(prospect.BirthCountry);
                 Assert.IsNotNull(prospect.DraftStatus);
                 Assert.IsNotNull(prospect.ShootsCatches);
                 Assert.IsNotNull(prospect.Weight);
-                Assert.IsNotNull(prospect.FullName);
                 Assert.IsNotNull(prospect.Height);
                 Assert.IsNotNull(prospect.Id);
                 Assert.IsNotNull(prospect.AmateurLeague);
