@@ -22,6 +22,7 @@ namespace Nhl.Api
     {
         private static readonly INhlApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
         private static readonly INhlApiHttpClient _nhlSuggestionApiHttpClient = new NhlSuggestionApiHttpClient();
+        private static readonly INhlApiHttpClient _nhlCmsHttpClient = new NhlCmsHttpClient();
         private static readonly ICachingService _cachingService = new CachingService();
 
         /// <summary>
@@ -333,6 +334,50 @@ namespace Nhl.Api
         public void Dispose()
         {
             _cachingService?.Dispose();
+        }
+
+        /// <summary>
+        /// Returns the NHL player's head shot image by the selected size
+        /// </summary>
+        /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+        /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+        /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
+        public async Task<byte[]> DownloadPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
+        {
+            switch (playerHeadshotImageSize)
+            {
+                case PlayerHeadshotImageSize.Small:
+                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}.png");
+                case PlayerHeadshotImageSize.Medium:
+                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@2x.png");
+                case PlayerHeadshotImageSize.Large:
+                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@3x.png");
+            }
+
+            return null;
+
+        }
+
+        /// <summary>
+        /// Returns the NHL player's head shot image by the selected size
+        /// </summary>
+        /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
+        /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+        /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
+        public async Task<byte[]> DownloadPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
+        {
+            switch (playerHeadshotImageSize)
+            {
+                case PlayerHeadshotImageSize.Small:
+                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}.png");
+                case PlayerHeadshotImageSize.Medium:
+                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@2x.png");
+                case PlayerHeadshotImageSize.Large:
+                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@3x.png");
+            }
+
+            return null;
+
         }
     }
 }

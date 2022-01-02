@@ -325,6 +325,28 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns the NHL player's head shot image by the selected size
+        /// </summary>
+        /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+        /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+        /// <returns>A byte array content of an NHL player head shot image</returns>
+        public async Task<byte[]> DownloadPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
+        {
+            return await _nhlPlayerApi.DownloadPlayerHeadshotImageAsync(player, playerHeadshotImageSize);
+        }
+
+        /// <summary>
+        /// Returns the NHL player's head shot image by the selected size
+        /// </summary>
+        /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
+        /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+        /// <returns>A byte array content of an NHL player head shot image</returns>
+        public async Task<byte[]> DownloadPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
+        {
+            return await _nhlPlayerApi.DownloadPlayerHeadshotImageAsync(playerId, playerHeadshotImageSize);
+        }
+
+        /// <summary>
         /// Returns all of the active NHL players
         /// </summary>
         /// <returns>A collection of all NHL players</returns>
