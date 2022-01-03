@@ -121,5 +121,12 @@ namespace Nhl.Api
         /// <param name="gameId">The game id, Example: 2021020087</param>
         /// <returns>A collection of all the NHL player game shifts for a specific game, including start and end times, on ice duration and more</returns>
         Task<LiveGameFeedPlayerShifts> GetLiveGameFeedPlayerShiftsAsync(int gameId);
+
+        /// <summary>
+        /// Returns a collection of NHL live game feed content including highlights, media coverage, images, videos and more
+        /// </summary>
+        /// <param name="gameId">The game id, Example: 2021020087</param>
+        /// <returns>A collection of images, video and information from a specific NHL game</returns>
+        Task<LiveGameFeedContent> GetLiveGameFeedContentByIdAsync(int gameId);
     }
 }

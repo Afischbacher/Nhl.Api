@@ -975,5 +975,20 @@ namespace Nhl.Api.Tests
             Assert.IsFalse(liveGameFeedPlayerShifts.PlayerShifts.Any());
 
         }
+
+
+        [TestMethod]
+        public async Task TestGetLiveGameFeedContentAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            const int _gamePkId = 2021020566;
+            var liveGameFeedContent = await nhlApi.GetLiveGameFeedContentByIdAsync(_gamePkId);
+
+            // Assert
+            Assert.IsNotNull(liveGameFeedContent);
+        }
     }
 }

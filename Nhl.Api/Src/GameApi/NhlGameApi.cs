@@ -215,5 +215,15 @@ namespace Nhl.Api
         {
             return await _nhlShiftChartHttpClient.GetAsync<LiveGameFeedPlayerShifts>($"?cayenneExp=gameId={gameId}");
         }
+
+        /// <summary>
+        /// Returns a collection of NHL live game feed content including highlights, media coverage, images, videos and more
+        /// </summary>
+        /// <param name="gameId">The game id, Example: 2021020087</param>
+        /// <returns>A collection of images, video and information from a specific NHL game</returns>
+        public async Task<LiveGameFeedContent> GetLiveGameFeedContentByIdAsync(int gameId)
+        {
+            return await _nhlStatsApiHttpClient.GetAsync<LiveGameFeedContent>($"/game/{gameId}/content");
+        }
     }
 }

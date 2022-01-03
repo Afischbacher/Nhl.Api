@@ -635,6 +635,16 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns a collection of NHL live game feed content including highlights, media coverage, images, videos and more
+        /// </summary>
+        /// <param name="gameId">The game id, Example: 2021020087</param>
+        /// <returns>A collection of images, video and information from a specific NHL game</returns>
+        public async Task<LiveGameFeedContent> GetLiveGameFeedContentByIdAsync(int gameId)
+        {
+            return await _nhlGameApi.GetLiveGameFeedContentByIdAsync(gameId);
+        }
+
+        /// <summary>
         /// Returns all of the NHL seasons since the inception of the league in 1917-1918
         /// </summary>
         /// <returns>A collection of seasons since the inception of the NHL</returns>
