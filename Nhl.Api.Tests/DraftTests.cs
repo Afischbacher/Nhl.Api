@@ -10,7 +10,7 @@ namespace Nhl.Api.Tests
     {
 
         [TestMethod]
-        public async Task TestGetDraftByYear()
+        public async Task TestGetDraftByYearAsync()
         {
             // Arrange
             using INhlApi nhlApi = new NhlApi();
@@ -47,7 +47,7 @@ namespace Nhl.Api.Tests
         }
 
         [TestMethod]
-        public async Task TestGetProspectsAsnyc()
+        public async Task TestGetProspectsAsync()
         {
             // Arrange
             using INhlApi nhlApi = new NhlApi();
@@ -61,7 +61,7 @@ namespace Nhl.Api.Tests
 
             foreach (var prospect in leagueProspects.Take(5))
             {
-                Assert.IsNotNull(prospect.BirthCountry);
+                Assert.IsNotNull(prospect);
                 Assert.IsNotNull(prospect.DraftStatus);
                 Assert.IsNotNull(prospect.ShootsCatches);
                 Assert.IsNotNull(prospect.Weight);
@@ -78,7 +78,7 @@ namespace Nhl.Api.Tests
 
 
         [TestMethod]
-        public async Task TestGetProspectsByIdAsnyc()
+        public async Task TestGetProspectsByIdAsync()
         {
             // Arrange
             using INhlApi nhlApi = new NhlApi();
@@ -103,7 +103,7 @@ namespace Nhl.Api.Tests
         }
 
         [TestMethod]
-        public async Task TestGetProspectsByIdEnumAsnyc()
+        public async Task TestGetProspectsByIdEnumAsync()
         {
             // Arrange
             using INhlApi nhlApi = new NhlApi();
