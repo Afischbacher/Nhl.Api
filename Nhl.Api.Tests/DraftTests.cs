@@ -65,7 +65,6 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(prospect.DraftStatus);
                 Assert.IsNotNull(prospect.ShootsCatches);
                 Assert.IsNotNull(prospect.Weight);
-                Assert.IsNotNull(prospect.Height);
                 Assert.IsNotNull(prospect.Id);
                 Assert.IsNotNull(prospect.AmateurLeague);
                 Assert.IsNotNull(prospect.AmateurTeam);
