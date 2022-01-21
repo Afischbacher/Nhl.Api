@@ -298,7 +298,6 @@ namespace Nhl.Api.Tests
             }
         }
 
-
         [TestMethod]
         public async Task TestGetPlayerWithTopStatisticBySeasonAsync()
         {
@@ -363,6 +362,80 @@ namespace Nhl.Api.Tests
                     Assert.IsNotNull(goalie.Player);
                     Assert.IsNotNull(goalie.Player.Id);
                     Assert.IsNotNull(goalie.Player.FullName);
+                });
+            }
+        }
+
+        [TestMethod]
+        public async Task TestGetPlayersWithTopStatisticBySeasonAsync()
+        {
+            using INhlApi nhlApi = new NhlApi();
+
+            var enumValues = Enum.GetValues(typeof(PlayerStatisticEnum)) as PlayerStatisticEnum[];
+
+            foreach (var playerStatistic in enumValues)
+            {
+                await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
+                {
+                    var players = await nhlApi.GetPlayersWithTopStatisticBySeasonAsync(PlayerStatisticEnum.Goals, SeasonYear.season20192020);
+                    foreach (var player in players)
+                    {
+
+                        Assert.IsNotNull(player);
+                        Assert.IsNotNull(player.PlayerStatisticsData);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Shifts);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Shots);
+                        Assert.IsNotNull(player.PlayerStatisticsData.ShortHandedGoals);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Assists);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Points);
+
+                        Assert.IsNotNull(player.PlayerStatisticsData.Hits);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Pim);
+                        Assert.IsNotNull(player.PlayerStatisticsData.FaceOffPct);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Games);
+                        Assert.IsNotNull(player.PlayerStatisticsData.TimeOnIce);
+
+                        Assert.IsNotNull(player.Player);
+                        Assert.IsNotNull(player.Player);
+                        Assert.IsNotNull(player.Player.Id);
+                        Assert.IsNotNull(player.Player.FullName); 
+                    }
+                });
+            }
+        }
+
+        [TestMethod]
+        public async Task TestGetGoaliesWithTopStatisticBySeasonAsync()
+        {
+            using INhlApi nhlApi = new NhlApi();
+
+            var enumValues = Enum.GetValues(typeof(GoalieStatisticEnum)) as GoalieStatisticEnum[];
+
+            foreach (var goalieStatistic in enumValues)
+            {
+                await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
+                {
+                    var goalies = await nhlApi.GetGoaliesWithTopStatisticBySeasonAsync(goalieStatistic, SeasonYear.season19751976);
+
+                    foreach (var goalie in goalies)
+                    {
+                        Assert.IsNotNull(goalie);
+
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.SavePercentage);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.EvenSaves);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.Games);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.GamesStarted);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.TimeOnIcePerGame);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.PowerPlaySavePercentage);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.Wins);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.Losses);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.Shutouts);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.ShotsAgainst);
+
+                        Assert.IsNotNull(goalie.Player);
+                        Assert.IsNotNull(goalie.Player.Id);
+                        Assert.IsNotNull(goalie.Player.FullName); 
+                    }
                 });
             }
         }
