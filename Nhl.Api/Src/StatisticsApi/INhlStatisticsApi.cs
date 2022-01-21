@@ -121,5 +121,23 @@ namespace Nhl.Api
         /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
         /// <returns>A collection of all the in-depth NHL goalie statistics per season</returns>
         Task<GoalieSeasonStatistics> GetGoalieStatisticsBySeasonAsync(PlayerEnum player, string seasonYear);
+
+        /// <summary>
+        /// Returns the player with the top NHL player statistic based on the selected season year
+        /// </summary>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
+        /// <param name="numberOfPlayers">The argument for the number of players to retrieve, default value is 10 </param>
+        /// <returns>Returns the player profile with the top player statistic in the specified NHL season</returns>
+        Task<List<PlayerStatisticResult>> GetPlayersWithTopStatisticBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear, int numberOfPlayers = 10);
+
+        /// <summary>
+        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
+        /// </summary>
+        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="numberOfGoalies">The argument for the number of goalies to retrieve, default value is 10 </param>
+        /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
+        Task<List<GoalieStatisticResult>> GetGoaliesWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear, int numberOfGoalies = 10);
     }
 }
