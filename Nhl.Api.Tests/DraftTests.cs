@@ -68,7 +68,6 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(prospect.Id);
                 Assert.IsNotNull(prospect.AmateurLeague);
                 Assert.IsNotNull(prospect.AmateurTeam);
-                Assert.IsNotNull(prospect.BirthCity);
                 Assert.IsNotNull(prospect.FullName);
                 Assert.IsNotNull(prospect.FirstName);
                 Assert.IsNotNull(prospect.LastName);
@@ -119,7 +118,6 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(prospect.Id);
             Assert.IsNotNull(prospect.AmateurLeague);
             Assert.IsNotNull(prospect.AmateurTeam);
-            Assert.IsNotNull(prospect.BirthCity);
             Assert.IsNotNull(prospect.FullName);
             Assert.IsNotNull(prospect.FirstName);
             Assert.IsNotNull(prospect.LastName);
