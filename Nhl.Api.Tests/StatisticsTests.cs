@@ -310,7 +310,7 @@ namespace Nhl.Api.Tests
             {
                 await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
                 {
-                    var player = await nhlApi.GetPlayerWithTopStatisticBySeasonAsync(playerStatistic, SeasonYear.season20192020);
+                   var player = await nhlApi.GetPlayerWithTopStatisticBySeasonAsync(PlayerStatisticEnum.Goals, SeasonYear.season20192020);
 
                     Assert.IsNotNull(player);
                     Assert.IsNotNull(player.PlayerStatisticsData);

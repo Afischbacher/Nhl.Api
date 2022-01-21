@@ -468,7 +468,7 @@ namespace Nhl.Api
         /// <returns>Returns the player profile with the top player statistic in the specified NHL season</returns>
         public async Task<PlayerStatisticResult> GetPlayerWithTopStatisticBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear)
         {
-            return await _nhlStatisticsApi.GetPlayerWithTopStatisticBySeasonAsync(playerStatisticEnum, seasonYear);
+           return await _nhlStatisticsApi.GetPlayerWithTopStatisticBySeasonAsync(playerStatisticEnum, seasonYear);
         }
 
         /// <summary>

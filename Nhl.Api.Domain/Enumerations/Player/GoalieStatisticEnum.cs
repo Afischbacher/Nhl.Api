@@ -26,9 +26,13 @@
         /// </summary>
         OvertimeWins,
         /// <summary>
-        /// Losses
+        /// Most Losses
         /// </summary>
-        Losses,
+        MostLosses,
+        /// <summary>
+        /// Least Losses
+        /// </summary>
+        LeastLosses,
         /// <summary>
         /// Saves
         /// </summary>
@@ -58,9 +62,13 @@
         /// </summary>
         ShortHandedSaves,
         /// <summary>
-        /// Goal Against Average
+        /// Highest Goal Against Average
         /// </summary>
-        GoalAgainstAverage,
+        HighestGoalAgainstAverage,
+        /// <summary>
+        /// Lowest Goal Against Average
+        /// </summary>
+        LowestGoalAgainstAverage,
         /// <summary>
         /// Goals Against
         /// </summary>

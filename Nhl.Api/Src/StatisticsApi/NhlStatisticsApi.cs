@@ -193,6 +193,16 @@ namespace Nhl.Api
         /// <returns>Returns the player profile with the top player statistic in the specified NHL season</returns>
         public async Task<PlayerStatisticResult> GetPlayerWithTopStatisticBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear)
         {
+            if (string.IsNullOrEmpty(seasonYear))
+            {
+                throw new ArgumentNullException(nameof(seasonYear));
+            }
+
+            if (seasonYear.Length > 8)
+            {
+                throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+            }
+
             var playerIds = (await _nhlPlayerApi.GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear)).Select(player => player.Person.Id);
             var players = await _nhlPlayerApi.GetPlayersByIdAsync(playerIds);
 
@@ -220,10 +230,15 @@ namespace Nhl.Api
             switch (playerStatisticEnum)
             {
                 case PlayerStatisticEnum.Goals:
-                    return validPlayerStatistics
-                        .OrderByDescending(ps => ps.PlayerStatisticsData.Shots)
-                        .ThenByDescending(ps => ps.PlayerStatisticsData.Goals)
-                        .First();
+
+                    return GetTopPlayerByStatistic<int, int>
+                    (
+                        validPlayerStatistics, 
+                        x => x.PlayerStatisticsData.Goals, 
+                        x => x.PlayerStatisticsData.Shots,
+                        nameof(PlayerStatisticEnum.Goals),
+                        typeof(int)
+                    );
 
                 case PlayerStatisticEnum.Assists:
                     return validPlayerStatistics
@@ -301,6 +316,43 @@ namespace Nhl.Api
                         .First();
                 default:
                     return null;
+
+            }
+
+            PlayerStatisticResult GetTopPlayerByStatistic<T1, T2>
+            (
+                IEnumerable<PlayerStatisticResult> playerStatisticResults,
+                Func<PlayerStatisticResult, T1> orderedStatisticType,
+                Func<PlayerStatisticResult, T2> secondOrderedStatisticType,
+                string firstStatisticTypePropertyName,
+                System.Type firstStatisticPropertyType
+            ) 
+            {
+                var sortedByProperty = validPlayerStatistics
+                      .OrderByDescending(orderedStatisticType);
+
+                var firstPlayer = sortedByProperty.First();
+                var secondPlayer = sortedByProperty.Skip(1).First();
+
+                var firstPlayerFirstProperty = firstPlayer.PlayerStatisticsData.GetType()
+                    .GetProperties()
+                    .Single(x => x.Name == firstStatisticTypePropertyName)
+                    .GetValue(firstPlayer.PlayerStatisticsData, null);
+
+                var secondPlayerFirstProperty = secondPlayer.PlayerStatisticsData.GetType()
+                    .GetProperties()
+                    .Single(x => x.Name == firstStatisticTypePropertyName)
+                    .GetValue(secondPlayer.PlayerStatisticsData, null);
+                
+                if (firstPlayerFirstProperty.Equals(secondPlayerFirstProperty))
+                {
+                    return new[] { firstPlayer, secondPlayer }.OrderByDescending(secondOrderedStatisticType).First();
+                }
+                else
+                {
+                    return firstPlayer;
+                }
+                
             }
         }
 
@@ -312,6 +364,16 @@ namespace Nhl.Api
         /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
         public async Task<GoalieStatisticResult> GetGoalieWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear)
         {
+            if (string.IsNullOrEmpty(seasonYear))
+            {
+                throw new ArgumentNullException(nameof(seasonYear));
+            }
+
+            if (seasonYear.Length > 8)
+            {
+                throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+            }
+
             var goalieIds = (await _nhlPlayerApi.GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear)).Select(player => player.Person.Id);
             var goalies = await _nhlPlayerApi.GetPlayersByIdAsync(goalieIds);
 
@@ -356,6 +418,7 @@ namespace Nhl.Api
                 case GoalieStatisticEnum.Wins:
                     return validGoalieStatistics
                        .OrderByDescending(ps => ps.GoalieStatisticsData.Wins)
+                       .ThenByDescending(ps => ps.GoalieStatisticsData.GamesStarted)
                        .First();
 
                 case GoalieStatisticEnum.OvertimeWins:
@@ -363,9 +426,14 @@ namespace Nhl.Api
                        .OrderByDescending(ps => ps.GoalieStatisticsData.Ot)
                        .First();
 
-                case GoalieStatisticEnum.Losses:
+                case GoalieStatisticEnum.MostLosses:
                     return validGoalieStatistics
                         .OrderByDescending(ps => ps.GoalieStatisticsData.Losses)
+                        .First();
+
+                case GoalieStatisticEnum.LeastLosses:
+                    return validGoalieStatistics
+                        .OrderBy(ps => ps.GoalieStatisticsData.Losses)
                         .First();
 
                 case GoalieStatisticEnum.Saves:
@@ -403,7 +471,12 @@ namespace Nhl.Api
                         .OrderByDescending(ps => ps.GoalieStatisticsData.ShortHandedSaves)
                         .First();
 
-                case GoalieStatisticEnum.GoalAgainstAverage:
+                case GoalieStatisticEnum.HighestGoalAgainstAverage:
+                    return validGoalieStatistics
+                        .OrderByDescending(ps => ps.GoalieStatisticsData.GoalAgainstAverage)
+                        .First();
+
+                case GoalieStatisticEnum.LowestGoalAgainstAverage:
                     return validGoalieStatistics
                         .OrderByDescending(ps => ps.GoalieStatisticsData.GoalAgainstAverage)
                         .First();
