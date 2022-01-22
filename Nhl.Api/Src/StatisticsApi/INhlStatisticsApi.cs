@@ -77,22 +77,6 @@ namespace Nhl.Api
         Task<PlayerSeasonStatistics> GetPlayerStatisticsBySeasonAsync(PlayerEnum player, string seasonYear);
 
         /// <summary>
-        /// Returns the player with the top NHL player statistic based on the selected season year
-        /// </summary>
-        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
-        /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
-        /// <returns>Returns the player profile with the top player statistic in the specified NHL season</returns>
-        Task<PlayerStatisticResult> GetPlayerWithTopStatisticBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear);
-
-        /// <summary>
-        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
-        /// </summary>
-        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
-        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
-        /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
-        Task<GoalieStatisticResult> GetGoalieWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear);
-
-        /// <summary>
         /// Returns the on pace regular season NHL player statistics for the current NHL season with insightful statistics
         /// </summary>
         /// <param name="player">The identifier for the NHL player</param>
@@ -127,9 +111,34 @@ namespace Nhl.Api
         /// </summary>
         /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
         /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
-        /// <param name="numberOfPlayers">The argument for the number of players to retrieve, default value is 10 </param>
+        /// <param name="isDescending">The argument to determine whether the order of the statistic should be in a descending or ascending order, default is descending,<br/>
+        /// for example, if you select <see cref="PlayerStatisticEnum.Points"/> for a player, it will return the most amount of points in specified NHL season <br/> 
+        /// and if it is ascending, it will return the least number of points in an NHL season</param>
         /// <returns>Returns the player profile with the top player statistic in the specified NHL season</returns>
-        Task<List<PlayerStatisticResult>> GetPlayersWithTopStatisticBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear, int numberOfPlayers = 10);
+        Task<PlayerStatisticResult> GetPlayerByStatisticTypeBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear, bool isDescending = true);
+
+        /// <summary>
+        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
+        /// </summary>
+        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="isDescending">The argument to determine whether the order of the statistic should be in a descending or ascending order, default is descending,<br/>
+        /// for example, if you select <see cref="GoalieStatisticEnum.Wins"/> for a goalie, it will return the most amount of game wins in specified NHL season <br/> 
+        /// and if it is ascending, it will return the least number of wins in an NHL season</param>
+        /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
+        Task<GoalieStatisticResult> GetGoalieByStatisticTypeBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear, bool isDescending = true);
+
+        /// <summary>
+        /// Returns the player with the top NHL player statistic based on the selected season year
+        /// </summary>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
+        /// <param name="numberOfPlayers">The argument for the number of players to retrieve, default value is 10 </param>
+        /// <param name="isDescending">The argument to determine whether the order of the statistic should be in a descending or ascending order, default is descending,<br/>
+        /// for example, if you select <see cref="PlayerStatisticEnum.Points"/> for a player, it will return the most amount of points in specified NHL season <br/> 
+        /// and if it is ascending, it will return the least number of points in an NHL season</param>
+        /// <returns>Returns the player profile with the top player statistic in the specified NHL season</returns>
+        Task<List<PlayerStatisticResult>> GetPlayersByStatisticTypeBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear, bool isDescending = true, int numberOfPlayers = 10);
 
         /// <summary>
         /// Returns the goalie with the top NHL goalie statistic based on the selected season year
@@ -137,7 +146,10 @@ namespace Nhl.Api
         /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
         /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
         /// <param name="numberOfGoalies">The argument for the number of goalies to retrieve, default value is 10 </param>
+        /// <param name="isDescending">The argument to determine whether the order of the statistic should be in a descending or ascending order, default is descending,<br/>
+        /// for example, if you select <see cref="GoalieStatisticEnum.Wins"/> for a goalie, it will return the most amount of game wins in specified NHL season <br/> 
+        /// and if it is ascending, it will return the least number of wins in an NHL season</param>
         /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
-        Task<List<GoalieStatisticResult>> GetGoaliesWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear, int numberOfGoalies = 10);
+        Task<List<GoalieStatisticResult>> GetGoaliesByStatisticTypeBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear, bool isDescending = true, int numberOfGoalies = 10);
     }
 }

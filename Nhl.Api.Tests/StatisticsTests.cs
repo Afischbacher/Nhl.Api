@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
@@ -299,7 +300,7 @@ namespace Nhl.Api.Tests
         }
 
         [TestMethod]
-        public async Task TestGetPlayerWithTopStatisticBySeasonAsync()
+        public async Task TestGetPlayerByStatisticTypeBySeasonAsync()
         {
             using INhlApi nhlApi = new NhlApi();
 
@@ -309,7 +310,7 @@ namespace Nhl.Api.Tests
             {
                 await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
                 {
-                   var player = await nhlApi.GetPlayerWithTopStatisticBySeasonAsync(PlayerStatisticEnum.Goals, SeasonYear.season20192020);
+                   var player = await nhlApi.GetPlayerByStatisticTypeBySeasonAsync(PlayerStatisticEnum.Goals, SeasonYear.season20192020);
 
                     Assert.IsNotNull(player);
                     Assert.IsNotNull(player.PlayerStatisticsData);
@@ -334,7 +335,7 @@ namespace Nhl.Api.Tests
         }
 
         [TestMethod]
-        public async Task TestGetGoalieWithTopStatisticBySeasonAsync()
+        public async Task TestGetGoalieByStatisticTypeBySeasonAsync()
         {
             using INhlApi nhlApi = new NhlApi();
 
@@ -344,7 +345,7 @@ namespace Nhl.Api.Tests
             {
                 await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
                 {
-                    var goalie = await nhlApi.GetGoalieWithTopStatisticBySeasonAsync(goalieStatistic, SeasonYear.season19751976);
+                    var goalie = await nhlApi.GetGoalieByStatisticTypeBySeasonAsync(goalieStatistic, SeasonYear.season19992000);
 
                     Assert.IsNotNull(goalie);
 
@@ -367,7 +368,7 @@ namespace Nhl.Api.Tests
         }
 
         [TestMethod]
-        public async Task TestGetPlayersWithTopStatisticBySeasonAsync()
+        public async Task TestGetPlayersByStatisticTypeBySeasonAsync()
         {
             using INhlApi nhlApi = new NhlApi();
 
@@ -377,7 +378,7 @@ namespace Nhl.Api.Tests
             {
                 await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
                 {
-                    var players = await nhlApi.GetPlayersWithTopStatisticBySeasonAsync(PlayerStatisticEnum.Goals, SeasonYear.season20192020);
+                    var players = await nhlApi.GetPlayersByStatisticTypeBySeasonAsync(PlayerStatisticEnum.Goals, SeasonYear.season20192020);
                     foreach (var player in players)
                     {
 
@@ -415,8 +416,9 @@ namespace Nhl.Api.Tests
             {
                 await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
                 {
-                    var goalies = await nhlApi.GetGoaliesWithTopStatisticBySeasonAsync(goalieStatistic, SeasonYear.season19751976);
+                    var goalies = await nhlApi.GetGoaliesByStatisticTypeBySeasonAsync(goalieStatistic, SeasonYear.season20212022);
 
+                    var test = JsonConvert.SerializeObject(goalies);
                     foreach (var goalie in goalies)
                     {
                         Assert.IsNotNull(goalie);
