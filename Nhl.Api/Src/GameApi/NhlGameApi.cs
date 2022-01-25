@@ -172,9 +172,11 @@ namespace Nhl.Api
                 liveGameFeedConfiguration = new LiveGameFeedConfiguration();
             }
 
+            var liveGameFeedContent = liveGameFeedConfiguration.IncludeContent ? await GetLiveGameFeedContentByIdAsync(gameId) : null;
+
             return new LiveGameFeedResult
             {
-                LiveGameFeedContent = liveGameFeedConfiguration.IncludeContent ? await GetLiveGameFeedContentByIdAsync(gameId) : null,
+                LiveGameFeedContent = liveGameFeedContent,
                 Configuration = liveGameFeedConfiguration,
                 LiveGameFeed = liveGameFeed
             };
