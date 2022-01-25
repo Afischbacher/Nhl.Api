@@ -36,6 +36,12 @@ namespace Nhl.Api.Models.Game
         public LiveGameFeed LiveGameFeed { get; set; }
 
         /// <summary>
+        /// The NHL live game feed content result from the provided game pk id, the default value is null. <br/>
+        /// Use the live game feed configuration to include the NHL game content
+        /// </summary>
+        public LiveGameFeedContent LiveGameFeedContent { get; set; }
+
+        /// <summary>
         /// An C# event that enables you to listen to changes of the NHL live game feed
         /// </summary>
         public event OnLiveGameFeedChangeEventHandler OnLiveGameFeedChange;
@@ -165,6 +171,11 @@ namespace Nhl.Api.Models.Game
         /// Sets the NHL live game feed to be enabled or disabled the NHL live game feed event, default is false
         /// </summary>
         public bool IsEnabled { get; set; } = false;
+
+        /// <summary>
+        /// Sets the NHL live game feed to be enabled or disabled the NHL live game feed content, default is false
+        /// </summary>
+        public bool IncludeContent { get; set; } = false;
 
         /// <summary>
         /// The time in milliseconds to request the latest NHL live game feed, default value is 5,000 milliseconds or 5 seconds
