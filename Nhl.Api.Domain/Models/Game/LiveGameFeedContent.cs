@@ -54,7 +54,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// NHL Game Center
+    /// Game Center
     /// </summary>
     public class GameCenter
     {
@@ -80,7 +80,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// NHL Game Highlight
+    /// Game Highlight
     /// </summary>
     public class Highlight
     {
@@ -173,7 +173,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// NHL Highlight Milestones
+    /// Highlight Milestones
     /// </summary>
     public class Milestones
     {
@@ -199,7 +199,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// The NHL Content Scoreboard
+    /// Scoreboard
     /// </summary>
     public class Scoreboard
     {
@@ -225,7 +225,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// An NHL content contributor
+    /// Contributor Information
     /// </summary>
     public class ContributorInformation
     {
@@ -370,7 +370,7 @@ namespace Nhl.Api.Models.Game
         public string TopicList { get; set; }
 
         /// <summary>
-        /// Returns a collection of editorial items for the recap
+        /// Returns a collection of editorial items for the NHL game recap
         /// </summary>
         [JsonProperty("items")]
         public List<EditorialItem> Items { get; set; }
@@ -401,7 +401,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// Content EPG
+    /// Content Electronic Program Guide
     /// </summary>
     public class Epg
     {
@@ -420,13 +420,13 @@ namespace Nhl.Api.Models.Game
         public string Platform { get; set; }
 
         /// <summary>
-        /// Returns the a collection of items for the Epg 
+        /// Returns the a collection of items for the electronic program guide 
         /// </summary>
         [JsonProperty("items")]
         public List<EpgItem> Items { get; set; }
 
         /// <summary>
-        /// Returns a collection of terms for the topic list for the EPG <br/>
+        /// Returns a collection of terms for the topic list for the electronic program guide <br/>
         /// Example: 329057632
         /// </summary>
         [JsonProperty("topicList")]
@@ -434,7 +434,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 1202x670
+    /// 1202x670 Content
     /// </summary>
     public class _1202x670
     {
@@ -482,7 +482,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 1220x668
+    /// 1220x668 Content
     /// </summary>
     public class _1220x668
     {
@@ -530,7 +530,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// MediaURLS
+    /// Media URLS
     /// </summary>
     public class MediaURLS
     {
@@ -955,21 +955,21 @@ namespace Nhl.Api.Models.Game
         public string Period { get; set; }
 
         /// <summary>
-        /// Returns the stats event id for the content item <br/>
+        /// Returns the stats event identifier for the content item <br/>
         /// Example: 8
         /// </summary>
         [JsonProperty("statsEventId")]
         public string StatsEventId { get; set; }
 
         /// <summary>
-        /// Returns the team id <br/>
+        /// Returns the NHL team identifier <br/>
         /// Example: 10
         /// </summary>
         [JsonProperty("teamId")]
         public string TeamId { get; set; }
 
         /// <summary>
-        /// Returns the player id for the content item <br/>
+        /// Returns the NHL player identifier for the content item <br/>
         /// Example: 8470613
         /// </summary>
         [JsonProperty("playerId")]
@@ -1171,7 +1171,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 124x70
+    /// 124x70 Content
     /// </summary>
     public class _124x70
     {
@@ -1220,7 +1220,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 1920x1080
+    /// 1920x1080 Content
     /// </summary>
     public class _1920x1080
     {
@@ -1268,7 +1268,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 1200x630
+    /// 1200x630 Content
     /// </summary>
     public class _1200x630
     {
@@ -1317,7 +1317,7 @@ namespace Nhl.Api.Models.Game
 
 
     /// <summary>
-    /// 2568x1444
+    /// 2568x1444 Content
     /// </summary>
     public class _2568x1444
     {
@@ -1365,7 +1365,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 2208x1242
+    /// 2208x1242 Content
     /// </summary>
     public class _2208x1242
     {
@@ -1412,8 +1412,8 @@ namespace Nhl.Api.Models.Game
         public string At3x { get; set; }
     }
 
-    /// <summary>
-    /// 2048x1152
+    /// <summary> 
+    /// 2048x1152 Content
     /// </summary>
     public class _2048x1152
     {
@@ -1460,8 +1460,8 @@ namespace Nhl.Api.Models.Game
         public string At3x { get; set; }
     }
 
-    /// <summary>
-    /// 1704x960
+    /// <summary> 
+    /// 1704x960 Content
     /// </summary>
     public class _1704x960
     {
@@ -1509,7 +1509,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 1536x864
+    /// 1536x864 Content
     /// </summary>
     public class _1536x864
     {
@@ -1557,7 +1557,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 1284x722
+    /// 1284x722 Content
     /// </summary>
     public class _1284x722
     {
@@ -1605,7 +1605,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 1136x640
+    /// 1136x640 Content
     /// </summary>
     public class _1136x640
     {
@@ -1653,7 +1653,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 
+    /// _1024x576 Content
     /// </summary>
     public class _1024x576
     {
@@ -1701,7 +1701,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 960x540
+    /// 960x540 Content
     /// </summary>
     public class _960x540
     {
@@ -1749,7 +1749,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 768x432
+    /// 768x432 Content
     /// </summary>
     public class _768x432
     {
@@ -1797,7 +1797,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 640x360
+    /// 640x360 Content
     /// </summary>
     public class _640x360
     {
@@ -1845,7 +1845,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 568x320
+    /// 568x320 Content
     /// </summary>
     public class _568x320
     {
@@ -1893,7 +1893,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 372x210
+    /// 372x210 Content
     /// </summary>
     public class _372x210
     {
@@ -1941,7 +1941,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 320x180
+    /// 320x180 Content
     /// </summary>
     public class _320x180
     {
@@ -1989,7 +1989,7 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// 248x140
+    /// 248x140 Content
     /// </summary>
     public class _248x140
     {
@@ -2057,14 +2057,14 @@ namespace Nhl.Api.Models.Game
         public string Type { get; set; }
 
         /// <summary>
-        /// Returns the identifier of the preview data, such as player id <br/>
+        /// Returns the identifier of the preview data, such as NHL player identifier <br/>
         /// Example: 8475236
         /// </summary>
         [JsonProperty("id")]
         public string Id { get; set; }
 
         /// <summary>
-        /// Returns the identifier of the NHL team <br/>
+        /// Returns the identifier of the NHL team identifier <br/>
         /// Example: 7
         /// </summary>
         [JsonProperty("teamId")]
@@ -2093,14 +2093,14 @@ namespace Nhl.Api.Models.Game
 
         /// <summary>
         /// Returns the hyper link reference of the NHL video content if the type is video <br/>
-        /// Example: https://www.nhl.com/video/c-10065853
+        /// Example: <a href="https://www.nhl.com/video/c-10065853">https://www.nhl.com/video/c-10065853</a>
         /// </summary>
         [JsonProperty("href")]
         public string Href { get; set; }
 
         /// <summary>
         /// Returns the mobile hyper link reference of the NHL video content if the type is video <br/>
-        /// Example: https://www.nhl.com/video/c-10065853
+        /// Example: <a href="https://www.nhl.com/video/c-10065853">https://www.nhl.com/video/c-10065853</a>
         /// </summary>
         [JsonProperty("hrefMobile")]
         public string HrefMobile { get; set; }
@@ -2111,11 +2111,11 @@ namespace Nhl.Api.Models.Game
     /// </summary>
     public class Contributor
     {
-    /// <summary>
-    /// Returns a collection of contributors <br/>
-    /// Example: {  "name" : "Patrick Donnelly",  "twitter" : "" }
-    /// </summary>
-    [JsonProperty("contributors")]
+        /// <summary>
+        /// Returns a collection of contributors <br/>
+        /// Example: {  "name" : "Patrick Donnelly",  "twitter" : "" }
+        /// </summary>
+        [JsonProperty("contributors")]
         public List<ContributorInformation> Contributors { get; set; }
 
         /// <summary>
@@ -2406,7 +2406,7 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("timeOffset")]
         public string TimeOffset { get; set; }
-        
+
         /// <summary>
         /// Returns the numeric value of the period <br/>
         /// Example: 1
@@ -2448,7 +2448,7 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("ordinalNum")]
         public string OrdinalNum { get; set; }
-        
+
         /// <summary>
         /// Returns specific information about the highlight, this includes a title, blurb, description etc.
         /// </summary>
@@ -2603,7 +2603,8 @@ namespace Nhl.Api.Models.Game
         public bool FreeGame { get; set; }
 
         /// <summary>
-        /// Returns the feed name if it is available for the electronic program guide item
+        /// Returns the feed name if it is available for the electronic program guide item <br/>
+        /// Example: Unavailable
         /// </summary>
         [JsonProperty("feedName")]
         public string FeedName { get; set; }
