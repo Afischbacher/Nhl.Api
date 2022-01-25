@@ -378,7 +378,7 @@ namespace Nhl.Api.Tests
             {
                 await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
                 {
-                    var players = await nhlApi.GetPlayersByStatisticTypeBySeasonAsync(PlayerStatisticEnum.Goals, SeasonYear.season20192020);
+                    var players = await nhlApi.GetPlayersByStatisticTypeBySeasonAsync(playerStatistic, SeasonYear.season20192020);
                     foreach (var player in players)
                     {
 
@@ -404,6 +404,46 @@ namespace Nhl.Api.Tests
                 });
             }
         }
+
+
+        [TestMethod]
+        public async Task TestGetPlayersByStatisticTypeBySeasonAscendingAsync()
+        {
+            using INhlApi nhlApi = new NhlApi();
+
+            var enumValues = Enum.GetValues(typeof(PlayerStatisticEnum)) as PlayerStatisticEnum[];
+
+            foreach (var playerStatistic in enumValues)
+            {
+                await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
+                {
+                    var players = await nhlApi.GetPlayersByStatisticTypeBySeasonAsync(playerStatistic, SeasonYear.season20192020, isDescending: false, numberOfPlayers: 25);
+                    foreach (var player in players)
+                    {
+
+                        Assert.IsNotNull(player);
+                        Assert.IsNotNull(player.PlayerStatisticsData);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Shifts);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Shots);
+                        Assert.IsNotNull(player.PlayerStatisticsData.ShortHandedGoals);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Assists);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Points);
+
+                        Assert.IsNotNull(player.PlayerStatisticsData.Hits);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Pim);
+                        Assert.IsNotNull(player.PlayerStatisticsData.FaceOffPct);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Games);
+                        Assert.IsNotNull(player.PlayerStatisticsData.TimeOnIce);
+
+                        Assert.IsNotNull(player.Player);
+                        Assert.IsNotNull(player.Player);
+                        Assert.IsNotNull(player.Player.Id);
+                        Assert.IsNotNull(player.Player.FullName);
+                    }
+                });
+            }
+        }
+
 
         [TestMethod]
         public async Task TestGetGoaliesWithTopStatisticBySeasonAsync()
