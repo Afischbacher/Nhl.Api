@@ -861,7 +861,7 @@ namespace Nhl.Api.Tests
             using INhlApi nhlApi = new NhlApi();
 
             // Act
-            var image = await nhlApi.DownloadPlayerHeadshotImageAsync(PlayerEnum.ZackKassian8475178, PlayerHeadshotImageSize.Large);
+            var image = await nhlApi.GetPlayerHeadshotImageAsync(PlayerEnum.ZackKassian8475178, PlayerHeadshotImageSize.Large);
 
             // Assert
             Assert.IsNotNull(image);
@@ -875,7 +875,7 @@ namespace Nhl.Api.Tests
             using INhlApi nhlApi = new NhlApi();
 
             // Act
-            var image = await nhlApi.DownloadPlayerHeadshotImageAsync(8477932, PlayerHeadshotImageSize.Large);
+            var image = await nhlApi.GetPlayerHeadshotImageAsync(8477932, PlayerHeadshotImageSize.Large);
 
             // Assert
             Assert.IsNotNull(image);
@@ -892,7 +892,7 @@ namespace Nhl.Api.Tests
             // Act / Assert
             await Assert.ThrowsExceptionAsync<HttpRequestException>(async () =>
             {
-                var image = await nhlApi.DownloadPlayerHeadshotImageAsync(999999, PlayerHeadshotImageSize.Large);
+                var image = await nhlApi.GetPlayerHeadshotImageAsync(999999, PlayerHeadshotImageSize.Large);
             });
         }
     }

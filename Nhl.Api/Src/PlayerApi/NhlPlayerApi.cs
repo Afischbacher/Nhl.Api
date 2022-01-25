@@ -342,7 +342,7 @@ namespace Nhl.Api
         /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
         /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
         /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
-        public async Task<byte[]> DownloadPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
+        public async Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
         {
             switch (playerHeadshotImageSize)
             {
@@ -364,7 +364,7 @@ namespace Nhl.Api
         /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
         /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
         /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
-        public async Task<byte[]> DownloadPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
+        public async Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
         {
             switch (playerHeadshotImageSize)
             {
