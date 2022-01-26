@@ -78,6 +78,9 @@ namespace Nhl.Api.Models.Enumerations.Venue
 
 	<#foreach(var venue in venues)
 	{#>
+/// <summary>
+	/// <#= venue.Name #> - <#= venue.Id #>
+	/// </summary>
 	<#= System.Text.RegularExpressions.Regex.Replace(venue.Name, @"('|\.|\s|-|_|&)","")#> = <#= venue.Id #>,
 	<#}#>
 
