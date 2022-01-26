@@ -90,12 +90,6 @@ included automatically within your .NET Core project.
 
 Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 ### Contents
-<a name='assembly'></a>
-# Nhl.Api
-<a name='assembly'></a>
-# Nhl.Api
-
-### Contents
 
 - [NhlApi](#T-Nhl-Api-NhlApi 'Nhl.Api.NhlApi')
   - [#ctor()](#M-Nhl-Api-NhlApi-#ctor 'Nhl.Api.NhlApi.#ctor')
