@@ -274,7 +274,7 @@ Once registered using your dependency injection library of choice or just using 
   - [GetPlayerByStatisticTypeBySeasonAsync(seasonYear,playerStatisticEnum,isDescending)](#M-Nhl-Api-NhlStatisticsApi-GetPlayerByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum,System-String,System-Boolean- 'Nhl.Api.NhlStatisticsApi.GetPlayerByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum,System.String,System.Boolean)')
   - [GetPlayerStatisticsBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlStatisticsApi.GetPlayerStatisticsBySeasonAsync(System.Int32,System.String)')
   - [GetPlayerStatisticsBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlStatisticsApi.GetPlayerStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
-  - [GetPlayersByStatisticTypeBySeasonAsync(seasonYear,playerStatisticEnum,numberOfPlayers,isDescending)](#M-Nhl-Api-NhlStatisticsApi-GetPlayersByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum,System-String,System-Boolean,System-Int32- 'Nhl.Api.NhlStatisticsApi.GetPlayersByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum,System.String,System.Boolean,System.Int32)')
+  - [GetPlayersByStatisticTypeBySeasonAsync(playerStatisticEnum,seasonYear,numberOfPlayers,isDescending)](#M-Nhl-Api-NhlStatisticsApi-GetPlayersByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum,System-String,System-Boolean,System-Int32- 'Nhl.Api.NhlStatisticsApi.GetPlayersByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum,System.String,System.Boolean,System.Int32)')
   - [GetStatisticTypesAsync()](#M-Nhl-Api-NhlStatisticsApi-GetStatisticTypesAsync 'Nhl.Api.NhlStatisticsApi.GetStatisticTypesAsync')
   - [GetTeamStatisticsByIdAsync(teamId,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetTeamStatisticsByIdAsync-System-Int32,System-String- 'Nhl.Api.NhlStatisticsApi.GetTeamStatisticsByIdAsync(System.Int32,System.String)')
   - [GetTeamStatisticsByIdAsync(team,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetTeamStatisticsByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String- 'Nhl.Api.NhlStatisticsApi.GetTeamStatisticsByIdAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.String)')
@@ -290,14 +290,14 @@ Nhl.Api
 
 ##### Summary
 
-The official unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
+The official unofficial Nhl.Api providing various NHL information about players, teams, conferences, divisions, statistics and more
 
 <a name='M-Nhl-Api-NhlApi-#ctor'></a>
 ### #ctor() `constructor`
 
 ##### Summary
 
-The official unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
+The official unofficial Nhl.Api providing various NHL information about players, teams, conferences, divisions, statistics and more
 
 ##### Parameters
 
@@ -3277,7 +3277,7 @@ A collection of all the in-depth NHL player statistics by type
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
 
 <a name='M-Nhl-Api-NhlStatisticsApi-GetPlayersByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum,System-String,System-Boolean,System-Int32-'></a>
-### GetPlayersByStatisticTypeBySeasonAsync(seasonYear,playerStatisticEnum,numberOfPlayers,isDescending) `method`
+### GetPlayersByStatisticTypeBySeasonAsync(playerStatisticEnum,seasonYear,numberOfPlayers,isDescending) `method`
 
 ##### Summary
 
@@ -3291,8 +3291,8 @@ Returns the collection of player profiles with the selected player statistic in 
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| seasonYear | [Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum 'Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
-| playerStatisticEnum | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the type of NHL player statistic, see [PlayerStatisticEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum 'Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum') for more information |
+| playerStatisticEnum | [Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum 'Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum') | The argument for the type of NHL player statistic, see [PlayerStatisticEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum 'Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum') for more information |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
 | numberOfPlayers | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | The argument for the number of players to retrieve, default value is 10 |
 | isDescending | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The argument to determine whether the order of the results of the statistic should be in a descending or ascending order |
 
@@ -3393,7 +3393,7 @@ Here are some of the future items I would like to add and are currently in the b
 - [x] Add additional API functionality for ease of searching for various NHL entities
 - [x] Add NHL player enum dynamically generated by T4 runtime templates
 - [x] Live Game Feed for Live Games
-- [ ] Content and Media for Games
+- [x] Content and Media for Games
 
 ## Notable Mentions 🙏
 Thank you to all the people in the hockey community, especially <a href="https://gitlab.com/dword4" target="_blank">Drew Hynes</a> to contributed to documenting the <a href="https://statsapi.web.nhl.com/api/v1" target="_blank">NHL Stats API</a>. Without all of their help, guidance and knowledge none of this would be possible.
