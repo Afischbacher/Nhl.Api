@@ -461,17 +461,6 @@ namespace Nhl.Api
         }
 
         /// <summary>
-        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
-        /// </summary>
-        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
-        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
-        /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
-        public async Task<GoalieStatisticResult> GetGoalieByStatisticTypeBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear)
-        {
-            return await _nhlStatisticsApi.GetGoalieByStatisticTypeBySeasonAsync(goalieStatisticEnum, seasonYear);
-        }
-
-        /// <summary>
         /// Returns the player with the top NHL player statistic based on the selected season year
         /// </summary>
         /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>

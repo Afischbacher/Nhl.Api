@@ -89,6 +89,7 @@ included automatically within your .NET Core project.
 ## Documentation 📖
 
 Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
+
 ### Contents
 
 - [NhlApi](#T-Nhl-Api-NhlApi 'Nhl.Api.NhlApi')
@@ -119,7 +120,6 @@ Once registered using your dependency injection library of choice or just using 
   - [GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate)](#M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime- 'Nhl.Api.NhlApi.GetGameScheduleForTeamByDateAsync(System.Int32,System.DateTime,System.DateTime)')
   - [GetGameStatusesAsync()](#M-Nhl-Api-NhlApi-GetGameStatusesAsync 'Nhl.Api.NhlApi.GetGameStatusesAsync')
   - [GetGameTypesAsync()](#M-Nhl-Api-NhlApi-GetGameTypesAsync 'Nhl.Api.NhlApi.GetGameTypesAsync')
-  - [GetGoalieByStatisticTypeBySeasonAsync(goalieStatisticEnum,seasonYear)](#M-Nhl-Api-NhlApi-GetGoalieByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum,System-String- 'Nhl.Api.NhlApi.GetGoalieByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.GoalieStatisticEnum,System.String)')
   - [GetGoalieByStatisticTypeBySeasonAsync(goalieStatisticEnum,seasonYear,isDescending)](#M-Nhl-Api-NhlApi-GetGoalieByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum,System-String,System-Boolean- 'Nhl.Api.NhlApi.GetGoalieByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.GoalieStatisticEnum,System.String,System.Boolean)')
   - [GetGoalieStatisticsBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetGoalieStatisticsBySeasonAsync(System.Int32,System.String)')
   - [GetGoalieStatisticsBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlApi.GetGoalieStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
@@ -726,24 +726,6 @@ A collection of NHL and other sporting event game types, see [GameType](#T-Nhl-A
 ##### Parameters
 
 This method has no parameters.
-
-<a name='M-Nhl-Api-NhlApi-GetGoalieByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum,System-String-'></a>
-### GetGoalieByStatisticTypeBySeasonAsync(goalieStatisticEnum,seasonYear) `method`
-
-##### Summary
-
-Returns the goalie with the top NHL goalie statistic based on the selected season year
-
-##### Returns
-
-Returns the goalie profile with the top player statistic in the specified NHL season
-
-##### Parameters
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| goalieStatisticEnum | [Nhl.Api.Models.Enumerations.Player.GoalieStatisticEnum](#T-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum 'Nhl.Api.Models.Enumerations.Player.GoalieStatisticEnum') | The argument for the type of NHL goalie statistic, see [GoalieStatisticEnum](#T-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum 'Nhl.Api.Models.Enumerations.Player.GoalieStatisticEnum') for more information |
-| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
 
 <a name='M-Nhl-Api-NhlApi-GetGoalieByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum,System-String,System-Boolean-'></a>
 ### GetGoalieByStatisticTypeBySeasonAsync(goalieStatisticEnum,seasonYear,isDescending) `method`
