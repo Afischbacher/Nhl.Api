@@ -23,7 +23,7 @@ namespace Nhl.Api.Models.League
         public string Name { get; set; }
 
         /// <summary>
-        /// The NHL API link to the league <br/>
+        /// The Nhl.Api link to the league <br/>
         /// Example: /api/v1/league/133
         /// </summary>
         [JsonProperty("link")]

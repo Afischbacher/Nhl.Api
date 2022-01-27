@@ -3,12 +3,12 @@
 namespace Nhl.Api.Common.Helpers
 {
     /// <summary>
-    /// A helper class to parse the meta data time stamp in NHL API responses
+    /// A helper class to parse the meta data time stamp in Nhl.Api responses
     /// </summary>
     public class TimeStampHelper
     {
         /// <summary>
-        /// Parses a meta data time stamp from the NHL API
+        /// Parses a meta data time stamp from the Nhl.Api
         /// </summary>
         /// <param name="timeStamp">The time stamp, Example: 20211105_201423</param>
         /// <returns>A parsed DateTimeOffset time stamp in UTC</returns>

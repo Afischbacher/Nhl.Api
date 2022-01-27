@@ -1,7 +1,4 @@
-﻿using Nhl.Api.Models.Player;
-
-
-namespace Nhl.Api.Models.Player
+﻿namespace Nhl.Api.Models.Player
 {
     /// <summary>
     /// NHL Player Statistics Result

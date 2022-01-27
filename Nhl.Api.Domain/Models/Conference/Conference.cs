@@ -23,7 +23,7 @@ namespace Nhl.Api.Models.Conference
         public string Name { get; set; }
 
         /// <summary>
-        /// The NHL API link for the NHL division <br/>
+        /// The Nhl.Api link for the NHL division <br/>
         /// Example: /api/v1/conferences/6
         /// </summary>
         [JsonProperty("link")]

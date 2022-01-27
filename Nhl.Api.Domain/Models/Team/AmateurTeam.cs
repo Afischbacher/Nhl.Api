@@ -15,7 +15,7 @@ namespace Nhl.Api.Models.Team
         public string Name { get; set; }
 
         /// <summary>
-        /// The NHL API link to the amateur team <br/>
+        /// The Nhl.Api link to the amateur team <br/>
         /// Example: /api/v1/teams/null
         /// </summary>
         [JsonProperty("link")]

@@ -26,7 +26,7 @@ namespace Nhl.Api.Models.Player
         public string FullName { get; set; }
 
         /// <summary>
-        /// A link to the NHL player profile in the NHL API <br/>
+        /// A link to the NHL player profile in the Nhl.Api <br/>
         /// Example: /api/v1/people/8479318
         /// </summary>
         [JsonProperty("link")]

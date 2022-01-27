@@ -57,7 +57,7 @@ namespace Nhl.Api.Models.Award
         public string HomePageUrl { get; set; }
 
         /// <summary>
-        /// The link to the NHL API for the NHL award <br/>
+        /// The link to the Nhl.Api for the NHL award <br/>
         /// Example: /api/v1/awards/4
         /// </summary>
         [JsonProperty("link")]

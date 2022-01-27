@@ -3,7 +3,7 @@
 namespace Nhl.Api.Models.Common
 {
     /// <summary>
-    /// An interface with common properties from the NHL API for various entities such as teams, players and more
+    /// An interface with common properties from the Nhl.Api for various entities such as teams, players and more
     /// </summary>
     public interface INhlApiMetaData
     {

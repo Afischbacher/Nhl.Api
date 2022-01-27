@@ -3,7 +3,7 @@
 namespace Nhl.Api.Common.Extensions
 {
     /// <summary>
-    /// A simple library for String extensions
+    /// A simple library for String extensions for the Nhl.Api
     /// </summary>
     public static class StringExtensions
     {

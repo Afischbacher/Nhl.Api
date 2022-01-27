@@ -4,7 +4,7 @@ using System.Net.Http;
 namespace Nhl.Api.Common.Http
 {
     /// <summary>
-    /// The dedicated NHL static assets HTTP Client for the NHL API
+    /// The dedicated NHL static assets HTTP Client for the Nhl.Api
     /// </summary>
     public class NhlStaticAssetsApiHttpClient : NhlApiHttpClient
     {
@@ -16,7 +16,7 @@ namespace Nhl.Api.Common.Http
         public const string ClientApiUrl = "https://www-league.nhlstatic.com";
 
         /// <summary>
-        /// The dedicated NHL static assets HTTP Client for the NHL API
+        /// The dedicated NHL static assets HTTP Client for the Nhl.Api
         /// </summary>
         public NhlStaticAssetsApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
         {

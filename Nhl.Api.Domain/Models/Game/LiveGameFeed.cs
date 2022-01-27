@@ -383,7 +383,7 @@ namespace Nhl.Api.Models.Game
         public string Name { get; set; }
 
         /// <summary>
-        /// Returns the NHL API link to the team profile and endpoint <br/>
+        /// Returns the Nhl.Api link to the team profile and endpoint <br/>
         /// Example: /api/v1/teams/17
         /// </summary>
         [JsonProperty("link")]
@@ -636,7 +636,7 @@ namespace Nhl.Api.Models.Game
         public string Name { get; set; }
 
         /// <summary>
-        /// Returns the NHL API link to the team profile and endpoint <br/>
+        /// Returns the Nhl.Api link to the team profile and endpoint <br/>
         /// Example: /api/v1/teams/17
         /// </summary>
         [JsonProperty("link")]
@@ -785,7 +785,7 @@ namespace Nhl.Api.Models.Game
         public string FullName { get; set; }
 
         /// <summary>
-        /// A link to the NHL player profile in the NHL API <br/>
+        /// A link to the NHL player profile in the Nhl.Api <br/>
         /// Example: /api/v1/people/8479318
         /// </summary>
         [JsonProperty("link")]
@@ -1032,7 +1032,7 @@ namespace Nhl.Api.Models.Game
         public Dictionary<string, LiveGameFeedGameDataPlayer> Players { get; set; }
 
         /// <summary>
-        /// Returns information about the NHL venue, including NHL API link and city
+        /// Returns information about the NHL venue, including Nhl.Api link and city
         /// </summary>
         [JsonProperty("venue")]
         public Venue.Venue Venue { get; set; }
@@ -1059,7 +1059,7 @@ namespace Nhl.Api.Models.Game
         public string FullName { get; set; }
 
         /// <summary>
-        /// A link to the NHL player profile in the NHL API <br/>
+        /// A link to the NHL player profile in the Nhl.Api <br/>
         /// Example: /api/v1/people/8479318
         /// </summary>
         [JsonProperty("link")]
@@ -1483,7 +1483,7 @@ namespace Nhl.Api.Models.Game
         public List<LiveGameFeedAllPlayPlayer> Players { get; set; }
 
         /// <summary>
-        /// Returns information about the NHL team in the NHL play, includes the NHL API link, team name and more 
+        /// Returns information about the NHL team in the NHL play, includes the Nhl.Api link, team name and more 
         /// </summary>
         [JsonProperty("team")]
         public TeamInformation Team { get; set; }
@@ -1846,7 +1846,7 @@ namespace Nhl.Api.Models.Game
 
         /// <summary>
         /// Returns the adjusted and correct side of the rink for the NHL live game feed team, due to data discrepancies, <br/>
-        /// there are cases when the NHL API incorrectly marks the left and right sides of the rink for some matches within each period <br/>
+        /// there are cases when the Nhl.Api incorrectly marks the left and right sides of the rink for some matches within each period <br/>
         /// Example: left/right
         /// </summary>
         public string CorrectedRinkSide { get; set; }
@@ -1892,7 +1892,7 @@ namespace Nhl.Api.Models.Game
     public abstract class LiveGameFeedLineScoreTeam
     {
         /// <summary>
-        /// The NHL live game feed team information, including name and NHL API link
+        /// The NHL live game feed team information, including name and Nhl.Api link
         /// </summary>
         [JsonProperty("team")]
         public TeamInformation Team { get; set; }
@@ -2133,7 +2133,7 @@ namespace Nhl.Api.Models.Game
         public string FullName { get; set; }
 
         /// <summary>
-        /// Returns the NHL player's NHL API endpoint <br/>
+        /// Returns the NHL player's Nhl.Api endpoint <br/>
         /// Example: /api/v1/people/8480185
         /// </summary>
         [JsonProperty("link")]
@@ -2509,7 +2509,7 @@ namespace Nhl.Api.Models.Game
         public string FullName { get; set; }
 
         /// <summary>
-        /// Returns an NHL API link for the NHL official <br/>
+        /// Returns an Nhl.Api link for the NHL official <br/>
         /// Example: /api/v1/people/2459
         /// </summary>
         [JsonProperty("link")]
@@ -2710,7 +2710,7 @@ namespace Nhl.Api.Models.Game
         public string FullName { get; set; }
 
         /// <summary>
-        /// Returns the NHL player's NHL API link <br/>
+        /// Returns the NHL player's Nhl.Api link <br/>
         /// Example: /api/v1/people/8470638
         /// </summary>
         [JsonProperty("link")]
@@ -2737,7 +2737,7 @@ namespace Nhl.Api.Models.Game
         public string FullName { get; set; }
 
         /// <summary>
-        /// Returns the NHL player's NHL API link <br/>
+        /// Returns the NHL player's Nhl.Api link <br/>
         /// Example: /api/v1/people/8476899
         /// </summary>
         [JsonProperty("link")]

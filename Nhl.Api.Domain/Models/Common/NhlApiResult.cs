@@ -2,7 +2,7 @@
 {
 
     /// <summary>
-    /// An NHL API result interface for a response from the NHL API
+    /// An Nhl.Api result interface for a response from the Nhl.Api
     /// </summary>
     public interface INhlApiResult<T> where T : class, new()
     {
