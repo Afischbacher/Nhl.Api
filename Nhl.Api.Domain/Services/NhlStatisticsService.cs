@@ -93,6 +93,7 @@ namespace Nhl.Api.Services
             switch (goalieStatisticEnum)
             {
                 case GoalieStatisticEnum.SavePercentage:
+
                     return GetOrderEnumerableByKeySelector(validGoalieStatistics, goalieStatisticResult => goalieStatisticResult.GoalieStatisticsData.SavePercentage, isDescending)
                        .Take(count)
                        .ToList();
@@ -192,6 +193,7 @@ namespace Nhl.Api.Services
         /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
         /// <param name="validPlayerStatistics">A collection of NHL player statistics results</param>
         /// <param name="isDescending">The argument to determine whether the order of the results of the statistic should be in a descending or ascending order</param>
+        /// <param name="count">The number of players to return</param>
         /// <returns> Returns the a player statistic result </returns>
         public List<PlayerStatisticResult> GetOrderedPlayerStatisticResults(PlayerStatisticEnum playerStatisticEnum, IEnumerable<PlayerStatisticResult> validPlayerStatistics, bool isDescending, int count)
         {
