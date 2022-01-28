@@ -18,7 +18,7 @@ namespace Nhl.Api.Models.Game
         public int GamePk { get; set; }
 
         /// <summary>
-        /// The NHL API link for the game live feed <br/>
+        /// The Nhl.Api link for the game live feed <br/>
         /// Example: /api/v1/game/2018020614/feed/live
         /// </summary>
         [JsonProperty("link")]

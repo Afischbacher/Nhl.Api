@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Http;
+using Nhl.Api.Services;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Player;
@@ -16,12 +17,21 @@ using Nhl.Api.Models.Team;
 namespace Nhl.Api
 {
     /// <summary>
-    /// NHL Statistics API
+    /// The official unofficial NHL Statistics API providing various NHL information about in-depth player statistics, team statistics and more
     /// </summary>
     public class NhlStatisticsApi : INhlStatisticsApi
     {
         private static readonly INhlApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
         private static readonly INhlPlayerApi _nhlPlayerApi = new NhlPlayerApi();
+        private static readonly INhlStatisticsService _nhlStatisticsService = new NhlStatisticsService();
+
+        /// <summary>
+        /// The official unofficial NHL Statistics API providing various NHL information about in-depth player statistics, team statistics and more
+        /// </summary>
+        public NhlStatisticsApi()
+        {
+
+        }
 
         /// <summary>
         /// Returns all of the NHL team's statistics for the specific NHL season
@@ -178,253 +188,6 @@ namespace Nhl.Api
         }
 
         /// <summary>
-        /// Returns the player with the top NHL player statistic based on the selected season year
-        /// </summary>
-        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
-        /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
-        /// <returns>Returns the player profile with the top player statistic in the specified NHL season</returns>
-        public async Task<PlayerStatisticResult> GetPlayerWithTopStatisticBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear)
-        {
-            var playerIds = (await _nhlPlayerApi.GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear)).Select(player => player.Person.Id);
-            var players = await _nhlPlayerApi.GetPlayersByIdAsync(playerIds);
-
-            var playerStatisticsTasks = players.Where(player => !player.IsGoalie).Select(async player =>
-            {
-                return new
-                {
-                    Player = player,
-                    PlayerStatistics = await GetPlayerStatisticsBySeasonAsync(player.Id, seasonYear)
-                };
-            });
-
-            var playerStatistics = await Task.WhenAll(playerStatisticsTasks);
-
-            var validPlayerStatistics = playerStatistics.Select(playerStatistic =>
-            {
-                return new PlayerStatisticResult
-                {
-                    Player = playerStatistic.Player,
-                    PlayerStatisticsData = playerStatistic.PlayerStatistics.Statistics.FirstOrDefault()?.Splits.FirstOrDefault()?.PlayerStatisticsData
-                };
-
-            }).Where(playerStatistic => playerStatistic.PlayerStatisticsData != null);
-
-            switch (playerStatisticEnum)
-            {
-                case PlayerStatisticEnum.Goals:
-                    return validPlayerStatistics
-                        .OrderByDescending(ps => ps.PlayerStatisticsData.Shots)
-                        .ThenByDescending(ps => ps.PlayerStatisticsData.Goals)
-                        .First();
-
-                case PlayerStatisticEnum.Assists:
-                    return validPlayerStatistics
-                      .OrderByDescending(ps => ps.PlayerStatisticsData.Assists)
-                      .First();
-
-                case PlayerStatisticEnum.Points:
-                    return validPlayerStatistics
-                      .OrderByDescending(ps => ps.PlayerStatisticsData.Points)
-                      .First();
-
-                case PlayerStatisticEnum.Shots:
-                    return validPlayerStatistics
-                      .OrderByDescending(ps => ps.PlayerStatisticsData.Shots)
-                      .First();
-
-                case PlayerStatisticEnum.ShotsBlocked:
-                    return validPlayerStatistics
-                       .OrderByDescending(ps => ps.PlayerStatisticsData.Blocked)
-                       .First();
-
-                case PlayerStatisticEnum.ShotPercentage:
-                    return validPlayerStatistics
-                      .OrderByDescending(ps => ps.PlayerStatisticsData.ShotPct)
-                      .First();
-
-                case PlayerStatisticEnum.Hits:
-                    return validPlayerStatistics
-                       .OrderByDescending(ps => ps.PlayerStatisticsData.Hits)
-                       .First();
-
-                case PlayerStatisticEnum.FaceOffPercentage:
-                    return validPlayerStatistics
-                       .OrderByDescending(ps => ps.PlayerStatisticsData.FaceOffPct)
-                       .First();
-
-                case PlayerStatisticEnum.PenaltyMinutes:
-                    return validPlayerStatistics
-                       .OrderByDescending(ps => ps.PlayerStatisticsData.Pim)
-                       .First();
-
-                case PlayerStatisticEnum.PlusMinus:
-                    return validPlayerStatistics
-                       .OrderByDescending(ps => ps.PlayerStatisticsData.PlusMinus)
-                       .First();
-
-                case PlayerStatisticEnum.PowerPlayGoals:
-                    return validPlayerStatistics
-                        .OrderByDescending(ps => ps.PlayerStatisticsData.PowerPlayGoals)
-                        .First();
-
-                case PlayerStatisticEnum.PowerPlayPoints:
-                    return validPlayerStatistics
-                       .OrderByDescending(ps => ps.PlayerStatisticsData.PowerPlayPoints)
-                       .First();
-
-                case PlayerStatisticEnum.OverTimeGoals:
-                    return validPlayerStatistics
-                       .OrderByDescending(ps => ps.PlayerStatisticsData.OverTimeGoals)
-                       .First();
-
-                case PlayerStatisticEnum.Shifts:
-                    return validPlayerStatistics
-                       .OrderByDescending(ps => ps.PlayerStatisticsData.Shifts)
-                       .First();
-
-                case PlayerStatisticEnum.ShortHandedGoals:
-                    return validPlayerStatistics
-                       .OrderByDescending(ps => ps.PlayerStatisticsData.ShortHandedGoals)
-                       .First();
-
-                case PlayerStatisticEnum.ShortHandedPoints:
-                    return validPlayerStatistics
-                        .OrderByDescending(ps => ps.PlayerStatisticsData.ShortHandedPoints)
-                        .First();
-                default:
-                    return null;
-            }
-        }
-
-        /// <summary>
-        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
-        /// </summary>
-        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
-        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
-        /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
-        public async Task<GoalieStatisticResult> GetGoalieWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear)
-        {
-            var goalieIds = (await _nhlPlayerApi.GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear)).Select(player => player.Person.Id);
-            var goalies = await _nhlPlayerApi.GetPlayersByIdAsync(goalieIds);
-
-            var goalieStatisticsTasks = goalies.Where(player => player.IsGoalie).Select(async player =>
-            {
-                return new
-                {
-                    Player = player,
-                    GoalieStatistics = await GetGoalieStatisticsBySeasonAsync(player.Id, seasonYear)
-                };
-            });
-
-            var goalieStatistics = await Task.WhenAll(goalieStatisticsTasks);
-
-            var validGoalieStatistics = goalieStatistics.Select(playerStatistic =>
-            {
-                return new GoalieStatisticResult
-                {
-                    Player = playerStatistic.Player,
-                    GoalieStatisticsData = playerStatistic.GoalieStatistics.Statistics.FirstOrDefault()?.Splits.FirstOrDefault()?.GoalieStatisticsData
-                };
-
-            }).Where(playerStatistic => playerStatistic.GoalieStatisticsData != null);
-
-            switch (goalieStatisticEnum)
-            {
-                case GoalieStatisticEnum.SavePercentage:
-                    return validGoalieStatistics
-                       .OrderByDescending(ps => ps.GoalieStatisticsData.SavePercentage)
-                       .First();
-
-                case GoalieStatisticEnum.Shutouts:
-                    return validGoalieStatistics
-                       .OrderByDescending(ps => ps.GoalieStatisticsData.Shutouts)
-                       .First();
-
-                case GoalieStatisticEnum.Ties:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.Ties)
-                        .First();
-
-                case GoalieStatisticEnum.Wins:
-                    return validGoalieStatistics
-                       .OrderByDescending(ps => ps.GoalieStatisticsData.Wins)
-                       .First();
-
-                case GoalieStatisticEnum.OvertimeWins:
-                    return validGoalieStatistics
-                       .OrderByDescending(ps => ps.GoalieStatisticsData.Ot)
-                       .First();
-
-                case GoalieStatisticEnum.Losses:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.Losses)
-                        .First();
-
-                case GoalieStatisticEnum.Saves:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.Saves)
-                        .First();
-
-                case GoalieStatisticEnum.PowerPlaySaves:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.PowerPlaySaves)
-                        .First();
-
-                case GoalieStatisticEnum.PowerPlayShots:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.PowerPlayShots)
-                        .First();
-
-                case GoalieStatisticEnum.EvenShots:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.EvenShots)
-                        .First();
-
-                case GoalieStatisticEnum.ShortHandedShots:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.ShortHandedShots)
-                        .First();
-
-                case GoalieStatisticEnum.EvenSaves:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.EvenSaves)
-                        .First();
-
-                case GoalieStatisticEnum.ShortHandedSaves:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.ShortHandedSaves)
-                        .First();
-
-                case GoalieStatisticEnum.GoalAgainstAverage:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.GoalAgainstAverage)
-                        .First();
-
-                case GoalieStatisticEnum.GoalsAgainst:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.GoalsAgainst)
-                        .First();
-
-                case GoalieStatisticEnum.EvenStrengthSavePercentage:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.EvenStrengthSavePercentage)
-                        .First();
-
-                case GoalieStatisticEnum.ShortHandedSavePercentage:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.ShortHandedSavePercentage)
-                        .First();
-
-                case GoalieStatisticEnum.PowerPlaySavePercentage:
-                    return validGoalieStatistics
-                        .OrderByDescending(ps => ps.GoalieStatisticsData.PowerPlaySavePercentage)
-                        .First();
-                default:
-                    return null;
-            }
-        }
-
-        /// <summary>
         /// Returns all distinct types of NHL statistics types
         /// </summary>
         /// <returns>A collection of all the various NHL statistics types, see <see cref="StatisticTypes"/> for more information</returns>
@@ -511,6 +274,137 @@ namespace Nhl.Api
             return (await _nhlStatsApiHttpClient.GetAsync<TeamSeasonStatistics>($"/teams/{(int)team}?expand=team.stats&season={seasonYear}"))
                 .Teams
                 .SingleOrDefault();
+        }
+
+        /// <summary>
+        /// Returns the player with the top NHL player statistic based on the selected season year
+        /// </summary>
+        /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="numberOfPlayers">The argument for the number of players to retrieve, default value is 10 </param>
+        /// <param name="isDescending">The argument to determine whether the order of the results of the statistic should be in a descending or ascending order</param>
+        /// <returns>Returns the collection of player profiles with the selected player statistic in the specified NHL season</returns>
+        public async Task<List<PlayerStatisticResult>> GetPlayersByStatisticTypeBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear, bool isDescending = true, int numberOfPlayers = 10)
+        {
+            return await GetPlayerStatisticResultsAsync(playerStatisticEnum, seasonYear, isDescending, numberOfPlayers);
+        }
+
+        /// <summary>
+        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
+        /// </summary>
+        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="numberOfGoalies">The argument for the number of goalies to retrieve, default value is 10 </param>
+        /// <param name="isDescending">The argument to determine whether the order of the results of the statistic should be in a descending or ascending order</param>
+        /// <returns>Returns a collection goalie profiles with the selected statistic in the specified NHL season</returns>
+        public async Task<List<GoalieStatisticResult>> GetGoaliesByStatisticTypeBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear, bool isDescending = true, int numberOfGoalies = 10)
+        {
+            return await GetGoalieStatisticResultsAsync(goalieStatisticEnum, seasonYear, isDescending, numberOfGoalies);
+        }
+
+        /// <summary>
+        /// Returns the player with the top NHL player statistic based on the selected season year
+        /// </summary>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
+        /// <param name="isDescending">The argument to determine whether the order of the results of the statistic should be in a descending or ascending order</param>
+        /// <returns>Returns the player profile with the selected statistic in the specified NHL season</returns>
+        public async Task<PlayerStatisticResult> GetPlayerByStatisticTypeBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear, bool isDescending = true)
+        {
+            return (await GetPlayerStatisticResultsAsync(playerStatisticEnum, seasonYear, isDescending, count: 1)).FirstOrDefault();
+        }
+
+
+        /// <summary>
+        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
+        /// </summary>
+        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="isDescending">The argument to determine whether the order of the results of the statistic should be in a descending or ascending order</param>
+        /// <returns>Returns the goalie profile with the selected statistic in the specified NHL season</returns>
+        public async Task<GoalieStatisticResult> GetGoalieByStatisticTypeBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear, bool isDescending = true)
+        {
+            return (await GetGoalieStatisticResultsAsync(goalieStatisticEnum, seasonYear, isDescending, count: 1)).FirstOrDefault();
+        }
+
+
+        private async Task<List<GoalieStatisticResult>> GetGoalieStatisticResultsAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear, bool isDescending, int count)
+        {
+            if (string.IsNullOrEmpty(seasonYear))
+            {
+                throw new ArgumentNullException(nameof(seasonYear));
+            }
+
+            if (seasonYear.Length > 8)
+            {
+                throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+            }
+
+            var goalieIds = (await _nhlPlayerApi.GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear)).Select(player => player.Person.Id);
+            var goalies = await _nhlPlayerApi.GetPlayersByIdAsync(goalieIds);
+
+            var goalieStatisticsTasks = goalies.Where(player => player.IsGoalie).Select(async player =>
+            {
+                return new
+                {
+                    Player = player,
+                    GoalieStatistics = await GetGoalieStatisticsBySeasonAsync(player.Id, seasonYear)
+                };
+            });
+
+            var goalieStatistics = await Task.WhenAll(goalieStatisticsTasks);
+
+            var validGoalieStatistics = goalieStatistics.Select(playerStatistic =>
+            {
+                return new GoalieStatisticResult
+                {
+                    Player = playerStatistic.Player,
+                    GoalieStatisticsData = playerStatistic.GoalieStatistics.Statistics.FirstOrDefault()?.Splits.FirstOrDefault()?.GoalieStatisticsData
+                };
+
+            }).Where(playerStatistic => playerStatistic.GoalieStatisticsData != null);
+
+            return _nhlStatisticsService.GetOrderedGoalieStatisticResults(goalieStatisticEnum, validGoalieStatistics, isDescending, count);
+        }
+
+        private async Task<List<PlayerStatisticResult>> GetPlayerStatisticResultsAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear, bool isDescending, int count)
+        {
+            if (string.IsNullOrEmpty(seasonYear))
+            {
+                throw new ArgumentNullException(nameof(seasonYear));
+            }
+
+            if (seasonYear.Length > 8)
+            {
+                throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+            }
+
+            var playerIds = (await _nhlPlayerApi.GetLeagueTeamRosterMembersBySeasonYearAsync(seasonYear)).Select(player => player.Person.Id);
+            var players = await _nhlPlayerApi.GetPlayersByIdAsync(playerIds);
+
+            var playerStatisticsTasks = players.Where(player => !player.IsGoalie).Select(async player =>
+            {
+                return new
+                {
+                    Player = player,
+                    PlayerStatistics = await GetPlayerStatisticsBySeasonAsync(player.Id, seasonYear)
+                };
+            });
+
+            var playerStatistics = await Task.WhenAll(playerStatisticsTasks);
+
+            var validPlayerStatistics = playerStatistics.Select(playerStatistic =>
+            {
+                return new PlayerStatisticResult
+                {
+                    Player = playerStatistic.Player,
+                    PlayerStatisticsData = playerStatistic.PlayerStatistics.Statistics.FirstOrDefault()?.Splits.FirstOrDefault()?.PlayerStatisticsData
+                };
+
+            }).Where(playerStatistic => playerStatistic.PlayerStatisticsData != null);
+
+            return _nhlStatisticsService.GetOrderedPlayerStatisticResults(playerStatisticEnum, validPlayerStatistics, isDescending, count);
+
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Nhl.Api.Common.Http
 {
     /// <summary>
-    /// The NHL API HTTP Client
+    /// The Nhl.Api HTTP Client
     /// </summary>
     public interface INhlApiHttpClient
     {
@@ -21,33 +21,33 @@ namespace Nhl.Api.Common.Http
         /// <summary>
         /// Performs a HTTP GET request and returns a byte array
         /// </summary>
-        /// <param name="route">The NHL API endpoint</param>
+        /// <param name="route">The Nhl.Api endpoint</param>
         /// <returns>A byte array payload from the HTTP GET request</returns>
         Task<byte[]> GetByteArrayAsync(string route);
 
         /// <summary>
-        /// The HTTP Client for the NHL API
+        /// The HTTP Client for the Nhl.Api
         /// </summary>
         HttpClient HttpClient { get; }
 
         /// <summary>
-        /// The official client for the NHL API
+        /// The official client for the Nhl.Api
         /// </summary>
         string Client { get; }
 
         /// <summary>
-        /// The client version for HTTP requests for the NHL API
+        /// The client version for HTTP requests for the Nhl.Api
         /// </summary>
         string ClientVersion { get; }
     }
 
     /// <summary>
-    /// The NHL API HTTP Client
+    /// The Nhl.Api HTTP Client
     /// </summary>
     public abstract class NhlApiHttpClient : INhlApiHttpClient
     {
         /// <summary>
-        /// The NHL API HTTP Client
+        /// The Nhl.Api HTTP Client
         /// </summary>
         public NhlApiHttpClient(string clientApiUri, string clientVersion, int timeoutInSeconds = 30)
         {
@@ -60,29 +60,29 @@ namespace Nhl.Api.Common.Http
         }
 
         /// <summary>
-        /// The HTTP Client for the NHL API
+        /// The HTTP Client for the Nhl.Api
         /// </summary>
         public virtual HttpClient HttpClient { get; }
 
         /// <summary>
-        /// The timeout for HTTP requests for the NHL API
+        /// The timeout for HTTP requests for the Nhl.Api
         /// </summary>
         public TimeSpan Timeout { get; private set; }
 
         /// <summary>
-        /// The client version for HTTP requests for the NHL API
+        /// The client version for HTTP requests for the Nhl.Api
         /// </summary>
         public string ClientVersion { get; private set; }
 
         /// <summary>
-        /// The official client for the NHL API
+        /// The official client for the Nhl.Api
         /// </summary>
         public string Client { get; private set; }
 
         /// <summary>
         /// Performs a HTTP GET request with a generic argument as the model or type to be returned
         /// </summary>
-        /// <param name="route">The NHL API endpoint</param>
+        /// <param name="route">The Nhl.Api endpoint</param>
         /// <returns>The deserialized JSON payload of the generic type</returns>
         public async Task<T> GetAsync<T>(string route) where T : class, new()
         {
@@ -102,7 +102,7 @@ namespace Nhl.Api.Common.Http
         /// <summary>
         /// Performs a HTTP GET request and returns a byte array
         /// </summary>
-        /// <param name="route">The NHL API endpoint</param>
+        /// <param name="route">The Nhl.Api endpoint</param>
         /// <returns>A byte array payload from the HTTP GET request</returns>
         public async Task<byte[]> GetByteArrayAsync(string route)
         {

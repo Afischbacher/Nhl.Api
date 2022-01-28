@@ -4,7 +4,7 @@ using System.Net.Http;
 namespace Nhl.Api.Common.Http
 {
     /// <summary>
-    /// The dedicated NHL statistics HTTP Client for the NHL API
+    /// The dedicated NHL statistics HTTP Client for the Nhl.Api
     /// </summary>
     public class NhlStatsApiHttpClient : NhlApiHttpClient
     {
@@ -18,7 +18,7 @@ namespace Nhl.Api.Common.Http
 
         
         /// <summary>
-        /// The dedicated NHL statistics HTTP Client for the NHL API
+        /// The dedicated NHL statistics HTTP Client for the Nhl.Api
         /// </summary>
         public NhlStatsApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: "v1", timeoutInSeconds: 30)
         {
@@ -26,7 +26,7 @@ namespace Nhl.Api.Common.Http
         }
 
         /// <summary>
-        /// The HTTP client for the NHL API
+        /// The HTTP client for the Nhl.Api
         /// </summary>
         public override HttpClient HttpClient
         {

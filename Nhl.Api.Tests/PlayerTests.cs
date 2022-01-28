@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -851,6 +852,48 @@ namespace Nhl.Api.Tests
                     Assert.IsNotNull(lastPlayer.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Medium));
                     Assert.IsNotNull(lastPlayer.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large));
                 });
+        }
+
+        [TestMethod]
+        public async Task TestDownloadPlayerHeadshotImageAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var image = await nhlApi.GetPlayerHeadshotImageAsync(PlayerEnum.ZackKassian8475178, PlayerHeadshotImageSize.Large);
+
+            // Assert
+            Assert.IsNotNull(image);
+            Assert.IsTrue(image.Length > 5000);
+        }
+
+        [TestMethod]
+        public async Task TestDownloadPlayerHeadshotImageWithIdAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var image = await nhlApi.GetPlayerHeadshotImageAsync(8477932, PlayerHeadshotImageSize.Large);
+
+            // Assert
+            Assert.IsNotNull(image);
+            Assert.IsTrue(image.Length > 5000);
+        }
+
+        [TestMethod]
+        public async Task TestDownloadPlayerHeadshotImageWithInvalidIdAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+
+            // Act / Assert
+            await Assert.ThrowsExceptionAsync<HttpRequestException>(async () =>
+            {
+                var image = await nhlApi.GetPlayerHeadshotImageAsync(999999, PlayerHeadshotImageSize.Large);
+            });
         }
     }
 }

@@ -1,4 +1,9 @@
-﻿using Nhl.Api.Common.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Award;
 using Nhl.Api.Models.Conference;
 using Nhl.Api.Models.Division;
@@ -13,25 +18,26 @@ using Nhl.Api.Models.Event;
 using Nhl.Api.Models.Franchise;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
-using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Models.Venue;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Nhl.Api
 {
     /// <summary>
-    /// NHL League API
+    /// The official unofficial NHL League API providing various NHL league information including teams, franchises, standings, awards and more
     /// </summary>
     public class NhlLeagueApi : INhlLeagueApi
     {
-
         private static readonly INhlApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
         private static readonly INhlApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
+
+        /// <summary>
+        /// The official unofficial NHL League API providing various NHL league information including teams, franchises, standings, awards and more
+        /// </summary>
+        public NhlLeagueApi()
+        {
+
+        }
 
         /// <summary>
         /// Returns all NHL franchises, including information such as team name, location and more

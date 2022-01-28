@@ -1,9 +1,4 @@
-﻿using Nhl.Api.Models.Player;
-using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Nhl.Api.Models.Player
+﻿namespace Nhl.Api.Models.Player
 {
     /// <summary>
     /// NHL Goalie Statistic Result

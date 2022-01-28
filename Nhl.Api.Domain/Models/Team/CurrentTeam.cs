@@ -24,7 +24,7 @@ namespace Nhl.Api.Models.Team
         public string Name { get; set; }
 
         /// <summary>
-        /// The link to the NHL API endpoint for the NHL team information <br/>
+        /// The link to the Nhl.Api endpoint for the NHL team information <br/>
         /// Example: /api/v1/teams/30
         /// </summary>
         [JsonProperty("link")]
@@ -43,7 +43,7 @@ namespace Nhl.Api.Models.Team
         }
 
         /// <summary>
-        /// Returns the team logo url as a dark background 
+        /// Returns the team logo url as a dark background <br/>
         /// Example: https://www-league.nhlstatic.com/images/logos/teams-current-primary-dark/6.svg
         /// </summary>
         public string OfficalDarkTeamLogoUrl

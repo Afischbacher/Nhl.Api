@@ -783,19 +783,6 @@ namespace Nhl.Api.Tests
         [DataRow(2019020249)]
         [DataRow(2019020902)]
         [DataRow(2020020290)]
-        [DataRow(2021020590)]
-        [DataRow(2021020592)]
-        [DataRow(2021020594)]
-        [DataRow(2021020597)]
-        [DataRow(2021020599)]
-        [DataRow(2021020600)]
-        [DataRow(2021020602)]
-        [DataRow(2021020668)]
-        [DataRow(2021020670)]
-        [DataRow(2021020674)]
-        [DataRow(2021020677)]
-        [DataRow(2021020678)]
-        [DataRow(2021020682)]
         [TestMethod]
         public async Task TestGetLiveGameFeedGetCorrectRinkSideAsync(int gameId)
         {
@@ -974,6 +961,83 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(liveGameFeedPlayerShifts);
             Assert.IsFalse(liveGameFeedPlayerShifts.PlayerShifts.Any());
 
+        }
+
+        [DataRow(2021020566)]
+        [DataRow(2021020567)]
+        [DataRow(2021020568)]
+        [DataRow(2018020652)]
+        [DataRow(2019020663)]
+
+        [TestMethod]
+        public async Task TestGetLiveGameFeedContentAsync(int gameId)
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var liveGameFeedContent = await nhlApi.GetLiveGameFeedContentByIdAsync(gameId);
+
+            // Assert
+            Assert.IsNotNull(liveGameFeedContent);
+            Assert.IsNotNull(liveGameFeedContent.Editorial);
+            Assert.IsNotNull(liveGameFeedContent.Link);
+            Assert.IsNotNull(liveGameFeedContent.Highlights);
+            Assert.IsNotNull(liveGameFeedContent.Media);
+          
+            
+            Assert.IsNotNull(liveGameFeedContent.Editorial.Articles);
+            Assert.IsNotNull(liveGameFeedContent.Editorial.Articles.Items);
+            Assert.IsNotNull(liveGameFeedContent.Editorial.Preview.Items);
+
+            foreach (var editorialItem in liveGameFeedContent.Editorial.Preview.Items)
+            {
+                Assert.IsNotNull(editorialItem);
+                Assert.IsNotNull(editorialItem.DataURI);
+                Assert.IsNotNull(editorialItem.State);
+                Assert.IsNotNull(editorialItem.Preview);
+                Assert.IsNotNull(editorialItem.SeoTitle);
+                Assert.IsNotNull(editorialItem.SeoKeywords);
+                Assert.IsNotNull(editorialItem.SeoDescription);
+                Assert.IsNotNull(editorialItem.Media);
+                Assert.IsNotNull(editorialItem.Slug);
+            }
+
+            foreach (var editorialItem in liveGameFeedContent.Editorial.Recap.Items)
+            {
+                Assert.IsNotNull(editorialItem);
+                Assert.IsNotNull(editorialItem.DataURI);
+                Assert.IsNotNull(editorialItem.State);
+                Assert.IsNotNull(editorialItem.Preview);
+                Assert.IsNotNull(editorialItem.SeoTitle);
+                Assert.IsNotNull(editorialItem.SeoKeywords);
+                Assert.IsNotNull(editorialItem.SeoDescription);
+                Assert.IsNotNull(editorialItem.Media);
+                Assert.IsNotNull(editorialItem.Slug);
+            }
+
+            Assert.IsNotNull(liveGameFeedContent.Media.Milestones);
+            Assert.IsNotNull(liveGameFeedContent.Media.Milestones.Items);
+
+            foreach (var item in liveGameFeedContent.Media.Milestones.Items)
+            {
+                Assert.IsNotNull(item.Description);
+                Assert.IsNotNull(item.TimeOffset);
+                Assert.IsNotNull(item.Title);
+            }
+
+            Assert.IsNotNull(liveGameFeedContent.Highlights.GameCenter.Items);
+            foreach (var item in liveGameFeedContent.Highlights.GameCenter.Items)
+            {
+                Assert.IsNotNull(item.Description);
+                Assert.IsNotNull(item.Blurb);
+                Assert.IsNotNull(item.AuthFlow);
+                Assert.IsNotNull(item.Image);
+                Assert.IsNotNull(item.MediaState);
+                Assert.IsNotNull(item.MediaPlaybackId);
+                Assert.IsNotNull(item.Playbacks);
+                Assert.IsNotNull(item.Title);
+            }
         }
     }
 }

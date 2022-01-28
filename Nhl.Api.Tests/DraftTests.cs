@@ -10,7 +10,7 @@ namespace Nhl.Api.Tests
     {
 
         [TestMethod]
-        public async Task TestGetDraftByYear()
+        public async Task TestGetDraftByYearAsync()
         {
             // Arrange
             using INhlApi nhlApi = new NhlApi();
@@ -47,7 +47,7 @@ namespace Nhl.Api.Tests
         }
 
         [TestMethod]
-        public async Task TestGetProspectsAsnyc()
+        public async Task TestGetProspectsAsync()
         {
             // Arrange
             using INhlApi nhlApi = new NhlApi();
@@ -59,18 +59,15 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(leagueProspects);
             CollectionAssert.AllItemsAreNotNull(leagueProspects);
 
-            foreach (var prospect in leagueProspects.Take(10))
+            foreach (var prospect in leagueProspects.Take(5))
             {
-                Assert.IsNotNull(prospect.BirthCountry);
+                Assert.IsNotNull(prospect);
                 Assert.IsNotNull(prospect.DraftStatus);
                 Assert.IsNotNull(prospect.ShootsCatches);
                 Assert.IsNotNull(prospect.Weight);
-                Assert.IsNotNull(prospect.FullName);
-                Assert.IsNotNull(prospect.Height);
                 Assert.IsNotNull(prospect.Id);
                 Assert.IsNotNull(prospect.AmateurLeague);
                 Assert.IsNotNull(prospect.AmateurTeam);
-                Assert.IsNotNull(prospect.BirthCity);
                 Assert.IsNotNull(prospect.FullName);
                 Assert.IsNotNull(prospect.FirstName);
                 Assert.IsNotNull(prospect.LastName);
@@ -79,7 +76,7 @@ namespace Nhl.Api.Tests
 
 
         [TestMethod]
-        public async Task TestGetProspectsByIdAsnyc()
+        public async Task TestGetProspectsByIdAsync()
         {
             // Arrange
             using INhlApi nhlApi = new NhlApi();
@@ -104,7 +101,7 @@ namespace Nhl.Api.Tests
         }
 
         [TestMethod]
-        public async Task TestGetProspectsByIdEnumAsnyc()
+        public async Task TestGetProspectsByIdEnumAsync()
         {
             // Arrange
             using INhlApi nhlApi = new NhlApi();
@@ -121,7 +118,6 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(prospect.Id);
             Assert.IsNotNull(prospect.AmateurLeague);
             Assert.IsNotNull(prospect.AmateurTeam);
-            Assert.IsNotNull(prospect.BirthCity);
             Assert.IsNotNull(prospect.FullName);
             Assert.IsNotNull(prospect.FirstName);
             Assert.IsNotNull(prospect.LastName);

@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
@@ -298,9 +299,8 @@ namespace Nhl.Api.Tests
             }
         }
 
-
         [TestMethod]
-        public async Task TestGetPlayerWithTopStatisticBySeasonAsync()
+        public async Task TestGetPlayerByStatisticTypeBySeasonAsync()
         {
             using INhlApi nhlApi = new NhlApi();
 
@@ -310,7 +310,7 @@ namespace Nhl.Api.Tests
             {
                 await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
                 {
-                    var player = await nhlApi.GetPlayerWithTopStatisticBySeasonAsync(playerStatistic, SeasonYear.season20192020);
+                   var player = await nhlApi.GetPlayerByStatisticTypeBySeasonAsync(playerStatistic, SeasonYear.season20192020);
 
                     Assert.IsNotNull(player);
                     Assert.IsNotNull(player.PlayerStatisticsData);
@@ -335,7 +335,7 @@ namespace Nhl.Api.Tests
         }
 
         [TestMethod]
-        public async Task TestGetGoalieWithTopStatisticBySeasonAsync()
+        public async Task TestGetGoalieByStatisticTypeBySeasonAsync()
         {
             using INhlApi nhlApi = new NhlApi();
 
@@ -345,7 +345,7 @@ namespace Nhl.Api.Tests
             {
                 await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
                 {
-                    var goalie = await nhlApi.GetGoalieWithTopStatisticBySeasonAsync(goalieStatistic, SeasonYear.season19751976);
+                    var goalie = await nhlApi.GetGoalieByStatisticTypeBySeasonAsync(goalieStatistic, SeasonYear.season19992000);
 
                     Assert.IsNotNull(goalie);
 
@@ -363,6 +363,121 @@ namespace Nhl.Api.Tests
                     Assert.IsNotNull(goalie.Player);
                     Assert.IsNotNull(goalie.Player.Id);
                     Assert.IsNotNull(goalie.Player.FullName);
+                });
+            }
+        }
+
+        [TestMethod]
+        public async Task TestGetPlayersByStatisticTypeBySeasonAsync()
+        {
+            using INhlApi nhlApi = new NhlApi();
+
+            var enumValues = Enum.GetValues(typeof(PlayerStatisticEnum)) as PlayerStatisticEnum[];
+
+            foreach (var playerStatistic in enumValues)
+            {
+                await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
+                {
+                    var players = await nhlApi.GetPlayersByStatisticTypeBySeasonAsync(playerStatistic, SeasonYear.season20192020);
+                    foreach (var player in players)
+                    {
+
+                        Assert.IsNotNull(player);
+                        Assert.IsNotNull(player.PlayerStatisticsData);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Shifts);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Shots);
+                        Assert.IsNotNull(player.PlayerStatisticsData.ShortHandedGoals);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Assists);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Points);
+
+                        Assert.IsNotNull(player.PlayerStatisticsData.Hits);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Pim);
+                        Assert.IsNotNull(player.PlayerStatisticsData.FaceOffPct);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Games);
+                        Assert.IsNotNull(player.PlayerStatisticsData.TimeOnIce);
+
+                        Assert.IsNotNull(player.Player);
+                        Assert.IsNotNull(player.Player);
+                        Assert.IsNotNull(player.Player.Id);
+                        Assert.IsNotNull(player.Player.FullName); 
+                    }
+                });
+            }
+        }
+
+
+        [TestMethod]
+        public async Task TestGetPlayersByStatisticTypeBySeasonAscendingAsync()
+        {
+            using INhlApi nhlApi = new NhlApi();
+
+            var enumValues = Enum.GetValues(typeof(PlayerStatisticEnum)) as PlayerStatisticEnum[];
+
+            foreach (var playerStatistic in enumValues)
+            {
+                await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
+                {
+                    var players = await nhlApi.GetPlayersByStatisticTypeBySeasonAsync(playerStatistic, SeasonYear.season20192020, isDescending: false, numberOfPlayers: 25);
+                    foreach (var player in players)
+                    {
+
+                        Assert.IsNotNull(player);
+                        Assert.IsNotNull(player.PlayerStatisticsData);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Shifts);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Shots);
+                        Assert.IsNotNull(player.PlayerStatisticsData.ShortHandedGoals);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Assists);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Points);
+
+                        Assert.IsNotNull(player.PlayerStatisticsData.Hits);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Pim);
+                        Assert.IsNotNull(player.PlayerStatisticsData.FaceOffPct);
+                        Assert.IsNotNull(player.PlayerStatisticsData.Games);
+                        Assert.IsNotNull(player.PlayerStatisticsData.TimeOnIce);
+
+                        Assert.IsNotNull(player.Player);
+                        Assert.IsNotNull(player.Player);
+                        Assert.IsNotNull(player.Player.Id);
+                        Assert.IsNotNull(player.Player.FullName);
+                    }
+                });
+            }
+        }
+
+
+        [TestMethod]
+        public async Task TestGetGoaliesWithTopStatisticBySeasonAsync()
+        {
+            using INhlApi nhlApi = new NhlApi();
+
+            var enumValues = Enum.GetValues(typeof(GoalieStatisticEnum)) as GoalieStatisticEnum[];
+
+            foreach (var goalieStatistic in enumValues)
+            {
+                await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
+                {
+                    var goalies = await nhlApi.GetGoaliesByStatisticTypeBySeasonAsync(goalieStatistic, SeasonYear.season20212022);
+
+                    var test = JsonConvert.SerializeObject(goalies);
+                    foreach (var goalie in goalies)
+                    {
+                        Assert.IsNotNull(goalie);
+
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.SavePercentage);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.EvenSaves);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.Games);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.GamesStarted);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.TimeOnIcePerGame);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.PowerPlaySavePercentage);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.Wins);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.Losses);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.Shutouts);
+                        Assert.IsNotNull(goalie.GoalieStatisticsData.ShotsAgainst);
+
+                        Assert.IsNotNull(goalie.Player);
+                        Assert.IsNotNull(goalie.Player.Id);
+                        Assert.IsNotNull(goalie.Player.FullName); 
+                    }
                 });
             }
         }

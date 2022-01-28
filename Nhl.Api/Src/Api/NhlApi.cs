@@ -27,7 +27,7 @@ using Nhl.Api.Models.Enumerations.Prospect;
 namespace Nhl.Api
 {
     /// <summary>
-    /// The official unofficial NHL API providing various NHL information about players, teams, conferences, divisions, statistics and more
+    /// The official unofficial Nhl.Api providing various NHL information about players, teams, conferences, divisions, statistics and more
     /// </summary>
     public class NhlApi : INhlApi
     {
@@ -35,6 +35,14 @@ namespace Nhl.Api
         private static readonly INhlGameApi _nhlGameApi = new NhlGameApi();
         private static readonly INhlPlayerApi _nhlPlayerApi = new NhlPlayerApi();
         private static readonly INhlStatisticsApi _nhlStatisticsApi = new NhlStatisticsApi();
+
+        /// <summary>
+        /// The official unofficial Nhl.Api providing various NHL information about players, teams, conferences, divisions, statistics and more
+        /// </summary>
+        public NhlApi()
+        {
+
+        }
 
         /// <summary>
         /// Returns all NHL franchises, including information such as team name, location and more
@@ -317,6 +325,28 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns the NHL player's head shot image by the selected size
+        /// </summary>
+        /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+        /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+        /// <returns>A byte array content of an NHL player head shot image</returns>
+        public async Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
+        {
+            return await _nhlPlayerApi.GetPlayerHeadshotImageAsync(player, playerHeadshotImageSize);
+        }
+
+        /// <summary>
+        /// Returns the NHL player's head shot image by the selected size
+        /// </summary>
+        /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
+        /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+        /// <returns>A byte array content of an NHL player head shot image</returns>
+        public async Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
+        {
+            return await _nhlPlayerApi.GetPlayerHeadshotImageAsync(playerId, playerHeadshotImageSize);
+        }
+
+        /// <summary>
         /// Returns all of the active NHL players
         /// </summary>
         /// <returns>A collection of all NHL players</returns>
@@ -433,12 +463,14 @@ namespace Nhl.Api
         /// <summary>
         /// Returns the player with the top NHL player statistic based on the selected season year
         /// </summary>
-        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
         /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
-        /// <returns>Returns the player profile with the top player statistic in the specified NHL season</returns>
-        public async Task<PlayerStatisticResult> GetPlayerWithTopStatisticBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear)
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="isDescending">The argument to determine whether the order of the results of the statistic should be in a descending or ascending order</param>
+        /// <param name="numberOfPlayers">The argument for the number of players to retrieve, default value is 10 </param>
+        /// <returns>Returns the collection of player profiles with the selected player statistic in the specified NHL season</returns>
+        public async Task<List<PlayerStatisticResult>> GetPlayersByStatisticTypeBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear, bool isDescending = true, int numberOfPlayers = 10)
         {
-            return await _nhlStatisticsApi.GetPlayerWithTopStatisticBySeasonAsync(playerStatisticEnum, seasonYear);
+            return await _nhlStatisticsApi.GetPlayersByStatisticTypeBySeasonAsync(playerStatisticEnum, seasonYear, isDescending, numberOfPlayers);
         }
 
         /// <summary>
@@ -446,10 +478,37 @@ namespace Nhl.Api
         /// </summary>
         /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
         /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
-        /// <returns>Returns the goalie profile with the top player statistic in the specified NHL season</returns>
-        public async Task<GoalieStatisticResult> GetGoalieWithTopStatisticBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear)
+        /// <param name="isDescending">The argument to determine whether the order of the results of the statistic should be in a descending or ascending order</param>
+        /// <param name="numberOfGoalies">The argument for the number of goalies to retrieve, default value is 10 </param>
+        /// <returns>Returns a collection goalie profiles with the selected statistic in the specified NHL season</returns>
+        public async Task<List<GoalieStatisticResult>> GetGoaliesByStatisticTypeBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear, bool isDescending = true, int numberOfGoalies = 10)
         {
-            return await _nhlStatisticsApi.GetGoalieWithTopStatisticBySeasonAsync(goalieStatisticEnum, seasonYear);
+            return await _nhlStatisticsApi.GetGoaliesByStatisticTypeBySeasonAsync(goalieStatisticEnum, seasonYear, isDescending, numberOfGoalies);
+        }
+
+
+        /// <summary>
+        /// Returns the player with the top NHL player statistic based on the selected season year
+        /// </summary>
+        /// <param name="playerStatisticEnum">The argument for the type of NHL player statistic, see <see cref="PlayerStatisticEnum"/> for more information </param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="isDescending">The argument to determine whether the order of the results of the statistic should be in a descending or ascending order</param>
+        /// <returns>Returns the player profile with the selected statistic in the specified NHL season</returns>
+        public async Task<PlayerStatisticResult> GetPlayerByStatisticTypeBySeasonAsync(PlayerStatisticEnum playerStatisticEnum, string seasonYear, bool isDescending = true)
+        {
+            return await _nhlStatisticsApi.GetPlayerByStatisticTypeBySeasonAsync(playerStatisticEnum, seasonYear, isDescending);
+        }
+
+        /// <summary>
+        /// Returns the goalie with the top NHL goalie statistic based on the selected season year
+        /// </summary>
+        /// <param name="goalieStatisticEnum">The argument for the type of NHL goalie statistic, see <see cref="GoalieStatisticEnum"/> for more information </param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <param name="isDescending">The argument to determine whether the order of the results of the statistic should be in a descending or ascending order</param>
+        /// <returns>Returns the goalie profile with the selected statistic in the specified NHL season</returns>
+        public async Task<GoalieStatisticResult> GetGoalieByStatisticTypeBySeasonAsync(GoalieStatisticEnum goalieStatisticEnum, string seasonYear, bool isDescending = true)
+        {
+            return await _nhlStatisticsApi.GetGoalieByStatisticTypeBySeasonAsync(goalieStatisticEnum, seasonYear, isDescending);
         }
 
         /// <summary>
@@ -602,6 +661,16 @@ namespace Nhl.Api
         public async Task<Boxscore> GetBoxScoreByIdAsync(int gameId)
         {
             return await _nhlGameApi.GetBoxScoreByIdAsync(gameId);
+        }
+
+        /// <summary>
+        /// Returns a collection of NHL live game feed content including highlights, media coverage, images, videos and more
+        /// </summary>
+        /// <param name="gameId">The game id, Example: 2021020087</param>
+        /// <returns>A collection of images, video and information from a specific NHL game</returns>
+        public async Task<LiveGameFeedContent> GetLiveGameFeedContentByIdAsync(int gameId)
+        {
+            return await _nhlGameApi.GetLiveGameFeedContentByIdAsync(gameId);
         }
 
         /// <summary>

@@ -24,14 +24,14 @@ namespace Nhl.Api.Models.Team
         public string Name { get; set; }
 
         /// <summary>
-        /// The NHL API link to the NHL team <br/>
+        /// The Nhl.Api link to the NHL team <br/>
         /// Example: /api/v1/teams/21
         /// </summary>
         [JsonProperty("link")]
         public string Link { get; set; }
 
         /// <summary>
-        /// Returns the team logo url as a light background <br/>
+        /// Returns the team logo URL as a light background <br/>
         /// Example: https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/10.svg
         /// </summary>
         public string OfficalLightTeamLogoUrl

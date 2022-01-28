@@ -39,7 +39,7 @@ namespace Nhl.Api.Models.Division
 
 
         /// <summary>
-        /// The NHL API link for the NHL division <br/>
+        /// The Nhl.Api link for the NHL division <br/>
         /// Example: /api/v1/divisions/18
         /// </summary>
         [JsonProperty("link")]

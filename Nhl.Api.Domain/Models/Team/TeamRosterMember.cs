@@ -10,7 +10,7 @@ namespace Nhl.Api.Models.Team
     public class TeamRosterMember
     {
         /// <summary>
-        /// Information about the team member such as name, NHL API link and player id
+        /// Information about the team member such as name, Nhl.Api link and player id
         /// </summary>
         [JsonProperty("person")]
         public Person Person { get; set; }

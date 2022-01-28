@@ -1,18 +1,19 @@
-﻿using Nhl.Api.Common.Exceptions;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Services;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Nhl.Api
 {
     /// <summary>
-    /// NHL Game API
+    /// The official unofficial NHL Game API providing various NHL information game information, game schedules, live game feeds and more
     /// </summary>
     public class NhlGameApi : INhlGameApi
     {
@@ -21,6 +22,13 @@ namespace Nhl.Api
         private static readonly INhlLeagueApi _nhlLeagueApi = new NhlLeagueApi();
         private static readonly INhlGameService _nhlGameService = new NhlGameService();
 
+        /// <summary>
+        /// The official unofficial NHL Game API providing various NHL information game information, game schedules, live game feeds and more
+        /// </summary>
+        public NhlGameApi()
+        {
+
+        }
 
         /// <summary>
         /// Returns the box score content for an NHL game
@@ -165,8 +173,11 @@ namespace Nhl.Api
                 liveGameFeedConfiguration = new LiveGameFeedConfiguration();
             }
 
+            var liveGameFeedContent = liveGameFeedConfiguration.IncludeContent ? await GetLiveGameFeedContentByIdAsync(gameId) : null;
+
             return new LiveGameFeedResult
             {
+                LiveGameFeedContent = liveGameFeedContent,
                 Configuration = liveGameFeedConfiguration,
                 LiveGameFeed = liveGameFeed
             };
@@ -207,6 +218,16 @@ namespace Nhl.Api
         public async Task<LiveGameFeedPlayerShifts> GetLiveGameFeedPlayerShiftsAsync(int gameId)
         {
             return await _nhlShiftChartHttpClient.GetAsync<LiveGameFeedPlayerShifts>($"?cayenneExp=gameId={gameId}");
+        }
+
+        /// <summary>
+        /// Returns a collection of NHL live game feed content including highlights, media coverage, images, videos and more
+        /// </summary>
+        /// <param name="gameId">The game id, Example: 2021020087</param>
+        /// <returns>A collection of images, video and information from a specific NHL game</returns>
+        public async Task<LiveGameFeedContent> GetLiveGameFeedContentByIdAsync(int gameId)
+        {
+            return await _nhlStatsApiHttpClient.GetAsync<LiveGameFeedContent>($"/game/{gameId}/content");
         }
     }
 }

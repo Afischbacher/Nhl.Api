@@ -3,27 +3,29 @@ using System.Net.Http;
 
 namespace Nhl.Api.Common.Http
 {
+
     /// <summary>
-    /// The dedicated NHL static assets HTTP Client for the Nhl.Api
+    /// The dedicated NHL HTTP client for NHL player images and content
     /// </summary>
-    public class NhlStaticAssetsApiHttpClient : NhlApiHttpClient
+    public class NhlCmsHttpClient : NhlApiHttpClient
     {
         private static readonly object _lock = new object();
         private static HttpClient _httpClient;
-        /// <summary>
-        /// The dedicated NHL static assets NHL HTTP API endpoint
-        /// </summary>
-        public const string ClientApiUrl = "https://www-league.nhlstatic.com";
 
         /// <summary>
-        /// The dedicated NHL static assets HTTP Client for the Nhl.Api
+        /// The dedicated NHL HTTP API endpoint for NHL player images and content
         /// </summary>
-        public NhlStaticAssetsApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
+        public const string ClientApiUrl = "https://cms.nhl.bamgrid.com";
+
+        /// <summary>
+        /// The dedicated NHL HTTP client for NHL player images and content
+        /// </summary>
+        public NhlCmsHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
         {
         }
 
         /// <summary>
-        /// The HTTP client for the NHL static assets API
+        /// The NHL CMS images and content HTTP client
         /// </summary>
         public override HttpClient HttpClient
         {
@@ -46,3 +48,5 @@ namespace Nhl.Api.Common.Http
         }
     }
 }
+
+
