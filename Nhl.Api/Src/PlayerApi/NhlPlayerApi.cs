@@ -345,18 +345,13 @@ namespace Nhl.Api
         /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
         public async Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
         {
-            switch (playerHeadshotImageSize)
+            return playerHeadshotImageSize switch
             {
-                case PlayerHeadshotImageSize.Small:
-                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}.png");
-                case PlayerHeadshotImageSize.Medium:
-                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@2x.png");
-                case PlayerHeadshotImageSize.Large:
-                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@3x.png");
-            }
-
-            return null;
-
+                PlayerHeadshotImageSize.Small => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}.png"),
+                PlayerHeadshotImageSize.Medium => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@2x.png"),
+                PlayerHeadshotImageSize.Large => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@3x.png"),
+                _ => null,
+            };
         }
 
         /// <summary>
@@ -367,18 +362,13 @@ namespace Nhl.Api
         /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
         public async Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
         {
-            switch (playerHeadshotImageSize)
+            return playerHeadshotImageSize switch
             {
-                case PlayerHeadshotImageSize.Small:
-                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}.png");
-                case PlayerHeadshotImageSize.Medium:
-                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@2x.png");
-                case PlayerHeadshotImageSize.Large:
-                    return await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@3x.png");
-            }
-
-            return null;
-
+                PlayerHeadshotImageSize.Small => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}.png"),
+                PlayerHeadshotImageSize.Medium => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@2x.png"),
+                PlayerHeadshotImageSize.Large => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@3x.png"),
+                _ => null,
+            };
         }
     }
 }
