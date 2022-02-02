@@ -91,10 +91,11 @@ namespace Nhl.Api.Common.Http
                 throw new ArgumentNullException(nameof(route));
             }
 
-            using var httpResponseMessage = await HttpClient.GetAsync($"{HttpClient.BaseAddress}{route}");
-            var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
-
-            return JsonConvert.DeserializeObject<T>(contentResponse);
+            using (var httpResponseMessage = await HttpClient.GetAsync($"{HttpClient.BaseAddress}{route}"))
+            {
+                var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<T>(contentResponse);
+            }
         }
 
         /// <summary>
