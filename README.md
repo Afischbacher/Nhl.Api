@@ -2,12 +2,18 @@
 [![Build/Test](https://github.com/Afischbacher/Nhl.Api/actions/workflows/develop-build.yml/badge.svg)](https://github.com/Afischbacher/Nhl.Api/actions/workflows/develop-build.yml)
 [![Code Analysis](https://github.com/Afischbacher/Nhl.Api/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Afischbacher/Nhl.Api/actions/workflows/codeql-analysis.yml)
 [![NuGet](https://img.shields.io/nuget/v/Nhl.Api)](https://www.nuget.org/packages/Nhl.Api)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Nhl.Api.svg)](https://www.nuget.org/packages/Nhl.Api/)
+![Lines of Code](https://tokei.rs/b1/github/Afischbacher/Nhl.Api)
 [![Issues](https://img.shields.io/github/issues/Afischbacher/Nhl.Api.svg)](https://github.com/Afischbacher/Nhl.Api/issues)
 [![License](https://img.shields.io/github/license/Afischbacher/Nhl.Api)](https://github.com/Afischbacher/Nhl.Api/blob/master/LICENSE)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Afischbacher/Nhl.Api/graphs/commit-activity)
 
 # The Official Unofficial .NET NHL API 🏒
-A C# .NET Standard 2.1 library for the .NET NHL API
+A C# .NET Standard 2.1 library for the .NET NHL API providing various NHL information about players, games, teams, conferences, divisions, statistics and more
+
+
+<div align="center">
+    <img src="https://user-images.githubusercontent.com/15982357/151871970-87419a98-69f1-47c3-9a82-f15c48e30c5f.png" alt="nhl-api-logo" height="350" />
+</div>
 
 ## Installing Nhl.Api 💭
 You should install Nhl.Api with NuGet:
@@ -28,8 +34,8 @@ If you are using the built-in .NET Core dependency injection library, there is a
 ### Nhl.Api.Extensions.Microsoft.DependencyInjection
 `builder.Services.AddNhlApi();`
 
-### .NET Core
-`builder.Services.AddTransient<INhlApi, NhlApi>();`
+### .NET
+`builder.Services.AddSingleton<INhlApi, NhlApi>();`
 
 ### Unity
 `container.RegisterType<INhlApi, NhlApi>();`
@@ -47,8 +53,8 @@ If you are using the  <a href="https://github.com/Afischbacher/Nhl.Api.Extension
 included automatically within your .NET Core project.
 
 ### Nhl Player Api
-#### .NET Core
-`builder.Services.AddTransient<INhlPlayerApi, NhlPlayerApi>();` <br/>
+#### .NET
+`builder.Services.AddSingleton<INhlPlayerApi, NhlPlayerApi>();` <br/>
 #### Unity
 `container.RegisterType<INhlPlayerApi, NhlPlayerApi>();`<br/>
 #### AutoFac
@@ -57,8 +63,8 @@ included automatically within your .NET Core project.
 `var nhlPlayerApi = new NhlPlayerApi();`<br/>
 
 ### Nhl Game Api
-#### .NET Core
-`builder.Services.AddTransient<INhlGameApi, NhlGameApi>();`<br/>
+#### .NET
+`builder.Services.AddSingleton<INhlGameApi, NhlGameApi>();`<br/>
 #### Unity
 `container.RegisterType<INhlGameApi, NhlGameApi>();`<br/>
 #### AutoFac
@@ -67,8 +73,8 @@ included automatically within your .NET Core project.
 `var nhlGameApi = new NhlGameApi();`<br/>
 
 ### Nhl Statistics Api
-#### .NET Core
-`builder.Services.AddTransient<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
+#### .NET
+`builder.Services.AddSingleton<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
 #### Unity
 `container.RegisterType<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
 #### AutoFac
@@ -77,8 +83,8 @@ included automatically within your .NET Core project.
 `var nhlStatisticsApi = new NhlStatisticsApi();`<br/>
 
 ### Nhl League Api
-#### .NET Core
-`builder.Services.AddTransient<INhlLeagueApi, NhlLeagueApi>();`<br/>
+#### .NET
+`builder.Services.AddSingleton<INhlLeagueApi, NhlLeagueApi>();`<br/>
 #### Unity
 `container.RegisterType<INhlLeagueApi, NhlLeagueApi>();`<br/>
 #### AutoFac
