@@ -3,6 +3,7 @@
 [![Code Analysis](https://github.com/Afischbacher/Nhl.Api/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Afischbacher/Nhl.Api/actions/workflows/codeql-analysis.yml)
 [![NuGet](https://img.shields.io/nuget/v/Nhl.Api)](https://www.nuget.org/packages/Nhl.Api)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Nhl.Api.svg)](https://www.nuget.org/packages/Nhl.Api/)
+![Lines of Code](https://tokei.rs/b1/github/Afischbacher/Nhl.Api)
 [![Issues](https://img.shields.io/github/issues/Afischbacher/Nhl.Api.svg)](https://github.com/Afischbacher/Nhl.Api/issues)
 [![License](https://img.shields.io/github/license/Afischbacher/Nhl.Api)](https://github.com/Afischbacher/Nhl.Api/blob/master/LICENSE)
 
@@ -33,7 +34,7 @@ If you are using the built-in .NET Core dependency injection library, there is a
 ### Nhl.Api.Extensions.Microsoft.DependencyInjection
 `builder.Services.AddNhlApi();`
 
-### .NET Core
+### .NET
 `builder.Services.AddSingleton<INhlApi, NhlApi>();`
 
 ### Unity
@@ -52,7 +53,7 @@ If you are using the  <a href="https://github.com/Afischbacher/Nhl.Api.Extension
 included automatically within your .NET Core project.
 
 ### Nhl Player Api
-#### .NET Core
+#### .NET
 `builder.Services.AddSingleton<INhlPlayerApi, NhlPlayerApi>();` <br/>
 #### Unity
 `container.RegisterType<INhlPlayerApi, NhlPlayerApi>();`<br/>
@@ -62,7 +63,7 @@ included automatically within your .NET Core project.
 `var nhlPlayerApi = new NhlPlayerApi();`<br/>
 
 ### Nhl Game Api
-#### .NET Core
+#### .NET
 `builder.Services.AddSingleton<INhlGameApi, NhlGameApi>();`<br/>
 #### Unity
 `container.RegisterType<INhlGameApi, NhlGameApi>();`<br/>
@@ -72,7 +73,7 @@ included automatically within your .NET Core project.
 `var nhlGameApi = new NhlGameApi();`<br/>
 
 ### Nhl Statistics Api
-#### .NET Core
+#### .NET
 `builder.Services.AddSingleton<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
 #### Unity
 `container.RegisterType<INhlStatisticsApi, NhlStatisticsApi>();`<br/>
@@ -82,7 +83,7 @@ included automatically within your .NET Core project.
 `var nhlStatisticsApi = new NhlStatisticsApi();`<br/>
 
 ### Nhl League Api
-#### .NET Core
+#### .NET
 `builder.Services.AddSingleton<INhlLeagueApi, NhlLeagueApi>();`<br/>
 #### Unity
 `container.RegisterType<INhlLeagueApi, NhlLeagueApi>();`<br/>
