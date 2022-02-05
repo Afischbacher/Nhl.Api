@@ -3,7 +3,6 @@
 [![Code Analysis](https://github.com/Afischbacher/Nhl.Api/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/Afischbacher/Nhl.Api/actions/workflows/codeql-analysis.yml)
 [![NuGet](https://img.shields.io/nuget/v/Nhl.Api)](https://www.nuget.org/packages/Nhl.Api)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/Nhl.Api.svg)](https://www.nuget.org/packages/Nhl.Api/)
-![Lines of Code](https://tokei.rs/b1/github/Afischbacher/Nhl.Api)
 [![Issues](https://img.shields.io/github/issues/Afischbacher/Nhl.Api.svg)](https://github.com/Afischbacher/Nhl.Api/issues)
 [![License](https://img.shields.io/github/license/Afischbacher/Nhl.Api)](https://github.com/Afischbacher/Nhl.Api/blob/master/LICENSE)
 
