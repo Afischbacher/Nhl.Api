@@ -1036,6 +1036,17 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("venue")]
         public Venue.Venue Venue { get; set; }
+
+        /// <summary>
+        /// Returns true or false based on the status of the NHL game being completed
+        /// </summary>
+        public bool IsGameCompleted 
+        { 
+            get 
+            {
+                return Status?.AbstractGameState == "Final" || Status?.CodedGameState == "7";
+            } 
+        }
     }
 
     /// <summary>
