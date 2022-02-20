@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>1.9.0</Version>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<Version>1.9.1</Version>
+		<TargetFramework>netstandard2.1</TargetFramework>
 		<PackageId>Nhl.Api</PackageId>
 		<Title>Nhl.Api</Title>
 		<Copyright>Copyright (c) 2022 Andre Fischbacher</Copyright>

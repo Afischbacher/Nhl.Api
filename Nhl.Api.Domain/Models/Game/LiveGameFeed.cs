@@ -103,7 +103,7 @@ namespace Nhl.Api.Models.Game
                 return false;
             }
 
-            while (numberOfAttempts >= maxNumberOfAttempts)
+            while (numberOfAttempts <= maxNumberOfAttempts)
             {
                 await Task.Delay(waitInMsPerRequest);
 
@@ -114,9 +114,7 @@ namespace Nhl.Api.Models.Game
                 }
 
                 // If game is completed, stop sending events or the number of attempts exceeds attempts
-                var isLiveGameFeedCompleted = (liveGameFeed?.GameData?.Status?.AbstractGameState == "Final"
-                    || liveGameFeed?.GameData?.Status?.CodedGameState == "7");
-                if (isLiveGameFeedCompleted)
+                if (liveGameFeed?.GameData?.IsGameCompleted == true)
                 {
                     break;
                 }
@@ -1036,6 +1034,17 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("venue")]
         public Venue.Venue Venue { get; set; }
+
+        /// <summary>
+        /// Returns true or false based on the status of the NHL game being completed
+        /// </summary>
+        public bool IsGameCompleted 
+        { 
+            get 
+            {
+                return Status?.AbstractGameState == "Final" || Status?.CodedGameState == "7";
+            } 
+        }
     }
 
     /// <summary>

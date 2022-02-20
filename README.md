@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/github/license/Afischbacher/Nhl.Api)](https://github.com/Afischbacher/Nhl.Api/blob/master/LICENSE)
 
 # The Official Unofficial .NET NHL API 🏒
-A C# .NET Standard 2.0 library for the .NET NHL API providing various NHL information about players, games, teams, conferences, divisions, statistics and more
+A C# .NET Standard 2.1 library for the .NET NHL API providing various NHL information about players, games, teams, conferences, divisions, statistics and more
 
 
 <div align="center">

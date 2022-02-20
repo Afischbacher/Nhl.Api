@@ -94,7 +94,6 @@ namespace Nhl.Api.Common.Http
             using (var httpResponseMessage = await HttpClient.GetAsync($"{HttpClient.BaseAddress}{route}"))
             {
                 var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
-
                 return JsonConvert.DeserializeObject<T>(contentResponse);
             }
         }
