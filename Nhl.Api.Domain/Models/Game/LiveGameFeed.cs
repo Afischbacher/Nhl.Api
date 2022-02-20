@@ -103,7 +103,7 @@ namespace Nhl.Api.Models.Game
                 return false;
             }
 
-            while (numberOfAttempts >= maxNumberOfAttempts)
+            while (numberOfAttempts <= maxNumberOfAttempts)
             {
                 await Task.Delay(waitInMsPerRequest);
 
