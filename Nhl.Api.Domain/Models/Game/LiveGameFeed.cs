@@ -114,9 +114,7 @@ namespace Nhl.Api.Models.Game
                 }
 
                 // If game is completed, stop sending events or the number of attempts exceeds attempts
-                var isLiveGameFeedCompleted = (liveGameFeed?.GameData?.Status?.AbstractGameState == "Final"
-                    || liveGameFeed?.GameData?.Status?.CodedGameState == "7");
-                if (isLiveGameFeedCompleted)
+                if (liveGameFeed?.GameData?.IsGameCompleted == true)
                 {
                     break;
                 }
