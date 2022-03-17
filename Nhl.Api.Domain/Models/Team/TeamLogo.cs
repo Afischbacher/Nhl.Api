@@ -1,4 +1,6 @@
-﻿namespace Nhl.Api.Models.Team
+﻿using Newtonsoft.Json;
+
+namespace Nhl.Api.Models.Team
 {
     /// <summary>
     /// Enables the type of NHL team logo type based on dark or light background
@@ -26,16 +28,19 @@
         /// Returns the Uri for the NHL team logo <br/>
         /// Example: https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/53.svg
         /// </summary>
+        [JsonProperty("uri")]
         public string Uri { get; set; }
 
         /// <summary>
         /// Returns the requested NHL team logo as a byte array
         /// </summary>
+        [JsonProperty("imageAsByteArray")]
         public byte[] ImageAsByteArray { get; set; }
 
         /// <summary>
         /// Returns the requested NHL team logo as a base 64 encoded string
         /// </summary>
+        [JsonProperty("imageAsBase64String")]
         public string ImageAsBase64String { get; set; }
     }
 }

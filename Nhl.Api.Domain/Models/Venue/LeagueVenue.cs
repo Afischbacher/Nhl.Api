@@ -22,7 +22,6 @@ namespace Nhl.Api.Models.Venue
         [JsonProperty("name")]
         public string Name { get; set; }
 
-
         /// <summary>
         /// The Nhl.Api link to the NHL venue <br/>
         /// Example: /api/v1/venues/310

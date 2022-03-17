@@ -18,6 +18,7 @@ namespace Nhl.Api.Models.Common
         /// <summary>
         /// Time Stamp As DateTimeOffset
         /// </summary>
+        [JsonProperty("timeStampAsDateTimeOffset")]
         public DateTimeOffset? TimeStampAsDateTimeOffset
         {
             get

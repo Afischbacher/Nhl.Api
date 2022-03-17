@@ -34,7 +34,8 @@ namespace Nhl.Api.Models.Team
         /// Returns the team logo URL as a light background <br/>
         /// Example: https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/10.svg
         /// </summary>
-        public string OfficalLightTeamLogoUrl
+        [JsonProperty("officialLightTeamLogoUrl")]
+        public string OfficialLightTeamLogoUrl
         {
             get
             {
@@ -46,7 +47,8 @@ namespace Nhl.Api.Models.Team
         /// Returns the team logo url as a dark background 
         /// Example: https://www-league.nhlstatic.com/images/logos/teams-current-primary-dark/6.svg
         /// </summary>
-        public string OfficalDarkTeamLogoUrl
+        [JsonProperty("officialDarkTeamLogoUrl")]
+        public string OfficialDarkTeamLogoUrl
         {
             get
             {

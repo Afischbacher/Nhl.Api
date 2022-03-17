@@ -33,12 +33,14 @@ namespace Nhl.Api.Models.Game
         /// <summary>
         /// The NHL live game feed result from the provided game pk id
         /// </summary>
+        [JsonProperty("liveGameFeed")]
         public LiveGameFeed LiveGameFeed { get; set; }
 
         /// <summary>
         /// The NHL live game feed content result from the provided game pk id, the default value is null. <br/>
         /// Use the live game feed configuration to include the NHL game content
         /// </summary>
+        [JsonProperty("liveGameFeedContent")]
         public LiveGameFeedContent LiveGameFeedContent { get; set; }
 
         /// <summary>
@@ -49,11 +51,13 @@ namespace Nhl.Api.Models.Game
         /// <summary>
         /// Enables configuration of the NHL live game feed event handler, including poll time and number of attempts
         /// </summary>
+        [JsonIgnore]
         public LiveGameFeedConfiguration Configuration { get; set; } = new LiveGameFeedConfiguration();
 
         /// <summary>
         /// The cancellation token source for the NHL live game feed event to stop the NHL live game feed event from sending updates
         /// </summary>
+        [JsonIgnore]
         private CancellationTokenSource LiveGameFeedEventCancellationTokenSource { get; set; } = new CancellationTokenSource();
 
         /// <summary>
@@ -157,6 +161,7 @@ namespace Nhl.Api.Models.Game
         /// <summary>
         /// The NHL live game feed
         /// </summary>
+        [JsonProperty("liveGameFeed")]
         public LiveGameFeed LiveGameFeed { get; set; }
     }
 
@@ -168,21 +173,25 @@ namespace Nhl.Api.Models.Game
         /// <summary>
         /// Sets the NHL live game feed to be enabled or disabled the NHL live game feed event, default is false
         /// </summary>
+        [JsonProperty("isEnabled")]
         public bool IsEnabled { get; set; } = false;
 
         /// <summary>
         /// Sets the NHL live game feed to be enabled or disabled the NHL live game feed content, default is false
         /// </summary>
+        [JsonProperty("includeContent")]
         public bool IncludeContent { get; set; } = false;
 
         /// <summary>
         /// The time in milliseconds to request the latest NHL live game feed, default value is 5,000 milliseconds or 5 seconds
         /// </summary>
+        [JsonProperty("pollTimeInMilliseconds")]
         public int PollTimeInMilliseconds { get; set; } = 5000;
 
         /// <summary>
         /// The number of attempts to request a NHL live game feed change, the default value is 1,000 attempts
         /// </summary>
+        [JsonProperty("maxNumberOfAttempts")]
         public int MaxNumberOfAttempts { get; set; } = 1000;
     }
 
@@ -850,6 +859,7 @@ namespace Nhl.Api.Models.Game
         /// The full name of the birth country of the NHL Player <br/>
         /// Example: Canada
         /// </summary>
+        [JsonProperty("fullBirthCountry")]
         public string FullBirthCountry
         {
             get
@@ -951,6 +961,7 @@ namespace Nhl.Api.Models.Game
         /// <summary>
         /// Determines if the player is an NHL goalie
         /// </summary>
+        [JsonProperty("isGoalie")]
         public bool IsGoalie
         {
             get
@@ -963,6 +974,7 @@ namespace Nhl.Api.Models.Game
         /// Returns a head-shot image of the NHL player <br/>
         /// Example: <a href="https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8478402.png">Connor McDavid</a>
         /// </summary>
+        [JsonProperty("playerHeadshotImageLink")]
         public string PlayerHeadshotImageLink
         {
             get
@@ -1038,6 +1050,7 @@ namespace Nhl.Api.Models.Game
         /// <summary>
         /// Returns true or false based on the status of the NHL game being completed
         /// </summary>
+        [JsonProperty("isGameCompleted")]
         public bool IsGameCompleted 
         { 
             get 
@@ -1135,6 +1148,7 @@ namespace Nhl.Api.Models.Game
         /// The full name of the birth country of the NHL Player <br/>
         /// Example: Canada
         /// </summary>
+        [JsonProperty("fullBirthCountry")]
         public string FullBirthCountry
         {
             get
@@ -1218,6 +1232,7 @@ namespace Nhl.Api.Models.Game
         /// Returns a head-shot image of the NHL player <br/>
         /// Example: <a href="https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8478402.png">Connor McDavid</a>
         /// </summary>
+        [JsonProperty("playerHeadshotImageLink")]
         public string PlayerHeadshotImageLink
         {
             get
@@ -1229,6 +1244,7 @@ namespace Nhl.Api.Models.Game
         /// <summary>
         /// Determines if the player is an NHL goalie
         /// </summary>
+        [JsonProperty("isGoalie")]
         public bool IsGoalie
         {
             get
@@ -1500,6 +1516,7 @@ namespace Nhl.Api.Models.Game
         /// <summary>
         /// Returns all of the active NHL players on the ice at the time of play for both Home and Away Teams
         /// </summary>
+        [JsonProperty("activePlayersOnIce")]
         public PlayersOnIce ActivePlayersOnIce { get; set; }
     }
 
@@ -1858,6 +1875,7 @@ namespace Nhl.Api.Models.Game
         /// there are cases when the Nhl.Api incorrectly marks the left and right sides of the rink for some matches within each period <br/>
         /// Example: left/right
         /// </summary>
+        [JsonProperty("correctedRinkSide")]
         public string CorrectedRinkSide { get; set; }
     }
 

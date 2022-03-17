@@ -93,6 +93,7 @@ namespace Nhl.Api.Models.Player
         /// The full name of the birth country of the NHL Player <br/>
         /// Example: Canada
         /// </summary>
+        [JsonProperty("fullBirthCountry")]
         public string FullBirthCountry
         {
             get
@@ -176,6 +177,7 @@ namespace Nhl.Api.Models.Player
         /// Returns a head-shot image of the NHL player <br/>
         /// Example: <a href="https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8478402.png">Connor McDavid</a>
         /// </summary>
+        [JsonProperty("playerHeadshotImageLink")]
         public string PlayerHeadshotImageLink
         {
             get
@@ -187,6 +189,7 @@ namespace Nhl.Api.Models.Player
         /// <summary>
         /// Determines if the player is an NHL goalie
         /// </summary>
+        [JsonProperty("isGoalie")]
         public bool IsGoalie
         {
             get
