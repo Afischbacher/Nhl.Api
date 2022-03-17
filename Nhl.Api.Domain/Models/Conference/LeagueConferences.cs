@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Conference
 {
@@ -10,6 +11,7 @@ namespace Nhl.Api.Models.Conference
         /// <summary>
         /// A collection of all the NHL conferences
         /// </summary>
+        [JsonProperty("conferences")]
         public List<Conference> Conferences { get; set; } = new List<Conference>();
     }
 }

@@ -79,6 +79,7 @@ namespace Nhl.Api.Models.Player
         /// The full name of the birth country of the NHL Player <br/>
         /// Example: Canada
         /// </summary>
+        [JsonProperty("fullBirthCountry")]
         public string FullBirthCountry
         {
             get

@@ -2307,6 +2307,7 @@ namespace Nhl.Api.Models.Game
         /// <summary>
         /// The collection of token data for all of the items related to the editorial content item
         /// </summary>
+        [JsonProperty("tokenData")]
         public Dictionary<string, EditorialPreviewTokenData> TokenData { get; set; }
 
         /// <summary>

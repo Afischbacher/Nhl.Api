@@ -263,8 +263,8 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(team.Name);
                 Assert.IsNotNull(team.Link);
                 Assert.IsNotNull(team.FirstYearOfPlay);
-                Assert.IsNotNull(team.OfficalDarkTeamLogoUrl);
-                Assert.IsNotNull(team.OfficalLightTeamLogoUrl);
+                Assert.IsNotNull(team.OfficialDarkTeamLogoUrl);
+                Assert.IsNotNull(team.OfficialLightTeamLogoUrl);
 
             }
 
@@ -541,8 +541,8 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(firstTeamStatSplit.Team.Id);
             Assert.IsNotNull(firstTeamStatSplit.Team.Link);
             Assert.IsNotNull(firstTeamStatSplit.Team.Name);
-            Assert.IsNotNull(firstTeamStatSplit.Team.OfficalDarkTeamLogoUrl);
-            Assert.IsNotNull(firstTeamStatSplit.Team.OfficalLightTeamLogoUrl);
+            Assert.IsNotNull(firstTeamStatSplit.Team.OfficialDarkTeamLogoUrl);
+            Assert.IsNotNull(firstTeamStatSplit.Team.OfficialLightTeamLogoUrl);
 
             Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
 
@@ -647,8 +647,8 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(firstTeamStatSplit.Team.Id);
             Assert.IsNotNull(firstTeamStatSplit.Team.Link);
             Assert.IsNotNull(firstTeamStatSplit.Team.Name);
-            Assert.IsNotNull(firstTeamStatSplit.Team.OfficalDarkTeamLogoUrl);
-            Assert.IsNotNull(firstTeamStatSplit.Team.OfficalLightTeamLogoUrl);
+            Assert.IsNotNull(firstTeamStatSplit.Team.OfficialDarkTeamLogoUrl);
+            Assert.IsNotNull(firstTeamStatSplit.Team.OfficialLightTeamLogoUrl);
 
             Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
 
@@ -757,8 +757,8 @@ namespace Nhl.Api.Tests
                     Assert.IsNotNull(firstTeamStatSplit.Team.Id);
                     Assert.IsNotNull(firstTeamStatSplit.Team.Link);
                     Assert.IsNotNull(firstTeamStatSplit.Team.Name);
-                    Assert.IsNotNull(firstTeamStatSplit.Team.OfficalDarkTeamLogoUrl);
-                    Assert.IsNotNull(firstTeamStatSplit.Team.OfficalLightTeamLogoUrl);
+                    Assert.IsNotNull(firstTeamStatSplit.Team.OfficialDarkTeamLogoUrl);
+                    Assert.IsNotNull(firstTeamStatSplit.Team.OfficialLightTeamLogoUrl);
 
                     Assert.IsNotNull(firstTeamStatSplit.TeamStatisticsDetails.EvGGARatio);
 

@@ -32,6 +32,7 @@ namespace Nhl.Api.Models.Team
         /// Returns a head-shot image of the NHL player <br/>
         /// Example: <a href="https://cms.nhl.bamgrid.com/images/headshots/current/168x168/8478402.png">Connor McDavid</a>
         /// </summary>
+        [JsonProperty("playerHeadshotImageLink")]
         public string PlayerHeadshotImageLink
         {
             get
