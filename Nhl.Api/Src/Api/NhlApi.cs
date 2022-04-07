@@ -184,6 +184,26 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns the hexadecimal code for an NHL team's colors
+        /// </summary>
+        /// <param name="team">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
+        /// <returns>An NHL team color scheme using hexadecimal codes</returns>
+        public async Task<TeamColors> GetTeamColorsAsync(TeamEnum team)
+        {
+            return await _nhlLeagueApi.GetTeamColorsAsync(team);
+        }
+
+        /// <summary>
+        /// Returns the hexadecimal code for an NHL team's colors
+        /// </summary>
+        /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
+        /// <returns>An NHL team color scheme using hexadecimal codes</returns>
+        public async Task<TeamColors> GetTeamColorsAsync(int teamId)
+        {
+            return await _nhlLeagueApi.GetTeamColorsAsync(teamId);
+        }
+
+        /// <summary>
         /// Returns all of the NHL team statistics for the specific NHL team identifier and season
         /// </summary>
         /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>

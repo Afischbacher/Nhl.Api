@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-
+using Nhl.Api.Domain.Models.Team;
 using Nhl.Api.Models.Award;
 using Nhl.Api.Models.Conference;
 using Nhl.Api.Models.Division;
@@ -304,5 +304,19 @@ namespace Nhl.Api
         /// </summary>
         /// <returns>A collection of event types within the NHL, see <see cref="EventType"/> for more information</returns>
         Task<List<EventType>> GetEventTypesAsync();
+
+        /// <summary>
+        /// Returns the hexadecimal code for an NHL team's colors
+        /// </summary>
+        /// <param name="team">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
+        /// <returns>An NHL team color scheme using hexadecimal codes</returns>
+        Task<TeamColors> GetTeamColorsAsync(TeamEnum team);
+
+        /// <summary>
+        /// Returns the hexadecimal code for an NHL team's colors
+        /// </summary>
+        /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
+        /// <returns>An NHL team color scheme using hexadecimal codes</returns>
+        Task<TeamColors> GetTeamColorsAsync(int teamId);
     }
 }
