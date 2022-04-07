@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Nhl.Api.Common.Http;
-using Nhl.Api.Domain.Models.Team;
 using Nhl.Api.Models.Award;
 using Nhl.Api.Models.Conference;
 using Nhl.Api.Models.Division;
