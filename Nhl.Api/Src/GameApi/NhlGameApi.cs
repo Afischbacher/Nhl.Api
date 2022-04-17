@@ -43,21 +43,35 @@ namespace Nhl.Api
         /// <summary>
         /// Return's today's the NHL game schedule and it will provide today's current NHL game schedule 
         /// </summary>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
         /// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
-        public async Task<GameSchedule> GetGameScheduleAsync()
+        public async Task<GameSchedule> GetGameScheduleAsync(GameScheduleConfiguration gameScheduleConfiguration = null)
         {
-            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>("/schedule");
+            var httpRequestUri = "/schedule";
+            if (gameScheduleConfiguration != null)
+            {
+                httpRequestUri = _nhlGameService.SetGameScheduleConfiguration(httpRequestUri, gameScheduleConfiguration);
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>(httpRequestUri);
         }
 
         /// <summary>
         /// Return's the NHL game schedule based on the provided <see cref="DateTime"/>. If the date is null, it will provide today's current NHL game schedule 
         /// </summary>
         /// <param name="date">The requested date for the NHL game schedule</param>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
         /// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
-        public async Task<GameSchedule> GetGameScheduleByDateAsync(DateTime? date)
+        public async Task<GameSchedule> GetGameScheduleByDateAsync(DateTime? date, GameScheduleConfiguration gameScheduleConfiguration = null)
         {
-            var httpRequestUri = date.HasValue ? $"/schedule?date={date.Value:yyyy-MM-dd}" : "/schedule";
-            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>(httpRequestUri);
+            var httpRequestUri = (date.HasValue ? $"/schedule?date={date.Value:yyyy-MM-dd}" : "/schedule");
+
+            if (gameScheduleConfiguration != null)
+            {
+                httpRequestUri = _nhlGameService.SetGameScheduleConfiguration(httpRequestUri, gameScheduleConfiguration);
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>(httpRequestUri.ToString());
         }
 
         /// <summary>
@@ -66,10 +80,17 @@ namespace Nhl.Api
         /// <param name="year">The requested year for the NHL game schedule</param>
         /// <param name="month">The requested month for the NHL game schedule</param>
         /// <param name="day">The requested day for the NHL game schedule</param>
-        /// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more infGetGameScheduleByDateAsyncormation</returns>
-        public async Task<GameSchedule> GetGameScheduleByDateAsync(int year, int month, int day)
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
+        /// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
+        public async Task<GameSchedule> GetGameScheduleByDateAsync(int year, int month, int day, GameScheduleConfiguration gameScheduleConfiguration = null)
         {
-            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>($"/schedule?date={year}-{month}-{day}");
+            var httpRequestUri = $"/schedule?date={year}-{month}-{day}";
+            if (gameScheduleConfiguration != null)
+            {
+                httpRequestUri = _nhlGameService.SetGameScheduleConfiguration(httpRequestUri, gameScheduleConfiguration);
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>(httpRequestUri);
         }
 
         /// <summary>
@@ -78,10 +99,17 @@ namespace Nhl.Api
         /// <param name="team">The NHL team id, Example: <see cref="TeamEnum.AnaheimDucks"/></param>
         /// <param name="startDate">The starting date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 2017-01-01</param>
         /// <param name="endDate">The ending date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 1988-06-01</param>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
         /// <returns>Returns all of the NHL team's game schedules based on the selected start and end dates</returns>
-        public async Task<GameSchedule> GetGameScheduleForTeamByDateAsync(TeamEnum team, DateTime startDate, DateTime endDate)
+        public async Task<GameSchedule> GetGameScheduleForTeamByDateAsync(TeamEnum team, DateTime startDate, DateTime endDate, GameScheduleConfiguration gameScheduleConfiguration = null)
         {
-            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>($"/schedule?teamId={(int)team}&startDate={startDate:yyyy-MM-dd}&endDate={endDate:yyyy-MM-dd}");
+            var httpRequestUri = $"/schedule?teamId={(int)team}&startDate={startDate:yyyy-MM-dd}&endDate={endDate:yyyy-MM-dd}";
+            if (gameScheduleConfiguration != null)
+            {
+                httpRequestUri = _nhlGameService.SetGameScheduleConfiguration(httpRequestUri, gameScheduleConfiguration);
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>(httpRequestUri);
         }
 
         /// <summary>
@@ -90,10 +118,17 @@ namespace Nhl.Api
         /// <param name="teamId">The NHL team id, Example: 1</param>
         /// <param name="startDate">The starting date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 2017-01-01</param>
         /// <param name="endDate">The ending date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 1988-06-01</param>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
         /// <returns>Returns all of the NHL team's game schedules based on the selected start and end dates</returns>
-        public async Task<GameSchedule> GetGameScheduleForTeamByDateAsync(int teamId, DateTime startDate, DateTime endDate)
+        public async Task<GameSchedule> GetGameScheduleForTeamByDateAsync(int teamId, DateTime startDate, DateTime endDate, GameScheduleConfiguration gameScheduleConfiguration = null)
         {
-            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>($"/schedule?teamId={teamId}&startDate={startDate:yyyy-MM-dd}&endDate={endDate:yyyy-MM-dd}");
+            var httpRequestUri = $"/schedule?teamId={teamId}&startDate={startDate:yyyy-MM-dd}&endDate={endDate:yyyy-MM-dd}";
+            if (gameScheduleConfiguration != null)
+            {
+                httpRequestUri = _nhlGameService.SetGameScheduleConfiguration(httpRequestUri, gameScheduleConfiguration);
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>(httpRequestUri);
         }
 
         /// <summary>
@@ -101,8 +136,9 @@ namespace Nhl.Api
         /// </summary>
         /// <param name="seasonYear">The NHL season year, Example: 19992000, see <see cref="SeasonYear"/> for more information</param>
         /// <param name="includePlayoffGames">Includes all of the NHL playoff games, default value is false</param>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
         /// <returns>Returns all of the NHL team's game schedules based on the selected NHL season</returns>
-        public async Task<GameSchedule> GetGameScheduleBySeasonAsync(string seasonYear, bool includePlayoffGames = false)
+        public async Task<GameSchedule> GetGameScheduleBySeasonAsync(string seasonYear, bool includePlayoffGames = false, GameScheduleConfiguration gameScheduleConfiguration = null)
         {
             if (string.IsNullOrEmpty(seasonYear))
             {
@@ -123,9 +159,14 @@ namespace Nhl.Api
             var startDate = selectedSeason.RegularSeasonStartDate;
             var endDate = includePlayoffGames ? selectedSeason.SeasonEndDate : selectedSeason.RegularSeasonEndDate;
 
-            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>($"/schedule?&startDate={startDate:yyyy-MM-dd}&endDate={endDate:yyyy-MM-dd}");
-        }
+            var httpRequestUri = $"/schedule?&startDate={startDate:yyyy-MM-dd}&endDate={endDate:yyyy-MM-dd}";
+            if (gameScheduleConfiguration != null)
+            {
+                httpRequestUri = _nhlGameService.SetGameScheduleConfiguration(httpRequestUri, gameScheduleConfiguration);
+            }
 
+            return await _nhlStatsApiHttpClient.GetAsync<GameSchedule>(httpRequestUri);
+        }
 
         /// <summary>
         /// Returns all of the valid NHL game statuses of an NHL game

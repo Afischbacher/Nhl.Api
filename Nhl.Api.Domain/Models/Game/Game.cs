@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Nhl.Api.Models.Common;
 using Nhl.Api.Models.Team;
@@ -50,21 +51,39 @@ namespace Nhl.Api.Models.Game
         public GameStatus Status { get; set; }
 
         /// <summary>
-        /// The NHL home and away teams partaking in the game
+        /// The NHL home and away teams partaking in the NHL game
         /// </summary>
         [JsonProperty("teams")]
         public Teams Teams { get; set; }
 
         /// <summary>
-        /// The NHL venue for the game
+        /// The NHL venue for the NHL game
         /// </summary>
         [JsonProperty("venue")]
         public Venue.Venue Venue { get; set; }
+
+        /// <summary>
+        /// The list of NHL game tickets for purchase, use <see cref="GameScheduleConfiguration"/> to enable this information
+        /// </summary>
+        [JsonProperty("tickets")]
+        public List<Ticket> Tickets { get; set; }
+
+        /// <summary>
+        /// The list of NHL broadcast channels, use <see cref="GameScheduleConfiguration"/> to enable this information
+        /// </summary>
+        [JsonProperty("broadcasts")]
+        public List<Broadcast> Broadcasts { get; set; }
 
         /// <summary>
         /// The content for the NHL game
         /// </summary>
         [JsonProperty("content")]
         public Content Content { get; set; }
+
+        /// <summary>
+        /// The line score for the NHL game
+        /// </summary>
+        [JsonProperty("linescore")]
+        public Linescore Linescore { get; set; }
     }
 }

@@ -149,7 +149,12 @@ namespace Nhl.Api.Tests
             using INhlApi nhlApi = new NhlApi();
 
             // Act
-            var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(DateTime.Parse("2020-01-29"));
+            var gameSchedule = await nhlApi.GetGameScheduleByDateAsync(DateTime.Parse("2020-01-29"), new GameScheduleConfiguration
+            {
+                IncludeLinescore = true,
+                IncludeBroadcasts = true,
+                IncludeTicketPurchasingOptions = true
+            });
 
             // Assert
             Assert.IsNotNull(gameSchedule);
@@ -178,8 +183,76 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(game.Venue);
             Assert.IsNotNull(game.Season);
             Assert.IsNotNull(game.Content);
+
+            Assert.IsNotNull(game.Linescore);
+            Assert.IsNotNull(game.Linescore.Teams);
+            Assert.IsNotNull(game.Linescore.Periods);
+            Assert.IsNotNull(game.Linescore.CurrentPeriodOrdinal);
+
+            Assert.IsNotNull(game.Broadcasts);
+            Assert.IsNotNull(game.Broadcasts.First().Name);
+            Assert.IsNotNull(game.Broadcasts.First().Language);
+            Assert.IsNotNull(game.Broadcasts.First().Id);
+            Assert.IsNotNull(game.Broadcasts.First().Type);
+
+            Assert.IsNotNull(game.Tickets);
+            Assert.IsNotNull(game.Tickets.First());
+            Assert.IsNotNull(game.Tickets.First().TicketLink);
+            Assert.IsNotNull(game.Tickets.First().TicketType);
+
         }
 
+
+        [TestMethod]
+        public async Task TestGetGetGameScheduleWithConfigurationEnabledAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var gameSchedule = await nhlApi.GetGameScheduleAsync(new GameScheduleConfiguration
+            {
+                IncludeLinescore = true,
+                IncludeBroadcasts = true,
+                IncludeTicketPurchasingOptions = true
+            });
+
+            // Assert
+            Assert.IsNotNull(gameSchedule);
+            Assert.IsNotNull(gameSchedule.MetaData);
+            Assert.IsNotNull(gameSchedule.TotalEvents);
+            Assert.IsNotNull(gameSchedule.TotalGames);
+            Assert.IsNotNull(gameSchedule.TotalItems);
+            Assert.IsNotNull(gameSchedule.TotalMatches);
+
+            foreach (var gameDate in gameSchedule.Dates)
+            {
+                Assert.IsNotNull(gameDate.TotalEvents);
+                Assert.IsNotNull(gameDate.TotalGames);
+                Assert.IsNotNull(gameDate.TotalMatches);
+                Assert.IsNotNull(gameDate.Matches);
+                Assert.IsNotNull(gameDate.Events);
+            }
+
+            var game = gameSchedule.Dates.First(date => date.Games.Count > 0).Games.First();
+
+            Assert.IsNotNull(game.Linescore);
+            Assert.IsNotNull(game.Linescore.Teams);
+            Assert.IsNotNull(game.Linescore.Periods);
+            Assert.IsNotNull(game.Linescore.CurrentPeriodOrdinal);
+
+            Assert.IsNotNull(game.Broadcasts);
+            Assert.IsNotNull(game.Broadcasts.First().Name);
+            Assert.IsNotNull(game.Broadcasts.First().Language);
+            Assert.IsNotNull(game.Broadcasts.First().Id);
+            Assert.IsNotNull(game.Broadcasts.First().Type);
+
+            Assert.IsNotNull(game.Tickets);
+            Assert.IsNotNull(game.Tickets.First());
+            Assert.IsNotNull(game.Tickets.First().TicketLink);
+            Assert.IsNotNull(game.Tickets.First().TicketType);
+
+        }
 
         [TestMethod]
         public async Task TestGetGetGameScheduleAsync()
@@ -206,6 +279,7 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(gameDate.Matches);
                 Assert.IsNotNull(gameDate.Events);
             }
+
         }
 
         [TestMethod]
@@ -287,19 +361,23 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(game.Content);
         }
 
-        [DataRow("19831984", false)]
-        [DataRow("19971998", true)]
-        [DataRow("20092010", true)]
-        [DataRow("20202021", false)]
+        [DataRow("19831984", false, false)]
+        [DataRow("19971998", true, false)]
+        [DataRow("20092010", true, true)]
+        [DataRow("20202021", false, true)]
         [TestMethod]
-        public async Task TestGetGetGameSchedulesBySeasonAsync(string seasonYear, bool includePlayoffGames)
+        public async Task TestGetGameSchedulesBySeasonAsync(string seasonYear, bool includePlayoffGames, bool includeGameScheduleConfiguration)
         {
 
             // Arrange
             using INhlApi nhlApi = new NhlApi();
 
+            var gameScheduleConfiguration = includeGameScheduleConfiguration 
+                ? new GameScheduleConfiguration { IncludeBroadcasts = true, IncludeLinescore = true } 
+                : null;
+
             // Act
-            var gameSchedule = await nhlApi.GetGameScheduleBySeasonAsync(seasonYear, includePlayoffGames);
+            var gameSchedule = await nhlApi.GetGameScheduleBySeasonAsync(seasonYear, includePlayoffGames, gameScheduleConfiguration);
 
             // Assert
             Assert.IsNotNull(gameSchedule);
@@ -329,6 +407,21 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(game.Teams.HomeTeam);
             Assert.IsNotNull(game.Venue);
             Assert.IsNotNull(game.Season);
+           
+            if (gameScheduleConfiguration != null)
+            {
+
+                Assert.IsNotNull(game.Linescore);
+                Assert.IsNotNull(game.Linescore.Teams);
+                Assert.IsNotNull(game.Linescore.Periods);
+                Assert.IsNotNull(game.Linescore.CurrentPeriodOrdinal);
+
+                Assert.IsNotNull(game.Broadcasts);
+                Assert.IsNotNull(game.Broadcasts.First().Name);
+                Assert.IsNotNull(game.Broadcasts.First().Language);
+                Assert.IsNotNull(game.Broadcasts.First().Id);
+                Assert.IsNotNull(game.Broadcasts.First().Type); 
+            }
         }
 
         [TestMethod]

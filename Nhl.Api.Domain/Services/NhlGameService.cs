@@ -22,6 +22,13 @@ namespace Nhl.Api.Services
         /// Sets the correct rink side for both the NHL home and away team
         /// </summary>
         void SetCorrectedRinkSideLiveGameFeed(LiveGameFeed liveGameFeed);
+
+        /// <summary>
+        /// Provides the NHL game schedule endpoints to have information about broadcasts, tickets and linescores
+        /// </summary>
+        /// <param name="uri">The NHL API uniform resource indicator</param>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information </param>
+        string SetGameScheduleConfiguration(string uri, GameScheduleConfiguration gameScheduleConfiguration);
     }
 
     /// <summary>
@@ -228,6 +235,37 @@ namespace Nhl.Api.Services
             {
                 // If there is any error, catch and ignore
             }
+        }
+
+        /// <summary>
+        /// Takes a NHL schedule URI and adds an additional expanded information based on the provided configuration
+        /// </summary>
+        /// <param name="uri">An NHL api request for NHL game schedule information</param>
+        /// <param name="gameScheduleConfiguration"> A configuration for the NHL game schedule to include various points of additional information </param>
+        /// <returns> The interpolated NHL API uniform resource indicator for provided expanded information on the NHL game schedules </returns>
+        public string SetGameScheduleConfiguration(string uri, GameScheduleConfiguration gameScheduleConfiguration)
+        {
+            if (gameScheduleConfiguration == null)
+            {
+                return uri;
+            }
+
+            if (string.IsNullOrEmpty(uri)) 
+            {
+                return string.Empty;
+            }
+
+            var scheduleConfigurations = new[]
+            {
+                gameScheduleConfiguration.IncludeLinescore ? $"schedule.linescore" : "",
+                gameScheduleConfiguration.IncludeLinescore ? $"schedule.broadcasts" : "",
+                gameScheduleConfiguration.IncludeLinescore ? $"schedule.ticket" : ""
+            }.Where(s => !string.IsNullOrEmpty(s));
+
+            return uri.Contains('?') 
+                ? $"{uri}&expand={string.Join(",", scheduleConfigurations)}"
+                : $"{uri}?expand={string.Join(",", scheduleConfigurations)}";
+    
         }
     }
 }
