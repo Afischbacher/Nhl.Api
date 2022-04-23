@@ -2,6 +2,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
+using Polly;
+using Polly.Retry;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +14,8 @@ namespace Nhl.Api.Tests
     [TestClass]
     public class GameTests
     {
+        private readonly AsyncRetryPolicy _nhlGameAsyncRetryPolicy = Policy.Handle<Exception>().WaitAndRetryAsync(3, (attempt) => TimeSpan.FromSeconds(attempt * 5));
+
 
         [TestMethod]
         public async Task TestGetGameTypesAsync()
@@ -377,8 +381,11 @@ namespace Nhl.Api.Tests
                 : null;
 
             // Act
-            var gameSchedule = await nhlApi.GetGameScheduleBySeasonAsync(seasonYear, includePlayoffGames, gameScheduleConfiguration);
-
+            var gameSchedule =  await _nhlGameAsyncRetryPolicy.ExecuteAsync(async () =>
+            {
+                return await nhlApi.GetGameScheduleBySeasonAsync(seasonYear, includePlayoffGames, gameScheduleConfiguration);
+            });
+            
             // Assert
             Assert.IsNotNull(gameSchedule);
             Assert.IsNotNull(gameSchedule.MetaData);

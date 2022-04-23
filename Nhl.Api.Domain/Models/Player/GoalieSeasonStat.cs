@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Nhl.Api.Models.Player
 {
     /// <summary>
-    /// NHL Goalie Season Statistics
+    /// NHL goalie season statistics
     /// </summary>
     public class GoalieSeasonStat
     {
@@ -12,7 +12,7 @@ namespace Nhl.Api.Models.Player
         /// The specific type for the NHL player statistics
         /// </summary>
         [JsonProperty("type")]
-        public Api.Models.Statistics.Type Type { get; set; }
+        public Statistics.Type Type { get; set; }
 
         /// <summary>
         /// The collection of splits for the NHL goalie statistics for the specific season

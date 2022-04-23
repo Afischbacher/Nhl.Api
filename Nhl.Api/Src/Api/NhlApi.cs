@@ -439,6 +439,26 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns all of the NHL players statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for each season year by year</returns>
+        public async Task<PlayerSeasonStatisticsYearByYear> GetPlayerStatisticsYearByYearAsync(PlayerEnum player)
+        {
+            return await _nhlStatisticsApi.GetPlayerStatisticsYearByYearAsync(player);
+        }
+
+        /// <summary>
+        /// Returns all of the NHL players statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL player</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for each season year by year</returns>
+        public async Task<PlayerSeasonStatisticsYearByYear> GetPlayerStatisticsYearByYearAsync(int playerId)
+        {
+            return await _nhlStatisticsApi.GetPlayerStatisticsYearByYearAsync(playerId);
+        }
+
+        /// <summary>
         /// Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
         /// </summary>
         /// <param name="playerId">The identifier for the NHL goalie</param>
@@ -447,6 +467,26 @@ namespace Nhl.Api
         public async Task<GoalieSeasonStatistics> GetGoalieStatisticsBySeasonAsync(int playerId, string seasonYear)
         {
             return await _nhlStatisticsApi.GetGoalieStatisticsBySeasonAsync(playerId, seasonYear);
+        }
+
+        /// <summary>
+        /// Returns all of the NHL goalie statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics year by year</returns>
+        public async Task<GoalieSeasonStatisticsYearByYear> GetGoalieStatisticsYearByYearAsync(PlayerEnum player)
+        {
+            return await _nhlStatisticsApi.GetGoalieStatisticsYearByYearAsync(player);
+        }
+
+        /// <summary>
+        /// Returns all of the NHL goalie statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL goalie</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics year by year</returns>
+        public async Task<GoalieSeasonStatisticsYearByYear> GetGoalieStatisticsYearByYearAsync(int playerId)
+        {
+            return await _nhlStatisticsApi.GetGoalieStatisticsYearByYearAsync(playerId);
         }
 
         /// <summary>

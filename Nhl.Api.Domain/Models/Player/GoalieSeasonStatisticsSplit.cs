@@ -3,7 +3,7 @@
 namespace Nhl.Api.Models.Player
 {
     /// <summary>
-    /// NHL Goalie Season Statistics Split
+    ///  NHL goalie season statistics split
     /// </summary>
     public class GoalieSeasonStatisticsSplit
     {

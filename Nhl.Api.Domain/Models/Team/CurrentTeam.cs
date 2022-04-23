@@ -39,6 +39,11 @@ namespace Nhl.Api.Models.Team
         {
             get
             {
+                if (Id == 0 || Id == default)
+                {
+                    return null;
+                }
+
                 return $"{NhlStaticAssetsApiHttpClient.ClientApiUrl}/images/logos/teams-current-primary-light/{Id}.svg";
             }
         }
@@ -52,6 +57,11 @@ namespace Nhl.Api.Models.Team
         {
             get
             {
+                if (Id == 0 || Id == default)
+                {
+                    return null;
+                }
+
                 return $"{NhlStaticAssetsApiHttpClient.ClientApiUrl}/images/logos/teams-current-primary-dark/{Id}.svg";
             }
         }
