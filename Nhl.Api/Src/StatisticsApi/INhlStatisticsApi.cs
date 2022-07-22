@@ -91,6 +91,22 @@ namespace Nhl.Api
         Task<PlayerSeasonStatisticsYearByYear> GetPlayerStatisticsYearByYearAsync(int playerId);
 
         /// <summary>
+        /// Returns all of the NHL players statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for home and away games for a season</returns>
+        Task<PlayerSeasonStatisticsHomeAndAway> GetPlayerStatisticsHomeAndAwayBySeasonAsync(PlayerEnum player, string seasonYear);
+
+        /// <summary>
+        /// Returns all of the NHL players statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL player</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for home and away games for a season</returns>
+        Task<PlayerSeasonStatisticsHomeAndAway> GetPlayerStatisticsHomeAndAwayBySeasonAsync(int playerId, string seasonYear);
+
+        /// <summary>
         /// Returns the on pace regular season NHL player statistics for the current NHL season with insightful statistics
         /// </summary>
         /// <param name="player">The identifier for the NHL player</param>
@@ -133,6 +149,22 @@ namespace Nhl.Api
         /// <param name="playerId">The identifier for the NHL goalie</param>
         /// <returns>A collection of all the in-depth NHL goalie statistics year by year</returns>
         Task<GoalieSeasonStatisticsYearByYear> GetGoalieStatisticsYearByYearAsync(int playerId);
+
+        /// <summary>
+        /// Returns all of the NHL goalies statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics for home and away games for a season</returns>
+        Task<GoalieSeasonStatisticsHomeAndAway> GetGoalieStatisticsHomeAndAwayBySeasonAsync(PlayerEnum player, string seasonYear);
+
+        /// <summary>
+        /// Returns all of the NHL goalies statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL goalie</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics for home and away games for a season</returns>
+        Task<GoalieSeasonStatisticsHomeAndAway> GetGoalieStatisticsHomeAndAwayBySeasonAsync(int playerId, string seasonYear);
 
         /// <summary>
         /// Returns the player with the top NHL player statistic based on the selected season year

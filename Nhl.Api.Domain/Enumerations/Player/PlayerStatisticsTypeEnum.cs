@@ -16,6 +16,10 @@
         /// <summary>
         /// The statistics for a player/goalie for each year by year for every season
         /// </summary>
-        YearByYear
+        YearByYear,
+        /// <summary>
+        /// The statistics for a player/goalie for home and away games per season
+        /// </summary>
+        HomeAndAway
     }
 }

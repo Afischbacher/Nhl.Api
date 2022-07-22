@@ -238,23 +238,26 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(gameDate.Events);
             }
 
-            var game = gameSchedule.Dates.First(date => date.Games.Count > 0).Games.First();
+            var game = gameSchedule.Dates.FirstOrDefault(date => date.Games.Count > 0)?.Games.FirstOrDefault();
+            if (game != null)
+            {
 
-            Assert.IsNotNull(game.Linescore);
-            Assert.IsNotNull(game.Linescore.Teams);
-            Assert.IsNotNull(game.Linescore.Periods);
-            Assert.IsNotNull(game.Linescore.CurrentPeriodOrdinal);
+                Assert.IsNotNull(game.Linescore);
+                Assert.IsNotNull(game.Linescore.Teams);
+                Assert.IsNotNull(game.Linescore.Periods);
+                Assert.IsNotNull(game.Linescore.CurrentPeriodOrdinal);
 
-            Assert.IsNotNull(game.Broadcasts);
-            Assert.IsNotNull(game.Broadcasts.First().Name);
-            Assert.IsNotNull(game.Broadcasts.First().Language);
-            Assert.IsNotNull(game.Broadcasts.First().Id);
-            Assert.IsNotNull(game.Broadcasts.First().Type);
+                Assert.IsNotNull(game.Broadcasts);
+                Assert.IsNotNull(game.Broadcasts.First().Name);
+                Assert.IsNotNull(game.Broadcasts.First().Language);
+                Assert.IsNotNull(game.Broadcasts.First().Id);
+                Assert.IsNotNull(game.Broadcasts.First().Type);
 
-            Assert.IsNotNull(game.Tickets);
-            Assert.IsNotNull(game.Tickets.First());
-            Assert.IsNotNull(game.Tickets.First().TicketLink);
-            Assert.IsNotNull(game.Tickets.First().TicketType);
+                Assert.IsNotNull(game.Tickets);
+                Assert.IsNotNull(game.Tickets.First());
+                Assert.IsNotNull(game.Tickets.First().TicketLink);
+                Assert.IsNotNull(game.Tickets.First().TicketType); 
+            }
 
         }
 
