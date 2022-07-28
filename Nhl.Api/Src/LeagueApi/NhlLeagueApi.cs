@@ -528,5 +528,243 @@ namespace Nhl.Api
             .Awards
             .SingleOrDefault();
         }
+
+        /// <summary>
+        /// Returns the hexadecimal code for an NHL team's colors
+        /// </summary>
+        /// <param name="team">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
+        /// <returns>An NHL team color scheme using hexadecimal codes</returns>
+        public async Task<TeamColors> GetTeamColorsAsync(TeamEnum team)
+        {
+            var teamColors = team switch
+            {
+                TeamEnum.NewJerseyDevils => new TeamColors
+                {
+                    PrimaryColor = "#CE1126",
+                    SecondaryColor = "#000000",
+                    TertiaryColor = "#FFFFFF"
+                },
+                TeamEnum.NewYorkIslanders => new TeamColors
+                {
+                    PrimaryColor = "#00539B",
+                    SecondaryColor = "#F47D30",
+                    TertiaryColor = "#FFFFFF"
+                },
+                TeamEnum.NewYorkRangers => new TeamColors
+                {
+                    PrimaryColor = "#0038A8",
+                    SecondaryColor = "#CE1126",
+                    TertiaryColor = "#FFFFFF"
+                },
+                TeamEnum.PhiladelphiaFlyers => new TeamColors
+                {
+                    PrimaryColor = "#F74902",
+                    SecondaryColor = "#000000",
+                    TertiaryColor = "#FFFFFF"
+                },
+                TeamEnum.PittsburghPenguins => new TeamColors
+                {
+                    PrimaryColor = "#F74902",
+                    SecondaryColor = "#000000",
+                    TertiaryColor = "#FFFFFF"
+                },
+                TeamEnum.BostonBruins => new TeamColors
+                {
+                    PrimaryColor = "#FFB81C",
+                    SecondaryColor = "#000000",
+                    TertiaryColor = "#FFFFFF"
+                },
+                TeamEnum.BuffaloSabres => new TeamColors
+                {
+                    PrimaryColor = "#002654",
+                    SecondaryColor = "#FCB514",
+                    TertiaryColor = "#ADAFAA",
+                    QuaternaryColor = "#C8102E"
+                },
+                TeamEnum.MontrealCanadiens => new TeamColors
+                {
+                    PrimaryColor = "#AF1E2D",
+                    SecondaryColor = "#192168",
+                    TertiaryColor = "#FFFFFF"
+                },
+                TeamEnum.OttawaSenators => new TeamColors
+                {
+                    PrimaryColor = "#C52032",
+                    SecondaryColor = "#C2912C",
+                    TertiaryColor = "#000000",
+                    QuaternaryColor = "#FFFFFF"
+                },
+                TeamEnum.TorontoMapleLeafs => new TeamColors
+                {
+                    PrimaryColor = "#00205B",
+                    SecondaryColor = "#FFFFFF"
+                },
+                TeamEnum.CarolinaHurricanes => new TeamColors
+                {
+                    PrimaryColor = "#CC0000",
+                    SecondaryColor = "#000000",
+                    TertiaryColor = "#A2AAAD",
+                    QuaternaryColor = "#76232F"
+                },
+                TeamEnum.FloridaPanthers => new TeamColors
+                {
+                    PrimaryColor = "#041E42",
+                    SecondaryColor = "#C8102E",
+                    TertiaryColor = "#B9975B"
+                },
+                TeamEnum.TampaBayLightning => new TeamColors
+                {
+                    PrimaryColor = "#002868",
+                    SecondaryColor = "#FFFFFF"
+                },
+                TeamEnum.WashingtonCapitals => new TeamColors
+                {
+                    PrimaryColor = "#041E42",
+                    SecondaryColor = "#C8102E",
+                    TertiaryColor = "#FFFFFF"
+                },
+                TeamEnum.ChicagoBlackhawks => new TeamColors
+                {
+                    PrimaryColor = "#CF0A2C",
+                    SecondaryColor = "#FF671B",
+                    TertiaryColor = "#00833E",
+                    QuaternaryColor = "#FFD100",
+                    QuinaryColor = "#D18A00",
+                    SenaryColor = "#001970",
+                    SeptenaryColor = "#000000"
+                },
+                TeamEnum.DetroitRedWings => new TeamColors
+                {
+                    PrimaryColor = "#CE1126",
+                    SecondaryColor = "#FFFFFF"
+                },
+                TeamEnum.NashvillePredators => new TeamColors
+                {
+                    PrimaryColor = "#FFB81C",
+                    SecondaryColor = "#041E42",
+                    TertiaryColor = "#FFFFFF"
+                },
+                TeamEnum.StLouisBlues => new TeamColors
+                {
+                    PrimaryColor = "#002F87",
+                    SecondaryColor = "#FCB514",
+                    TertiaryColor = "#041E42",
+                    QuaternaryColor = "#FFFFFF"
+                },
+                TeamEnum.CalgaryFlames => new TeamColors
+                {
+                    PrimaryColor = "#C8102E",
+                    SecondaryColor = "#F1BE48",
+                    TertiaryColor = "#111111",
+                    QuaternaryColor = "#FFFFFF"
+                },
+                TeamEnum.ColoradoAvalanche => new TeamColors
+                {
+                    PrimaryColor = "#6F263D",
+                    SecondaryColor = "#236192",
+                    TertiaryColor = "#A2AAAD",
+                    QuaternaryColor = "#000000"
+                },
+                TeamEnum.EdmontonOilers => new TeamColors
+                {
+                    PrimaryColor = "#041E42",
+                    SecondaryColor = "#FF4C00",
+                    TertiaryColor = "#FFFFFF"
+                },
+                TeamEnum.VancouverCanucks => new TeamColors
+                {
+                    PrimaryColor = "#00205B",
+                    SecondaryColor = "#00843D",
+                    TertiaryColor = "#041C2C",
+                    QuaternaryColor = "#99999A"
+                },
+                TeamEnum.AnaheimDucks => new TeamColors
+                {
+                    PrimaryColor = "#F47A38",
+                    SecondaryColor = "#B9975B",
+                    TertiaryColor = "#C1C6C8",
+                    QuaternaryColor = "#000000"
+                },
+                TeamEnum.DallasStars => new TeamColors
+                {
+                    PrimaryColor = "#006847",
+                    SecondaryColor = "#8F8F8C",
+                    TertiaryColor = "#111111"
+                },
+                TeamEnum.LosAngelesKings => new TeamColors
+                {
+                    PrimaryColor = "#111111",
+                    SecondaryColor = "#A2AAAD",
+                    TertiaryColor = "#FFFFFF"
+                },
+                TeamEnum.SanJoseSharks => new TeamColors
+                {
+                    PrimaryColor = "#006D75",
+                    SecondaryColor = "#EA7200",
+                    TertiaryColor = "#000000",
+                    QuaternaryColor = "#FFFFFF"
+                },
+                TeamEnum.ColumbusBlueJackets => new TeamColors
+                {
+                    PrimaryColor = "#002654",
+                    SecondaryColor = "#CE1126",
+                    TertiaryColor = "#A4A9AD"
+                },
+                TeamEnum.MinnesotaWild => new TeamColors
+                {
+                    PrimaryColor = "#A6192E",
+                    SecondaryColor = "#154734",
+                    TertiaryColor = "#EAAA00",
+                    QuaternaryColor = "#DDCBA4"
+                },
+                TeamEnum.WinnipegJets => new TeamColors
+                {
+                    PrimaryColor = "#041E42",
+                    SecondaryColor = "#004C97",
+                    TertiaryColor = "#AC162C",
+                    QuaternaryColor = "#7B303E",
+                    QuinaryColor = "#55565A",
+                    SenaryColor = "#8E9090",
+                    SeptenaryColor = "#FFFFFF"
+                },
+                TeamEnum.ArizonaCoyotes => new TeamColors
+                {
+                    PrimaryColor = "#8C2633",
+                    SecondaryColor = "#E2D6B5",
+                    TertiaryColor = "#111111"
+                },
+                TeamEnum.VegasGoldenKnights => new TeamColors
+                {
+                    PrimaryColor = "#B4975A",
+                    SecondaryColor = "#333F42",
+                    TertiaryColor = "#C8102E",
+                    QuaternaryColor = "#000000",
+                    QuinaryColor = "#FFFFFF"
+                },
+                TeamEnum.SeattleKraken => new TeamColors
+                {
+                    PrimaryColor = "#001628",
+                    SecondaryColor = "#99D9D9",
+                    TertiaryColor = "#355464",
+                    QuaternaryColor = "#68A2B9",
+                    QuinaryColor = "#E9072B"
+                },
+                _ => null,
+            };
+
+            return await Task.FromResult(teamColors);
+        }
+
+        /// <summary>
+        /// Returns the hexadecimal code for an NHL team's colors
+        /// </summary>
+        /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
+        /// <returns>An NHL team color scheme using hexadecimal codes</returns>
+        public async Task<TeamColors> GetTeamColorsAsync(int teamId)
+        {
+            var teamEnum = Enum.Parse<TeamEnum>(teamId.ToString());
+
+            return await GetTeamColorsAsync(teamEnum);
+        }
     }
 }

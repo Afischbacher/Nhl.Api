@@ -106,7 +106,7 @@ namespace Nhl.Api.Tests
             // Arrange
             using INhlApi nhlApi = new NhlApi();
 
-            var prospect = await nhlApi.GetLeagueProspectByIdAsync(Models.Enumerations.Prospect.ProspectEnum.SadinBasic77142);
+            var prospect = await nhlApi.GetLeagueProspectByIdAsync(Models.Enumerations.Prospect.ProspectEnum.AakeLeppa98973);
 
             // Assert
             Assert.IsNotNull(prospect.BirthCountry);

@@ -36,7 +36,7 @@ namespace Nhl.Api.Models.Enumerations.Prospect
 	/// <summary>
 	/// <#= prospect.FullName #> - <#= prospect.Id #>
 	/// </summary>
-	<#= System.Text.RegularExpressions.Regex.Replace(prospect.FullName, @"('|\.|\s|-|_|&|\(|\))","")#><#=prospect.Id #> = <#= prospect.Id #>,
+	<#= System.Text.RegularExpressions.Regex.Replace(prospect.FullName, @"('|\.|\s|`|-|_|&|\(|\))","")#><#=prospect.Id #> = <#= prospect.Id #>,
 	<#}#>
 }
 }

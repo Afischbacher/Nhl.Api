@@ -184,6 +184,26 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns the hexadecimal code for an NHL team's colors
+        /// </summary>
+        /// <param name="team">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
+        /// <returns>An NHL team color scheme using hexadecimal codes</returns>
+        public async Task<TeamColors> GetTeamColorsAsync(TeamEnum team)
+        {
+            return await _nhlLeagueApi.GetTeamColorsAsync(team);
+        }
+
+        /// <summary>
+        /// Returns the hexadecimal code for an NHL team's colors
+        /// </summary>
+        /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
+        /// <returns>An NHL team color scheme using hexadecimal codes</returns>
+        public async Task<TeamColors> GetTeamColorsAsync(int teamId)
+        {
+            return await _nhlLeagueApi.GetTeamColorsAsync(teamId);
+        }
+
+        /// <summary>
         /// Returns all of the NHL team statistics for the specific NHL team identifier and season
         /// </summary>
         /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
@@ -419,6 +439,48 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns all of the NHL players statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for each season year by year</returns>
+        public async Task<PlayerSeasonStatisticsYearByYear> GetPlayerStatisticsYearByYearAsync(PlayerEnum player)
+        {
+            return await _nhlStatisticsApi.GetPlayerStatisticsYearByYearAsync(player);
+        }
+
+        /// <summary>
+        /// Returns all of the NHL players statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL player</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for each season year by year</returns>
+        public async Task<PlayerSeasonStatisticsYearByYear> GetPlayerStatisticsYearByYearAsync(int playerId)
+        {
+            return await _nhlStatisticsApi.GetPlayerStatisticsYearByYearAsync(playerId);
+        }
+
+        /// <summary>
+        /// Returns all of the NHL players statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for home and away games for a season</returns>
+        public async Task<PlayerSeasonStatisticsHomeAndAway> GetPlayerStatisticsHomeAndAwayBySeasonAsync(PlayerEnum player, string seasonYear)
+        {
+            return await _nhlStatisticsApi.GetPlayerStatisticsHomeAndAwayBySeasonAsync(player, seasonYear);
+        }
+
+        /// <summary>
+        /// Returns all of the NHL players statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL player</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for home and away games for a season</returns>
+        public async Task<PlayerSeasonStatisticsHomeAndAway> GetPlayerStatisticsHomeAndAwayBySeasonAsync(int playerId, string seasonYear)
+        {
+            return await _nhlStatisticsApi.GetPlayerStatisticsHomeAndAwayBySeasonAsync(playerId, seasonYear);
+        }
+
+        /// <summary>
         /// Returns all of the NHL goalie statistics for a specific statistic type and NHL season with insightful statistics and NHL game data
         /// </summary>
         /// <param name="playerId">The identifier for the NHL goalie</param>
@@ -427,6 +489,48 @@ namespace Nhl.Api
         public async Task<GoalieSeasonStatistics> GetGoalieStatisticsBySeasonAsync(int playerId, string seasonYear)
         {
             return await _nhlStatisticsApi.GetGoalieStatisticsBySeasonAsync(playerId, seasonYear);
+        }
+
+        /// <summary>
+        /// Returns all of the NHL goalie statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics year by year</returns>
+        public async Task<GoalieSeasonStatisticsYearByYear> GetGoalieStatisticsYearByYearAsync(PlayerEnum player)
+        {
+            return await _nhlStatisticsApi.GetGoalieStatisticsYearByYearAsync(player);
+        }
+
+        /// <summary>
+        /// Returns all of the NHL goalie statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL goalie</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics year by year</returns>
+        public async Task<GoalieSeasonStatisticsYearByYear> GetGoalieStatisticsYearByYearAsync(int playerId)
+        {
+            return await _nhlStatisticsApi.GetGoalieStatisticsYearByYearAsync(playerId);
+        }
+
+        /// <summary>
+        /// Returns all of the NHL goalies statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics for home and away games for a season</returns>
+        public async Task<GoalieSeasonStatisticsHomeAndAway> GetGoalieStatisticsHomeAndAwayBySeasonAsync(PlayerEnum player, string seasonYear)
+        {
+            return await _nhlStatisticsApi.GetGoalieStatisticsHomeAndAwayBySeasonAsync(player, seasonYear);
+        }
+
+        /// <summary>
+        /// Returns all of the NHL goalies statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL goalie</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics for home and away games for a season</returns>
+        public async Task<GoalieSeasonStatisticsHomeAndAway> GetGoalieStatisticsHomeAndAwayBySeasonAsync(int playerId, string seasonYear)
+        {
+            return await _nhlStatisticsApi.GetGoalieStatisticsHomeAndAwayBySeasonAsync(playerId, seasonYear);
         }
 
         /// <summary>
@@ -560,19 +664,21 @@ namespace Nhl.Api
         /// Return's the NHL game schedule based on the provided <see cref="DateTime"/>. If the date is null, it will provide today's current NHL game schedule 
         /// </summary>
         /// <param name="date">The requested date for the NHL game schedule</param>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
         /// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
-        public async Task<GameSchedule> GetGameScheduleByDateAsync(DateTime? date)
+        public async Task<GameSchedule> GetGameScheduleByDateAsync(DateTime? date, GameScheduleConfiguration gameScheduleConfiguration = null)
         {
-            return await _nhlGameApi.GetGameScheduleByDateAsync(date);
+            return await _nhlGameApi.GetGameScheduleByDateAsync(date, gameScheduleConfiguration);
         }
 
         /// <summary>
         /// Return's today's the NHL game schedule and it will provide today's current NHL game schedule 
         /// </summary>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
         /// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more information</returns>
-        public async Task<GameSchedule> GetGameScheduleAsync()
+        public async Task<GameSchedule> GetGameScheduleAsync(GameScheduleConfiguration gameScheduleConfiguration = null)
         {
-            return await _nhlGameApi.GetGameScheduleAsync();
+            return await _nhlGameApi.GetGameScheduleAsync(gameScheduleConfiguration);
         }
 
         /// <summary>
@@ -581,10 +687,11 @@ namespace Nhl.Api
         /// <param name="year">The requested year for the NHL game schedule</param>
         /// <param name="month">The requested month for the NHL game schedule</param>
         /// <param name="day">The requested day for the NHL game schedule</param>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
         /// <returns>NHL game schedule, see <see cref="GameSchedule"/> for more infGetGameScheduleByDateAsyncormation</returns>
-        public async Task<GameSchedule> GetGameScheduleByDateAsync(int year, int month, int day)
+        public async Task<GameSchedule> GetGameScheduleByDateAsync(int year, int month, int day, GameScheduleConfiguration gameScheduleConfiguration = null)
         {
-            return await _nhlGameApi.GetGameScheduleByDateAsync(year, month, day);
+            return await _nhlGameApi.GetGameScheduleByDateAsync(year, month, day, gameScheduleConfiguration);
         }
 
         /// <summary>
@@ -593,10 +700,11 @@ namespace Nhl.Api
         /// <param name="team">The NHL team id, Example: <see cref="TeamEnum.AnaheimDucks"/></param>
         /// <param name="startDate">The starting date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 2017-01-01</param>
         /// <param name="endDate">The ending date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 1988-06-01</param>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
         /// <returns>Returns all of the NHL team's game schedules based on the selected start and end dates</returns>
-        public async Task<GameSchedule> GetGameScheduleForTeamByDateAsync(TeamEnum team, DateTime startDate, DateTime endDate)
+        public async Task<GameSchedule> GetGameScheduleForTeamByDateAsync(TeamEnum team, DateTime startDate, DateTime endDate, GameScheduleConfiguration gameScheduleConfiguration = null)
         {
-            return await _nhlGameApi.GetGameScheduleForTeamByDateAsync(team, startDate, endDate);
+            return await _nhlGameApi.GetGameScheduleForTeamByDateAsync(team, startDate, endDate, gameScheduleConfiguration);
         }
 
         /// <summary>
@@ -605,10 +713,11 @@ namespace Nhl.Api
         /// <param name="teamId">The NHL team id, Example: 1</param>
         /// <param name="startDate">The starting date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 2017-01-01</param>
         /// <param name="endDate">The ending date for the NHL team game schedule, see <see cref="LeagueSeasonDates"/> for start dates of NHL seasons, Example: 1988-06-01</param>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
         /// <returns>Returns all of the NHL team's game schedules based on the selected start and end dates</returns>
-        public async Task<GameSchedule> GetGameScheduleForTeamByDateAsync(int teamId, DateTime startDate, DateTime endDate)
+        public async Task<GameSchedule> GetGameScheduleForTeamByDateAsync(int teamId, DateTime startDate, DateTime endDate, GameScheduleConfiguration gameScheduleConfiguration = null)
         {
-            return await _nhlGameApi.GetGameScheduleForTeamByDateAsync(teamId, startDate, endDate);
+            return await _nhlGameApi.GetGameScheduleForTeamByDateAsync(teamId, startDate, endDate, gameScheduleConfiguration);
         }
 
         /// <summary>
@@ -616,10 +725,11 @@ namespace Nhl.Api
         /// </summary>
         /// <param name="seasonYear">The NHL season year, Example: 19992000, see <see cref="SeasonYear"/> for more information</param>
         /// <param name="includePlayoffGames">Includes the NHL playoff games if set to true, default value is false</param>
+        /// <param name="gameScheduleConfiguration">A configuration for the NHL game schedule to include various points of additional information</param>
         /// <returns>Returns all of the NHL team's game schedules based on the selected NHL season</returns>
-        public async Task<GameSchedule> GetGameScheduleBySeasonAsync(string seasonYear, bool includePlayoffGames = false)
+        public async Task<GameSchedule> GetGameScheduleBySeasonAsync(string seasonYear, bool includePlayoffGames = false, GameScheduleConfiguration gameScheduleConfiguration = null)
         {
-            return await _nhlGameApi.GetGameScheduleBySeasonAsync(seasonYear, includePlayoffGames);
+            return await _nhlGameApi.GetGameScheduleBySeasonAsync(seasonYear, includePlayoffGames, gameScheduleConfiguration);
         }
 
         /// <summary>

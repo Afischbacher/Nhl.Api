@@ -4,9 +4,9 @@ using System.Collections.Generic;
 namespace Nhl.Api.Models.Player
 {
     /// <summary>
-    /// NHL Player Season Statistic
+    /// NHL player season statistics for home and away games in a season
     /// </summary>
-    public class PlayerSeasonStat
+    public class PlayerSeasonStatHomeAndAway
     {
         /// <summary>
         /// The specific type for the NHL player statistics
@@ -15,9 +15,9 @@ namespace Nhl.Api.Models.Player
         public Statistics.Type Type { get; set; }
 
         /// <summary>
-        /// The collection of splits for the NHL player statistics for the specific season
+        /// The collection of splits for the NHL player statistics for home and away games in a season
         /// </summary>
         [JsonProperty("splits")]
-        public List<PlayerSeasonStatisticsSplit> Splits { get; set; }
+        public List<PlayerSeasonStatisticsSplitHomeAndAway> Splits { get; set; }
     }
 }

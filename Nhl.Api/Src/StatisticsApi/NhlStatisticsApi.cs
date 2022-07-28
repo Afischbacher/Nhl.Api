@@ -74,8 +74,8 @@ namespace Nhl.Api
             }
 
             var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync(playerId);
-            var isPlayerPositionNotGoalie = nhlPlayer?.PrimaryPosition?.Abbreviation != PlayerPositionEnum.G.ToString();
-            if (isPlayerPositionNotGoalie)
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
+            if (!isPlayerPositionGoalie)
             {
                 throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
             }
@@ -103,13 +103,47 @@ namespace Nhl.Api
             }
 
             var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync((int)player);
-            var isPlayerPositionNotGoalie = nhlPlayer?.PrimaryPosition?.Abbreviation != PlayerPositionEnum.G.ToString();
-            if (isPlayerPositionNotGoalie)
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
+            if (!isPlayerPositionGoalie)
             {
                 throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
             }
 
             return await _nhlStatsApiHttpClient.GetAsync<GoalieSeasonStatistics>($"/people/{((int)player)}/stats?stats={nameof(PlayerStatisticsTypeEnum.StatsSingleSeason).ToCamelCase()}&season={seasonYear}");
+        }
+
+        /// <summary>
+        /// Returns all of the NHL goalie statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics year by year</returns>
+        public async Task<GoalieSeasonStatisticsYearByYear> GetGoalieStatisticsYearByYearAsync(PlayerEnum player)
+        {
+            var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync((int)player);
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
+            if (!isPlayerPositionGoalie)
+            {
+                throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<GoalieSeasonStatisticsYearByYear>($"/people/{((int)player)}/stats?stats={nameof(PlayerStatisticsTypeEnum.YearByYear).ToCamelCase()}");
+        }
+
+        /// <summary>
+        /// Returns all of the NHL goalie statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL goalie</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics year by year</returns>
+        public async Task<GoalieSeasonStatisticsYearByYear> GetGoalieStatisticsYearByYearAsync(int playerId)
+        {
+            var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync(playerId);
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
+            if (!isPlayerPositionGoalie)
+            {
+                throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<GoalieSeasonStatisticsYearByYear>($"/people/{playerId}/stats?stats={nameof(PlayerStatisticsTypeEnum.YearByYear).ToCamelCase()}");
         }
 
         /// <summary>
@@ -150,7 +184,7 @@ namespace Nhl.Api
             }
 
             var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync(playerId);
-            var isPlayerPositionGoalie = nhlPlayer?.PrimaryPosition?.Abbreviation == PlayerPositionEnum.G.ToString();
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
             if (isPlayerPositionGoalie)
             {
                 throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not his have statistics retrieved");
@@ -178,13 +212,47 @@ namespace Nhl.Api
             }
 
             var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync((int)player);
-            var isPlayerPositionGoalie = nhlPlayer?.PrimaryPosition?.Abbreviation == PlayerPositionEnum.G.ToString();
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
             if (isPlayerPositionGoalie)
             {
                 throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
             }
 
             return await _nhlStatsApiHttpClient.GetAsync<PlayerSeasonStatistics>($"/people/{((int)player)}/stats?stats={nameof(PlayerStatisticsTypeEnum.StatsSingleSeason).ToCamelCase()}&season={seasonYear}");
+        }
+
+        /// <summary>
+        /// Returns all of the NHL players statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for each season year by year</returns>
+        public async Task<PlayerSeasonStatisticsYearByYear> GetPlayerStatisticsYearByYearAsync(PlayerEnum player)
+        {
+            var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync((int)player);
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
+            if (isPlayerPositionGoalie)
+            {
+                throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<PlayerSeasonStatisticsYearByYear>($"/people/{((int)player)}/stats?stats={nameof(PlayerStatisticsTypeEnum.YearByYear).ToCamelCase()}");
+        }
+
+        /// <summary>
+        /// Returns all of the NHL players statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL player</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for each season year by year</returns>
+        public async Task<PlayerSeasonStatisticsYearByYear> GetPlayerStatisticsYearByYearAsync(int playerId)
+        {
+            var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync(playerId);
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
+            if (isPlayerPositionGoalie)
+            {
+                throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<PlayerSeasonStatisticsYearByYear>($"/people/{playerId}/stats?stats={nameof(PlayerStatisticsTypeEnum.YearByYear).ToCamelCase()}");
         }
 
         /// <summary>
@@ -405,6 +473,130 @@ namespace Nhl.Api
 
             return _nhlStatisticsService.GetOrderedPlayerStatisticResults(playerStatisticEnum, validPlayerStatistics, isDescending, count);
 
+        }
+
+        /// <summary>
+        /// Returns all of the NHL players statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for home and away games for a season</returns>
+        public async Task<PlayerSeasonStatisticsHomeAndAway> GetPlayerStatisticsHomeAndAwayBySeasonAsync(PlayerEnum player, string seasonYear)
+        {
+            if (string.IsNullOrEmpty(seasonYear))
+            {
+                throw new ArgumentNullException(nameof(seasonYear));
+            }
+
+            if (seasonYear.Length > 8)
+            {
+                throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+            }
+
+            var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync((int)player);
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
+            if (isPlayerPositionGoalie)
+            {
+                throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<PlayerSeasonStatisticsHomeAndAway>($"/people/{(int)player}/stats?stats={nameof(PlayerStatisticsTypeEnum.HomeAndAway).ToCamelCase()}&season={seasonYear}");
+        }
+
+        /// <summary>
+        /// Returns all of the NHL players statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL player</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL player statistics for home and away games for a season</returns>
+        public async Task<PlayerSeasonStatisticsHomeAndAway> GetPlayerStatisticsHomeAndAwayBySeasonAsync(int playerId, string seasonYear)
+        {
+            if (string.IsNullOrEmpty(seasonYear))
+            {
+                throw new ArgumentNullException(nameof(seasonYear));
+            }
+
+            if (seasonYear.Length > 8)
+            {
+                throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+            }
+
+            var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync(playerId);
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
+            if (isPlayerPositionGoalie)
+            {
+                throw new InvalidPlayerPositionException($"The NHL player {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<PlayerSeasonStatisticsHomeAndAway>($"/people/{playerId}/stats?stats={nameof(PlayerStatisticsTypeEnum.HomeAndAway).ToCamelCase()}&season={seasonYear}");
+
+        }
+
+        /// <summary>
+        /// Returns all of the NHL goalies statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="player">The identifier for the NHL goalie</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics for home and away games for a season</returns>
+        public async Task<GoalieSeasonStatisticsHomeAndAway> GetGoalieStatisticsHomeAndAwayBySeasonAsync(PlayerEnum player, string seasonYear)
+        {
+            if (string.IsNullOrEmpty(seasonYear))
+            {
+                throw new ArgumentNullException(nameof(seasonYear));
+            }
+
+            if (seasonYear.Length > 8)
+            {
+                throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+            }
+
+            var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync((int)player);
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
+            if (!isPlayerPositionGoalie)
+            {
+                throw new InvalidPlayerPositionException($"The NHL goalie {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<GoalieSeasonStatisticsHomeAndAway>($"/people/{((int)player)}/stats?stats={nameof(PlayerStatisticsTypeEnum.HomeAndAway).ToCamelCase()}&season={seasonYear}");
+        }
+
+        /// <summary>
+        /// Returns all of the NHL goalies statistics for home and away games for a season with insightful statistics and NHL game data
+        /// </summary>
+        /// <param name="playerId">The identifier for the NHL goalie</param>
+        /// <param name="seasonYear">The argument for the NHL season of the play, see <see cref="SeasonYear"/> for more information</param>
+        /// <returns>A collection of all the in-depth NHL goalie statistics for home and away games for a season</returns>
+        public async Task<GoalieSeasonStatisticsHomeAndAway> GetGoalieStatisticsHomeAndAwayBySeasonAsync(int playerId, string seasonYear)
+        {
+            if (string.IsNullOrEmpty(seasonYear))
+            {
+                throw new ArgumentNullException(nameof(seasonYear));
+            }
+
+            if (seasonYear.Length > 8)
+            {
+                throw new ArgumentException($"{nameof(seasonYear)} is not a valid season year format");
+            }
+
+            var nhlPlayer = await _nhlPlayerApi.GetPlayerByIdAsync(playerId);
+            var isPlayerPositionGoalie = IsPlayerPostionGoalie(nhlPlayer);
+            if (!isPlayerPositionGoalie)
+            {
+                throw new InvalidPlayerPositionException($"The NHL goalie {nhlPlayer?.FullName ?? "N/A"} - {nhlPlayer?.Id ?? 0} has a position of {nhlPlayer?.PrimaryPosition?.Abbreviation ?? "N/A"} and can not have his statistics retrieved");
+            }
+
+            return await _nhlStatsApiHttpClient.GetAsync<GoalieSeasonStatisticsHomeAndAway>($"/people/{playerId}/stats?stats={nameof(PlayerStatisticsTypeEnum.HomeAndAway).ToCamelCase()}&season={seasonYear}");
+        }
+
+        /// <summary>
+        /// Returns true or false if the NHL player identifier is the position of a goalie 
+        /// </summary>
+        /// <param name="player">The NHL player model representing an NHL player</param>
+        /// <returns>True or false if the NHL player is a goalie or player</returns>
+        private bool IsPlayerPostionGoalie(Player player)
+        {
+            var isPlayerPositionGoalie = player?.PrimaryPosition?.Abbreviation == PlayerPositionEnum.G.ToString();
+            return isPlayerPositionGoalie;
         }
     }
 }

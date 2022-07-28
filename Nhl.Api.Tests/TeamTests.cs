@@ -117,6 +117,7 @@ namespace Nhl.Api.Tests
         }
 
 
+
         [TestMethod]
         public async Task TestGetTeamByIdAsync()
         {
@@ -158,6 +159,52 @@ namespace Nhl.Api.Tests
             // Assert
             Assert.IsNull(team);
 
+        }
+
+        [TestMethod]
+        public async Task TestGetTeamColorsAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var teamColor = await nhlApi.GetTeamColorsAsync(10);
+
+            // Assert
+            Assert.IsNotNull(teamColor);
+            Assert.IsNotNull(teamColor.PrimaryColor);
+            Assert.IsNotNull(teamColor.SecondaryColor);
+
+        }
+
+        [TestMethod]
+        public async Task TestGetTeamColorsInvalidTeamIdAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var teamColor = await nhlApi.GetTeamColorsAsync(99);
+
+            // Assert
+            Assert.IsNull(teamColor);
+        }
+
+        [TestMethod]
+        public async Task TestGetTeamColorsEnumAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var teamColor = await nhlApi.GetTeamColorsAsync(TeamEnum.ChicagoBlackhawks);
+
+            // Assert
+            Assert.IsNotNull(teamColor);
+            Assert.IsNotNull(teamColor.PrimaryColor);
+            Assert.IsNotNull(teamColor.SecondaryColor);
+            Assert.IsNotNull(teamColor.TertiaryColor);
+            Assert.IsNotNull(teamColor.QuinaryColor);
         }
 
         [TestMethod]

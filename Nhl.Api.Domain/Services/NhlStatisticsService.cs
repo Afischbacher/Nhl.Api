@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Player;
 
@@ -56,6 +55,7 @@ namespace Nhl.Api.Services
     /// </summary>
     public class NhlStatisticsService : INhlStatisticsService
     {
+
         /// <summary>
         /// Returns the first result of the NHL goalie statistic based on the direction of descent
         /// </summary>

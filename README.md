@@ -116,17 +116,21 @@ Once registered using your dependency injection library of choice or just using 
   - [GetFranchiseByIdAsync(franchiseId)](#M-Nhl-Api-NhlApi-GetFranchiseByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetFranchiseByIdAsync(System.Int32)')
   - [GetFranchiseByIdAsync(franchise)](#M-Nhl-Api-NhlApi-GetFranchiseByIdAsync-Nhl-Api-Models-Enumerations-Franchise-FranchiseEnum- 'Nhl.Api.NhlApi.GetFranchiseByIdAsync(Nhl.Api.Models.Enumerations.Franchise.FranchiseEnum)')
   - [GetFranchisesAsync()](#M-Nhl-Api-NhlApi-GetFranchisesAsync 'Nhl.Api.NhlApi.GetFranchisesAsync')
-  - [GetGameScheduleAsync()](#M-Nhl-Api-NhlApi-GetGameScheduleAsync 'Nhl.Api.NhlApi.GetGameScheduleAsync')
-  - [GetGameScheduleByDateAsync(date)](#M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Nullable{System-DateTime}- 'Nhl.Api.NhlApi.GetGameScheduleByDateAsync(System.Nullable{System.DateTime})')
-  - [GetGameScheduleByDateAsync(year,month,day)](#M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32- 'Nhl.Api.NhlApi.GetGameScheduleByDateAsync(System.Int32,System.Int32,System.Int32)')
-  - [GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames)](#M-Nhl-Api-NhlApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean- 'Nhl.Api.NhlApi.GetGameScheduleBySeasonAsync(System.String,System.Boolean)')
-  - [GetGameScheduleForTeamByDateAsync(team,startDate,endDate)](#M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime- 'Nhl.Api.NhlApi.GetGameScheduleForTeamByDateAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateTime,System.DateTime)')
-  - [GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate)](#M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime- 'Nhl.Api.NhlApi.GetGameScheduleForTeamByDateAsync(System.Int32,System.DateTime,System.DateTime)')
+  - [GetGameScheduleAsync(gameScheduleConfiguration)](#M-Nhl-Api-NhlApi-GetGameScheduleAsync-Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlApi.GetGameScheduleAsync(Nhl.Api.Models.Game.GameScheduleConfiguration)')
+  - [GetGameScheduleByDateAsync(date,gameScheduleConfiguration)](#M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Nullable{System-DateTime},Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlApi.GetGameScheduleByDateAsync(System.Nullable{System.DateTime},Nhl.Api.Models.Game.GameScheduleConfiguration)')
+  - [GetGameScheduleByDateAsync(year,month,day,gameScheduleConfiguration)](#M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32,Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlApi.GetGameScheduleByDateAsync(System.Int32,System.Int32,System.Int32,Nhl.Api.Models.Game.GameScheduleConfiguration)')
+  - [GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames,gameScheduleConfiguration)](#M-Nhl-Api-NhlApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean,Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlApi.GetGameScheduleBySeasonAsync(System.String,System.Boolean,Nhl.Api.Models.Game.GameScheduleConfiguration)')
+  - [GetGameScheduleForTeamByDateAsync(team,startDate,endDate,gameScheduleConfiguration)](#M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime,Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlApi.GetGameScheduleForTeamByDateAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateTime,System.DateTime,Nhl.Api.Models.Game.GameScheduleConfiguration)')
+  - [GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate,gameScheduleConfiguration)](#M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime,Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlApi.GetGameScheduleForTeamByDateAsync(System.Int32,System.DateTime,System.DateTime,Nhl.Api.Models.Game.GameScheduleConfiguration)')
   - [GetGameStatusesAsync()](#M-Nhl-Api-NhlApi-GetGameStatusesAsync 'Nhl.Api.NhlApi.GetGameStatusesAsync')
   - [GetGameTypesAsync()](#M-Nhl-Api-NhlApi-GetGameTypesAsync 'Nhl.Api.NhlApi.GetGameTypesAsync')
   - [GetGoalieByStatisticTypeBySeasonAsync(goalieStatisticEnum,seasonYear,isDescending)](#M-Nhl-Api-NhlApi-GetGoalieByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum,System-String,System-Boolean- 'Nhl.Api.NhlApi.GetGoalieByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.GoalieStatisticEnum,System.String,System.Boolean)')
   - [GetGoalieStatisticsBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetGoalieStatisticsBySeasonAsync(System.Int32,System.String)')
   - [GetGoalieStatisticsBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlApi.GetGoalieStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
+  - [GetGoalieStatisticsHomeAndAwayBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsHomeAndAwayBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlApi.GetGoalieStatisticsHomeAndAwayBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
+  - [GetGoalieStatisticsHomeAndAwayBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsHomeAndAwayBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetGoalieStatisticsHomeAndAwayBySeasonAsync(System.Int32,System.String)')
+  - [GetGoalieStatisticsYearByYearAsync(player)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsYearByYearAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum- 'Nhl.Api.NhlApi.GetGoalieStatisticsYearByYearAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum)')
+  - [GetGoalieStatisticsYearByYearAsync(playerId)](#M-Nhl-Api-NhlApi-GetGoalieStatisticsYearByYearAsync-System-Int32- 'Nhl.Api.NhlApi.GetGoalieStatisticsYearByYearAsync(System.Int32)')
   - [GetGoaliesByStatisticTypeBySeasonAsync(goalieStatisticEnum,seasonYear,isDescending,numberOfGoalies)](#M-Nhl-Api-NhlApi-GetGoaliesByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum,System-String,System-Boolean,System-Int32- 'Nhl.Api.NhlApi.GetGoaliesByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.GoalieStatisticEnum,System.String,System.Boolean,System.Int32)')
   - [GetInactiveFranchisesAsync()](#M-Nhl-Api-NhlApi-GetInactiveFranchisesAsync 'Nhl.Api.NhlApi.GetInactiveFranchisesAsync')
   - [GetInactiveTeamsAsync()](#M-Nhl-Api-NhlApi-GetInactiveTeamsAsync 'Nhl.Api.NhlApi.GetInactiveTeamsAsync')
@@ -162,6 +166,10 @@ Once registered using your dependency injection library of choice or just using 
   - [GetPlayerHeadshotImageAsync(playerId,playerHeadshotImageSize)](#M-Nhl-Api-NhlApi-GetPlayerHeadshotImageAsync-System-Int32,Nhl-Api-Models-Enumerations-Player-PlayerHeadshotImageSize- 'Nhl.Api.NhlApi.GetPlayerHeadshotImageAsync(System.Int32,Nhl.Api.Models.Enumerations.Player.PlayerHeadshotImageSize)')
   - [GetPlayerStatisticsBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlApi-GetPlayerStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetPlayerStatisticsBySeasonAsync(System.Int32,System.String)')
   - [GetPlayerStatisticsBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlApi-GetPlayerStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlApi.GetPlayerStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
+  - [GetPlayerStatisticsHomeAndAwayBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlApi-GetPlayerStatisticsHomeAndAwayBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlApi.GetPlayerStatisticsHomeAndAwayBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
+  - [GetPlayerStatisticsHomeAndAwayBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlApi-GetPlayerStatisticsHomeAndAwayBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetPlayerStatisticsHomeAndAwayBySeasonAsync(System.Int32,System.String)')
+  - [GetPlayerStatisticsYearByYearAsync(player)](#M-Nhl-Api-NhlApi-GetPlayerStatisticsYearByYearAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum- 'Nhl.Api.NhlApi.GetPlayerStatisticsYearByYearAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum)')
+  - [GetPlayerStatisticsYearByYearAsync(playerId)](#M-Nhl-Api-NhlApi-GetPlayerStatisticsYearByYearAsync-System-Int32- 'Nhl.Api.NhlApi.GetPlayerStatisticsYearByYearAsync(System.Int32)')
   - [GetPlayersByIdAsync(playerIds)](#M-Nhl-Api-NhlApi-GetPlayersByIdAsync-System-Collections-Generic-IEnumerable{System-Int32}- 'Nhl.Api.NhlApi.GetPlayersByIdAsync(System.Collections.Generic.IEnumerable{System.Int32})')
   - [GetPlayersByIdAsync(players)](#M-Nhl-Api-NhlApi-GetPlayersByIdAsync-System-Collections-Generic-IEnumerable{Nhl-Api-Models-Enumerations-Player-PlayerEnum}- 'Nhl.Api.NhlApi.GetPlayersByIdAsync(System.Collections.Generic.IEnumerable{Nhl.Api.Models.Enumerations.Player.PlayerEnum})')
   - [GetPlayersByStatisticTypeBySeasonAsync(playerStatisticEnum,seasonYear,isDescending,numberOfPlayers)](#M-Nhl-Api-NhlApi-GetPlayersByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum,System-String,System-Boolean,System-Int32- 'Nhl.Api.NhlApi.GetPlayersByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum,System.String,System.Boolean,System.Int32)')
@@ -171,6 +179,8 @@ Once registered using your dependency injection library of choice or just using 
   - [GetStatisticTypesAsync()](#M-Nhl-Api-NhlApi-GetStatisticTypesAsync 'Nhl.Api.NhlApi.GetStatisticTypesAsync')
   - [GetTeamByIdAsync(teamId)](#M-Nhl-Api-NhlApi-GetTeamByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetTeamByIdAsync(System.Int32)')
   - [GetTeamByIdAsync(team)](#M-Nhl-Api-NhlApi-GetTeamByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum- 'Nhl.Api.NhlApi.GetTeamByIdAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum)')
+  - [GetTeamColorsAsync(team)](#M-Nhl-Api-NhlApi-GetTeamColorsAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum- 'Nhl.Api.NhlApi.GetTeamColorsAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum)')
+  - [GetTeamColorsAsync(teamId)](#M-Nhl-Api-NhlApi-GetTeamColorsAsync-System-Int32- 'Nhl.Api.NhlApi.GetTeamColorsAsync(System.Int32)')
   - [GetTeamLogoAsync(teamId,teamLogoType)](#M-Nhl-Api-NhlApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType- 'Nhl.Api.NhlApi.GetTeamLogoAsync(System.Int32,Nhl.Api.Models.Team.TeamLogoType)')
   - [GetTeamLogoAsync(team,teamLogoType)](#M-Nhl-Api-NhlApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType- 'Nhl.Api.NhlApi.GetTeamLogoAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,Nhl.Api.Models.Team.TeamLogoType)')
   - [GetTeamStatisticsByIdAsync(teamId,seasonYear)](#M-Nhl-Api-NhlApi-GetTeamStatisticsByIdAsync-System-Int32,System-String- 'Nhl.Api.NhlApi.GetTeamStatisticsByIdAsync(System.Int32,System.String)')
@@ -190,12 +200,12 @@ Once registered using your dependency injection library of choice or just using 
 - [NhlGameApi](#T-Nhl-Api-NhlGameApi 'Nhl.Api.NhlGameApi')
   - [#ctor()](#M-Nhl-Api-NhlGameApi-#ctor 'Nhl.Api.NhlGameApi.#ctor')
   - [GetBoxScoreByIdAsync(gameId)](#M-Nhl-Api-NhlGameApi-GetBoxScoreByIdAsync-System-Int32- 'Nhl.Api.NhlGameApi.GetBoxScoreByIdAsync(System.Int32)')
-  - [GetGameScheduleAsync()](#M-Nhl-Api-NhlGameApi-GetGameScheduleAsync 'Nhl.Api.NhlGameApi.GetGameScheduleAsync')
-  - [GetGameScheduleByDateAsync(date)](#M-Nhl-Api-NhlGameApi-GetGameScheduleByDateAsync-System-Nullable{System-DateTime}- 'Nhl.Api.NhlGameApi.GetGameScheduleByDateAsync(System.Nullable{System.DateTime})')
-  - [GetGameScheduleByDateAsync(year,month,day)](#M-Nhl-Api-NhlGameApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32- 'Nhl.Api.NhlGameApi.GetGameScheduleByDateAsync(System.Int32,System.Int32,System.Int32)')
-  - [GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames)](#M-Nhl-Api-NhlGameApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean- 'Nhl.Api.NhlGameApi.GetGameScheduleBySeasonAsync(System.String,System.Boolean)')
-  - [GetGameScheduleForTeamByDateAsync(team,startDate,endDate)](#M-Nhl-Api-NhlGameApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime- 'Nhl.Api.NhlGameApi.GetGameScheduleForTeamByDateAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateTime,System.DateTime)')
-  - [GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate)](#M-Nhl-Api-NhlGameApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime- 'Nhl.Api.NhlGameApi.GetGameScheduleForTeamByDateAsync(System.Int32,System.DateTime,System.DateTime)')
+  - [GetGameScheduleAsync(gameScheduleConfiguration)](#M-Nhl-Api-NhlGameApi-GetGameScheduleAsync-Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlGameApi.GetGameScheduleAsync(Nhl.Api.Models.Game.GameScheduleConfiguration)')
+  - [GetGameScheduleByDateAsync(date,gameScheduleConfiguration)](#M-Nhl-Api-NhlGameApi-GetGameScheduleByDateAsync-System-Nullable{System-DateTime},Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlGameApi.GetGameScheduleByDateAsync(System.Nullable{System.DateTime},Nhl.Api.Models.Game.GameScheduleConfiguration)')
+  - [GetGameScheduleByDateAsync(year,month,day,gameScheduleConfiguration)](#M-Nhl-Api-NhlGameApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32,Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlGameApi.GetGameScheduleByDateAsync(System.Int32,System.Int32,System.Int32,Nhl.Api.Models.Game.GameScheduleConfiguration)')
+  - [GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames,gameScheduleConfiguration)](#M-Nhl-Api-NhlGameApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean,Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlGameApi.GetGameScheduleBySeasonAsync(System.String,System.Boolean,Nhl.Api.Models.Game.GameScheduleConfiguration)')
+  - [GetGameScheduleForTeamByDateAsync(team,startDate,endDate,gameScheduleConfiguration)](#M-Nhl-Api-NhlGameApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime,Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlGameApi.GetGameScheduleForTeamByDateAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateTime,System.DateTime,Nhl.Api.Models.Game.GameScheduleConfiguration)')
+  - [GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate,gameScheduleConfiguration)](#M-Nhl-Api-NhlGameApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime,Nhl-Api-Models-Game-GameScheduleConfiguration- 'Nhl.Api.NhlGameApi.GetGameScheduleForTeamByDateAsync(System.Int32,System.DateTime,System.DateTime,Nhl.Api.Models.Game.GameScheduleConfiguration)')
   - [GetGameStatusesAsync()](#M-Nhl-Api-NhlGameApi-GetGameStatusesAsync 'Nhl.Api.NhlGameApi.GetGameStatusesAsync')
   - [GetGameTypesAsync()](#M-Nhl-Api-NhlGameApi-GetGameTypesAsync 'Nhl.Api.NhlGameApi.GetGameTypesAsync')
   - [GetLineScoreByIdAsync(gameId)](#M-Nhl-Api-NhlGameApi-GetLineScoreByIdAsync-System-Int32- 'Nhl.Api.NhlGameApi.GetLineScoreByIdAsync(System.Int32)')
@@ -240,6 +250,8 @@ Once registered using your dependency injection library of choice or just using 
   - [GetSeasonsAsync()](#M-Nhl-Api-NhlLeagueApi-GetSeasonsAsync 'Nhl.Api.NhlLeagueApi.GetSeasonsAsync')
   - [GetTeamByIdAsync(teamId)](#M-Nhl-Api-NhlLeagueApi-GetTeamByIdAsync-System-Int32- 'Nhl.Api.NhlLeagueApi.GetTeamByIdAsync(System.Int32)')
   - [GetTeamByIdAsync(team)](#M-Nhl-Api-NhlLeagueApi-GetTeamByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum- 'Nhl.Api.NhlLeagueApi.GetTeamByIdAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum)')
+  - [GetTeamColorsAsync(team)](#M-Nhl-Api-NhlLeagueApi-GetTeamColorsAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum- 'Nhl.Api.NhlLeagueApi.GetTeamColorsAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum)')
+  - [GetTeamColorsAsync(teamId)](#M-Nhl-Api-NhlLeagueApi-GetTeamColorsAsync-System-Int32- 'Nhl.Api.NhlLeagueApi.GetTeamColorsAsync(System.Int32)')
   - [GetTeamLogoAsync(team,teamLogoType)](#M-Nhl-Api-NhlLeagueApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType- 'Nhl.Api.NhlLeagueApi.GetTeamLogoAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,Nhl.Api.Models.Team.TeamLogoType)')
   - [GetTeamLogoAsync(teamId,teamLogoType)](#M-Nhl-Api-NhlLeagueApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType- 'Nhl.Api.NhlLeagueApi.GetTeamLogoAsync(System.Int32,Nhl.Api.Models.Team.TeamLogoType)')
   - [GetTeamsAsync()](#M-Nhl-Api-NhlLeagueApi-GetTeamsAsync 'Nhl.Api.NhlLeagueApi.GetTeamsAsync')
@@ -272,18 +284,27 @@ Once registered using your dependency injection library of choice or just using 
   - [GetGoalieByStatisticTypeBySeasonAsync(goalieStatisticEnum,seasonYear,isDescending)](#M-Nhl-Api-NhlStatisticsApi-GetGoalieByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum,System-String,System-Boolean- 'Nhl.Api.NhlStatisticsApi.GetGoalieByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.GoalieStatisticEnum,System.String,System.Boolean)')
   - [GetGoalieStatisticsBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlStatisticsApi.GetGoalieStatisticsBySeasonAsync(System.Int32,System.String)')
   - [GetGoalieStatisticsBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlStatisticsApi.GetGoalieStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
+  - [GetGoalieStatisticsHomeAndAwayBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsHomeAndAwayBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlStatisticsApi.GetGoalieStatisticsHomeAndAwayBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
+  - [GetGoalieStatisticsHomeAndAwayBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsHomeAndAwayBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlStatisticsApi.GetGoalieStatisticsHomeAndAwayBySeasonAsync(System.Int32,System.String)')
+  - [GetGoalieStatisticsYearByYearAsync(player)](#M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsYearByYearAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum- 'Nhl.Api.NhlStatisticsApi.GetGoalieStatisticsYearByYearAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum)')
+  - [GetGoalieStatisticsYearByYearAsync(playerId)](#M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsYearByYearAsync-System-Int32- 'Nhl.Api.NhlStatisticsApi.GetGoalieStatisticsYearByYearAsync(System.Int32)')
   - [GetGoaliesByStatisticTypeBySeasonAsync(goalieStatisticEnum,seasonYear,numberOfGoalies,isDescending)](#M-Nhl-Api-NhlStatisticsApi-GetGoaliesByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum,System-String,System-Boolean,System-Int32- 'Nhl.Api.NhlStatisticsApi.GetGoaliesByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.GoalieStatisticEnum,System.String,System.Boolean,System.Int32)')
   - [GetOnPaceRegularSeasonPlayerStatisticsAsync(player)](#M-Nhl-Api-NhlStatisticsApi-GetOnPaceRegularSeasonPlayerStatisticsAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum- 'Nhl.Api.NhlStatisticsApi.GetOnPaceRegularSeasonPlayerStatisticsAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum)')
   - [GetOnPaceRegularSeasonPlayerStatisticsAsync(playerId)](#M-Nhl-Api-NhlStatisticsApi-GetOnPaceRegularSeasonPlayerStatisticsAsync-System-Int32- 'Nhl.Api.NhlStatisticsApi.GetOnPaceRegularSeasonPlayerStatisticsAsync(System.Int32)')
   - [GetPlayerByStatisticTypeBySeasonAsync(seasonYear,playerStatisticEnum,isDescending)](#M-Nhl-Api-NhlStatisticsApi-GetPlayerByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum,System-String,System-Boolean- 'Nhl.Api.NhlStatisticsApi.GetPlayerByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum,System.String,System.Boolean)')
   - [GetPlayerStatisticsBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlStatisticsApi.GetPlayerStatisticsBySeasonAsync(System.Int32,System.String)')
   - [GetPlayerStatisticsBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlStatisticsApi.GetPlayerStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
+  - [GetPlayerStatisticsHomeAndAwayBySeasonAsync(player,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsHomeAndAwayBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String- 'Nhl.Api.NhlStatisticsApi.GetPlayerStatisticsHomeAndAwayBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String)')
+  - [GetPlayerStatisticsHomeAndAwayBySeasonAsync(playerId,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsHomeAndAwayBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlStatisticsApi.GetPlayerStatisticsHomeAndAwayBySeasonAsync(System.Int32,System.String)')
+  - [GetPlayerStatisticsYearByYearAsync(player)](#M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsYearByYearAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum- 'Nhl.Api.NhlStatisticsApi.GetPlayerStatisticsYearByYearAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum)')
+  - [GetPlayerStatisticsYearByYearAsync(playerId)](#M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsYearByYearAsync-System-Int32- 'Nhl.Api.NhlStatisticsApi.GetPlayerStatisticsYearByYearAsync(System.Int32)')
   - [GetPlayersByStatisticTypeBySeasonAsync(playerStatisticEnum,seasonYear,numberOfPlayers,isDescending)](#M-Nhl-Api-NhlStatisticsApi-GetPlayersByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum,System-String,System-Boolean,System-Int32- 'Nhl.Api.NhlStatisticsApi.GetPlayersByStatisticTypeBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerStatisticEnum,System.String,System.Boolean,System.Int32)')
   - [GetStatisticTypesAsync()](#M-Nhl-Api-NhlStatisticsApi-GetStatisticTypesAsync 'Nhl.Api.NhlStatisticsApi.GetStatisticTypesAsync')
   - [GetTeamStatisticsByIdAsync(teamId,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetTeamStatisticsByIdAsync-System-Int32,System-String- 'Nhl.Api.NhlStatisticsApi.GetTeamStatisticsByIdAsync(System.Int32,System.String)')
   - [GetTeamStatisticsByIdAsync(team,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetTeamStatisticsByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String- 'Nhl.Api.NhlStatisticsApi.GetTeamStatisticsByIdAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.String)')
   - [GetTeamStatisticsBySeasonAsync(teamId,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetTeamStatisticsBySeasonAsync-System-Int32,System-String- 'Nhl.Api.NhlStatisticsApi.GetTeamStatisticsBySeasonAsync(System.Int32,System.String)')
   - [GetTeamStatisticsBySeasonAsync(team,seasonYear)](#M-Nhl-Api-NhlStatisticsApi-GetTeamStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String- 'Nhl.Api.NhlStatisticsApi.GetTeamStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.String)')
+  - [IsPlayerPostionGoalie(player)](#M-Nhl-Api-NhlStatisticsApi-IsPlayerPostionGoalie-Nhl-Api-Models-Player-Player- 'Nhl.Api.NhlStatisticsApi.IsPlayerPostionGoalie(Nhl.Api.Models.Player.Player)')
 
 <a name='T-Nhl-Api-NhlApi'></a>
 ## NhlApi `type`
@@ -594,8 +615,8 @@ A collection of all NHL franchises, see [Franchise](#T-Nhl-Api-Models-Franchise-
 
 This method has no parameters.
 
-<a name='M-Nhl-Api-NhlApi-GetGameScheduleAsync'></a>
-### GetGameScheduleAsync() `method`
+<a name='M-Nhl-Api-NhlApi-GetGameScheduleAsync-Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleAsync(gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -607,10 +628,12 @@ NHL game schedule, see [GameSchedule](#T-Nhl-Api-Models-Game-GameSchedule 'Nhl.A
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
-<a name='M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Nullable{System-DateTime}-'></a>
-### GetGameScheduleByDateAsync(date) `method`
+<a name='M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Nullable{System-DateTime},Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleByDateAsync(date,gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -625,9 +648,10 @@ NHL game schedule, see [GameSchedule](#T-Nhl-Api-Models-Game-GameSchedule 'Nhl.A
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | date | [System.Nullable{System.DateTime}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{System.DateTime}') | The requested date for the NHL game schedule |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
-<a name='M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32-'></a>
-### GetGameScheduleByDateAsync(year,month,day) `method`
+<a name='M-Nhl-Api-NhlApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32,Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleByDateAsync(year,month,day,gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -644,9 +668,10 @@ NHL game schedule, see [GameSchedule](#T-Nhl-Api-Models-Game-GameSchedule 'Nhl.A
 | year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The requested year for the NHL game schedule |
 | month | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The requested month for the NHL game schedule |
 | day | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The requested day for the NHL game schedule |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
-<a name='M-Nhl-Api-NhlApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean-'></a>
-### GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames) `method`
+<a name='M-Nhl-Api-NhlApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean,Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames,gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -662,9 +687,10 @@ Returns all of the NHL team's game schedules based on the selected NHL season
 | ---- | ---- | ----------- |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year, Example: 19992000, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
 | includePlayoffGames | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Includes the NHL playoff games if set to true, default value is false |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
-<a name='M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime-'></a>
-### GetGameScheduleForTeamByDateAsync(team,startDate,endDate) `method`
+<a name='M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime,Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleForTeamByDateAsync(team,startDate,endDate,gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -681,9 +707,10 @@ Returns all of the NHL team's game schedules based on the selected start and end
 | team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team id, Example: [AnaheimDucks](#F-Nhl-Api-Models-Enumerations-Team-TeamEnum-AnaheimDucks 'Nhl.Api.Models.Enumerations.Team.TeamEnum.AnaheimDucks') |
 | startDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The starting date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 2017-01-01 |
 | endDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The ending date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 1988-06-01 |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
-<a name='M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime-'></a>
-### GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate) `method`
+<a name='M-Nhl-Api-NhlApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime,Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate,gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -700,6 +727,7 @@ Returns all of the NHL team's game schedules based on the selected start and end
 | teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team id, Example: 1 |
 | startDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The starting date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 2017-01-01 |
 | endDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The ending date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 1988-06-01 |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
 <a name='M-Nhl-Api-NhlApi-GetGameStatusesAsync'></a>
 ### GetGameStatusesAsync() `method`
@@ -785,6 +813,76 @@ A collection of all the in-depth NHL goalie statistics per season
 | ---- | ---- | ----------- |
 | player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL goalie |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlApi-GetGoalieStatisticsHomeAndAwayBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String-'></a>
+### GetGoalieStatisticsHomeAndAwayBySeasonAsync(player,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL goalies statistics for home and away games for a season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL goalie statistics for home and away games for a season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL goalie |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlApi-GetGoalieStatisticsHomeAndAwayBySeasonAsync-System-Int32,System-String-'></a>
+### GetGoalieStatisticsHomeAndAwayBySeasonAsync(playerId,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL goalies statistics for home and away games for a season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL goalie statistics for home and away games for a season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The identifier for the NHL goalie |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlApi-GetGoalieStatisticsYearByYearAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum-'></a>
+### GetGoalieStatisticsYearByYearAsync(player) `method`
+
+##### Summary
+
+Returns all of the NHL goalie statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL goalie statistics year by year
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL goalie |
+
+<a name='M-Nhl-Api-NhlApi-GetGoalieStatisticsYearByYearAsync-System-Int32-'></a>
+### GetGoalieStatisticsYearByYearAsync(playerId) `method`
+
+##### Summary
+
+Returns all of the NHL goalie statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL goalie statistics year by year
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The identifier for the NHL goalie |
 
 <a name='M-Nhl-Api-NhlApi-GetGoaliesByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum,System-String,System-Boolean,System-Int32-'></a>
 ### GetGoaliesByStatisticTypeBySeasonAsync(goalieStatisticEnum,seasonYear,isDescending,numberOfGoalies) `method`
@@ -1372,6 +1470,76 @@ A collection of all the in-depth NHL player statistics by type
 | player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL player |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
 
+<a name='M-Nhl-Api-NhlApi-GetPlayerStatisticsHomeAndAwayBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String-'></a>
+### GetPlayerStatisticsHomeAndAwayBySeasonAsync(player,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL players statistics for home and away games for a season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL player statistics for home and away games for a season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL goalie |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlApi-GetPlayerStatisticsHomeAndAwayBySeasonAsync-System-Int32,System-String-'></a>
+### GetPlayerStatisticsHomeAndAwayBySeasonAsync(playerId,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL players statistics for home and away games for a season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL player statistics for home and away games for a season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The identifier for the NHL player |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlApi-GetPlayerStatisticsYearByYearAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum-'></a>
+### GetPlayerStatisticsYearByYearAsync(player) `method`
+
+##### Summary
+
+Returns all of the NHL players statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL player statistics for each season year by year
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL goalie |
+
+<a name='M-Nhl-Api-NhlApi-GetPlayerStatisticsYearByYearAsync-System-Int32-'></a>
+### GetPlayerStatisticsYearByYearAsync(playerId) `method`
+
+##### Summary
+
+Returns all of the NHL players statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL player statistics for each season year by year
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The identifier for the NHL player |
+
 <a name='M-Nhl-Api-NhlApi-GetPlayersByIdAsync-System-Collections-Generic-IEnumerable{System-Int32}-'></a>
 ### GetPlayersByIdAsync(playerIds) `method`
 
@@ -1522,6 +1690,40 @@ An NHL team with information including name, location, division and more, see [T
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team id, Example: 10 - Toronto Maple Leafs, see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information on NHL teams |
+
+<a name='M-Nhl-Api-NhlApi-GetTeamColorsAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum-'></a>
+### GetTeamColorsAsync(team) `method`
+
+##### Summary
+
+Returns the hexadecimal code for an NHL team's colors
+
+##### Returns
+
+An NHL team color scheme using hexadecimal codes
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team identifier, 55 - Seattle Kraken, see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information |
+
+<a name='M-Nhl-Api-NhlApi-GetTeamColorsAsync-System-Int32-'></a>
+### GetTeamColorsAsync(teamId) `method`
+
+##### Summary
+
+Returns the hexadecimal code for an NHL team's colors
+
+##### Returns
+
+An NHL team color scheme using hexadecimal codes
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team identifier - Seattle Kraken: 55 |
 
 <a name='M-Nhl-Api-NhlApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType-'></a>
 ### GetTeamLogoAsync(teamId,teamLogoType) `method`
@@ -1830,8 +2032,8 @@ Returns information about the current score, penalties, players, team statistics
 | ---- | ---- | ----------- |
 | gameId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The game id, Example: 2021020087 |
 
-<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleAsync'></a>
-### GetGameScheduleAsync() `method`
+<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleAsync-Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleAsync(gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -1843,10 +2045,12 @@ NHL game schedule, see [GameSchedule](#T-Nhl-Api-Models-Game-GameSchedule 'Nhl.A
 
 ##### Parameters
 
-This method has no parameters.
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
-<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleByDateAsync-System-Nullable{System-DateTime}-'></a>
-### GetGameScheduleByDateAsync(date) `method`
+<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleByDateAsync-System-Nullable{System-DateTime},Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleByDateAsync(date,gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -1861,9 +2065,10 @@ NHL game schedule, see [GameSchedule](#T-Nhl-Api-Models-Game-GameSchedule 'Nhl.A
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | date | [System.Nullable{System.DateTime}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{System.DateTime}') | The requested date for the NHL game schedule |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
-<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32-'></a>
-### GetGameScheduleByDateAsync(year,month,day) `method`
+<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleByDateAsync-System-Int32,System-Int32,System-Int32,Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleByDateAsync(year,month,day,gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -1871,7 +2076,7 @@ Return's the NHL game schedule based on the provided year, month and day
 
 ##### Returns
 
-NHL game schedule, see [GameSchedule](#T-Nhl-Api-Models-Game-GameSchedule 'Nhl.Api.Models.Game.GameSchedule') for more infGetGameScheduleByDateAsyncormation
+NHL game schedule, see [GameSchedule](#T-Nhl-Api-Models-Game-GameSchedule 'Nhl.Api.Models.Game.GameSchedule') for more information
 
 ##### Parameters
 
@@ -1880,9 +2085,10 @@ NHL game schedule, see [GameSchedule](#T-Nhl-Api-Models-Game-GameSchedule 'Nhl.A
 | year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The requested year for the NHL game schedule |
 | month | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The requested month for the NHL game schedule |
 | day | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The requested day for the NHL game schedule |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
-<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean-'></a>
-### GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames) `method`
+<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleBySeasonAsync-System-String,System-Boolean,Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleBySeasonAsync(seasonYear,includePlayoffGames,gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -1898,9 +2104,10 @@ Returns all of the NHL team's game schedules based on the selected NHL season
 | ---- | ---- | ----------- |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year, Example: 19992000, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
 | includePlayoffGames | [System.Boolean](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Boolean 'System.Boolean') | Includes all of the NHL playoff games, default value is false |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
-<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime-'></a>
-### GetGameScheduleForTeamByDateAsync(team,startDate,endDate) `method`
+<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleForTeamByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateTime,System-DateTime,Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleForTeamByDateAsync(team,startDate,endDate,gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -1917,9 +2124,10 @@ Returns all of the NHL team's game schedules based on the selected start and end
 | team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team id, Example: [AnaheimDucks](#F-Nhl-Api-Models-Enumerations-Team-TeamEnum-AnaheimDucks 'Nhl.Api.Models.Enumerations.Team.TeamEnum.AnaheimDucks') |
 | startDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The starting date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 2017-01-01 |
 | endDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The ending date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 1988-06-01 |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
-<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime-'></a>
-### GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate) `method`
+<a name='M-Nhl-Api-NhlGameApi-GetGameScheduleForTeamByDateAsync-System-Int32,System-DateTime,System-DateTime,Nhl-Api-Models-Game-GameScheduleConfiguration-'></a>
+### GetGameScheduleForTeamByDateAsync(teamId,startDate,endDate,gameScheduleConfiguration) `method`
 
 ##### Summary
 
@@ -1936,6 +2144,7 @@ Returns all of the NHL team's game schedules based on the selected start and end
 | teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team id, Example: 1 |
 | startDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The starting date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 2017-01-01 |
 | endDate | [System.DateTime](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateTime 'System.DateTime') | The ending date for the NHL team game schedule, see [LeagueSeasonDates](#T-Nhl-Api-Models-Season-LeagueSeasonDates 'Nhl.Api.Models.Season.LeagueSeasonDates') for start dates of NHL seasons, Example: 1988-06-01 |
+| gameScheduleConfiguration | [Nhl.Api.Models.Game.GameScheduleConfiguration](#T-Nhl-Api-Models-Game-GameScheduleConfiguration 'Nhl.Api.Models.Game.GameScheduleConfiguration') | A configuration for the NHL game schedule to include various points of additional information |
 
 <a name='M-Nhl-Api-NhlGameApi-GetGameStatusesAsync'></a>
 ### GetGameStatusesAsync() `method`
@@ -2639,6 +2848,40 @@ An NHL team with information including name, location, division and more, see [T
 | ---- | ---- | ----------- |
 | team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team id, Example: 10 - Toronto Maple Leafs, see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information on NHL teams |
 
+<a name='M-Nhl-Api-NhlLeagueApi-GetTeamColorsAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum-'></a>
+### GetTeamColorsAsync(team) `method`
+
+##### Summary
+
+Returns the hexadecimal code for an NHL team's colors
+
+##### Returns
+
+An NHL team color scheme using hexadecimal codes
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team identifier, 55 - Seattle Kraken, see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information |
+
+<a name='M-Nhl-Api-NhlLeagueApi-GetTeamColorsAsync-System-Int32-'></a>
+### GetTeamColorsAsync(teamId) `method`
+
+##### Summary
+
+Returns the hexadecimal code for an NHL team's colors
+
+##### Returns
+
+An NHL team color scheme using hexadecimal codes
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team identifier - Seattle Kraken: 55 |
+
 <a name='M-Nhl-Api-NhlLeagueApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType-'></a>
 ### GetTeamLogoAsync(team,teamLogoType) `method`
 
@@ -3153,6 +3396,76 @@ A collection of all the in-depth NHL goalie statistics per season
 | player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL goalie |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
 
+<a name='M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsHomeAndAwayBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String-'></a>
+### GetGoalieStatisticsHomeAndAwayBySeasonAsync(player,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL goalies statistics for home and away games for a season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL goalie statistics for home and away games for a season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL goalie |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsHomeAndAwayBySeasonAsync-System-Int32,System-String-'></a>
+### GetGoalieStatisticsHomeAndAwayBySeasonAsync(playerId,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL goalies statistics for home and away games for a season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL goalie statistics for home and away games for a season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The identifier for the NHL goalie |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsYearByYearAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum-'></a>
+### GetGoalieStatisticsYearByYearAsync(player) `method`
+
+##### Summary
+
+Returns all of the NHL goalie statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL goalie statistics year by year
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL goalie |
+
+<a name='M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsYearByYearAsync-System-Int32-'></a>
+### GetGoalieStatisticsYearByYearAsync(playerId) `method`
+
+##### Summary
+
+Returns all of the NHL goalie statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL goalie statistics year by year
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The identifier for the NHL goalie |
+
 <a name='M-Nhl-Api-NhlStatisticsApi-GetGoaliesByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-GoalieStatisticEnum,System-String,System-Boolean,System-Int32-'></a>
 ### GetGoaliesByStatisticTypeBySeasonAsync(goalieStatisticEnum,seasonYear,numberOfGoalies,isDescending) `method`
 
@@ -3262,6 +3575,76 @@ A collection of all the in-depth NHL player statistics by type
 | player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL player |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
 
+<a name='M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsHomeAndAwayBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String-'></a>
+### GetPlayerStatisticsHomeAndAwayBySeasonAsync(player,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL players statistics for home and away games for a season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL player statistics for home and away games for a season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL goalie |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsHomeAndAwayBySeasonAsync-System-Int32,System-String-'></a>
+### GetPlayerStatisticsHomeAndAwayBySeasonAsync(playerId,seasonYear) `method`
+
+##### Summary
+
+Returns all of the NHL players statistics for home and away games for a season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL player statistics for home and away games for a season
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The identifier for the NHL player |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The argument for the NHL season of the play, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsYearByYearAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum-'></a>
+### GetPlayerStatisticsYearByYearAsync(player) `method`
+
+##### Summary
+
+Returns all of the NHL players statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL player statistics for each season year by year
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| player | [Nhl.Api.Models.Enumerations.Player.PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') | The identifier for the NHL goalie |
+
+<a name='M-Nhl-Api-NhlStatisticsApi-GetPlayerStatisticsYearByYearAsync-System-Int32-'></a>
+### GetPlayerStatisticsYearByYearAsync(playerId) `method`
+
+##### Summary
+
+Returns all of the NHL players statistics for each season, year by year statistics type and NHL season with insightful statistics and NHL game data
+
+##### Returns
+
+A collection of all the in-depth NHL player statistics for each season year by year
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The identifier for the NHL player |
+
 <a name='M-Nhl-Api-NhlStatisticsApi-GetPlayersByStatisticTypeBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerStatisticEnum,System-String,System-Boolean,System-Int32-'></a>
 ### GetPlayersByStatisticTypeBySeasonAsync(playerStatisticEnum,seasonYear,numberOfPlayers,isDescending) `method`
 
@@ -3368,6 +3751,23 @@ A collection of NHL team statistics for the specified season
 | ---- | ---- | ----------- |
 | team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team id, Example: [AnaheimDucks](#F-Nhl-Api-Models-Enumerations-Team-TeamEnum-AnaheimDucks 'Nhl.Api.Models.Enumerations.Team.TeamEnum.AnaheimDucks'), see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A season year for the entire NHL roster, Example: 19971998, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information |
+
+<a name='M-Nhl-Api-NhlStatisticsApi-IsPlayerPostionGoalie-Nhl-Api-Models-Player-Player-'></a>
+### IsPlayerPostionGoalie(player) `method`
+
+##### Summary
+
+Returns true or false if the NHL player identifier is the position of a goalie
+
+##### Returns
+
+True or false if the NHL player is a goalie or player
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| player | [Nhl.Api.Models.Player.Player](#T-Nhl-Api-Models-Player-Player 'Nhl.Api.Models.Player.Player') | The NHL player model representing an NHL player |
 
 ## Bugs 🐛
 If you have any issues with the library or suggestions, please feel free to create an issue and it will be adressed as soon as possible :)
