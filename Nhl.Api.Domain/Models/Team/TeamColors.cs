@@ -30,19 +30,19 @@
         public string QuaternaryColor { get; set; }
 
         /// <summary>
-        /// The quaternary color for the NHL team <br/>
+        /// The quinary color for the NHL team <br/>
         /// Example: #FFD100
         /// </summary>
         public string QuinaryColor { get; set; }
 
         /// <summary>
-        /// The quaternary color for the NHL team <br/>
+        /// The senary color for the NHL team <br/>
         /// Example: #D18A00
         /// </summary>
         public string SenaryColor { get; set; }
 
         /// <summary>
-        /// The quaternary color for the NHL team <br/>
+        /// The septenary color for the NHL team <br/>
         /// Example: #001970
         /// </summary>
         public string SeptenaryColor { get; set; }
