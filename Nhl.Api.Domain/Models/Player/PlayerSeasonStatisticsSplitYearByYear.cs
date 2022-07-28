@@ -4,7 +4,7 @@ using Nhl.Api.Models.Team;
 namespace Nhl.Api.Models.Player
 {
     /// <summary>
-    /// NHL Player Season Statistics Split 
+    /// NHL player season statistics split 
     /// </summary>
     public class PlayerSeasonStatisticsSplitYearByYear : PlayerSeasonStatisticsSplit
     {
