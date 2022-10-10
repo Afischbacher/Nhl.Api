@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nhl.Api", "Nhl.Api\Nhl.Api.csproj", "{64056B7A-7290-4AAF-A593-FDEDB1BF3582}"
 EndProject
@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nhl.Api.Tests", "Nhl.Api.Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nhl.Api.Domain", "Nhl.Api.Domain\Nhl.Api.Domain.csproj", "{081BC6DC-8886-452C-9942-D73DB5AE774D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nhl.Api.Common", "Nhl.Api.Common\Nhl.Api.Common.csproj", "{28E5D1FB-9B55-4EBF-8CF1-5A98A08A3114}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nhl.Api.Common", "Nhl.Api.Common\Nhl.Api.Common.csproj", "{28E5D1FB-9B55-4EBF-8CF1-5A98A08A3114}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
