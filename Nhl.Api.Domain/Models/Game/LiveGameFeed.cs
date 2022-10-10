@@ -1051,12 +1051,12 @@ namespace Nhl.Api.Models.Game
         /// Returns true or false based on the status of the NHL game being completed
         /// </summary>
         [JsonProperty("isGameCompleted")]
-        public bool IsGameCompleted 
-        { 
-            get 
+        public bool IsGameCompleted
+        {
+            get
             {
                 return Status?.AbstractGameState == "Final" || Status?.CodedGameState == "7";
-            } 
+            }
         }
     }
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-
-using Nhl.Api.Common.Http;
+﻿using Nhl.Api.Common.Http;
 using Nhl.Api.Common.Services;
 using Nhl.Api.Models.Draft;
 using Nhl.Api.Models.Enumerations.Player;
@@ -13,6 +7,11 @@ using Nhl.Api.Models.League;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Nhl.Api
 {

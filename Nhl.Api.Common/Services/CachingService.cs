@@ -23,7 +23,7 @@ namespace Nhl.Api.Common.Services
         /// Removes the cached item by the key
         /// </summary>
         Task<bool> RemoveAsync(string key);
-        
+
         /// <summary>
         /// Attempts to retrieve the cached value based on the provided key and generic type
         /// </summary>

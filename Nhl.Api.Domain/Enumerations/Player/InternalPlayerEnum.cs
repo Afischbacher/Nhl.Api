@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Nhl.Api.Enumerations.Player
+﻿namespace Nhl.Api.Enumerations.Player
 {
-   
+
     /// <summary>
     /// A collection of all NHL players
     /// </summary>
-    public enum InternalPlayerEnum
+    internal enum InternalPlayerEnum
     {
 
         /// <summary>

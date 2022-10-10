@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using Nhl.Api.Common.Exceptions;
+﻿using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Services;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Nhl.Api
 {

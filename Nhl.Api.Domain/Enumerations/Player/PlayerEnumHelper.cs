@@ -66,7 +66,7 @@ namespace Nhl.Api.Models.Enumerations.Player
         /// A helper method that returns every single NHL player known
         /// </summary>
         /// <returns>A comprehensive list of NHL players</returns>
-        public static async Task<Dictionary<string,int>> GetAllPlayersAsync()
+        public static async Task<Dictionary<string, int>> GetAllPlayersAsync()
         {
             //var nhlStatsApiHttpClient = new Api.Common.Http.NhlStatsApiHttpClient();
             //var players = new ConcurrentBag<Models.Player.Player>();

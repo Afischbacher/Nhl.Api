@@ -1,8 +1,6 @@
 ﻿using Nhl.Api.Models.Draft;
 using Nhl.Api.Models.Player;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Nhl.Api.Models.Enumerations.Prospect
 {
