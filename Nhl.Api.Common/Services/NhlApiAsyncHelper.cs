@@ -51,7 +51,7 @@ namespace Nhl.Api.Common.Services
         /// <typeparam name="T">The generic type</typeparam>
         /// <param name="source">The source of the iteration</param>
         /// <param name="degreeOfParallelism">The limited number of parallel tasks executing simultaneously</param>
-        /// <param name="body">The body of the for each asynchronous iterator</param>
+        /// <param name="body">The body of the for-each asynchronous iterator</param>
         public static async Task ForEachAsync<T>(IEnumerable<T> source, int degreeOfParallelism, Func<T, Task> body)
         {
             using (var semaphore = new SemaphoreSlim(initialCount: degreeOfParallelism, maxCount: degreeOfParallelism))
