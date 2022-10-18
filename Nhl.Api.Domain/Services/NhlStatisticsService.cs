@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Nhl.Api.Models.Enumerations.Player;
+using Nhl.Api.Models.Player;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Nhl.Api.Models.Enumerations.Player;
-using Nhl.Api.Models.Player;
 
 namespace Nhl.Api.Services
 {

@@ -405,7 +405,7 @@ namespace Nhl.Api.Tests
         [DataRow("Ovechkin")]
         [DataRow("mcdaVid")]
         [DataRow("Auston Matth")]
-        [DataRow("Price")]
+        [DataRow("Alex")]
         [DataRow("John")]
         public async Task TestSearchLeagueTeamRosterMembersAsync(string query)
         {

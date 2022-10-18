@@ -894,7 +894,7 @@ namespace Nhl.Api.Tests
 
         [TestMethod]
         [DataRow("Carter Hart")]
-        [DataRow("David Pastrnak")]
+        [DataRow("Auston Matthews")]
         [DataRow("Connor McDavid")]
         [DataRow("Frederik Andersen")]
         public async Task TestSearchAllActivePlayersAsync(string query)
@@ -1055,35 +1055,38 @@ namespace Nhl.Api.Tests
             {
                 Assert.IsNotNull(playerOnPaceRegularSeason);
 
-                var playerStatisticSplits = playerOnPaceRegularSeason.Statistics.First().Splits.First().PlayerStatisticsData;
-                Assert.IsNotNull(playerStatisticSplits);
-                Assert.IsNotNull(playerStatisticSplits.Assists);
-                Assert.IsNotNull(playerStatisticSplits.Games);
-                Assert.IsNotNull(playerStatisticSplits.GameWinningGoals);
-                Assert.IsNotNull(playerStatisticSplits.Shifts);
-                Assert.IsNotNull(playerStatisticSplits.ShortHandedGoals);
-                Assert.IsNotNull(playerStatisticSplits.ShortHandedPoints);
-                Assert.IsNotNull(playerStatisticSplits.ShortHandedTimeOnIce);
-                Assert.IsNotNull(playerStatisticSplits.Shots);
-                Assert.IsNotNull(playerStatisticSplits.ShotPct);
-                Assert.IsNotNull(playerStatisticSplits.Goals);
-                Assert.IsNotNull(playerStatisticSplits.Hits);
-                Assert.IsNotNull(playerStatisticSplits.OverTimeGoals);
-                Assert.IsNotNull(playerStatisticSplits.Points);
-                Assert.IsNotNull(playerStatisticSplits.PlusMinus);
-                Assert.IsNotNull(playerStatisticSplits.PowerPlayGoals);
-                Assert.IsNotNull(playerStatisticSplits.PowerPlayPoints);
-                Assert.IsNotNull(playerStatisticSplits.PowerPlayTimeOnIce);
-                Assert.IsNotNull(playerStatisticSplits.PowerPlayTimeOnIcePerGame);
-                Assert.IsNotNull(playerStatisticSplits.TimeOnIce);
-                Assert.IsNotNull(playerStatisticSplits.TimeOnIcePerGame);
-                Assert.IsNotNull(playerStatisticSplits.Pim);
-                Assert.IsNotNull(playerStatisticSplits.OverTimeGoals);
-                Assert.IsNotNull(playerStatisticSplits.Blocked);
-                Assert.IsNotNull(playerStatisticSplits.EvenTimeOnIce);
-                Assert.IsNotNull(playerStatisticSplits.PenaltyMinutes);
-                Assert.IsNotNull(playerStatisticSplits.FaceOffPct);
-                Assert.IsNotNull(playerStatisticSplits.EvenTimeOnIcePerGame);
+                var playerStatisticSplits = playerOnPaceRegularSeason.Statistics.FirstOrDefault()?.Splits.FirstOrDefault()?.PlayerStatisticsData;
+                if (playerStatisticSplits != null)
+                {
+                    Assert.IsNotNull(playerStatisticSplits);
+                    Assert.IsNotNull(playerStatisticSplits.Assists);
+                    Assert.IsNotNull(playerStatisticSplits.Games);
+                    Assert.IsNotNull(playerStatisticSplits.GameWinningGoals);
+                    Assert.IsNotNull(playerStatisticSplits.Shifts);
+                    Assert.IsNotNull(playerStatisticSplits.ShortHandedGoals);
+                    Assert.IsNotNull(playerStatisticSplits.ShortHandedPoints);
+                    Assert.IsNotNull(playerStatisticSplits.ShortHandedTimeOnIce);
+                    Assert.IsNotNull(playerStatisticSplits.Shots);
+                    Assert.IsNotNull(playerStatisticSplits.ShotPct);
+                    Assert.IsNotNull(playerStatisticSplits.Goals);
+                    Assert.IsNotNull(playerStatisticSplits.Hits);
+                    Assert.IsNotNull(playerStatisticSplits.OverTimeGoals);
+                    Assert.IsNotNull(playerStatisticSplits.Points);
+                    Assert.IsNotNull(playerStatisticSplits.PlusMinus);
+                    Assert.IsNotNull(playerStatisticSplits.PowerPlayGoals);
+                    Assert.IsNotNull(playerStatisticSplits.PowerPlayPoints);
+                    Assert.IsNotNull(playerStatisticSplits.PowerPlayTimeOnIce);
+                    Assert.IsNotNull(playerStatisticSplits.PowerPlayTimeOnIcePerGame);
+                    Assert.IsNotNull(playerStatisticSplits.TimeOnIce);
+                    Assert.IsNotNull(playerStatisticSplits.TimeOnIcePerGame);
+                    Assert.IsNotNull(playerStatisticSplits.Pim);
+                    Assert.IsNotNull(playerStatisticSplits.OverTimeGoals);
+                    Assert.IsNotNull(playerStatisticSplits.Blocked);
+                    Assert.IsNotNull(playerStatisticSplits.EvenTimeOnIce);
+                    Assert.IsNotNull(playerStatisticSplits.PenaltyMinutes);
+                    Assert.IsNotNull(playerStatisticSplits.FaceOffPct);
+                    Assert.IsNotNull(playerStatisticSplits.EvenTimeOnIcePerGame);
+                }
             }
             else
             {
@@ -1112,35 +1115,38 @@ namespace Nhl.Api.Tests
             {
                 Assert.IsNotNull(playerOnPaceRegularSeason);
 
-                var playerStatisticSplits = playerOnPaceRegularSeason.Statistics.First().Splits.First().PlayerStatisticsData;
-                Assert.IsNotNull(playerStatisticSplits);
-                Assert.IsNotNull(playerStatisticSplits.Assists);
-                Assert.IsNotNull(playerStatisticSplits.Games);
-                Assert.IsNotNull(playerStatisticSplits.GameWinningGoals);
-                Assert.IsNotNull(playerStatisticSplits.Shifts);
-                Assert.IsNotNull(playerStatisticSplits.ShortHandedGoals);
-                Assert.IsNotNull(playerStatisticSplits.ShortHandedPoints);
-                Assert.IsNotNull(playerStatisticSplits.ShortHandedTimeOnIce);
-                Assert.IsNotNull(playerStatisticSplits.Shots);
-                Assert.IsNotNull(playerStatisticSplits.ShotPct);
-                Assert.IsNotNull(playerStatisticSplits.Goals);
-                Assert.IsNotNull(playerStatisticSplits.Hits);
-                Assert.IsNotNull(playerStatisticSplits.OverTimeGoals);
-                Assert.IsNotNull(playerStatisticSplits.Points);
-                Assert.IsNotNull(playerStatisticSplits.PlusMinus);
-                Assert.IsNotNull(playerStatisticSplits.PowerPlayGoals);
-                Assert.IsNotNull(playerStatisticSplits.PowerPlayPoints);
-                Assert.IsNotNull(playerStatisticSplits.PowerPlayTimeOnIce);
-                Assert.IsNotNull(playerStatisticSplits.PowerPlayTimeOnIcePerGame);
-                Assert.IsNotNull(playerStatisticSplits.TimeOnIce);
-                Assert.IsNotNull(playerStatisticSplits.TimeOnIcePerGame);
-                Assert.IsNotNull(playerStatisticSplits.Pim);
-                Assert.IsNotNull(playerStatisticSplits.OverTimeGoals);
-                Assert.IsNotNull(playerStatisticSplits.Blocked);
-                Assert.IsNotNull(playerStatisticSplits.EvenTimeOnIce);
-                Assert.IsNotNull(playerStatisticSplits.PenaltyMinutes);
-                Assert.IsNotNull(playerStatisticSplits.FaceOffPct);
-                Assert.IsNotNull(playerStatisticSplits.EvenTimeOnIcePerGame);
+                var playerStatisticSplits = playerOnPaceRegularSeason.Statistics.FirstOrDefault()?.Splits.FirstOrDefault()?.PlayerStatisticsData;
+                if (playerStatisticSplits != null)
+                {
+                    Assert.IsNotNull(playerStatisticSplits);
+                    Assert.IsNotNull(playerStatisticSplits.Assists);
+                    Assert.IsNotNull(playerStatisticSplits.Games);
+                    Assert.IsNotNull(playerStatisticSplits.GameWinningGoals);
+                    Assert.IsNotNull(playerStatisticSplits.Shifts);
+                    Assert.IsNotNull(playerStatisticSplits.ShortHandedGoals);
+                    Assert.IsNotNull(playerStatisticSplits.ShortHandedPoints);
+                    Assert.IsNotNull(playerStatisticSplits.ShortHandedTimeOnIce);
+                    Assert.IsNotNull(playerStatisticSplits.Shots);
+                    Assert.IsNotNull(playerStatisticSplits.ShotPct);
+                    Assert.IsNotNull(playerStatisticSplits.Goals);
+                    Assert.IsNotNull(playerStatisticSplits.Hits);
+                    Assert.IsNotNull(playerStatisticSplits.OverTimeGoals);
+                    Assert.IsNotNull(playerStatisticSplits.Points);
+                    Assert.IsNotNull(playerStatisticSplits.PlusMinus);
+                    Assert.IsNotNull(playerStatisticSplits.PowerPlayGoals);
+                    Assert.IsNotNull(playerStatisticSplits.PowerPlayPoints);
+                    Assert.IsNotNull(playerStatisticSplits.PowerPlayTimeOnIce);
+                    Assert.IsNotNull(playerStatisticSplits.PowerPlayTimeOnIcePerGame);
+                    Assert.IsNotNull(playerStatisticSplits.TimeOnIce);
+                    Assert.IsNotNull(playerStatisticSplits.TimeOnIcePerGame);
+                    Assert.IsNotNull(playerStatisticSplits.Pim);
+                    Assert.IsNotNull(playerStatisticSplits.OverTimeGoals);
+                    Assert.IsNotNull(playerStatisticSplits.Blocked);
+                    Assert.IsNotNull(playerStatisticSplits.EvenTimeOnIce);
+                    Assert.IsNotNull(playerStatisticSplits.PenaltyMinutes);
+                    Assert.IsNotNull(playerStatisticSplits.FaceOffPct);
+                    Assert.IsNotNull(playerStatisticSplits.EvenTimeOnIcePerGame);
+                }
             }
             else
             {
@@ -1240,6 +1246,59 @@ namespace Nhl.Api.Tests
                     Assert.IsNotNull(lastPlayer.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Medium));
                     Assert.IsNotNull(lastPlayer.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large));
                 });
+        }
+
+
+        [TestMethod]
+        public void TestGetAllPlayersAsAsyncEnumerable()
+        {
+            Policy
+                .Handle<Exception>()
+                .WaitAndRetryAsync(3, (attempt) => TimeSpan.FromSeconds(attempt * 5),
+                 async (exception, timeSpan) =>
+                 {
+                     // Arrange
+                     using INhlApi nhlApi = new NhlApi();
+
+                     // Act
+                     var players = nhlApi.GetAllPlayersAsAsyncEnumerable();
+                     
+                     int count = 0;
+                     await foreach (var player in players)
+                     {
+                         if (count > 10) break;
+
+                         // Assert
+                         Assert.IsNotNull(player);
+
+                         Assert.IsNotNull(player.Active);
+                         Assert.IsNotNull(player.AlternateCaptain);
+                         Assert.IsNotNull(player.BirthCountry);
+                         Assert.IsNotNull(player.BirthCity);
+
+                         Assert.IsNotNull(player.BirthDate);
+                         Assert.IsNotNull(player.Captain);
+                         Assert.IsNotNull(player.CurrentAge);
+
+                         Assert.IsNotNull(player.FirstName);
+                         Assert.IsNotNull(player.LastName);
+                         Assert.IsNotNull(player.FullName);
+                         Assert.IsNotNull(player.Height);
+                         Assert.IsNotNull(player.ShootsCatches);
+                         Assert.IsNotNull(player.RosterStatus);
+                         Assert.IsNotNull(player.Weight);
+                         Assert.IsNotNull(player.Rookie);
+                         Assert.IsNotNull(player.Nationality);
+                         Assert.IsNotNull(player.Id);
+                         Assert.IsNotNull(player.Link);
+                         Assert.IsNotNull(player.PlayerHeadshotImageLink);
+                         Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Small));
+                         Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Medium));
+                         Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large));
+                         count++;
+                     }
+
+                 });
         }
 
         [TestMethod]

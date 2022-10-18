@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Nhl.Api.Models.Team;
-using Nhl.Api.Models.Award;
+﻿using Nhl.Api.Models.Award;
 using Nhl.Api.Models.Conference;
 using Nhl.Api.Models.Division;
 using Nhl.Api.Models.Draft;
@@ -16,7 +12,11 @@ using Nhl.Api.Models.Event;
 using Nhl.Api.Models.Franchise;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
+using Nhl.Api.Models.Team;
 using Nhl.Api.Models.Venue;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Nhl.Api
 {

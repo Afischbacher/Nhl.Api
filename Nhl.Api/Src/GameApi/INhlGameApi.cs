@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using Nhl.Api.Models.Enumerations.Team;
+﻿using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Nhl.Api
 {

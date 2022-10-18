@@ -1,7 +1,7 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Standing;
+using System;
 
 namespace Nhl.Api.Models.Team
 {

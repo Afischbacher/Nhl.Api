@@ -16,7 +16,7 @@ namespace Nhl.Api.Common.Http
         /// </summary>
         public const string ClientApiUrl = "https://statsapi.web.nhl.com/api/";
 
-        
+
         /// <summary>
         /// The dedicated NHL statistics HTTP Client for the Nhl.Api
         /// </summary>

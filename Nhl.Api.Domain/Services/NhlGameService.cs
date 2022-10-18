@@ -128,7 +128,7 @@ namespace Nhl.Api.Services
         /// </summary>
         public void SetCorrectedRinkSideLiveGameFeed(LiveGameFeed liveGameFeed)
         {
-            
+
             // Ensure live game feed is valid
             var isValidLiveGameFeed = liveGameFeed != null
                 && liveGameFeed.LiveData != null
@@ -250,7 +250,7 @@ namespace Nhl.Api.Services
                 return uri;
             }
 
-            if (string.IsNullOrEmpty(uri)) 
+            if (string.IsNullOrEmpty(uri))
             {
                 return string.Empty;
             }
@@ -262,10 +262,10 @@ namespace Nhl.Api.Services
                 gameScheduleConfiguration.IncludeLinescore ? $"schedule.ticket" : ""
             }.Where(s => !string.IsNullOrEmpty(s));
 
-            return uri.Contains('?') 
+            return uri.Contains('?')
                 ? $"{uri}&expand={string.Join(",", scheduleConfigurations)}"
                 : $"{uri}?expand={string.Join(",", scheduleConfigurations)}";
-    
+
         }
     }
 }

@@ -1,7 +1,7 @@
-﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
 <#@ assembly name="System.Core" #>
-<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.0\Nhl.Api.dll" #>
-<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.0\Nhl.Api.Domain.dll" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.1\Nhl.Api.dll" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.1\Nhl.Api.Domain.dll" #>
 <#@ assembly name="$(SolutionDir)Nhl.Api.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll" #>
 <#@ assembly name="NetStandard" #>
 <#@ import namespace="System.Linq" #>
@@ -16,6 +16,7 @@
 <#@ import namespace="Nhl.Api.Models.Player" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="System.Collections.Concurrent" #>
+<#@ import namespace="Nhl.Api.Models.Enumerations.Prospect" #>
 <#@ import namespace="Nhl.Api.Models.Enumerations" #>
 <#@ output extension=".cs" #>
 namespace Nhl.Api.Models.Enumerations.Prospect
@@ -25,18 +26,15 @@ namespace Nhl.Api.Models.Enumerations.Prospect
 	/// </summary>
 	public enum ProspectEnum
 	{
-	<#
-		var nhlApi = new NhlApi();
-		var prospects = nhlApi.GetLeagueProspectsAsync().Result;
-	
-	#>
-
-	<#foreach(var prospect in prospects)
-	{#>	
-	/// <summary>
-	/// <#= prospect.FullName #> - <#= prospect.Id #>
-	/// </summary>
-	<#= System.Text.RegularExpressions.Regex.Replace(prospect.FullName, @"('|\.|\s|`|-|_|&|\(|\))","")#><#=prospect.Id #> = <#= prospect.Id #>,
-	<#}#>
-}
+		<#
+			var prospects = ProspectEnumHelper.GetAllProspects();
+		#>
+		<#foreach(var prospect in prospects)
+		{#>	
+		/// <summary>
+		/// <#= prospect.FullName #> - <#= prospect.Id #>
+		/// </summary>
+		<#= System.Text.RegularExpressions.Regex.Replace(prospect.FullName, @"('|\.|\s|`|-|_|&|\(|\))","")#><#=prospect.Id #> = <#= prospect.Id #>,
+		<#}#>
+	}
 }

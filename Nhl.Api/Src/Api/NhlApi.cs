@@ -1,11 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using Nhl.Api.Models.Award;
+﻿using Nhl.Api.Models.Award;
 using Nhl.Api.Models.Conference;
 using Nhl.Api.Models.Division;
 using Nhl.Api.Models.Draft;
+using Nhl.Api.Models.Enumerations.Award;
+using Nhl.Api.Models.Enumerations.Conference;
+using Nhl.Api.Models.Enumerations.Division;
+using Nhl.Api.Models.Enumerations.Franchise;
+using Nhl.Api.Models.Enumerations.Player;
+using Nhl.Api.Models.Enumerations.Prospect;
+using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Enumerations.Venue;
 using Nhl.Api.Models.Event;
 using Nhl.Api.Models.Franchise;
 using Nhl.Api.Models.Game;
@@ -15,14 +19,9 @@ using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Models.Venue;
-using Nhl.Api.Models.Enumerations.Player;
-using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Enumerations.Division;
-using Nhl.Api.Models.Enumerations.Conference;
-using Nhl.Api.Models.Enumerations.Award;
-using Nhl.Api.Models.Enumerations.Venue;
-using Nhl.Api.Models.Enumerations.Franchise;
-using Nhl.Api.Models.Enumerations.Prospect;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Nhl.Api
 {
@@ -403,6 +402,15 @@ namespace Nhl.Api
         public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query)
         {
             return await _nhlPlayerApi.SearchAllPlayersAsync(query);
+        }
+
+        /// <summary>
+        /// Returns NHL player since the league inception in 1917-1918 as an asychronous enumerable
+        /// </summary>
+        /// <returns>Returns all NHL players since the league inception</returns>
+        public IAsyncEnumerable<Player> GetAllPlayersAsAsyncEnumerable()
+        {
+             return _nhlPlayerApi.GetAllPlayersAsAsyncEnumerable();
         }
 
         /// <summary>

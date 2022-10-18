@@ -1,7 +1,7 @@
-﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
 <#@ assembly name="System.Core" #>
-<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.0\Nhl.Api.dll" #>
-<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.0\Nhl.Api.Domain.dll" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.1\Nhl.Api.dll" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.1\Nhl.Api.Domain.dll" #>
 <#@ assembly name="$(SolutionDir)Nhl.Api.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll" #>
 <#@ assembly name="NetStandard" #>
 <#@ import namespace="System.Linq" #>
@@ -26,18 +26,17 @@ namespace Nhl.Api.Models.Enumerations.Player
 	/// </summary>
 	public enum PlayerEnum
 	{
-	<#
-		
-		var players = Nhl.Api.Models.Enumerations.Player.PlayerEnumHelper.GetAllPlayersAsync().Result;
-	
-	#>
 
-	<#foreach(var player in players)
-	{#>
-/// <summary>
-	/// <#= player.FullName #> - <#= player.Id #>
-	/// </summary>
-	<#= System.Text.RegularExpressions.Regex.Replace(player.FullName, @"('|\.|\s|-|_|&|)","")#><#=player.Id #> = <#= player.Id #>,
-	<#}#>
-}
+	<#
+		var players = Nhl.Api.Models.Enumerations.Player.PlayerEnumHelper.GetAllPlayers();
+	#>
+		 <#foreach(var player in players)
+		 {#>
+	///<summary>
+		/// <#= player.Key #> - <#= player.Value #>
+		///</summary>
+		<#= player.Key #> = <#= player.Value #>,
+		<#}#>
+   
+  }
 }

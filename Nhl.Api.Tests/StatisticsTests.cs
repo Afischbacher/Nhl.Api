@@ -310,7 +310,7 @@ namespace Nhl.Api.Tests
             {
                 await _nhlPlayerStatisticsAsyncRetryPolicy.ExecuteAsync(async () =>
                 {
-                   var player = await nhlApi.GetPlayerByStatisticTypeBySeasonAsync(playerStatistic, SeasonYear.season20192020);
+                    var player = await nhlApi.GetPlayerByStatisticTypeBySeasonAsync(playerStatistic, SeasonYear.season20192020);
 
                     Assert.IsNotNull(player);
                     Assert.IsNotNull(player.PlayerStatisticsData);
@@ -399,7 +399,7 @@ namespace Nhl.Api.Tests
                         Assert.IsNotNull(player.Player);
                         Assert.IsNotNull(player.Player);
                         Assert.IsNotNull(player.Player.Id);
-                        Assert.IsNotNull(player.Player.FullName); 
+                        Assert.IsNotNull(player.Player.FullName);
                     }
                 });
             }
@@ -476,7 +476,7 @@ namespace Nhl.Api.Tests
 
                         Assert.IsNotNull(goalie.Player);
                         Assert.IsNotNull(goalie.Player.Id);
-                        Assert.IsNotNull(goalie.Player.FullName); 
+                        Assert.IsNotNull(goalie.Player.FullName);
                     }
                 });
             }

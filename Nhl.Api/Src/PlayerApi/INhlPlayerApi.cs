@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-using Nhl.Api.Models.Enumerations.Player;
+﻿using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Prospect;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Nhl.Api
 {
@@ -84,6 +83,12 @@ namespace Nhl.Api
         Task<List<Player>> GetAllPlayersAsync();
 
         /// <summary>
+        /// Returns NHL player since the league inception in 1917-1918 as an asynchronous enumerable
+        /// </summary>
+        /// <returns>Returns all NHL players since the league inception</returns>
+        IAsyncEnumerable<Player> GetAllPlayersAsAsyncEnumerable();
+
+        /// <summary>
         /// Returns all the NHL league prospects <br/>
         /// <strong>Note:</strong> The NHL prospects response provides a very large JSON payload
         /// </summary>
@@ -119,5 +124,6 @@ namespace Nhl.Api
         /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
         /// <returns>A byte array content of an NHL player head shot image</returns>
         Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small);
+      
     }
 }
