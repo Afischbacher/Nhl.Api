@@ -101,6 +101,7 @@ Once registered using your dependency injection library of choice or just using 
   - [Dispose()](#M-Nhl-Api-NhlApi-Dispose 'Nhl.Api.NhlApi.Dispose')
   - [GetActiveFranchisesAsync()](#M-Nhl-Api-NhlApi-GetActiveFranchisesAsync 'Nhl.Api.NhlApi.GetActiveFranchisesAsync')
   - [GetActiveTeamsAsync()](#M-Nhl-Api-NhlApi-GetActiveTeamsAsync 'Nhl.Api.NhlApi.GetActiveTeamsAsync')
+  - [GetAllPlayersAsAsyncEnumerable()](#M-Nhl-Api-NhlApi-GetAllPlayersAsAsyncEnumerable 'Nhl.Api.NhlApi.GetAllPlayersAsAsyncEnumerable')
   - [GetAllPlayersAsync()](#M-Nhl-Api-NhlApi-GetAllPlayersAsync 'Nhl.Api.NhlApi.GetAllPlayersAsync')
   - [GetAllTeamsStatisticsBySeasonAsync(seasonYear)](#M-Nhl-Api-NhlApi-GetAllTeamsStatisticsBySeasonAsync-System-String- 'Nhl.Api.NhlApi.GetAllTeamsStatisticsBySeasonAsync(System.String)')
   - [GetBoxScoreByIdAsync(gameId)](#M-Nhl-Api-NhlApi-GetBoxScoreByIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetBoxScoreByIdAsync(System.Int32)')
@@ -263,6 +264,7 @@ Once registered using your dependency injection library of choice or just using 
 - [NhlPlayerApi](#T-Nhl-Api-NhlPlayerApi 'Nhl.Api.NhlPlayerApi')
   - [#ctor()](#M-Nhl-Api-NhlPlayerApi-#ctor 'Nhl.Api.NhlPlayerApi.#ctor')
   - [Dispose()](#M-Nhl-Api-NhlPlayerApi-Dispose 'Nhl.Api.NhlPlayerApi.Dispose')
+  - [GetAllPlayersAsAsyncEnumerable()](#M-Nhl-Api-NhlPlayerApi-GetAllPlayersAsAsyncEnumerable 'Nhl.Api.NhlPlayerApi.GetAllPlayersAsAsyncEnumerable')
   - [GetAllPlayersAsync()](#M-Nhl-Api-NhlPlayerApi-GetAllPlayersAsync 'Nhl.Api.NhlPlayerApi.GetAllPlayersAsync')
   - [GetLeagueProspectByIdAsync(prospectId)](#M-Nhl-Api-NhlPlayerApi-GetLeagueProspectByIdAsync-System-Int32- 'Nhl.Api.NhlPlayerApi.GetLeagueProspectByIdAsync(System.Int32)')
   - [GetLeagueProspectByIdAsync(prospect)](#M-Nhl-Api-NhlPlayerApi-GetLeagueProspectByIdAsync-Nhl-Api-Models-Enumerations-Prospect-ProspectEnum- 'Nhl.Api.NhlPlayerApi.GetLeagueProspectByIdAsync(Nhl.Api.Models.Enumerations.Prospect.ProspectEnum)')
@@ -364,6 +366,21 @@ Returns all active NHL teams
 ##### Returns
 
 A collection of all active NHL teams, see [Team](#T-Nhl-Api-Models-Team-Team 'Nhl.Api.Models.Team.Team') for more information
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Nhl-Api-NhlApi-GetAllPlayersAsAsyncEnumerable'></a>
+### GetAllPlayersAsAsyncEnumerable() `method`
+
+##### Summary
+
+Returns NHL player since the league inception in 1917-1918 as an asychronous enumerable
+
+##### Returns
+
+Returns all NHL players since the league inception
 
 ##### Parameters
 
@@ -3050,6 +3067,21 @@ This method has no parameters.
 | Name | Description |
 | ---- | ----------- |
 | [System.NotImplementedException](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.NotImplementedException 'System.NotImplementedException') |  |
+
+<a name='M-Nhl-Api-NhlPlayerApi-GetAllPlayersAsAsyncEnumerable'></a>
+### GetAllPlayersAsAsyncEnumerable() `method`
+
+##### Summary
+
+Returns every single NHL player to ever play
+
+##### Returns
+
+Returns every single NHL player since the league inception
+
+##### Parameters
+
+This method has no parameters.
 
 <a name='M-Nhl-Api-NhlPlayerApi-GetAllPlayersAsync'></a>
 ### GetAllPlayersAsync() `method`

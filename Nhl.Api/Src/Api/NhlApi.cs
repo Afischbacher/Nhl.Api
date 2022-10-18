@@ -405,6 +405,15 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns NHL player since the league inception in 1917-1918 as an asychronous enumerable
+        /// </summary>
+        /// <returns>Returns all NHL players since the league inception</returns>
+        public IAsyncEnumerable<Player> GetAllPlayersAsAsyncEnumerable()
+        {
+             return _nhlPlayerApi.GetAllPlayersAsAsyncEnumerable();
+        }
+
+        /// <summary>
         /// Returns only active NHL players based on the search query provided
         /// </summary>
         /// <param name="query">A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" </param>

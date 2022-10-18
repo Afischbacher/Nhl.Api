@@ -83,6 +83,22 @@ namespace Nhl.Api
         }
 
         /// <summary>
+        /// Returns every single NHL player to ever play
+        /// </summary>
+        /// <returns>Returns every single NHL player since the league inception</returns>
+        public async IAsyncEnumerable<Player> GetAllPlayersAsAsyncEnumerable()
+        {
+            // Retrieve all player identifiers known
+            var playerIds = Enum.GetValues(typeof(PlayerEnum)).Cast<int>();
+
+            // Returns and retrieves all players with an asynchronous enumerable
+            foreach (var playerId in playerIds)
+            {
+                yield return await GetPlayerByIdAsync(playerId);
+            }
+        }
+
+        /// <summary>
         /// Returns all the NHL league prospects <br/>
         /// <strong>Note:</strong> The NHL prospects response provides a very large JSON payload
         /// </summary>

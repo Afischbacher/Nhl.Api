@@ -1248,6 +1248,59 @@ namespace Nhl.Api.Tests
                 });
         }
 
+
+        [TestMethod]
+        public void TestGetAllPlayersAsAsyncEnumerable()
+        {
+            Policy
+                .Handle<Exception>()
+                .WaitAndRetryAsync(3, (attempt) => TimeSpan.FromSeconds(attempt * 5),
+                 async (exception, timeSpan) =>
+                 {
+                     // Arrange
+                     using INhlApi nhlApi = new NhlApi();
+
+                     // Act
+                     var players = nhlApi.GetAllPlayersAsAsyncEnumerable();
+                     
+                     int count = 0;
+                     await foreach (var player in players)
+                     {
+                         if (count > 10) break;
+
+                         // Assert
+                         Assert.IsNotNull(player);
+
+                         Assert.IsNotNull(player.Active);
+                         Assert.IsNotNull(player.AlternateCaptain);
+                         Assert.IsNotNull(player.BirthCountry);
+                         Assert.IsNotNull(player.BirthCity);
+
+                         Assert.IsNotNull(player.BirthDate);
+                         Assert.IsNotNull(player.Captain);
+                         Assert.IsNotNull(player.CurrentAge);
+
+                         Assert.IsNotNull(player.FirstName);
+                         Assert.IsNotNull(player.LastName);
+                         Assert.IsNotNull(player.FullName);
+                         Assert.IsNotNull(player.Height);
+                         Assert.IsNotNull(player.ShootsCatches);
+                         Assert.IsNotNull(player.RosterStatus);
+                         Assert.IsNotNull(player.Weight);
+                         Assert.IsNotNull(player.Rookie);
+                         Assert.IsNotNull(player.Nationality);
+                         Assert.IsNotNull(player.Id);
+                         Assert.IsNotNull(player.Link);
+                         Assert.IsNotNull(player.PlayerHeadshotImageLink);
+                         Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Small));
+                         Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Medium));
+                         Assert.IsNotNull(player.GetPlayerHeadshotImageLink(PlayerHeadshotImageSize.Large));
+                         count++;
+                     }
+
+                 });
+        }
+
         [TestMethod]
         public async Task TestDownloadPlayerHeadshotImageAsync()
         {
