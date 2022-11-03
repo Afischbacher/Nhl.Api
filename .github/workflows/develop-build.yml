@@ -19,4 +19,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Release
     - name: Run Tests
-      run: dotnet test --configuration Release --no-build --verbosity normal
+      run: dotnet test --configuration Release --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
