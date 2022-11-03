@@ -124,6 +124,6 @@ namespace Nhl.Api
         /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
         /// <returns>A byte array content of an NHL player head shot image</returns>
         Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small);
-      
+
     }
 }

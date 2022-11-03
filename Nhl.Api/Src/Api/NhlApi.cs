@@ -410,7 +410,7 @@ namespace Nhl.Api
         /// <returns>Returns all NHL players since the league inception</returns>
         public IAsyncEnumerable<Player> GetAllPlayersAsAsyncEnumerable()
         {
-             return _nhlPlayerApi.GetAllPlayersAsAsyncEnumerable();
+            return _nhlPlayerApi.GetAllPlayersAsAsyncEnumerable();
         }
 
         /// <summary>
