@@ -24,4 +24,4 @@ jobs:
       uses: coverallsapp/github-action@master   
       with:
         github-token: ${{ secrets.COVERALLS_SECRET_KEY }} 
-        path-to-lcov: Nhl.Api.Tests/TestResults/coverage.info 
+        path-to-lcov: Nhl.Api.Tests/TestResults/coverage.info
