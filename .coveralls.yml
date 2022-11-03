@@ -1,0 +1,2 @@
+service_name: github
+repo_token: ${{ secrets.COVERALLS_SECRET_KEY }} 
