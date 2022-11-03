@@ -1262,7 +1262,7 @@ namespace Nhl.Api.Tests
 
                      // Act
                      var players = nhlApi.GetAllPlayersAsAsyncEnumerable();
-                     
+
                      int count = 0;
                      await foreach (var player in players)
                      {
