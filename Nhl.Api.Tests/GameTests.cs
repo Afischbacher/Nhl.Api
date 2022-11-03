@@ -245,7 +245,6 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(game.Linescore);
                 Assert.IsNotNull(game.Linescore.Teams);
                 Assert.IsNotNull(game.Linescore.Periods);
-                Assert.IsNotNull(game.Linescore.CurrentPeriodOrdinal);
 
                 Assert.IsNotNull(game.Broadcasts);
                 Assert.IsNotNull(game.Broadcasts.First().Name);
