@@ -210,6 +210,7 @@ namespace Nhl.Api.Tests
         [TestMethod]
         public async Task TestGetGetGameScheduleWithConfigurationEnabledAsync()
         {
+
             // Arrange
             using INhlApi nhlApi = new NhlApi();
 
