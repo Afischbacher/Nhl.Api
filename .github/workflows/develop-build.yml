@@ -20,3 +20,5 @@ jobs:
       run: dotnet build --no-restore --configuration Release
     - name: Run Tests
       run: dotnet test --configuration Release --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
+    - name: Upload coverage reports to Codecov with GitHub Action
+      uses: codecov/codecov-action@v3
