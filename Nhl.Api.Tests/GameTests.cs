@@ -253,10 +253,12 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(game.Broadcasts.First().Id);
                 Assert.IsNotNull(game.Broadcasts.First().Type);
 
-                Assert.IsNotNull(game.Tickets);
-                Assert.IsNotNull(game.Tickets.First());
-                Assert.IsNotNull(game.Tickets.First().TicketLink);
-                Assert.IsNotNull(game.Tickets.First().TicketType);
+                if (game.Tickets != null) 
+                {
+                    Assert.IsNotNull(game.Tickets.First());
+                    Assert.IsNotNull(game.Tickets.First().TicketLink);
+                    Assert.IsNotNull(game.Tickets.First().TicketType);
+                }
             }
 
         }
