@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -206,6 +207,26 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(teamColor.TertiaryColor);
             Assert.IsNotNull(teamColor.QuinaryColor);
         }
+
+        [TestMethod]
+        public async Task TestGetAllTeamColorsEnumAsync()
+        {
+            // Arrange
+            using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var teams = Enum.GetValues(typeof(TeamEnum)).Cast<TeamEnum>();
+            foreach (var team in teams)
+            {
+                var teamColor = await nhlApi.GetTeamColorsAsync(team);
+                // Assert
+                Assert.IsNotNull(teamColor);
+                Assert.IsNotNull(teamColor.PrimaryColor);
+                Assert.IsNotNull(teamColor.SecondaryColor);
+            }
+            
+        }
+
 
         [TestMethod]
         public async Task TestGetTeamByIdEnumAsync()
