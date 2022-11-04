@@ -19,10 +19,11 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Release
     - name: Run Tests
-      run: dotnet test --configuration Release --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
-    - name: Publish coverage report to coveralls.io
-      continue-on-error: true
-      uses: coverallsapp/github-action@master   
-      with:
-        github-token: ${{ secrets.COVERALLS_SECRET_KEY }} 
-        path-to-lcov: Nhl.Api.Tests/TestResults/coverage.info
+      run: dotnet test --configuration Release --no-build --verbosity normal --cov=./ --cov-report=xml
+    - name: Upload coverage reports to Codecov with GitHub Action
+      uses: codecov/codecov-action@v3
+    - name: Upload coverage reports to Codecov
+      run: |
+        curl -Os https://uploader.codecov.io/latest/linux/codecov
+        chmod +x codecov
+        ./codecov -t ${CODECOV_TOKEN}
