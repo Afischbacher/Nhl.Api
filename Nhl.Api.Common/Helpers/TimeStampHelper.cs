@@ -47,5 +47,30 @@ namespace Nhl.Api.Common.Helpers
                 return null;
             }
         }
+
+        /// <summary>
+        /// Parses a <see cref="DateTimeOffset"/> to a meta data timestamp for the Nhl.Api
+        /// </summary>
+        /// <param name="dateTimeOffset">The timestamp, Example: <see cref="DateTimeOffset.Now"/> </param>
+        /// <returns>A parsed game meta data timestamp in UTC, Exampe: 20231105_201423</returns>
+        public static string ParseDateTimeOffsetFromTimeStamp(DateTimeOffset dateTimeOffset) 
+        { 
+            try
+            {
+                var year = dateTimeOffset.Year;
+                var day = dateTimeOffset.Day < 10 ? $"0{dateTimeOffset.Day}" : dateTimeOffset.Day.ToString();
+                var month = dateTimeOffset.Month < 10 ? $"0{dateTimeOffset.Month}" : dateTimeOffset.Month.ToString();
+
+                var hour = dateTimeOffset.Hour < 10 ? $"0{dateTimeOffset.Hour}" : dateTimeOffset.Hour.ToString();
+                var minute = dateTimeOffset.Minute < 10 ? $"0{dateTimeOffset.Minute}" : dateTimeOffset.Minute.ToString();
+                var second = dateTimeOffset.Second < 10 ? $"0{dateTimeOffset.Second}" : dateTimeOffset.Second.ToString();
+
+                return $"{year}{month}{day}_{hour}{minute}{second}";
+            }
+            catch
+            {
+                return string.Empty;
+            }
+        }
     }
 }

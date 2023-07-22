@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Common.Helpers;
+using System;
 
 namespace Nhl.Api.Tests
 {
@@ -34,6 +35,26 @@ namespace Nhl.Api.Tests
 
             // Assert
             Assert.IsNull(dateTimeOffset);
+        }
+
+        [DataRow("7/22/2023 3:05:23 PM -04:00")]
+        [DataRow("12/12/2021 8:25:53 AM -02:00")]
+        [DataRow("4/02/1923 12:05:23 PM -07:00")]
+        [DataRow("11/11/2003 6:25:13 PM -00:00")]
+        [DataRow("02/12/1985 3:05:23 PM -04:00")]
+        [DataRow("08/18/1995 10:05:23 PM +06:00")]
+        [TestMethod]
+        public void TestDateTimeOffsetParsesToTimeStampString(string dateTimeOffsetAsString)
+        {
+            // Act/Arrange
+
+            var dateTimeOffset = DateTimeOffset.Parse(dateTimeOffsetAsString);
+            var result = TimeStampHelper.ParseDateTimeOffsetFromTimeStamp(dateTimeOffset);
+
+            // Assert
+            Assert.IsNotNull(result);
+            Assert.IsTrue(result.Length == 15);
+            StringAssert.StartsWith(result, dateTimeOffset.Year.ToString());
         }
     }
 }
