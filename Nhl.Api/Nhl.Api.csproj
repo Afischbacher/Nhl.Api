@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>2.1.0</Version>
-		<TargetFramework>netstandard2.1</TargetFramework>
+		<Version>2.2.0</Version>
+		<TargetFrameworks>netstandard2.1;net5.0;net6.0;net7.0</TargetFrameworks>
 		<PackageId>Nhl.Api</PackageId>
 		<Title>Nhl.Api</Title>
-		<Copyright>Copyright (c) 2022 Andre Fischbacher</Copyright>
+		<Copyright>Copyright (c) 2023 Andre Fischbacher</Copyright>
 		<Authors>Andre Fischbacher</Authors>
 		<Description>The official unofficial .NET NHL API</Description>
 		<PackageProjectUrl>https://github.com/Afischbacher/Nhl.Api</PackageProjectUrl>

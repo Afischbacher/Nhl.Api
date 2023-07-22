@@ -13,7 +13,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetDraftByYearAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var leagueStandingTypes = await nhlApi.GetDraftByYearAsync(DraftYear.draftYear2010);
@@ -50,7 +50,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetProspectsAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var leagueProspects = await nhlApi.GetLeagueProspectsAsync();
@@ -79,7 +79,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetProspectsByIdAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var prospect = await nhlApi.GetLeagueProspectByIdAsync(84055);
@@ -104,7 +104,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetProspectsByIdEnumAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             var prospect = await nhlApi.GetLeagueProspectByIdAsync(Models.Enumerations.Prospect.ProspectEnum.AakeLeppa98973);
 
