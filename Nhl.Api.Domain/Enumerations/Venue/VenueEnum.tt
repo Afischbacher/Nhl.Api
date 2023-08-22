@@ -1,8 +1,8 @@
 ﻿<#@ template debug="false" hostspecific="false" language="C#" #>
 <#@ assembly name="System.Core" #>
-<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.1\Nhl.Api.dll" #>
-<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\netstandard2.1\Nhl.Api.Domain.dll" #>
-<#@ assembly name="$(SolutionDir)Nhl.Api.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\net6.0\Nhl.Api.dll" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api\bin\$(ConfigurationName)\net6.0\Nhl.Api.Domain.dll" #>
+<#@ assembly name="$(SolutionDir)Nhl.Api.Tests\bin\Debug\net6.0\Newtonsoft.Json.dll" #>
 <#@ assembly name="NetStandard" #>
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Threading.Tasks" #>
