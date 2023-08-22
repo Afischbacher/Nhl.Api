@@ -13,7 +13,7 @@ namespace Nhl.Api.Tests
         [TestMethod]
         public async Task ResourceDisposeAsyncTest() 
         {
-            using var nhlApi = new NhlApi();
+            await using var nhlApi = new NhlApi();
 
             await nhlApi.DisposeAsync();
         }
