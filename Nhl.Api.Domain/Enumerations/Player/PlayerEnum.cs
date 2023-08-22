@@ -6,7 +6,7 @@
 	public enum PlayerEnum
 	{
 
-			 ///<summary>
+		///<summary>
 		/// 8444850 - HenryHarris8444850
 		///</summary>
 		HenryHarris8444850 = 8444850,
