@@ -8,7 +8,6 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-[assembly: Parallelize(Workers = 0, Scope = ExecutionScope.MethodLevel)]
 namespace Nhl.Api.Tests
 {
     [TestClass]
