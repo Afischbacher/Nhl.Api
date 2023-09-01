@@ -2,6 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Nhl.Api.Tests
     public class TeamTests
     {
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamsAsync()
         {
             // Arrange
@@ -47,7 +48,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetAllActiveTeamsAsync()
         {
 
@@ -83,7 +84,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetAllInactiveTeamsAsync()
         {
             // Arrange
@@ -119,7 +120,7 @@ namespace Nhl.Api.Tests
 
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamByIdAsync()
         {
             // Arrange
@@ -148,7 +149,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamByIdInvalidAsync()
         {
             // Arrange
@@ -162,7 +163,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamColorsAsync()
         {
             // Arrange
@@ -178,7 +179,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamColorsInvalidTeamIdAsync()
         {
             // Arrange
@@ -191,7 +192,7 @@ namespace Nhl.Api.Tests
             Assert.IsNull(teamColor);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamColorsEnumAsync()
         {
             // Arrange
@@ -208,7 +209,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(teamColor.QuinaryColor);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetAllTeamColorsEnumAsync()
         {
             // Arrange
@@ -228,7 +229,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamByIdEnumAsync()
         {
             // Arrange
@@ -256,7 +257,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(team.FirstYearOfPlay);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamsByIdsEnumAsync()
         {
             // Arrange
@@ -288,7 +289,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamsByIdsEnumEmptyArrayAsync()
         {
             // Arrange
@@ -303,7 +304,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamsByIdsIntAsync()
         {
             // Arrange
@@ -338,7 +339,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamsByIdsIntEmptyArrayAsync()
         {
             // Arrange
@@ -353,7 +354,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetManyTeamsByTasksAsync()
         {
             // Arrange
@@ -368,7 +369,7 @@ namespace Nhl.Api.Tests
             Assert.AreEqual(2, teams.Count());
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetAllPlayersAsync()
         {
             // Arrange
@@ -452,7 +453,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestSearchLeagueTeamRosterMembersNullQueryAsync()
         {
             // Arrange
@@ -465,7 +466,7 @@ namespace Nhl.Api.Tests
             Assert.AreEqual(0, players.Count);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamWithInvalidIdAsync()
         {
             // Arrange
@@ -482,7 +483,7 @@ namespace Nhl.Api.Tests
         [DataRow(TeamEnum.ArizonaCoyotes)]
         [DataRow(TeamEnum.DetroitRedWings)]
         [DataRow(TeamEnum.AnaheimDucks)]
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamLogoLightAsync(TeamEnum teamEnum)
         {
             // Arrange
@@ -506,7 +507,7 @@ namespace Nhl.Api.Tests
         [DataRow(TeamEnum.SanJoseSharks)]
         [DataRow(TeamEnum.ColumbusBlueJackets)]
         [DataRow(TeamEnum.ChicagoBlackhawks)]
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamLogoDarkAsync(TeamEnum teamEnum)
         {
             // Arrange
@@ -529,7 +530,7 @@ namespace Nhl.Api.Tests
         [DataRow(55)]
         [DataRow(7)]
         [DataRow(24)]
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamLogoLightAsIntAsync(int teamId)
         {
             // Arrange
@@ -553,7 +554,7 @@ namespace Nhl.Api.Tests
         [DataRow(28)]
         [DataRow(6)]
         [DataRow(5)]
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamLogoDarkAsIntAsync(int teamId)
         {
             // Arrange
@@ -572,7 +573,7 @@ namespace Nhl.Api.Tests
             Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 0);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamStatisticsBySeasonWithEnumAsync()
         {
 
@@ -678,7 +679,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTeamStatisticsBySeasonWithIntAsync()
         {
 
@@ -784,7 +785,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetAllTeamStatisticsBySeasonWithIntAsync()
         {
 

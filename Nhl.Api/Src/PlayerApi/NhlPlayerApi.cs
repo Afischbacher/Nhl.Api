@@ -78,7 +78,7 @@ namespace Nhl.Api
             await _cachingService.TryAddUpdateAsync(nameof(GetAllPlayersAsync), players);
 
             // Return all known NHL players
-            return players;
+            return players.Distinct().ToList();
 
         }
 

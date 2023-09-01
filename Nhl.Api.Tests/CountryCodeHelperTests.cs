@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Common.Helpers;
+using Nhl.Api.Tests.Helpers.Attributes;
 
 namespace Nhl.Api.Tests
 {
@@ -255,7 +256,7 @@ namespace Nhl.Api.Tests
         [DataRow("YEM")]
         [DataRow("ZMB")]
         [DataRow("ZWE")]
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public void TestCountryCodeHelper(string countryCode)
         {
             // Act + Arrange

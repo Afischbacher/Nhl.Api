@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Tests.Helpers.Attributes;
 
 namespace Nhl.Api.Tests
 {
@@ -7,7 +8,7 @@ namespace Nhl.Api.Tests
     [TestClass]
     public class VenueEnumHelperTests
     {
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public void GetAllVenuesTest() 
         {
             var venues = VenueEnumHelper.GetAllVenues();

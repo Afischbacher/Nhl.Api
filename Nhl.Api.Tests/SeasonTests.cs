@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Season;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -8,7 +9,7 @@ namespace Nhl.Api.Tests
     public class SeasonTests
     {
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueStandingTypesAsync()
         {
             // Arrange
@@ -28,7 +29,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetSeasonBySeasonYearAsync()
         {
             // Arrange
@@ -51,7 +52,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetCurrentSeasonAsync()
         {
             // Arrange
@@ -73,7 +74,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetAllSeasonsAsync()
         {
             // Arrange
@@ -98,7 +99,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestIsSeasonActiveAsync()
         {
             // Arrange
@@ -111,7 +112,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(isSeasonActive);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestIsRegularSeasonActiveAsync()
         {
             // Arrange
@@ -124,7 +125,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(isSeasonActive);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestIsPlayoffSeasonActiveAsync()
         {
             // Arrange

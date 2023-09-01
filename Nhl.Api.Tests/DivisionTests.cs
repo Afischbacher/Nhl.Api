@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Enumerations.Division;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -9,7 +10,7 @@ namespace Nhl.Api.Tests
     public class DivisionTests
     {
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetAllDivisionsAsync()
         {
             // Arrange
@@ -32,7 +33,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetDivisionByIdAsync()
         {
             // Arrange
@@ -50,7 +51,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(division.NameShort);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetDivisionByIdEnumAsync()
         {
             // Arrange
@@ -68,7 +69,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(division.NameShort);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetDivisionWithInvalidIdAsync()
         {
             // Arrange

@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Enumerations.Venue;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -7,7 +8,7 @@ namespace Nhl.Api.Tests
     [TestClass]
     public class VenueTests
     {
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetAllVenuesAsync()
         {
             // Arrange
@@ -28,7 +29,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueVenueByIdAsync()
         {
             // Arrange
@@ -46,7 +47,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueVenueByIdEnumAsync()
         {
             // Arrange

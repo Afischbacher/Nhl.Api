@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Common.Services;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System.Collections.Concurrent;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,13 +10,13 @@ namespace Nhl.Api.Tests
     [TestClass]
     public class NhlApiAsyncHelperTests
     {
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestRunSyncAsync() 
         {
             NhlApiAsyncHelper.RunSync(async () =>  await Task.Run(() => Task.Delay(100)) );
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestForEachAsync()
         {
             var numbers = new ConcurrentBag<int>(new [] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, });

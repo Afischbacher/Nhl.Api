@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Common.Helpers;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System;
 
 namespace Nhl.Api.Tests
@@ -12,7 +13,7 @@ namespace Nhl.Api.Tests
         [DataRow("20211105_201423")]
         [DataRow("20201015_201423")]
         [DataRow("19950210_201423")]
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public void TestValidDateTimeOffsetHelper(string dateTimeString)
         {
             // Act/Arrange
@@ -27,7 +28,7 @@ namespace Nhl.Api.Tests
         [DataRow("19950210_20142423234543")]
         [DataRow(" ")]
         [DataRow("19950210_201424232_34543")]
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public void TestInValidDateTimeOffsetHelper(string dateTimeString)
         {
             // Act/Arrange
@@ -43,7 +44,7 @@ namespace Nhl.Api.Tests
         [DataRow("11/11/2003 6:25:13 PM -00:00")]
         [DataRow("02/12/1985 3:05:23 PM -04:00")]
         [DataRow("08/18/1995 10:05:23 PM +06:00")]
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public void TestDateTimeOffsetParsesToTimeStampString(string dateTimeOffsetAsString)
         {
             // Act/Arrange

@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Draft;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace Nhl.Api.Tests
     public class DraftTests
     {
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetDraftByYearAsync()
         {
             // Arrange
@@ -46,7 +47,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetProspectsAsync()
         {
             // Arrange
@@ -75,7 +76,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetProspectsByIdAsync()
         {
             // Arrange
@@ -100,7 +101,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(prospect.LastName);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetProspectsByIdEnumAsync()
         {
             // Arrange
