@@ -8,6 +8,7 @@
 		<Copyright>Copyright (c) 2023 Andre Fischbacher</Copyright>
 		<Authors>Andre Fischbacher</Authors>
 		<Description>The official unofficial .NET NHL API</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/Afischbacher/Nhl.Api</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Afischbacher/Nhl.Api</RepositoryUrl>
 		<RepositoryType>Github</RepositoryType>
@@ -50,6 +51,7 @@
 	
 	
 	<ItemGroup>
+		<None Include="..\README.md" Pack="true" PackagePath=""/>
 		<None Include="..\Assets\nhl-api-logo-128px-128px.png" Pack="true" PackagePath="" />
 	</ItemGroup>
 	
