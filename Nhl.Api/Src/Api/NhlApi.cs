@@ -1059,9 +1059,12 @@ namespace Nhl.Api
         /// <summary>
         /// Releases and disposes all unused or garbage collected resources for the Nhl.Api
         /// </summary>
-        public void Dispose()
-        {
-            _nhlPlayerApi?.Dispose();
-        }
+        public void Dispose() => _nhlPlayerApi?.Dispose();
+
+        /// <summary>
+        /// Releases and disposes all unused or garbage collected resources for the Nhl.Api asynchronously
+        /// </summary>
+        /// <returns>The await-able result of the asynchronous operation</returns>
+        public async ValueTask DisposeAsync() => await Task.Run(() => _nhlPlayerApi?.Dispose());
     }
 }

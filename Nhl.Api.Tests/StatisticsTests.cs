@@ -19,7 +19,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetStatisticsTypesAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var statisticsTypes = await nhlApi.GetStatisticTypesAsync();
@@ -39,7 +39,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetTeamStatisticByIdAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(10, null);
@@ -105,7 +105,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetTeamStatisticByIdEnumAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(TeamEnum.ArizonaCoyotes, null);
@@ -171,7 +171,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetTeamStatisticByIdWithSeasonYearAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(10, SeasonYear.season19171918);
@@ -237,7 +237,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetTeamStatisticByIdWithEnumAndSeasonYearAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(TeamEnum.CalgaryFlames, SeasonYear.season20052006);
@@ -302,7 +302,7 @@ namespace Nhl.Api.Tests
         [TestMethod]
         public async Task TestGetPlayerByStatisticTypeBySeasonAsync()
         {
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             var enumValues = Enum.GetValues(typeof(PlayerStatisticEnum)) as PlayerStatisticEnum[];
 
@@ -337,7 +337,7 @@ namespace Nhl.Api.Tests
         [TestMethod]
         public async Task TestGetGoalieByStatisticTypeBySeasonAsync()
         {
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             var enumValues = Enum.GetValues(typeof(GoalieStatisticEnum)) as GoalieStatisticEnum[];
 
@@ -370,7 +370,7 @@ namespace Nhl.Api.Tests
         [TestMethod]
         public async Task TestGetPlayersByStatisticTypeBySeasonAsync()
         {
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             var enumValues = Enum.GetValues(typeof(PlayerStatisticEnum)) as PlayerStatisticEnum[];
 
@@ -409,7 +409,7 @@ namespace Nhl.Api.Tests
         [TestMethod]
         public async Task TestGetPlayersByStatisticTypeBySeasonAscendingAsync()
         {
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             var enumValues = Enum.GetValues(typeof(PlayerStatisticEnum)) as PlayerStatisticEnum[];
 
@@ -448,7 +448,7 @@ namespace Nhl.Api.Tests
         [TestMethod]
         public async Task TestGetGoaliesWithTopStatisticBySeasonAsync()
         {
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             var enumValues = Enum.GetValues(typeof(GoalieStatisticEnum)) as GoalieStatisticEnum[];
 

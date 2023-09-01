@@ -143,7 +143,7 @@ namespace Nhl.Api.Models.Team
         public Streak Streak { get; set; }
 
         /// <summary>
-        /// The NHL clich indicator for the NHL team <br/>
+        /// The NHL clinch indicator for the NHL team <br/>
         /// Example: p
         /// </summary>
         [JsonProperty("clinchIndicator")]
@@ -178,7 +178,7 @@ namespace Nhl.Api.Models.Team
         public string PpLeagueRank { get; set; }
 
         /// <summary>
-        /// The timestamp for the last updated information
+        /// The time stamp for the last updated information
         /// </summary>
         [JsonProperty("lastUpdated")]
         public DateTime LastUpdated { get; set; }

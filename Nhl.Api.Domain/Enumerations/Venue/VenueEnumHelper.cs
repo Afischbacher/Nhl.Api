@@ -13,11 +13,12 @@ namespace Nhl.Api.Models.Enumerations.Team
         /// A method for retrieving all current NHL venues
         /// </summary>
         /// <returns>Returns a collection of NHL venues</returns>
-        public static List<LeagueVenue> GetAllVenues()
+        public static IReadOnlyList<LeagueVenue> GetAllVenues()
         {
             var nhlStatsApiHttpClient = new Api.Common.Http.NhlStatsApiHttpClient();
             var nhlVenues = new List<LeagueVenue>();
 
+            // No venue identifier for the Climate Pledge Arena for the Seattle Kraken
             var nhlVenueIds = new[]
             {
                 5034,
@@ -59,7 +60,7 @@ namespace Nhl.Api.Models.Enumerations.Team
                 nhlVenues.Add(nhlStatsApiHttpClient.GetAsync<LeagueVenues>($"/venues/{nhlVenueId}").Result.Venues.FirstOrDefault());
             }
 
-            return nhlVenues.Where(v => v != null).ToList();
+            return nhlVenues.Where(venue => venue != null).ToList();
         }
     }
 }

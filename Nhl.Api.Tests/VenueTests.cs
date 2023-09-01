@@ -11,7 +11,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetAllVenuesAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var leagueVenues = await nhlApi.GetLeagueVenuesAsync();
@@ -32,7 +32,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetLeagueVenueByIdAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var leagueVenue = await nhlApi.GetLeagueVenueByIdAsync(5058);
@@ -50,7 +50,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetLeagueVenueByIdEnumAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var leagueVenue = await nhlApi.GetLeagueVenueByIdAsync(VenueEnum.BridgestoneArena);

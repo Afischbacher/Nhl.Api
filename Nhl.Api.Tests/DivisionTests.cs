@@ -13,7 +13,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetAllDivisionsAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act 
             var divisions = await nhlApi.GetDivisionsAsync();
@@ -36,7 +36,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetDivisionByIdAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act 
             var division = await nhlApi.GetDivisionByIdAsync(17);
@@ -54,7 +54,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetDivisionByIdEnumAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act 
             var division = await nhlApi.GetDivisionByIdAsync(DivisionEnum.Metropolitan);
@@ -72,7 +72,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetDivisionWithInvalidIdAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act 
             var division = await nhlApi.GetDivisionByIdAsync(999);

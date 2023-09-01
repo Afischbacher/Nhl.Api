@@ -19,7 +19,7 @@ namespace Nhl.Api.Models.Enumerations.Player
         /// Retrieves all NHL players to have player in the NHL
         /// </summary>
         /// <returns>A dictionary of players names and their identifiers for every NHL player to ever play</returns>
-        public static Dictionary<string, int> GetAllPlayers()
+        public static Dictionary<int, string> GetAllPlayers()
         {
             var nhlStatsApiHttpClient = new Api.Common.Http.NhlStatsApiHttpClient();
             var players = new ConcurrentBag<Models.Player.Player>();
@@ -28,7 +28,7 @@ namespace Nhl.Api.Models.Enumerations.Player
                 .GetEnumValues()
                 .Cast<object>();
 
-            var internalPlayerEnumValuesDictionary = internalPlayerEnumValues.ToDictionary(key => key.ToString(), value => (int)value);
+            var internalPlayerEnumValuesDictionary = internalPlayerEnumValues.ToDictionary(key => (int)key, value => value.ToString());
             var lastEnumValue = (int)internalPlayerEnumValues.OrderBy(c => c).Last();
 
 
@@ -52,7 +52,7 @@ namespace Nhl.Api.Models.Enumerations.Player
             {
                 try
                 {
-                    internalPlayerEnumValuesDictionary.Add($"{Regex.Replace(newPlayer.FullName, @"('|\.|\s|-|_|&|)", "")}{newPlayer.Id}", newPlayer.Id);
+                    internalPlayerEnumValuesDictionary.Add(newPlayer.Id, $"{Regex.Replace(newPlayer.FullName, @"('|\.|\s|-|_|&|)", "")}{newPlayer.Id}");
                 }
                 catch
                 {

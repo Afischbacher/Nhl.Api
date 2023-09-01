@@ -12,7 +12,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetConferencesAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act 
             var conferences = await nhlApi.GetConferencesAsync();
@@ -36,7 +36,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetConferenceByIdAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act 
             var conference = await nhlApi.GetConferenceByIdAsync(6);
@@ -54,7 +54,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetConferenceByIdEnumAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act 
             var conference = await nhlApi.GetConferenceByIdAsync(ConferenceEnum.Western);
@@ -72,7 +72,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetConferenceWithInvalidIdAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act 
             var conference = await nhlApi.GetConferenceByIdAsync(999);

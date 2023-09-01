@@ -12,7 +12,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetLeagueStandingTypesAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var leagueStandingTypes = await nhlApi.GetLeagueStandingTypesAsync();
@@ -32,7 +32,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetSeasonBySeasonYearAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var season = await nhlApi.GetSeasonByYearAsync(SeasonYear.season20192020);
@@ -55,7 +55,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetCurrentSeasonAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var season = await nhlApi.GetCurrentSeasonAsync();
@@ -77,7 +77,7 @@ namespace Nhl.Api.Tests
         public async Task TestGetAllSeasonsAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var seasons = await nhlApi.GetSeasonsAsync();
@@ -102,7 +102,7 @@ namespace Nhl.Api.Tests
         public async Task TestIsSeasonActiveAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var isSeasonActive = await nhlApi.IsSeasonActiveAsync();
@@ -115,7 +115,7 @@ namespace Nhl.Api.Tests
         public async Task TestIsRegularSeasonActiveAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var isSeasonActive = await nhlApi.IsRegularSeasonActiveAsync();
@@ -128,7 +128,7 @@ namespace Nhl.Api.Tests
         public async Task TestIsPlayoffSeasonActiveAsync()
         {
             // Arrange
-            using INhlApi nhlApi = new NhlApi();
+            await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var isSeasonActive = await nhlApi.IsPlayoffsActiveAsync();
