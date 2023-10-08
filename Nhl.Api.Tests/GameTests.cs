@@ -1134,6 +1134,90 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(item.Blurb);
                 Assert.IsNotNull(item.AuthFlow);
                 Assert.IsNotNull(item.Image);
+
+                if (item.Image.Cuts._372x210 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._372x210.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._372x210.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._372x210.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._372x210.Height);
+                    Assert.IsNotNull(item.Image.Cuts._372x210.Width);
+                    Assert.IsNotNull(item.Image.Cuts._372x210.Src); 
+                }
+
+                if (item.Image.Cuts._320x180 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._320x180.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._320x180.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._320x180.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._320x180.Height);
+                    Assert.IsNotNull(item.Image.Cuts._320x180.Width);
+                    Assert.IsNotNull(item.Image.Cuts._320x180.Src);
+                }
+
+                if (item.Image.Cuts._768x432 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._768x432.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._768x432.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._768x432.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._768x432.Height);
+                    Assert.IsNotNull(item.Image.Cuts._768x432.Width);
+                    Assert.IsNotNull(item.Image.Cuts._768x432.Src);
+                }
+
+                if (item.Image.Cuts._960x540 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._960x540.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._960x540.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._960x540.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._960x540.Height);
+                    Assert.IsNotNull(item.Image.Cuts._960x540.Width);
+                    Assert.IsNotNull(item.Image.Cuts._960x540.Src);
+                }
+
+                if (item.Image.Cuts._1024x576 != null)
+                {
+
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.Height);
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.Width);
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.Src); 
+                }
+
+                if (item.Image.Cuts._1200x630 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.Height);
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.Width);
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.Src); 
+                }
+
+                if (item.Image.Cuts._1202x670 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.Height);
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.Width);
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.Src); 
+                }
+
+                if (item.Image.Cuts._2208x1242 != null)
+                {
+
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.Height);
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.Width);
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.Src); 
+                }
+
+
                 Assert.IsNotNull(item.MediaState);
                 Assert.IsNotNull(item.MediaPlaybackId);
                 Assert.IsNotNull(item.Playbacks);
