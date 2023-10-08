@@ -398,8 +398,9 @@ namespace Nhl.Api
         /// Returns any active or inactive NHL players based on the search query provided
         /// </summary>
         /// <param name="query">A search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
+        /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
         /// <returns>A collection of all NHL players based on the search query provided</returns>
-        public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query)
+        public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25)
         {
             return await _nhlPlayerApi.SearchAllPlayersAsync(query);
         }
@@ -417,11 +418,11 @@ namespace Nhl.Api
         /// Returns only active NHL players based on the search query provided
         /// </summary>
         /// <param name="query">A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" </param>
+        /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
         /// <returns>A collection of all NHL players based on the search query provided</returns>
-        public async Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query)
+        public async Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25)
         {
             return await _nhlPlayerApi.SearchAllActivePlayersAsync(query);
-
         }
 
         /// <summary>

@@ -38,6 +38,10 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute
                 {
                     throw result.First(r => r.TestFailureException != null).TestFailureException;
                 }
+                else 
+                {
+                    return result;
+                }
             }
             catch (Exception) when (count > 0)
             {

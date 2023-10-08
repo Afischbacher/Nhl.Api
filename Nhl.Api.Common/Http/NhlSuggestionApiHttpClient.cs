@@ -14,7 +14,7 @@ namespace Nhl.Api.Common.Http
         /// <summary>
         /// The NHL HTTP API endpoint for the NHL suggestion API
         /// </summary>
-        public const string ClientApiUrl = "https://suggest.svc.nhl.com/svc/suggest/";
+        public const string ClientApiUrl = "https://search.d3.nhle.com/api/";
 
         /// <summary>
         /// The dedicated NHL HTTP Client for the NHL suggestion API

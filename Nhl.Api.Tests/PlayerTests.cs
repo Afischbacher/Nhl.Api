@@ -826,10 +826,10 @@ namespace Nhl.Api.Tests
 
 
         [TestMethodWithRetry(RetryCount = 5)]
-        [DataRow("Wayne Gretzky")]
-        [DataRow("Alex Ovechkin")]
-        [DataRow("Connor McDavid")]
-        public async Task TestSearchAllPlayersAsync(string query)
+        [DataRow("Wayne Gretzky", 99)]
+        [DataRow("Alex Ovechkin", 8)]
+        [DataRow("Connor McDavid", 97)]
+        public async Task TestSearchAllPlayersAsync(string query, int numberOfPlayer)
         {
             // Arrange
             await using INhlApi nhlApi = new NhlApi();
@@ -841,7 +841,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(results);
             CollectionAssert.AllItemsAreNotNull(results);
 
-            var playerSearchResult = results.First();
+            var playerSearchResult = results.First(r => r.PlayerNumber == numberOfPlayer);
 
             switch (query)
             {
@@ -849,12 +849,11 @@ namespace Nhl.Api.Tests
                     Assert.AreEqual("Brantford", playerSearchResult.BirthCity);
                     Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
                     Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
-                    Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
-                    Assert.AreEqual(DateTime.Parse("1961-01-26"), playerSearchResult.BirthDate);
+                    Assert.AreEqual("Ontario", playerSearchResult.BirthProvinceState);
                     Assert.AreEqual("Wayne", playerSearchResult.FirstName);
                     Assert.AreEqual("Gretzky", playerSearchResult.LastName);
-                    Assert.AreEqual("NYR", playerSearchResult.LastTeamOfPlay);
-                    Assert.AreEqual("6\u0027 0\"", playerSearchResult.Height);
+                    Assert.AreEqual("NYR", playerSearchResult.LastTeamAbbreviation);
+                    Assert.AreEqual("6\u00270\"", playerSearchResult.Height);
                     Assert.AreEqual(false, playerSearchResult.IsActive);
                     Assert.AreEqual(99, playerSearchResult.PlayerNumber);
                     break;
@@ -863,13 +862,12 @@ namespace Nhl.Api.Tests
                     Assert.AreEqual("Moscow", playerSearchResult.BirthCity);
                     Assert.AreEqual("RUS", playerSearchResult.BirthCountry);
                     Assert.AreEqual("Russian Federation", playerSearchResult.FullBirthCountry);
-                    Assert.AreEqual("", playerSearchResult.BirthProvinceState);
-                    Assert.AreEqual(DateTime.Parse("1985-09-17"), playerSearchResult.BirthDate);
+                    Assert.AreEqual(null, playerSearchResult.BirthProvinceState);
                     Assert.AreEqual("Alex", playerSearchResult.FirstName);
                     Assert.AreEqual("Ovechkin", playerSearchResult.LastName);
                     Assert.AreEqual(true, playerSearchResult.IsActive);
-                    Assert.AreEqual("WSH", playerSearchResult.LastTeamOfPlay);
-                    Assert.AreEqual("6\u0027 3\"", playerSearchResult.Height);
+                    Assert.AreEqual("WSH", playerSearchResult.LastTeamAbbreviation);
+                    Assert.AreEqual("6\u00273\"", playerSearchResult.Height);
                     Assert.AreEqual(8, playerSearchResult.PlayerNumber);
                     break;
 
@@ -877,13 +875,12 @@ namespace Nhl.Api.Tests
                     Assert.AreEqual("Richmond Hill", playerSearchResult.BirthCity);
                     Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
                     Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
-                    Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
-                    Assert.AreEqual(DateTime.Parse("1997-01-13"), playerSearchResult.BirthDate);
+                    Assert.AreEqual("Ontario", playerSearchResult.BirthProvinceState);
                     Assert.AreEqual("Connor", playerSearchResult.FirstName);
                     Assert.AreEqual("McDavid", playerSearchResult.LastName);
                     Assert.AreEqual(true, playerSearchResult.IsActive);
-                    Assert.AreEqual("EDM", playerSearchResult.LastTeamOfPlay);
-                    Assert.AreEqual("6\u0027 1\"", playerSearchResult.Height);
+                    Assert.AreEqual("EDM", playerSearchResult.LastTeamAbbreviation);
+                    Assert.AreEqual("6\u00271\"", playerSearchResult.Height);
                     Assert.AreEqual(97, playerSearchResult.PlayerNumber);
                     break;
             }
@@ -917,11 +914,10 @@ namespace Nhl.Api.Tests
                     Assert.AreEqual("CZE", playerSearchResult.BirthCountry);
                     Assert.AreEqual("Czech Republic", playerSearchResult.FullBirthCountry);
                     Assert.AreEqual("", playerSearchResult.BirthProvinceState);
-                    Assert.AreEqual(DateTime.Parse("1996-05-25"), playerSearchResult.BirthDate);
                     Assert.AreEqual("David", playerSearchResult.FirstName);
                     Assert.AreEqual("Pastrnak", playerSearchResult.LastName);
-                    Assert.AreEqual("BOS", playerSearchResult.LastTeamOfPlay);
-                    Assert.AreEqual("6\u0027 0\"", playerSearchResult.Height);
+                    Assert.AreEqual("BOS", playerSearchResult.TeamAbbreviation);
+                    Assert.AreEqual("6\u00270\"", playerSearchResult.Height);
                     Assert.AreEqual(true, playerSearchResult.IsActive);
                     Assert.AreEqual(88, playerSearchResult.PlayerNumber);
                     break;
@@ -930,13 +926,12 @@ namespace Nhl.Api.Tests
                     Assert.AreEqual("Sherwood Park", playerSearchResult.BirthCity);
                     Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
                     Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
-                    Assert.AreEqual("AB", playerSearchResult.BirthProvinceState);
-                    Assert.AreEqual(DateTime.Parse("1998-08-13"), playerSearchResult.BirthDate);
+                    Assert.AreEqual("Alberta", playerSearchResult.BirthProvinceState);
                     Assert.AreEqual("Carter", playerSearchResult.FirstName);
                     Assert.AreEqual("Hart", playerSearchResult.LastName);
                     Assert.AreEqual(true, playerSearchResult.IsActive);
-                    Assert.AreEqual("PHI", playerSearchResult.LastTeamOfPlay);
-                    Assert.AreEqual("6\u0027 2\"", playerSearchResult.Height);
+                    Assert.AreEqual("PHI", playerSearchResult.TeamAbbreviation);
+                    Assert.AreEqual("6\u00272\"", playerSearchResult.Height);
                     Assert.AreEqual(79, playerSearchResult.PlayerNumber);
                     break;
 
@@ -944,13 +939,12 @@ namespace Nhl.Api.Tests
                     Assert.AreEqual("Richmond Hill", playerSearchResult.BirthCity);
                     Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
                     Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
-                    Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
-                    Assert.AreEqual(DateTime.Parse("1997-01-13"), playerSearchResult.BirthDate);
+                    Assert.AreEqual("Ontario", playerSearchResult.BirthProvinceState);
                     Assert.AreEqual("Connor", playerSearchResult.FirstName);
                     Assert.AreEqual("McDavid", playerSearchResult.LastName);
                     Assert.AreEqual(true, playerSearchResult.IsActive);
-                    Assert.AreEqual("EDM", playerSearchResult.LastTeamOfPlay);
-                    Assert.AreEqual("6\u0027 1\"", playerSearchResult.Height);
+                    Assert.AreEqual("EDM", playerSearchResult.TeamAbbreviation);
+                    Assert.AreEqual("6\u00271\"", playerSearchResult.Height);
                     Assert.AreEqual(97, playerSearchResult.PlayerNumber);
                     break;
 
@@ -958,13 +952,12 @@ namespace Nhl.Api.Tests
                     Assert.AreEqual("Herning", playerSearchResult.BirthCity);
                     Assert.AreEqual("DNK", playerSearchResult.BirthCountry);
                     Assert.AreEqual("Denmark", playerSearchResult.FullBirthCountry);
-                    Assert.AreEqual("", playerSearchResult.BirthProvinceState);
-                    Assert.AreEqual(DateTime.Parse("1989-10-02"), playerSearchResult.BirthDate);
+                    Assert.AreEqual(null, playerSearchResult.BirthProvinceState);
                     Assert.AreEqual("Frederik", playerSearchResult.FirstName);
                     Assert.AreEqual("Andersen", playerSearchResult.LastName);
                     Assert.AreEqual(true, playerSearchResult.IsActive);
-                    Assert.AreEqual("CAR", playerSearchResult.LastTeamOfPlay);
-                    Assert.AreEqual("6\u0027 4\"", playerSearchResult.Height);
+                    Assert.AreEqual("CAR", playerSearchResult.TeamAbbreviation);
+                    Assert.AreEqual("6\u00274\"", playerSearchResult.Height);
                     Assert.AreEqual(31, playerSearchResult.PlayerNumber);
                     break;
             }
