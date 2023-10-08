@@ -95,10 +95,12 @@ included automatically within your .NET Core project.
 
 Once registered using your dependency injection library of choice or just using the simple instance of the NHL API. Explore the API and see the all the possibilities.
 
+
 ### Contents
 - [NhlApi](#T-Nhl-Api-NhlApi 'Nhl.Api.NhlApi')
   - [#ctor()](#M-Nhl-Api-NhlApi-#ctor 'Nhl.Api.NhlApi.#ctor')
   - [Dispose()](#M-Nhl-Api-NhlApi-Dispose 'Nhl.Api.NhlApi.Dispose')
+  - [DisposeAsync()](#M-Nhl-Api-NhlApi-DisposeAsync 'Nhl.Api.NhlApi.DisposeAsync')
   - [GetActiveFranchisesAsync()](#M-Nhl-Api-NhlApi-GetActiveFranchisesAsync 'Nhl.Api.NhlApi.GetActiveFranchisesAsync')
   - [GetActiveTeamsAsync()](#M-Nhl-Api-NhlApi-GetActiveTeamsAsync 'Nhl.Api.NhlApi.GetActiveTeamsAsync')
   - [GetAllPlayersAsAsyncEnumerable()](#M-Nhl-Api-NhlApi-GetAllPlayersAsAsyncEnumerable 'Nhl.Api.NhlApi.GetAllPlayersAsAsyncEnumerable')
@@ -195,8 +197,8 @@ Once registered using your dependency injection library of choice or just using 
   - [IsPlayoffsActiveAsync()](#M-Nhl-Api-NhlApi-IsPlayoffsActiveAsync 'Nhl.Api.NhlApi.IsPlayoffsActiveAsync')
   - [IsRegularSeasonActiveAsync()](#M-Nhl-Api-NhlApi-IsRegularSeasonActiveAsync 'Nhl.Api.NhlApi.IsRegularSeasonActiveAsync')
   - [IsSeasonActiveAsync()](#M-Nhl-Api-NhlApi-IsSeasonActiveAsync 'Nhl.Api.NhlApi.IsSeasonActiveAsync')
-  - [SearchAllActivePlayersAsync(query)](#M-Nhl-Api-NhlApi-SearchAllActivePlayersAsync-System-String- 'Nhl.Api.NhlApi.SearchAllActivePlayersAsync(System.String)')
-  - [SearchAllPlayersAsync(query)](#M-Nhl-Api-NhlApi-SearchAllPlayersAsync-System-String- 'Nhl.Api.NhlApi.SearchAllPlayersAsync(System.String)')
+  - [SearchAllActivePlayersAsync(query,limit)](#M-Nhl-Api-NhlApi-SearchAllActivePlayersAsync-System-String,System-Int32- 'Nhl.Api.NhlApi.SearchAllActivePlayersAsync(System.String,System.Int32)')
+  - [SearchAllPlayersAsync(query,limit)](#M-Nhl-Api-NhlApi-SearchAllPlayersAsync-System-String,System-Int32- 'Nhl.Api.NhlApi.SearchAllPlayersAsync(System.String,System.Int32)')
   - [SearchLeagueTeamRosterMembersAsync(query)](#M-Nhl-Api-NhlApi-SearchLeagueTeamRosterMembersAsync-System-String- 'Nhl.Api.NhlApi.SearchLeagueTeamRosterMembersAsync(System.String)')
 - [NhlGameApi](#T-Nhl-Api-NhlGameApi 'Nhl.Api.NhlGameApi')
   - [#ctor()](#M-Nhl-Api-NhlGameApi-#ctor 'Nhl.Api.NhlGameApi.#ctor')
@@ -277,8 +279,8 @@ Once registered using your dependency injection library of choice or just using 
   - [GetPlayerHeadshotImageAsync(playerId,playerHeadshotImageSize)](#M-Nhl-Api-NhlPlayerApi-GetPlayerHeadshotImageAsync-System-Int32,Nhl-Api-Models-Enumerations-Player-PlayerHeadshotImageSize- 'Nhl.Api.NhlPlayerApi.GetPlayerHeadshotImageAsync(System.Int32,Nhl.Api.Models.Enumerations.Player.PlayerHeadshotImageSize)')
   - [GetPlayersByIdAsync(playerIds)](#M-Nhl-Api-NhlPlayerApi-GetPlayersByIdAsync-System-Collections-Generic-IEnumerable{System-Int32}- 'Nhl.Api.NhlPlayerApi.GetPlayersByIdAsync(System.Collections.Generic.IEnumerable{System.Int32})')
   - [GetPlayersByIdAsync(players)](#M-Nhl-Api-NhlPlayerApi-GetPlayersByIdAsync-System-Collections-Generic-IEnumerable{Nhl-Api-Models-Enumerations-Player-PlayerEnum}- 'Nhl.Api.NhlPlayerApi.GetPlayersByIdAsync(System.Collections.Generic.IEnumerable{Nhl.Api.Models.Enumerations.Player.PlayerEnum})')
-  - [SearchAllActivePlayersAsync(query)](#M-Nhl-Api-NhlPlayerApi-SearchAllActivePlayersAsync-System-String- 'Nhl.Api.NhlPlayerApi.SearchAllActivePlayersAsync(System.String)')
-  - [SearchAllPlayersAsync(query)](#M-Nhl-Api-NhlPlayerApi-SearchAllPlayersAsync-System-String- 'Nhl.Api.NhlPlayerApi.SearchAllPlayersAsync(System.String)')
+  - [SearchAllActivePlayersAsync(query,limit)](#M-Nhl-Api-NhlPlayerApi-SearchAllActivePlayersAsync-System-String,System-Int32- 'Nhl.Api.NhlPlayerApi.SearchAllActivePlayersAsync(System.String,System.Int32)')
+  - [SearchAllPlayersAsync(query,limit)](#M-Nhl-Api-NhlPlayerApi-SearchAllPlayersAsync-System-String,System-Int32- 'Nhl.Api.NhlPlayerApi.SearchAllPlayersAsync(System.String,System.Int32)')
   - [SearchLeagueTeamRosterMembersAsync(query)](#M-Nhl-Api-NhlPlayerApi-SearchLeagueTeamRosterMembersAsync-System-String- 'Nhl.Api.NhlPlayerApi.SearchLeagueTeamRosterMembersAsync(System.String)')
 - [NhlStatisticsApi](#T-Nhl-Api-NhlStatisticsApi 'Nhl.Api.NhlStatisticsApi')
   - [#ctor()](#M-Nhl-Api-NhlStatisticsApi-#ctor 'Nhl.Api.NhlStatisticsApi.#ctor')
@@ -336,6 +338,21 @@ This constructor has no parameters.
 ##### Summary
 
 Releases and disposes all unused or garbage collected resources for the Nhl.Api
+
+##### Parameters
+
+This method has no parameters.
+
+<a name='M-Nhl-Api-NhlApi-DisposeAsync'></a>
+### DisposeAsync() `method`
+
+##### Summary
+
+Releases and disposes all unused or garbage collected resources for the Nhl.Api asynchronously
+
+##### Returns
+
+The await-able result of the asynchronous operation
 
 ##### Parameters
 
@@ -1959,8 +1976,8 @@ A result if the current NHL season is active (true) or inactive (false)
 
 This method has no parameters.
 
-<a name='M-Nhl-Api-NhlApi-SearchAllActivePlayersAsync-System-String-'></a>
-### SearchAllActivePlayersAsync(query) `method`
+<a name='M-Nhl-Api-NhlApi-SearchAllActivePlayersAsync-System-String,System-Int32-'></a>
+### SearchAllActivePlayersAsync(query,limit) `method`
 
 ##### Summary
 
@@ -1975,9 +1992,10 @@ A collection of all NHL players based on the search query provided
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" |
+| limit | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | A parameter to limit the number of search results returned when searching for a player |
 
-<a name='M-Nhl-Api-NhlApi-SearchAllPlayersAsync-System-String-'></a>
-### SearchAllPlayersAsync(query) `method`
+<a name='M-Nhl-Api-NhlApi-SearchAllPlayersAsync-System-String,System-Int32-'></a>
+### SearchAllPlayersAsync(query,limit) `method`
 
 ##### Summary
 
@@ -1992,6 +2010,7 @@ A collection of all NHL players based on the search query provided
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" |
+| limit | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | A parameter to limit the number of search results returned when searching for a player |
 
 <a name='M-Nhl-Api-NhlApi-SearchLeagueTeamRosterMembersAsync-System-String-'></a>
 ### SearchLeagueTeamRosterMembersAsync(query) `method`
@@ -3283,8 +3302,8 @@ An NHL player profile, see [Player](#T-Nhl-Api-Models-Player-Player 'Nhl.Api.Mod
 | ---- | ---- | ----------- |
 | players | [System.Collections.Generic.IEnumerable{Nhl.Api.Models.Enumerations.Player.PlayerEnum}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.IEnumerable 'System.Collections.Generic.IEnumerable{Nhl.Api.Models.Enumerations.Player.PlayerEnum}') | A collection of NHL player identifiers, Example: 8478402 - Connor McDavid, see [PlayerEnum](#T-Nhl-Api-Models-Enumerations-Player-PlayerEnum 'Nhl.Api.Models.Enumerations.Player.PlayerEnum') for more information on NHL players |
 
-<a name='M-Nhl-Api-NhlPlayerApi-SearchAllActivePlayersAsync-System-String-'></a>
-### SearchAllActivePlayersAsync(query) `method`
+<a name='M-Nhl-Api-NhlPlayerApi-SearchAllActivePlayersAsync-System-String,System-Int32-'></a>
+### SearchAllActivePlayersAsync(query,limit) `method`
 
 ##### Summary
 
@@ -3299,9 +3318,10 @@ A collection of all NHL players based on the search query provided
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" |
+| limit | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | A parameter to limit the number of search results returned when searching for a player |
 
-<a name='M-Nhl-Api-NhlPlayerApi-SearchAllPlayersAsync-System-String-'></a>
-### SearchAllPlayersAsync(query) `method`
+<a name='M-Nhl-Api-NhlPlayerApi-SearchAllPlayersAsync-System-String,System-Int32-'></a>
+### SearchAllPlayersAsync(query,limit) `method`
 
 ##### Summary
 
@@ -3316,6 +3336,7 @@ A collection of all NHL players based on the search query provided
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | query | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | A search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" |
+| limit | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | A parameter to limit the number of search results returned when searching for a player |
 
 <a name='M-Nhl-Api-NhlPlayerApi-SearchLeagueTeamRosterMembersAsync-System-String-'></a>
 ### SearchLeagueTeamRosterMembersAsync(query) `method`
