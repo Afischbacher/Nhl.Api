@@ -1,4 +1,5 @@
-﻿using Nhl.Api.Common.Http;
+﻿using Newtonsoft.Json;
+using Nhl.Api.Common.Http;
 using Nhl.Api.Common.Services;
 using Nhl.Api.Models.Draft;
 using Nhl.Api.Models.Enumerations.Player;
@@ -78,7 +79,7 @@ namespace Nhl.Api
             await _cachingService.TryAddUpdateAsync(nameof(GetAllPlayersAsync), players);
 
             // Return all known NHL players
-            return players;
+            return players.Distinct().ToList();
 
         }
 
@@ -247,100 +248,32 @@ namespace Nhl.Api
         /// Returns any active or inactive NHL players based on the search query provided
         /// </summary>
         /// <param name="query">A search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
+        /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
         /// <returns>A collection of all NHL players based on the search query provided</returns>
-        public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query)
+        public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25)
         {
             if (string.IsNullOrWhiteSpace(query))
             {
                 return new List<PlayerSearchResult>();
             }
 
-            var playerSearchResults = new List<PlayerSearchResult>();
-            var rawPlayerSearchResults = await _nhlSuggestionApiHttpClient.GetAsync<PlayerSearchResponse>($"/minplayers/{query}");
-            foreach (var rawPlayerSearchResult in rawPlayerSearchResults.Suggestions)
-            {
-                try
-                {
-                    var playerDataPoints = rawPlayerSearchResult.Split('|');
-
-                    if (playerDataPoints.Count() < 15)
-                    {
-                        continue;
-                    }
-
-                    playerSearchResults.Add(new PlayerSearchResult
-                    {
-                        PlayerId = int.Parse(playerDataPoints[0]),
-                        LastName = playerDataPoints[1],
-                        FirstName = playerDataPoints[2],
-                        IsActive = int.Parse(playerDataPoints[3]) == 1,
-                        Height = playerDataPoints[5],
-                        Weight = playerDataPoints[6],
-                        BirthCity = playerDataPoints[7],
-                        BirthProvinceState = playerDataPoints[8],
-                        BirthCountry = playerDataPoints[9],
-                        BirthDate = DateTime.Parse(playerDataPoints[10]),
-                        LastTeamOfPlay = playerDataPoints[11],
-                        Position = playerDataPoints[12],
-                        PlayerNumber = int.Parse(playerDataPoints[13]),
-                    });
-                }
-                catch
-                {
-                }
-            }
-
-            return playerSearchResults;
+            return await _nhlSuggestionApiHttpClient.GetAsync<List<PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&limit={limit}");
         }
 
         /// <summary>
         /// Returns only active NHL players based on the search query provided
         /// </summary>
         /// <param name="query">A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" </param>
+        /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
         /// <returns>A collection of all NHL players based on the search query provided</returns>
-        public async Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query)
+        public async Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25)
         {
             if (string.IsNullOrWhiteSpace(query))
             {
                 return new List<PlayerSearchResult>();
             }
 
-            var playerSearchResults = new List<PlayerSearchResult>();
-            var rawPlayerSearchResults = await _nhlSuggestionApiHttpClient.GetAsync<PlayerSearchResponse>($"/minactiveplayers/{query}");
-            foreach (var rawPlayerSearchResult in rawPlayerSearchResults.Suggestions)
-            {
-                try
-                {
-                    var playerDataPoints = rawPlayerSearchResult.Split('|');
-
-                    if (playerDataPoints.Count() < 15)
-                    {
-                        continue;
-                    }
-
-                    playerSearchResults.Add(new PlayerSearchResult
-                    {
-                        PlayerId = int.Parse(playerDataPoints[0]),
-                        LastName = playerDataPoints[1],
-                        FirstName = playerDataPoints[2],
-                        IsActive = int.Parse(playerDataPoints[3]) == 1,
-                        Height = playerDataPoints[5],
-                        Weight = playerDataPoints[6],
-                        BirthCity = playerDataPoints[7],
-                        BirthProvinceState = playerDataPoints[8],
-                        BirthCountry = playerDataPoints[9],
-                        BirthDate = DateTime.Parse(playerDataPoints[10]),
-                        LastTeamOfPlay = playerDataPoints[11],
-                        Position = playerDataPoints[12],
-                        PlayerNumber = int.Parse(playerDataPoints[13]),
-                    });
-                }
-                catch
-                {
-                }
-            }
-
-            return playerSearchResults;
+            return await _nhlSuggestionApiHttpClient.GetAsync<List<PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&active=true&limit={limit}");
         }
 
         /// <summary>

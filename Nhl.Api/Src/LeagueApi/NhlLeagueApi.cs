@@ -375,7 +375,7 @@ namespace Nhl.Api
         /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
         public async Task<TeamLogo> GetTeamLogoAsync(TeamEnum team, TeamLogoType teamLogoType = TeamLogoType.Light)
         {
-            var endpoint = $"images/logos/teams-current-primary-{teamLogoType.ToString().ToLower()}/{(int)team}.svg";
+            var endpoint = $"logos/nhl/svg/{GetTeamCodeIdentfier((int)team)}_{GetTeamLogoColorIdentfier(teamLogoType)}.svg";
             var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint);
 
             return new TeamLogo
@@ -394,7 +394,7 @@ namespace Nhl.Api
         /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
         public async Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light)
         {
-            var endpoint = $"images/logos/teams-current-primary-{teamLogoType.ToString().ToLower()}/{teamId}.svg";
+            var endpoint = $"logos/nhl/svg/{GetTeamCodeIdentfier(teamId)}_{GetTeamLogoColorIdentfier(teamLogoType)}.svg";
             var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint);
 
             return new TeamLogo
@@ -765,5 +765,50 @@ namespace Nhl.Api
 
             return await GetTeamColorsAsync(teamEnum);
         }
+
+
+        private static string GetTeamLogoColorIdentfier(TeamLogoType teamLogoType) =>teamLogoType switch
+        {
+            TeamLogoType.Dark => "dark",
+            TeamLogoType.Light => "light",
+            _ => null
+        };
+
+        private static string GetTeamCodeIdentfier(int team) => team switch
+        {
+            (int)TeamEnum.AnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
+            (int)TeamEnum.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
+            (int)TeamEnum.BostonBruins => TeamCodes.BostonBruins,
+            (int)TeamEnum.BuffaloSabres => TeamCodes.BuffaloSabres,
+            (int)TeamEnum.CalgaryFlames => TeamCodes.CalgaryFlames,
+            (int)TeamEnum.CarolinaHurricanes => TeamCodes.CarolinaHurricanes,
+            (int)TeamEnum.ChicagoBlackhawks => TeamCodes.ChicagoBlackHawksBlackhawks,
+            (int)TeamEnum.ColoradoAvalanche => TeamCodes.ColoradoAvalanche,
+            (int)TeamEnum.ColumbusBlueJackets => TeamCodes.ColumbusBlueJackets,
+            (int)TeamEnum.DallasStars => TeamCodes.DallasStars,
+            (int)TeamEnum.DetroitRedWings => TeamCodes.DetroitRedWings,
+            (int)TeamEnum.EdmontonOilers => TeamCodes.EdmontonOilers,
+            (int)TeamEnum.FloridaPanthers => TeamCodes.FloridaPanthers,
+            (int)TeamEnum.LosAngelesKings => TeamCodes.LosAngelesKings,
+            (int)TeamEnum.MinnesotaWild => TeamCodes.MinnesotaWild,
+            (int)TeamEnum.MontrealCanadiens => TeamCodes.MontrealCanadiens,
+            (int)TeamEnum.NashvillePredators => TeamCodes.NashvillePredators,
+            (int)TeamEnum.NewJerseyDevils => TeamCodes.NewJerseyDevils,
+            (int)TeamEnum.NewYorkIslanders => TeamCodes.NewYorkIslanders,
+            (int)TeamEnum.NewYorkRangers => TeamCodes.NewYorkRangers,
+            (int)TeamEnum.OttawaSenators => TeamCodes.OttawaSenators,
+            (int)TeamEnum.PhiladelphiaFlyers => TeamCodes.PhiladelphiaFlyers,
+            (int)TeamEnum.PittsburghPenguins => TeamCodes.PittsburghPenguins,
+            (int)TeamEnum.SanJoseSharks => TeamCodes.SanJoseSharks,
+            (int)TeamEnum.SeattleKraken => TeamCodes.SeattleKraken,
+            (int)TeamEnum.StLouisBlues => TeamCodes.StLouisBlues,
+            (int)TeamEnum.TampaBayLightning => TeamCodes.TampaBayLightning,
+            (int)TeamEnum.TorontoMapleLeafs => TeamCodes.TorontoMapleLeafs,
+            (int)TeamEnum.VancouverCanucks => TeamCodes.VancouverCanucks,
+            (int)TeamEnum.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
+            (int)TeamEnum.WashingtonCapitals => TeamCodes.WashingtonCapitals,
+            (int)TeamEnum.WinnipegJets => TeamCodes.WinnipegJets,
+            _ => null
+        };
     }
 }

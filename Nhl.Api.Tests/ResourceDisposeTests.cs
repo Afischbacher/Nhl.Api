@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Nhl.Api.Tests
     [TestClass]
     public class ResourceDisposeTests
     {
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task ResourceDisposeAsyncTest() 
         {
             await using var nhlApi = new NhlApi();
@@ -18,7 +19,7 @@ namespace Nhl.Api.Tests
             await nhlApi.DisposeAsync();
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public void ResourceDisposeTest()
         {
             using var nhlApi = new NhlApi();

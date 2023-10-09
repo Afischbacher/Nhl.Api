@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Enumerations.Award;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace Nhl.Api.Tests
     [TestClass]
     public class LeagueTests
     {
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueStandingsNullDateAsync()
         {
             // Arrange
@@ -31,7 +32,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueStandingsAsync()
         {
             // Arrange
@@ -55,7 +56,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueStandingsByConferenceAsync()
         {
             // Arrange
@@ -78,7 +79,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueStandingsByDivisionAsync()
         {
             // Arrange
@@ -101,7 +102,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueStandingsByDivisionWithDateAsync()
         {
             // Arrange
@@ -122,7 +123,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueStandingsByConferenceWithDateAsync()
         {
             // Arrange
@@ -144,7 +145,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueStandingsByDivisionWithNullDateAsync()
         {
             // Arrange
@@ -165,7 +166,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueStandingsByConferenceWithNullDateAsync()
         {
             // Arrange
@@ -188,7 +189,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueStandingsWithDateAsync()
         {
             // Arrange
@@ -211,7 +212,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueAwardsAsync()
         {
             // Arrange
@@ -236,7 +237,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueAwardsByIdAsync()
         {
             // Arrange
@@ -259,7 +260,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLeagueAwardsByIdEnumAsync()
         {
             // Arrange
@@ -284,7 +285,7 @@ namespace Nhl.Api.Tests
 
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetEventTypesAsync()
         {
             // Arrange

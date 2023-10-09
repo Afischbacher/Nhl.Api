@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Enumerations.Conference;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -8,7 +9,7 @@ namespace Nhl.Api.Tests
     public class ConferenceTests
     {
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetConferencesAsync()
         {
             // Arrange
@@ -32,7 +33,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetConferenceByIdAsync()
         {
             // Arrange
@@ -50,7 +51,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(conference.ShortName);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetConferenceByIdEnumAsync()
         {
             // Arrange
@@ -68,7 +69,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(conference.ShortName);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetConferenceWithInvalidIdAsync()
         {
             // Arrange

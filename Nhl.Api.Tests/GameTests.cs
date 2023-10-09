@@ -2,8 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
-using Polly;
-using Polly.Retry;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,10 +12,8 @@ namespace Nhl.Api.Tests
     [TestClass]
     public class GameTests
     {
-        private readonly AsyncRetryPolicy _nhlGameAsyncRetryPolicy = Policy.Handle<Exception>().WaitAndRetryAsync(3, (attempt) => TimeSpan.FromSeconds(attempt * 5));
 
-
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGameTypesAsync()
         {
             // Arrange
@@ -36,7 +33,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGameStatusesAsync()
         {
             // Arrange
@@ -59,7 +56,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGamePlayTypesAsync()
         {
             // Arrange
@@ -82,7 +79,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetTournamentTypesAsync()
         {
             // Arrange
@@ -103,7 +100,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetPlayoffTournamentTypesAsync()
         {
             // Arrange
@@ -119,7 +116,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGetGameScheduleByDateAsync()
         {
             // Arrange
@@ -147,7 +144,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGetGameScheduleByDateNotNullAsync()
         {
             // Arrange
@@ -208,7 +205,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGetGameScheduleWithConfigurationEnabledAsync()
         {
 
@@ -254,7 +251,7 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(game.Broadcasts.First().Id);
                 Assert.IsNotNull(game.Broadcasts.First().Type);
 
-                if (game.Tickets != null) 
+                if (game.Tickets != null && game.Tickets.Any()) 
                 {
                     Assert.IsNotNull(game.Tickets.First());
                     Assert.IsNotNull(game.Tickets.First().TicketLink);
@@ -264,7 +261,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGetGameScheduleAsync()
         {
             // Arrange
@@ -292,7 +289,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGetGameScheduleByDateNotNullWithIntegerAsync()
         {
             // Arrange
@@ -331,7 +328,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGetGameScheduleByDateWithTeamEnumAsync()
         {
             // Arrange
@@ -375,7 +372,7 @@ namespace Nhl.Api.Tests
         [DataRow("19971998", true, false)]
         [DataRow("20092010", true, true)]
         [DataRow("20202021", false, true)]
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGameSchedulesBySeasonAsync(string seasonYear, bool includePlayoffGames, bool includeGameScheduleConfiguration)
         {
 
@@ -387,10 +384,8 @@ namespace Nhl.Api.Tests
                 : null;
 
             // Act
-            var gameSchedule = await _nhlGameAsyncRetryPolicy.ExecuteAsync(async () =>
-            {
-                return await nhlApi.GetGameScheduleBySeasonAsync(seasonYear, includePlayoffGames, gameScheduleConfiguration);
-            });
+            var gameSchedule = await nhlApi.GetGameScheduleBySeasonAsync(seasonYear, includePlayoffGames, gameScheduleConfiguration);
+
 
             // Assert
             Assert.IsNotNull(gameSchedule);
@@ -437,7 +432,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGetGameSchedulesBySeasonInvalidSeasonYearLengthAsync()
         {
             // Arrange
@@ -452,7 +447,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGetGameSchedulesBySeasonInvalidSeasonYearValueAsync()
         {
             // Arrange
@@ -466,7 +461,7 @@ namespace Nhl.Api.Tests
             });
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetGetGameScheduleByDateWithTeamIdAsync()
         {
             // Arrange
@@ -506,7 +501,7 @@ namespace Nhl.Api.Tests
 
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLiveGameFeedWithConfigurationSettingsAsync()
         {
             // Arrange
@@ -530,7 +525,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLiveGameFeedWithConfigurationSettingsWithCancellationAsync()
         {
             // Arrange
@@ -556,7 +551,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLiveGameFeedWithDefaultConfigurationSettingsAsync()
         {
             // Arrange
@@ -575,7 +570,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLiveGameFeedAsync()
         {
             // Arrange
@@ -732,7 +727,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(firstStar.Link);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLiveGameFeedInvalidGamePkAsync()
         {
             // Arrange
@@ -889,7 +884,7 @@ namespace Nhl.Api.Tests
         [DataRow(2019020249)]
         [DataRow(2019020902)]
         [DataRow(2020020290)]
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLiveGameFeedGetCorrectRinkSideAsync(int gameId)
         {
             // Arrange
@@ -916,7 +911,7 @@ namespace Nhl.Api.Tests
             Assert.AreNotEqual(awayRinkSide, awayCorrectedRinkSide);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLineScoreAsync()
         {
             // Arrange
@@ -948,7 +943,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLineScoreWithInvalidIdAsync()
         {
             // Arrange
@@ -966,7 +961,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetBoxScoreAsync()
         {
             // Arrange
@@ -1010,7 +1005,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetBoxScoreWithInvalidIdAsync()
         {
             // Arrange
@@ -1026,7 +1021,7 @@ namespace Nhl.Api.Tests
 
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLiveGameFeedShiftChartAsync()
         {
             // Arrange
@@ -1053,7 +1048,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(firstShift.HexValue);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLiveGameFeedShiftChartInvalidGameIdAsync()
         {
             // Arrange
@@ -1075,7 +1070,7 @@ namespace Nhl.Api.Tests
         [DataRow(2018020652)]
         [DataRow(2019020663)]
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetLiveGameFeedContentAsync(int gameId)
         {
             // Arrange
@@ -1139,6 +1134,90 @@ namespace Nhl.Api.Tests
                 Assert.IsNotNull(item.Blurb);
                 Assert.IsNotNull(item.AuthFlow);
                 Assert.IsNotNull(item.Image);
+
+                if (item.Image.Cuts._372x210 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._372x210.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._372x210.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._372x210.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._372x210.Height);
+                    Assert.IsNotNull(item.Image.Cuts._372x210.Width);
+                    Assert.IsNotNull(item.Image.Cuts._372x210.Src); 
+                }
+
+                if (item.Image.Cuts._320x180 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._320x180.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._320x180.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._320x180.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._320x180.Height);
+                    Assert.IsNotNull(item.Image.Cuts._320x180.Width);
+                    Assert.IsNotNull(item.Image.Cuts._320x180.Src);
+                }
+
+                if (item.Image.Cuts._768x432 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._768x432.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._768x432.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._768x432.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._768x432.Height);
+                    Assert.IsNotNull(item.Image.Cuts._768x432.Width);
+                    Assert.IsNotNull(item.Image.Cuts._768x432.Src);
+                }
+
+                if (item.Image.Cuts._960x540 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._960x540.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._960x540.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._960x540.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._960x540.Height);
+                    Assert.IsNotNull(item.Image.Cuts._960x540.Width);
+                    Assert.IsNotNull(item.Image.Cuts._960x540.Src);
+                }
+
+                if (item.Image.Cuts._1024x576 != null)
+                {
+
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.Height);
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.Width);
+                    Assert.IsNotNull(item.Image.Cuts._1024x576.Src); 
+                }
+
+                if (item.Image.Cuts._1200x630 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.Height);
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.Width);
+                    Assert.IsNotNull(item.Image.Cuts._1200x630.Src); 
+                }
+
+                if (item.Image.Cuts._1202x670 != null)
+                {
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.Height);
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.Width);
+                    Assert.IsNotNull(item.Image.Cuts._1202x670.Src); 
+                }
+
+                if (item.Image.Cuts._2208x1242 != null)
+                {
+
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.At2x);
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.At3x);
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.AspectRatio);
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.Height);
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.Width);
+                    Assert.IsNotNull(item.Image.Cuts._2208x1242.Src); 
+                }
+
+
                 Assert.IsNotNull(item.MediaState);
                 Assert.IsNotNull(item.MediaPlaybackId);
                 Assert.IsNotNull(item.Playbacks);

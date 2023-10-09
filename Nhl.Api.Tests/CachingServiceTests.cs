@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Common.Services;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -8,7 +9,7 @@ namespace Nhl.Api.Tests
     public class CachingServiceTests
     {
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestTryAddAsync()
         {
             ICachingService service = new CachingService();
@@ -22,7 +23,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(retrievedValue);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestTryAddUpdateAsync()
         {
             ICachingService service = new CachingService();
@@ -42,7 +43,7 @@ namespace Nhl.Api.Tests
             Assert.AreEqual(retrievedValue, "new value");
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestTryRemoveAsync()
         {
             ICachingService service = new CachingService();

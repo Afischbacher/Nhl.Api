@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Enumerations.Franchise;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests
@@ -8,7 +9,7 @@ namespace Nhl.Api.Tests
     public class FranchisesTests
     {
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetFranchisesAsync()
         {
             // Arrange
@@ -31,7 +32,7 @@ namespace Nhl.Api.Tests
             }
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetAllActiveFranchisesAsync()
         {
             // Arrange
@@ -55,7 +56,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetAllInactiveFranchisesAsync()
         {
             // Arrange
@@ -79,7 +80,7 @@ namespace Nhl.Api.Tests
         }
 
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetFranchiseByIdEnumAsync()
         {
             // Arrange
@@ -97,7 +98,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(franchise.MostRecentTeamId);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetFranchiseByIdAsync()
         {
             // Arrange
@@ -115,7 +116,7 @@ namespace Nhl.Api.Tests
             Assert.IsNotNull(franchise.MostRecentTeamId);
         }
 
-        [TestMethod]
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestGetFranchiseWithInvalidIdAsync()
         {
             // Arrange

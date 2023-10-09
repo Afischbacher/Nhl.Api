@@ -13,7 +13,7 @@ namespace Nhl.Api.Common.Http
         /// <summary>
         /// The dedicated NHL static assets NHL HTTP API endpoint
         /// </summary>
-        public const string ClientApiUrl = "https://www-league.nhlstatic.com";
+        public const string ClientApiUrl = "https://assets.nhle.com";
 
         /// <summary>
         /// The dedicated NHL static assets HTTP Client for the Nhl.Api

@@ -1,13 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>2.2.0</Version>
+		<Version>2.2.1</Version>
 		<TargetFrameworks>netstandard2.1;net6.0;net7.0</TargetFrameworks>
 		<PackageId>Nhl.Api</PackageId>
 		<Title>Nhl.Api</Title>
 		<Copyright>Copyright (c) 2023 Andre Fischbacher</Copyright>
 		<Authors>Andre Fischbacher</Authors>
 		<Description>The official unofficial .NET NHL API</Description>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/Afischbacher/Nhl.Api</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/Afischbacher/Nhl.Api</RepositoryUrl>
 		<RepositoryType>Github</RepositoryType>
@@ -50,6 +51,7 @@
 	
 	
 	<ItemGroup>
+		<None Include="..\README.md" Pack="true" PackagePath=""/>
 		<None Include="..\Assets\nhl-api-logo-128px-128px.png" Pack="true" PackagePath="" />
 	</ItemGroup>
 	

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Nhl.Api.Tests.Helpers.Attributes;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,7 +14,7 @@ namespace Nhl.Api.Tests
             public int Number { get; set; }
         }
 
-        [TestMethod]   
+        [TestMethodWithRetry(RetryCount = 5)]   
         public void TestDistinctByLinqMethod() 
         {
             var testCollection = new List<TestLinqClass>()
