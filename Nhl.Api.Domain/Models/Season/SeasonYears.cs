@@ -434,6 +434,13 @@ namespace Nhl.Api.Models.Season
         /// The NHL season 2024-2025
         /// </summary>
         public const string season20242025 = "20242025";
-
+        /// <summary>
+        /// The NHL season 2025-2026
+        /// </summary>
+        public const string season20252026 = "20252026";
+        /// <summary>
+        /// The NHL season 2026-2027
+        /// </summary>
+        public const string season20262027 = "20262027";
     }
 }

@@ -8,11 +8,6 @@ namespace Nhl.Api.Models.Player
     /// </summary>
     public class PlayerSeasonStatHomeAndAway
     {
-        /// <summary>
-        /// The specific type for the NHL player statistics
-        /// </summary>
-        [JsonProperty("type")]
-        public Statistics.Type Type { get; set; }
 
         /// <summary>
         /// The collection of splits for the NHL player statistics for home and away games in a season
