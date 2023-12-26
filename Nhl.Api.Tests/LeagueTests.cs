@@ -8,10 +8,10 @@ namespace Nhl.Api.Tests
     public class LeagueTests
     {
         [TestMethod]
-        public async Task Test_Get_League_Schedule_Async() 
+        public async Task Test_Get_League_Schedule_Async()
         {
             await using INhlApi nhlApi = new NhlApi();
-            
+
             var schedule = await nhlApi.GetLeagueGameWeekScheduleByDateTimeAsync(DateTimeOffset.Now);
 
             Assert.IsNotNull(schedule);

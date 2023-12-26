@@ -1,11 +1,14 @@
 ﻿using Nhl.Api.Common.Http;
-using Nhl.Api.Models.Schedule;
+using Nhl.Api.Models.Season;
+using Nhl.Api.Services;
 using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Schedule;
+using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Team;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
-using Nhl.Api.Models.Season;
+using System.Collections.Generic;
+using Nhl.Api.Models.Player;
 
 namespace Nhl.Api
 {
@@ -15,6 +18,7 @@ namespace Nhl.Api
     public class NhlLeagueApi : INhlLeagueApi
     {
         private static readonly INhlApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
+        private static readonly INhlTeamService _nhlTeamService = new NhlTeamService();
         private static readonly INhlApiHttpClient _nhlWebApiHttpClient = new NhlApiWebHttpClient();
 
         /// <summary>
@@ -30,7 +34,7 @@ namespace Nhl.Api
         /// </summary>
         /// <param name="dateTimeOffset">A <see cref="DateTimeOffset"/> for the specific date for the NHL schedule</param>
         /// <returns>A result of the current NHL schedule by the specified date</returns>
-        public async Task<LeagueSchedule> GetLeagueGameWeekScheduleByDateTimeAsync(DateTimeOffset dateTimeOffset) 
+        public async Task<LeagueSchedule> GetLeagueGameWeekScheduleByDateTimeAsync(DateTimeOffset dateTimeOffset)
         {
             return (await _nhlWebApiHttpClient.GetAsync<LeagueSchedule>($"/schedule/{dateTimeOffset:yyyy-MM-dd}"));
         }
@@ -41,14 +45,14 @@ namespace Nhl.Api
         /// <returns>Returns a result of true or false if the NHL regular season is active</returns>
         public async Task<bool> IsRegularSeasonActiveAsync()
         {
-            var leagueSchedule = await _nhlWebApiHttpClient.GetAsync<LeagueSchedule>($"/schedule/now"); 
+            var leagueSchedule = await _nhlWebApiHttpClient.GetAsync<LeagueSchedule>($"/schedule/now");
 
             if (leagueSchedule == null)
             {
                 return false;
-            }   
+            }
 
-            if (string.IsNullOrWhiteSpace(leagueSchedule.RegularSeasonStartDate) || string.IsNullOrWhiteSpace(leagueSchedule.RegularSeasonEndDate)) 
+            if (string.IsNullOrWhiteSpace(leagueSchedule.RegularSeasonStartDate) || string.IsNullOrWhiteSpace(leagueSchedule.RegularSeasonEndDate))
             {
                 return false;
             }
@@ -106,7 +110,7 @@ namespace Nhl.Api
         /// <returns>A collection of all games in the requested season for the requested NHL team</returns>
         public async Task<TeamSchedule> GetTeamScheduleBySeasonAsync(string teamAbbreviation, SeasonYear seasonYear)
         {
-            var parsedTeamAbbreviation = GetTeamCodeIdentfierByTeamAbbreviation(teamAbbreviation);
+            var parsedTeamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamAbbreviation(teamAbbreviation);
             if (string.IsNullOrWhiteSpace(parsedTeamAbbreviation))
             {
                 throw new Exception($"The team abbreviation {teamAbbreviation} is not valid");
@@ -124,7 +128,7 @@ namespace Nhl.Api
         /// <returns>A collection of all games in the requested season for the requested NHL team</returns>
         public async Task<TeamWeekSchedule> GetTeamWeekScheduleByDateTimeOffsetAsync(string teamAbbreviation, DateTimeOffset dateTimeOffset)
         {
-            var parsedTeamAbbreviation = GetTeamCodeIdentfierByTeamAbbreviation(teamAbbreviation);
+            var parsedTeamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamAbbreviation(teamAbbreviation);
             if (string.IsNullOrWhiteSpace(parsedTeamAbbreviation))
             {
                 throw new Exception($"The team abbreviation {teamAbbreviation} is not valid");
@@ -141,7 +145,7 @@ namespace Nhl.Api
         /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
         public async Task<TeamLogo> GetTeamLogoAsync(TeamEnum team, TeamLogoType teamLogoType = TeamLogoType.Light)
         {
-            var endpoint = $"logos/nhl/svg/{GetTeamCodeIdentfierByTeamId((int)team)}_{GetTeamLogoColorIdentfier(teamLogoType)}.svg";
+            var endpoint = $"logos/nhl/svg/{_nhlTeamService.GetTeamCodeIdentfierByTeamId((int)team)}_{_nhlTeamService.GetTeamLogoColorIdentfier(teamLogoType)}.svg";
             var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint);
 
             return new TeamLogo
@@ -160,7 +164,7 @@ namespace Nhl.Api
         /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
         public async Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light)
         {
-            var endpoint = $"logos/nhl/svg/{GetTeamCodeIdentfierByTeamId(teamId)}_{GetTeamLogoColorIdentfier(teamLogoType)}.svg";
+            var endpoint = $"logos/nhl/svg/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}_{_nhlTeamService.GetTeamLogoColorIdentfier(teamLogoType)}.svg";
             var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint);
 
             return new TeamLogo
@@ -169,6 +173,16 @@ namespace Nhl.Api
                 ImageAsByteArray = imageContent,
                 Uri = $"{_nhlStaticAssetsApiHttpClient.Client}/{endpoint}"
             };
+        }
+
+        /// <summary>
+        /// Returns the NHL league standings for the current NHL season by the specified date
+        /// </summary>
+        /// <param name="dateTimeOffset">The date requested for the NHL season standing</param>
+        /// <returns>Return the NHL league standings for the specified date with specific team information</returns>
+        public async Task<LeagueStanding> GetLeagueStandingsByDateTimeOffsetAsync(DateTimeOffset dateTimeOffset)
+        {
+            return await _nhlWebApiHttpClient.GetAsync<LeagueStanding>($"/standings/{dateTimeOffset:yyyy-MM-dd}");
         }
 
         /// <summary>
@@ -409,85 +423,98 @@ namespace Nhl.Api
             return await GetTeamColorsAsync(teamEnum);
         }
 
-        private static string GetTeamLogoColorIdentfier(TeamLogoType teamLogoType) =>teamLogoType switch
+        /// <summary>
+        /// Returns the NHL league standings for the all NHL seasons with specific league season information
+        /// </summary>
+        /// <returns>Returns the NHL league standings information for each saeson since 1917-1918</returns>
+        public async Task<LeagueStandingsSeasonInformation> GetLeagueStandingsSeasonInformationAsync()
         {
-            TeamLogoType.Dark => "dark",
-            TeamLogoType.Light => "light",
-            _ => null
-        };
+            return await _nhlWebApiHttpClient.GetAsync<LeagueStandingsSeasonInformation>($"/standings-season");
+        }
 
-        private static string GetTeamCodeIdentfierByTeamId(int team) => team switch
+        /// <summary>
+        /// Returns the NHL team roster for a specific team by the team identifier and season year
+        /// </summary>
+        /// <param name="teamId">The NHL team identifider, Example: 55 - Seattle Kraken</param>
+        /// <param name="seasonYear">The eight digit number format for the season, see <see cref="SeasonYear"/> for more information, Example: 20232024</param>
+        /// <returns>Returns the NHL team roster for a specific team by the team identifier and season year</returns>
+        public async Task<TeamSeasonRoster> GetTeamRosterBySeasonYearAsync(int teamId, string seasonYear)
         {
-            (int)TeamEnum.AnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
-            (int)TeamEnum.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
-            (int)TeamEnum.BostonBruins => TeamCodes.BostonBruins,
-            (int)TeamEnum.BuffaloSabres => TeamCodes.BuffaloSabres,
-            (int)TeamEnum.CalgaryFlames => TeamCodes.CalgaryFlames,
-            (int)TeamEnum.CarolinaHurricanes => TeamCodes.CarolinaHurricanes,
-            (int)TeamEnum.ChicagoBlackhawks => TeamCodes.ChicagoBlackHawksBlackhawks,
-            (int)TeamEnum.ColoradoAvalanche => TeamCodes.ColoradoAvalanche,
-            (int)TeamEnum.ColumbusBlueJackets => TeamCodes.ColumbusBlueJackets,
-            (int)TeamEnum.DallasStars => TeamCodes.DallasStars,
-            (int)TeamEnum.DetroitRedWings => TeamCodes.DetroitRedWings,
-            (int)TeamEnum.EdmontonOilers => TeamCodes.EdmontonOilers,
-            (int)TeamEnum.FloridaPanthers => TeamCodes.FloridaPanthers,
-            (int)TeamEnum.LosAngelesKings => TeamCodes.LosAngelesKings,
-            (int)TeamEnum.MinnesotaWild => TeamCodes.MinnesotaWild,
-            (int)TeamEnum.MontrealCanadiens => TeamCodes.MontrealCanadiens,
-            (int)TeamEnum.NashvillePredators => TeamCodes.NashvillePredators,
-            (int)TeamEnum.NewJerseyDevils => TeamCodes.NewJerseyDevils,
-            (int)TeamEnum.NewYorkIslanders => TeamCodes.NewYorkIslanders,
-            (int)TeamEnum.NewYorkRangers => TeamCodes.NewYorkRangers,
-            (int)TeamEnum.OttawaSenators => TeamCodes.OttawaSenators,
-            (int)TeamEnum.PhiladelphiaFlyers => TeamCodes.PhiladelphiaFlyers,
-            (int)TeamEnum.PittsburghPenguins => TeamCodes.PittsburghPenguins,
-            (int)TeamEnum.SanJoseSharks => TeamCodes.SanJoseSharks,
-            (int)TeamEnum.SeattleKraken => TeamCodes.SeattleKraken,
-            (int)TeamEnum.StLouisBlues => TeamCodes.StLouisBlues,
-            (int)TeamEnum.TampaBayLightning => TeamCodes.TampaBayLightning,
-            (int)TeamEnum.TorontoMapleLeafs => TeamCodes.TorontoMapleLeafs,
-            (int)TeamEnum.VancouverCanucks => TeamCodes.VancouverCanucks,
-            (int)TeamEnum.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
-            (int)TeamEnum.WashingtonCapitals => TeamCodes.WashingtonCapitals,
-            (int)TeamEnum.WinnipegJets => TeamCodes.WinnipegJets,
-            _ => null
-        };
+            if (string.IsNullOrWhiteSpace(seasonYear))
+            {
+                throw new ArgumentException("The season year is required");
+            }
 
-        private static string GetTeamCodeIdentfierByTeamAbbreviation(string teamAbbreviation) => teamAbbreviation switch
+            if (seasonYear.Length != 8)
+            {
+                throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
+            }
+
+            var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId);
+            return await _nhlWebApiHttpClient.GetAsync<TeamSeasonRoster>($"/roster/{teamAbbreviation}/{seasonYear}");
+        }
+
+        /// <summary>
+        /// Returns the NHL team roster for a specific team by the team and season year
+        /// </summary>
+        /// <param name="team">The NHL team identifider, see <see cref="TeamEnum"/> for more information, Example: 9 - Ottawa Senators </param>
+        /// <param name="seasonYear">The eight digit number format for the season, see <see cref="SeasonYear"/> for more information, Example: 20232024</param>
+        /// <returns>Returns the NHL team roster for a specific team by the team identifier and season year</returns>
+        public async Task<TeamSeasonRoster> GetTeamRosterBySeasonYearAsync(TeamEnum team, string seasonYear)
         {
-            TeamCodes.MightyDucksofAnaheimAnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
-            TeamCodes.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
-            TeamCodes.BostonBruins => TeamCodes.BostonBruins,
-            TeamCodes.BuffaloSabres => TeamCodes.BuffaloSabres,
-            TeamCodes.CalgaryFlames => TeamCodes.CalgaryFlames,
-            TeamCodes.CarolinaHurricanes => TeamCodes.CarolinaHurricanes,
-            TeamCodes.ChicagoBlackHawksBlackhawks => TeamCodes.ChicagoBlackHawksBlackhawks,
-            TeamCodes.ColoradoAvalanche => TeamCodes.ColoradoAvalanche,
-            TeamCodes.ColumbusBlueJackets => TeamCodes.ColumbusBlueJackets,
-            TeamCodes.DallasStars => TeamCodes.DallasStars,
-            TeamCodes.DetroitRedWings => TeamCodes.DetroitRedWings,
-            TeamCodes.EdmontonOilers => TeamCodes.EdmontonOilers,
-            TeamCodes.FloridaPanthers => TeamCodes.FloridaPanthers,
-            TeamCodes.LosAngelesKings => TeamCodes.LosAngelesKings,
-            TeamCodes.MinnesotaWild => TeamCodes.MinnesotaWild,
-            TeamCodes.MontrealCanadiens => TeamCodes.MontrealCanadiens,
-            TeamCodes.NashvillePredators => TeamCodes.NashvillePredators,
-            TeamCodes.NewJerseyDevils => TeamCodes.NewJerseyDevils,
-            TeamCodes.NewYorkIslanders => TeamCodes.NewYorkIslanders,
-            TeamCodes.NewYorkRangers => TeamCodes.NewYorkRangers,
-            TeamCodes.OttawaSenators => TeamCodes.OttawaSenators,
-            TeamCodes.PhiladelphiaFlyers => TeamCodes.PhiladelphiaFlyers,
-            TeamCodes.PittsburghPenguins => TeamCodes.PittsburghPenguins,
-            TeamCodes.SanJoseSharks => TeamCodes.SanJoseSharks,
-            TeamCodes.SeattleKraken => TeamCodes.SeattleKraken,
-            TeamCodes.StLouisBlues => TeamCodes.StLouisBlues,
-            TeamCodes.TampaBayLightning => TeamCodes.TampaBayLightning,
-            TeamCodes.TorontoMapleLeafs => TeamCodes.TorontoMapleLeafs,
-            TeamCodes.VancouverCanucks => TeamCodes.VancouverCanucks,
-            TeamCodes.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
-            TeamCodes.WashingtonCapitals => TeamCodes.WashingtonCapitals,
-            TeamCodes.WinnipegJets => TeamCodes.WinnipegJets,
-            _ => null
-        };
+            if (string.IsNullOrWhiteSpace(seasonYear))
+            {
+                throw new ArgumentException("The season year is required");
+            }
+
+            if (seasonYear.Length != 8)
+            {
+                throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
+            }
+
+            var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team);
+            return await _nhlWebApiHttpClient.GetAsync<TeamSeasonRoster>($"/roster/{teamAbbreviation}/{seasonYear}");
+        }
+
+
+        /// <summary>
+        /// Returns every active season for an NHL team and their participation in the NHL
+        /// </summary>
+        /// <param name="teamId">The NHL team identifider, Example: 55 - Seattle Kraken</param>
+        /// <returns>Returns every active season for an NHL team and their participation in the NHL</returns>
+        public async Task<List<int>> GetAllRosterSeasonsByTeamAsync(int teamId)
+        {
+            return await _nhlWebApiHttpClient.GetAsync<List<int>>($"/roster-season/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}");
+        }
+
+        /// <summary>
+        /// Returns every active season for an NHL team and their participation in the NHL
+        /// </summary>
+        /// <param name="team">The NHL team identifider, see <see cref="TeamEnum"/> for more information, Example: 9 - Ottawa Senators </param>
+        /// <returns>Returns every active season for an NHL team and their participation in the NHL</returns>
+        public async Task<List<int>> GetAllRosterSeasonsByTeamAsync(TeamEnum team)
+        {
+            return await _nhlWebApiHttpClient.GetAsync<List<int>>($"/roster-season/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}");
+        }
+
+        /// <summary>
+        /// Returns all the NHL prospects for the specified NHL team including forwards, defensemen and goalies
+        /// </summary>
+        /// <param name="teamId">The NHL team identifider, Example: 55 - Seattle Kraken</param>
+        /// <returns>Returns all the NHL prospects for the specified NHL team including forwards, defensemen and goalies</returns>
+        public async Task<TeamProspects> GetTeamProspectsByTeamAsync(int teamId)
+        {
+            return await _nhlWebApiHttpClient.GetAsync<TeamProspects>($"/prospects/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}");
+        }
+
+        /// <summary>
+        /// Returns all the NHL prospects for the specified NHL team including forwards, defensemen and goalies
+        /// </summary>
+        /// <param name="team">The NHL team identifider, see <see cref="TeamEnum"/> for more information, Example: 10 - Toronto Maple Leafs </param>
+        /// <returns>Returns all the NHL prospects for the specified NHL team including forwards, defensemen and goalies</returns>
+        public async Task<TeamProspects> GetTeamProspectsByTeamAsync(TeamEnum team)
+        {
+            return await _nhlWebApiHttpClient.GetAsync<TeamProspects>($"/prospects/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}");
+        }
     }
 }

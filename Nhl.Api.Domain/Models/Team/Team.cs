@@ -8,12 +8,6 @@ namespace Nhl.Api.Models.Team
     public class Team : TeamInformation
     {
         /// <summary>
-        /// Information about the venue of the NHL team
-        /// </summary>
-        [JsonProperty("venue")]
-        public Venue.Venue Venue { get; set; }
-
-        /// <summary>
         /// The abbreviation of the NHL team <br/>
         /// Example: CGY - Calgary Flames
         /// </summary>

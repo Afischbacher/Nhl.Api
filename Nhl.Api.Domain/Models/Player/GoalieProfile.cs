@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Models.Schedule;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Player
@@ -1026,7 +1025,7 @@ namespace Nhl.Api.Models.Player
     /// <summary>
     /// A model representing the last 5 games for an NHL goalie for each individual game
     /// </summary>
-    public class GoalieLast5Game 
+    public class GoalieLast5Game
     {
         /// <summary>
         /// The NHL game identifier <br/>
@@ -1104,7 +1103,7 @@ namespace Nhl.Api.Models.Player
         /// </summary>
         [JsonProperty("penaltyMins")]
         public int PenaltyMins { get; set; }
-        
+
         /// <summary>
         /// The NHL opponent team abbreviation <br/>
         /// Example; "OTT" - Ottawa Senators

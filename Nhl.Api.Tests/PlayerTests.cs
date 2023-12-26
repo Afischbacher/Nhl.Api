@@ -152,18 +152,18 @@ namespace Nhl.Api.Tests
         }
 
         [TestMethodWithRetry(RetryCount = 5)]
-        public async Task GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync_Test_Player_Enum() 
+        public async Task GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync_Test_Player_Enum()
         {
             // Arrange 
             await using INhlApi nhlApi = new NhlApi();
 
             // Act
             var playerSeasonGameLog = await nhlApi.GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync(PlayerEnum.ConnorMcDavid8478402, SeasonYear.season20222023, GameType.RegularSeason);
-           
+
             // Assert
             Assert.IsNotNull(playerSeasonGameLog);
             Assert.AreEqual(82, playerSeasonGameLog.PlayerGameLogs.Count);
-        
+
         }
 
 
@@ -212,6 +212,64 @@ namespace Nhl.Api.Tests
         }
 
         [TestMethodWithRetry(RetryCount = 5)]
+        public async Task GetGoalieInformationAsync_Test_PlayerId()
+        {
+            // Arrange 
+            await using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var goalieProfile = await nhlApi.GetGoalieInformationAsync(8470594);
+
+            // Assert
+            Assert.IsNotNull(goalieProfile);
+
+        }
+
+
+        [TestMethodWithRetry(RetryCount = 5)]
+        public async Task GetGoalieInformationAsync_Test_PlayerEnum()
+        {
+            // Arrange 
+            await using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var goalieProfile = await nhlApi.GetGoalieInformationAsync(PlayerEnum.FilipGustavsson8479406);
+
+            // Assert
+            Assert.IsNotNull(goalieProfile);
+
+        }
+
+        [TestMethodWithRetry(RetryCount = 5)]
+        public async Task GetPlayerInformationAsync_Test_PlayerId()
+        {
+            // Arrange 
+            await using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var playerProfile = await nhlApi.GetPlayerInformationAsync(8478402);
+
+            // Assert
+            Assert.IsNotNull(playerProfile);
+
+        }
+
+
+        [TestMethodWithRetry(RetryCount = 5)]
+        public async Task GetPlayerInformationAsync_Test_PlayerEnum()
+        {
+            // Arrange 
+            await using INhlApi nhlApi = new NhlApi();
+
+            // Act
+            var playerProfile = await nhlApi.GetPlayerInformationAsync(PlayerEnum.ConnorMcDavid8478402);
+
+            // Assert
+            Assert.IsNotNull(playerProfile);
+        }
+
+
+        [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestSearchAllPlayersNoResultsAsync()
         {
             // Arrange
@@ -241,7 +299,7 @@ namespace Nhl.Api.Tests
             Assert.AreEqual(0, results.Count);
 
         }
-  
+
         [TestMethodWithRetry(RetryCount = 5)]
         public async Task TestDownloadPlayerHeadshotImageAsync()
         {

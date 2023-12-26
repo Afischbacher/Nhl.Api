@@ -397,12 +397,6 @@ namespace Nhl.Api.Models.Game
         public string Link { get; set; }
 
         /// <summary>
-        /// Returns information about the NHL team venue
-        /// </summary>
-        [JsonProperty("venue")]
-        public Venue.Venue Venue { get; set; }
-
-        /// <summary>
         /// Returns the abbreviation for the NHL team <br/>
         /// Example: DET
         /// </summary>
@@ -649,11 +643,6 @@ namespace Nhl.Api.Models.Game
         [JsonProperty("link")]
         public string Link { get; set; }
 
-        /// <summary>
-        /// Returns information about the NHL team venue
-        /// </summary>
-        [JsonProperty("venue")]
-        public Venue.Venue Venue { get; set; }
 
         /// <summary>
         /// Returns the abbreviation for the NHL team <br/>
@@ -1040,12 +1029,6 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("players")]
         public Dictionary<string, LiveGameFeedGameDataPlayer> Players { get; set; }
-
-        /// <summary>
-        /// Returns information about the NHL venue, including Nhl.Api link and city
-        /// </summary>
-        [JsonProperty("venue")]
-        public Venue.Venue Venue { get; set; }
 
         /// <summary>
         /// Returns true or false based on the status of the NHL game being completed

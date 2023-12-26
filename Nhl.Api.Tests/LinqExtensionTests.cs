@@ -14,8 +14,8 @@ namespace Nhl.Api.Tests
             public int Number { get; set; }
         }
 
-        [TestMethodWithRetry(RetryCount = 5)]   
-        public void TestDistinctByLinqMethod() 
+        [TestMethodWithRetry(RetryCount = 5)]
+        public void TestDistinctByLinqMethod()
         {
             var testCollection = new List<TestLinqClass>()
             {

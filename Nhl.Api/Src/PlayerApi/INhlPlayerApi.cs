@@ -1,5 +1,4 @@
-﻿using Nhl.Api.Common.Http;
-using Nhl.Api.Enumerations.Game;
+﻿using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
@@ -88,15 +87,35 @@ namespace Nhl.Api
         /// Returns the NHL goalie's profile information including their birth date, birth city, height, weight, position and much more
         /// </summary>
         /// <param name="playerId">An NHL player id, Example: 8480313 - Logan Thompson</param>
-        /// <returns>Returns the NHL player's profile information </returns>
+        /// <returns>Returns the NHL goalie's profile information </returns>
         Task<GoalieProfile> GetGoalieInformationAsync(int playerId);
 
         /// <summary>
         /// Returns the NHL goalie's profile information including their birth date, birth city, height, weight, position and much more
         /// </summary>
         /// <param name="player">An NHL player id, Example: 8480313 - Logan Thompson, see <see cref="PlayerEnum"/> for more information on NHL players</param>
-        /// <returns>Returns the NHL player's profile information</returns>
+        /// <returns>Returns the NHL goalie's profile information</returns>
         Task<GoalieProfile> GetGoalieInformationAsync(PlayerEnum player);
+
+        /// <summary>
+        /// Returns the NHL player's profile information including their birth date, birth city, height, weight, position and much more
+        /// </summary>
+        /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
+        /// <returns>Returns the NHL player's profile information </returns>
+        Task<PlayerProfile> GetPlayerInformationAsync(int playerId);
+
+        /// <summary>
+        /// Returns the NHL player's profile information including their birth date, birth city, height, weight, position and much more
+        /// </summary>
+        /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+        /// <returns>Returns the NHL player's profile information</returns>
+        Task<PlayerProfile> GetPlayerInformationAsync(PlayerEnum player);
+
+        /// <summary>
+        /// Returns the NHL player's in the spotlight based on their recent performances 
+        /// </summary>
+        /// <returns>A collection of players and their information for players in the NHL spotlight</returns>
+        Task<List<PlayerSpotlight>> GetPlayerSpotlightAsync();
 
     }
 }

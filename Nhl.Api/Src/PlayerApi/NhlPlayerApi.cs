@@ -191,7 +191,13 @@ namespace Nhl.Api
         /// <returns>Returns the NHL player's profile information </returns>
         public async Task<GoalieProfile> GetGoalieInformationAsync(int playerId)
         {
-            return await _nhlApiWebHttpClient.GetAsync<GoalieProfile>($"/player/{playerId}/landing");
+            var goalieProfile = await _nhlApiWebHttpClient.GetAsync<GoalieProfile>($"/player/{playerId}/landing");
+            if (goalieProfile.Position != PlayerPositionEnum.G.ToString())
+            {
+                throw new ArgumentException($"The {nameof(playerId)} parameter must be a goalie, see {nameof(PlayerEnum)} for more information on NHL goalie's", nameof(playerId));
+            }
+
+            return goalieProfile;
         }
 
         /// <summary>
@@ -201,7 +207,43 @@ namespace Nhl.Api
         /// <returns>Returns the NHL player's profile information</returns>
         public async Task<GoalieProfile> GetGoalieInformationAsync(PlayerEnum player)
         {
-            return await _nhlApiWebHttpClient.GetAsync<GoalieProfile>($"/player/{(int)player}/landing");
+            var goalieProfile = await _nhlApiWebHttpClient.GetAsync<GoalieProfile>($"/player/{(int)player}/landing");
+            if (goalieProfile.Position != PlayerPositionEnum.G.ToString())
+            {
+                throw new ArgumentException($"The {nameof(player)} parameter must be a goalie, see {nameof(PlayerEnum)} for more information on NHL goalie's", nameof(player));
+            }
+
+            return goalieProfile;
+        }
+
+        /// <summary>
+        /// Returns the NHL player's profile information including their birth date, birth city, height, weight, position and much more
+        /// </summary>
+        /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
+        /// <returns>Returns the NHL player's profile information </returns>
+        public async Task<PlayerProfile> GetPlayerInformationAsync(int playerId)
+        {
+            return await _nhlApiWebHttpClient.GetAsync<PlayerProfile>($"/player/{playerId}/landing");
+        }
+
+        /// <summary>
+        /// Returns the NHL player's profile information including their birth date, birth city, height, weight, position and much more
+        /// </summary>
+        /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+        /// <returns>Returns the NHL player's profile information</returns>
+        public async Task<PlayerProfile> GetPlayerInformationAsync(PlayerEnum player)
+        {
+            return await _nhlApiWebHttpClient.GetAsync<PlayerProfile>($"/player/{(int)player}/landing");
+
+        }
+
+        /// <summary>
+        /// Returns the NHL player's in the spotlight based on their recent performances 
+        /// </summary>
+        /// <returns>A collection of players and their information for players in the NHL spotlight</returns>
+        public async Task<List<PlayerSpotlight>> GetPlayerSpotlightAsync()
+        {
+            return await _nhlApiWebHttpClient.GetAsync<List<PlayerSpotlight>>("/player-spotlight");
         }
 
         /// <summary>

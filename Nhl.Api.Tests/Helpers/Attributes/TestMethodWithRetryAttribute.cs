@@ -37,7 +37,7 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute
                 {
                     throw result.First(r => r.TestFailureException != null).TestFailureException;
                 }
-                else 
+                else
                 {
                     return result;
                 }

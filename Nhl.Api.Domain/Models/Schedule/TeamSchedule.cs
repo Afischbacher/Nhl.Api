@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Nhl.Api.Models.Schedule;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Schedule

@@ -1,10 +1,12 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Nhl.Api.Tests
+namespace Nhl.Api.Tests;
+
+[TestClass]
+public class VenueTests
 {
-    [TestClass]
-    public class VenueTests
+    public VenueTests()
     {
-       
     }
+
 }

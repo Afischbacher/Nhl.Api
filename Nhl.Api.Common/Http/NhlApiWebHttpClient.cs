@@ -1,6 +1,6 @@
 ﻿
-using System.Net.Http;
 using System;
+using System.Net.Http;
 
 namespace Nhl.Api.Common.Http
 {

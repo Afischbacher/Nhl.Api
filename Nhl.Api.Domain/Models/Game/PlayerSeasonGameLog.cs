@@ -125,7 +125,7 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("shots")]
         public int Shots { get; set; }
-        
+
         /// <summary>
         /// The number of shifts a player took in the game <br/>
         /// Example: 23

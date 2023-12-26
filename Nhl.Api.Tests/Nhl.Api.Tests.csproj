@@ -11,6 +11,7 @@
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.4.0" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
 		<PackageReference Include="Microsoft.TestPlatform" Version="16.6.1" />
 		<PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="16.6.1" />

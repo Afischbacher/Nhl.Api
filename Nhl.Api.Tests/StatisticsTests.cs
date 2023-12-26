@@ -6,6 +6,6 @@ namespace Nhl.Api.Tests
     public class StatisticsTests
     {
 
-       
+
     }
 }

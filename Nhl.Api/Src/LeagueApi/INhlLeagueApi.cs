@@ -1,20 +1,9 @@
-﻿using Nhl.Api.Models.Schedule;
-using Nhl.Api.Models.Award;
-using Nhl.Api.Models.Conference;
-using Nhl.Api.Models.Division;
-using Nhl.Api.Models.Draft;
-using Nhl.Api.Models.Enumerations.Award;
-using Nhl.Api.Models.Enumerations.Conference;
-using Nhl.Api.Models.Enumerations.Division;
-using Nhl.Api.Models.Enumerations.Franchise;
-using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Enumerations.Venue;
-using Nhl.Api.Models.Event;
-using Nhl.Api.Models.Franchise;
+﻿using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Player;
+using Nhl.Api.Models.Schedule;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Team;
-using Nhl.Api.Models.Venue;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -95,6 +84,63 @@ namespace Nhl.Api
         /// </summary>
         /// <returns>Returns a result of true or false if the NHL playoff season is active</returns>
         Task<bool> IsPlayoffSeasonActiveAsync();
+
+        /// <summary>
+        /// Returns the NHL league standings for the current NHL season by the specified date
+        /// </summary>
+        /// <param name="dateTimeOffset">The date requested for the NHL season standing</param>
+        /// <returns>Return the NHL league standings for the specified date with specific team information</returns>
+        Task<LeagueStanding> GetLeagueStandingsByDateTimeOffsetAsync(DateTimeOffset dateTimeOffset);
+
+        /// <summary>
+        /// Returns the NHL league standings for the all NHL seasons with specific league season information
+        /// </summary>
+        /// <returns>Returns the NHL league standings information for each saeson since 1917-1918 </returns>
+        Task<LeagueStandingsSeasonInformation> GetLeagueStandingsSeasonInformationAsync();
+
+        /// <summary>
+        /// Returns the NHL team roster for a specific team by the team identifier and season year
+        /// </summary>
+        /// <param name="teamId">The NHL team identifider, Example: 55 - Seattle Kraken</param>
+        /// <param name="seasonYear">The eight digit number format for the season, see <see cref="SeasonYear"/> for more information, Example: 20232024</param>
+        /// <returns>Returns the NHL team roster for a specific team by the team identifier and season year</returns>
+        Task<TeamSeasonRoster> GetTeamRosterBySeasonYearAsync(int teamId, string seasonYear);
+
+        /// <summary>
+        /// Returns the NHL team roster for a specific team by the team and season year
+        /// </summary>
+        /// <param name="team">The NHL team identifider, see <see cref="TeamEnum"/> for more information, Example: 9 - Ottawa Senators </param>
+        /// <param name="seasonYear">The eight digit number format for the season, see <see cref="SeasonYear"/> for more information, Example: 20232024</param>
+        /// <returns>Returns the NHL team roster for a specific team by the team identifier and season year</returns>
+        Task<TeamSeasonRoster> GetTeamRosterBySeasonYearAsync(TeamEnum team, string seasonYear);
+
+        /// <summary>
+        /// Returns every active season for an NHL team and their participation in the NHL
+        /// </summary>
+        /// <param name="teamId">The NHL team identifider, Example: 55 - Seattle Kraken</param>
+        /// <returns>Returns every active season for an NHL team and their participation in the NHL</returns>
+        Task<List<int>> GetAllRosterSeasonsByTeamAsync(int teamId);
+
+        /// <summary>
+        /// Returns every active season for an NHL team and their participation in the NHL
+        /// </summary>
+        /// <param name="team">The NHL team identifider, see <see cref="TeamEnum"/> for more information, Example: 9 - Ottawa Senators </param>
+        /// <returns>Returns every active season for an NHL team and their participation in the NHL</returns>
+        Task<List<int>> GetAllRosterSeasonsByTeamAsync(TeamEnum team);
+
+        /// <summary>
+        /// Returns all the NHL prospects for the specified NHL team including forwards, defensemen and goalies
+        /// </summary>
+        /// <param name="teamId">The NHL team identifider, Example: 55 - Seattle Kraken</param>
+        /// <returns></returns>
+        Task<TeamProspects> GetTeamProspectsByTeamAsync(int teamId);
+
+        /// <summary>
+        /// Returns all the NHL prospects for the specified NHL team including forwards, defensemen and goalies
+        /// </summary>
+        /// <param name="team">The NHL team identifider, see <see cref="TeamEnum"/> for more information, Example: 10 - Toronto Maple Leafs </param>
+        /// <returns></returns>
+        Task<TeamProspects> GetTeamProspectsByTeamAsync(TeamEnum team);
 
     }
 }

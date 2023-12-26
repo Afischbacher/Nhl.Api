@@ -8,7 +8,7 @@ namespace Nhl.Api.Tests
     public class ResourceDisposeTests
     {
         [TestMethodWithRetry(RetryCount = 5)]
-        public async Task ResourceDisposeAsyncTest() 
+        public async Task ResourceDisposeAsyncTest()
         {
             await using var nhlApi = new NhlApi();
 
