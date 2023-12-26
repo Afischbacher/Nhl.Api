@@ -1,4 +1,5 @@
-﻿using Nhl.Api.Enumerations.Statistic;
+﻿using Nhl.Api.Enumerations.Game;
+using Nhl.Api.Enumerations.Statistic;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
@@ -11,7 +12,6 @@ using Nhl.Api.Models.Team;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using GameType = Nhl.Api.Enumerations.Game.GameType;
 
 namespace Nhl.Api
 {

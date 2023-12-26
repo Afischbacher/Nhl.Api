@@ -351,7 +351,7 @@ namespace Nhl.Api.Models.Schedule
         /// </summary>
         [JsonProperty("placeName")]
         public PlaceName PlaceName { get; set; }
-        
+
         /// <summary>
         /// The abbreviation for the home NHL team <br/>
         /// Example: TOR
@@ -407,7 +407,7 @@ namespace Nhl.Api.Models.Schedule
         /// </summary>
         [JsonProperty("airlineLink")]
         public string AirlineLink { get; set; }
-        
+
         /// <summary>
         /// The airline description for the NHL home team <br/>
         /// Example: Fly United

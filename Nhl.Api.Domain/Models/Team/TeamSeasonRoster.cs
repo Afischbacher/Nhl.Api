@@ -174,7 +174,7 @@ namespace Nhl.Api.Models.Team
     /// </summary>
     public class TeamSeasonRosterDefenseman : TeamRosterPlayer
     {
-      
+
     }
 
     /// <summary>
@@ -182,7 +182,7 @@ namespace Nhl.Api.Models.Team
     /// </summary>
     public class TeamSeasonRosterForward : TeamRosterPlayer
     {
-       
+
     }
 
     /// <summary>
@@ -190,7 +190,7 @@ namespace Nhl.Api.Models.Team
     /// </summary>
     public class TeamSeasonRosterGoalie : TeamRosterPlayer
     {
-       
+
     }
 
 }

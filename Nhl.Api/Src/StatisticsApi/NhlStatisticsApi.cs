@@ -5,10 +5,8 @@ using Nhl.Api.Enumerations.Statistic;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Statistics;
-using Nhl.Api.Models.Team;
 using Nhl.Api.Services;
 using System;
-using System.Security.AccessControl;
 using System.Threading.Tasks;
 
 namespace Nhl.Api

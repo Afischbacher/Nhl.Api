@@ -33,7 +33,7 @@ namespace Nhl.Api.Models.Player
     /// </summary>
     public class TeamProspectDefenseman : TeamRosterPlayer
     {
-        
+
     }
 
     /// <summary>
@@ -41,7 +41,7 @@ namespace Nhl.Api.Models.Player
     /// </summary>
     public class TeamProspectForward : TeamRosterPlayer
     {
-      
+
     }
 
     /// <summary>
@@ -49,7 +49,7 @@ namespace Nhl.Api.Models.Player
     /// </summary>
     public class TeamProspectGoalie : TeamRosterPlayer
     {
-       
+
     }
 
 }

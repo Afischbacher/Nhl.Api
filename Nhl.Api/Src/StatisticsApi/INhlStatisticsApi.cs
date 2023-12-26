@@ -49,7 +49,7 @@ namespace Nhl.Api
         /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
         /// <returns>The NHL team season statistics for the specified season and game type</returns>
         Task<TeamSeasonStatistics> GetTeamStatisticsBySeasonAndGameTypeAsync(int teamId, string seasonYear, GameType gameType);
-        
+
         /// <summary>
         /// Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team 
         /// </summary>

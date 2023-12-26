@@ -1,14 +1,14 @@
 ﻿using Nhl.Api.Common.Http;
-using Nhl.Api.Models.Season;
-using Nhl.Api.Services;
 using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Schedule;
+using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Team;
+using Nhl.Api.Services;
 using System;
-using System.Threading.Tasks;
 using System.Collections.Generic;
-using Nhl.Api.Models.Player;
+using System.Threading.Tasks;
 
 namespace Nhl.Api
 {
