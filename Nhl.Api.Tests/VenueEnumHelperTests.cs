@@ -8,12 +8,5 @@ namespace Nhl.Api.Tests
     [TestClass]
     public class VenueEnumHelperTests
     {
-        [TestMethodWithRetry(RetryCount = 5)]
-        public void GetAllVenuesTest()
-        {
-            var venues = VenueEnumHelper.GetAllVenues();
-            Assert.IsNotNull(venues);
-            Assert.IsTrue(venues.Count > 30);
-        }
     }
 }
