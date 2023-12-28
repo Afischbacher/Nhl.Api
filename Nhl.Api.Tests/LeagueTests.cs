@@ -2,20 +2,19 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Threading.Tasks;
 
-namespace Nhl.Api.Tests
+namespace Nhl.Api.Tests;
+
+[TestClass]
+public class LeagueTests
 {
-    [TestClass]
-    public class LeagueTests
+    [TestMethod]
+    public async Task Test_Get_League_Schedule_Async()
     {
-        [TestMethod]
-        public async Task Test_Get_League_Schedule_Async()
-        {
-            await using INhlApi nhlApi = new NhlApi();
+        await using INhlApi nhlApi = new NhlApi();
 
-            var schedule = await nhlApi.GetLeagueGameWeekScheduleByDateTimeAsync(DateTimeOffset.Now);
+        var schedule = await nhlApi.GetLeagueGameWeekScheduleByDateTimeAsync(DateTimeOffset.Now);
 
-            Assert.IsNotNull(schedule);
+        Assert.IsNotNull(schedule);
 
-        }
     }
 }

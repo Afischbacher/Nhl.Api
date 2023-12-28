@@ -1,10 +1,9 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Nhl.Api.Tests
-{
-    [TestClass]
-    public class SeasonTests
-    {
+namespace Nhl.Api.Tests;
 
-    }
+[TestClass]
+public class SeasonTests
+{
+
 }
