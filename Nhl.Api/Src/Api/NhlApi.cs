@@ -3,12 +3,14 @@ using Nhl.Api.Enumerations.Statistic;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
+using Nhl.Api.Models.League;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Schedule;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
+using NhlApiDomainModelsGame;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -537,6 +539,136 @@ namespace Nhl.Api
         public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleByDateTimeAsync(TeamEnum team, DateTime dateTime)
         {
             return await _nhlGameApi.GetTeamSeasonScheduleByDateTimeAsync(team, dateTime);
+        }
+
+        /// <summary>
+        /// Returns the NHL league schedule for the specified date
+        /// </summary>
+        /// <param name="dateTime">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+        /// <returns>Returns the NHL league schedule for the specified date</returns>
+        public async Task<GameWeek> GetLeagueWeekScheduleByDateTimeAsync(DateTime dateTime)
+        {
+            return await _nhlLeagueApi.GetLeagueWeekScheduleByDateTimeAsync(dateTime);
+        }
+
+        /// <summary>
+        /// Returns the NHL league calendar schedule for the specified date and all applicable teams
+        /// </summary>
+        /// <param name="dateTime">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+        /// <returns>Returns the NHL league calendar schedule for the specified date and all applicable teams</returns>
+        public async Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateTime dateTime)
+        {
+            return await _nhlLeagueApi.GetLeagueScheduleCalendarAsync(dateTime);
+        }
+
+        /// <summary>
+        /// Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more
+        /// </summary>
+        /// <param name="dateTime">The date and time, Example: 2020-10-02T00:00:00Z</param>
+        /// <returns>Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more</returns>
+        public async Task<GameScore> GetGameScoresByDateTimeAsync(DateTime dateTime)
+        {
+            return await _nhlGameApi.GetGameScoresByDateTimeAsync(dateTime);
+        }
+
+        /// <summary>
+        /// Returns the collection of countries and where you can watch NHL games with links and more
+        /// </summary>
+        /// <returns>Returns the collection of countries and where you can watch NHL games with links and more</returns>
+        public async Task<List<GameWatchSource>> GetSourcesToWatchGamesAsync()
+        {
+            return await _nhlLeagueApi.GetSourcesToWatchGamesAsync();
+        }
+
+        /// <summary>
+        /// Returns the live NHL game scoreboard, including the game information, game status, game venue and more
+        /// </summary>
+        /// <returns>Returns the live NHL game scoreboard, including the game information, game status, game venue and more</returns>
+        public async Task<GameScoreboard> GetGameScoreboardAsync()
+        {
+            return await _nhlGameApi.GetGameScoreboardAsync();
+        }
+
+        /// <summary>
+        /// Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more
+        /// </summary>
+        /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
+        /// <returns>Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more</returns>
+        public async Task<GameCenterPlayByPlay> GetGameCenterPlayByPlayByGameIdAsync(int gameId)
+        {
+            return await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(gameId);
+        }
+
+        /// <summary>
+        /// Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more
+        /// </summary>
+        /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
+        /// <returns> Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more</returns>
+        public async Task<GameCenterLanding> GetGameCenterLandingByGameIdAsync(int gameId)
+        {
+            return await _nhlGameApi.GetGameCenterLandingByGameIdAsync(gameId);
+        }
+
+        /// <summary>
+        /// Returns the NHL game center box score for the specified game id, including the game information, game status, game venue and more
+        /// </summary>
+        /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
+        /// <returns>Returns the NHL game center box score for the specified game id, including the game information, game status, game venue and more</returns>
+        public async Task<GameCenterBoxScore> GetGameCenterBoxScoreByGameIdAsync(int gameId)
+        {
+            return await _nhlGameApi.GetGameCenterBoxScoreByGameIdAsync(gameId);
+        }
+
+        /// <summary>
+        /// Returns the NHL TV broadcasts for the specified date with information about the broadcasts
+        /// </summary>
+        /// <param name="dateTime">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
+        /// <returns>Returns the NHL TV broadcasts for the specified date with information about the broadcasts</returns>
+        public async Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateTime dateTime)
+        {
+            return await _nhlLeagueApi.GetTvScheduleBroadcastAsync(dateTime);
+        }
+
+        /// <summary>
+        /// Returns all the NHL seasons for the NHL league
+        /// </summary>
+        /// <returns>Returns all the NHL seasons for the NHL league</returns>
+        public async Task<List<int>> GetAllSeasonsAsync()
+        {
+            return await _nhlLeagueApi.GetAllSeasonsAsync();
+        }
+
+
+        /// <summary>
+        /// Returns the metadata information about the NHL league including players, teams and season states
+        /// </summary>
+        /// <param name="playerIds">A collection of NHL player identifiers, Example: [8478402,8478403] </param>
+        /// <param name="teamIds">A collection of NHL team identifiers, Example: [EDM, TOR]</param>
+        /// <returns>Returns the metadata information about the NHL league including players, teams and season states</returns>
+        public async Task<LeagueMetadataInformation> GetLeagueMetadataInformation(List<int> playerIds, List<string> teamIds)
+        {
+            return await _nhlLeagueApi.GetLeagueMetadataInformation(playerIds, teamIds);
+        }
+
+        /// <summary>
+        /// Returns the metadata information about the NHL league including players, teams and season states
+        /// </summary>
+        /// <param name="players">A collection of NHL player identifiers, Example: [8478402,8478403] </param>
+        /// <param name="teams">A collection of NHL team identifiers, Example: [EDM, TOR]</param>
+        /// <returns>Returns the metadata information about the NHL league including players, teams and season states</returns>
+        public async Task<LeagueMetadataInformation> GetLeagueMetadataInformation(List<PlayerEnum> players, List<TeamEnum> teams)
+        {
+            return await _nhlLeagueApi.GetLeagueMetadataInformation(players, teams);
+        }
+
+        /// <summary>
+        /// Returns the NHL game metadata for the specified game id, including the teams, season states and more
+        /// </summary>
+        /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
+        /// <returns>Returns the NHL game metadata for the specified game id, including the teams, season states and more</returns>
+        public async Task<GameMetadata> GetGameMetadataByGameIdAsync(int gameId)
+        {
+            return await _nhlGameApi.GetGameMetadataByGameIdAsync(gameId);
         }
     }
 }

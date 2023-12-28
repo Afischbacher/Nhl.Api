@@ -84,5 +84,46 @@ namespace Nhl.Api
         /// <param name="dateTime">The date and time, Example: 2020-10-02T00:00:00Z</param>
         /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
         Task<TeamSeasonSchedule> GetTeamSeasonScheduleByDateTimeAsync(TeamEnum team, DateTime dateTime);
+
+        /// <summary>
+        /// Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more
+        /// </summary>
+        /// <param name="dateTime">The date and time, Example: 2020-10-02T00:00:00Z</param>
+        /// <returns>Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more</returns>
+        Task<GameScore> GetGameScoresByDateTimeAsync(DateTime dateTime);
+
+        /// <summary>
+        /// Returns the live NHL game scoreboard, including the game information, game status, game venue and more
+        /// </summary>
+        /// <returns>Returns the live NHL game scoreboard, including the game information, game status, game venue and more</returns>
+        Task<GameScoreboard> GetGameScoreboardAsync();
+
+        /// <summary>
+        /// Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more
+        /// </summary>
+        /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
+        /// <returns>Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more</returns>
+        Task<GameCenterPlayByPlay> GetGameCenterPlayByPlayByGameIdAsync(int gameId);
+
+        /// <summary>
+        /// Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more
+        /// </summary>
+        /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
+        /// <returns> Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more</returns>
+        Task<GameCenterLanding> GetGameCenterLandingByGameIdAsync(int gameId);
+
+        /// <summary>
+        /// Returns the NHL game center box score for the specified game id, including the game information, game status, game venue and more
+        /// </summary>
+        /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
+        /// <returns>Returns the NHL game center box score for the specified game id, including the game information, game status, game venue and more</returns>
+        Task<GameCenterBoxScore> GetGameCenterBoxScoreByGameIdAsync(int gameId);
+
+        /// <summary>
+        /// Returns the NHL game metadata for the specified game id, including the teams, season states and more
+        /// </summary>
+        /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
+        /// <returns>Returns the NHL game metadata for the specified game id, including the teams, season states and more</returns>
+        Task<GameMetadata> GetGameMetadataByGameIdAsync(int gameId);
     }
 }

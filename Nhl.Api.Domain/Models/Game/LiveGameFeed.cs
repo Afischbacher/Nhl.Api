@@ -2683,24 +2683,6 @@ namespace Nhl.Api.Models.Game
     }
 
     /// <summary>
-    /// Box Score
-    /// </summary>
-    public class Boxscore
-    {
-        /// <summary>
-        /// Returns the NHL live game feed box score teams
-        /// </summary>
-        [JsonProperty("teams")]
-        public LiveGameFeedBoxscoreTeams Teams { get; set; }
-
-        /// <summary>
-        /// Returns the NHL live game feed officials
-        /// </summary>
-        [JsonProperty("officials")]
-        public List<GameOfficial> Officials { get; set; }
-    }
-
-    /// <summary>
     /// Decision
     /// </summary>
     public abstract class Decision

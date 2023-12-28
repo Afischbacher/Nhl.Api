@@ -1,5 +1,7 @@
 ﻿using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Team;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Nhl.Api.Services
 {
@@ -35,6 +37,13 @@ namespace Nhl.Api.Services
         /// <param name="teamEnum">The NHL team enumeration, specifying which the NHL team, Example: Toronto Maple Leafs - 10 </param>
         /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
         string GetTeamCodeIdentfierByTeamEnumeration(TeamEnum teamEnum);
+
+        /// <summary>
+        /// Returns the NHL team code identifier by the team enumerations
+        /// </summary>
+        /// <param name="teamEnums">The NHL team enumeration, specifying which the NHL team, Example: Toronto Maple Leafs - 10 </param>
+        /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
+        List<string> GetTeamCodeIdentfierByTeamEnumerations(List<TeamEnum> teamEnums);
     }
 
     /// <summary>
@@ -296,5 +305,20 @@ namespace Nhl.Api.Services
             }
         }
 
+        /// <summary>
+        /// Returns the NHL team code identifier by the team enumerations
+        /// </summary>
+        /// <param name="teamEnums">The NHL team enumeration, specifying which the NHL team, Example: Toronto Maple Leafs - 10 </param>
+        /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
+        public List<string> GetTeamCodeIdentfierByTeamEnumerations(List<TeamEnum> teamEnums)
+        {
+            var teamCodes = new HashSet<string>();
+            foreach (var team in teamEnums)
+            {
+                teamCodes.Add(GetTeamCodeIdentfierByTeamEnumeration(team));
+            }
+
+            return teamCodes.ToList();
+        }
     }
 }

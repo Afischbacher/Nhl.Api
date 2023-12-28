@@ -1,9 +1,13 @@
-﻿using Nhl.Api.Models.Enumerations.Team;
+﻿using Nhl.Api.Models.Enumerations.Player;
+using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Game;
+using Nhl.Api.Models.League;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Schedule;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Team;
+using NhlApiDomainModelsGame;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -142,5 +146,53 @@ namespace Nhl.Api
         /// <returns></returns>
         Task<TeamProspects> GetTeamProspectsByTeamAsync(TeamEnum team);
 
+        /// <summary>
+        /// Returns the NHL league schedule for the specified date
+        /// </summary>
+        /// <param name="dateTime">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+        /// <returns>Returns the NHL league schedule for the specified date</returns>
+        Task<GameWeek> GetLeagueWeekScheduleByDateTimeAsync(DateTime dateTime);
+
+        /// <summary>
+        /// Returns the NHL league calendar schedule for the specified date and all applicable teams
+        /// </summary>
+        /// <param name="dateTime">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+        /// <returns>Returns the NHL league calendar schedule for the specified date and all applicable teams</returns>
+        Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateTime dateTime);
+
+        /// <summary>
+        /// Returns the collection of countries and where you can watch NHL games with links and more
+        /// </summary>
+        /// <returns>Returns the collection of countries and where you can watch NHL games with links and more</returns>
+        Task<List<GameWatchSource>> GetSourcesToWatchGamesAsync();
+
+        /// <summary>
+        /// Returns the NHL TV broadcasts for the specified date with information about the broadcasts
+        /// </summary>
+        /// <param name="dateTime">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
+        /// <returns>Returns the NHL TV broadcasts for the specified date with information about the broadcasts</returns>
+        Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateTime dateTime);
+
+        /// <summary>
+        /// Returns all the NHL seasons for the NHL league
+        /// </summary>
+        /// <returns>Returns all the NHL seasons for the NHL league</returns>
+        Task<List<int>> GetAllSeasonsAsync();
+
+        /// <summary>
+        /// Returns the metadata information about the NHL league including players, teams and season states
+        /// </summary>
+        /// <param name="playerIds">A collection of NHL player identifiers, Example: [8478402,8478403] </param>
+        /// <param name="teamIds">A collection of NHL team identifiers, Example: [EDM, TOR]</param>
+        /// <returns>Returns the metadata information about the NHL league including players, teams and season states</returns>
+        Task<LeagueMetadataInformation> GetLeagueMetadataInformation(List<int> playerIds, List<string> teamIds);
+
+        /// <summary>
+        /// Returns the metadata information about the NHL league including players, teams and season states
+        /// </summary>
+        /// <param name="players">A collection of NHL player identifiers, Example: [8478402,8478403] </param>
+        /// <param name="teams">A collection of NHL team identifiers, Example: [EDM, TOR]</param>
+        /// <returns>Returns the metadata information about the NHL league including players, teams and season states</returns>
+        Task<LeagueMetadataInformation> GetLeagueMetadataInformation(List<PlayerEnum> players, List<TeamEnum> teams);
     }
 }
