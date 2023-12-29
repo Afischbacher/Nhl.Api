@@ -53,7 +53,7 @@
         /// <summary>
         /// Chicago Black Hawks / Blackhawks
         /// </summary>
-        public const string ChicagoBlackHawksBlackhawks = "CHI";
+        public const string ChicagoBlackHawks = "CHI";
         /// <summary>
         /// Cleveland Barons
         /// </summary>

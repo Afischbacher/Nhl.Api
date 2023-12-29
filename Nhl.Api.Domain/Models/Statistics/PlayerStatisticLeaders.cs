@@ -45,7 +45,7 @@ namespace Nhl.Api.Models.Statistics
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for penalty minutes
         /// </summary>
         [JsonProperty("penaltyMins")]
-        public List<PenaltyMinutes> PenaltyMins { get; set; } = new List<PenaltyMinutes>();
+        public List<PenaltyMinutes> PenaltyMinutes { get; set; } = new List<PenaltyMinutes>();
 
         /// <summary>
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for goals
@@ -63,7 +63,7 @@ namespace Nhl.Api.Models.Statistics
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for total time on ice
         /// </summary>
         [JsonProperty("toi")]
-        public List<TotalTimeOnIce> Toi { get; set; } = new List<TotalTimeOnIce>();
+        public List<TotalTimeOnIce> TotalTimeOnIce { get; set; } = new List<TotalTimeOnIce>();
     }
 
     /// <summary>

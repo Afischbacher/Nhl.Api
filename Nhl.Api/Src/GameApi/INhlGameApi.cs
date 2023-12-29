@@ -3,8 +3,6 @@ using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Schedule;
 using Nhl.Api.Models.Season;
-using System;
-using System.Threading.Tasks;
 
 namespace Nhl.Api;
 
@@ -73,24 +71,24 @@ public interface INhlGameApi
     /// Returns the NHL team schedule for the specified team and the specified date and time
     /// </summary>
     /// <param name="teamId">The team identifier, Example: 10 - Toronto Maples Leafs</param>
-    /// <param name="dateTime">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    Task<TeamSeasonSchedule> GetTeamSeasonScheduleByDateTimeAsync(int teamId, DateTime dateTime);
+    Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(int teamId, DateTimeOffset dateTimeOffset);
 
     /// <summary>
     /// Returns the NHL team schedule for the specified team and the specified date and time
     /// </summary>
     /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 54 - Vegas Golden Knights </param>
-    /// <param name="dateTime">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    Task<TeamSeasonSchedule> GetTeamSeasonScheduleByDateTimeAsync(TeamEnum team, DateTime dateTime);
+    Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(TeamEnum team, DateTimeOffset dateTimeOffset);
 
     /// <summary>
     /// Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more
     /// </summary>
-    /// <param name="dateTime">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
     /// <returns>Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more</returns>
-    Task<GameScore> GetGameScoresByDateTimeAsync(DateTime dateTime);
+    Task<GameScore> GetGameScoresByDateTimeAsync(DateTimeOffset dateTimeOffset);
 
     /// <summary>
     /// Returns the live NHL game scoreboard, including the game information, game status, game venue and more

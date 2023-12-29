@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Season
 {
@@ -22,16 +23,19 @@ namespace Nhl.Api.Models.Season
         /// <summary>
         /// The NHL team name for the team statistics season
         /// </summary>
+        [JsonProperty("teamName")]
         public string TeamName { get; set; }
 
         /// <summary>
         /// Gets or sets the season year
         /// </summary>
+        [JsonProperty("season")]
         public int Season { get; set; }
 
         /// <summary>
         /// Gets or sets the list of game types
         /// </summary>
+        [JsonProperty("gameTypes")]
         public List<int> GameTypes { get; set; } = new List<int>();
     }
 }

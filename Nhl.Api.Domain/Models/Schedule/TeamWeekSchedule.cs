@@ -13,35 +13,35 @@ namespace Nhl.Api.Models.Schedule
         /// Example: 2023-11-07
         /// </summary>
         [JsonProperty("previousStartDate")]
-        public int PreviousStartDate { get; }
+        public string PreviousStartDate { get; set; }
 
         /// <summary>
         /// The next start date of the weeks schedule <br/>
         /// Example: 2023-11-21
         /// </summary>
-        [JsonProperty("currentSeason")]
-        public int CurrentSeason { get; }
+        [JsonProperty("nextStartDate")]
+        public string NextStartDate { get; set; }
 
         /// <summary>
         /// The calendar url for all of the NHL teams games using Rokt Calendar <br/>
         /// Example: <a href="https://nhl.calreplyapp.com/maple-leafs">https://nhl.calreplyapp.com/maple-leafs</a>
         /// </summary>
         [JsonProperty("calendarUrl")]
-        public string CalendarUrl { get; }
+        public string CalendarUrl { get; set; }
 
         /// <summary>
         /// This returns the NHL team's time zone <br/>
         /// Example: America/Toronto
         /// </summary>
         [JsonProperty("clubTimezone")]
-        public string ClubTimezone { get; }
+        public string ClubTimezone { get; set; }
 
         /// <summary>
         /// This returns the NHL team's time zone offset in hours <br/>
         ///  Example: -05:00
         /// </summary>
         [JsonProperty("clubUTCOffset")]
-        public string ClubUTCOffset { get; }
+        public string ClubUTCOffset { get; set; }
 
         /// <summary>
         /// The NHL team's schedule for the season in a list of games

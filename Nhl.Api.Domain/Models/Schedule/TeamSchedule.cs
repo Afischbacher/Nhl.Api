@@ -13,28 +13,28 @@ namespace Nhl.Api.Models.Schedule
         /// <returns>20202021</returns>
         /// </summary>
         [JsonProperty("previousSeason")]
-        public int PreviousSeason { get; }
+        public int PreviousSeason { get; set; }
 
         /// <summary>
         /// The current season for the team's schedule <br/>
         /// Example: 20232024
         /// </summary>
         [JsonProperty("currentSeason")]
-        public int CurrentSeason { get; }
+        public int CurrentSeason { get; set; }
 
         /// <summary>
         /// This returns the NHL team's time zone <br/>
         /// Example: US/Eastern
         /// </summary>
         [JsonProperty("clubTimezone")]
-        public string ClubTimezone { get; }
+        public string ClubTimezone { get; set; }
 
         /// <summary>
         /// This returns the NHL team's time zone offset in hours <br/>
         ///  Example: -05:00
         /// </summary>
         [JsonProperty("clubUTCOffset")]
-        public string ClubUTCOffset { get; }
+        public string ClubUTCOffset { get; set; }
 
         /// <summary>
         /// The NHL team's schedule for the season in a list of games

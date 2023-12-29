@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace NhlApiDomainModelsGame
+namespace Nhl.Api.Models.Game
 {
 
     /// <summary>

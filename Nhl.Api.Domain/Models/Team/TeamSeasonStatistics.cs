@@ -2,7 +2,7 @@
 using Nhl.Api.Models.Player;
 using System.Collections.Generic;
 
-namespace Nhl.Api.Domain.Models.Team
+namespace Nhl.Api.Models.Team
 {
 
     /// <summary>

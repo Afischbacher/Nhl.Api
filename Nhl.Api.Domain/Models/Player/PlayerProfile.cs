@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Player
@@ -132,6 +133,12 @@ namespace Nhl.Api.Models.Player
         /// </summary>
         [JsonProperty("birthDate")]
         public string BirthDate { get; set; }
+
+        /// <summary>
+        /// The age of the NHL player <br/>
+        /// Example: 24
+        /// </summary>
+        public int Age => (DateTime.Now.Year - DateTime.Parse(BirthDate).Year);
 
         /// <summary>
         /// The birth city of the NHL player <br/>
@@ -352,11 +359,13 @@ namespace Nhl.Api.Models.Player
         /// <summary>
         /// The NHL player's career totals for the regular season
         /// </summary>
+        [JsonProperty("regularSeason")]
         public PlayerRegularSeason PlayerRegularSeason { get; set; }
 
         /// <summary>
         /// The NHL player's career totals for the playoffs
         /// </summary>
+        [JsonProperty("playoffs")]
         public PlayerPlayoffs PlayerPlayoffs { get; set; }
     }
 

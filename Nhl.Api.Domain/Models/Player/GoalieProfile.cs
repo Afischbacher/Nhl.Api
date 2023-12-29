@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Player
@@ -132,6 +133,12 @@ namespace Nhl.Api.Models.Player
         /// </summary>
         [JsonProperty("birthDate")]
         public string BirthDate { get; set; }
+
+        /// <summary>
+        /// The age of the NHL goalie <br/>
+        /// Example: 24
+        /// </summary>
+        public int Age => (DateTime.Now.Year - DateTime.Parse(BirthDate).Year);
 
         /// <summary>
         /// The birth city of the NHL goalie <br/>

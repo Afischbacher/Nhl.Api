@@ -9,10 +9,7 @@ using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Services;
-using NhlApiDomainModelsGame;
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Nhl.Api;
 
@@ -61,7 +58,7 @@ public class NhlLeagueApi : INhlLeagueApi
             return false;
         }
 
-        return DateTime.Parse(leagueSchedule.RegularSeasonStartDate) >= DateTime.Now && DateTime.Parse(leagueSchedule.RegularSeasonEndDate) <= DateTime.Now;
+        return DateTime.Now >= DateTime.Parse(leagueSchedule.RegularSeasonStartDate) && DateTime.Now <= DateTime.Parse(leagueSchedule.RegularSeasonEndDate);
     }
 
     /// <summary>
@@ -82,7 +79,7 @@ public class NhlLeagueApi : INhlLeagueApi
             return false;
         }
 
-        return DateTime.Parse(leagueSchedule.RegularSeasonEndDate) >= DateTime.Now && DateTime.Parse(leagueSchedule.PlayoffEndDate) <= DateTime.Now;
+        return DateTime.Now >= DateTime.Parse(leagueSchedule.RegularSeasonEndDate) && DateTime.Now <= DateTime.Parse(leagueSchedule.PlayoffEndDate);
     }
 
     /// <summary>
@@ -103,8 +100,9 @@ public class NhlLeagueApi : INhlLeagueApi
             return false;
         }
 
-        return DateTime.Parse(leagueSchedule.PreSeasonStartDate) >= DateTime.Now && DateTime.Parse(leagueSchedule.RegularSeasonStartDate) <= DateTime.Now;
+        return DateTime.Now >= DateTime.Parse(leagueSchedule.PreSeasonStartDate) && DateTime.Now <= DateTime.Parse(leagueSchedule.RegularSeasonStartDate);
     }
+
 
     /// <summary>
     /// This returns the NHL team schedule for a specific season and a specific team by the team abbreviation and season
@@ -112,12 +110,22 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <param name="teamAbbreviation">The required team abbreviation for the NHL team, Example: WSH - Washington</param>
     /// <param name="seasonYear">The eight digit number format for the season, Example: 20232024</param>
     /// <returns>A collection of all games in the requested season for the requested NHL team</returns>
-    public async Task<TeamSchedule> GetTeamScheduleBySeasonAsync(string teamAbbreviation, SeasonYear seasonYear)
+    public async Task<TeamSchedule> GetTeamScheduleBySeasonAsync(string teamAbbreviation, string seasonYear)
     {
         var parsedTeamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamAbbreviation(teamAbbreviation);
         if (string.IsNullOrWhiteSpace(parsedTeamAbbreviation))
         {
             throw new Exception($"The team abbreviation {teamAbbreviation} is not valid");
+        }
+
+        if (string.IsNullOrWhiteSpace(seasonYear))
+        {
+            throw new ArgumentException("The season year is required");
+        }
+
+        if (seasonYear.Length != 8)
+        {
+            throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
         }
 
         return await _nhlWebApiHttpClient.GetAsync<TeamSchedule>($"/club-schedule-season/{teamAbbreviation}/{seasonYear}");
@@ -138,7 +146,7 @@ public class NhlLeagueApi : INhlLeagueApi
             throw new Exception($"The team abbreviation {teamAbbreviation} is not valid");
         }
 
-        return await _nhlWebApiHttpClient.GetAsync<TeamWeekSchedule>($"/club-schedule-season/{teamAbbreviation}/week/{dateTimeOffset:yyyy-MM-dd}");
+        return await _nhlWebApiHttpClient.GetAsync<TeamWeekSchedule>($"/club-schedule/{teamAbbreviation}/week/{dateTimeOffset:yyyy-MM-dd}");
     }
 
     /// <summary>
@@ -524,21 +532,21 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <summary>
     /// Returns the NHL league schedule for the specified date
     /// </summary>
-    /// <param name="dateTime">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+    /// <param name="dateTimeOffset">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league schedule for the specified date</returns>
-    public async Task<GameWeek> GetLeagueWeekScheduleByDateTimeAsync(DateTime dateTime)
+    public async Task<LeagueSchedule> GetLeagueWeekScheduleByDateTimeAsync(DateTimeOffset dateTimeOffset)
     {
-        return await _nhlWebApiHttpClient.GetAsync<GameWeek>($"/schedule/{dateTime:yyyy-MM-dd}");
+        return await _nhlWebApiHttpClient.GetAsync<LeagueSchedule>($"/schedule/{dateTimeOffset:yyyy-MM-dd}");
     }
 
     /// <summary>
     /// Returns the NHL league calendar schedule for the specified date and all applicable teams
     /// </summary>
-    /// <param name="dateTime">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+    /// <param name="dateTimeOffset">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league calendar schedule for the specified date and all applicable teams</returns>
-    public async Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateTime dateTime)
+    public async Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateTimeOffset dateTimeOffset)
     {
-        return await _nhlWebApiHttpClient.GetAsync<LeagueScheduleCalendar>($"/schedule-calendar/{dateTime:yyyy-MM-dd}");
+        return await _nhlWebApiHttpClient.GetAsync<LeagueScheduleCalendar>($"/schedule-calendar/{dateTimeOffset:yyyy-MM-dd}");
     }
 
     /// <summary>
@@ -611,6 +619,14 @@ public class NhlLeagueApi : INhlLeagueApi
         var teamAbbreviations = _nhlTeamService.GetTeamCodeIdentfierByTeamEnumerations(teams);
 
         return await _nhlWebApiHttpClient.GetAsync<LeagueMetadataInformation>($"/metadata?players={string.Join(",", players)}/{string.Join(",", teamAbbreviations)}");
+    }
 
+    /// <summary>
+    /// Determines if the NHL league is active or inactive based on the current date and time
+    /// </summary>
+    /// <returns>Returns true or false based on the current time and date</returns>
+    public async Task<bool> IsLeagueActiveAsync()
+    {
+       return await IsRegularSeasonActiveAsync() || await IsPlayoffSeasonActiveAsync() || await IsPreSeasonActiveAsync();
     }
 }

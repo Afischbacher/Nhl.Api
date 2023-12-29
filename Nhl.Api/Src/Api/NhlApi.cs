@@ -10,10 +10,6 @@ using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
-using NhlApiDomainModelsGame;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Nhl.Api;
 
@@ -133,9 +129,9 @@ public class NhlApi : INhlApi
 
     /// <summary>
     /// Returns the NHL team schedule for a specific date using the DateTimeOffset
+    /// </summary>
     /// <param name="dateTimeOffset">A <see cref="DateTimeOffset"/> for the specific date for the NHL schedule</param>
     /// <returns>A result of the current NHL schedule by the specified date</returns>
-    /// </summary>
     public async Task<LeagueSchedule> GetLeagueGameWeekScheduleByDateTimeAsync(DateTimeOffset dateTimeOffset)
     {
         return await _nhlLeagueApi.GetLeagueGameWeekScheduleByDateTimeAsync(dateTimeOffset);
@@ -147,7 +143,7 @@ public class NhlApi : INhlApi
     /// <returns>Returns a result of true or false if the NHL pre-season is active</returns>
     public async Task<bool> IsPreSeasonActiveAsync()
     {
-        return await _nhlLeagueApi.IsPlayoffSeasonActiveAsync();
+        return await _nhlLeagueApi.IsPreSeasonActiveAsync();
     }
 
     /// <summary>
@@ -171,10 +167,10 @@ public class NhlApi : INhlApi
     /// <summary>
     /// This returns the NHL team schedule for a specific season and a specific team by the team abbreviation and season
     /// </summary>
-    /// <param name="teamAbbreviation">The required team abbreviation for the NHL team, Example: WSH - Washington</param>
+    /// <param name="teamAbbreviation">The required team abbreviation for the NHL team, Example: WSH - Washington Capitals</param>
     /// <param name="seasonYear">The eight digit number format for the season, Example: 20232024</param>
     /// <returns>A collection of all games in the requested season for the requested NHL team</returns>
-    public async Task<TeamSchedule> GetTeamScheduleBySeasonAsync(string teamAbbreviation, SeasonYear seasonYear)
+    public async Task<TeamSchedule> GetTeamScheduleBySeasonAsync(string teamAbbreviation, string seasonYear)
     {
         return await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(teamAbbreviation, seasonYear);
     }
@@ -182,7 +178,7 @@ public class NhlApi : INhlApi
     /// <summary>
     /// This returns the NHL team schedule for a specific season and a specific team by the team abbreviation and season
     /// </summary>
-    /// <param name="teamAbbreviation">The required team abbreviation for the NHL team, Example: WSH - Washington</param>
+    /// <param name="teamAbbreviation">The required team abbreviation for the NHL team, Example: WSH - Washington Capitals</param>
     /// <param name="dateTimeOffset">The date in which the request schedule for the team and for the week is request for</param>
     /// <returns>A collection of all games in the requested season for the requested NHL team</returns>
     public async Task<TeamWeekSchedule> GetTeamWeekScheduleByDateTimeOffsetAsync(string teamAbbreviation, DateTimeOffset dateTimeOffset)
@@ -305,15 +301,6 @@ public class NhlApi : INhlApi
     }
 
     /// <summary>
-    /// Releases and disposes all unused or garbage collected resources for the Nhl.Api asynchronously
-    /// </summary>
-    /// <returns>The await-able result of the asynchronous operation</returns>
-    public async ValueTask DisposeAsync()
-    {
-        await Task.Run(() => _nhlPlayerApi?.Dispose());
-    }
-
-    /// <summary>
     /// Returns the NHL player's in the spotlight based on their recent performances 
     /// </summary>
     /// <returns>A collection of players and their information for players in the NHL spotlight</returns>
@@ -340,11 +327,6 @@ public class NhlApi : INhlApi
     {
         return await _nhlLeagueApi.GetLeagueStandingsSeasonInformationAsync();
     }
-
-    /// <summary>
-    /// Releases and disposes all unused or garbage collected resources for the Nhl.Api
-    /// </summary>
-    public void Dispose() => _nhlPlayerApi?.Dispose();
 
     /// <summary>
     /// Returns the NHL team statistics for individual players for a specific NHL team statistic type based on the game type and season year
@@ -375,7 +357,7 @@ public class NhlApi : INhlApi
     /// </summary>
     /// <param name="team">The team enumeration identifier, specifying which the NHL team, <see cref="TeamEnum"/> for more information </param>
     /// <returns> Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team </returns>
-    public async Task<TeamStatisticsSeason> GetTeamStatisticsBySeasonAsync(TeamEnum team)
+    public async Task<List<TeamStatisticsSeason>> GetTeamStatisticsBySeasonAsync(TeamEnum team)
     {
         return await _nhlStatisticsApi.GetTeamStatisticsBySeasonAsync(team);
     }
@@ -385,7 +367,7 @@ public class NhlApi : INhlApi
     /// </summary>
     /// <param name="teamId">The NHL team identifier, specifying which the NHL team, Example: 55 - Seattle Kraken </param>
     /// <returns> Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team </returns>
-    public async Task<TeamStatisticsSeason> GetTeamStatisticsBySeasonAsync(int teamId)
+    public async Task<List<TeamStatisticsSeason>> GetTeamStatisticsBySeasonAsync(int teamId)
     {
         return await _nhlStatisticsApi.GetTeamStatisticsBySeasonAsync(teamId);
     }
@@ -523,52 +505,52 @@ public class NhlApi : INhlApi
     /// Returns the NHL team schedule for the specified team and the specified date and time
     /// </summary>
     /// <param name="teamId">The team identifier, Example: 10 - Toronto Maples Leafs</param>
-    /// <param name="dateTime">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleByDateTimeAsync(int teamId, DateTime dateTime)
+    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(int teamId, DateTimeOffset dateTimeOffset)
     {
-        return await _nhlGameApi.GetTeamSeasonScheduleByDateTimeAsync(teamId, dateTime);
+        return await _nhlGameApi.GetTeamWeekScheduleByDateTimeAsync(teamId, dateTimeOffset);
     }
 
     /// <summary>
     /// Returns the NHL team schedule for the specified team and the specified date and time
     /// </summary>
     /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 54 - Vegas Golden Knights </param>
-    /// <param name="dateTime">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleByDateTimeAsync(TeamEnum team, DateTime dateTime)
+    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(TeamEnum team, DateTimeOffset dateTimeOffset)
     {
-        return await _nhlGameApi.GetTeamSeasonScheduleByDateTimeAsync(team, dateTime);
+        return await _nhlGameApi.GetTeamWeekScheduleByDateTimeAsync(team, dateTimeOffset);
     }
 
     /// <summary>
     /// Returns the NHL league schedule for the specified date
     /// </summary>
-    /// <param name="dateTime">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+    /// <param name="dateTimeOffset">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league schedule for the specified date</returns>
-    public async Task<GameWeek> GetLeagueWeekScheduleByDateTimeAsync(DateTime dateTime)
+    public async Task<LeagueSchedule> GetLeagueWeekScheduleByDateTimeAsync(DateTimeOffset dateTimeOffset)
     {
-        return await _nhlLeagueApi.GetLeagueWeekScheduleByDateTimeAsync(dateTime);
+        return await _nhlLeagueApi.GetLeagueWeekScheduleByDateTimeAsync(dateTimeOffset);
     }
 
     /// <summary>
     /// Returns the NHL league calendar schedule for the specified date and all applicable teams
     /// </summary>
-    /// <param name="dateTime">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+    /// <param name="dateTimeOffset">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league calendar schedule for the specified date and all applicable teams</returns>
-    public async Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateTime dateTime)
+    public async Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateTimeOffset dateTimeOffset)
     {
-        return await _nhlLeagueApi.GetLeagueScheduleCalendarAsync(dateTime);
+        return await _nhlLeagueApi.GetLeagueScheduleCalendarAsync(dateTimeOffset);
     }
 
     /// <summary>
     /// Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more
     /// </summary>
-    /// <param name="dateTime">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
     /// <returns>Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more</returns>
-    public async Task<GameScore> GetGameScoresByDateTimeAsync(DateTime dateTime)
+    public async Task<GameScore> GetGameScoresByDateTimeAsync(DateTimeOffset dateTimeOffset)
     {
-        return await _nhlGameApi.GetGameScoresByDateTimeAsync(dateTime);
+        return await _nhlGameApi.GetGameScoresByDateTimeAsync(dateTimeOffset);
     }
 
     /// <summary>
@@ -638,7 +620,6 @@ public class NhlApi : INhlApi
         return await _nhlLeagueApi.GetAllSeasonsAsync();
     }
 
-
     /// <summary>
     /// Returns the metadata information about the NHL league including players, teams and season states
     /// </summary>
@@ -670,4 +651,24 @@ public class NhlApi : INhlApi
     {
         return await _nhlGameApi.GetGameMetadataByGameIdAsync(gameId);
     }
+
+    /// <summary>
+    /// Determines if the NHL league is active or inactive based on the current date and time
+    /// </summary>
+    /// <returns>Returns true or false based on the current time and date</returns>
+    public async Task<bool> IsLeagueActiveAsync()
+    {
+        return await _nhlLeagueApi.IsLeagueActiveAsync();
+    }
+
+    /// <summary>
+    /// Releases and disposes all unused or garbage collected resources for the Nhl.Api
+    /// </summary>
+    public void Dispose() => _nhlPlayerApi?.Dispose();
+
+    /// <summary>
+    /// Releases and disposes all unused or garbage collected resources for the Nhl.Api asynchronously
+    /// </summary>
+    /// <returns>The await-able result of the asynchronous operation</returns>
+    public async ValueTask DisposeAsync() => await Task.Run(() => _nhlPlayerApi?.Dispose());
 }

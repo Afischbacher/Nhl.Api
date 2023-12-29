@@ -34,25 +34,25 @@ namespace Nhl.Api.Models.Statistics
         /// The NHL goalie's statistic leader for the number of wins in for an NHL season and game type
         /// </summary>
         [JsonProperty("wins")]
-        public List<Wins> Wins { get; set; }
+        public List<Wins> Wins { get; set; } = new List<Wins>();
 
         /// <summary>
         /// The NHL goalie's statistic leader for the number of shutouts in for an NHL season and game type
         /// </summary>
         [JsonProperty("shutouts")]
-        public List<Shutouts> Shutouts { get; set; }
+        public List<Shutouts> Shutouts { get; set; } = new List<Shutouts>();
 
         /// <summary>
         /// The NHL goalie's statistic leader for the save percentage in for an NHL season and game type
         /// </summary>
         [JsonProperty("savePctg")]
-        public List<SavePercentage> SavePercentages { get; set; }
+        public List<SavePercentage> SavePercentages { get; set; } = new List<SavePercentage>();
 
         /// <summary>
         /// The NHL goalie's statistic leader for the goals against average in for an NHL season and game type
         /// </summary>
         [JsonProperty("goalsAgainstAverage")]
-        public List<GoalsAgainstAverage> GoalsAgainstAverage { get; set; }
+        public List<GoalsAgainstAverage> GoalsAgainstAverage { get; set; } = new List<GoalsAgainstAverage>();
     }
 
     /// <summary>

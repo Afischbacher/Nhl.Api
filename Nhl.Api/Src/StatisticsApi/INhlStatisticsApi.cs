@@ -3,7 +3,7 @@ using Nhl.Api.Enumerations.Statistic;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Statistics;
-using System.Threading.Tasks;
+using Nhl.Api.Models.Team;
 
 namespace Nhl.Api;
 
@@ -55,12 +55,12 @@ public interface INhlStatisticsApi
     /// </summary>
     /// <param name="team">The team enumeration identifier, specifying which the NHL team, <see cref="TeamEnum"/> for more information </param>
     /// <returns> Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team </returns>
-    Task<TeamStatisticsSeason> GetTeamStatisticsBySeasonAsync(TeamEnum team);
+    Task<List<TeamStatisticsSeason>> GetTeamStatisticsBySeasonAsync(TeamEnum team);
 
     /// <summary>
     /// Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team 
     /// </summary>
     /// <param name="teamId">The NHL team identifier, specifying which the NHL team, Example: 55 - Seattle Kraken </param>
     /// <returns> Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team </returns>
-    Task<TeamStatisticsSeason> GetTeamStatisticsBySeasonAsync(int teamId);
+    Task<List<TeamStatisticsSeason>> GetTeamStatisticsBySeasonAsync(int teamId);
 }

@@ -5,9 +5,8 @@ using Nhl.Api.Enumerations.Statistic;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Statistics;
+using Nhl.Api.Models.Team;
 using Nhl.Api.Services;
-using System;
-using System.Threading.Tasks;
 
 namespace Nhl.Api;
 
@@ -116,10 +115,10 @@ public class NhlStatisticsApi : INhlStatisticsApi
     /// </summary>
     /// <param name="team">The team enumeration identifier, specifying which the NHL team, <see cref="TeamEnum"/> for more information </param>
     /// <returns> Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team </returns>
-    public async Task<TeamStatisticsSeason> GetTeamStatisticsBySeasonAsync(TeamEnum team)
+    public async Task<List<TeamStatisticsSeason>> GetTeamStatisticsBySeasonAsync(TeamEnum team)
     {
         var teamAbbreviaton = _nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team);
-        return await _nhlApiWebHttpClient.GetAsync<TeamStatisticsSeason>($"/club-stats-season/{teamAbbreviaton}");
+        return await _nhlApiWebHttpClient.GetAsync<List<TeamStatisticsSeason>>($"/club-stats-season/{teamAbbreviaton}");
     }
 
     /// <summary>
@@ -127,9 +126,9 @@ public class NhlStatisticsApi : INhlStatisticsApi
     /// </summary>
     /// <param name="teamId">The NHL team identifier, specifying which the NHL team, Example: 55 - Seattle Kraken </param>
     /// <returns> Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team </returns>
-    public async Task<TeamStatisticsSeason> GetTeamStatisticsBySeasonAsync(int teamId)
+    public async Task<List<TeamStatisticsSeason>> GetTeamStatisticsBySeasonAsync(int teamId)
     {
         var teamAbbreviaton = _nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId);
-        return await _nhlApiWebHttpClient.GetAsync<TeamStatisticsSeason>($"/club-stats-season/{teamAbbreviaton}");
+        return await _nhlApiWebHttpClient.GetAsync<List<TeamStatisticsSeason>>($"/club-stats-season/{teamAbbreviaton}");
     }
 }

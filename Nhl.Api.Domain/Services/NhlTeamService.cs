@@ -92,7 +92,7 @@ namespace Nhl.Api.Services
                 case (int)TeamEnum.CarolinaHurricanes:
                     return TeamCodes.CarolinaHurricanes;
                 case (int)TeamEnum.ChicagoBlackhawks:
-                    return TeamCodes.ChicagoBlackHawksBlackhawks;
+                    return TeamCodes.ChicagoBlackHawks;
                 case (int)TeamEnum.ColoradoAvalanche:
                     return TeamCodes.ColoradoAvalanche;
                 case (int)TeamEnum.ColumbusBlueJackets:
@@ -161,6 +161,10 @@ namespace Nhl.Api.Services
                     return TeamCodes.MightyDucksofAnaheimAnaheimDucks;
                 case TeamCodes.ArizonaCoyotes:
                     return TeamCodes.ArizonaCoyotes;
+                case TeamCodes.AtlantaFlames:
+                    return TeamCodes.AtlantaFlames;
+                case TeamCodes.AtlantaThrashers:
+                    return TeamCodes.AtlantaThrashers;
                 case TeamCodes.BostonBruins:
                     return TeamCodes.BostonBruins;
                 case TeamCodes.BuffaloSabres:
@@ -169,8 +173,8 @@ namespace Nhl.Api.Services
                     return TeamCodes.CalgaryFlames;
                 case TeamCodes.CarolinaHurricanes:
                     return TeamCodes.CarolinaHurricanes;
-                case TeamCodes.ChicagoBlackHawksBlackhawks:
-                    return TeamCodes.ChicagoBlackHawksBlackhawks;
+                case TeamCodes.ChicagoBlackHawks:
+                    return TeamCodes.ChicagoBlackHawks;
                 case TeamCodes.ColoradoAvalanche:
                     return TeamCodes.ColoradoAvalanche;
                 case TeamCodes.ColumbusBlueJackets:
@@ -265,7 +269,7 @@ namespace Nhl.Api.Services
                 case TeamEnum.WashingtonCapitals:
                     return TeamCodes.WashingtonCapitals;
                 case TeamEnum.ChicagoBlackhawks:
-                    return TeamCodes.ChicagoBlackHawksBlackhawks;
+                    return TeamCodes.ChicagoBlackHawks;
                 case TeamEnum.DetroitRedWings:
                     return TeamCodes.DetroitRedWings;
                 case TeamEnum.NashvillePredators:

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Nhl.Api;
+﻿namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial Nhl.Api providing various NHL information about players, games, teams, conferences, divisions, statistics and more

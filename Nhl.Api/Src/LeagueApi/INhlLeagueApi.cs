@@ -7,10 +7,6 @@ using Nhl.Api.Models.Schedule;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Team;
-using NhlApiDomainModelsGame;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Nhl.Api;
 
@@ -70,7 +66,7 @@ public interface INhlLeagueApi
     /// <param name="teamAbbreviation">The required team abbreviation for the NHL team, Example: WSH - Washington</param>
     /// <param name="seasonYear">The eight digit number format for the season, Example: 20232024</param>
     /// <returns>A collection of all games in the requested season for the requested NHL team</returns>
-    Task<TeamSchedule> GetTeamScheduleBySeasonAsync(string teamAbbreviation, SeasonYear seasonYear);
+    Task<TeamSchedule> GetTeamScheduleBySeasonAsync(string teamAbbreviation, string seasonYear);
 
     /// <summary>
     /// Returns the true or false if the NHL playoff pre season is active or inactive
@@ -149,16 +145,16 @@ public interface INhlLeagueApi
     /// <summary>
     /// Returns the NHL league schedule for the specified date
     /// </summary>
-    /// <param name="dateTime">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+    /// <param name="dateTimeOffset">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league schedule for the specified date</returns>
-    Task<GameWeek> GetLeagueWeekScheduleByDateTimeAsync(DateTime dateTime);
+    Task<LeagueSchedule> GetLeagueWeekScheduleByDateTimeAsync(DateTimeOffset dateTimeOffset);
 
     /// <summary>
     /// Returns the NHL league calendar schedule for the specified date and all applicable teams
     /// </summary>
-    /// <param name="dateTime">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+    /// <param name="dateTimeOffset">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league calendar schedule for the specified date and all applicable teams</returns>
-    Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateTime dateTime);
+    Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateTimeOffset dateTimeOffset);
 
     /// <summary>
     /// Returns the collection of countries and where you can watch NHL games with links and more
@@ -194,4 +190,11 @@ public interface INhlLeagueApi
     /// <param name="teams">A collection of NHL team identifiers, Example: [EDM, TOR]</param>
     /// <returns>Returns the metadata information about the NHL league including players, teams and season states</returns>
     Task<LeagueMetadataInformation> GetLeagueMetadataInformation(List<PlayerEnum> players, List<TeamEnum> teams);
+    
+    /// <summary>
+    /// Determines if the NHL league is active or inactive based on the current date and time
+    /// </summary>
+    /// <returns>Returns true or false based on the current time and date</returns>
+    Task<bool> IsLeagueActiveAsync();
+
 }
