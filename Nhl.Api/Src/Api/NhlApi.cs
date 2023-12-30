@@ -500,7 +500,6 @@ public class NhlApi : INhlApi
         return await _nhlGameApi.GetTeamSeasonScheduleByYearAndMonthAsync(team, month, year);
     }
 
-
     /// <summary>
     /// Returns the NHL team schedule for the specified team and the specified date and time
     /// </summary>

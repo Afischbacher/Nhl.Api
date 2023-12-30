@@ -3,15 +3,12 @@ using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
-using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Tests.Helpers.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Nhl.Api.Tests;
 
@@ -159,7 +156,7 @@ public class LeagueTests
             Assert.IsNotNull(game.PeriodDescriptor);
             Assert.IsNotNull(game.EasternUTCOffset);
             Assert.IsNotNull(game.VenueTimezone);
-            Assert.IsNotNull(game.GameType);    
+            Assert.IsNotNull(game.GameType);
             Assert.IsNotNull(game.GameState);
         }
     }
@@ -236,7 +233,7 @@ public class LeagueTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    [DataRow("2023-12-01")] 
+    [DataRow("2023-12-01")]
     [DataRow("2022-10-14")]
     [DataRow("2013-11-15")]
     [DataRow("2002-10-16")]
@@ -263,7 +260,7 @@ public class LeagueTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    public async Task GetLeagueStandingsSeasonInformationAsync_Get_Information_Is_Valid() 
+    public async Task GetLeagueStandingsSeasonInformationAsync_Get_Information_Is_Valid()
     {
         // Arrange
         await using INhlApi nhlApi = new NhlApi();
@@ -534,7 +531,7 @@ public class LeagueTests
         var result = await nhlApi.GetLeagueWeekScheduleByDateTimeAsync(DateTimeOffset.Parse(date));
 
         // Assert
-         Assert.IsNotNull(result);
+        Assert.IsNotNull(result);
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
@@ -576,7 +573,7 @@ public class LeagueTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    public async Task GetLeagueMetadataInformation_Returns_Valid_Information_Both_Players_Teams() 
+    public async Task GetLeagueMetadataInformation_Returns_Valid_Information_Both_Players_Teams()
     {
         // Arrange
         await using INhlApi nhlApi = new NhlApi();
@@ -599,7 +596,7 @@ public class LeagueTests
         await using INhlApi nhlApi = new NhlApi();
 
         // Act
-        var teams = new List<string> { "EDM","TOR" };
+        var teams = new List<string> { "EDM", "TOR" };
         var result = await nhlApi.GetLeagueMetadataInformation(null, teams);
 
         // Assert

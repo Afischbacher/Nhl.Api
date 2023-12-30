@@ -1,7 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
-using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Tests.Helpers.Attributes;
 using System.Linq;
@@ -86,7 +85,7 @@ public class StatisticsTests
     [DataRow(GoalieStatisticsType.GoalsAgainstAverage, GameType.RegularSeason, SeasonYear.season20222023, 10)]
     [DataRow(GoalieStatisticsType.SavePercentage, GameType.RegularSeason, SeasonYear.season20222023, 10)]
     [DataRow(GoalieStatisticsType.Shutouts, GameType.RegularSeason, SeasonYear.season20222023, 10)]
-    [DataRow(GoalieStatisticsType.Wins, GameType.RegularSeason, SeasonYear.season20222023, 10)]        
+    [DataRow(GoalieStatisticsType.Wins, GameType.RegularSeason, SeasonYear.season20222023, 10)]
     public async Task GetGoalieStatsisticsLeadersAsync_Returns_Valid_Information(GoalieStatisticsType goalieStatisticsType, GameType gameType, string seasonYear, int limit)
     {
         // Arrange
@@ -122,7 +121,7 @@ public class StatisticsTests
                 break;
             default:
                 break;
-        
+
         }
     }
 }

@@ -178,7 +178,7 @@ public class TeamTests
     [DataRow(24)]
     [DataRow(25)]
     [TestMethodWithRetry(RetryCount = 5)]
-    public async Task GetCurrentTeamScoreboardAsync_Get_Valid_Information_With_Id(int teamId) 
+    public async Task GetCurrentTeamScoreboardAsync_Get_Valid_Information_With_Id(int teamId)
     {
         // Arrange
         await using INhlApi nhlApi = new NhlApi();
@@ -213,7 +213,7 @@ public class TeamTests
     [DataRow(TeamEnum.BostonBruins, SeasonYear.season20132014)]
     [DataRow(TeamEnum.VegasGoldenKnights, SeasonYear.season20222023)]
     [DataRow(TeamEnum.TorontoMapleLeafs, SeasonYear.season19661967)]
-    [DataRow(TeamEnum.SeattleKraken,SeasonYear.season20232024)]
+    [DataRow(TeamEnum.SeattleKraken, SeasonYear.season20232024)]
     [TestMethodWithRetry(RetryCount = 5)]
     public async Task GetCurrentTeamScoreboardAsync_Get_Valid_Information_With_Enum(TeamEnum team, string seasonYear)
     {
@@ -354,7 +354,7 @@ public class TeamTests
         Assert.IsNotNull(teamRoster);
         Assert.IsNotNull(teamRoster.Games);
         Assert.IsTrue(teamRoster.Games.Count > 0);
-        
+
 
     }
 

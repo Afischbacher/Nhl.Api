@@ -9,7 +9,6 @@ using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Services;
-using System;
 using System.Linq;
 using System.Text;
 

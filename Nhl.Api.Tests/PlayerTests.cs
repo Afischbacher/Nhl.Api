@@ -1,8 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Enumerations.Player;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Tests.Helpers.Attributes;
 using System.Linq;
@@ -169,7 +167,7 @@ public class PlayerTests
         Assert.IsNotNull(playerSeasonGameLog);
         Assert.IsNotNull(playerSeasonGameLog.PlayerGameLogs);
         Assert.IsTrue(playerSeasonGameLog.PlayerGameLogs.Count > 0);
-        
+
         foreach (var stat in playerSeasonGameLog.PlayerStatsSeasons)
         {
             Assert.IsNotNull(stat.Season);
@@ -630,7 +628,7 @@ public class PlayerTests
         // Assert
         Assert.IsNotNull(playerShifts);
         Assert.AreEqual(790, playerShifts.PlayerShifts.Count);
-       
+
         var firstShift = playerShifts.PlayerShifts.OrderBy(ps => ps.EventNumber).First();
         Assert.AreEqual(8475883, firstShift.PlayerId);
         Assert.AreEqual(1, firstShift.ShiftNumber);
@@ -670,9 +668,9 @@ public class PlayerTests
 
         // Act
         var playerSpotlight = await nhlApi.GetPlayerSpotlightAsync();
-        
+
         var isLeagueActive = await nhlApi.IsLeagueActiveAsync();
-        if (isLeagueActive) 
+        if (isLeagueActive)
         {
             // Assert
             Assert.IsTrue(playerSpotlight.Count > 0);

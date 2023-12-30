@@ -190,7 +190,7 @@ public interface INhlLeagueApi
     /// <param name="teams">A collection of NHL team identifiers, Example: [EDM, TOR]</param>
     /// <returns>Returns the metadata information about the NHL league including players, teams and season states</returns>
     Task<LeagueMetadataInformation> GetLeagueMetadataInformation(List<PlayerEnum> players, List<TeamEnum> teams);
-    
+
     /// <summary>
     /// Determines if the NHL league is active or inactive based on the current date and time
     /// </summary>
