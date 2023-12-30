@@ -49,7 +49,7 @@ namespace Nhl.Api.Models.Game
         /// Example: 72.7
         /// </summary>
         [JsonProperty("faceoffWinningPctg")]
-        public decimal FaceoffWinningPctg { get; set; }
+        public double FaceoffWinningPctg { get; set; }
 
         /// <summary>
         /// The NHL away team power play conversion ratio <br/>
@@ -282,7 +282,7 @@ namespace Nhl.Api.Models.Game
         /// Example: 70.59
         /// </summary>
         [JsonProperty("faceoffWinningPctg")]
-        public int FaceoffWinningPctg { get; set; }
+        public double FaceoffWinningPctg { get; set; }
 
         /// <summary>
         /// The NHL defense player time on ice <br/>
@@ -435,7 +435,7 @@ namespace Nhl.Api.Models.Game
         /// Example: 45.32
         /// </summary>
         [JsonProperty("faceoffWinningPctg")]
-        public decimal FaceoffWinningPctg { get; set; }
+        public double FaceoffWinningPctg { get; set; }
 
         /// <summary>
         /// The NHL forward player time on ice <br/>
@@ -723,7 +723,7 @@ namespace Nhl.Api.Models.Game
         /// Example: 49.2
         /// </summary>
         [JsonProperty("faceoffWinningPctg")]
-        public decimal FaceoffWinningPctg { get; set; }
+        public double FaceoffWinningPctg { get; set; }
 
         /// <summary>
         /// The NHL home team power play conversion ratio <br/>

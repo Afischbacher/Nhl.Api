@@ -604,11 +604,11 @@ public class NhlApi : INhlApi
     /// <summary>
     /// Returns the NHL TV broadcasts for the specified date with information about the broadcasts
     /// </summary>
-    /// <param name="dateTime">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
+    /// <param name="dateTimeOffset">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
     /// <returns>Returns the NHL TV broadcasts for the specified date with information about the broadcasts</returns>
-    public async Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateTime dateTime)
+    public async Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateTimeOffset dateTimeOffset)
     {
-        return await _nhlLeagueApi.GetTvScheduleBroadcastAsync(dateTime);
+        return await _nhlLeagueApi.GetTvScheduleBroadcastAsync(dateTimeOffset);
     }
 
     /// <summary>

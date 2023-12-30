@@ -165,9 +165,9 @@ public interface INhlLeagueApi
     /// <summary>
     /// Returns the NHL TV broadcasts for the specified date with information about the broadcasts
     /// </summary>
-    /// <param name="dateTime">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
+    /// <param name="dateTimeOffset">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
     /// <returns>Returns the NHL TV broadcasts for the specified date with information about the broadcasts</returns>
-    Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateTime dateTime);
+    Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateTimeOffset dateTimeOffset);
 
     /// <summary>
     /// Returns all the NHL seasons for the NHL league

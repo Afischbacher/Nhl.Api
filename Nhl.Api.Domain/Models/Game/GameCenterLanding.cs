@@ -188,7 +188,7 @@ namespace Nhl.Api.Models.Game
         /// The 3 minute recap of the NHL game identifier in French <br/>
         /// Example: 6343036928112
         /// </summary>
-        [JsonProperty("threeMinRecap")]
+        [JsonProperty("threeMinRecapFr")]
         public long ThreeMinRecapFr { get; set; }
 
         /// <summary>

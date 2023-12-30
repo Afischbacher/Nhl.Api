@@ -10,6 +10,8 @@ using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Services;
 using System;
+using System.Linq;
+using System.Text;
 
 namespace Nhl.Api;
 
@@ -561,11 +563,11 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <summary>
     /// Returns the NHL TV broadcasts for the specified date with information about the broadcasts
     /// </summary>
-    /// <param name="dateTime">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
+    /// <param name="dateTimeOffset">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
     /// <returns>Returns the NHL TV broadcasts for the specified date with information about the broadcasts</returns>
-    public async Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateTime dateTime)
+    public async Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateTimeOffset dateTimeOffset)
     {
-        return await _nhlWebApiHttpClient.GetAsync<TvScheduleBroadcast>($"/network/schedule/{dateTime:yyyy-MM-dd}");
+        return await _nhlWebApiHttpClient.GetAsync<TvScheduleBroadcast>($"/network/tv-schedule/{dateTimeOffset:yyyy-MM-dd}");
     }
 
     /// <summary>
@@ -585,17 +587,25 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns the metadata information about the NHL league including players, teams and season states</returns>
     public async Task<LeagueMetadataInformation> GetLeagueMetadataInformation(List<int> playerIds, List<string> teamIds)
     {
-        if (playerIds == null || playerIds.Count == 0)
+        var sb = new StringBuilder("/meta");
+        if (playerIds?.Count > 0)
         {
-            throw new ArgumentException($"The {nameof(playerIds)} collection is required");
+            sb.Append($"?players={string.Join(",", playerIds)}");
         }
 
-        if (teamIds == null || teamIds.Count == 0)
+        if (teamIds?.Count > 0)
         {
-            throw new ArgumentException($"The {nameof(teamIds)} collection is required");
+            if (playerIds?.Count > 0)
+            {
+                sb.Append($"&teams={string.Join(",", teamIds)}");
+            }
+            else
+            {
+                sb.Append($"?teams={string.Join(",", teamIds)}");
+            }
         }
 
-        return await _nhlWebApiHttpClient.GetAsync<LeagueMetadataInformation>($"/metadata?players={string.Join(",", playerIds)}/{string.Join(",", teamIds)}");
+        return await _nhlWebApiHttpClient.GetAsync<LeagueMetadataInformation>(sb.ToString());
     }
 
     /// <summary>
@@ -606,19 +616,26 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns the metadata information about the NHL league including players, teams and season states</returns>
     public async Task<LeagueMetadataInformation> GetLeagueMetadataInformation(List<PlayerEnum> players, List<TeamEnum> teams)
     {
-        if (players == null || players.Count == 0)
+        var sb = new StringBuilder("/meta");
+        if (players?.Count > 0)
         {
-            throw new ArgumentException($"The {nameof(players)} collection is required");
+            sb.Append($"?players={string.Join(",", players.Select(player => (int)player).ToArray())}");
         }
 
-        if (teams == null || teams.Count == 0)
+        if (teams?.Count > 0)
         {
-            throw new ArgumentException($"The {nameof(teams)} collection is required");
+            var teamAbbreviations = _nhlTeamService.GetTeamCodeIdentfierByTeamEnumerations(teams);
+            if (players?.Count > 0)
+            {
+                sb.Append($"&teams={string.Join(",", teamAbbreviations)}");
+            }
+            else
+            {
+                sb.Append($"?teams={string.Join(",", teamAbbreviations)}");
+            }
         }
 
-        var teamAbbreviations = _nhlTeamService.GetTeamCodeIdentfierByTeamEnumerations(teams);
-
-        return await _nhlWebApiHttpClient.GetAsync<LeagueMetadataInformation>($"/metadata?players={string.Join(",", players)}/{string.Join(",", teamAbbreviations)}");
+        return await _nhlWebApiHttpClient.GetAsync<LeagueMetadataInformation>(sb.ToString());
     }
 
     /// <summary>
@@ -627,6 +644,6 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns true or false based on the current time and date</returns>
     public async Task<bool> IsLeagueActiveAsync()
     {
-       return await IsRegularSeasonActiveAsync() || await IsPlayoffSeasonActiveAsync() || await IsPreSeasonActiveAsync();
+        return await IsRegularSeasonActiveAsync() || await IsPlayoffSeasonActiveAsync() || await IsPreSeasonActiveAsync();
     }
 }

@@ -1,11 +1,13 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Enumerations.Game;
+using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Tests.Helpers.Attributes;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
@@ -571,5 +573,67 @@ public class LeagueTests
 
         // Assert
         Assert.IsNotNull(result);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetLeagueMetadataInformation_Returns_Valid_Information_Both_Players_Teams() 
+    {
+        // Arrange
+        await using INhlApi nhlApi = new NhlApi();
+
+        // Act
+        var players = new List<int> { 8478402 };
+        var teams = new List<string> { "EDM" };
+        var result = await nhlApi.GetLeagueMetadataInformation(players, teams);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.AreEqual(result.Players.Count, 1);
+        Assert.AreEqual(result.Teams.Count, 1);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetLeagueMetadataInformation_Returns_Valid_Information_Just_Teams()
+    {
+        // Arrange
+        await using INhlApi nhlApi = new NhlApi();
+
+        // Act
+        var teams = new List<string> { "EDM","TOR" };
+        var result = await nhlApi.GetLeagueMetadataInformation(null, teams);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.AreEqual(result.Teams.Count, 2);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetLeagueMetadataInformation_Returns_Valid_Information_Just_Teams_Enum()
+    {
+        // Arrange
+        await using INhlApi nhlApi = new NhlApi();
+
+        // Act
+        var teams = new List<TeamEnum> { TeamEnum.TorontoMapleLeafs, TeamEnum.ChicagoBlackhawks };
+        var result = await nhlApi.GetLeagueMetadataInformation(null, teams);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.AreEqual(result.Teams.Count, 2);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetLeagueMetadataInformation_Returns_Valid_Information_Just_Players()
+    {
+        // Arrange
+        await using INhlApi nhlApi = new NhlApi();
+
+        // Act
+        var players = new List<PlayerEnum> { PlayerEnum.ConnorBedard8484144 };
+        var result = await nhlApi.GetLeagueMetadataInformation(players, null);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.AreEqual(result.Players.Count, 1);
     }
 }
