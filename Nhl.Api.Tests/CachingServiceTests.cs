@@ -1,64 +1,60 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nhl.Api.Common.Services;
-using Nhl.Api.Tests.Helpers.Attributes;
-using System.Threading.Tasks;
+﻿using Nhl.Api.Common.Services;
 
-namespace Nhl.Api.Tests
+namespace Nhl.Api.Tests;
+
+[TestClass]
+public class CachingServiceTests
 {
-    [TestClass]
-    public class CachingServiceTests
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task TestTryAddAsync()
     {
+        ICachingService service = new CachingService();
 
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestTryAddAsync()
-        {
-            ICachingService service = new CachingService();
+        (string key, string value) = ("key", "value");
 
-            (string key, string value) = ("key", "value");
+        await service.TryAddUpdateAsync(key, value);
 
-            await service.TryAddUpdateAsync(key, value);
+        var retrievedValue = service.TryGetAsync<string>(key);
 
-            var retrievedValue = service.TryGetAsync<string>(key);
+        Assert.IsNotNull(retrievedValue);
+    }
 
-            Assert.IsNotNull(retrievedValue);
-        }
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task TestTryAddUpdateAsync()
+    {
+        ICachingService service = new CachingService();
 
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestTryAddUpdateAsync()
-        {
-            ICachingService service = new CachingService();
+        (string key, string value) = ("key", "value");
 
-            (string key, string value) = ("key", "value");
+        await service.TryAddUpdateAsync(key, value);
 
-            await service.TryAddUpdateAsync(key, value);
+        var retrievedValue = await service.TryGetAsync<string>(key);
 
-            var retrievedValue = await service.TryGetAsync<string>(key);
+        Assert.IsNotNull(retrievedValue);
 
-            Assert.IsNotNull(retrievedValue);
+        await service.TryAddUpdateAsync(key, "new value");
+        retrievedValue = await service.TryGetAsync<string>(key);
 
-            await service.TryAddUpdateAsync(key, "new value");
-            retrievedValue = await service.TryGetAsync<string>(key);
+        Assert.IsNotNull(retrievedValue);
+        Assert.AreEqual(retrievedValue, "new value");
+    }
 
-            Assert.IsNotNull(retrievedValue);
-            Assert.AreEqual(retrievedValue, "new value");
-        }
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task TestTryRemoveAsync()
+    {
+        ICachingService service = new CachingService();
 
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestTryRemoveAsync()
-        {
-            ICachingService service = new CachingService();
+        (string key, string value) = ("key", "value");
 
-            (string key, string value) = ("key", "value");
+        await service.TryAddUpdateAsync(key, value);
 
-            await service.TryAddUpdateAsync(key, value);
+        var retrievedValue = await service.TryGetAsync<string>(key);
 
-            var retrievedValue = await service.TryGetAsync<string>(key);
+        Assert.IsNotNull(retrievedValue);
 
-            Assert.IsNotNull(retrievedValue);
+        var isRemoved = await service.RemoveAsync(key);
 
-            var isRemoved = await service.RemoveAsync(key);
-
-            Assert.IsTrue(isRemoved);
-        }
+        Assert.IsTrue(isRemoved);
     }
 }

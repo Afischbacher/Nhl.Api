@@ -1,8 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests.Helpers.Attributes;
 
@@ -38,7 +35,7 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute
                 {
                     throw result.First(r => r.TestFailureException != null).TestFailureException;
                 }
-                else 
+                else
                 {
                     return result;
                 }

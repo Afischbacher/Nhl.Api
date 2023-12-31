@@ -1,474 +1,124 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
-using Nhl.Api.Models.Enumerations.Player;
-using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Enumerations.Game;
+using Nhl.Api.Enumerations.Statistic;
 using Nhl.Api.Models.Season;
-using Nhl.Api.Tests.Helpers.Attributes;
-using System;
-using System.Threading.Tasks;
+using System.Linq;
 
-namespace Nhl.Api.Tests
+namespace Nhl.Api.Tests;
+
+[TestClass]
+public class StatisticsTests
 {
-    [TestClass]
-    public class StatisticsTests
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(PlayerStatisticsType.Assists, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    [DataRow(PlayerStatisticsType.Goals, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    [DataRow(PlayerStatisticsType.Points, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    [DataRow(PlayerStatisticsType.PlusMinus, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    [DataRow(PlayerStatisticsType.PowerPlayGoals, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    [DataRow(PlayerStatisticsType.ShortHandedGoals, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    [DataRow(PlayerStatisticsType.PenaltyMinutes, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    [DataRow(PlayerStatisticsType.TotalTimeOnIce, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    [DataRow(PlayerStatisticsType.FaceOffPercentage, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    public async Task GetSkaterStatsisticsLeadersAsync_Returns_Valid_Information(PlayerStatisticsType playerStatisticsType, GameType gameType, string seasonYear, int limit)
     {
+        // Arrange
+        await using INhlApi nhlApi = new NhlApi();
 
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestGetStatisticsTypesAsync()
+        // Act
+        var skaterStatistics = await nhlApi.GetSkaterStatsisticsLeadersAsync(playerStatisticsType, gameType, seasonYear, limit);
+
+        // Assert
+        Assert.IsNotNull(skaterStatistics);
+        Assert.IsNotNull(skaterStatistics.Assists);
+        Assert.IsNotNull(skaterStatistics.Goals);
+        Assert.IsNotNull(skaterStatistics.Points);
+        Assert.IsNotNull(skaterStatistics.GoalsPp);
+        Assert.IsNotNull(skaterStatistics.GoalsSh);
+
+        switch (playerStatisticsType)
         {
-            // Arrange
-            await using INhlApi nhlApi = new NhlApi();
-
-            // Act
-            var statisticsTypes = await nhlApi.GetStatisticTypesAsync();
-
-            // Assert
-            Assert.IsNotNull(statisticsTypes);
-            CollectionAssert.AllItemsAreNotNull(statisticsTypes);
-
-            foreach (var statisticsType in statisticsTypes)
-            {
-                Assert.IsNotNull(statisticsType.DisplayName);
-            }
-
+            case PlayerStatisticsType.Goals:
+                Assert.AreEqual(10, skaterStatistics.Goals.Count);
+                Assert.IsTrue(skaterStatistics.Goals.First().Value is 64);
+                break;
+            case PlayerStatisticsType.Assists:
+                Assert.AreEqual(10, skaterStatistics.Assists.Count);
+                Assert.IsTrue(skaterStatistics.Assists.First().Value is 89);
+                break;
+            case PlayerStatisticsType.Points:
+                Assert.AreEqual(10, skaterStatistics.Points.Count);
+                Assert.IsTrue(skaterStatistics.Points.First().Value is 153);
+                break;
+            case PlayerStatisticsType.PlusMinus:
+                Assert.AreEqual(10, skaterStatistics.PlusMinus.Count);
+                Assert.IsTrue(skaterStatistics.PlusMinus.First().Value is 49);
+                break;
+            case PlayerStatisticsType.PowerPlayGoals:
+                Assert.AreEqual(10, skaterStatistics.GoalsPp.Count);
+                Assert.IsTrue(skaterStatistics.GoalsPp.First().Value is 32);
+                break;
+            case PlayerStatisticsType.ShortHandedGoals:
+                Assert.AreEqual(10, skaterStatistics.GoalsSh.Count);
+                Assert.IsTrue(skaterStatistics.GoalsSh.First().Value is 5);
+                break;
+            case PlayerStatisticsType.PenaltyMinutes:
+                Assert.AreEqual(10, skaterStatistics.PenaltyMinutes.Count);
+                Assert.IsTrue(skaterStatistics.PenaltyMinutes.First().Value is 150);
+                break;
+            case PlayerStatisticsType.TotalTimeOnIce:
+                Assert.AreEqual(10, skaterStatistics.TotalTimeOnIce.Count);
+                Assert.IsTrue(skaterStatistics.TotalTimeOnIce.First().Value is 1582.8167M);
+                break;
+            case PlayerStatisticsType.FaceOffPercentage:
+                Assert.AreEqual(10, skaterStatistics.FaceoffLeaders.Count);
+                Assert.IsTrue(skaterStatistics.FaceoffLeaders.First().Value is 0.631243M);
+                break;
+            default:
+                break;
         }
+    }
 
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestGetTeamStatisticByIdAsync()
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(GoalieStatisticsType.GoalsAgainstAverage, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    [DataRow(GoalieStatisticsType.SavePercentage, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    [DataRow(GoalieStatisticsType.Shutouts, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    [DataRow(GoalieStatisticsType.Wins, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+    public async Task GetGoalieStatsisticsLeadersAsync_Returns_Valid_Information(GoalieStatisticsType goalieStatisticsType, GameType gameType, string seasonYear, int limit)
+    {
+        // Arrange
+        await using INhlApi nhlApi = new NhlApi();
+
+        // Act
+        var goalieStatistics = await nhlApi.GetGoalieStatsisticsLeadersAsync(goalieStatisticsType, gameType, seasonYear, limit);
+
+        // Assert
+        Assert.IsNotNull(goalieStatistics);
+        Assert.IsNotNull(goalieStatistics.Wins);
+        Assert.IsNotNull(goalieStatistics.SavePercentages);
+        Assert.IsNotNull(goalieStatistics.Shutouts);
+        Assert.IsNotNull(goalieStatistics.GoalsAgainstAverage);
+
+        switch (goalieStatisticsType)
         {
-            // Arrange
-            await using INhlApi nhlApi = new NhlApi();
+            case GoalieStatisticsType.Wins:
+                Assert.AreEqual(10, goalieStatistics.Wins.Count);
+                Assert.IsTrue(goalieStatistics.Wins.First().Value is 40);
+                break;
+            case GoalieStatisticsType.SavePercentage:
+                Assert.AreEqual(10, goalieStatistics.SavePercentages.Count);
+                Assert.IsTrue(goalieStatistics.SavePercentages.First().Value is 0.937543M);
+                break;
+            case GoalieStatisticsType.Shutouts:
+                Assert.AreEqual(10, goalieStatistics.Shutouts.Count);
+                Assert.IsTrue(goalieStatistics.Shutouts.First().Value is 6);
+                break;
+            case GoalieStatisticsType.GoalsAgainstAverage:
+                Assert.AreEqual(10, goalieStatistics.GoalsAgainstAverage.Count);
+                Assert.IsTrue(goalieStatistics.GoalsAgainstAverage.First().Value is 1.894386M);
+                break;
+            default:
+                break;
 
-            // Act
-            var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(10, null);
-
-            // Assert
-            Assert.IsNotNull(teamStatistics);
-            CollectionAssert.AllItemsAreNotNull(teamStatistics.Statistics);
-
-            foreach (var statistic in teamStatistics.Statistics)
-            {
-                CollectionAssert.AllItemsAreNotNull(statistic.Splits);
-                foreach (var split in statistic.Splits)
-                {
-                    Assert.IsNotNull(split.Team);
-                    Assert.IsNotNull(split.Team.Id);
-                    Assert.IsNotNull(split.Team.Link);
-                    Assert.IsNotNull(split.Team.Name);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.EvGGARatio);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsLost);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsTaken);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsWon);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffWinPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinLeadFirstPer);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinLeadSecondPer);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOppScoreFirst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOutshootOpp);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOutshotByOpp);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Wins);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinScoreFirst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsWon);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffWinPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GamesPlayed);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GoalsAgainstPerGame);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GoalsPerGame);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Losses);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Ot);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayGoalsAgainst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayOpportunities);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayPercentage);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayGoals);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PenaltyKillPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.ShootingPctg);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.ShotsPerGame);
-                }
-
-                if (statistic.Type.DisplayName != "regularSeasonStatRankings")
-                {
-                    Assert.IsNotNull(statistic.Type);
-                    Assert.IsNotNull(statistic.Type.DisplayName);
-                    Assert.IsNotNull(statistic.Type.GameType);
-                    Assert.IsNotNull(statistic.Type.GameType.Description);
-                    Assert.IsNotNull(statistic.Type.GameType.Id);
-                    Assert.IsNotNull(statistic.Type.GameType.Postseason);
-                }
-
-            }
-        }
-
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestGetTeamStatisticByIdEnumAsync()
-        {
-            // Arrange
-            await using INhlApi nhlApi = new NhlApi();
-
-            // Act
-            var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(TeamEnum.ArizonaCoyotes, null);
-
-            // Assert
-            Assert.IsNotNull(teamStatistics);
-            CollectionAssert.AllItemsAreNotNull(teamStatistics.Statistics);
-
-            foreach (var statistic in teamStatistics.Statistics)
-            {
-                CollectionAssert.AllItemsAreNotNull(statistic.Splits);
-                foreach (var split in statistic.Splits)
-                {
-                    Assert.IsNotNull(split.Team);
-                    Assert.IsNotNull(split.Team.Id);
-                    Assert.IsNotNull(split.Team.Link);
-                    Assert.IsNotNull(split.Team.Name);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.EvGGARatio);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsLost);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsTaken);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsWon);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffWinPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinLeadFirstPer);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinLeadSecondPer);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOppScoreFirst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOutshootOpp);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOutshotByOpp);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Wins);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinScoreFirst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsWon);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffWinPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GamesPlayed);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GoalsAgainstPerGame);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GoalsPerGame);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Losses);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Ot);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayGoalsAgainst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayOpportunities);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayPercentage);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayGoals);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PenaltyKillPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.ShootingPctg);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.ShotsPerGame);
-                }
-
-                if (statistic.Type.DisplayName != "regularSeasonStatRankings")
-                {
-                    Assert.IsNotNull(statistic.Type);
-                    Assert.IsNotNull(statistic.Type.DisplayName);
-                    Assert.IsNotNull(statistic.Type.GameType);
-                    Assert.IsNotNull(statistic.Type.GameType.Description);
-                    Assert.IsNotNull(statistic.Type.GameType.Id);
-                    Assert.IsNotNull(statistic.Type.GameType.Postseason);
-                }
-
-            }
-        }
-
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestGetTeamStatisticByIdWithSeasonYearAsync()
-        {
-            // Arrange
-            await using INhlApi nhlApi = new NhlApi();
-
-            // Act
-            var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(10, SeasonYear.season19171918);
-
-            // Assert
-            Assert.IsNotNull(teamStatistics);
-            CollectionAssert.AllItemsAreNotNull(teamStatistics.Statistics);
-
-            foreach (var statistic in teamStatistics.Statistics)
-            {
-                CollectionAssert.AllItemsAreNotNull(statistic.Splits);
-                foreach (var split in statistic.Splits)
-                {
-                    Assert.IsNotNull(split.Team);
-                    Assert.IsNotNull(split.Team.Id);
-                    Assert.IsNotNull(split.Team.Link);
-                    Assert.IsNotNull(split.Team.Name);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.EvGGARatio);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsLost);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsTaken);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsWon);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffWinPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinLeadFirstPer);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinLeadSecondPer);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOppScoreFirst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOutshootOpp);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOutshotByOpp);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Wins);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinScoreFirst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsWon);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffWinPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GamesPlayed);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GoalsAgainstPerGame);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GoalsPerGame);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Losses);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Ot);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayGoalsAgainst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayOpportunities);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayPercentage);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayGoals);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PenaltyKillPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.ShootingPctg);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.ShotsPerGame);
-                }
-
-                if (statistic.Type.DisplayName != "regularSeasonStatRankings")
-                {
-                    Assert.IsNotNull(statistic.Type);
-                    Assert.IsNotNull(statistic.Type.DisplayName);
-                    Assert.IsNotNull(statistic.Type.GameType);
-                    Assert.IsNotNull(statistic.Type.GameType.Description);
-                    Assert.IsNotNull(statistic.Type.GameType.Id);
-                    Assert.IsNotNull(statistic.Type.GameType.Postseason);
-                }
-
-            }
-        }
-
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestGetTeamStatisticByIdWithEnumAndSeasonYearAsync()
-        {
-            // Arrange
-            await using INhlApi nhlApi = new NhlApi();
-
-            // Act
-            var teamStatistics = await nhlApi.GetTeamStatisticsByIdAsync(TeamEnum.CalgaryFlames, SeasonYear.season20052006);
-
-            // Assert
-            Assert.IsNotNull(teamStatistics);
-            CollectionAssert.AllItemsAreNotNull(teamStatistics.Statistics);
-
-            foreach (var statistic in teamStatistics.Statistics)
-            {
-                CollectionAssert.AllItemsAreNotNull(statistic.Splits);
-                foreach (var split in statistic.Splits)
-                {
-                    Assert.IsNotNull(split.Team);
-                    Assert.IsNotNull(split.Team.Id);
-                    Assert.IsNotNull(split.Team.Link);
-                    Assert.IsNotNull(split.Team.Name);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.EvGGARatio);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsLost);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsTaken);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsWon);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffWinPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinLeadFirstPer);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinLeadSecondPer);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOppScoreFirst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOutshootOpp);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinOutshotByOpp);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Wins);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.WinScoreFirst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffsWon);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.FaceOffWinPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GamesPlayed);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GoalsAgainstPerGame);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.GoalsPerGame);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Losses);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.Ot);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayGoalsAgainst);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayOpportunities);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayPercentage);
-
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PowerPlayGoals);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.PenaltyKillPercentage);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.ShootingPctg);
-                    Assert.IsNotNull(split.TeamStatisticsDetails.ShotsPerGame);
-                }
-
-                if (statistic.Type.DisplayName != "regularSeasonStatRankings")
-                {
-                    Assert.IsNotNull(statistic.Type);
-                    Assert.IsNotNull(statistic.Type.DisplayName);
-                    Assert.IsNotNull(statistic.Type.GameType);
-                    Assert.IsNotNull(statistic.Type.GameType.Description);
-                    Assert.IsNotNull(statistic.Type.GameType.Id);
-                    Assert.IsNotNull(statistic.Type.GameType.Postseason);
-                }
-
-            }
-        }
-
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestGetPlayerByStatisticTypeBySeasonAsync()
-        {
-            await using INhlApi nhlApi = new NhlApi();
-
-            var enumValues = Enum.GetValues(typeof(PlayerStatisticEnum)) as PlayerStatisticEnum[];
-
-            foreach (var playerStatistic in enumValues)
-            {
-                var player = await nhlApi.GetPlayerByStatisticTypeBySeasonAsync(playerStatistic, SeasonYear.season20192020);
-
-                Assert.IsNotNull(player);
-                Assert.IsNotNull(player.PlayerStatisticsData);
-                Assert.IsNotNull(player.PlayerStatisticsData.Shifts);
-                Assert.IsNotNull(player.PlayerStatisticsData.Shots);
-                Assert.IsNotNull(player.PlayerStatisticsData.ShortHandedGoals);
-                Assert.IsNotNull(player.PlayerStatisticsData.Assists);
-                Assert.IsNotNull(player.PlayerStatisticsData.Points);
-
-                Assert.IsNotNull(player.PlayerStatisticsData.Hits);
-                Assert.IsNotNull(player.PlayerStatisticsData.Pim);
-                Assert.IsNotNull(player.PlayerStatisticsData.FaceOffPct);
-                Assert.IsNotNull(player.PlayerStatisticsData.Games);
-                Assert.IsNotNull(player.PlayerStatisticsData.TimeOnIce);
-
-                Assert.IsNotNull(player.Player);
-                Assert.IsNotNull(player.Player);
-                Assert.IsNotNull(player.Player.Id);
-                Assert.IsNotNull(player.Player.FullName);
-
-            }
-        }
-
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestGetGoalieByStatisticTypeBySeasonAsync()
-        {
-            await using INhlApi nhlApi = new NhlApi();
-
-            var enumValues = Enum.GetValues(typeof(GoalieStatisticEnum)) as GoalieStatisticEnum[];
-
-            foreach (var goalieStatistic in enumValues)
-            {
-                var goalie = await nhlApi.GetGoalieByStatisticTypeBySeasonAsync(goalieStatistic, SeasonYear.season19992000);
-
-                Assert.IsNotNull(goalie);
-
-                Assert.IsNotNull(goalie.GoalieStatisticsData.SavePercentage);
-                Assert.IsNotNull(goalie.GoalieStatisticsData.EvenSaves);
-                Assert.IsNotNull(goalie.GoalieStatisticsData.Games);
-                Assert.IsNotNull(goalie.GoalieStatisticsData.GamesStarted);
-                Assert.IsNotNull(goalie.GoalieStatisticsData.TimeOnIcePerGame);
-                Assert.IsNotNull(goalie.GoalieStatisticsData.PowerPlaySavePercentage);
-                Assert.IsNotNull(goalie.GoalieStatisticsData.Wins);
-                Assert.IsNotNull(goalie.GoalieStatisticsData.Losses);
-                Assert.IsNotNull(goalie.GoalieStatisticsData.Shutouts);
-                Assert.IsNotNull(goalie.GoalieStatisticsData.ShotsAgainst);
-
-                Assert.IsNotNull(goalie.Player);
-                Assert.IsNotNull(goalie.Player.Id);
-                Assert.IsNotNull(goalie.Player.FullName);
-
-            }
-        }
-
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestGetPlayersByStatisticTypeBySeasonAsync()
-        {
-            await using INhlApi nhlApi = new NhlApi();
-
-            var enumValues = Enum.GetValues(typeof(PlayerStatisticEnum)) as PlayerStatisticEnum[];
-
-            foreach (var playerStatistic in enumValues)
-            {
-
-                var players = await nhlApi.GetPlayersByStatisticTypeBySeasonAsync(playerStatistic, SeasonYear.season20192020);
-                foreach (var player in players)
-                {
-
-                    Assert.IsNotNull(player);
-                    Assert.IsNotNull(player.PlayerStatisticsData);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Shifts);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Shots);
-                    Assert.IsNotNull(player.PlayerStatisticsData.ShortHandedGoals);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Assists);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Points);
-
-                    Assert.IsNotNull(player.PlayerStatisticsData.Hits);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Pim);
-                    Assert.IsNotNull(player.PlayerStatisticsData.FaceOffPct);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Games);
-                    Assert.IsNotNull(player.PlayerStatisticsData.TimeOnIce);
-
-                    Assert.IsNotNull(player.Player);
-                    Assert.IsNotNull(player.Player);
-                    Assert.IsNotNull(player.Player.Id);
-                    Assert.IsNotNull(player.Player.FullName);
-                }
-            }
-        }
-
-
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestGetPlayersByStatisticTypeBySeasonAscendingAsync()
-        {
-            await using INhlApi nhlApi = new NhlApi();
-
-            var enumValues = Enum.GetValues(typeof(PlayerStatisticEnum)) as PlayerStatisticEnum[];
-
-            foreach (var playerStatistic in enumValues)
-            {
-
-                var players = await nhlApi.GetPlayersByStatisticTypeBySeasonAsync(playerStatistic, SeasonYear.season20192020, isDescending: false, numberOfPlayers: 25);
-                foreach (var player in players)
-                {
-
-                    Assert.IsNotNull(player);
-                    Assert.IsNotNull(player.PlayerStatisticsData);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Shifts);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Shots);
-                    Assert.IsNotNull(player.PlayerStatisticsData.ShortHandedGoals);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Assists);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Points);
-
-                    Assert.IsNotNull(player.PlayerStatisticsData.Hits);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Pim);
-                    Assert.IsNotNull(player.PlayerStatisticsData.FaceOffPct);
-                    Assert.IsNotNull(player.PlayerStatisticsData.Games);
-                    Assert.IsNotNull(player.PlayerStatisticsData.TimeOnIce);
-
-                    Assert.IsNotNull(player.Player);
-                    Assert.IsNotNull(player.Player);
-                    Assert.IsNotNull(player.Player.Id);
-                    Assert.IsNotNull(player.Player.FullName);
-                }
-
-            }
-        }
-
-
-        [TestMethodWithRetry(RetryCount = 5)]
-        public async Task TestGetGoaliesWithTopStatisticBySeasonAsync()
-        {
-            await using INhlApi nhlApi = new NhlApi();
-
-            var enumValues = Enum.GetValues(typeof(GoalieStatisticEnum)) as GoalieStatisticEnum[];
-
-            foreach (var goalieStatistic in enumValues)
-            {
-
-                var goalies = await nhlApi.GetGoaliesByStatisticTypeBySeasonAsync(goalieStatistic, SeasonYear.season20212022);
-
-                var test = JsonConvert.SerializeObject(goalies);
-                foreach (var goalie in goalies)
-                {
-                    Assert.IsNotNull(goalie);
-
-                    Assert.IsNotNull(goalie.GoalieStatisticsData.SavePercentage);
-                    Assert.IsNotNull(goalie.GoalieStatisticsData.EvenSaves);
-                    Assert.IsNotNull(goalie.GoalieStatisticsData.Games);
-                    Assert.IsNotNull(goalie.GoalieStatisticsData.GamesStarted);
-                    Assert.IsNotNull(goalie.GoalieStatisticsData.TimeOnIcePerGame);
-                    Assert.IsNotNull(goalie.GoalieStatisticsData.PowerPlaySavePercentage);
-                    Assert.IsNotNull(goalie.GoalieStatisticsData.Wins);
-                    Assert.IsNotNull(goalie.GoalieStatisticsData.Losses);
-                    Assert.IsNotNull(goalie.GoalieStatisticsData.Shutouts);
-                    Assert.IsNotNull(goalie.GoalieStatisticsData.ShotsAgainst);
-
-                    Assert.IsNotNull(goalie.Player);
-                    Assert.IsNotNull(goalie.Player.Id);
-                    Assert.IsNotNull(goalie.Player.FullName);
-                }
-            }
         }
     }
 }

@@ -106,14 +106,6 @@ namespace Nhl.Api.Models.Player
         public bool IsActive { get; set; }
 
         /// <summary>
-        /// Date of birth for the NHL player <br/>
-        /// Example: 1961-01-26
-        /// </summary>
-        [Obsolete("This property is not longer available in the NHL API for player search")]
-        [JsonProperty("birthDate")]
-        public DateTime BirthDate { get; set; }
-
-        /// <summary>
         /// The 3 letter code for the NHL team the NHL player played with <br/>
         /// See <see cref="TeamCodes"/> for more information on 3 letter codes<br/>
         /// Example: NYR
