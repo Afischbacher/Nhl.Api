@@ -576,7 +576,7 @@ public class LeagueTests
         // Act
         var players = new List<int> { 8478402 };
         var teams = new List<string> { "EDM" };
-        var result = await nhlApi.GetLeagueMetadataInformation(players, teams);
+        var result = await nhlApi.GetLeagueMetadataInformationAsync(players, teams);
 
         // Assert
         Assert.IsNotNull(result);
@@ -592,7 +592,7 @@ public class LeagueTests
 
         // Act
         var teams = new List<string> { "EDM", "TOR" };
-        var result = await nhlApi.GetLeagueMetadataInformation(null, teams);
+        var result = await nhlApi.GetLeagueMetadataInformationAsync(null, teams);
 
         // Assert
         Assert.IsNotNull(result);
@@ -607,7 +607,7 @@ public class LeagueTests
 
         // Act
         var teams = new List<TeamEnum> { TeamEnum.TorontoMapleLeafs, TeamEnum.ChicagoBlackhawks };
-        var result = await nhlApi.GetLeagueMetadataInformation(null, teams);
+        var result = await nhlApi.GetLeagueMetadataInformationAsync(null, teams);
 
         // Assert
         Assert.IsNotNull(result);
@@ -622,7 +622,7 @@ public class LeagueTests
 
         // Act
         var players = new List<PlayerEnum> { PlayerEnum.ConnorBedard8484144 };
-        var result = await nhlApi.GetLeagueMetadataInformation(players, null);
+        var result = await nhlApi.GetLeagueMetadataInformationAsync(players, null);
 
         // Assert
         Assert.IsNotNull(result);

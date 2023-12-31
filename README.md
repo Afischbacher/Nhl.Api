@@ -117,7 +117,6 @@ Thank you to all the people in the hockey community, especially:
 - <a target="_blank" href="https://www.nhl.com/">NHL</a> for providing the API for the community to use to build awesome stuff.
 
 ### Contents 📋 <a name="contents"></a>
-
 - [NhlApi](#T-Nhl-Api-NhlApi 'Nhl.Api.NhlApi')
   - [#ctor()](#M-Nhl-Api-NhlApi-#ctor 'Nhl.Api.NhlApi.#ctor')
   - [Dispose()](#M-Nhl-Api-NhlApi-Dispose 'Nhl.Api.NhlApi.Dispose')
@@ -139,8 +138,8 @@ Thank you to all the people in the hockey community, especially:
   - [GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(playerId,seasonYear,gameType)](#M-Nhl-Api-NhlApi-GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync-System-Int32,System-String,Nhl-Api-Enumerations-Game-GameType- 'Nhl.Api.NhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(System.Int32,System.String,Nhl.Api.Enumerations.Game.GameType)')
   - [GetGoalieStatsisticsLeadersAsync(goalieStatisticsType,seasonYear,gameType,limit)](#M-Nhl-Api-NhlApi-GetGoalieStatsisticsLeadersAsync-Nhl-Api-Enumerations-Statistic-GoalieStatisticsType,Nhl-Api-Enumerations-Game-GameType,System-String,System-Int32- 'Nhl.Api.NhlApi.GetGoalieStatsisticsLeadersAsync(Nhl.Api.Enumerations.Statistic.GoalieStatisticsType,Nhl.Api.Enumerations.Game.GameType,System.String,System.Int32)')
   - [GetLeagueGameWeekScheduleByDateAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueGameWeekScheduleByDateAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetLeagueGameWeekScheduleByDateAsync(System.DateOnly)')
-  - [GetLeagueMetadataInformation(playerIds,teamIds)](#M-Nhl-Api-NhlApi-GetLeagueMetadataInformation-System-Collections-Generic-List{System-Int32},System-Collections-Generic-List{System-String}- 'Nhl.Api.NhlApi.GetLeagueMetadataInformation(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.String})')
-  - [GetLeagueMetadataInformation(players,teams)](#M-Nhl-Api-NhlApi-GetLeagueMetadataInformation-System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Player-PlayerEnum},System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Team-TeamEnum}- 'Nhl.Api.NhlApi.GetLeagueMetadataInformation(System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Player.PlayerEnum},System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Team.TeamEnum})')
+  - [GetLeagueMetadataInformationAsync(playerIds,teamIds)](#M-Nhl-Api-NhlApi-GetLeagueMetadataInformationAsync-System-Collections-Generic-List{System-Int32},System-Collections-Generic-List{System-String}- 'Nhl.Api.NhlApi.GetLeagueMetadataInformationAsync(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.String})')
+  - [GetLeagueMetadataInformationAsync(players,teams)](#M-Nhl-Api-NhlApi-GetLeagueMetadataInformationAsync-System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Player-PlayerEnum},System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Team-TeamEnum}- 'Nhl.Api.NhlApi.GetLeagueMetadataInformationAsync(System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Player.PlayerEnum},System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Team.TeamEnum})')
   - [GetLeagueScheduleCalendarByDateAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueScheduleCalendarByDateAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetLeagueScheduleCalendarByDateAsync(System.DateOnly)')
   - [GetLeagueStandingsByDateAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueStandingsByDateAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetLeagueStandingsByDateAsync(System.DateOnly)')
   - [GetLeagueStandingsSeasonInformationAsync()](#M-Nhl-Api-NhlApi-GetLeagueStandingsSeasonInformationAsync 'Nhl.Api.NhlApi.GetLeagueStandingsSeasonInformationAsync')
@@ -205,8 +204,8 @@ Thank you to all the people in the hockey community, especially:
   - [GetAllRosterSeasonsByTeamAsync(team)](#M-Nhl-Api-NhlLeagueApi-GetAllRosterSeasonsByTeamAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum- 'Nhl.Api.NhlLeagueApi.GetAllRosterSeasonsByTeamAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum)')
   - [GetAllSeasonsAsync()](#M-Nhl-Api-NhlLeagueApi-GetAllSeasonsAsync 'Nhl.Api.NhlLeagueApi.GetAllSeasonsAsync')
   - [GetLeagueGameWeekScheduleByDateAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetLeagueGameWeekScheduleByDateAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetLeagueGameWeekScheduleByDateAsync(System.DateOnly)')
-  - [GetLeagueMetadataInformation(playerIds,teamIds)](#M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformation-System-Collections-Generic-List{System-Int32},System-Collections-Generic-List{System-String}- 'Nhl.Api.NhlLeagueApi.GetLeagueMetadataInformation(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.String})')
-  - [GetLeagueMetadataInformation(players,teams)](#M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformation-System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Player-PlayerEnum},System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Team-TeamEnum}- 'Nhl.Api.NhlLeagueApi.GetLeagueMetadataInformation(System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Player.PlayerEnum},System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Team.TeamEnum})')
+  - [GetLeagueMetadataInformationAsync(playerIds,teamIds)](#M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformationAsync-System-Collections-Generic-List{System-Int32},System-Collections-Generic-List{System-String}- 'Nhl.Api.NhlLeagueApi.GetLeagueMetadataInformationAsync(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.String})')
+  - [GetLeagueMetadataInformationAsync(players,teams)](#M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformationAsync-System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Player-PlayerEnum},System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Team-TeamEnum}- 'Nhl.Api.NhlLeagueApi.GetLeagueMetadataInformationAsync(System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Player.PlayerEnum},System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Team.TeamEnum})')
   - [GetLeagueScheduleCalendarByDateAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetLeagueScheduleCalendarByDateAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetLeagueScheduleCalendarByDateAsync(System.DateOnly)')
   - [GetLeagueStandingsByDateAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetLeagueStandingsByDateAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetLeagueStandingsByDateAsync(System.DateOnly)')
   - [GetLeagueStandingsSeasonInformationAsync()](#M-Nhl-Api-NhlLeagueApi-GetLeagueStandingsSeasonInformationAsync 'Nhl.Api.NhlLeagueApi.GetLeagueStandingsSeasonInformationAsync')
@@ -592,8 +591,8 @@ A result of the current NHL schedule by the specified date
 | ---- | ---- | ----------- |
 | date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | A [DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') for the specific date for the NHL schedule |
 
-<a name='M-Nhl-Api-NhlApi-GetLeagueMetadataInformation-System-Collections-Generic-List{System-Int32},System-Collections-Generic-List{System-String}-'></a>
-### GetLeagueMetadataInformation(playerIds,teamIds) `method`
+<a name='M-Nhl-Api-NhlApi-GetLeagueMetadataInformationAsync-System-Collections-Generic-List{System-Int32},System-Collections-Generic-List{System-String}-'></a>
+### GetLeagueMetadataInformationAsync(playerIds,teamIds) `method`
 
 ##### Summary
 
@@ -610,8 +609,8 @@ Returns the metadata information about the NHL league including players, teams a
 | playerIds | [System.Collections.Generic.List{System.Int32}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{System.Int32}') | A collection of NHL player identifiers, Example: [8478402,8478403] |
 | teamIds | [System.Collections.Generic.List{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{System.String}') | A collection of NHL team identifiers, Example: [EDM, TOR] |
 
-<a name='M-Nhl-Api-NhlApi-GetLeagueMetadataInformation-System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Player-PlayerEnum},System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Team-TeamEnum}-'></a>
-### GetLeagueMetadataInformation(players,teams) `method`
+<a name='M-Nhl-Api-NhlApi-GetLeagueMetadataInformationAsync-System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Player-PlayerEnum},System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Team-TeamEnum}-'></a>
+### GetLeagueMetadataInformationAsync(players,teams) `method`
 
 ##### Summary
 
@@ -1711,8 +1710,8 @@ A result of the current NHL schedule by the specified date
 | ---- | ---- | ----------- |
 | date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | A [DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') for the specific date for the NHL schedule |
 
-<a name='M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformation-System-Collections-Generic-List{System-Int32},System-Collections-Generic-List{System-String}-'></a>
-### GetLeagueMetadataInformation(playerIds,teamIds) `method`
+<a name='M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformationAsync-System-Collections-Generic-List{System-Int32},System-Collections-Generic-List{System-String}-'></a>
+### GetLeagueMetadataInformationAsync(playerIds,teamIds) `method`
 
 ##### Summary
 
@@ -1729,8 +1728,8 @@ Returns the metadata information about the NHL league including players, teams a
 | playerIds | [System.Collections.Generic.List{System.Int32}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{System.Int32}') | A collection of NHL player identifiers, Example: [8478402,8478403] |
 | teamIds | [System.Collections.Generic.List{System.String}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{System.String}') | A collection of NHL team identifiers, Example: [EDM, TOR] |
 
-<a name='M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformation-System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Player-PlayerEnum},System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Team-TeamEnum}-'></a>
-### GetLeagueMetadataInformation(players,teams) `method`
+<a name='M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformationAsync-System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Player-PlayerEnum},System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Team-TeamEnum}-'></a>
+### GetLeagueMetadataInformationAsync(players,teams) `method`
 
 ##### Summary
 

@@ -584,7 +584,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <param name="playerIds">A collection of NHL player identifiers, Example: [8478402,8478403] </param>
     /// <param name="teamIds">A collection of NHL team identifiers, Example: [EDM, TOR]</param>
     /// <returns>Returns the metadata information about the NHL league including players, teams and season states</returns>
-    public async Task<LeagueMetadataInformation> GetLeagueMetadataInformation(List<int> playerIds, List<string> teamIds)
+    public async Task<LeagueMetadataInformation> GetLeagueMetadataInformationAsync(List<int> playerIds, List<string> teamIds)
     {
         var sb = new StringBuilder("/meta");
         if (playerIds?.Count > 0)
@@ -613,7 +613,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <param name="players">A collection of NHL player identifiers, Example: [8478402,8478403] </param>
     /// <param name="teams">A collection of NHL team identifiers, Example: [EDM, TOR]</param>
     /// <returns>Returns the metadata information about the NHL league including players, teams and season states</returns>
-    public async Task<LeagueMetadataInformation> GetLeagueMetadataInformation(List<PlayerEnum> players, List<TeamEnum> teams)
+    public async Task<LeagueMetadataInformation> GetLeagueMetadataInformationAsync(List<PlayerEnum> players, List<TeamEnum> teams)
     {
         var sb = new StringBuilder("/meta");
         if (players?.Count > 0)
