@@ -11,7 +11,7 @@ namespace Nhl.Api.Tests;
 public class NhlApiAsyncHelperTests
 {
     [TestMethodWithRetry(RetryCount = 5)]
-    public async Task TestRunSyncAsync()
+    public void TestRunSyncAsync()
     {
         NhlApiAsyncHelper.RunSync(async () => await Task.Run(() => Task.Delay(100)));
     }

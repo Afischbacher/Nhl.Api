@@ -96,12 +96,21 @@ namespace Nhl.Api.Models.League
     /// </summary>
     public class LeagueMetadataInformation
     {
+        /// <summary>
+        /// The collection of NHL players for the metadata
+        /// </summary>
         [JsonProperty("players")]
         public List<Player> Players { get; set; }
 
+        /// <summary>
+        /// The collection of NHL teams for the metadata
+        /// </summary>
         [JsonProperty("teams")]
         public List<LeagueMetadataTeam> Teams { get; set; }
 
+        /// <summary>
+        /// The collection of NHL seasons for the metadata
+        /// </summary>
         [JsonProperty("seasonStates")]
         public List<object> SeasonStates { get; set; }
     }

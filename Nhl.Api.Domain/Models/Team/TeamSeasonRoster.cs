@@ -9,12 +9,21 @@ namespace Nhl.Api.Models.Team
     /// </summary>
     public class TeamSeasonRoster
     {
+        /// <summary>
+        /// The NHL team season roster forwards
+        /// </summary>
         [JsonProperty("forwards")]
         public List<TeamSeasonRosterForward> Forwards { get; set; }
 
+        /// <summary>
+        /// The NHL team season roster defensemen
+        /// </summary>
         [JsonProperty("defensemen")]
         public List<TeamSeasonRosterDefenseman> Defensemen { get; set; }
 
+        /// <summary>
+        /// The NHL team season roster goalies
+        /// </summary>
         [JsonProperty("goalies")]
         public List<TeamSeasonRosterGoalie> Goalies { get; set; }
     }

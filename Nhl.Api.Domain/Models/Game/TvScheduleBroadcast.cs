@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Game
 {
+    /// <summary>
+    /// The NHL TV schedule broadcast information
+    /// </summary>
     public class TvScheduleBroadcastInformation
     {
         /// <summary>

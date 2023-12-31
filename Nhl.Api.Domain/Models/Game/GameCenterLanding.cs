@@ -461,6 +461,9 @@ namespace Nhl.Api.Models.Game
 
     }
 
+    /// <summary>
+    /// The NHL game center landing penalty information
+    /// </summary>
     public class Penalty
     {
         /// <summary>

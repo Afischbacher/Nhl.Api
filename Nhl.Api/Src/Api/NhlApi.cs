@@ -458,7 +458,7 @@ public class NhlApi : INhlApi
     /// Returns the NHL team schedule for the specified team and season year
     /// </summary>
     /// <param name="teamId">The team identifier, Example: 10 - Toronto Maples Leafs</param>
-    /// <param name="seasonYear">The season year, see <see cref="=SeasonYear"/> for more information, Example: 20202021</param>
+    /// <param name="seasonYear">The season year, see <see cref="SeasonYear"/> for more information, Example: 20202021</param>
     /// <returns>Returns the NHL team schedule for the specified team and season year</returns>
     public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleBySeasonYearAsync(int teamId, string seasonYear)
     {

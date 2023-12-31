@@ -19,6 +19,9 @@
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>nhl-api-logo-128px-128px.png</PackageIcon>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<IncludeSymbols>true</IncludeSymbols>
+		<IncludeSource>true</IncludeSource>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
 		<DefaultItemExcludes>$(DefaultItemExcludes);..\Nhl.Api.Domain\Enumerations\Player\InternalPlayerEnum.cs</DefaultItemExcludes>
