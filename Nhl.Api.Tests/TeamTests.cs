@@ -429,7 +429,7 @@ public class TeamTests
         await using INhlApi nhlApi = new NhlApi();
 
         // Act
-        var teamRoster = await nhlApi.GetTeamWeekScheduleByDateTimeAsync(teamId, DateTimeOffset.Parse(date));
+        var teamRoster = await nhlApi.GetTeamWeekScheduleByDateTimeAsync(teamId, DateOnly.Parse(date));
 
         // Assert
         Assert.IsNotNull(teamRoster);
@@ -450,7 +450,7 @@ public class TeamTests
         await using INhlApi nhlApi = new NhlApi();
 
         // Act
-        var teamRoster = await nhlApi.GetTeamWeekScheduleByDateTimeAsync(team, DateTimeOffset.Parse(date));
+        var teamRoster = await nhlApi.GetTeamWeekScheduleByDateTimeAsync(team, DateOnly.Parse(date));
 
         // Assert
         Assert.IsNotNull(teamRoster);

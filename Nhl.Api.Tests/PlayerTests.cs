@@ -16,7 +16,7 @@ public class PlayerTests
     [DataRow("Wayne Gretzky", 99)]
     [DataRow("Alex Ovechkin", 8)]
     [DataRow("Connor McDavid", 97)]
-    public async Task TestSearchAllPlayersAsync(string query, int numberOfPlayer)
+    public async Task SearchAllPlayersAsync_Returns_Valid_Results(string query, int numberOfPlayer)
     {
         // Arrange
         await using INhlApi nhlApi = new NhlApi();
@@ -77,10 +77,10 @@ public class PlayerTests
 
     [TestMethodWithRetry(RetryCount = 5)]
     [DataRow("Carter Hart")]
-    [DataRow("Auston Matthews")]
+    [DataRow("David Pastrnak")]
     [DataRow("Connor McDavid")]
     [DataRow("Frederik Andersen")]
-    public async Task TestSearchAllActivePlayersAsync(string query)
+    public async Task SearchAllActivePlayersAsync_Returns_Valid_Information(string query)
     {
         // Arrange
         await using INhlApi nhlApi = new NhlApi();
@@ -100,7 +100,7 @@ public class PlayerTests
                 Assert.AreEqual("Havirov", playerSearchResult.BirthCity);
                 Assert.AreEqual("CZE", playerSearchResult.BirthCountry);
                 Assert.AreEqual("Czech Republic", playerSearchResult.FullBirthCountry);
-                Assert.AreEqual("", playerSearchResult.BirthProvinceState);
+                Assert.AreEqual(null, playerSearchResult.BirthProvinceState);
                 Assert.AreEqual("David", playerSearchResult.FirstName);
                 Assert.AreEqual("Pastrnak", playerSearchResult.LastName);
                 Assert.AreEqual("BOS", playerSearchResult.TeamAbbreviation);

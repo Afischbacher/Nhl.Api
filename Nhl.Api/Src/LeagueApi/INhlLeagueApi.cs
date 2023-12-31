@@ -46,19 +46,19 @@ public interface INhlLeagueApi
     Task<TeamColors> GetTeamColorsAsync(int teamId);
 
     /// <summary>
-    /// Returns the NHL team schedule for a specific date using the DateTimeOffset
+    /// Returns the NHL team schedule for a specific date using the date
     /// </summary>
-    /// <param name="dateTimeOffset">A <see cref="DateTimeOffset"/> for the specific date for the NHL schedule</param>
+    /// <param name="date">A <see cref="DateOnly"/> for the specific date for the NHL schedule</param>
     /// <returns>A result of the current NHL schedule by the specified date</returns>
-    Task<LeagueSchedule> GetLeagueGameWeekScheduleByDateTimeAsync(DateTimeOffset dateTimeOffset);
+    Task<LeagueSchedule> GetLeagueGameWeekScheduleByDateTimeAsync(DateOnly date);
 
     /// <summary>
     /// This returns the NHL team schedule for a specific season and a specific team by the team abbreviation and season
     /// </summary>
     /// <param name="teamAbbreviation">The required team abbreviation for the NHL team, Example: WSH - Washington</param>
-    /// <param name="dateTimeOffset">The date in which the request schedule for the team and for the week is request for</param>
+    /// <param name="date">The date in which the request schedule for the team and for the week is request for</param>
     /// <returns>A collection of all games in the requested season for the requested NHL team</returns>
-    Task<TeamWeekSchedule> GetTeamWeekScheduleByDateTimeOffsetAsync(string teamAbbreviation, DateTimeOffset dateTimeOffset);
+    Task<TeamWeekSchedule> GetTeamWeekScheduleByDateAsync(string teamAbbreviation, DateOnly date);
 
     /// <summary>
     /// This returns the NHL team schedule for a specific season and a specific team by the team abbreviation and season
@@ -88,9 +88,9 @@ public interface INhlLeagueApi
     /// <summary>
     /// Returns the NHL league standings for the current NHL season by the specified date
     /// </summary>
-    /// <param name="dateTimeOffset">The date requested for the NHL season standing</param>
+    /// <param name="date">The date requested for the NHL season standing</param>
     /// <returns>Return the NHL league standings for the specified date with specific team information</returns>
-    Task<LeagueStanding> GetLeagueStandingsByDateTimeOffsetAsync(DateTimeOffset dateTimeOffset);
+    Task<LeagueStanding> GetLeagueStandingsByDateAsync(DateOnly date);
 
     /// <summary>
     /// Returns the NHL league standings for the all NHL seasons with specific league season information
@@ -145,16 +145,16 @@ public interface INhlLeagueApi
     /// <summary>
     /// Returns the NHL league schedule for the specified date
     /// </summary>
-    /// <param name="dateTimeOffset">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+    /// <param name="date">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league schedule for the specified date</returns>
-    Task<LeagueSchedule> GetLeagueWeekScheduleByDateTimeAsync(DateTimeOffset dateTimeOffset);
+    Task<LeagueSchedule> GetLeagueWeekScheduleByDateTimeAsync(DateOnly date);
 
     /// <summary>
     /// Returns the NHL league calendar schedule for the specified date and all applicable teams
     /// </summary>
-    /// <param name="dateTimeOffset">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+    /// <param name="date">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league calendar schedule for the specified date and all applicable teams</returns>
-    Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateTimeOffset dateTimeOffset);
+    Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateOnly date);
 
     /// <summary>
     /// Returns the collection of countries and where you can watch NHL games with links and more
@@ -165,9 +165,9 @@ public interface INhlLeagueApi
     /// <summary>
     /// Returns the NHL TV broadcasts for the specified date with information about the broadcasts
     /// </summary>
-    /// <param name="dateTimeOffset">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
+    /// <param name="date">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
     /// <returns>Returns the NHL TV broadcasts for the specified date with information about the broadcasts</returns>
-    Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateTimeOffset dateTimeOffset);
+    Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateOnly date);
 
     /// <summary>
     /// Returns all the NHL seasons for the NHL league

@@ -21,7 +21,7 @@ public class GameTests
         await using INhlApi nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetGameScoresByDateTimeAsync(DateTimeOffset.Parse(date));
+        var result = await nhlApi.GetGameScoresByDateTimeAsync(DateOnly.Parse(date));
 
         // Assert
         Assert.IsNotNull(result);
@@ -115,7 +115,7 @@ public class GameTests
         await using INhlApi nhlApi = new NhlApi();
 
         // Act
-        var results = await nhlApi.GetTvScheduleBroadcastAsync(DateTimeOffset.Parse(date));
+        var results = await nhlApi.GetTvScheduleBroadcastAsync(DateOnly.Parse(date));
 
         // Assert
         Assert.IsNotNull(results);

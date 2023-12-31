@@ -60,22 +60,22 @@ public class NhlGameApi : INhlGameApi
     /// Returns the NHL team schedule for the specified team and the specified date and time
     /// </summary>
     /// <param name="teamId">The team identifier, Example: 10 - Toronto Maples Leafs</param>
-    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="date">The date and time, Example: 2020-10-02</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(int teamId, DateTimeOffset dateTimeOffset)
+    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(int teamId, DateOnly date)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/week/{dateTimeOffset:yyyy-MM-dd}");
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/week/{date:yyyy-MM-dd}");
     }
 
     /// <summary>
     /// Returns the NHL team schedule for the specified team and the specified date and time
     /// </summary>
     /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 54 - Vegas Golden Knights </param>
-    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="date">The date and time, Example: 2020-10-02</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(TeamEnum team, DateTimeOffset dateTimeOffset)
+    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(TeamEnum team, DateOnly date)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/week/{dateTimeOffset:yyyy-MM-dd}");
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/week/{date:yyyy-MM-dd}");
     }
 
     /// <summary>
@@ -127,11 +127,11 @@ public class NhlGameApi : INhlGameApi
     /// <summary>
     /// Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more
     /// </summary>
-    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="date">The date for the requested game scores, Example: 2020-10-02</param>
     /// <returns>Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more</returns>
-    public async Task<GameScore> GetGameScoresByDateTimeAsync(DateTimeOffset dateTimeOffset)
+    public async Task<GameScore> GetGameScoresByDateTimeAsync(DateOnly date)
     {
-        return await _nhlApiWebHttpClient.GetAsync<GameScore>($"/score/{dateTimeOffset:yyyy-MM-dd}");
+        return await _nhlApiWebHttpClient.GetAsync<GameScore>($"/score/{date:yyyy-MM-dd}");
     }
 
     /// <summary>

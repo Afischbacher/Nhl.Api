@@ -130,11 +130,11 @@ public class NhlApi : INhlApi
     /// <summary>
     /// Returns the NHL team schedule for a specific date using the DateTimeOffset
     /// </summary>
-    /// <param name="dateTimeOffset">A <see cref="DateTimeOffset"/> for the specific date for the NHL schedule</param>
+    /// <param name="date">A <see cref="DateOnly"/> for the specific date for the NHL schedule</param>
     /// <returns>A result of the current NHL schedule by the specified date</returns>
-    public async Task<LeagueSchedule> GetLeagueGameWeekScheduleByDateTimeAsync(DateTimeOffset dateTimeOffset)
+    public async Task<LeagueSchedule> GetLeagueGameWeekScheduleByDateTimeAsync(DateOnly date)
     {
-        return await _nhlLeagueApi.GetLeagueGameWeekScheduleByDateTimeAsync(dateTimeOffset);
+        return await _nhlLeagueApi.GetLeagueGameWeekScheduleByDateTimeAsync(date);
     }
 
     /// <summary>
@@ -179,11 +179,11 @@ public class NhlApi : INhlApi
     /// This returns the NHL team schedule for a specific season and a specific team by the team abbreviation and season
     /// </summary>
     /// <param name="teamAbbreviation">The required team abbreviation for the NHL team, Example: WSH - Washington Capitals</param>
-    /// <param name="dateTimeOffset">The date in which the request schedule for the team and for the week is request for</param>
+    /// <param name="date">The date in which the request schedule for the team and for the week is request for</param>
     /// <returns>A collection of all games in the requested season for the requested NHL team</returns>
-    public async Task<TeamWeekSchedule> GetTeamWeekScheduleByDateTimeOffsetAsync(string teamAbbreviation, DateTimeOffset dateTimeOffset)
+    public async Task<TeamWeekSchedule> GetTeamWeekScheduleByDateAsync(string teamAbbreviation, DateOnly date)
     {
-        return await _nhlLeagueApi.GetTeamWeekScheduleByDateTimeOffsetAsync(teamAbbreviation, dateTimeOffset);
+        return await _nhlLeagueApi.GetTeamWeekScheduleByDateAsync(teamAbbreviation, date);
     }
 
     /// <summary>
@@ -312,11 +312,11 @@ public class NhlApi : INhlApi
     /// <summary>
     /// Returns the NHL league standings for the current NHL season by the specified date
     /// </summary>
-    /// <param name="dateTimeOffset">The date requested for the NHL season standing</param>
+    /// <param name="date">The date requested for the NHL season standing</param>
     /// <returns>Return the NHL league standings for the specified date with specific team information</returns>
-    public async Task<LeagueStanding> GetLeagueStandingsByDateTimeOffsetAsync(DateTimeOffset dateTimeOffset)
+    public async Task<LeagueStanding> GetLeagueStandingsByDateAsync(DateOnly date)
     {
-        return await _nhlLeagueApi.GetLeagueStandingsByDateTimeOffsetAsync(dateTimeOffset);
+        return await _nhlLeagueApi.GetLeagueStandingsByDateAsync(date);
     }
 
     /// <summary>
@@ -504,52 +504,52 @@ public class NhlApi : INhlApi
     /// Returns the NHL team schedule for the specified team and the specified date and time
     /// </summary>
     /// <param name="teamId">The team identifier, Example: 10 - Toronto Maples Leafs</param>
-    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="date">The date and time, Example: 2020-10-02T00:00:00Z</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(int teamId, DateTimeOffset dateTimeOffset)
+    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(int teamId, DateOnly date)
     {
-        return await _nhlGameApi.GetTeamWeekScheduleByDateTimeAsync(teamId, dateTimeOffset);
+        return await _nhlGameApi.GetTeamWeekScheduleByDateTimeAsync(teamId, date);
     }
 
     /// <summary>
     /// Returns the NHL team schedule for the specified team and the specified date and time
     /// </summary>
     /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 54 - Vegas Golden Knights </param>
-    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="date">The date and time, Example: 2020-10-02T00:00:00Z</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(TeamEnum team, DateTimeOffset dateTimeOffset)
+    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(TeamEnum team, DateOnly date)
     {
-        return await _nhlGameApi.GetTeamWeekScheduleByDateTimeAsync(team, dateTimeOffset);
+        return await _nhlGameApi.GetTeamWeekScheduleByDateTimeAsync(team, date);
     }
 
     /// <summary>
     /// Returns the NHL league schedule for the specified date
     /// </summary>
-    /// <param name="dateTimeOffset">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+    /// <param name="date">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league schedule for the specified date</returns>
-    public async Task<LeagueSchedule> GetLeagueWeekScheduleByDateTimeAsync(DateTimeOffset dateTimeOffset)
+    public async Task<LeagueSchedule> GetLeagueWeekScheduleByDateTimeAsync(DateOnly date)
     {
-        return await _nhlLeagueApi.GetLeagueWeekScheduleByDateTimeAsync(dateTimeOffset);
+        return await _nhlLeagueApi.GetLeagueWeekScheduleByDateTimeAsync(date);
     }
 
     /// <summary>
     /// Returns the NHL league calendar schedule for the specified date and all applicable teams
     /// </summary>
-    /// <param name="dateTimeOffset">The date requested for the NHL league schedule, Example: 2024-02-10</param>
+    /// <param name="date">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league calendar schedule for the specified date and all applicable teams</returns>
-    public async Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateTimeOffset dateTimeOffset)
+    public async Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateOnly date)
     {
-        return await _nhlLeagueApi.GetLeagueScheduleCalendarAsync(dateTimeOffset);
+        return await _nhlLeagueApi.GetLeagueScheduleCalendarAsync(date);
     }
 
     /// <summary>
     /// Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more
     /// </summary>
-    /// <param name="dateTimeOffset">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="date">The date and time, Example: 2020-10-02T00:00:00Z</param>
     /// <returns>Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more</returns>
-    public async Task<GameScore> GetGameScoresByDateTimeAsync(DateTimeOffset dateTimeOffset)
+    public async Task<GameScore> GetGameScoresByDateTimeAsync(DateOnly date)
     {
-        return await _nhlGameApi.GetGameScoresByDateTimeAsync(dateTimeOffset);
+        return await _nhlGameApi.GetGameScoresByDateTimeAsync(date);
     }
 
     /// <summary>
@@ -603,11 +603,11 @@ public class NhlApi : INhlApi
     /// <summary>
     /// Returns the NHL TV broadcasts for the specified date with information about the broadcasts
     /// </summary>
-    /// <param name="dateTimeOffset">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
+    /// <param name="date">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
     /// <returns>Returns the NHL TV broadcasts for the specified date with information about the broadcasts</returns>
-    public async Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateTimeOffset dateTimeOffset)
+    public async Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateOnly date)
     {
-        return await _nhlLeagueApi.GetTvScheduleBroadcastAsync(dateTimeOffset);
+        return await _nhlLeagueApi.GetTvScheduleBroadcastAsync(date);
     }
 
     /// <summary>
