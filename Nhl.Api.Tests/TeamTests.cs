@@ -1,11 +1,7 @@
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
-using Nhl.Api.Tests.Helpers.Attributes;
-using System;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests;
 

@@ -1,8 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nhl.Api.Tests.Helpers.Attributes;
-using System.Threading.Tasks;
-
-namespace Nhl.Api.Tests;
+﻿namespace Nhl.Api.Tests;
 
 [TestClass]
 public class ResourceDisposeTests

@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nhl.Api.Common.Helpers;
-using Nhl.Api.Tests.Helpers.Attributes;
+﻿using Nhl.Api.Common.Helpers;
 
 namespace Nhl.Api.Tests;
 

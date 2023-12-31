@@ -1,11 +1,8 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nhl.Api.Enumerations.Game;
+﻿using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Season;
-using Nhl.Api.Tests.Helpers.Attributes;
 using System.Linq;
 using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace Nhl.Api.Tests;
 

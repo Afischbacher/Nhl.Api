@@ -1,7 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Nhl.Api.Common.Services;
-using Nhl.Api.Tests.Helpers.Attributes;
-using System.Threading.Tasks;
+﻿using Nhl.Api.Common.Services;
 
 namespace Nhl.Api.Tests;
 
