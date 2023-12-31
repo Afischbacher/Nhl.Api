@@ -50,7 +50,7 @@ public interface INhlLeagueApi
     /// </summary>
     /// <param name="date">A <see cref="DateOnly"/> for the specific date for the NHL schedule</param>
     /// <returns>A result of the current NHL schedule by the specified date</returns>
-    Task<LeagueSchedule> GetLeagueGameWeekScheduleByDateTimeAsync(DateOnly date);
+    Task<LeagueSchedule> GetLeagueGameWeekScheduleByDateAsync(DateOnly date);
 
     /// <summary>
     /// This returns the NHL team schedule for a specific season and a specific team by the team abbreviation and season
@@ -147,14 +147,14 @@ public interface INhlLeagueApi
     /// </summary>
     /// <param name="date">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league schedule for the specified date</returns>
-    Task<LeagueSchedule> GetLeagueWeekScheduleByDateTimeAsync(DateOnly date);
+    Task<LeagueSchedule> GetLeagueWeekScheduleByDateAsync(DateOnly date);
 
     /// <summary>
     /// Returns the NHL league calendar schedule for the specified date and all applicable teams
     /// </summary>
     /// <param name="date">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league calendar schedule for the specified date and all applicable teams</returns>
-    Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateOnly date);
+    Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarByDateAsync(DateOnly date);
 
     /// <summary>
     /// Returns the collection of countries and where you can watch NHL games with links and more
@@ -167,7 +167,7 @@ public interface INhlLeagueApi
     /// </summary>
     /// <param name="date">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
     /// <returns>Returns the NHL TV broadcasts for the specified date with information about the broadcasts</returns>
-    Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateOnly date);
+    Task<TvScheduleBroadcast> GetTvScheduleBroadcastByDateAsync(DateOnly date);
 
     /// <summary>
     /// Returns all the NHL seasons for the NHL league

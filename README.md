@@ -18,10 +18,10 @@ A modern C# .NET library for the NHL API providing various NHL information about
 - Installation 💭 <a href="#installing-nhl-api">Installing Nhl.Api</a>
 - Implementation 🚀 <a href="#implementation">Implementation</a>
 - Documentation 📖 <a href="#documentation">Documentation</a>
-- Contents 📋 <a href="#contents">Contents</a>
 - Bugs 🐛 <a href="#bugs">Bugs</a>
 - Feature Backlog 📈 <a href="#feature-backlog">Feature Backlog</a>
 - Notable Mentions 🙏 <a href="#notable-mentions">Notable Mentions</a>
+- Contents 📋 <a href="#contents">Contents</a>
 
 ## Installing Nhl.Api 💭 <a name="installing-nhl-api"></a>
 You should install Nhl.Api with NuGet:
@@ -110,10 +110,11 @@ If you have any issues with the library or suggestions, please feel free to crea
 Currently there are no features in the backlog, but if you have any suggestions, please feel free to create an issue and it will be adressed as soon as possible :)
 
 ## Notable Mentions 🙏 <a name="notable-mentions"></a>
-Thank you to all the people in the hockey community, especially 
-- <a target="_blank" href="https://www.nhl.com/">Drew Hynes</a> for providing the leading guidance for the all of the NHL stat heads for having the new API documented for usage
+Thank you to all the people in the hockey community, especially:
+
+- <a target="_blank" href="https://gitlab.com/dword4/nhlapi">Drew Hynes</a> for providing the leading guidance for the all of the NHL stat heads for having the new API documented for usage, without him this would not be possible.
 - <a target="_blank" href="https://www.zacharymaludzinski.com/">Zachary Maludzinski</a> to contributed to documenting the <a href="https://api-web.nhle.com/api/v1" target="_blank">NHL Web API</a>. Without all this help, and documentation one of this would be possible.
-- <a target="_blank" href="https://www.nhl.com/">NHL</a> for providing the API for the community to use
+- <a target="_blank" href="https://www.nhl.com/">NHL</a> for providing the API for the community to use to build awesome stuff.
 
 ### Contents 📋 <a name="contents"></a>
 
@@ -131,19 +132,19 @@ Thank you to all the people in the hockey community, especially
   - [GetGameCenterPlayByPlayByGameIdAsync(gameId)](#M-Nhl-Api-NhlApi-GetGameCenterPlayByPlayByGameIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetGameCenterPlayByPlayByGameIdAsync(System.Int32)')
   - [GetGameMetadataByGameIdAsync(gameId)](#M-Nhl-Api-NhlApi-GetGameMetadataByGameIdAsync-System-Int32- 'Nhl.Api.NhlApi.GetGameMetadataByGameIdAsync(System.Int32)')
   - [GetGameScoreboardAsync()](#M-Nhl-Api-NhlApi-GetGameScoreboardAsync 'Nhl.Api.NhlApi.GetGameScoreboardAsync')
-  - [GetGameScoresByDateTimeAsync(date)](#M-Nhl-Api-NhlApi-GetGameScoresByDateTimeAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetGameScoresByDateTimeAsync(System.DateOnly)')
+  - [GetGameScoresByDateAsync(date)](#M-Nhl-Api-NhlApi-GetGameScoresByDateAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetGameScoresByDateAsync(System.DateOnly)')
   - [GetGoalieInformationAsync(playerId)](#M-Nhl-Api-NhlApi-GetGoalieInformationAsync-System-Int32- 'Nhl.Api.NhlApi.GetGoalieInformationAsync(System.Int32)')
   - [GetGoalieInformationAsync(player)](#M-Nhl-Api-NhlApi-GetGoalieInformationAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum- 'Nhl.Api.NhlApi.GetGoalieInformationAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum)')
   - [GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(player,seasonYear,gameType)](#M-Nhl-Api-NhlApi-GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String,Nhl-Api-Enumerations-Game-GameType- 'Nhl.Api.NhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String,Nhl.Api.Enumerations.Game.GameType)')
   - [GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(playerId,seasonYear,gameType)](#M-Nhl-Api-NhlApi-GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync-System-Int32,System-String,Nhl-Api-Enumerations-Game-GameType- 'Nhl.Api.NhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(System.Int32,System.String,Nhl.Api.Enumerations.Game.GameType)')
   - [GetGoalieStatsisticsLeadersAsync(goalieStatisticsType,seasonYear,gameType,limit)](#M-Nhl-Api-NhlApi-GetGoalieStatsisticsLeadersAsync-Nhl-Api-Enumerations-Statistic-GoalieStatisticsType,Nhl-Api-Enumerations-Game-GameType,System-String,System-Int32- 'Nhl.Api.NhlApi.GetGoalieStatsisticsLeadersAsync(Nhl.Api.Enumerations.Statistic.GoalieStatisticsType,Nhl.Api.Enumerations.Game.GameType,System.String,System.Int32)')
-  - [GetLeagueGameWeekScheduleByDateTimeAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueGameWeekScheduleByDateTimeAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetLeagueGameWeekScheduleByDateTimeAsync(System.DateOnly)')
+  - [GetLeagueGameWeekScheduleByDateAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueGameWeekScheduleByDateAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetLeagueGameWeekScheduleByDateAsync(System.DateOnly)')
   - [GetLeagueMetadataInformation(playerIds,teamIds)](#M-Nhl-Api-NhlApi-GetLeagueMetadataInformation-System-Collections-Generic-List{System-Int32},System-Collections-Generic-List{System-String}- 'Nhl.Api.NhlApi.GetLeagueMetadataInformation(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.String})')
   - [GetLeagueMetadataInformation(players,teams)](#M-Nhl-Api-NhlApi-GetLeagueMetadataInformation-System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Player-PlayerEnum},System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Team-TeamEnum}- 'Nhl.Api.NhlApi.GetLeagueMetadataInformation(System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Player.PlayerEnum},System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Team.TeamEnum})')
-  - [GetLeagueScheduleCalendarAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueScheduleCalendarAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetLeagueScheduleCalendarAsync(System.DateOnly)')
+  - [GetLeagueScheduleCalendarByDateAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueScheduleCalendarByDateAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetLeagueScheduleCalendarByDateAsync(System.DateOnly)')
   - [GetLeagueStandingsByDateAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueStandingsByDateAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetLeagueStandingsByDateAsync(System.DateOnly)')
   - [GetLeagueStandingsSeasonInformationAsync()](#M-Nhl-Api-NhlApi-GetLeagueStandingsSeasonInformationAsync 'Nhl.Api.NhlApi.GetLeagueStandingsSeasonInformationAsync')
-  - [GetLeagueWeekScheduleByDateTimeAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueWeekScheduleByDateTimeAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetLeagueWeekScheduleByDateTimeAsync(System.DateOnly)')
+  - [GetLeagueWeekScheduleByDateAsync(date)](#M-Nhl-Api-NhlApi-GetLeagueWeekScheduleByDateAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetLeagueWeekScheduleByDateAsync(System.DateOnly)')
   - [GetLiveGameFeedPlayerShiftsAsync(gameId)](#M-Nhl-Api-NhlApi-GetLiveGameFeedPlayerShiftsAsync-System-Int32- 'Nhl.Api.NhlApi.GetLiveGameFeedPlayerShiftsAsync(System.Int32)')
   - [GetPlayerHeadshotImageAsync(player,playerHeadshotImageSize)](#M-Nhl-Api-NhlApi-GetPlayerHeadshotImageAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,Nhl-Api-Models-Enumerations-Player-PlayerHeadshotImageSize- 'Nhl.Api.NhlApi.GetPlayerHeadshotImageAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,Nhl.Api.Models.Enumerations.Player.PlayerHeadshotImageSize)')
   - [GetPlayerHeadshotImageAsync(playerId,playerHeadshotImageSize)](#M-Nhl-Api-NhlApi-GetPlayerHeadshotImageAsync-System-Int32,Nhl-Api-Models-Enumerations-Player-PlayerHeadshotImageSize- 'Nhl.Api.NhlApi.GetPlayerHeadshotImageAsync(System.Int32,Nhl.Api.Models.Enumerations.Player.PlayerHeadshotImageSize)')
@@ -172,9 +173,9 @@ Thank you to all the people in the hockey community, especially
   - [GetTeamStatisticsBySeasonAsync(team)](#M-Nhl-Api-NhlApi-GetTeamStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum- 'Nhl.Api.NhlApi.GetTeamStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum)')
   - [GetTeamStatisticsBySeasonAsync(teamId)](#M-Nhl-Api-NhlApi-GetTeamStatisticsBySeasonAsync-System-Int32- 'Nhl.Api.NhlApi.GetTeamStatisticsBySeasonAsync(System.Int32)')
   - [GetTeamWeekScheduleByDateAsync(teamAbbreviation,date)](#M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateAsync-System-String,System-DateOnly- 'Nhl.Api.NhlApi.GetTeamWeekScheduleByDateAsync(System.String,System.DateOnly)')
-  - [GetTeamWeekScheduleByDateTimeAsync(teamId,date)](#M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateTimeAsync-System-Int32,System-DateOnly- 'Nhl.Api.NhlApi.GetTeamWeekScheduleByDateTimeAsync(System.Int32,System.DateOnly)')
-  - [GetTeamWeekScheduleByDateTimeAsync(team,date)](#M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateTimeAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateOnly- 'Nhl.Api.NhlApi.GetTeamWeekScheduleByDateTimeAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateOnly)')
-  - [GetTvScheduleBroadcastAsync(date)](#M-Nhl-Api-NhlApi-GetTvScheduleBroadcastAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetTvScheduleBroadcastAsync(System.DateOnly)')
+  - [GetTeamWeekScheduleByDateAsync(teamId,date)](#M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateAsync-System-Int32,System-DateOnly- 'Nhl.Api.NhlApi.GetTeamWeekScheduleByDateAsync(System.Int32,System.DateOnly)')
+  - [GetTeamWeekScheduleByDateAsync(team,date)](#M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateOnly- 'Nhl.Api.NhlApi.GetTeamWeekScheduleByDateAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateOnly)')
+  - [GetTvScheduleBroadcastByDateAsync(date)](#M-Nhl-Api-NhlApi-GetTvScheduleBroadcastByDateAsync-System-DateOnly- 'Nhl.Api.NhlApi.GetTvScheduleBroadcastByDateAsync(System.DateOnly)')
   - [IsLeagueActiveAsync()](#M-Nhl-Api-NhlApi-IsLeagueActiveAsync 'Nhl.Api.NhlApi.IsLeagueActiveAsync')
   - [IsPlayoffSeasonActiveAsync()](#M-Nhl-Api-NhlApi-IsPlayoffSeasonActiveAsync 'Nhl.Api.NhlApi.IsPlayoffSeasonActiveAsync')
   - [IsPreSeasonActiveAsync()](#M-Nhl-Api-NhlApi-IsPreSeasonActiveAsync 'Nhl.Api.NhlApi.IsPreSeasonActiveAsync')
@@ -190,26 +191,26 @@ Thank you to all the people in the hockey community, especially
   - [GetGameCenterPlayByPlayByGameIdAsync(gameId)](#M-Nhl-Api-NhlGameApi-GetGameCenterPlayByPlayByGameIdAsync-System-Int32- 'Nhl.Api.NhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(System.Int32)')
   - [GetGameMetadataByGameIdAsync(gameId)](#M-Nhl-Api-NhlGameApi-GetGameMetadataByGameIdAsync-System-Int32- 'Nhl.Api.NhlGameApi.GetGameMetadataByGameIdAsync(System.Int32)')
   - [GetGameScoreboardAsync()](#M-Nhl-Api-NhlGameApi-GetGameScoreboardAsync 'Nhl.Api.NhlGameApi.GetGameScoreboardAsync')
-  - [GetGameScoresByDateTimeAsync(date)](#M-Nhl-Api-NhlGameApi-GetGameScoresByDateTimeAsync-System-DateOnly- 'Nhl.Api.NhlGameApi.GetGameScoresByDateTimeAsync(System.DateOnly)')
+  - [GetGameScoresByDateAsync(date)](#M-Nhl-Api-NhlGameApi-GetGameScoresByDateAsync-System-DateOnly- 'Nhl.Api.NhlGameApi.GetGameScoresByDateAsync(System.DateOnly)')
   - [GetLiveGameFeedPlayerShiftsAsync(gameId)](#M-Nhl-Api-NhlGameApi-GetLiveGameFeedPlayerShiftsAsync-System-Int32- 'Nhl.Api.NhlGameApi.GetLiveGameFeedPlayerShiftsAsync(System.Int32)')
   - [GetTeamSeasonScheduleBySeasonYearAsync(teamId,seasonYear)](#M-Nhl-Api-NhlGameApi-GetTeamSeasonScheduleBySeasonYearAsync-System-Int32,System-String- 'Nhl.Api.NhlGameApi.GetTeamSeasonScheduleBySeasonYearAsync(System.Int32,System.String)')
   - [GetTeamSeasonScheduleBySeasonYearAsync(team,seasonYear)](#M-Nhl-Api-NhlGameApi-GetTeamSeasonScheduleBySeasonYearAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String- 'Nhl.Api.NhlGameApi.GetTeamSeasonScheduleBySeasonYearAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.String)')
   - [GetTeamSeasonScheduleByYearAndMonthAsync(teamId,year,month)](#M-Nhl-Api-NhlGameApi-GetTeamSeasonScheduleByYearAndMonthAsync-System-Int32,System-Int32,System-Int32- 'Nhl.Api.NhlGameApi.GetTeamSeasonScheduleByYearAndMonthAsync(System.Int32,System.Int32,System.Int32)')
   - [GetTeamSeasonScheduleByYearAndMonthAsync(team,year,month)](#M-Nhl-Api-NhlGameApi-GetTeamSeasonScheduleByYearAndMonthAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Int32,System-Int32- 'Nhl.Api.NhlGameApi.GetTeamSeasonScheduleByYearAndMonthAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Int32,System.Int32)')
-  - [GetTeamWeekScheduleByDateTimeAsync(teamId,date)](#M-Nhl-Api-NhlGameApi-GetTeamWeekScheduleByDateTimeAsync-System-Int32,System-DateOnly- 'Nhl.Api.NhlGameApi.GetTeamWeekScheduleByDateTimeAsync(System.Int32,System.DateOnly)')
-  - [GetTeamWeekScheduleByDateTimeAsync(team,date)](#M-Nhl-Api-NhlGameApi-GetTeamWeekScheduleByDateTimeAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateOnly- 'Nhl.Api.NhlGameApi.GetTeamWeekScheduleByDateTimeAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateOnly)')
+  - [GetTeamWeekScheduleByDateAsync(teamId,date)](#M-Nhl-Api-NhlGameApi-GetTeamWeekScheduleByDateAsync-System-Int32,System-DateOnly- 'Nhl.Api.NhlGameApi.GetTeamWeekScheduleByDateAsync(System.Int32,System.DateOnly)')
+  - [GetTeamWeekScheduleByDateAsync(team,date)](#M-Nhl-Api-NhlGameApi-GetTeamWeekScheduleByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateOnly- 'Nhl.Api.NhlGameApi.GetTeamWeekScheduleByDateAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateOnly)')
 - [NhlLeagueApi](#T-Nhl-Api-NhlLeagueApi 'Nhl.Api.NhlLeagueApi')
   - [#ctor()](#M-Nhl-Api-NhlLeagueApi-#ctor 'Nhl.Api.NhlLeagueApi.#ctor')
   - [GetAllRosterSeasonsByTeamAsync(teamId)](#M-Nhl-Api-NhlLeagueApi-GetAllRosterSeasonsByTeamAsync-System-Int32- 'Nhl.Api.NhlLeagueApi.GetAllRosterSeasonsByTeamAsync(System.Int32)')
   - [GetAllRosterSeasonsByTeamAsync(team)](#M-Nhl-Api-NhlLeagueApi-GetAllRosterSeasonsByTeamAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum- 'Nhl.Api.NhlLeagueApi.GetAllRosterSeasonsByTeamAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum)')
   - [GetAllSeasonsAsync()](#M-Nhl-Api-NhlLeagueApi-GetAllSeasonsAsync 'Nhl.Api.NhlLeagueApi.GetAllSeasonsAsync')
-  - [GetLeagueGameWeekScheduleByDateTimeAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetLeagueGameWeekScheduleByDateTimeAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetLeagueGameWeekScheduleByDateTimeAsync(System.DateOnly)')
+  - [GetLeagueGameWeekScheduleByDateAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetLeagueGameWeekScheduleByDateAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetLeagueGameWeekScheduleByDateAsync(System.DateOnly)')
   - [GetLeagueMetadataInformation(playerIds,teamIds)](#M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformation-System-Collections-Generic-List{System-Int32},System-Collections-Generic-List{System-String}- 'Nhl.Api.NhlLeagueApi.GetLeagueMetadataInformation(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.String})')
   - [GetLeagueMetadataInformation(players,teams)](#M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformation-System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Player-PlayerEnum},System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Team-TeamEnum}- 'Nhl.Api.NhlLeagueApi.GetLeagueMetadataInformation(System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Player.PlayerEnum},System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Team.TeamEnum})')
-  - [GetLeagueScheduleCalendarAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetLeagueScheduleCalendarAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetLeagueScheduleCalendarAsync(System.DateOnly)')
+  - [GetLeagueScheduleCalendarByDateAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetLeagueScheduleCalendarByDateAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetLeagueScheduleCalendarByDateAsync(System.DateOnly)')
   - [GetLeagueStandingsByDateAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetLeagueStandingsByDateAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetLeagueStandingsByDateAsync(System.DateOnly)')
   - [GetLeagueStandingsSeasonInformationAsync()](#M-Nhl-Api-NhlLeagueApi-GetLeagueStandingsSeasonInformationAsync 'Nhl.Api.NhlLeagueApi.GetLeagueStandingsSeasonInformationAsync')
-  - [GetLeagueWeekScheduleByDateTimeAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetLeagueWeekScheduleByDateTimeAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetLeagueWeekScheduleByDateTimeAsync(System.DateOnly)')
+  - [GetLeagueWeekScheduleByDateAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetLeagueWeekScheduleByDateAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetLeagueWeekScheduleByDateAsync(System.DateOnly)')
   - [GetSourcesToWatchGamesAsync()](#M-Nhl-Api-NhlLeagueApi-GetSourcesToWatchGamesAsync 'Nhl.Api.NhlLeagueApi.GetSourcesToWatchGamesAsync')
   - [GetTeamColorsAsync(team)](#M-Nhl-Api-NhlLeagueApi-GetTeamColorsAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum- 'Nhl.Api.NhlLeagueApi.GetTeamColorsAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum)')
   - [GetTeamColorsAsync(teamId)](#M-Nhl-Api-NhlLeagueApi-GetTeamColorsAsync-System-Int32- 'Nhl.Api.NhlLeagueApi.GetTeamColorsAsync(System.Int32)')
@@ -221,7 +222,7 @@ Thank you to all the people in the hockey community, especially
   - [GetTeamRosterBySeasonYearAsync(team,seasonYear)](#M-Nhl-Api-NhlLeagueApi-GetTeamRosterBySeasonYearAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String- 'Nhl.Api.NhlLeagueApi.GetTeamRosterBySeasonYearAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.String)')
   - [GetTeamScheduleBySeasonAsync(teamAbbreviation,seasonYear)](#M-Nhl-Api-NhlLeagueApi-GetTeamScheduleBySeasonAsync-System-String,System-String- 'Nhl.Api.NhlLeagueApi.GetTeamScheduleBySeasonAsync(System.String,System.String)')
   - [GetTeamWeekScheduleByDateAsync(teamAbbreviation,date)](#M-Nhl-Api-NhlLeagueApi-GetTeamWeekScheduleByDateAsync-System-String,System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetTeamWeekScheduleByDateAsync(System.String,System.DateOnly)')
-  - [GetTvScheduleBroadcastAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetTvScheduleBroadcastAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetTvScheduleBroadcastAsync(System.DateOnly)')
+  - [GetTvScheduleBroadcastByDateAsync(date)](#M-Nhl-Api-NhlLeagueApi-GetTvScheduleBroadcastByDateAsync-System-DateOnly- 'Nhl.Api.NhlLeagueApi.GetTvScheduleBroadcastByDateAsync(System.DateOnly)')
   - [IsLeagueActiveAsync()](#M-Nhl-Api-NhlLeagueApi-IsLeagueActiveAsync 'Nhl.Api.NhlLeagueApi.IsLeagueActiveAsync')
   - [IsPlayoffSeasonActiveAsync()](#M-Nhl-Api-NhlLeagueApi-IsPlayoffSeasonActiveAsync 'Nhl.Api.NhlLeagueApi.IsPlayoffSeasonActiveAsync')
   - [IsPreSeasonActiveAsync()](#M-Nhl-Api-NhlLeagueApi-IsPreSeasonActiveAsync 'Nhl.Api.NhlLeagueApi.IsPreSeasonActiveAsync')
@@ -465,8 +466,8 @@ Returns the live NHL game scoreboard, including the game information, game statu
 
 This method has no parameters.
 
-<a name='M-Nhl-Api-NhlApi-GetGameScoresByDateTimeAsync-System-DateOnly-'></a>
-### GetGameScoresByDateTimeAsync(date) `method`
+<a name='M-Nhl-Api-NhlApi-GetGameScoresByDateAsync-System-DateOnly-'></a>
+### GetGameScoresByDateAsync(date) `method`
 
 ##### Summary
 
@@ -480,7 +481,7 @@ Returns all of the NHL game scores for the specified date, including the game id
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date and time, Example: 2020-10-02T00:00:00Z |
+| date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date and time, Example: 2020-10-02 |
 
 <a name='M-Nhl-Api-NhlApi-GetGoalieInformationAsync-System-Int32-'></a>
 ### GetGoalieInformationAsync(playerId) `method`
@@ -574,12 +575,12 @@ Returns the current NHL player statistics leaders in the NHL for a specific play
 | gameType | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL game type to retrieve the player statistics leaders for, see [GameType](#T-Nhl-Api-Enumerations-Game-GameType 'Nhl.Api.Enumerations.Game.GameType') for more information on valid game types |
 | limit | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The limit to the number of results returned when reviewing the NHL player sta |
 
-<a name='M-Nhl-Api-NhlApi-GetLeagueGameWeekScheduleByDateTimeAsync-System-DateOnly-'></a>
-### GetLeagueGameWeekScheduleByDateTimeAsync(date) `method`
+<a name='M-Nhl-Api-NhlApi-GetLeagueGameWeekScheduleByDateAsync-System-DateOnly-'></a>
+### GetLeagueGameWeekScheduleByDateAsync(date) `method`
 
 ##### Summary
 
-Returns the NHL team schedule for a specific date using the DateTimeOffset
+Returns the NHL team schedule for a specific date using the [DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly')
 
 ##### Returns
 
@@ -627,8 +628,8 @@ Returns the metadata information about the NHL league including players, teams a
 | players | [System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Player.PlayerEnum}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Player.PlayerEnum}') | A collection of NHL player identifiers, Example: [8478402,8478403] |
 | teams | [System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Team.TeamEnum}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Team.TeamEnum}') | A collection of NHL team identifiers, Example: [EDM, TOR] |
 
-<a name='M-Nhl-Api-NhlApi-GetLeagueScheduleCalendarAsync-System-DateOnly-'></a>
-### GetLeagueScheduleCalendarAsync(date) `method`
+<a name='M-Nhl-Api-NhlApi-GetLeagueScheduleCalendarByDateAsync-System-DateOnly-'></a>
+### GetLeagueScheduleCalendarByDateAsync(date) `method`
 
 ##### Summary
 
@@ -676,8 +677,8 @@ Returns the NHL league standings information for each saeson since 1917-1918
 
 This method has no parameters.
 
-<a name='M-Nhl-Api-NhlApi-GetLeagueWeekScheduleByDateTimeAsync-System-DateOnly-'></a>
-### GetLeagueWeekScheduleByDateTimeAsync(date) `method`
+<a name='M-Nhl-Api-NhlApi-GetLeagueWeekScheduleByDateAsync-System-DateOnly-'></a>
+### GetLeagueWeekScheduleByDateAsync(date) `method`
 
 ##### Summary
 
@@ -1190,8 +1191,8 @@ A collection of all games in the requested season for the requested NHL team
 | teamAbbreviation | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The required team abbreviation for the NHL team, Example: WSH - Washington Capitals |
 | date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date in which the request schedule for the team and for the week is request for |
 
-<a name='M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateTimeAsync-System-Int32,System-DateOnly-'></a>
-### GetTeamWeekScheduleByDateTimeAsync(teamId,date) `method`
+<a name='M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateAsync-System-Int32,System-DateOnly-'></a>
+### GetTeamWeekScheduleByDateAsync(teamId,date) `method`
 
 ##### Summary
 
@@ -1206,10 +1207,10 @@ Returns the NHL team schedule for the specified team and the specified date and 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The team identifier, Example: 10 - Toronto Maples Leafs |
-| date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date and time, Example: 2020-10-02T00:00:00Z |
+| date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date and time, Example: 2020-10-02 |
 
-<a name='M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateTimeAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateOnly-'></a>
-### GetTeamWeekScheduleByDateTimeAsync(team,date) `method`
+<a name='M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateOnly-'></a>
+### GetTeamWeekScheduleByDateAsync(team,date) `method`
 
 ##### Summary
 
@@ -1224,10 +1225,10 @@ Returns the NHL team schedule for the specified team and the specified date and 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team identifier, see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information, Example: 54 - Vegas Golden Knights |
-| date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date and time, Example: 2020-10-02T00:00:00Z |
+| date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date and time, Example: 2020-10-02 |
 
-<a name='M-Nhl-Api-NhlApi-GetTvScheduleBroadcastAsync-System-DateOnly-'></a>
-### GetTvScheduleBroadcastAsync(date) `method`
+<a name='M-Nhl-Api-NhlApi-GetTvScheduleBroadcastByDateAsync-System-DateOnly-'></a>
+### GetTvScheduleBroadcastByDateAsync(date) `method`
 
 ##### Summary
 
@@ -1478,8 +1479,8 @@ Returns the live NHL game scoreboard, including the game information, game statu
 
 This method has no parameters.
 
-<a name='M-Nhl-Api-NhlGameApi-GetGameScoresByDateTimeAsync-System-DateOnly-'></a>
-### GetGameScoresByDateTimeAsync(date) `method`
+<a name='M-Nhl-Api-NhlGameApi-GetGameScoresByDateAsync-System-DateOnly-'></a>
+### GetGameScoresByDateAsync(date) `method`
 
 ##### Summary
 
@@ -1586,8 +1587,8 @@ Returns the NHL team schedule for the specified team and season year and month
 | year | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The year, Example: 2020 |
 | month | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The month, Example: 10 |
 
-<a name='M-Nhl-Api-NhlGameApi-GetTeamWeekScheduleByDateTimeAsync-System-Int32,System-DateOnly-'></a>
-### GetTeamWeekScheduleByDateTimeAsync(teamId,date) `method`
+<a name='M-Nhl-Api-NhlGameApi-GetTeamWeekScheduleByDateAsync-System-Int32,System-DateOnly-'></a>
+### GetTeamWeekScheduleByDateAsync(teamId,date) `method`
 
 ##### Summary
 
@@ -1604,8 +1605,8 @@ Returns the NHL team schedule for the specified team and the specified date and 
 | teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The team identifier, Example: 10 - Toronto Maples Leafs |
 | date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date and time, Example: 2020-10-02 |
 
-<a name='M-Nhl-Api-NhlGameApi-GetTeamWeekScheduleByDateTimeAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateOnly-'></a>
-### GetTeamWeekScheduleByDateTimeAsync(team,date) `method`
+<a name='M-Nhl-Api-NhlGameApi-GetTeamWeekScheduleByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateOnly-'></a>
+### GetTeamWeekScheduleByDateAsync(team,date) `method`
 
 ##### Summary
 
@@ -1693,8 +1694,8 @@ Returns all the NHL seasons for the NHL league
 
 This method has no parameters.
 
-<a name='M-Nhl-Api-NhlLeagueApi-GetLeagueGameWeekScheduleByDateTimeAsync-System-DateOnly-'></a>
-### GetLeagueGameWeekScheduleByDateTimeAsync(date) `method`
+<a name='M-Nhl-Api-NhlLeagueApi-GetLeagueGameWeekScheduleByDateAsync-System-DateOnly-'></a>
+### GetLeagueGameWeekScheduleByDateAsync(date) `method`
 
 ##### Summary
 
@@ -1746,8 +1747,8 @@ Returns the metadata information about the NHL league including players, teams a
 | players | [System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Player.PlayerEnum}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Player.PlayerEnum}') | A collection of NHL player identifiers, Example: [8478402,8478403] |
 | teams | [System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Team.TeamEnum}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Collections.Generic.List 'System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Team.TeamEnum}') | A collection of NHL team identifiers, Example: [EDM, TOR] |
 
-<a name='M-Nhl-Api-NhlLeagueApi-GetLeagueScheduleCalendarAsync-System-DateOnly-'></a>
-### GetLeagueScheduleCalendarAsync(date) `method`
+<a name='M-Nhl-Api-NhlLeagueApi-GetLeagueScheduleCalendarByDateAsync-System-DateOnly-'></a>
+### GetLeagueScheduleCalendarByDateAsync(date) `method`
 
 ##### Summary
 
@@ -1795,8 +1796,8 @@ Returns the NHL league standings information for each saeson since 1917-1918
 
 This method has no parameters.
 
-<a name='M-Nhl-Api-NhlLeagueApi-GetLeagueWeekScheduleByDateTimeAsync-System-DateOnly-'></a>
-### GetLeagueWeekScheduleByDateTimeAsync(date) `method`
+<a name='M-Nhl-Api-NhlLeagueApi-GetLeagueWeekScheduleByDateAsync-System-DateOnly-'></a>
+### GetLeagueWeekScheduleByDateAsync(date) `method`
 
 ##### Summary
 
@@ -2003,8 +2004,8 @@ A collection of all games in the requested season for the requested NHL team
 | teamAbbreviation | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The required team abbreviation for the NHL team, Example: WSH - Washington |
 | date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date in which the request schedule for the team and for the week is request for |
 
-<a name='M-Nhl-Api-NhlLeagueApi-GetTvScheduleBroadcastAsync-System-DateOnly-'></a>
-### GetTvScheduleBroadcastAsync(date) `method`
+<a name='M-Nhl-Api-NhlLeagueApi-GetTvScheduleBroadcastByDateAsync-System-DateOnly-'></a>
+### GetTvScheduleBroadcastByDateAsync(date) `method`
 
 ##### Summary
 

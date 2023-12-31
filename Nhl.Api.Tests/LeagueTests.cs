@@ -26,7 +26,7 @@ public class LeagueTests
         await using INhlApi nhlApi = new NhlApi();
 
         // Act
-        var schedule = await nhlApi.GetLeagueGameWeekScheduleByDateTimeAsync(DateOnly.Parse(date));
+        var schedule = await nhlApi.GetLeagueGameWeekScheduleByDateAsync(DateOnly.Parse(date));
 
         // Assert
         Assert.IsNotNull(schedule);
@@ -523,7 +523,7 @@ public class LeagueTests
         await using INhlApi nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetLeagueWeekScheduleByDateTimeAsync(DateOnly.Parse(date));
+        var result = await nhlApi.GetLeagueWeekScheduleByDateAsync(DateOnly.Parse(date));
 
         // Assert
         Assert.IsNotNull(result);
@@ -542,7 +542,7 @@ public class LeagueTests
         await using INhlApi nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetLeagueScheduleCalendarAsync(DateOnly.Parse(date));
+        var result = await nhlApi.GetLeagueScheduleCalendarByDateAsync(DateOnly.Parse(date));
 
         // Assert
         Assert.IsNotNull(result);
@@ -561,7 +561,7 @@ public class LeagueTests
         await using INhlApi nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetLeagueScheduleCalendarAsync(DateOnly.Parse(date));
+        var result = await nhlApi.GetLeagueScheduleCalendarByDateAsync(DateOnly.Parse(date));
 
         // Assert
         Assert.IsNotNull(result);

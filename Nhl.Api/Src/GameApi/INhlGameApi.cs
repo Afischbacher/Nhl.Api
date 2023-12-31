@@ -71,24 +71,24 @@ public interface INhlGameApi
     /// Returns the NHL team schedule for the specified team and the specified date and time
     /// </summary>
     /// <param name="teamId">The team identifier, Example: 10 - Toronto Maples Leafs</param>
-    /// <param name="date">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="date">The date, Example: 2020-10-02</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(int teamId, DateOnly date);
+    Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateAsync(int teamId, DateOnly date);
 
     /// <summary>
     /// Returns the NHL team schedule for the specified team and the specified date and time
     /// </summary>
     /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 54 - Vegas Golden Knights </param>
-    /// <param name="date">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="date">The date, Example: 2020-10-02</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(TeamEnum team, DateOnly date);
+    Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateAsync(TeamEnum team, DateOnly date);
 
     /// <summary>
     /// Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more
     /// </summary>
-    /// <param name="date">The date and time, Example: 2020-10-02T00:00:00Z</param>
+    /// <param name="date">The date, Example: 2020-10-02</param>
     /// <returns>Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more</returns>
-    Task<GameScore> GetGameScoresByDateTimeAsync(DateOnly date);
+    Task<GameScore> GetGameScoresByDateAsync(DateOnly date);
 
     /// <summary>
     /// Returns the live NHL game scoreboard, including the game information, game status, game venue and more

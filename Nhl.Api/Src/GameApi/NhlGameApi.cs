@@ -62,7 +62,7 @@ public class NhlGameApi : INhlGameApi
     /// <param name="teamId">The team identifier, Example: 10 - Toronto Maples Leafs</param>
     /// <param name="date">The date and time, Example: 2020-10-02</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(int teamId, DateOnly date)
+    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateAsync(int teamId, DateOnly date)
     {
         return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/week/{date:yyyy-MM-dd}");
     }
@@ -73,7 +73,7 @@ public class NhlGameApi : INhlGameApi
     /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 54 - Vegas Golden Knights </param>
     /// <param name="date">The date and time, Example: 2020-10-02</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateTimeAsync(TeamEnum team, DateOnly date)
+    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateAsync(TeamEnum team, DateOnly date)
     {
         return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/week/{date:yyyy-MM-dd}");
     }
@@ -129,7 +129,7 @@ public class NhlGameApi : INhlGameApi
     /// </summary>
     /// <param name="date">The date for the requested game scores, Example: 2020-10-02</param>
     /// <returns>Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more</returns>
-    public async Task<GameScore> GetGameScoresByDateTimeAsync(DateOnly date)
+    public async Task<GameScore> GetGameScoresByDateAsync(DateOnly date)
     {
         return await _nhlApiWebHttpClient.GetAsync<GameScore>($"/score/{date:yyyy-MM-dd}");
     }

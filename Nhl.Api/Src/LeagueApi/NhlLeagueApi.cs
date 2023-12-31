@@ -36,7 +36,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// </summary>
     /// <param name="date">A <see cref="DateOnly"/> for the specific date for the NHL schedule</param>
     /// <returns>A result of the current NHL schedule by the specified date</returns>
-    public async Task<LeagueSchedule> GetLeagueGameWeekScheduleByDateTimeAsync(DateOnly date)
+    public async Task<LeagueSchedule> GetLeagueGameWeekScheduleByDateAsync(DateOnly date)
     {
         return await _nhlWebApiHttpClient.GetAsync<LeagueSchedule>($"/schedule/{date:yyyy-MM-dd}");
     }
@@ -535,7 +535,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// </summary>
     /// <param name="date">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league schedule for the specified date</returns>
-    public async Task<LeagueSchedule> GetLeagueWeekScheduleByDateTimeAsync(DateOnly date)
+    public async Task<LeagueSchedule> GetLeagueWeekScheduleByDateAsync(DateOnly date)
     {
         return await _nhlWebApiHttpClient.GetAsync<LeagueSchedule>($"/schedule/{date:yyyy-MM-dd}");
     }
@@ -545,7 +545,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// </summary>
     /// <param name="date">The date requested for the NHL league schedule, Example: 2024-02-10</param>
     /// <returns>Returns the NHL league calendar schedule for the specified date and all applicable teams</returns>
-    public async Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarAsync(DateOnly date)
+    public async Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarByDateAsync(DateOnly date)
     {
         return await _nhlWebApiHttpClient.GetAsync<LeagueScheduleCalendar>($"/schedule-calendar/{date:yyyy-MM-dd}");
     }
@@ -564,7 +564,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// </summary>
     /// <param name="date">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>
     /// <returns>Returns the NHL TV broadcasts for the specified date with information about the broadcasts</returns>
-    public async Task<TvScheduleBroadcast> GetTvScheduleBroadcastAsync(DateOnly date)
+    public async Task<TvScheduleBroadcast> GetTvScheduleBroadcastByDateAsync(DateOnly date)
     {
         return await _nhlWebApiHttpClient.GetAsync<TvScheduleBroadcast>($"/network/tv-schedule/{date:yyyy-MM-dd}");
     }
