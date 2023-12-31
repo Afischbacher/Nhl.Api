@@ -67,6 +67,11 @@ public class GameTests
     [DataRow(2023020204)]
     [DataRow(2023020205)]
     [DataRow(2023020206)]
+    [DataRow(2023020207)]
+    [DataRow(2017020205)]
+    [DataRow(2018020206)]
+    [DataRow(2019020207)]
+
     public async Task GetGameCenterPlayByPlayByGameIdAsync_Return_Valid_Information(int gameId)
     {
         // Arrange
@@ -90,6 +95,10 @@ public class GameTests
     [DataRow(2023020204)]
     [DataRow(2023020205)]
     [DataRow(2023020206)]
+    [DataRow(2023020207)]
+    [DataRow(2017020205)]
+    [DataRow(2018020206)]
+    [DataRow(2019020207)]
     public async Task GetGameCenterBoxScoreByGameIdAsync_Return_Valid_Information(int gameId)
     {
         // Arrange
@@ -109,6 +118,33 @@ public class GameTests
         Assert.IsNotNull(results.HomeTeam);
         Assert.IsNotNull(results.GameOutcome);
     }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(2023020204)]
+    [DataRow(2023020205)]
+    [DataRow(2023020206)]
+    [DataRow(2023020207)]
+    [DataRow(2017020205)]
+    [DataRow(2018020206)]
+    [DataRow(2019020207)]
+    public async Task GetGameCenterLandingByGameIdAsync_Return_Valid_Information(int gameId)
+    {
+        // Arrange
+        await using INhlApi nhlApi = new NhlApi();
+
+        // Act
+        var results = await nhlApi.GetGameCenterLandingByGameIdAsync(gameId);
+
+        // Assert
+        Assert.IsNotNull(results);
+        Assert.IsNotNull(results.GameDate);
+        Assert.IsNotNull(results.GameType);
+        Assert.IsNotNull(results.Id);
+        Assert.IsNotNull(results.Clock);
+        Assert.IsNotNull(results.AwayTeam);
+        Assert.IsNotNull(results.HomeTeam);
+    }
+
 
     [TestMethodWithRetry(RetryCount = 5)]
     [DataRow("2023-12-12")]

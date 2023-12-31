@@ -431,7 +431,7 @@ namespace Nhl.Api.Models.Game
         /// The collection of NHL TV broadcasts for a specific game for the NHL game center play by play
         /// </summary>
         [JsonProperty("tvBroadcasts")]
-        public List<TvBroadcast> TvBroadcasts { get; set; }
+        public List<TvBroadcast> TvBroadcasts { get; set; } = new List<TvBroadcast>();
 
         /// <summary>
         /// The NHL game state for a specific game for the NHL game center play by play <br/>
@@ -482,7 +482,7 @@ namespace Nhl.Api.Models.Game
         /// The collection of roster members from each NHL team for the NHL game center play by play
         /// </summary>
         [JsonProperty("rosterSpots")]
-        public List<RosterSpot> RosterSpots { get; set; }
+        public List<RosterSpot> RosterSpots { get; set; } = new List<RosterSpot>();
 
         /// <summary>
         /// The display period within the NHL game center play by play <br/>
@@ -501,7 +501,8 @@ namespace Nhl.Api.Models.Game
         /// The NHL game play by play information for the NHL game center play by play
         /// </summary>
         [JsonProperty("plays")]
-        public List<GameCenterPlay> Plays { get; set; }
+        public List<GameCenterPlay> Plays { get; set; } = new List<GameCenterPlay>();
+
     }
 
 

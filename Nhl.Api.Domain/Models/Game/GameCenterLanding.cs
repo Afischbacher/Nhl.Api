@@ -94,18 +94,6 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("logo")]
         public string Logo { get; set; }
-
-        /// <summary>
-        /// The head coach of the NHL away team
-        /// </summary>
-        [JsonProperty("headCoach")]
-        public HeadCoach HeadCoach { get; set; }
-
-        /// <summary>
-        /// The collection of the scratches for the NHL away team
-        /// </summary>
-        [JsonProperty("scratches")]
-        public List<Scratch> Scratches { get; set; }
     }
 
     /// <summary>
@@ -162,15 +150,42 @@ namespace Nhl.Api.Models.Game
         /// The game center landing away team
         /// </summary>
         [JsonProperty("awayTeam")]
-        public GameCenterLandingAwayTeam AwayTeam { get; set; }
+        public GameCenterLandingGameInfoAwayTeam AwayTeam { get; set; }
 
         /// <summary>
         /// The game center landing home team
         /// </summary>
         [JsonProperty("homeTeam")]
-        public GameCenterLandingHomeTeam HomeTeam { get; set; }
+        public GameCenterLandingGameInfoHomeTeam HomeTeam { get; set; }
     }
 
+    /// <summary>
+    /// The NHL gamecenter landing game information team
+    /// </summary>
+    public class GameCenterLandingGameInfoTeam 
+    {
+        /// <summary>
+        /// The NHL team head coach
+        /// </summary>
+        [JsonProperty("headCoach")]
+        public HeadCoach HeadCoach { get; set; }
+
+        /// <summary>
+        /// The collection of scratches for the NHL team
+        /// </summary>
+        [JsonProperty("scratches")]
+        public List<Scratch> Scratches { get; set; }
+    }
+
+    /// <summary>
+    /// The NHL gamecenter landing game information home team
+    /// </summary>
+    public class GameCenterLandingGameInfoHomeTeam : GameCenterLandingGameInfoTeam { }
+   
+    /// <summary>
+    /// The NHL gamecenter landing game information away team
+    /// </summary>
+    public class GameCenterLandingGameInfoAwayTeam : GameCenterLandingGameInfoTeam { }
 
     /// <summary>
     /// The NHL game center game video
@@ -271,7 +286,7 @@ namespace Nhl.Api.Models.Game
         /// The highlight clip of the NHL game goal in French <br/>
         /// Example: 6343002286112
         /// </summary>
-        [JsonProperty("highlightClip")]
+        [JsonProperty("highlightClipFr")]
         public long HighlightClipFr { get; set; }
 
         /// <summary>
@@ -397,17 +412,6 @@ namespace Nhl.Api.Models.Game
         [JsonProperty("logo")]
         public string Logo { get; set; }
 
-        /// <summary>
-        /// The head coach of the NHL home team
-        /// </summary>
-        [JsonProperty("headCoach")]
-        public HeadCoach HeadCoach { get; set; }
-
-        /// <summary>
-        /// The collection of the scratches for the NHL home team
-        /// </summary>
-        [JsonProperty("scratches")]
-        public List<Scratch> Scratches { get; set; }
     }
 
     /// <summary>
@@ -1085,7 +1089,7 @@ namespace Nhl.Api.Models.Game
         /// Example: 2.77
         /// </summary>
         [JsonProperty("goalsAgainstAverage")]
-        public int? GoalsAgainstAverage { get; set; }
+        public decimal? GoalsAgainstAverage { get; set; }
 
         /// <summary>
         /// The save percentage of the NHL player who is the star of the game <br/>
