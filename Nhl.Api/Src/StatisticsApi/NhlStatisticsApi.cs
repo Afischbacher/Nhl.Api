@@ -15,8 +15,6 @@ namespace Nhl.Api;
 /// </summary>
 public class NhlStatisticsApi : INhlStatisticsApi
 {
-    private static readonly INhlApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
-    private static readonly INhlPlayerApi _nhlPlayerApi = new NhlPlayerApi();
     private static readonly INhlTeamService _nhlTeamService = new NhlTeamService();
     private static readonly INhlApiHttpClient _nhlApiWebHttpClient = new NhlApiWebHttpClient();
 
