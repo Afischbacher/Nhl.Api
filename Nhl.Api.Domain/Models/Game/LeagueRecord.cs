@@ -19,7 +19,6 @@ namespace Nhl.Api.Models.Game
         [JsonProperty("losses")]
         public int Losses { get; set; }
 
-
         /// <summary>
         /// Number of NHL team over time games
         /// </summary>

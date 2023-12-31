@@ -938,4 +938,22 @@ namespace Nhl.Api.Models.Game
         [JsonProperty("gameVideo")]
         public GameVideo GameVideo { get; set; }
     }
+
+    /// <summary>
+    /// The NHL game center box score line score information
+    /// </summary>
+    public class Linescore
+    {
+        /// <summary>
+        /// The NHL game center box score break down by period 
+        /// </summary>
+        [JsonProperty("byPeriod")]
+        public List<ByPeriod> ByPeriod { get; set; }
+
+        /// <summary>
+        /// The NHL game center box score team totals
+        /// </summary>
+        [JsonProperty("totals")]
+        public Totals Totals { get; set; }
+    }
 }

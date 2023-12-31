@@ -596,14 +596,14 @@ namespace Nhl.Api.Models.Player
         /// Example: 0.892
         /// </summary>
         [JsonProperty("savePctg")]
-        public double SavePctg { get; set; }
+        public decimal SavePctg { get; set; }
 
         /// <summary>
         /// The goals against average in the NHL goalie's season <br/>
         /// Example: 3.54
         /// </summary>
         [JsonProperty("goalsAgainstAvg")]
-        public double GoalsAgainstAvg { get; set; }
+        public decimal GoalsAgainstAvg { get; set; }
 
         /// <summary>
         /// The number of wins in the NHL goalie's season <br/>
@@ -985,14 +985,14 @@ namespace Nhl.Api.Models.Player
         /// Example: 2.37
         /// </summary>
         [JsonProperty("goalsAgainstAvg")]
-        public double GoalsAgainstAvg { get; set; }
+        public decimal GoalsAgainstAvg { get; set; }
 
         /// <summary>
         /// The save percentage in the NHL goalie's playoffs season <br/>
         /// Example: 0.911314
         /// </summary>
         [JsonProperty("savePctg")]
-        public double SavePctg { get; set; }
+        public decimal SavePctg { get; set; }
 
         /// <summary>
         /// The number of shutouts in the NHL goalie's playoffs season <br/>
@@ -1102,7 +1102,7 @@ namespace Nhl.Api.Models.Player
         /// Example: 0.930233
         /// </summary>
         [JsonProperty("savePctg")]
-        public double SavePctg { get; set; }
+        public decimal SavePctg { get; set; }
 
         /// <summary>
         /// The number of penalty minutes in the NHL game <br/>
