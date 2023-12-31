@@ -50,5 +50,11 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.4.0" PrivateAssets="all" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\Common\" />
+	  <Folder Include="Models\Conference\" />
+	  <Folder Include="Models\Division\" />
+	</ItemGroup>
 	
 </Project>
