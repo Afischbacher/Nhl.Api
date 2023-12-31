@@ -15,6 +15,12 @@ public class GameTests
     [DataRow("2022-11-13")]
     [DataRow("2023-11-14")]
     [DataRow("2023-12-03")]
+    [DataRow("2019-03-03")]
+    [DataRow("2018-03-04")]
+    [DataRow("2014-03-04")]
+    [DataRow("2016-03-04")]
+    [DataRow("2011-03-04")]
+
     public async Task GetGameScoresByDateTimeAsync_Return_Valid_Score_Information(string date)
     {
         // Arrange
