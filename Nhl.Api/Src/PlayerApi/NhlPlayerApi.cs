@@ -33,14 +33,14 @@ public class NhlPlayerApi : INhlPlayerApi
     /// <param name="query">A search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25)
+    public async Task<List<Models.Player.PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25)
     {
         if (string.IsNullOrWhiteSpace(query))
         {
-            return new List<PlayerSearchResult>();
+            return new List<Models.Player.PlayerSearchResult>();
         }
 
-        return await _nhlSuggestionApiHttpClient.GetAsync<List<PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&limit={limit}");
+        return await _nhlSuggestionApiHttpClient.GetAsync<List<Models.Player.PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&limit={limit}");
     }
 
     /// <summary>
@@ -49,14 +49,14 @@ public class NhlPlayerApi : INhlPlayerApi
     /// <param name="query">A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" </param>
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public async Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25)
+    public async Task<List<Models.Player.PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25)
     {
         if (string.IsNullOrWhiteSpace(query))
         {
-            return new List<PlayerSearchResult>();
+            return new List<Models.Player.PlayerSearchResult>();
         }
 
-        return await _nhlSuggestionApiHttpClient.GetAsync<List<PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&active=true&limit={limit}");
+        return await _nhlSuggestionApiHttpClient.GetAsync<List<Models.Player.PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&active=true&limit={limit}");
     }
 
     /// <summary>

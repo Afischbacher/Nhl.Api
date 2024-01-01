@@ -1,5 +1,4 @@
-﻿using Nhl.Api.Common.Exceptions;
-using Nhl.Api.Enumerations.Game;
+﻿using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
@@ -11,14 +10,13 @@ using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
-using System.Linq;
 
 namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial Nhl.Api providing various NHL information about players, teams, conferences, divisions, statistics and more
 /// </summary>
-public class NhlApi : INhlApi
+public class NhlApi : INhlApi 
 {
     private static readonly INhlLeagueApi _nhlLeagueApi = new NhlLeagueApi();
     private static readonly INhlGameApi _nhlGameApi = new NhlGameApi();
@@ -103,7 +101,7 @@ public class NhlApi : INhlApi
     /// <param name="query">A search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25)
+    public async Task<List<Models.Player.PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25)
     {
         return await _nhlPlayerApi.SearchAllPlayersAsync(query);
     }
@@ -114,7 +112,7 @@ public class NhlApi : INhlApi
     /// <param name="query">A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" </param>
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public async Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25)
+    public async Task<List<Models.Player.PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25)
     {
         return await _nhlPlayerApi.SearchAllActivePlayersAsync(query);
     }

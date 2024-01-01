@@ -18,7 +18,7 @@ public interface INhlPlayerApi : IDisposable
     /// <param name="query">An search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25);
+    public Task<List<Models.Player.PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25);
 
     /// <summary>
     /// Returns only active NHL players based on the search query provided
@@ -26,7 +26,7 @@ public interface INhlPlayerApi : IDisposable
     /// <param name="query">A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" </param>
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25);
+    public Task<List<Models.Player.PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25);
 
     /// <summary>
     /// Returns the NHL player's head shot image by the selected size
