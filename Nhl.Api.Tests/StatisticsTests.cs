@@ -1,5 +1,6 @@
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
+using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Season;
 using System.Linq;
 
@@ -120,5 +121,55 @@ public class StatisticsTests
                 break;
 
         }
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(8478402, PlayerGameCenterStatistic.MissedShot, "20222023")]
+    [DataRow(8478402, PlayerGameCenterStatistic.Giveaway, "20222023")]
+    [DataRow(8478402, PlayerGameCenterStatistic.Takeaway, "20222023")]
+    [DataRow(8478402, PlayerGameCenterStatistic.Penalty, "20222023")]
+    [DataRow(8478402, PlayerGameCenterStatistic.FaceOff, "20222023")]
+    [DataRow(8478402, PlayerGameCenterStatistic.BlockedShot, "20222023")]
+    [DataRow(8478402, PlayerGameCenterStatistic.Hit, "20222023")]
+    [DataRow(8478402, PlayerGameCenterStatistic.FaceOff, "20232024")]
+    [DataRow(8478402, PlayerGameCenterStatistic.BlockedShot, "20232024")]
+    [DataRow(8478402, PlayerGameCenterStatistic.Hit, "20232024")]
+
+    public async Task GetNumberOfFaceoffsWonByPlayerIdAndSeasonAsync_Returns_Valid_Information_With_Id(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear)
+    {
+        // Arrange
+        await using INhlApi nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId, playerGameCenterStatistic, seasonYear);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result is not 0);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.MissedShot, "20222023")]
+    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.Giveaway, "20222023")]
+    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.Takeaway, "20222023")]
+    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.Penalty, "20222023")]
+    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.FaceOff, "20222023")]
+    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.BlockedShot, "20222023")]
+    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.Hit, "20222023")]
+    [DataRow(PlayerEnum.AustonMatthews8479318, PlayerGameCenterStatistic.FaceOff, "20232024")]
+    [DataRow(PlayerEnum.LukeSchenn8474568, PlayerGameCenterStatistic.BlockedShot, "20232024")]
+    [DataRow(PlayerEnum.TomWilson8476880, PlayerGameCenterStatistic.Hit, "20232024")]
+
+    public async Task GetNumberOfFaceoffsWonByPlayerIdAndSeasonAsync_Returns_Valid_Information_With_Enum(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear)
+    {
+        // Arrange
+        await using INhlApi nhlApi = new NhlApi();
+
+        // Act
+        var faceOffsWon = await nhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum, playerGameCenterStatistic, seasonYear);
+
+        // Assert
+        Assert.IsNotNull(faceOffsWon);
+        Assert.IsTrue(faceOffsWon is not 0);
     }
 }

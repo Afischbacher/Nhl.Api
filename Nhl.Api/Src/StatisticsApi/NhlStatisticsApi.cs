@@ -1,12 +1,16 @@
-﻿using Nhl.Api.Common.Extensions;
+﻿using Nhl.Api.Common.Exceptions;
+using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Http;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
+using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.League;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Services;
+using System.Linq;
 
 namespace Nhl.Api;
 
@@ -17,6 +21,10 @@ public class NhlStatisticsApi : INhlStatisticsApi
 {
     private static readonly INhlTeamService _nhlTeamService = new NhlTeamService();
     private static readonly INhlApiHttpClient _nhlApiWebHttpClient = new NhlApiWebHttpClient();
+    private static readonly INhlGameApi _nhlGameApi = new NhlGameApi();
+    private static readonly INhlLeagueApi _nhlLeagueApi = new NhlLeagueApi();
+    private static readonly INhlPlayerApi _nhlPlayerApi = new NhlPlayerApi();
+
 
     /// <summary>
     /// The official unofficial NHL Statistics API providing various NHL information about in-depth player statistics, team statistics and more
@@ -128,5 +136,118 @@ public class NhlStatisticsApi : INhlStatisticsApi
     {
         var teamAbbreviaton = _nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId);
         return await _nhlApiWebHttpClient.GetAsync<List<TeamStatisticsSeason>>($"/club-stats-season/{teamAbbreviaton}");
+    }
+
+    /// <summary>
+    /// Returns the number of faceoffs won by a player for a specific season and game type
+    /// </summary>
+    /// <param name="playerEnum">The player enumeration identifier, specifying which the NHL player, <see cref="PlayerEnum"/> for more information </param>
+    /// <param name="playerGameCenterStatistic">The NHL player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information on valid game center statistics</param>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <returns>Returns the number of faceoffs won by a player for a specific season and game type</returns>
+    public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear)
+    {
+        var statisticTotal = 0;
+        if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear.Length != 8)
+        {
+            throw new ArgumentException("The season year provided is invalid");
+        }
+
+        // Get player
+        var player = await _nhlPlayerApi.GetPlayerInformationAsync(playerEnum);
+        if (player.Position == "G")
+        {
+            throw new InvalidPlayerPositionException($"The player id {playerEnum} provided is a goaltender and is not a valid player");
+        }
+
+        // Get team season schedule
+        var schedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(player.CurrentTeamAbbrev, seasonYear);
+
+        // Create tasks to retrieve game information
+        var tasks = schedule.Games.Select(async game =>
+        {
+            // Count number of game events where player won a faceoff
+            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id);
+            return gameCenterPlayByPlay.Plays.Count(play =>
+            {
+                var playerId = (int)playerEnum;
+                return playerGameCenterStatistic switch
+                {
+                    PlayerGameCenterStatistic.FaceOff => play.TypeDescKey == "faceoff" && play.Details.WinningPlayerId == playerId,
+                    PlayerGameCenterStatistic.Hit => play.TypeDescKey == "hit" && play.Details.HittingPlayerId == playerId,
+                    PlayerGameCenterStatistic.ShotOnGoal => play.TypeDescKey == "shot-on-goal" && play.Details.ShootingPlayerId == playerId,
+                    PlayerGameCenterStatistic.MissedShot => play.TypeDescKey == "missed-shot" && play.Details.ShootingPlayerId == playerId,
+                    PlayerGameCenterStatistic.BlockedShot => play.TypeDescKey == "blocked-shot" && play.Details.BlockingPlayerId == playerId,
+                    PlayerGameCenterStatistic.Giveaway => play.TypeDescKey == "giveaway" && play.Details.PlayerId == playerId,
+                    PlayerGameCenterStatistic.Penalty => play.TypeDescKey == "penalty" && play.Details.DrawnByPlayerId == playerId,
+                    PlayerGameCenterStatistic.Takeaway => play.TypeDescKey == "takeaway" && play.Details.PlayerId == playerId,
+                    _ => false,
+                };
+            });
+        });
+
+        // Wait for all tasks to complete
+        var results = await Task.WhenAll(tasks);
+
+        // Sum up the results
+        statisticTotal = results.Sum();
+
+        return statisticTotal;
+    }
+
+    /// <summary>
+    /// Returns the number of faceoffs won by a player for a specific season and game type
+    /// </summary>
+    /// <param name="playerId">The NHL player identifier, specifying which the NHL player, Example: 8478402 - Connor McDavid </param>
+    /// <param name="playerGameCenterStatistic">The NHL player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information on valid game center statistics</param>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <returns>Returns the number of faceoffs won by a player for a specific season and game type</returns>
+    public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic,  string seasonYear)
+    {
+        var statisticTotal = 0;
+        if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear.Length != 8)
+        {
+            throw new ArgumentException("The season year provided is invalid");
+        }
+
+        // Get player
+        var player = await _nhlPlayerApi.GetPlayerInformationAsync(playerId);
+        if (player.Position == "G")
+        {
+            throw new InvalidPlayerPositionException($"The player id {playerId} provided is a goaltender and is not a valid player");
+        }
+
+        // Get team season schedule
+        var schedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(player.CurrentTeamAbbrev, seasonYear);
+
+        // Create tasks to retrieve game information
+        var tasks = schedule.Games.Select(async game =>
+        {
+            // Count number of game events where player won a faceoff
+            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id);
+            return gameCenterPlayByPlay.Plays.Count(play => 
+            {
+                return playerGameCenterStatistic switch
+                {
+                    PlayerGameCenterStatistic.FaceOff => play.TypeDescKey == "faceoff" && play.Details.WinningPlayerId == playerId,
+                    PlayerGameCenterStatistic.Hit => play.TypeDescKey == "hit" && play.Details.HittingPlayerId == playerId,
+                    PlayerGameCenterStatistic.ShotOnGoal => play.TypeDescKey == "shot-on-goal" && play.Details.ShootingPlayerId == playerId,
+                    PlayerGameCenterStatistic.MissedShot => play.TypeDescKey == "missed-shot" && play.Details.ShootingPlayerId == playerId,
+                    PlayerGameCenterStatistic.BlockedShot => play.TypeDescKey == "blocked-shot" && play.Details.BlockingPlayerId == playerId,
+                    PlayerGameCenterStatistic.Giveaway => play.TypeDescKey == "giveaway" && play.Details.PlayerId == playerId,
+                    PlayerGameCenterStatistic.Penalty => play.TypeDescKey == "penalty" && play.Details.DrawnByPlayerId == playerId,
+                    PlayerGameCenterStatistic.Takeaway => play.TypeDescKey == "takeaway" && play.Details.PlayerId == playerId,
+                    _ => false,
+                };
+            });
+        });
+
+        // Wait for all tasks to complete
+        var results = await Task.WhenAll(tasks);
+
+        // Sum up the results
+        statisticTotal = results.Sum();
+
+        return statisticTotal;
     }
 }

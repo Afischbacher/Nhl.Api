@@ -1,5 +1,6 @@
 ﻿using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
+using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Statistics;
@@ -20,7 +21,7 @@ public interface INhlStatisticsApi
     /// <param name="gameType">The NHL game type to retrieve the player statistics leaders for, see <see cref="GameType"/> for more information on valid game types</param>
     /// <param name="limit">The limit to the number of results returned when reviewing the NHL player sta</param>
     /// <returns> Returns the current NHL player statistics leaders in the NHL for a specific player statistic type </returns>
-    Task<PlayerStatisticLeaders> GetSkaterStatsisticsLeadersAsync(PlayerStatisticsType playerStatisticsType, GameType gameType, string seasonYear, int limit = 25);
+    public Task<PlayerStatisticLeaders> GetSkaterStatsisticsLeadersAsync(PlayerStatisticsType playerStatisticsType, GameType gameType, string seasonYear, int limit = 25);
 
     /// <summary>
     /// Returns the NHL goalie statistics leaders in the NHL for a specific goalie statistic type based on the game type and season year 
@@ -30,7 +31,7 @@ public interface INhlStatisticsApi
     /// <param name="gameType">The NHL game type to retrieve the player statistics leaders for, see <see cref="GameType"/> for more information on valid game types</param>
     /// <param name="limit">The limit to the number of results returned when reviewing the NHL player sta</param>
     /// <returns> Returns the current NHL player statistics leaders in the NHL for a specific player statistic type </returns>
-    Task<GoalieStatisticLeaders> GetGoalieStatsisticsLeadersAsync(GoalieStatisticsType goalieStatisticsType, GameType gameType, string seasonYear, int limit = 25);
+    public Task<GoalieStatisticLeaders> GetGoalieStatsisticsLeadersAsync(GoalieStatisticsType goalieStatisticsType, GameType gameType, string seasonYear, int limit = 25);
 
     /// <summary>
     /// Returns the NHL team statistics for individual players for a specific NHL team statistic type based on the game type and season year
@@ -39,7 +40,7 @@ public interface INhlStatisticsApi
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
     /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
     /// <returns>The NHL team season statistics for the specified season and game type</returns>
-    Task<TeamSeasonStatistics> GetTeamStatisticsBySeasonAndGameTypeAsync(TeamEnum team, string seasonYear, GameType gameType);
+    public Task<TeamSeasonStatistics> GetTeamStatisticsBySeasonAndGameTypeAsync(TeamEnum team, string seasonYear, GameType gameType);
 
     /// <summary>
     /// Returns the NHL team statistics for individual players for a specific NHL team statistic type based on the game type and season year
@@ -48,19 +49,37 @@ public interface INhlStatisticsApi
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
     /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
     /// <returns>The NHL team season statistics for the specified season and game type</returns>
-    Task<TeamSeasonStatistics> GetTeamStatisticsBySeasonAndGameTypeAsync(int teamId, string seasonYear, GameType gameType);
+    public Task<TeamSeasonStatistics> GetTeamStatisticsBySeasonAndGameTypeAsync(int teamId, string seasonYear, GameType gameType);
 
     /// <summary>
     /// Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team 
     /// </summary>
     /// <param name="team">The team enumeration identifier, specifying which the NHL team, <see cref="TeamEnum"/> for more information </param>
     /// <returns> Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team </returns>
-    Task<List<TeamStatisticsSeason>> GetTeamStatisticsBySeasonAsync(TeamEnum team);
+    public Task<List<TeamStatisticsSeason>> GetTeamStatisticsBySeasonAsync(TeamEnum team);
 
     /// <summary>
     /// Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team 
     /// </summary>
     /// <param name="teamId">The NHL team identifier, specifying which the NHL team, Example: 55 - Seattle Kraken </param>
     /// <returns> Returns all the NHL team valid game types for all valid NHL seasons for the selected NHL team </returns>
-    Task<List<TeamStatisticsSeason>> GetTeamStatisticsBySeasonAsync(int teamId);
+    public Task<List<TeamStatisticsSeason>> GetTeamStatisticsBySeasonAsync(int teamId);
+
+    /// <summary>
+    /// Returns the total value of a statistic type for a player for a specific season, including faceoffs won, hits, shots on goal, missed shots, blocked shots, giveaways, penalties and takeaways
+    /// </summary>
+    /// <param name="playerEnum">The player enumeration identifier, specifying which the NHL player, <see cref="PlayerEnum"/> for more information </param>
+    /// <param name="playerGameCenterStatistic">The player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information </param>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <returns>Returns the number of faceoffs won by a player for a specific season and game type</returns>
+    public Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear);
+
+    /// <summary>
+    /// Returns the total value of a statistic type for a player for a specific season, including faceoffs won, hits, shots on goal, missed shots, blocked shots, giveaways, penalties and takeaways
+    /// </summary>
+    /// <param name="playerId">The NHL player identifier, specifying which the NHL player, Example: 8478402 - Connor McDavid </param>
+    /// <param name="playerGameCenterStatistic">The player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information </param>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <returns>Returns the number of faceoffs won by a player for a specific season</returns>
+    public Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear);
 }

@@ -1,4 +1,5 @@
-﻿using Nhl.Api.Enumerations.Game;
+﻿using Nhl.Api.Common.Exceptions;
+using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
@@ -10,6 +11,7 @@ using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
+using System.Linq;
 
 namespace Nhl.Api;
 
@@ -661,6 +663,30 @@ public class NhlApi : INhlApi
     }
 
     /// <summary>
+    /// Returns the number of faceoffs won by a player for a specific season and game type
+    /// </summary>
+    /// <param name="playerEnum">The player enumeration identifier, specifying which the NHL player, <see cref="PlayerEnum"/> for more information </param>
+    /// <param name="playerGameCenterStatistic">The NHL player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information on valid game center statistics</param>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <returns>Returns the number of faceoffs won by a player for a specific season and game type</returns>
+    public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear)
+    {
+       return await _nhlStatisticsApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum, playerGameCenterStatistic,seasonYear);
+    }
+
+    /// <summary>
+    /// Returns the number of faceoffs won by a player for a specific season and game type
+    /// </summary>
+    /// <param name="playerId">The NHL player identifier, Example: 8478402 - Connor McDavid</param>
+    /// <param name="playerGameCenterStatistic">The NHL player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information on valid game center statistics</param>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <returns>Returns the number of faceoffs won by a player for a specific season and game type</returns>
+    public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear)
+    {
+        return await _nhlStatisticsApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId, playerGameCenterStatistic, seasonYear);
+    }
+
+    /// <summary>
     /// Releases and disposes all unused or garbage collected resources for the Nhl.Api
     /// </summary>
     public void Dispose() => _nhlPlayerApi?.Dispose();
@@ -670,4 +696,5 @@ public class NhlApi : INhlApi
     /// </summary>
     /// <returns>The await-able result of the asynchronous operation</returns>
     public async ValueTask DisposeAsync() => await Task.Run(() => _nhlPlayerApi?.Dispose());
+
 }
