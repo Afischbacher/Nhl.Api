@@ -5,6 +5,7 @@ using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
+using System.Linq;
 
 namespace Nhl.Api;
 
@@ -14,6 +15,7 @@ namespace Nhl.Api;
 public class NhlPlayerApi : INhlPlayerApi
 {
     private static readonly INhlApiHttpClient _nhlStatsApiHttpClient = new NhlStatsApiHttpClient();
+    private static readonly INhlApiHttpClient _nhlEWebApiHttpClient = new NhlEApiHttpClient();
     private static readonly INhlApiHttpClient _nhlApiWebHttpClient = new NhlApiWebHttpClient();
     private static readonly INhlApiHttpClient _nhlSuggestionApiHttpClient = new NhlSuggestionApiHttpClient();
     private static readonly INhlApiHttpClient _nhlCmsHttpClient = new NhlCmsHttpClient();
@@ -249,4 +251,25 @@ public class NhlPlayerApi : INhlPlayerApi
     /// <exception cref="NotImplementedException"></exception>
     public void Dispose() => _cachingService?.Dispose();
 
+    /// <summary>
+    /// Returns all the NHL players to ever play in the NHL
+    /// </summary>
+    /// <returns>Returns all the NHL players to ever play in the NHL</returns>
+    public async Task<List<PlayerDataSearchResult>> GetAllPlayersAsync()
+    {
+        var startCount = 0;
+        var playerSearchResultsTasks = new List<Task<PlayerData>>();
+
+        var response = _nhlEWebApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}").Result;
+        var total = response.Total;
+
+        while (startCount <= total)
+        {
+            playerSearchResultsTasks.Add(_nhlEWebApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}"));
+            startCount += 5;
+        }
+
+        return (await Task.WhenAll(playerSearchResultsTasks)).SelectMany(playerData => playerData.Data).ToList();
+
+    }
 }

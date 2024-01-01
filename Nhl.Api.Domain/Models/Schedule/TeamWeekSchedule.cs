@@ -47,6 +47,6 @@ namespace Nhl.Api.Models.Schedule
         /// The NHL team's schedule for the season in a list of games
         /// </summary>
         [JsonProperty("games")]
-        public List<Game> Games { get; set; } = new List<Game>();
+        public List<Game> Games { get; set; } = new();
     }
 }

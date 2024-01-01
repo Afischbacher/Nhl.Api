@@ -83,7 +83,7 @@ namespace Nhl.Api.Models.Schedule
         /// The odds for the NHL away team
         /// </summary>
         [JsonProperty("odds")]
-        public List<Odd> Odds { get; set; } = new List<Odd>();
+        public List<Odd> Odds { get; set; } = new();
     }
 
     /// <summary>
@@ -299,7 +299,7 @@ namespace Nhl.Api.Models.Schedule
         /// A collection of all the NHL games for the NHL date
         /// </summary>
         [JsonProperty("games")]
-        public List<Game> Games { get; set; } = new List<Game>();
+        public List<Game> Games { get; set; } = new();
     }
 
     /// <summary>
@@ -367,7 +367,7 @@ namespace Nhl.Api.Models.Schedule
         /// The odds for the NHL away team
         /// </summary>
         [JsonProperty("odds")]
-        public List<Odd> Odds { get; set; } = new List<Odd>();
+        public List<Odd> Odds { get; set; } = new();
     }
 
     /// <summary>
@@ -528,13 +528,13 @@ namespace Nhl.Api.Models.Schedule
         /// The collection of NHL game weeks for the NHL league schedule
         /// </summary>
         [JsonProperty("gameWeek")]
-        public List<GameWeek> GameWeek { get; set; } = new List<GameWeek>();
+        public List<GameWeek> GameWeek { get; set; } = new();
 
         /// <summary>
         /// The collection of NHL game odds partners for the NHL league schedule
         /// </summary>
         [JsonProperty("oddsPartners")]
-        public List<OddsPartner> OddsPartners { get; set; } = new List<OddsPartner>();
+        public List<OddsPartner> OddsPartners { get; set; } = new();
 
         /// <summary>
         /// The NHL league schedule pre season start date <br/>

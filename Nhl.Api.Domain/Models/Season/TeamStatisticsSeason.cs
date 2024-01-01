@@ -36,6 +36,6 @@ namespace Nhl.Api.Models.Season
         /// Gets or sets the list of game types
         /// </summary>
         [JsonProperty("gameTypes")]
-        public List<int> GameTypes { get; set; } = new List<int>();
+        public List<int> GameTypes { get; set; } = new();
     }
 }

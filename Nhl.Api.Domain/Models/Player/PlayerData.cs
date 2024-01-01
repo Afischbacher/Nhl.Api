@@ -67,7 +67,7 @@ namespace Nhl.Api.Models.Player
         /// The list of NHL players in the response of the search
         /// </summary>
         [JsonProperty("data")]
-        public List<PlayerDataSearchResult> Data { get; set; } = new List<PlayerDataSearchResult>();
+        public List<PlayerDataSearchResult> Data { get; set; } = new();
 
         /// <summary>
         /// The total number of NHL players in the NHL 

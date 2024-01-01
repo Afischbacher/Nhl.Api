@@ -16,7 +16,7 @@ namespace Nhl.Api;
 /// <summary>
 /// The official unofficial Nhl.Api providing various NHL information about players, teams, conferences, divisions, statistics and more
 /// </summary>
-public class NhlApi : INhlApi 
+public class NhlApi : INhlApi
 {
     private static readonly INhlLeagueApi _nhlLeagueApi = new NhlLeagueApi();
     private static readonly INhlGameApi _nhlGameApi = new NhlGameApi();
@@ -685,6 +685,15 @@ public class NhlApi : INhlApi
     }
 
     /// <summary>
+    /// Returns all the NHL players to ever play in the NHL
+    /// </summary>
+    /// <returns>Returns all the NHL players to ever play in the NHL</returns>
+    public async Task<List<PlayerDataSearchResult>> GetAllPlayersAsync()
+    {
+        return await _nhlPlayerApi.GetAllPlayersAsync();
+    }
+
+    /// <summary>
     /// Releases and disposes all unused or garbage collected resources for the Nhl.Api
     /// </summary>
     public void Dispose() => _nhlPlayerApi?.Dispose();
@@ -694,5 +703,4 @@ public class NhlApi : INhlApi
     /// </summary>
     /// <returns>The await-able result of the asynchronous operation</returns>
     public async ValueTask DisposeAsync() => await Task.Run(() => _nhlPlayerApi?.Dispose());
-
 }

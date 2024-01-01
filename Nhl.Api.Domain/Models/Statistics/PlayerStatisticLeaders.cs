@@ -15,55 +15,55 @@ namespace Nhl.Api.Models.Statistics
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for short handed goals
         /// </summary>
         [JsonProperty("goalsSh")]
-        public List<ShorthandedGoals> GoalsSh { get; set; } = new List<ShorthandedGoals>();
+        public List<ShorthandedGoals> GoalsSh { get; set; } = new();
 
         /// <summary>
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for plus/minus
         /// </summary>
         [JsonProperty("plusMinus")]
-        public List<PlusMinus> PlusMinus { get; set; } = new List<PlusMinus>();
+        public List<PlusMinus> PlusMinus { get; set; } = new();
 
         /// <summary>
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for assists
         /// </summary>
         [JsonProperty("assists")]
-        public List<Assists> Assists { get; set; } = new List<Assists>();
+        public List<Assists> Assists { get; set; } = new();
 
         /// <summary>
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for power play goals
         /// </summary>
         [JsonProperty("goalsPp")]
-        public List<PowerPlayGoals> GoalsPp { get; set; } = new List<PowerPlayGoals>();
+        public List<PowerPlayGoals> GoalsPp { get; set; } = new();
 
         /// <summary>
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for face off percentage leaders
         /// </summary>
         [JsonProperty("faceoffLeaders")]
-        public List<FaceoffLeaders> FaceoffLeaders { get; set; } = new List<FaceoffLeaders>();
+        public List<FaceoffLeaders> FaceoffLeaders { get; set; } = new();
 
         /// <summary>
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for penalty minutes
         /// </summary>
         [JsonProperty("penaltyMins")]
-        public List<PenaltyMinutes> PenaltyMinutes { get; set; } = new List<PenaltyMinutes>();
+        public List<PenaltyMinutes> PenaltyMinutes { get; set; } = new();
 
         /// <summary>
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for goals
         /// </summary>
         [JsonProperty("goals")]
-        public List<Goals> Goals { get; set; } = new List<Goals>();
+        public List<Goals> Goals { get; set; } = new();
 
         /// <summary>
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for points
         /// </summary>
         [JsonProperty("points")]
-        public List<Points> Points { get; set; } = new List<Points>();
+        public List<Points> Points { get; set; } = new();
 
         /// <summary>
         /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for total time on ice
         /// </summary>
         [JsonProperty("toi")]
-        public List<TotalTimeOnIce> TotalTimeOnIce { get; set; } = new List<TotalTimeOnIce>();
+        public List<TotalTimeOnIce> TotalTimeOnIce { get; set; } = new();
     }
 
     /// <summary>

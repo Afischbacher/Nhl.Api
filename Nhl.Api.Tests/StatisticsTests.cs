@@ -23,7 +23,7 @@ public class StatisticsTests
     public async Task GetSkaterStatsisticsLeadersAsync_Returns_Valid_Information(PlayerStatisticsType playerStatisticsType, GameType gameType, string seasonYear, int limit)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var skaterStatistics = await nhlApi.GetSkaterStatsisticsLeadersAsync(playerStatisticsType, gameType, seasonYear, limit);
@@ -87,7 +87,7 @@ public class StatisticsTests
     public async Task GetGoalieStatsisticsLeadersAsync_Returns_Valid_Information(GoalieStatisticsType goalieStatisticsType, GameType gameType, string seasonYear, int limit)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var goalieStatistics = await nhlApi.GetGoalieStatsisticsLeadersAsync(goalieStatisticsType, gameType, seasonYear, limit);
@@ -138,7 +138,7 @@ public class StatisticsTests
     public async Task GetNumberOfFaceoffsWonByPlayerIdAndSeasonAsync_Returns_Valid_Information_With_Id(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var result = await nhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId, playerGameCenterStatistic, seasonYear);
@@ -163,7 +163,7 @@ public class StatisticsTests
     public async Task GetNumberOfFaceoffsWonByPlayerIdAndSeasonAsync_Returns_Valid_Information_With_Enum(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var faceOffsWon = await nhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum, playerGameCenterStatistic, seasonYear);
