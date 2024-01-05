@@ -240,6 +240,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
                 return playerGameCenterStatistic switch
                 {
                     PlayerGameCenterStatistic.FaceOffWon => play.TypeDescKey == "faceoff" && play.Details.WinningPlayerId == playerId,
+                    PlayerGameCenterStatistic.FaceOffLost => play.TypeDescKey == "faceoff" && play.Details.LosingPlayerId == playerId,
                     PlayerGameCenterStatistic.HitGiven => play.TypeDescKey == "hit" && play.Details.HittingPlayerId == playerId,
                     PlayerGameCenterStatistic.HitReceived => play.TypeDescKey == "hit" && play.Details.HitteePlayerId == playerId,
                     PlayerGameCenterStatistic.ShotOnGoal => play.TypeDescKey == "shot-on-goal" && play.Details.ShootingPlayerId == playerId,

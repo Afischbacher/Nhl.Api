@@ -20,6 +20,7 @@ public class StatisticsTests
     [DataRow(PlayerStatisticsType.PenaltyMinutes, GameType.RegularSeason, SeasonYear.season20222023, 10)]
     [DataRow(PlayerStatisticsType.TotalTimeOnIce, GameType.RegularSeason, SeasonYear.season20222023, 10)]
     [DataRow(PlayerStatisticsType.FaceOffPercentage, GameType.RegularSeason, SeasonYear.season20222023, 10)]
+
     public async Task GetSkaterStatsisticsLeadersAsync_Returns_Valid_Information(PlayerStatisticsType playerStatisticsType, GameType gameType, string seasonYear, int limit)
     {
         // Arrange
@@ -134,6 +135,8 @@ public class StatisticsTests
     [DataRow(8478402, PlayerGameCenterStatistic.FaceOffWon, "20232024")]
     [DataRow(8478402, PlayerGameCenterStatistic.BlockedShot, "20232024")]
     [DataRow(8478402, PlayerGameCenterStatistic.HitGiven, "20232024")]
+    [DataRow(8478402, PlayerGameCenterStatistic.HitReceived, "20232024")]
+    [DataRow(8478402, PlayerGameCenterStatistic.FaceOffLost, "20232024")]
 
     public async Task GetNumberOfFaceoffsWonByPlayerIdAndSeasonAsync_Returns_Valid_Information_With_Id(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear)
     {
