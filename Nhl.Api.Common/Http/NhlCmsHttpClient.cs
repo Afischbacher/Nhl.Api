@@ -1,49 +1,48 @@
 ﻿using System;
 using System.Net.Http;
 
-namespace Nhl.Api.Common.Http
+namespace Nhl.Api.Common.Http;
+
+
+/// <summary>
+/// The dedicated NHL HTTP client for NHL player images and content
+/// </summary>
+public class NhlCmsHttpClient : NhlApiHttpClient
 {
+    private static readonly object _lock = new object();
+    private static HttpClient _httpClient;
+
+    /// <summary>
+    /// The dedicated NHL HTTP API endpoint for NHL player images and content
+    /// </summary>
+    public const string ClientApiUrl = "https://cms.nhl.bamgrid.com";
 
     /// <summary>
     /// The dedicated NHL HTTP client for NHL player images and content
     /// </summary>
-    public class NhlCmsHttpClient : NhlApiHttpClient
+    public NhlCmsHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
     {
-        private static readonly object _lock = new object();
-        private static HttpClient _httpClient;
+    }
 
-        /// <summary>
-        /// The dedicated NHL HTTP API endpoint for NHL player images and content
-        /// </summary>
-        public const string ClientApiUrl = "https://cms.nhl.bamgrid.com";
-
-        /// <summary>
-        /// The dedicated NHL HTTP client for NHL player images and content
-        /// </summary>
-        public NhlCmsHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
+    /// <summary>
+    /// The NHL CMS images and content HTTP client
+    /// </summary>
+    public override HttpClient HttpClient
+    {
+        get
         {
-        }
-
-        /// <summary>
-        /// The NHL CMS images and content HTTP client
-        /// </summary>
-        public override HttpClient HttpClient
-        {
-            get
+            lock (_lock)
             {
-                lock (_lock)
+                if (_httpClient == null)
                 {
-                    if (_httpClient == null)
+                    _httpClient = new HttpClient
                     {
-                        _httpClient = new HttpClient
-                        {
-                            BaseAddress = new Uri($"{Client}{ClientVersion}"),
-                            Timeout = Timeout
-                        };
-                    }
-
-                    return _httpClient;
+                        BaseAddress = new Uri($"{Client}{ClientVersion}"),
+                        Timeout = Timeout
+                    };
                 }
+
+                return _httpClient;
             }
         }
     }

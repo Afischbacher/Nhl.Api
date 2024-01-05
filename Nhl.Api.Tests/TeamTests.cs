@@ -13,7 +13,7 @@ public class TeamTests
     public async Task TestGetTeamColorsAsync()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamColor = await nhlApi.GetTeamColorsAsync(10);
@@ -29,7 +29,7 @@ public class TeamTests
     public async Task TestGetTeamColorsInvalidTeamIdAsync()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamColor = await nhlApi.GetTeamColorsAsync(99);
@@ -42,7 +42,7 @@ public class TeamTests
     public async Task TestGetTeamColorsEnumAsync()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamColor = await nhlApi.GetTeamColorsAsync(TeamEnum.ChicagoBlackhawks);
@@ -59,7 +59,7 @@ public class TeamTests
     public async Task TestGetAllTeamColorsEnumAsync()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teams = Enum.GetValues(typeof(TeamEnum)).Cast<TeamEnum>();
@@ -82,7 +82,7 @@ public class TeamTests
     public async Task TestGetTeamLogoLightAsync(TeamEnum teamEnum)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamLogo = await nhlApi.GetTeamLogoAsync(teamEnum, TeamLogoType.Light);
@@ -106,7 +106,7 @@ public class TeamTests
     public async Task TestGetTeamLogoDarkAsync(TeamEnum teamEnum)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamLogo = await nhlApi.GetTeamLogoAsync(teamEnum, TeamLogoType.Dark);
@@ -129,7 +129,7 @@ public class TeamTests
     public async Task TestGetTeamLogoLightAsIntAsync(int teamId)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamLogo = await nhlApi.GetTeamLogoAsync(teamId, TeamLogoType.Light);
@@ -153,7 +153,7 @@ public class TeamTests
     public async Task TestGetTeamLogoDarkAsIntAsync(int teamId)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamLogo = await nhlApi.GetTeamLogoAsync(teamId, TeamLogoType.Dark);
@@ -177,7 +177,7 @@ public class TeamTests
     public async Task GetCurrentTeamScoreboardAsync_Get_Valid_Information_With_Id(int teamId)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamScoreboard = await nhlApi.GetCurrentTeamScoreboardAsync(teamId);
@@ -195,7 +195,7 @@ public class TeamTests
     public async Task GetCurrentTeamScoreboardAsync_Get_Valid_Information_With_Enum(TeamEnum team)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamScoreboard = await nhlApi.GetCurrentTeamScoreboardAsync(team);
@@ -214,7 +214,7 @@ public class TeamTests
     public async Task GetCurrentTeamScoreboardAsync_Get_Valid_Information_With_Enum(TeamEnum team, string seasonYear)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamRoster = await nhlApi.GetTeamRosterBySeasonYearAsync(team, seasonYear);
@@ -235,7 +235,7 @@ public class TeamTests
     public async Task GetCurrentTeamScoreboardAsync_Get_Valid_Information_With_TeamId(int teamId, string seasonYear)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamRoster = await nhlApi.GetTeamRosterBySeasonYearAsync(teamId, seasonYear);
@@ -257,7 +257,7 @@ public class TeamTests
     public async Task GetAllRosterSeasonsByTeamAsync_Get_Valid_Information_With_Id(int teamId)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var rosterSeasons = await nhlApi.GetAllRosterSeasonsByTeamAsync(teamId);
@@ -278,7 +278,7 @@ public class TeamTests
     public async Task GetAllRosterSeasonsByTeamAsync_Get_Valid_Information_With_Enum(TeamEnum team)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var rosterSeasons = await nhlApi.GetAllRosterSeasonsByTeamAsync(team);
@@ -298,7 +298,7 @@ public class TeamTests
     public async Task GetTeamProspectsByTeamAsync_Get_Valid_Information_With_Id(int teamId)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamProspects = await nhlApi.GetTeamProspectsByTeamAsync(teamId);
@@ -321,7 +321,7 @@ public class TeamTests
     public async Task GetTeamProspectsByTeamAsync_Get_Valid_Information_With_Enum(TeamEnum team)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamProspects = await nhlApi.GetTeamProspectsByTeamAsync(team);
@@ -341,7 +341,7 @@ public class TeamTests
     public async Task GetTeamSeasonScheduleBySeasonYearAsync_Get_Valid_Information_With_TeamId(int teamId, string seasonYear)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamRoster = await nhlApi.GetTeamSeasonScheduleBySeasonYearAsync(teamId, seasonYear);
@@ -362,7 +362,7 @@ public class TeamTests
     public async Task GetTeamSeasonScheduleBySeasonYearAsync_Get_Valid_Information_With_Enum(TeamEnum team, string seasonYear)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamRoster = await nhlApi.GetTeamSeasonScheduleBySeasonYearAsync(team, seasonYear);
@@ -382,7 +382,7 @@ public class TeamTests
     public async Task GetTeamSeasonScheduleByYearAndMonthAsync_Get_Valid_Information_With_Id(int teamId, int month, int seasonYear)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamRoster = await nhlApi.GetTeamSeasonScheduleByYearAndMonthAsync(teamId, month, seasonYear);
@@ -402,7 +402,7 @@ public class TeamTests
     public async Task GetTeamSeasonScheduleByYearAndMonthAsync_Get_Valid_Information_With_Enum(TeamEnum teamEnum, int month, int seasonYear)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamRoster = await nhlApi.GetTeamSeasonScheduleByYearAndMonthAsync(teamEnum, month, seasonYear);
@@ -422,7 +422,7 @@ public class TeamTests
     public async Task GetTeamSeasonScheduleByDateTimeAsync_Get_Valid_Information_With_Id(int teamId, string date)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamRoster = await nhlApi.GetTeamWeekScheduleByDateAsync(teamId, DateOnly.Parse(date));
@@ -443,7 +443,7 @@ public class TeamTests
     public async Task GetTeamSeasonScheduleByDateTimeAsync_Get_Valid_Information_With_Team(TeamEnum team, string date)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamRoster = await nhlApi.GetTeamWeekScheduleByDateAsync(team, DateOnly.Parse(date));

@@ -20,7 +20,7 @@ public class GameTests
     public async Task GetGameScoresByDateTimeAsync_Return_Valid_Score_Information(string date)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var result = await nhlApi.GetGameScoresByDateAsync(DateOnly.Parse(date));
@@ -34,7 +34,7 @@ public class GameTests
     public async Task GetSourcesToWatchGamesAsync_Return_Valid_Information()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var results = await nhlApi.GetSourcesToWatchGamesAsync();
@@ -50,7 +50,7 @@ public class GameTests
     public async Task GetGameScoreboardAsync_Return_Valid_Information()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var results = await nhlApi.GetGameScoreboardAsync();
@@ -71,7 +71,7 @@ public class GameTests
     public async Task GetGameCenterPlayByPlayByGameIdAsync_Return_Valid_Information(int gameId)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var results = await nhlApi.GetGameCenterPlayByPlayByGameIdAsync(gameId);
@@ -98,7 +98,7 @@ public class GameTests
     public async Task GetGameCenterBoxScoreByGameIdAsync_Return_Valid_Information(int gameId)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var results = await nhlApi.GetGameCenterBoxScoreByGameIdAsync(gameId);
@@ -126,7 +126,7 @@ public class GameTests
     public async Task GetGameCenterLandingByGameIdAsync_Return_Valid_Information(int gameId)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var results = await nhlApi.GetGameCenterLandingByGameIdAsync(gameId);
@@ -150,7 +150,7 @@ public class GameTests
     public async Task GetTvScheduleBroadcastAsync_Return_Valid_Information(string date)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var results = await nhlApi.GetTvScheduleBroadcastByDateAsync(DateOnly.Parse(date));
@@ -167,7 +167,7 @@ public class GameTests
     public async Task GetAllSeasonsAsync_Return_Valid_Information()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var results = await nhlApi.GetAllSeasonsAsync();
@@ -184,7 +184,7 @@ public class GameTests
     public async Task GetGameMetadataByGameIdAsync_Return_Valid_Information(int gameId)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var results = await nhlApi.GetGameMetadataByGameIdAsync(gameId);

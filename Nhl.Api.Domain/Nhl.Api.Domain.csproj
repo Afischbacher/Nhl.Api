@@ -1,10 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>3.0.0</Version>
-		<TargetFramework>netstandard2.0</TargetFramework>
+		<Version>3.1.0</Version>
+		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <Compile Remove="Models\Common\**" />
+	  <Compile Remove="Models\Conference\**" />
+	  <Compile Remove="Models\Division\**" />
+	  <EmbeddedResource Remove="Models\Common\**" />
+	  <EmbeddedResource Remove="Models\Conference\**" />
+	  <EmbeddedResource Remove="Models\Division\**" />
+	  <None Remove="Models\Common\**" />
+	  <None Remove="Models\Conference\**" />
+	  <None Remove="Models\Division\**" />
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
@@ -15,46 +27,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="Enumerations\Player\PlayerEnum.tt">
-			<LastGenOutput>PlayerEnum.cs</LastGenOutput>
-			<Generator>TextTemplatingFileGenerator</Generator>
-		</None>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Reference Include="netstandard" />
-	</ItemGroup>
-	<ItemGroup>
 		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-	</ItemGroup>
-
-	<PropertyGroup>
-		<T4TargetPath>$(TargetPath)</T4TargetPath>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<T4ParameterValues Include="T4ProjectDir">
-			<Value>$(T4TargetPath)</Value>
-			<Visible>false</Visible>
-		</T4ParameterValues>
-	</ItemGroup>
-
-	<ItemGroup>
-		<Compile Update="Enumerations\Player\PlayerEnum.cs">
-			<DesignTime>True</DesignTime>
-			<AutoGen>True</AutoGen>
-			<DependentUpon>PlayerEnum.tt</DependentUpon>
-		</Compile>
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.4.0" PrivateAssets="all" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Models\Common\" />
-	  <Folder Include="Models\Conference\" />
-	  <Folder Include="Models\Division\" />
 	</ItemGroup>
 	
 </Project>

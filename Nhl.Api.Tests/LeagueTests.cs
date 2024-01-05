@@ -23,7 +23,7 @@ public class LeagueTests
     public async Task GetLeagueGameWeekScheduleByDateTimeAsync_Get_League_Schedule_Game_Week(string date)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var schedule = await nhlApi.GetLeagueGameWeekScheduleByDateAsync(DateOnly.Parse(date));
@@ -60,7 +60,7 @@ public class LeagueTests
     public async Task IsPreSeasonActiveAsync_Returns_Not_Null()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var isPreSeasonActive = await nhlApi.IsPreSeasonActiveAsync();
@@ -73,7 +73,7 @@ public class LeagueTests
     public async Task IsRegularSeasonActiveAsync_Returns_Not_Null()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var isRegularSeasonActive = await nhlApi.IsRegularSeasonActiveAsync();
@@ -86,7 +86,7 @@ public class LeagueTests
     public async Task IsPlayoffSeasonActiveAsync_Returns_Not_Null()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var isPlayoffActive = await nhlApi.IsPlayoffSeasonActiveAsync();
@@ -132,7 +132,7 @@ public class LeagueTests
     public async Task GetTeamScheduleBySeasonAsync_Returns_Not_Null_With_Valid_Information(string teamCode, string seasonYear)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var leagueStandings = await nhlApi.GetTeamScheduleBySeasonAsync(teamCode, seasonYear);
@@ -194,7 +194,7 @@ public class LeagueTests
     public async Task GetTeamWeekScheduleByDateTimeOffsetAsync_Returns_Not_Null_With_Valid_Information(string teamCode, string seasonYear)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamWeekSchedule = await nhlApi.GetTeamWeekScheduleByDateAsync(teamCode, DateOnly.Parse(seasonYear));
@@ -237,7 +237,7 @@ public class LeagueTests
     public async Task GetLeagueStandingsByDateTimeOffsetAsync_Get_League_Information_For_Date(string date)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var leagueStandingByDate = await nhlApi.GetLeagueStandingsByDateAsync(DateOnly.Parse(date));
@@ -258,7 +258,7 @@ public class LeagueTests
     public async Task GetLeagueStandingsSeasonInformationAsync_Get_Information_Is_Valid()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var leagueStandingsSeasonInformation = await nhlApi.GetLeagueStandingsSeasonInformationAsync();
@@ -304,7 +304,7 @@ public class LeagueTests
     public async Task GetTeamStatisticsBySeasonAndGameTypeAsync_Return_Valid_Information(TeamEnum team, string seasonYear, GameType gameType)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var leagueStandingsSeasonInformation = await nhlApi.GetTeamStatisticsBySeasonAndGameTypeAsync(team, seasonYear, gameType);
@@ -382,7 +382,7 @@ public class LeagueTests
     public async Task GetTeamStatisticsBySeasonAndGameTypeAsync_Return_Valid_Information(int teamId, string seasonYear, GameType gameType)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var leagueStandingsSeasonInformation = await nhlApi.GetTeamStatisticsBySeasonAndGameTypeAsync(teamId, seasonYear, gameType);
@@ -455,7 +455,7 @@ public class LeagueTests
     public async Task GetTeamStatisticsBySeasonAsync_Return_Valid_Information_With_Enum(TeamEnum team)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamStatisticsBySeason = await nhlApi.GetTeamStatisticsBySeasonAsync(team);
@@ -501,7 +501,7 @@ public class LeagueTests
     public async Task GetTeamStatisticsBySeasonAsync_Return_Valid_Information_With_Id(int teamId)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teamStatisticsBySeason = await nhlApi.GetTeamStatisticsBySeasonAsync(teamId);
@@ -520,7 +520,7 @@ public class LeagueTests
     public async Task GetLeagueWeekScheduleByDateTimeAsync_Return_Valid_Information_With_Date(string date)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var result = await nhlApi.GetLeagueWeekScheduleByDateAsync(DateOnly.Parse(date));
@@ -539,7 +539,7 @@ public class LeagueTests
     public async Task GetLeagueScheduleCalendarAsyncReturn_Valid_Information_With_Date(string date)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var result = await nhlApi.GetLeagueScheduleCalendarByDateAsync(DateOnly.Parse(date));
@@ -558,7 +558,7 @@ public class LeagueTests
     public async Task GetGameScoresByDateTimeAsync_Valid_Information_With_Date(string date)
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var result = await nhlApi.GetLeagueScheduleCalendarByDateAsync(DateOnly.Parse(date));
@@ -571,7 +571,7 @@ public class LeagueTests
     public async Task GetLeagueMetadataInformation_Returns_Valid_Information_Both_Players_Teams()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var players = new List<int> { 8478402 };
@@ -588,7 +588,7 @@ public class LeagueTests
     public async Task GetLeagueMetadataInformation_Returns_Valid_Information_Just_Teams()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teams = new List<string> { "EDM", "TOR" };
@@ -603,7 +603,7 @@ public class LeagueTests
     public async Task GetLeagueMetadataInformation_Returns_Valid_Information_Just_Teams_Enum()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var teams = new List<TeamEnum> { TeamEnum.TorontoMapleLeafs, TeamEnum.ChicagoBlackhawks };
@@ -618,7 +618,7 @@ public class LeagueTests
     public async Task GetLeagueMetadataInformation_Returns_Valid_Information_Just_Players()
     {
         // Arrange
-        await using INhlApi nhlApi = new NhlApi();
+        await using var nhlApi = new NhlApi();
 
         // Act
         var players = new List<PlayerEnum> { PlayerEnum.ConnorBedard8484144 };
