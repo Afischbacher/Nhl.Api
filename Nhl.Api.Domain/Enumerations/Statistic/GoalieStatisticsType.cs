@@ -1,31 +1,30 @@
 ﻿using System.Runtime.Serialization;
 
-namespace Nhl.Api.Enumerations.Statistic
+namespace Nhl.Api.Enumerations.Statistic;
+
+/// <summary>
+/// The types of NHL goalie statistics
+/// </summary>
+public enum GoalieStatisticsType
 {
     /// <summary>
-    /// The types of NHL goalie statistics
+    /// The NHL goalie wins statistic type
     /// </summary>
-    public enum GoalieStatisticsType
-    {
-        /// <summary>
-        /// The NHL goalie wins statistic type
-        /// </summary>
-        [EnumMember(Value = "wins")]
-        Wins,
-        /// <summary>
-        /// The NHL goalie losses statistic type
-        /// </summary>
-        [EnumMember(Value = "shutouts")]
-        Shutouts,
-        /// <summary>
-        /// The NHL goalie save percentage statistic type
-        /// </summary>
-        [EnumMember(Value = "savePctg")]
-        SavePercentage,
-        /// <summary>
-        /// The NHL goalie goals against average statistic type
-        /// </summary>
-        [EnumMember(Value = "goalsAgainstAverage")]
-        GoalsAgainstAverage,
-    }
+    [EnumMember(Value = "wins")]
+    Wins,
+    /// <summary>
+    /// The NHL goalie losses statistic type
+    /// </summary>
+    [EnumMember(Value = "shutouts")]
+    Shutouts,
+    /// <summary>
+    /// The NHL goalie save percentage statistic type
+    /// </summary>
+    [EnumMember(Value = "savePctg")]
+    SavePercentage,
+    /// <summary>
+    /// The NHL goalie goals against average statistic type
+    /// </summary>
+    [EnumMember(Value = "goalsAgainstAverage")]
+    GoalsAgainstAverage,
 }
