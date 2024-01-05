@@ -188,7 +188,8 @@ public class NhlStatisticsApi : INhlStatisticsApi
                     PlayerGameCenterStatistic.MissedShot => play.TypeDescKey == "missed-shot" && play.Details.ShootingPlayerId == playerId,
                     PlayerGameCenterStatistic.BlockedShot => play.TypeDescKey == "blocked-shot" && play.Details.BlockingPlayerId == playerId,
                     PlayerGameCenterStatistic.Giveaway => play.TypeDescKey == "giveaway" && play.Details.PlayerId == playerId,
-                    PlayerGameCenterStatistic.Penalty => play.TypeDescKey == "penalty" && play.Details.DrawnByPlayerId == playerId,
+                    PlayerGameCenterStatistic.DrawnPenalty => play.TypeDescKey == "penalty" && play.Details.DrawnByPlayerId == playerId,
+                    PlayerGameCenterStatistic.CommittedPenalty => play.TypeDescKey == "penalty" && play.Details.CommittedByPlayerId == playerId,
                     PlayerGameCenterStatistic.Takeaway => play.TypeDescKey == "takeaway" && play.Details.PlayerId == playerId,
                     _ => false,
                 };
@@ -247,7 +248,8 @@ public class NhlStatisticsApi : INhlStatisticsApi
                     PlayerGameCenterStatistic.MissedShot => play.TypeDescKey == "missed-shot" && play.Details.ShootingPlayerId == playerId,
                     PlayerGameCenterStatistic.BlockedShot => play.TypeDescKey == "blocked-shot" && play.Details.BlockingPlayerId == playerId,
                     PlayerGameCenterStatistic.Giveaway => play.TypeDescKey == "giveaway" && play.Details.PlayerId == playerId,
-                    PlayerGameCenterStatistic.Penalty => play.TypeDescKey == "penalty" && play.Details.DrawnByPlayerId == playerId,
+                    PlayerGameCenterStatistic.DrawnPenalty => play.TypeDescKey == "penalty" && play.Details.DrawnByPlayerId == playerId,
+                    PlayerGameCenterStatistic.CommittedPenalty => play.TypeDescKey == "penalty" && play.Details.CommittedByPlayerId == playerId,
                     PlayerGameCenterStatistic.Takeaway => play.TypeDescKey == "takeaway" && play.Details.PlayerId == playerId,
                     _ => false,
                 };

@@ -56,10 +56,16 @@ public enum PlayerGameCenterStatistic
     Giveaway,
 
     /// <summary>
-    /// The penalty event in the GameCenter play by play
+    /// The drawn penalty event in the GameCenter play by play
     /// </summary>
     [EnumMember(Value = "penalty")]
-    Penalty,
+    DrawnPenalty,
+
+    /// <summary>
+    /// The committed penalty event in the GameCenter play by play
+    /// </summary>
+    [EnumMember(Value = "penalty")]
+    CommittedPenalty,
 
     /// <summary>
     /// The takeaway event in the GameCenter play by play

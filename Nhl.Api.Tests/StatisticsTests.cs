@@ -128,7 +128,8 @@ public class StatisticsTests
     [DataRow(8478402, PlayerGameCenterStatistic.MissedShot, "20222023")]
     [DataRow(8478402, PlayerGameCenterStatistic.Giveaway, "20222023")]
     [DataRow(8478402, PlayerGameCenterStatistic.Takeaway, "20222023")]
-    [DataRow(8478402, PlayerGameCenterStatistic.Penalty, "20222023")]
+    [DataRow(8478402, PlayerGameCenterStatistic.DrawnPenalty, "20222023")]
+    [DataRow(8478402, PlayerGameCenterStatistic.CommittedPenalty, "20222023")]
     [DataRow(8478402, PlayerGameCenterStatistic.FaceOffWon, "20222023")]
     [DataRow(8478402, PlayerGameCenterStatistic.BlockedShot, "20222023")]
     [DataRow(8478402, PlayerGameCenterStatistic.HitGiven, "20222023")]
@@ -155,24 +156,29 @@ public class StatisticsTests
     [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.MissedShot, "20222023")]
     [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.Giveaway, "20222023")]
     [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.Takeaway, "20222023")]
-    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.Penalty, "20222023")]
+    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.DrawnPenalty, "20222023")]
     [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.FaceOffWon, "20222023")]
     [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.BlockedShot, "20222023")]
     [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.HitGiven, "20222023")]
     [DataRow(PlayerEnum.AustonMatthews8479318, PlayerGameCenterStatistic.FaceOffWon, "20232024")]
     [DataRow(PlayerEnum.LukeSchenn8474568, PlayerGameCenterStatistic.BlockedShot, "20232024")]
     [DataRow(PlayerEnum.TomWilson8476880, PlayerGameCenterStatistic.HitGiven, "20232024")]
-
+    [DataRow(PlayerEnum.TomWilson8476880, PlayerGameCenterStatistic.HitReceived, "20232024")]
+    [DataRow(PlayerEnum.TomWilson8476880, PlayerGameCenterStatistic.FaceOffLost, "20232024")]
+    [DataRow(PlayerEnum.TomWilson8476880, PlayerGameCenterStatistic.DrawnPenalty, "20232024")]
+    [DataRow(PlayerEnum.TomWilson8476880, PlayerGameCenterStatistic.CommittedPenalty, "20232024")]
     public async Task GetNumberOfFaceoffsWonByPlayerIdAndSeasonAsync_Returns_Valid_Information_With_Enum(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear)
     {
         // Arrange
         await using var nhlApi = new NhlApi();
 
         // Act
-        var faceOffsWon = await nhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum, playerGameCenterStatistic, seasonYear);
+        var result = await nhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum, playerGameCenterStatistic, seasonYear);
 
         // Assert
-        Assert.IsNotNull(faceOffsWon);
-        Assert.IsTrue(faceOffsWon is not 0);
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result is not 0);
+        Assert.IsTrue(result > 0);
+
     }
 }
