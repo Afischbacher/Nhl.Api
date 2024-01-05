@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Models.Enumerations.Player;
@@ -44,22 +45,21 @@ public static class PlayerEnumFileGeneratorHelper
             }
         }
 
-        using (StreamWriter outputFile = new StreamWriter(Path.Combine(path, "InternalPlayerEnum.cs")))
+        using StreamWriter outputFile = new(Path.Combine(path, "InternalPlayerEnum.cs"));
+        outputFile.WriteLine($"/// <summary>");
+        outputFile.WriteLine($"/// The NHL player enumeration of all NHL players");
+        outputFile.WriteLine($"/// </summary>");
+        outputFile.WriteLine("public enum PlayerEnum");
+        outputFile.WriteLine("{");
+        var lines = players.Select(x => $"    {x.Value} = {x.Key},");
+        foreach (string line in lines)
         {
-            outputFile.WriteLine($"/// <summary>");
-            outputFile.WriteLine($"/// The NHL player enumeration of all NHL players");
-            outputFile.WriteLine($"/// </summary>");
-            outputFile.WriteLine("public enum PlayerEnum");
-            outputFile.WriteLine("{");
-            var lines = players.Select(x => $"    {x.Value} = {x.Key},");
-            foreach (string line in lines)
-            {
-                outputFile.WriteLine($"    /// <summary>");
-                outputFile.WriteLine($"    /// {line}");
-                outputFile.WriteLine($"    /// </summary>");
-                outputFile.WriteLine(line);
-            }
-            outputFile.WriteLine("}");
+            outputFile.WriteLine($"    /// <summary>");
+            outputFile.WriteLine($"    /// {line}");
+            outputFile.WriteLine($"    /// </summary>");
+            outputFile.WriteLine(line);
         }
+        outputFile.WriteLine("}");
+
     }
 }

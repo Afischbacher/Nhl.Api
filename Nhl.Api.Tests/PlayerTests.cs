@@ -699,4 +699,12 @@ public class PlayerTests
         Assert.IsNotNull(players);
         Assert.IsTrue(players.Count > 22000);
     }
+
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public void PlayerEnumFileGeneratorHelper_Returns_Valid_Content()
+    {
+        // Arrange
+        PlayerEnumFileGeneratorHelper.GetAllPlayers("");
+    }
 }
