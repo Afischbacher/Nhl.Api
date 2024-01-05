@@ -5,6 +5,7 @@ using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Schedule;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Services;
+using System.Threading;
 
 namespace Nhl.Api;
 
@@ -16,6 +17,7 @@ public class NhlGameApi : INhlGameApi
     private static readonly INhlApiHttpClient _nhlShiftChartHttpClient = new NhlShiftChartHttpClient();
     private static readonly INhlApiHttpClient _nhlApiWebHttpClient = new NhlApiWebHttpClient();
     private static readonly INhlTeamService _nhlTeamService = new NhlTeamService();
+
     /// <summary>
     /// The official unofficial NHL Game API providing various NHL information game information, game schedules, live game feeds and more
     /// </summary>
@@ -28,32 +30,35 @@ public class NhlGameApi : INhlGameApi
     /// Returns the current NHL team scoreboard for the current date and time, with upcoming game scores and completed game scores
     /// </summary>
     /// <param name="team">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the current NHL team scoreboard for the current date and time, with upcoming game scores and completed game scores</returns>
-    public async Task<TeamScoreboard> GetCurrentTeamScoreboardAsync(TeamEnum team)
+    public async Task<TeamScoreboard> GetCurrentTeamScoreboardAsync(TeamEnum team, CancellationToken cancellationToken = default)
     {
         var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team);
-        return await _nhlApiWebHttpClient.GetAsync<TeamScoreboard>($"/scoreboard/{teamAbbreviation}/now");
+        return await _nhlApiWebHttpClient.GetAsync<TeamScoreboard>($"/scoreboard/{teamAbbreviation}/now", cancellationToken);
     }
 
     /// <summary>
     /// Returns the current NHL team scoreboard for the current date and time, with upcoming game scores and completed game scores
     /// </summary>
     /// <param name="teamId">The team identifier, Example: 10 - Toronto Maples Leafs</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the current NHL team scoreboard for the current date and time, with upcoming game scores and completed game scores</returns>
-    public async Task<TeamScoreboard> GetCurrentTeamScoreboardAsync(int teamId)
+    public async Task<TeamScoreboard> GetCurrentTeamScoreboardAsync(int teamId, CancellationToken cancellationToken = default)
     {
         var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId);
-        return await _nhlApiWebHttpClient.GetAsync<TeamScoreboard>($"/scoreboard/{teamAbbreviation}/now");
+        return await _nhlApiWebHttpClient.GetAsync<TeamScoreboard>($"/scoreboard/{teamAbbreviation}/now", cancellationToken);
     }
 
     /// <summary>
     /// Returns all of the individual shifts of each NHL player for a specific NHL game id
     /// </summary>
     /// <param name="gameId">The game id, Example: 2021020087</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A collection of all the NHL player game shifts for a specific game, including start and end times, on ice duration and more</returns>
-    public async Task<LiveGameFeedPlayerShifts> GetLiveGameFeedPlayerShiftsAsync(int gameId)
+    public async Task<LiveGameFeedPlayerShifts> GetLiveGameFeedPlayerShiftsAsync(int gameId, CancellationToken cancellationToken = default)
     {
-        return await _nhlShiftChartHttpClient.GetAsync<LiveGameFeedPlayerShifts>($"?cayenneExp=gameId={gameId}");
+        return await _nhlShiftChartHttpClient.GetAsync<LiveGameFeedPlayerShifts>($"?cayenneExp=gameId={gameId}", cancellationToken);
     }
 
     /// <summary>
@@ -61,10 +66,11 @@ public class NhlGameApi : INhlGameApi
     /// </summary>
     /// <param name="teamId">The team identifier, Example: 10 - Toronto Maples Leafs</param>
     /// <param name="date">The date and time, Example: 2020-10-02</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateAsync(int teamId, DateOnly date)
+    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateAsync(int teamId, DateOnly date, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/week/{date:yyyy-MM-dd}");
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/week/{date:yyyy-MM-dd}", cancellationToken);
     }
 
     /// <summary>
@@ -72,10 +78,11 @@ public class NhlGameApi : INhlGameApi
     /// </summary>
     /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 54 - Vegas Golden Knights </param>
     /// <param name="date">The date and time, Example: 2020-10-02</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
-    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateAsync(TeamEnum team, DateOnly date)
+    public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateAsync(TeamEnum team, DateOnly date, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/week/{date:yyyy-MM-dd}");
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/week/{date:yyyy-MM-dd}", cancellationToken);
     }
 
     /// <summary>
@@ -83,10 +90,11 @@ public class NhlGameApi : INhlGameApi
     /// </summary>
     /// <param name="teamId">The team identifier, Example: 10 - Toronto Maples Leafs</param>
     /// <param name="seasonYear">The season year, see <see cref="SeasonYear"/> for more information, Example: 20202021</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL team schedule for the specified team and season year</returns>
-    public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleBySeasonYearAsync(int teamId, string seasonYear)
+    public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleBySeasonYearAsync(int teamId, string seasonYear, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule-season/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/{seasonYear}");
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule-season/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/{seasonYear}", cancellationToken);
     }
 
     /// <summary>
@@ -94,10 +102,11 @@ public class NhlGameApi : INhlGameApi
     /// </summary>
     /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 54 - Vegas Golden Knights </param>
     /// <param name="seasonYear">The season year, see <see cref="SeasonYear"/> for more information, Example: 20202021</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL team schedule for the specified team and season year</returns>
-    public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleBySeasonYearAsync(TeamEnum team, string seasonYear)
+    public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleBySeasonYearAsync(TeamEnum team, string seasonYear, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule-season/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/{seasonYear}");
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule-season/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/{seasonYear}", cancellationToken);
     }
 
     /// <summary>
@@ -106,10 +115,11 @@ public class NhlGameApi : INhlGameApi
     /// <param name="teamId">The team identifier, Example: 10 - Toronto Maples Leafs</param>
     /// <param name="year">The year, Example: 2020</param>
     /// <param name="month">The month, Example: 10</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL team schedule for the specified team and season year and month</returns>
-    public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleByYearAndMonthAsync(int teamId, int month, int year)
+    public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleByYearAndMonthAsync(int teamId, int month, int year, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/month/{year}-{month}");
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/month/{year}-{month}", cancellationToken);
     }
 
     /// <summary>
@@ -118,68 +128,75 @@ public class NhlGameApi : INhlGameApi
     /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 54 - Vegas Golden Knights </param>
     /// <param name="year">The year, Example: 2020</param>
     /// <param name="month">The month, Example: 10</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL team schedule for the specified team and season year and month</returns>
-    public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleByYearAndMonthAsync(TeamEnum team, int month, int year)
+    public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleByYearAndMonthAsync(TeamEnum team, int month, int year, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/month/{year}-{month}");
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/month/{year}-{month}", cancellationToken);
     }
 
     /// <summary>
     /// Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more
     /// </summary>
     /// <param name="date">The date for the requested game scores, Example: 2020-10-02</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns all of the NHL game scores for the specified date, including the game id, game date and time, game status, game venue and more</returns>
-    public async Task<GameScore> GetGameScoresByDateAsync(DateOnly date)
+    public async Task<GameScore> GetGameScoresByDateAsync(DateOnly date, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<GameScore>($"/score/{date:yyyy-MM-dd}");
+        return await _nhlApiWebHttpClient.GetAsync<GameScore>($"/score/{date:yyyy-MM-dd}", cancellationToken);
     }
 
     /// <summary>
     /// Returns the live NHL game scoreboard, including the game information, game status, game venue and more
     /// </summary>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the live NHL game scoreboard, including the game information, game status, game venue and more</returns>
-    public async Task<GameScoreboard> GetGameScoreboardAsync()
+    public async Task<GameScoreboard> GetGameScoreboardAsync(CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<GameScoreboard>("/scoreboard/now");
+        return await _nhlApiWebHttpClient.GetAsync<GameScoreboard>("/scoreboard/now", cancellationToken);
     }
 
     /// <summary>
     /// Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more
     /// </summary>
-    /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
+    /// <param name="gameId">The NHL game identifier, Example: 2023020204 </param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more</returns>
-    public async Task<GameCenterPlayByPlay> GetGameCenterPlayByPlayByGameIdAsync(int gameId)
+    public async Task<GameCenterPlayByPlay> GetGameCenterPlayByPlayByGameIdAsync(int gameId, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<GameCenterPlayByPlay>($"/gamecenter/{gameId}/play-by-play");
+        return await _nhlApiWebHttpClient.GetAsync<GameCenterPlayByPlay>($"/gamecenter/{gameId}/play-by-play", cancellationToken);
     }
 
     /// <summary>
     /// Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more
     /// </summary>
-    /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
+    /// <param name="gameId">The NHL game identifier, Example: 2023020204 </param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns> Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more</returns>
-    public async Task<GameCenterLanding> GetGameCenterLandingByGameIdAsync(int gameId)
+    public async Task<GameCenterLanding> GetGameCenterLandingByGameIdAsync(int gameId, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<GameCenterLanding>($"/gamecenter/{gameId}/landing");
+        return await _nhlApiWebHttpClient.GetAsync<GameCenterLanding>($"/gamecenter/{gameId}/landing", cancellationToken);
     }
 
     /// <summary>
     /// Returns the NHL game center box score for the specified game id, including the game information, game status, game venue and more
     /// </summary>
-    /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
+    /// <param name="gameId">The NHL game identifier, Example: 2023020204 </param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL game center box score for the specified game id, including the game information, game status, game venue and more</returns>
-    public async Task<GameCenterBoxScore> GetGameCenterBoxScoreByGameIdAsync(int gameId)
+    public async Task<GameCenterBoxScore> GetGameCenterBoxScoreByGameIdAsync(int gameId, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<GameCenterBoxScore>($"/gamecenter/{gameId}/boxscore");
+        return await _nhlApiWebHttpClient.GetAsync<GameCenterBoxScore>($"/gamecenter/{gameId}/boxscore", cancellationToken);
     }
 
     /// <summary>
-    /// Returns the NHL game metadata for the specified game id, including the teams, season states and more
+    /// Returns the NHL game meta data for the specified game id, including the teams, season states and more
     /// </summary>
-    /// <param name="gameId">The NHL game identfier, Example: 2023020204 </param>
-    /// <returns>Returns the NHL game metadata for the specified game id, including the teams, season states and more</returns>
-    public async Task<GameMetadata> GetGameMetadataByGameIdAsync(int gameId)
+    /// <param name="gameId">The NHL game identifier, Example: 2023020204 </param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL game meta data for the specified game id, including the teams, season states and more</returns>
+    public async Task<GameMetadata> GetGameMetadataByGameIdAsync(int gameId, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<GameMetadata>($"/meta/game/{gameId}");
+        return await _nhlApiWebHttpClient.GetAsync<GameMetadata>($"/meta/game/{gameId}", cancellationToken);
     }
 }

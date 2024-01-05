@@ -26,7 +26,7 @@ public class StatisticsTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var skaterStatistics = await nhlApi.GetSkaterStatsisticsLeadersAsync(playerStatisticsType, gameType, seasonYear, limit);
+        var skaterStatistics = await nhlApi.GetSkaterStatisticsLeadersAsync(playerStatisticsType, gameType, seasonYear, limit);
 
         // Assert
         Assert.IsNotNull(skaterStatistics);
@@ -90,7 +90,7 @@ public class StatisticsTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var goalieStatistics = await nhlApi.GetGoalieStatsisticsLeadersAsync(goalieStatisticsType, gameType, seasonYear, limit);
+        var goalieStatistics = await nhlApi.GetGoalieStatisticsLeadersAsync(goalieStatisticsType, gameType, seasonYear, limit);
 
         // Assert
         Assert.IsNotNull(goalieStatistics);
@@ -128,12 +128,12 @@ public class StatisticsTests
     [DataRow(8478402, PlayerGameCenterStatistic.Giveaway, "20222023")]
     [DataRow(8478402, PlayerGameCenterStatistic.Takeaway, "20222023")]
     [DataRow(8478402, PlayerGameCenterStatistic.Penalty, "20222023")]
-    [DataRow(8478402, PlayerGameCenterStatistic.FaceOff, "20222023")]
+    [DataRow(8478402, PlayerGameCenterStatistic.FaceOffWon, "20222023")]
     [DataRow(8478402, PlayerGameCenterStatistic.BlockedShot, "20222023")]
-    [DataRow(8478402, PlayerGameCenterStatistic.Hit, "20222023")]
-    [DataRow(8478402, PlayerGameCenterStatistic.FaceOff, "20232024")]
+    [DataRow(8478402, PlayerGameCenterStatistic.HitGiven, "20222023")]
+    [DataRow(8478402, PlayerGameCenterStatistic.FaceOffWon, "20232024")]
     [DataRow(8478402, PlayerGameCenterStatistic.BlockedShot, "20232024")]
-    [DataRow(8478402, PlayerGameCenterStatistic.Hit, "20232024")]
+    [DataRow(8478402, PlayerGameCenterStatistic.HitGiven, "20232024")]
 
     public async Task GetNumberOfFaceoffsWonByPlayerIdAndSeasonAsync_Returns_Valid_Information_With_Id(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear)
     {
@@ -153,12 +153,12 @@ public class StatisticsTests
     [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.Giveaway, "20222023")]
     [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.Takeaway, "20222023")]
     [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.Penalty, "20222023")]
-    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.FaceOff, "20222023")]
+    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.FaceOffWon, "20222023")]
     [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.BlockedShot, "20222023")]
-    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.Hit, "20222023")]
-    [DataRow(PlayerEnum.AustonMatthews8479318, PlayerGameCenterStatistic.FaceOff, "20232024")]
+    [DataRow(PlayerEnum.ConnorMcDavid8478402, PlayerGameCenterStatistic.HitGiven, "20222023")]
+    [DataRow(PlayerEnum.AustonMatthews8479318, PlayerGameCenterStatistic.FaceOffWon, "20232024")]
     [DataRow(PlayerEnum.LukeSchenn8474568, PlayerGameCenterStatistic.BlockedShot, "20232024")]
-    [DataRow(PlayerEnum.TomWilson8476880, PlayerGameCenterStatistic.Hit, "20232024")]
+    [DataRow(PlayerEnum.TomWilson8476880, PlayerGameCenterStatistic.HitGiven, "20232024")]
 
     public async Task GetNumberOfFaceoffsWonByPlayerIdAndSeasonAsync_Returns_Valid_Information_With_Enum(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear)
     {

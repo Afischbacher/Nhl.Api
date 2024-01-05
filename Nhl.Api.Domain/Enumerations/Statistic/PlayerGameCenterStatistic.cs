@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.Serialization;
-using System.Text;
+﻿using System.Runtime.Serialization;
 
 namespace Nhl.Api.Enumerations.Statistic
 {
@@ -11,16 +8,28 @@ namespace Nhl.Api.Enumerations.Statistic
     public enum PlayerGameCenterStatistic
     {
         /// <summary>
-        /// The faceoff event in the GameCenter play by play
+        /// The faceoff won event in the GameCenter play by play
         /// </summary>
         [EnumMember(Value = "faceoff")]
-        FaceOff,
+        FaceOffWon,
 
         /// <summary>
-        /// The hit event in the GameCenter play by play
+        /// The faceoff lost event in the GameCenter play by play
+        /// </summary>
+        [EnumMember(Value = "faceoff")]
+        FaceOffLost,
+
+        /// <summary>
+        /// The body check hit event for a player giving a body check in the GameCenter play by play
         /// </summary>
         [EnumMember(Value ="hit")]
-        Hit,
+        HitGiven,
+
+        /// <summary>
+        /// The body check hit event for a player receiving a body check in the GameCenter play by play
+        /// </summary>
+        [EnumMember(Value = "hit")]
+        HitReceived,
 
         /// <summary>
         /// The shot on goal event in the GameCenter play by play

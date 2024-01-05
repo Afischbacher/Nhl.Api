@@ -24,14 +24,14 @@ namespace Nhl.Api.Models.Game
         /// Example: Auston
         /// </summary>
         [JsonProperty("firstName")]
-        public string FirstName { get; set; }
+        public FirstName FirstName { get; set; }
 
         /// <summary>
         /// The last name of the NHL player who made the assist <br/>
         /// Example: Matthews
         /// </summary>
         [JsonProperty("lastName")]
-        public string LastName { get; set; }
+        public LastName LastName { get; set; }
 
         /// <summary>
         /// The number of assists the NHL player has made to date <br/>
@@ -245,28 +245,28 @@ namespace Nhl.Api.Models.Game
         /// Example: David
         /// </summary>
         [JsonProperty("firstName")]
-        public string FirstName { get; set; }
+        public FirstName FirstName { get; set; }
 
         /// <summary>
         /// The last name of the NHL player who scored the goal <br/>
         /// Example: Pastrnak
         /// </summary>
         [JsonProperty("lastName")]
-        public string LastName { get; set; }
+        public LastName LastName { get; set; }
 
         /// <summary>
         /// The full name of the NHL player who scored the goal <br/>
         /// Example: D. Pastrnak
         /// </summary>
         [JsonProperty("name")]
-        public string Name { get; set; }
+        public PlayerFullName Name { get; set; }
 
         /// <summary>
         /// The NHL team abbreviation for the team of the player who scored the goal <br/>
         /// Example: BOS
         /// </summary>
         [JsonProperty("teamAbbrev")]
-        public string TeamAbbrev { get; set; }
+        public TeamAbbrev TeamAbbrev { get; set; }
 
         /// <summary>
         /// The NHL headshot url link for the player who scored the goal <br/>
@@ -315,7 +315,7 @@ namespace Nhl.Api.Models.Game
         /// Example: MTL
         /// </summary>
         [JsonProperty("leadingTeamAbbrev")]
-        public string LeadingTeamAbbrev { get; set; }
+        public TeamAbbrev LeadingTeamAbbrev { get; set; }
 
         /// <summary>
         /// The NHL game time left in the period <br/>
@@ -1139,5 +1139,18 @@ namespace Nhl.Api.Models.Game
         /// </summary>
         [JsonProperty("home")]
         public int Home { get; set; }
+    }
+
+    /// <summary>
+    /// The NHL player full name
+    /// </summary>
+    public class PlayerFullName
+    {
+        /// <summary>
+        /// The default full name of the NHL player <br/>
+        /// Example: Sidney Crosby
+        /// </summary>
+        [JsonProperty("default")]
+        public string Default { get; set; }
     }
 }

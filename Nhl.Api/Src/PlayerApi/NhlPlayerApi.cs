@@ -6,6 +6,7 @@ using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 using System.Linq;
+using System.Threading;
 
 namespace Nhl.Api;
 
@@ -34,15 +35,16 @@ public class NhlPlayerApi : INhlPlayerApi
     /// </summary>
     /// <param name="query">A search term to find NHL players, Example: "Jack Adams" or "Wayne Gretzky" or "Mats Sundin" </param>
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public async Task<List<Models.Player.PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25)
+    public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default)
     {
         if (string.IsNullOrWhiteSpace(query))
         {
-            return new List<Models.Player.PlayerSearchResult>();
+            return new List<PlayerSearchResult>();
         }
 
-        return await _nhlSuggestionApiHttpClient.GetAsync<List<Models.Player.PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&limit={limit}");
+        return await _nhlSuggestionApiHttpClient.GetAsync<List<PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&limit={limit}", cancellationToken);
     }
 
     /// <summary>
@@ -50,15 +52,16 @@ public class NhlPlayerApi : INhlPlayerApi
     /// </summary>
     /// <param name="query">A search term to find NHL players, Example: "Owen Power" or "Carter Hart" or "Nathan MacKinnon" </param>
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public async Task<List<Models.Player.PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25)
+    public async Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default)
     {
         if (string.IsNullOrWhiteSpace(query))
         {
-            return new List<Models.Player.PlayerSearchResult>();
+            return new List<PlayerSearchResult>();
         }
 
-        return await _nhlSuggestionApiHttpClient.GetAsync<List<Models.Player.PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&active=true&limit={limit}");
+        return await _nhlSuggestionApiHttpClient.GetAsync<List<PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&active=true&limit={limit}", cancellationToken);
     }
 
     /// <summary>
@@ -66,14 +69,15 @@ public class NhlPlayerApi : INhlPlayerApi
     /// </summary>
     /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
     /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
-    public async Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
+    public async Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default)
     {
         return playerHeadshotImageSize switch
         {
-            PlayerHeadshotImageSize.Small => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}.png"),
-            PlayerHeadshotImageSize.Medium => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@2x.png"),
-            PlayerHeadshotImageSize.Large => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@3x.png"),
+            PlayerHeadshotImageSize.Small => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}.png", cancellationToken),
+            PlayerHeadshotImageSize.Medium => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@2x.png", cancellationToken),
+            PlayerHeadshotImageSize.Large => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@3x.png", cancellationToken),
             _ => null,
         };
     }
@@ -83,14 +87,15 @@ public class NhlPlayerApi : INhlPlayerApi
     /// </summary>
     /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
     /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
-    public async Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small)
+    public async Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default)
     {
         return playerHeadshotImageSize switch
         {
-            PlayerHeadshotImageSize.Small => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}.png"),
-            PlayerHeadshotImageSize.Medium => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@2x.png"),
-            PlayerHeadshotImageSize.Large => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@3x.png"),
+            PlayerHeadshotImageSize.Small => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}.png", cancellationToken),
+            PlayerHeadshotImageSize.Medium => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@2x.png", cancellationToken),
+            PlayerHeadshotImageSize.Large => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@3x.png", cancellationToken),
             _ => null,
         };
     }
@@ -101,8 +106,9 @@ public class NhlPlayerApi : INhlPlayerApi
     /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
     /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="gameType">The game type parameter for determining the game type for the type of player season logs</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>The collection of player season game logs with each game played including statistics, all available season and more</returns>
-    public async Task<PlayerSeasonGameLog> GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync(PlayerEnum player, string seasonYear, GameType gameType)
+    public async Task<PlayerSeasonGameLog> GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync(PlayerEnum player, string seasonYear, GameType gameType, CancellationToken cancellationToken = default)
     {
         if (string.IsNullOrWhiteSpace(seasonYear))
         {
@@ -114,7 +120,7 @@ public class NhlPlayerApi : INhlPlayerApi
             throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
         }
 
-        return await _nhlApiWebHttpClient.GetAsync<PlayerSeasonGameLog>($"/player/{(int)player}/game-log/{seasonYear}/{(int)gameType}");
+        return await _nhlApiWebHttpClient.GetAsync<PlayerSeasonGameLog>($"/player/{(int)player}/game-log/{seasonYear}/{(int)gameType}", cancellationToken);
     }
 
     /// <summary>
@@ -123,8 +129,9 @@ public class NhlPlayerApi : INhlPlayerApi
     /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
     /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="gameType">The game type parameter for determining the game type for the type of player season logs</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>The collection of player season game logs with each game played including statistics, all available season and more</returns>
-    public async Task<PlayerSeasonGameLog> GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync(int playerId, string seasonYear, GameType gameType)
+    public async Task<PlayerSeasonGameLog> GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync(int playerId, string seasonYear, GameType gameType, CancellationToken cancellationToken = default)
     {
         if (string.IsNullOrWhiteSpace(seasonYear))
         {
@@ -136,7 +143,7 @@ public class NhlPlayerApi : INhlPlayerApi
             throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
         }
 
-        return await _nhlApiWebHttpClient.GetAsync<PlayerSeasonGameLog>($"/player/{playerId}/game-log/{seasonYear}/{(int)gameType}");
+        return await _nhlApiWebHttpClient.GetAsync<PlayerSeasonGameLog>($"/player/{playerId}/game-log/{seasonYear}/{(int)gameType}", cancellationToken);
     }
 
     /// <summary>
@@ -145,8 +152,9 @@ public class NhlPlayerApi : INhlPlayerApi
     /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
     /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="gameType">The game type parameter for determining the game type for the type of player season logs</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>The collection of player season game logs with each game played including statistics, all available season and more</returns>
-    public async Task<GoalieSeasonGameLog> GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(PlayerEnum player, string seasonYear, GameType gameType)
+    public async Task<GoalieSeasonGameLog> GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(PlayerEnum player, string seasonYear, GameType gameType, CancellationToken cancellationToken = default)
     {
         if (string.IsNullOrWhiteSpace(seasonYear))
         {
@@ -158,7 +166,7 @@ public class NhlPlayerApi : INhlPlayerApi
             throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
         }
 
-        return await _nhlApiWebHttpClient.GetAsync<GoalieSeasonGameLog>($"/player/{(int)player}/game-log/{seasonYear}/{(int)gameType}");
+        return await _nhlApiWebHttpClient.GetAsync<GoalieSeasonGameLog>($"/player/{(int)player}/game-log/{seasonYear}/{(int)gameType}", cancellationToken);
     }
 
     /// <summary>
@@ -167,8 +175,9 @@ public class NhlPlayerApi : INhlPlayerApi
     /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
     /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="gameType">The game type parameter for determining the game type for the type of player season logs</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>The collection of player season game logs with each game played including statistics, all available season and more</returns>
-    public async Task<GoalieSeasonGameLog> GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(int playerId, string seasonYear, GameType gameType)
+    public async Task<GoalieSeasonGameLog> GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(int playerId, string seasonYear, GameType gameType, CancellationToken cancellationToken = default)
     {
         if (string.IsNullOrWhiteSpace(seasonYear))
         {
@@ -180,17 +189,18 @@ public class NhlPlayerApi : INhlPlayerApi
             throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
         }
 
-        return await _nhlApiWebHttpClient.GetAsync<GoalieSeasonGameLog>($"/player/{playerId}/game-log/{seasonYear}/{(int)gameType}");
+        return await _nhlApiWebHttpClient.GetAsync<GoalieSeasonGameLog>($"/player/{playerId}/game-log/{seasonYear}/{(int)gameType}", cancellationToken);
     }
 
     /// <summary>
     /// Returns the NHL goalie's profile information including their birth date, birth city, height, weight, position and much more
     /// </summary>
     /// <param name="playerId">An NHL player id, Example: 8480313 - Logan Thompson</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL player's profile information </returns>
-    public async Task<GoalieProfile> GetGoalieInformationAsync(int playerId)
+    public async Task<GoalieProfile> GetGoalieInformationAsync(int playerId, CancellationToken cancellationToken = default)
     {
-        var goalieProfile = await _nhlApiWebHttpClient.GetAsync<GoalieProfile>($"/player/{playerId}/landing");
+        var goalieProfile = await _nhlApiWebHttpClient.GetAsync<GoalieProfile>($"/player/{playerId}/landing", cancellationToken);
         if (goalieProfile.Position != PlayerPositionEnum.G.ToString())
         {
             throw new ArgumentException($"The {nameof(playerId)} parameter must be a goalie, see {nameof(PlayerEnum)} for more information on NHL goalie's", nameof(playerId));
@@ -203,10 +213,11 @@ public class NhlPlayerApi : INhlPlayerApi
     /// Returns the NHL goalie's profile information including their birth date, birth city, height, weight, position and much more
     /// </summary>
     /// <param name="player">An NHL player id, Example: 8480313 - Logan Thompson, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL player's profile information</returns>
-    public async Task<GoalieProfile> GetGoalieInformationAsync(PlayerEnum player)
+    public async Task<GoalieProfile> GetGoalieInformationAsync(PlayerEnum player, CancellationToken cancellationToken = default)
     {
-        var goalieProfile = await _nhlApiWebHttpClient.GetAsync<GoalieProfile>($"/player/{(int)player}/landing");
+        var goalieProfile = await _nhlApiWebHttpClient.GetAsync<GoalieProfile>($"/player/{(int)player}/landing", cancellationToken);
         if (goalieProfile.Position != PlayerPositionEnum.G.ToString())
         {
             throw new ArgumentException($"The {nameof(player)} parameter must be a goalie, see {nameof(PlayerEnum)} for more information on NHL goalie's", nameof(player));
@@ -219,34 +230,37 @@ public class NhlPlayerApi : INhlPlayerApi
     /// Returns the NHL player's profile information including their birth date, birth city, height, weight, position and much more
     /// </summary>
     /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL player's profile information </returns>
-    public async Task<PlayerProfile> GetPlayerInformationAsync(int playerId)
+    public async Task<PlayerProfile> GetPlayerInformationAsync(int playerId, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<PlayerProfile>($"/player/{playerId}/landing");
+        return await _nhlApiWebHttpClient.GetAsync<PlayerProfile>($"/player/{playerId}/landing", cancellationToken);
     }
 
     /// <summary>
     /// Returns the NHL player's profile information including their birth date, birth city, height, weight, position and much more
     /// </summary>
     /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL player's profile information</returns>
-    public async Task<PlayerProfile> GetPlayerInformationAsync(PlayerEnum player)
+    public async Task<PlayerProfile> GetPlayerInformationAsync(PlayerEnum player, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<PlayerProfile>($"/player/{(int)player}/landing");
+        return await _nhlApiWebHttpClient.GetAsync<PlayerProfile>($"/player/{(int)player}/landing", cancellationToken);
 
     }
 
     /// <summary>
     /// Returns the NHL player's in the spotlight based on their recent performances 
     /// </summary>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A collection of players and their information for players in the NHL spotlight</returns>
-    public async Task<List<PlayerSpotlight>> GetPlayerSpotlightAsync()
+    public async Task<List<PlayerSpotlight>> GetPlayerSpotlightAsync(CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<List<PlayerSpotlight>>("/player-spotlight");
+        return await _nhlApiWebHttpClient.GetAsync<List<PlayerSpotlight>>("/player-spotlight", cancellationToken);
     }
 
     /// <summary>
-    /// Disposes and releases all unneeded resources for the NHL player api
+    /// Disposes and releases all unneeded resources for the NHL player API
     /// </summary>
     /// <exception cref="NotImplementedException"></exception>
     public void Dispose() => _cachingService?.Dispose();
@@ -254,18 +268,19 @@ public class NhlPlayerApi : INhlPlayerApi
     /// <summary>
     /// Returns all the NHL players to ever play in the NHL
     /// </summary>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns all the NHL players to ever play in the NHL</returns>
-    public async Task<List<PlayerDataSearchResult>> GetAllPlayersAsync()
+    public async Task<List<PlayerDataSearchResult>> GetAllPlayersAsync(CancellationToken cancellationToken = default)
     {
         var startCount = 0;
         var playerSearchResultsTasks = new List<Task<PlayerData>>();
 
-        var response = _nhlEWebApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}").Result;
+        var response = _nhlEWebApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}", cancellationToken).Result;
         var total = response.Total;
 
         while (startCount <= total)
         {
-            playerSearchResultsTasks.Add(_nhlEWebApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}"));
+            playerSearchResultsTasks.Add(_nhlEWebApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}", cancellationToken));
             startCount += 5;
         }
 

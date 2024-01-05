@@ -2,6 +2,7 @@
 using System;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Common.Http
@@ -15,15 +16,17 @@ namespace Nhl.Api.Common.Http
         /// Performs a HTTP GET request
         /// </summary>
         /// <param name="route">The NHL  API endpoint</param>
+        /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
         /// <returns>The deserialized JSON payload of the generic type</returns>
-        Task<T> GetAsync<T>(string route) where T : class, new();
+        Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class, new();
 
         /// <summary>
         /// Performs a HTTP GET request and returns a byte array
         /// </summary>
         /// <param name="route">The Nhl.Api endpoint</param>
+        /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
         /// <returns>A byte array payload from the HTTP GET request</returns>
-        Task<byte[]> GetByteArrayAsync(string route);
+        Task<byte[]> GetByteArrayAsync(string route, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// The HTTP Client for the Nhl.Api
@@ -83,34 +86,34 @@ namespace Nhl.Api.Common.Http
         /// Performs a HTTP GET request with a generic argument as the model or type to be returned
         /// </summary>
         /// <param name="route">The Nhl.Api endpoint</param>
+        /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
         /// <returns>The deserialized JSON payload of the generic type</returns>
-        public async Task<T> GetAsync<T>(string route) where T : class, new()
+        public async Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class, new()
         {
             if (string.IsNullOrWhiteSpace(route))
             {
                 throw new ArgumentNullException(nameof(route));
             }
 
-            using (var httpResponseMessage = await HttpClient.GetAsync($"{HttpClient.BaseAddress}{route}"))
-            {
-                var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<T>(contentResponse);
-            }
+            using var httpResponseMessage = await HttpClient.GetAsync(requestUri: $"{HttpClient.BaseAddress}{route}", cancellationToken: cancellationToken);
+            var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync(cancellationToken);
+            return JsonConvert.DeserializeObject<T>(contentResponse);
         }
 
         /// <summary>
         /// Performs a HTTP GET request and returns a byte array
         /// </summary>
         /// <param name="route">The Nhl.Api endpoint</param>
+        /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
         /// <returns>A byte array payload from the HTTP GET request</returns>
-        public async Task<byte[]> GetByteArrayAsync(string route)
+        public async Task<byte[]> GetByteArrayAsync(string route, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrWhiteSpace(route))
             {
                 throw new ArgumentNullException(nameof(route));
             }
             var endpoint = $"{HttpClient.BaseAddress}{route}";
-            return await HttpClient.GetByteArrayAsync(endpoint);
+            return await HttpClient.GetByteArrayAsync(endpoint, cancellationToken);
         }
     }
 }
