@@ -45,10 +45,7 @@ public class CachingService : ICachingService
     /// <summary>
     /// Clears all cached values
     /// </summary>
-    public void Dispose()
-    {
-        _cacheStore?.Clear();
-    }
+    public void Dispose() => _cacheStore?.Clear();
 
     /// <summary>
     /// Removes the cached item by the key
@@ -97,9 +94,9 @@ public class CachingService : ICachingService
         var bytes = new byte[4096];
         int count;
 
-        while ((count = await src.ReadAsync(bytes, 0, bytes.Length)) != 0)
+        while ((count = await src.ReadAsync(bytes)) != 0)
         {
-            await dest.WriteAsync(bytes, 0, count);
+            await dest.WriteAsync(bytes.AsMemory(0, count));
         }
     }
 
@@ -110,16 +107,14 @@ public class CachingService : ICachingService
     {
         var bytes = Encoding.UTF8.GetBytes(str);
 
-        using (var sourceMemoryStream = new MemoryStream(bytes))
-        using (var destinationMemoryStream = new MemoryStream())
+        using var sourceMemoryStream = new MemoryStream(bytes);
+        using var destinationMemoryStream = new MemoryStream();
+        using (var gzipStream = new GZipStream(destinationMemoryStream, CompressionMode.Compress))
         {
-            using (var gzipStream = new GZipStream(destinationMemoryStream, CompressionMode.Compress))
-            {
-                await CopyTo(sourceMemoryStream, gzipStream);
-            }
-
-            return destinationMemoryStream.ToArray();
+            await CopyTo(sourceMemoryStream, gzipStream);
         }
+
+        return destinationMemoryStream.ToArray();
     }
 
     /// <summary>
@@ -127,15 +122,13 @@ public class CachingService : ICachingService
     /// </summary>
     private static async Task<string> Decompress(byte[] bytes)
     {
-        using (var sourceMemoryStream = new MemoryStream(bytes))
-        using (var destinationMemoryStream = new MemoryStream())
+        using var sourceMemoryStream = new MemoryStream(bytes);
+        using var destinationMemoryStream = new MemoryStream();
+        using (var gzipStream = new GZipStream(sourceMemoryStream, CompressionMode.Decompress))
         {
-            using (var gzipStream = new GZipStream(sourceMemoryStream, CompressionMode.Decompress))
-            {
-                await CopyTo(gzipStream, destinationMemoryStream);
-            }
-
-            return Encoding.UTF8.GetString(destinationMemoryStream.ToArray());
+            await CopyTo(gzipStream, destinationMemoryStream);
         }
+
+        return Encoding.UTF8.GetString(destinationMemoryStream.ToArray());
     }
 }
