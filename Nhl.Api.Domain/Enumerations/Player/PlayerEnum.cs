@@ -1,4 +1,4 @@
-ï»¿namespace Nhl.Api.Models.Enumerations.Player;
+namespace Nhl.Api.Models.Enumerations.Player;
 
 /// <summary>
 /// A collection of all NHL players
@@ -10655,9 +10655,9 @@ public enum PlayerEnum
     /// </summary>
     JohnMcNamara8457335 = 8457335,
     /// <summary>
-    ///     JohanMellstrÃ¶m8457357 = 8457357,
+    ///     JohanMellström8457357 = 8457357,
     /// </summary>
-    JohanMellstrÃ¶m8457357 = 8457357,
+    JohanMellström8457357 = 8457357,
     /// <summary>
     ///     RandyMerrifield8457368 = 8457368,
     /// </summary>
@@ -37791,9 +37791,9 @@ public enum PlayerEnum
     /// </summary>
     ZacJones8481708 = 8481708,
     /// <summary>
-    ///     AlexisLafreniÃ¨re8482109 = 8482109,
+    ///     AlexisLafrenière8482109 = 8482109,
     /// </summary>
-    AlexisLafreniÃ¨re8482109 = 8482109,
+    AlexisLafrenière8482109 = 8482109,
     /// <summary>
     ///     WillCuylle8482157 = 8482157,
     /// </summary>
@@ -37803,9 +37803,9 @@ public enum PlayerEnum
     /// </summary>
     CaydenPrimeau8480051 = 8480051,
     /// <summary>
-    ///     JesseYlÃ¶nen8481058 = 8481058,
+    ///     JesseYlönen8481058 = 8481058,
     /// </summary>
-    JesseYlÃ¶nen8481058 = 8481058,
+    JesseYlönen8481058 = 8481058,
     /// <summary>
     ///     KaidenGuhle8482087 = 8482087,
     /// </summary>
@@ -38115,9 +38115,9 @@ public enum PlayerEnum
     /// </summary>
     BraydenTracey8481530 = 8481530,
     /// <summary>
-    ///     NathanLÃ©garÃ©8481594 = 8481594,
+    ///     NathanLégaré8481594 = 8481594,
     /// </summary>
-    NathanLÃ©garÃ©8481594 = 8481594,
+    NathanLégaré8481594 = 8481594,
     /// <summary>
     ///     XavierSimoneau8481794 = 8481794,
     /// </summary>
@@ -42111,9 +42111,9 @@ public enum PlayerEnum
     /// </summary>
     TuukkaTieksola8481697 = 8481697,
     /// <summary>
-    ///     MiguÃ«lTourigny8483092 = 8483092,
+    ///     MiguëlTourigny8483092 = 8483092,
     /// </summary>
-    MiguÃ«lTourigny8483092 = 8483092,
+    MiguëlTourigny8483092 = 8483092,
     /// <summary>
     ///     OscarPlandowski8482675 = 8482675,
     /// </summary>
@@ -42863,9 +42863,9 @@ public enum PlayerEnum
     /// </summary>
     DanSexton8475105 = 8475105,
     /// <summary>
-    ///     DanyMassÃ©8475116 = 8475116,
+    ///     DanyMassé8475116 = 8475116,
     /// </summary>
-    DanyMassÃ©8475116 = 8475116,
+    DanyMassé8475116 = 8475116,
     /// <summary>
     ///     LinusKlasen8475677 = 8475677,
     /// </summary>
@@ -46103,9 +46103,9 @@ public enum PlayerEnum
     /// </summary>
     DerrickPouliot8476884 = 8476884,
     /// <summary>
-    ///     FredrikKarlstrÃ¶m8479518 = 8479518,
+    ///     FredrikKarlström8479518 = 8479518,
     /// </summary>
-    FredrikKarlstrÃ¶m8479518 = 8479518,
+    FredrikKarlström8479518 = 8479518,
     /// <summary>
     ///     OscarDansk8476861 = 8476861,
     /// </summary>
@@ -49219,9 +49219,9 @@ public enum PlayerEnum
     /// </summary>
     RobinPress8477307 = 8477307,
     /// <summary>
-    ///     JeremyGrÃ©goire8477316 = 8477316,
+    ///     JeremyGrégoire8477316 = 8477316,
     /// </summary>
-    JeremyGrÃ©goire8477316 = 8477316,
+    JeremyGrégoire8477316 = 8477316,
     /// <summary>
     ///     MarcusKarlstrom8477333 = 8477333,
     /// </summary>
@@ -50063,9 +50063,9 @@ public enum PlayerEnum
     /// </summary>
     TylerSeguin8475794 = 8475794,
     /// <summary>
-    ///     JaniHakanpÃ¤Ã¤8475825 = 8475825,
+    ///     JaniHakanpää8475825 = 8475825,
     /// </summary>
-    JaniHakanpÃ¤Ã¤8475825 = 8475825,
+    JaniHakanpää8475825 = 8475825,
     /// <summary>
     ///     EvanRodrigues8478542 = 8478542,
     /// </summary>
@@ -64511,9 +64511,9 @@ public enum PlayerEnum
     /// </summary>
     ViktorStalberg8473537 = 8473537,
     /// <summary>
-    ///     FrÃ©dÃ©ricStDenis8473647 = 8473647,
+    ///     FrédéricStDenis8473647 = 8473647,
     /// </summary>
-    FrÃ©dÃ©ricStDenis8473647 = 8473647,
+    FrédéricStDenis8473647 = 8473647,
     /// <summary>
     ///     VictorBartley8473658 = 8473658,
     /// </summary>
@@ -65691,9 +65691,9 @@ public enum PlayerEnum
     /// </summary>
     JohnathanAitken8464961 = 8464961,
     /// <summary>
-    ///     MatthieuDescÃ´teaux8464972 = 8464972,
+    ///     MatthieuDescôteaux8464972 = 8464972,
     /// </summary>
-    MatthieuDescÃ´teaux8464972 = 8464972,
+    MatthieuDescôteaux8464972 = 8464972,
     /// <summary>
     ///     SteveWasylko8465060 = 8465060,
     /// </summary>
@@ -70003,9 +70003,9 @@ public enum PlayerEnum
     /// </summary>
     DanySabourin8467430 = 8467430,
     /// <summary>
-    ///     MarcAndrÃ©Thinel8468018 = 8468018,
+    ///     MarcAndréThinel8468018 = 8468018,
     /// </summary>
-    MarcAndrÃ©Thinel8468018 = 8468018,
+    MarcAndréThinel8468018 = 8468018,
     /// <summary>
     ///     MatthewYeats8467548 = 8467548,
     /// </summary>
@@ -74415,9 +74415,9 @@ public enum PlayerEnum
     /// </summary>
     AlexOvechkin8471214 = 8471214,
     /// <summary>
-    ///     DanielBriÃ¨re8464975 = 8464975,
+    ///     DanielBrière8464975 = 8464975,
     /// </summary>
-    DanielBriÃ¨re8464975 = 8464975,
+    DanielBrière8464975 = 8464975,
     /// <summary>
     ///     JohanDavidsson8460518 = 8460518,
     /// </summary>
@@ -85555,9 +85555,9 @@ public enum PlayerEnum
     /// </summary>
     SimonHolmstrom8481601 = 8481601,
     /// <summary>
-    ///     AlexBarrÃ©Boulet8479718 = 8479718,
+    ///     AlexBarréBoulet8479718 = 8479718,
     /// </summary>
-    AlexBarrÃ©Boulet8479718 = 8479718,
+    AlexBarréBoulet8479718 = 8479718,
     /// <summary>
     ///     ViktorArvidsson8478042 = 8478042,
     /// </summary>
@@ -85723,9 +85723,9 @@ public enum PlayerEnum
     /// </summary>
     ArtemZub8482245 = 8482245,
     /// <summary>
-    ///     TimStÃ¼tzle8482116 = 8482116,
+    ///     TimStützle8482116 = 8482116,
     /// </summary>
-    TimStÃ¼tzle8482116 = 8482116,
+    TimStützle8482116 = 8482116,
     /// <summary>
     ///     JakeSanderson8482105 = 8482105,
     /// </summary>
@@ -86507,9 +86507,9 @@ public enum PlayerEnum
     /// </summary>
     ArtturiLehkonen8477476 = 8477476,
     /// <summary>
-    ///     GustavLindstrÃ¶m8480184 = 8480184,
+    ///     GustavLindström8480184 = 8480184,
     /// </summary>
-    GustavLindstrÃ¶m8480184 = 8480184,
+    GustavLindström8480184 = 8480184,
     /// <summary>
     ///     RomanCechmanek8468651 = 8468651,
     /// </summary>
@@ -87967,9 +87967,9 @@ public enum PlayerEnum
     /// </summary>
     WilliamLockwood8479367 = 8479367,
     /// <summary>
-    ///     MariÃ¡nStudenic8480226 = 8480226,
+    ///     MariánStudenic8480226 = 8480226,
     /// </summary>
-    MariÃ¡nStudenic8480226 = 8480226,
+    MariánStudenic8480226 = 8480226,
     /// <summary>
     ///     NickCicek8482824 = 8482824,
     /// </summary>

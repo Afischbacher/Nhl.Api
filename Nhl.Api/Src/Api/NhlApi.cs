@@ -247,6 +247,7 @@ public class NhlApi : INhlApi
     /// <param name="playerId">An NHL player id, Example: 8479361 - Joseph Woll</param>
     /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="gameType">The game type parameter for determining the game type for the type of player season logs</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>The collection of player season game logs with each game played including statistics, all available season and more</returns>
     public async Task<GoalieSeasonGameLog> GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(int playerId, string seasonYear, GameType gameType, CancellationToken cancellationToken = default)
     {
