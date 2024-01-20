@@ -242,4 +242,52 @@ public class StatisticsTests
                 break;
         }
     }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(PlayerEnum.SidneyCrosby8471675, "20122013")]
+    [DataRow(PlayerEnum.PierreLucDubois8479400, "20182019")]
+
+    public async Task GetTotalPlayerStatisticValueByTypeAndSeasonAsync_Returns_Valid_Information_With_Player_Id_For_Previous_Season(PlayerEnum playerEnum, string seasonYear)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetAllTotalPlayerStatisticValueBySeasonAsync(playerEnum, seasonYear);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.IsNotNull(result.PlayerProfile);
+
+        switch (playerEnum)
+        {
+            case PlayerEnum.SidneyCrosby8471675:
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.FaceOffWon], 625);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.BlockedShot], 25);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.HitGiven], 25);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.HitReceived], 54);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.FaceOffLost], 553);
+
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.MissedShot], 62);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.Giveaway], 69);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.Takeaway], 66);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.DrawnPenalty], 23);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.CommittedPenalty], 12);
+
+                break;
+            case PlayerEnum.PierreLucDubois8479400:
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.FaceOffWon], 544);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.BlockedShot], 59);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.HitGiven], 153);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.HitReceived], 166);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.FaceOffLost], 716);
+
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.MissedShot], 89);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.Giveaway], 117);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.Takeaway], 111);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.DrawnPenalty], 35);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.CommittedPenalty], 36);
+                break;
+        }
+    }
 }
