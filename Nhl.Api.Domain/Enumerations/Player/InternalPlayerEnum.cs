@@ -1,7 +1,7 @@
 /// <summary>
 /// The NHL player enumeration of all NHL players
 /// </summary>
-public enum PlayerEnum
+public enum InternalPlayerEnum
 {
     /// <summary>
     ///     CliffAbrecht8455414 = 8455414,
