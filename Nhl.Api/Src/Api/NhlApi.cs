@@ -109,7 +109,7 @@ public class NhlApi : INhlApi
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public async Task<List<Models.Player.PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default)
+    public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default)
     {
         return await _nhlPlayerApi.SearchAllPlayersAsync(query, limit, cancellationToken);
     }
@@ -121,7 +121,7 @@ public class NhlApi : INhlApi
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public async Task<List<Models.Player.PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default)
+    public async Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default)
     {
         return await _nhlPlayerApi.SearchAllActivePlayersAsync(query, limit, cancellationToken);
     }
