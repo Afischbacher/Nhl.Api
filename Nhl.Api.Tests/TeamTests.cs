@@ -1,3 +1,4 @@
+using Nhl.Api.Common.Helpers;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
@@ -452,5 +453,41 @@ public class TeamTests
         Assert.IsNotNull(teamRoster);
         Assert.IsNotNull(teamRoster.Games);
         Assert.IsTrue(teamRoster.Games.Count > 0);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public void TeamNames_Ensure_Each_Name_Is_Correct()
+    {
+        Assert.AreEqual(TeamNames.TampaBayLightning, "Tampa Bay Lightning");
+        Assert.AreEqual(TeamNames.BostonBruins, "Boston Bruins");
+        Assert.AreEqual(TeamNames.NewYorkIslanders, "New York Islanders");
+        Assert.AreEqual(TeamNames.NewYorkRangers, "New York Rangers");
+        Assert.AreEqual(TeamNames.PhiladelphiaFlyers, "Philadelphia Flyers");
+        Assert.AreEqual(TeamNames.PittsburghPenguins, "Pittsburgh Penguins");
+        Assert.AreEqual(TeamNames.WashingtonCapitals, "Washington Capitals");
+        Assert.AreEqual(TeamNames.CarolinaHurricanes, "Carolina Hurricanes");
+        Assert.AreEqual(TeamNames.ColumbusBlueJackets, "Columbus Blue Jackets");
+        Assert.AreEqual(TeamNames.DetroitRedWings, "Detroit Red Wings");
+        Assert.AreEqual(TeamNames.ChicagoBlackhawks, "Chicago Blackhawks");
+        Assert.AreEqual(TeamNames.NashvillePredators, "Nashville Predators");
+        Assert.AreEqual(TeamNames.StLouisBlues, "St. Louis Blues");
+        Assert.AreEqual(TeamNames.CalgaryFlames, "Calgary Flames");
+        Assert.AreEqual(TeamNames.ColoradoAvalanche, "Colorado Avalanche");
+        Assert.AreEqual(TeamNames.EdmontonOilers, "Edmonton Oilers");
+        Assert.AreEqual(TeamNames.VancouverCanucks, "Vancouver Canucks");
+        Assert.AreEqual(TeamNames.VegasGoldenKnights, "Vegas Golden Knights");
+        Assert.AreEqual(TeamNames.AnaheimDucks, "Anaheim Ducks");
+        Assert.AreEqual(TeamNames.DallasStars, "Dallas Stars");
+        Assert.AreEqual(TeamNames.LosAngelesKings, "Los Angeles Kings");
+        Assert.AreEqual(TeamNames.SanJoseSharks, "San Jose Sharks");
+        Assert.AreEqual(TeamNames.ArizonaCoyotes, "Arizona Coyotes");
+        Assert.AreEqual(TeamNames.MinnesotaWild, "Minnesota Wild");
+        Assert.AreEqual(TeamNames.WinnipegJets, "Winnipeg Jets");
+        Assert.AreEqual(TeamNames.BuffaloSabres, "Buffalo Sabres");
+        Assert.AreEqual(TeamNames.FloridaPanthers, "Florida Panthers");
+        Assert.AreEqual(TeamNames.MontrealCanadiens, "Montreal Canadiens");
+        Assert.AreEqual(TeamNames.OttawaSenators, "Ottawa Senators");
+        Assert.AreEqual(TeamNames.TorontoMapleLeafs, "Toronto Maple Leafs");
+        Assert.AreEqual(TeamNames.SeattleKraken, "Seattle Kraken");
     }
 }
