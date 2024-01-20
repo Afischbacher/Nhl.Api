@@ -386,7 +386,7 @@ Returns the all the NHL player game center statistics for a specific player for 
 
 ##### Returns
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Parameters
 
@@ -405,7 +405,7 @@ Returns the all the NHL player game center statistics for a specific player for 
 
 ##### Returns
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Parameters
 
@@ -1352,11 +1352,11 @@ Returns the NHL team schedule for the specified team and the specified date and 
 
 ##### Summary
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Returns
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Parameters
 
@@ -1372,11 +1372,11 @@ Returns the number of face offs won by a player for a specific season and game t
 
 ##### Summary
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Returns
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Parameters
 
@@ -2631,7 +2631,7 @@ Returns the all the NHL player game center statistics for a specific player for 
 
 ##### Returns
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Parameters
 
@@ -2650,7 +2650,7 @@ Returns the all the NHL player game center statistics for a specific player for 
 
 ##### Returns
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Parameters
 
@@ -2783,11 +2783,11 @@ Returns all the NHL team valid game types for all valid NHL seasons for the sele
 
 ##### Summary
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Returns
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Parameters
 
@@ -2803,11 +2803,11 @@ Returns the number of face offs won by a player for a specific season and game t
 
 ##### Summary
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Returns
 
-Returns the number of face offs won by a player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Parameters
 
