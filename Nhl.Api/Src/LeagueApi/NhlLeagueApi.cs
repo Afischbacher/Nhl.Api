@@ -119,7 +119,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>A collection of all games in the requested season for the requested NHL team</returns>
     public async Task<TeamSchedule> GetTeamScheduleBySeasonAsync(string teamAbbreviation, string seasonYear, CancellationToken cancellationToken = default)
     {
-        var parsedTeamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamAbbreviation(teamAbbreviation);
+        var parsedTeamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamAbbreviation(teamAbbreviation);
         if (string.IsNullOrWhiteSpace(parsedTeamAbbreviation))
         {
             throw new Exception($"The team abbreviation {teamAbbreviation} is not valid");
@@ -148,7 +148,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>A collection of all games in the requested season for the requested NHL team</returns>
     public async Task<TeamWeekSchedule> GetTeamWeekScheduleByDateAsync(string teamAbbreviation, DateOnly date, CancellationToken cancellationToken = default)
     {
-        var parsedTeamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamAbbreviation(teamAbbreviation);
+        var parsedTeamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamAbbreviation(teamAbbreviation);
         if (string.IsNullOrWhiteSpace(parsedTeamAbbreviation))
         {
             throw new Exception($"The team abbreviation {teamAbbreviation} is not valid");
@@ -166,7 +166,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
     public async Task<TeamLogo> GetTeamLogoAsync(TeamEnum team, TeamLogoType teamLogoType = TeamLogoType.Light, CancellationToken cancellationToken = default)
     {
-        var endpoint = $"logos/nhl/svg/{_nhlTeamService.GetTeamCodeIdentfierByTeamId((int)team)}_{_nhlTeamService.GetTeamLogoColorIdentfier(teamLogoType)}.svg";
+        var endpoint = $"logos/nhl/svg/{_nhlTeamService.GetTeamCodeIdentifierByTeamId((int)team)}_{_nhlTeamService.GetTeamLogoColorIdentifier(teamLogoType)}.svg";
         var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint, cancellationToken);
 
         return new TeamLogo
@@ -186,7 +186,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
     public async Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light, CancellationToken cancellationToken = default)
     {
-        var endpoint = $"logos/nhl/svg/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}_{_nhlTeamService.GetTeamLogoColorIdentfier(teamLogoType)}.svg";
+        var endpoint = $"logos/nhl/svg/{_nhlTeamService.GetTeamCodeIdentifierByTeamId(teamId)}_{_nhlTeamService.GetTeamLogoColorIdentifier(teamLogoType)}.svg";
         var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint, cancellationToken);
 
         return new TeamLogo
@@ -482,7 +482,7 @@ public class NhlLeagueApi : INhlLeagueApi
             throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
         }
 
-        var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId);
+        var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamId(teamId);
         return await _nhlWebApiHttpClient.GetAsync<TeamSeasonRoster>($"/roster/{teamAbbreviation}/{seasonYear}", cancellationToken);
     }
 
@@ -505,7 +505,7 @@ public class NhlLeagueApi : INhlLeagueApi
             throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
         }
 
-        var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team);
+        var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamEnumeration(team);
         return await _nhlWebApiHttpClient.GetAsync<TeamSeasonRoster>($"/roster/{teamAbbreviation}/{seasonYear}", cancellationToken);
     }
 
@@ -518,7 +518,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns every active season for an NHL team and their participation in the NHL</returns>
     public async Task<List<int>> GetAllRosterSeasonsByTeamAsync(int teamId, CancellationToken cancellationToken = default)
     {
-        return await _nhlWebApiHttpClient.GetAsync<List<int>>($"/roster-season/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}", cancellationToken);
+        return await _nhlWebApiHttpClient.GetAsync<List<int>>($"/roster-season/{_nhlTeamService.GetTeamCodeIdentifierByTeamId(teamId)}", cancellationToken);
     }
 
     /// <summary>
@@ -529,7 +529,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns every active season for an NHL team and their participation in the NHL</returns>
     public async Task<List<int>> GetAllRosterSeasonsByTeamAsync(TeamEnum team, CancellationToken cancellationToken = default)
     {
-        return await _nhlWebApiHttpClient.GetAsync<List<int>>($"/roster-season/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}", cancellationToken);
+        return await _nhlWebApiHttpClient.GetAsync<List<int>>($"/roster-season/{_nhlTeamService.GetTeamCodeIdentifierByTeamEnumeration(team)}", cancellationToken);
     }
 
     /// <summary>
@@ -540,7 +540,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns all the NHL prospects for the specified NHL team including forwards, defense men and goalies</returns>
     public async Task<TeamProspects> GetTeamProspectsByTeamAsync(int teamId, CancellationToken cancellationToken = default)
     {
-        return await _nhlWebApiHttpClient.GetAsync<TeamProspects>($"/prospects/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}", cancellationToken);
+        return await _nhlWebApiHttpClient.GetAsync<TeamProspects>($"/prospects/{_nhlTeamService.GetTeamCodeIdentifierByTeamId(teamId)}", cancellationToken);
     }
 
     /// <summary>
@@ -551,7 +551,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns all the NHL prospects for the specified NHL team including forwards, defense men and goalies</returns>
     public async Task<TeamProspects> GetTeamProspectsByTeamAsync(TeamEnum team, CancellationToken cancellationToken = default)
     {
-        return await _nhlWebApiHttpClient.GetAsync<TeamProspects>($"/prospects/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}", cancellationToken);
+        return await _nhlWebApiHttpClient.GetAsync<TeamProspects>($"/prospects/{_nhlTeamService.GetTeamCodeIdentifierByTeamEnumeration(team)}", cancellationToken);
     }
 
     /// <summary>
@@ -654,7 +654,7 @@ public class NhlLeagueApi : INhlLeagueApi
 
         if (teams?.Count > 0)
         {
-            var teamAbbreviations = _nhlTeamService.GetTeamCodeIdentfierByTeamEnumerations(teams);
+            var teamAbbreviations = _nhlTeamService.GetTeamCodeIdentifierByTeamEnumerations(teams);
             if (players?.Count > 0)
             {
                 sb.Append($"&teams={string.Join(",", teamAbbreviations)}");

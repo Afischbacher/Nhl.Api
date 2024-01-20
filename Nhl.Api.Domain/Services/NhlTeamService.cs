@@ -1,5 +1,7 @@
-﻿using Nhl.Api.Models.Enumerations.Team;
+﻿using Nhl.Api.Common.Helpers;
+using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Team;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -15,35 +17,43 @@ public interface INhlTeamService
     /// </summary>
     /// <param name="teamLogoType">The NHL team logo type, specifying which the NHL team logo, Example: Dark </param>
     /// <returns>The NHL team logo color identifier, Example: dark</returns>
-    string GetTeamLogoColorIdentfier(TeamLogoType teamLogoType);
+    public string GetTeamLogoColorIdentifier(TeamLogoType teamLogoType);
 
     /// <summary>
     /// Returns the NHL team code identifier by the team id
     /// </summary>
     /// <param name="teamId">The NHL team identifier, specifying which the NHL team, Example: 55 - Seattle Kraken </param>
     /// <returns>The 3 letter code for the NHL team, Example: TOR - Toronto Maple Leafs</returns>
-    string GetTeamCodeIdentfierByTeamId(int teamId);
+    public string GetTeamCodeIdentifierByTeamId(int teamId);
 
     /// <summary>
     /// Returns the NHL team code identifier by the team abbreviation
     /// </summary>
     /// <param name="teamAbbreviation">The NHL team abbreviation, specifying which the NHL team, Example: TOR - Toronto Maple Leafs </param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    string GetTeamCodeIdentfierByTeamAbbreviation(string teamAbbreviation);
+    public string GetTeamCodeIdentifierByTeamAbbreviation(string teamAbbreviation);
 
     /// <summary>
     /// Returns the NHL team code identifier by the team enumeration
     /// </summary>
     /// <param name="teamEnum">The NHL team enumeration, specifying which the NHL team, Example: Toronto Maple Leafs - 10 </param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    string GetTeamCodeIdentfierByTeamEnumeration(TeamEnum teamEnum);
+    public string GetTeamCodeIdentifierByTeamEnumeration(TeamEnum teamEnum);
 
     /// <summary>
     /// Returns the NHL team code identifier by the team enumerations
     /// </summary>
     /// <param name="teamEnums">The NHL team enumeration, specifying which the NHL team, Example: Toronto Maple Leafs - 10 </param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    List<string> GetTeamCodeIdentfierByTeamEnumerations(List<TeamEnum> teamEnums);
+    public List<string> GetTeamCodeIdentifierByTeamEnumerations(List<TeamEnum> teamEnums);
+
+    /// <summary>
+    /// Returns the NHL team code identifier based on the full NHL team name 
+    /// </summary>
+    /// <param name="teamName">The NHL team name, Example: Vancouver Canucks</param>
+    /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
+    public string GetTeamCodeIdentifierByTeamName(string teamName);
+
 }
 
 /// <summary>
@@ -57,17 +67,14 @@ public class NhlTeamService : INhlTeamService
     /// </summary>
     /// <param name="teamLogoType">The NHL team logo type, specifying which the NHL team logo, Example: Dark </param>
     /// <returns>The NHL team logo color identifier, Example: dark</returns>
-    public string GetTeamLogoColorIdentfier(TeamLogoType teamLogoType)
+    public string GetTeamLogoColorIdentifier(TeamLogoType teamLogoType)
     {
-        switch (teamLogoType)
+        return teamLogoType switch
         {
-            case TeamLogoType.Dark:
-                return "dark";
-            case TeamLogoType.Light:
-                return "light";
-            default:
-                return null;
-        }
+            TeamLogoType.Dark => "dark",
+            TeamLogoType.Light => "light",
+            _ => null,
+        };
     }
 
     /// <summary>
@@ -75,77 +82,44 @@ public class NhlTeamService : INhlTeamService
     /// </summary>
     /// <param name="teamId">The NHL team identifier, specifying which the NHL team, Example: 55 - Seattle Kraken </param>
     /// <returns>The 3 letter code for the NHL team, Example: TOR - Toronto Maple Leafs</returns>
-    public string GetTeamCodeIdentfierByTeamId(int teamId)
+    public string GetTeamCodeIdentifierByTeamId(int teamId)
     {
-        switch (teamId)
+        return teamId switch
         {
-            case (int)TeamEnum.AnaheimDucks:
-                return TeamCodes.MightyDucksofAnaheimAnaheimDucks;
-            case (int)TeamEnum.ArizonaCoyotes:
-                return TeamCodes.ArizonaCoyotes;
-            case (int)TeamEnum.BostonBruins:
-                return TeamCodes.BostonBruins;
-            case (int)TeamEnum.BuffaloSabres:
-                return TeamCodes.BuffaloSabres;
-            case (int)TeamEnum.CalgaryFlames:
-                return TeamCodes.CalgaryFlames;
-            case (int)TeamEnum.CarolinaHurricanes:
-                return TeamCodes.CarolinaHurricanes;
-            case (int)TeamEnum.ChicagoBlackhawks:
-                return TeamCodes.ChicagoBlackHawks;
-            case (int)TeamEnum.ColoradoAvalanche:
-                return TeamCodes.ColoradoAvalanche;
-            case (int)TeamEnum.ColumbusBlueJackets:
-                return TeamCodes.ColumbusBlueJackets;
-            case (int)TeamEnum.DallasStars:
-                return TeamCodes.DallasStars;
-            case (int)TeamEnum.DetroitRedWings:
-                return TeamCodes.DetroitRedWings;
-            case (int)TeamEnum.EdmontonOilers:
-                return TeamCodes.EdmontonOilers;
-            case (int)TeamEnum.FloridaPanthers:
-                return TeamCodes.FloridaPanthers;
-            case (int)TeamEnum.LosAngelesKings:
-                return TeamCodes.LosAngelesKings;
-            case (int)TeamEnum.MinnesotaWild:
-                return TeamCodes.MinnesotaWild;
-            case (int)TeamEnum.MontrealCanadiens:
-                return TeamCodes.MontrealCanadiens;
-            case (int)TeamEnum.NashvillePredators:
-                return TeamCodes.NashvillePredators;
-            case (int)TeamEnum.NewJerseyDevils:
-                return TeamCodes.NewJerseyDevils;
-            case (int)TeamEnum.NewYorkIslanders:
-                return TeamCodes.NewYorkIslanders;
-            case (int)TeamEnum.NewYorkRangers:
-                return TeamCodes.NewYorkRangers;
-            case (int)TeamEnum.OttawaSenators:
-                return TeamCodes.OttawaSenators;
-            case (int)TeamEnum.PhiladelphiaFlyers:
-                return TeamCodes.PhiladelphiaFlyers;
-            case (int)TeamEnum.PittsburghPenguins:
-                return TeamCodes.PittsburghPenguins;
-            case (int)TeamEnum.SanJoseSharks:
-                return TeamCodes.SanJoseSharks;
-            case (int)TeamEnum.SeattleKraken:
-                return TeamCodes.SeattleKraken;
-            case (int)TeamEnum.StLouisBlues:
-                return TeamCodes.StLouisBlues;
-            case (int)TeamEnum.TampaBayLightning:
-                return TeamCodes.TampaBayLightning;
-            case (int)TeamEnum.TorontoMapleLeafs:
-                return TeamCodes.TorontoMapleLeafs;
-            case (int)TeamEnum.VancouverCanucks:
-                return TeamCodes.VancouverCanucks;
-            case (int)TeamEnum.VegasGoldenKnights:
-                return TeamCodes.VegasGoldenKnights;
-            case (int)TeamEnum.WashingtonCapitals:
-                return TeamCodes.WashingtonCapitals;
-            case (int)TeamEnum.WinnipegJets:
-                return TeamCodes.WinnipegJets;
-            default:
-                return null;
-        }
+            (int)TeamEnum.AnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
+            (int)TeamEnum.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
+            (int)TeamEnum.BostonBruins => TeamCodes.BostonBruins,
+            (int)TeamEnum.BuffaloSabres => TeamCodes.BuffaloSabres,
+            (int)TeamEnum.CalgaryFlames => TeamCodes.CalgaryFlames,
+            (int)TeamEnum.CarolinaHurricanes => TeamCodes.CarolinaHurricanes,
+            (int)TeamEnum.ChicagoBlackhawks => TeamCodes.ChicagoBlackHawks,
+            (int)TeamEnum.ColoradoAvalanche => TeamCodes.ColoradoAvalanche,
+            (int)TeamEnum.ColumbusBlueJackets => TeamCodes.ColumbusBlueJackets,
+            (int)TeamEnum.DallasStars => TeamCodes.DallasStars,
+            (int)TeamEnum.DetroitRedWings => TeamCodes.DetroitRedWings,
+            (int)TeamEnum.EdmontonOilers => TeamCodes.EdmontonOilers,
+            (int)TeamEnum.FloridaPanthers => TeamCodes.FloridaPanthers,
+            (int)TeamEnum.LosAngelesKings => TeamCodes.LosAngelesKings,
+            (int)TeamEnum.MinnesotaWild => TeamCodes.MinnesotaWild,
+            (int)TeamEnum.MontrealCanadiens => TeamCodes.MontrealCanadiens,
+            (int)TeamEnum.NashvillePredators => TeamCodes.NashvillePredators,
+            (int)TeamEnum.NewJerseyDevils => TeamCodes.NewJerseyDevils,
+            (int)TeamEnum.NewYorkIslanders => TeamCodes.NewYorkIslanders,
+            (int)TeamEnum.NewYorkRangers => TeamCodes.NewYorkRangers,
+            (int)TeamEnum.OttawaSenators => TeamCodes.OttawaSenators,
+            (int)TeamEnum.PhiladelphiaFlyers => TeamCodes.PhiladelphiaFlyers,
+            (int)TeamEnum.PittsburghPenguins => TeamCodes.PittsburghPenguins,
+            (int)TeamEnum.SanJoseSharks => TeamCodes.SanJoseSharks,
+            (int)TeamEnum.SeattleKraken => TeamCodes.SeattleKraken,
+            (int)TeamEnum.StLouisBlues => TeamCodes.StLouisBlues,
+            (int)TeamEnum.TampaBayLightning => TeamCodes.TampaBayLightning,
+            (int)TeamEnum.TorontoMapleLeafs => TeamCodes.TorontoMapleLeafs,
+            (int)TeamEnum.VancouverCanucks => TeamCodes.VancouverCanucks,
+            (int)TeamEnum.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
+            (int)TeamEnum.WashingtonCapitals => TeamCodes.WashingtonCapitals,
+            (int)TeamEnum.WinnipegJets => TeamCodes.WinnipegJets,
+            _ => null,
+        };
     }
 
     /// <summary>
@@ -153,81 +127,46 @@ public class NhlTeamService : INhlTeamService
     /// </summary>
     /// <param name="teamAbbreviation">The NHL team abbreviation, specifying which the NHL team, Example: TOR - Toronto Maple Leafs </param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    public string GetTeamCodeIdentfierByTeamAbbreviation(string teamAbbreviation)
+    public string GetTeamCodeIdentifierByTeamAbbreviation(string teamAbbreviation)
     {
-        switch (teamAbbreviation)
+        return teamAbbreviation switch
         {
-            case TeamCodes.MightyDucksofAnaheimAnaheimDucks:
-                return TeamCodes.MightyDucksofAnaheimAnaheimDucks;
-            case TeamCodes.ArizonaCoyotes:
-                return TeamCodes.ArizonaCoyotes;
-            case TeamCodes.AtlantaFlames:
-                return TeamCodes.AtlantaFlames;
-            case TeamCodes.AtlantaThrashers:
-                return TeamCodes.AtlantaThrashers;
-            case TeamCodes.BostonBruins:
-                return TeamCodes.BostonBruins;
-            case TeamCodes.BuffaloSabres:
-                return TeamCodes.BuffaloSabres;
-            case TeamCodes.CalgaryFlames:
-                return TeamCodes.CalgaryFlames;
-            case TeamCodes.CarolinaHurricanes:
-                return TeamCodes.CarolinaHurricanes;
-            case TeamCodes.ChicagoBlackHawks:
-                return TeamCodes.ChicagoBlackHawks;
-            case TeamCodes.ColoradoAvalanche:
-                return TeamCodes.ColoradoAvalanche;
-            case TeamCodes.ColumbusBlueJackets:
-                return TeamCodes.ColumbusBlueJackets;
-            case TeamCodes.DallasStars:
-                return TeamCodes.DallasStars;
-            case TeamCodes.DetroitRedWings:
-                return TeamCodes.DetroitRedWings;
-            case TeamCodes.EdmontonOilers:
-                return TeamCodes.EdmontonOilers;
-            case TeamCodes.FloridaPanthers:
-                return TeamCodes.FloridaPanthers;
-            case TeamCodes.LosAngelesKings:
-                return TeamCodes.LosAngelesKings;
-            case TeamCodes.MinnesotaWild:
-                return TeamCodes.MinnesotaWild;
-            case TeamCodes.MontrealCanadiens:
-                return TeamCodes.MontrealCanadiens;
-            case TeamCodes.NashvillePredators:
-                return TeamCodes.NashvillePredators;
-            case TeamCodes.NewJerseyDevils:
-                return TeamCodes.NewJerseyDevils;
-            case TeamCodes.NewYorkIslanders:
-                return TeamCodes.NewYorkIslanders;
-            case TeamCodes.NewYorkRangers:
-                return TeamCodes.NewYorkRangers;
-            case TeamCodes.OttawaSenators:
-                return TeamCodes.OttawaSenators;
-            case TeamCodes.PhiladelphiaFlyers:
-                return TeamCodes.PhiladelphiaFlyers;
-            case TeamCodes.PittsburghPenguins:
-                return TeamCodes.PittsburghPenguins;
-            case TeamCodes.SanJoseSharks:
-                return TeamCodes.SanJoseSharks;
-            case TeamCodes.SeattleKraken:
-                return TeamCodes.SeattleKraken;
-            case TeamCodes.StLouisBlues:
-                return TeamCodes.StLouisBlues;
-            case TeamCodes.TampaBayLightning:
-                return TeamCodes.TampaBayLightning;
-            case TeamCodes.TorontoMapleLeafs:
-                return TeamCodes.TorontoMapleLeafs;
-            case TeamCodes.VancouverCanucks:
-                return TeamCodes.VancouverCanucks;
-            case TeamCodes.VegasGoldenKnights:
-                return TeamCodes.VegasGoldenKnights;
-            case TeamCodes.WashingtonCapitals:
-                return TeamCodes.WashingtonCapitals;
-            case TeamCodes.WinnipegJets:
-                return TeamCodes.WinnipegJets;
-            default:
-                return null;
-        }
+            TeamCodes.MightyDucksofAnaheimAnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
+            TeamCodes.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
+            TeamCodes.AtlantaFlames => TeamCodes.AtlantaFlames,
+            TeamCodes.AtlantaThrashers => TeamCodes.AtlantaThrashers,
+            TeamCodes.BostonBruins => TeamCodes.BostonBruins,
+            TeamCodes.BuffaloSabres => TeamCodes.BuffaloSabres,
+            TeamCodes.CalgaryFlames => TeamCodes.CalgaryFlames,
+            TeamCodes.CarolinaHurricanes => TeamCodes.CarolinaHurricanes,
+            TeamCodes.ChicagoBlackHawks => TeamCodes.ChicagoBlackHawks,
+            TeamCodes.ColoradoAvalanche => TeamCodes.ColoradoAvalanche,
+            TeamCodes.ColumbusBlueJackets => TeamCodes.ColumbusBlueJackets,
+            TeamCodes.DallasStars => TeamCodes.DallasStars,
+            TeamCodes.DetroitRedWings => TeamCodes.DetroitRedWings,
+            TeamCodes.EdmontonOilers => TeamCodes.EdmontonOilers,
+            TeamCodes.FloridaPanthers => TeamCodes.FloridaPanthers,
+            TeamCodes.LosAngelesKings => TeamCodes.LosAngelesKings,
+            TeamCodes.MinnesotaWild => TeamCodes.MinnesotaWild,
+            TeamCodes.MontrealCanadiens => TeamCodes.MontrealCanadiens,
+            TeamCodes.NashvillePredators => TeamCodes.NashvillePredators,
+            TeamCodes.NewJerseyDevils => TeamCodes.NewJerseyDevils,
+            TeamCodes.NewYorkIslanders => TeamCodes.NewYorkIslanders,
+            TeamCodes.NewYorkRangers => TeamCodes.NewYorkRangers,
+            TeamCodes.OttawaSenators => TeamCodes.OttawaSenators,
+            TeamCodes.PhiladelphiaFlyers => TeamCodes.PhiladelphiaFlyers,
+            TeamCodes.PittsburghPenguins => TeamCodes.PittsburghPenguins,
+            TeamCodes.SanJoseSharks => TeamCodes.SanJoseSharks,
+            TeamCodes.SeattleKraken => TeamCodes.SeattleKraken,
+            TeamCodes.StLouisBlues => TeamCodes.StLouisBlues,
+            TeamCodes.TampaBayLightning => TeamCodes.TampaBayLightning,
+            TeamCodes.TorontoMapleLeafs => TeamCodes.TorontoMapleLeafs,
+            TeamCodes.VancouverCanucks => TeamCodes.VancouverCanucks,
+            TeamCodes.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
+            TeamCodes.WashingtonCapitals => TeamCodes.WashingtonCapitals,
+            TeamCodes.WinnipegJets => TeamCodes.WinnipegJets,
+            _ => null,
+        };
     }
 
 
@@ -236,77 +175,44 @@ public class NhlTeamService : INhlTeamService
     /// </summary>
     /// <param name="teamEnum">The NHL team enumeration, specifying which the NHL team, Example: Toronto Maple Leafs - 10 </param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    public string GetTeamCodeIdentfierByTeamEnumeration(TeamEnum teamEnum)
+    public string GetTeamCodeIdentifierByTeamEnumeration(TeamEnum teamEnum)
     {
-        switch (teamEnum)
+        return teamEnum switch
         {
-            case TeamEnum.NewJerseyDevils:
-                return TeamCodes.NewJerseyDevils;
-            case TeamEnum.NewYorkIslanders:
-                return TeamCodes.NewYorkIslanders;
-            case TeamEnum.NewYorkRangers:
-                return TeamCodes.NewYorkRangers;
-            case TeamEnum.PhiladelphiaFlyers:
-                return TeamCodes.PhiladelphiaFlyers;
-            case TeamEnum.PittsburghPenguins:
-                return TeamCodes.PittsburghPenguins;
-            case TeamEnum.BostonBruins:
-                return TeamCodes.BostonBruins;
-            case TeamEnum.BuffaloSabres:
-                return TeamCodes.BuffaloSabres;
-            case TeamEnum.MontrealCanadiens:
-                return TeamCodes.MontrealCanadiens;
-            case TeamEnum.OttawaSenators:
-                return TeamCodes.OttawaSenators;
-            case TeamEnum.TorontoMapleLeafs:
-                return TeamCodes.TorontoMapleLeafs;
-            case TeamEnum.CarolinaHurricanes:
-                return TeamCodes.CarolinaHurricanes;
-            case TeamEnum.FloridaPanthers:
-                return TeamCodes.FloridaPanthers;
-            case TeamEnum.TampaBayLightning:
-                return TeamCodes.TampaBayLightning;
-            case TeamEnum.WashingtonCapitals:
-                return TeamCodes.WashingtonCapitals;
-            case TeamEnum.ChicagoBlackhawks:
-                return TeamCodes.ChicagoBlackHawks;
-            case TeamEnum.DetroitRedWings:
-                return TeamCodes.DetroitRedWings;
-            case TeamEnum.NashvillePredators:
-                return TeamCodes.NashvillePredators;
-            case TeamEnum.StLouisBlues:
-                return TeamCodes.StLouisBlues;
-            case TeamEnum.CalgaryFlames:
-                return TeamCodes.CalgaryFlames;
-            case TeamEnum.ColoradoAvalanche:
-                return TeamCodes.ColoradoAvalanche;
-            case TeamEnum.EdmontonOilers:
-                return TeamCodes.EdmontonOilers;
-            case TeamEnum.VancouverCanucks:
-                return TeamCodes.VancouverCanucks;
-            case TeamEnum.AnaheimDucks:
-                return TeamCodes.MightyDucksofAnaheimAnaheimDucks;
-            case TeamEnum.DallasStars:
-                return TeamCodes.DallasStars;
-            case TeamEnum.LosAngelesKings:
-                return TeamCodes.LosAngelesKings;
-            case TeamEnum.SanJoseSharks:
-                return TeamCodes.SanJoseSharks;
-            case TeamEnum.ColumbusBlueJackets:
-                return TeamCodes.ColumbusBlueJackets;
-            case TeamEnum.MinnesotaWild:
-                return TeamCodes.MinnesotaWild;
-            case TeamEnum.WinnipegJets:
-                return TeamCodes.WinnipegJets;
-            case TeamEnum.ArizonaCoyotes:
-                return TeamCodes.ArizonaCoyotes;
-            case TeamEnum.VegasGoldenKnights:
-                return TeamCodes.VegasGoldenKnights;
-            case TeamEnum.SeattleKraken:
-                return TeamCodes.SeattleKraken;
-            default:
-                return null;
-        }
+            TeamEnum.NewJerseyDevils => TeamCodes.NewJerseyDevils,
+            TeamEnum.NewYorkIslanders => TeamCodes.NewYorkIslanders,
+            TeamEnum.NewYorkRangers => TeamCodes.NewYorkRangers,
+            TeamEnum.PhiladelphiaFlyers => TeamCodes.PhiladelphiaFlyers,
+            TeamEnum.PittsburghPenguins => TeamCodes.PittsburghPenguins,
+            TeamEnum.BostonBruins => TeamCodes.BostonBruins,
+            TeamEnum.BuffaloSabres => TeamCodes.BuffaloSabres,
+            TeamEnum.MontrealCanadiens => TeamCodes.MontrealCanadiens,
+            TeamEnum.OttawaSenators => TeamCodes.OttawaSenators,
+            TeamEnum.TorontoMapleLeafs => TeamCodes.TorontoMapleLeafs,
+            TeamEnum.CarolinaHurricanes => TeamCodes.CarolinaHurricanes,
+            TeamEnum.FloridaPanthers => TeamCodes.FloridaPanthers,
+            TeamEnum.TampaBayLightning => TeamCodes.TampaBayLightning,
+            TeamEnum.WashingtonCapitals => TeamCodes.WashingtonCapitals,
+            TeamEnum.ChicagoBlackhawks => TeamCodes.ChicagoBlackHawks,
+            TeamEnum.DetroitRedWings => TeamCodes.DetroitRedWings,
+            TeamEnum.NashvillePredators => TeamCodes.NashvillePredators,
+            TeamEnum.StLouisBlues => TeamCodes.StLouisBlues,
+            TeamEnum.CalgaryFlames => TeamCodes.CalgaryFlames,
+            TeamEnum.ColoradoAvalanche => TeamCodes.ColoradoAvalanche,
+            TeamEnum.EdmontonOilers => TeamCodes.EdmontonOilers,
+            TeamEnum.VancouverCanucks => TeamCodes.VancouverCanucks,
+            TeamEnum.AnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
+            TeamEnum.DallasStars => TeamCodes.DallasStars,
+            TeamEnum.LosAngelesKings => TeamCodes.LosAngelesKings,
+            TeamEnum.SanJoseSharks => TeamCodes.SanJoseSharks,
+            TeamEnum.ColumbusBlueJackets => TeamCodes.ColumbusBlueJackets,
+            TeamEnum.MinnesotaWild => TeamCodes.MinnesotaWild,
+            TeamEnum.WinnipegJets => TeamCodes.WinnipegJets,
+            TeamEnum.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
+            TeamEnum.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
+            TeamEnum.SeattleKraken => TeamCodes.SeattleKraken,
+            _ => null,
+        };
     }
 
     /// <summary>
@@ -314,14 +220,60 @@ public class NhlTeamService : INhlTeamService
     /// </summary>
     /// <param name="teamEnums">The NHL team enumeration, specifying which the NHL team, Example: Toronto Maple Leafs - 10 </param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    public List<string> GetTeamCodeIdentfierByTeamEnumerations(List<TeamEnum> teamEnums)
+    public List<string> GetTeamCodeIdentifierByTeamEnumerations(List<TeamEnum> teamEnums)
     {
         var teamCodes = new HashSet<string>();
         foreach (var team in teamEnums)
         {
-            teamCodes.Add(GetTeamCodeIdentfierByTeamEnumeration(team));
+            teamCodes.Add(GetTeamCodeIdentifierByTeamEnumeration(team));
         }
 
         return teamCodes.ToList();
+    }
+
+
+    /// <summary>
+    /// Returns the NHL team code identifier based on the full NHL team name 
+    /// </summary>
+    /// <param name="teamName">The NHL team name, Example: Vancouver Canucks</param>
+    /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
+    public string GetTeamCodeIdentifierByTeamName(string teamName)
+    {
+        return teamName switch
+        {
+            TeamNames.AnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
+            TeamNames.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
+            TeamNames.BostonBruins => TeamCodes.BostonBruins,
+            TeamNames.BuffaloSabres => TeamCodes.BuffaloSabres,
+            TeamNames.CalgaryFlames => TeamCodes.CalgaryFlames,
+            TeamNames.CarolinaHurricanes => TeamCodes.CarolinaHurricanes,
+            TeamNames.ChicagoBlackhawks => TeamCodes.ChicagoBlackHawks,
+            TeamNames.ColoradoAvalanche => TeamCodes.ColoradoAvalanche,
+            TeamNames.ColumbusBlueJackets => TeamCodes.ColumbusBlueJackets,
+            TeamNames.DallasStars => TeamCodes.DallasStars,
+            TeamNames.DetroitRedWings => TeamCodes.DetroitRedWings,
+            TeamNames.EdmontonOilers => TeamCodes.EdmontonOilers,
+            TeamNames.FloridaPanthers => TeamCodes.FloridaPanthers,
+            TeamNames.LosAngelesKings => TeamCodes.LosAngelesKings,
+            TeamNames.MinnesotaWild => TeamCodes.MinnesotaWild,
+            TeamNames.MontrealCanadiens => TeamCodes.MontrealCanadiens,
+            TeamNames.NashvillePredators => TeamCodes.NashvillePredators,
+            TeamNames.NewJerseyDevils => TeamCodes.NewJerseyDevils,
+            TeamNames.NewYorkIslanders => TeamCodes.NewYorkIslanders,
+            TeamNames.NewYorkRangers => TeamCodes.NewYorkRangers,
+            TeamNames.OttawaSenators => TeamCodes.OttawaSenators,
+            TeamNames.PhiladelphiaFlyers => TeamCodes.PhiladelphiaFlyers,
+            TeamNames.PittsburghPenguins => TeamCodes.PittsburghPenguins,
+            TeamNames.SanJoseSharks => TeamCodes.SanJoseSharks,
+            TeamNames.SeattleKraken => TeamCodes.SeattleKraken,
+            TeamNames.StLouisBlues => TeamCodes.StLouisBlues,
+            TeamNames.TampaBayLightning => TeamCodes.TampaBayLightning,
+            TeamNames.TorontoMapleLeafs => TeamCodes.TorontoMapleLeafs,
+            TeamNames.VancouverCanucks => TeamCodes.VancouverCanucks,
+            TeamNames.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
+            TeamNames.WashingtonCapitals => TeamCodes.WashingtonCapitals,
+            TeamNames.WinnipegJets => TeamCodes.WinnipegJets,
+            _ => throw new ArgumentException($"Unknown NHL team: {teamName}", nameof(teamName)),
+        };
     }
 }

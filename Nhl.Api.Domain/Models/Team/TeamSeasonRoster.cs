@@ -176,6 +176,11 @@ public abstract class TeamRosterPlayer
     /// </summary>
     [JsonProperty("birthStateProvince")]
     public BirthStateProvince BirthStateProvince { get; set; }
+
+    /// <summary>
+    /// The NHL player full name
+    /// </summary>  
+    public string FullName => $"{FirstName.Default} {LastName.Default}";
 }
 
 /// <summary>

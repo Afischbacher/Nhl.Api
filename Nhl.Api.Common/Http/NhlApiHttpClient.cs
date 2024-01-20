@@ -29,6 +29,14 @@ public interface INhlApiHttpClient
     Task<byte[]> GetByteArrayAsync(string route, CancellationToken cancellationToken = default);
 
     /// <summary>
+    /// Performs a HTTP GET request and returns a string 
+    /// </summary>
+    /// <param name="route">The Nhl.Api endpoint</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>A byte array payload from the HTTP GET request</returns>
+    Task<string> GetStringAsync(string route, CancellationToken cancellationToken = default);
+
+    /// <summary>
     /// The HTTP Client for the Nhl.Api
     /// </summary>
     HttpClient HttpClient { get; }
@@ -55,7 +63,7 @@ public abstract class NhlApiHttpClient : INhlApiHttpClient
     public NhlApiHttpClient(string clientApiUri, string clientVersion, int timeoutInSeconds = 30)
     {
         ServicePointManager.ReusePort = true;
-        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls13 | SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
 
         Client = clientApiUri;
         ClientVersion = clientVersion;
@@ -114,5 +122,21 @@ public abstract class NhlApiHttpClient : INhlApiHttpClient
         }
         var endpoint = $"{HttpClient.BaseAddress}{route}";
         return await HttpClient.GetByteArrayAsync(endpoint, cancellationToken);
+    }
+
+    /// <summary>
+    /// Performs a HTTP GET request and returns a string 
+    /// </summary>
+    /// <param name="route">The Nhl.Api endpoint</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>A byte array payload from the HTTP GET request</returns>
+    public async Task<string> GetStringAsync(string route, CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrWhiteSpace(route))
+        {
+            throw new ArgumentNullException(nameof(route));
+        }
+        var endpoint = $"{HttpClient.BaseAddress}{route}";
+        return await (await HttpClient.GetAsync(endpoint, cancellationToken)).Content.ReadAsStringAsync(cancellationToken);
     }
 }

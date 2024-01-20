@@ -1,0 +1,16 @@
+mode: Mainline
+tag-prefix: '[v]'
+branches: 
+  master:
+    mode: ContinuousDelivery
+    regex: ^master$
+    increment: Minor
+    tag-number-pattern: '[v]?(\d+\.\d+\.\d+)(?:[-.\+a-zA-Z\d]+)?'
+    is-release-branch: true
+    commit-message-incrementing: Enabled
+    tag: ''
+    prevent-increment-of-merged-branch-version: false
+    prevent-increment-of-merged-branch-version-message: ''
+ignore:
+  sha: []
+merge-message-formats: {}

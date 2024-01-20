@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Models.Enumerations.Player;
@@ -28,20 +27,20 @@ public static class PlayerEnumFileGeneratorHelper
         var players = new Dictionary<int, string>();
         var response = _nhlApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}").Result;
         var total = response.Total;
-        
+
         while (startCount <= total)
         {
             playerSearchResultsTasks.Add(_nhlApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}"));
             startCount += 5;
         }
 
-        var playerSearchResultsCollections =  NhlApiAsyncHelper.RunSync(async () => await Task.WhenAll(playerSearchResultsTasks));
+        var playerSearchResultsCollections = NhlApiAsyncHelper.RunSync(async () => await Task.WhenAll(playerSearchResultsTasks));
 
         foreach (var playerSearchResults in playerSearchResultsCollections)
         {
             foreach (var playerSearchResult in playerSearchResults.Data)
             {
-                players.Add(playerSearchResult.Id, $"{Regex.Replace(playerSearchResult.FullName, @"('|\.|\s|-|_|&|)", string.Empty, RegexOptions.CultureInvariant | RegexOptions.Compiled)}{playerSearchResult.Id}");
+                players.Add(playerSearchResult.Id, $"{Regex.Replace(ReplaceNonAsciiWithAscii(playerSearchResult.FullName), @"('|\.|\s|-|_|&|)", string.Empty, RegexOptions.CultureInvariant | RegexOptions.Compiled)}{playerSearchResult.Id}");
             }
         }
 
@@ -61,5 +60,40 @@ public static class PlayerEnumFileGeneratorHelper
         }
         outputFile.WriteLine("}");
 
+    }
+
+    /// <summary>
+    /// Replaces non-ASCII characters with their ASCII equivalents
+    /// </summary>
+    /// <param name="input">The string value for conversion</param>
+    /// <returns>The ASCII equivalent of the non-ASCII string</returns>
+    private static string ReplaceNonAsciiWithAscii(string input)
+    {
+        // Define a regular expression pattern for non-ASCII characters
+        string pattern = @"[^\x00-\x7F]";
+
+        // Replace non-ASCII characters with their ASCII equivalents
+        string output = Regex.Replace(input, pattern, (match) =>
+        {
+            char c = match.Value[0];
+            return c switch
+            {
+                'à' or 'á' or 'â' or 'ã' or 'ä' => "a",
+                'å' => "a",
+                'æ' => "ae",
+                'ç' => "c",
+                'è' or 'é' or 'ê' or 'ë' => "e",
+                'ì' or 'í' or 'î' or 'ï' => "i",
+                'ð' => "d",
+                'ñ' => "n",
+                'ò' or 'ó' or 'ô' or 'õ' or 'ö' => "o",
+                'ø' => "o",
+                'ù' or 'ú' or 'û' or 'ü' => "u",
+                'ý' or 'ÿ' => "y",
+                _ => c.ToString(),
+            };
+        });
+
+        return output;
     }
 }
