@@ -1,6 +1,5 @@
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
-using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Season;
 using System.Linq;
 

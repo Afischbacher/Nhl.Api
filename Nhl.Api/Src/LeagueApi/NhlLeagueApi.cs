@@ -1,5 +1,4 @@
 ﻿using Nhl.Api.Common.Http;
-using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.League;

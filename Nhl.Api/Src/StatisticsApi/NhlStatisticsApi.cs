@@ -3,7 +3,6 @@ using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Http;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
-using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
