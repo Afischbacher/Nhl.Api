@@ -261,6 +261,42 @@ public class PlayerTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(PlayerEnum.MarcAndreFleury8470594, SeasonYear.season20222023, GameType.RegularSeason)]
+    [DataRow(PlayerEnum.JuuseSaros8477424, SeasonYear.season20182019, GameType.RegularSeason)]
+    [DataRow(PlayerEnum.JosephWoll8479361, SeasonYear.season20222023, GameType.RegularSeason)]
+    [DataRow(PlayerEnum.AndreiVasilevskiy8476883, SeasonYear.season20212022, GameType.Playoffs)]
+
+    public async Task GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync_Test_PlayerEnum_Fails_Season_Year_Invalid_Format(PlayerEnum playerEnum, string seasonYear, GameType gameType)
+    {
+        // Arrange 
+        await using var nhlApi = new NhlApi();
+
+        // Act / Assert
+        Assert.ThrowsException<ArgumentException>(async () =>
+        {
+           await nhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(playerEnum, "999999", gameType);
+        });
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(PlayerEnum.MarcAndreFleury8470594, SeasonYear.season20222023, GameType.RegularSeason)]
+    [DataRow(PlayerEnum.JuuseSaros8477424, SeasonYear.season20182019, GameType.RegularSeason)]
+    [DataRow(PlayerEnum.JosephWoll8479361, SeasonYear.season20222023, GameType.RegularSeason)]
+    [DataRow(PlayerEnum.AndreiVasilevskiy8476883, SeasonYear.season20212022, GameType.Playoffs)]
+
+    public async Task GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync_Test_PlayerEnum_Fails_Season_Year_Empty(PlayerEnum playerEnum, string seasonYear, GameType gameType)
+    {
+        // Arrange 
+        await using var nhlApi = new NhlApi();
+
+        // Act / Assert
+        Assert.ThrowsException<ArgumentException>(async () =>
+        {
+            await nhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(playerEnum, string.Empty, gameType);
+        });
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
     [DataRow(8470594, SeasonYear.season20222023, GameType.RegularSeason)]
     [DataRow(8477424, SeasonYear.season20182019, GameType.RegularSeason)]
     [DataRow(8479361, SeasonYear.season20222023, GameType.RegularSeason)]
@@ -572,13 +608,16 @@ public class PlayerTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    public async Task TestDownloadPlayerHeadshotImageAsync()
+    [DataRow(PlayerHeadshotImageSize.Small)]
+    [DataRow(PlayerHeadshotImageSize.Medium)]
+    [DataRow(PlayerHeadshotImageSize.Large)]
+    public async Task TestDownloadPlayerHeadshotImageAsync(PlayerHeadshotImageSize playerHeadShotImageSize)
     {
         // Arrange
         await using var nhlApi = new NhlApi();
 
         // Act
-        var image = await nhlApi.GetPlayerHeadshotImageAsync(PlayerEnum.ZackKassian8475178, PlayerHeadshotImageSize.Large);
+        var image = await nhlApi.GetPlayerHeadshotImageAsync(PlayerEnum.ZackKassian8475178, playerHeadShotImageSize);
 
         // Assert
         Assert.IsNotNull(image);
@@ -586,13 +625,16 @@ public class PlayerTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    public async Task GetPlayerHeadshotImageAsync_TestDownload_PlayerHeadshot_ImageWithId()
+    [DataRow(PlayerHeadshotImageSize.Small)]
+    [DataRow(PlayerHeadshotImageSize.Medium)]
+    [DataRow(PlayerHeadshotImageSize.Large)]
+    public async Task GetPlayerHeadshotImageAsync_TestDownload_PlayerHeadshot_ImageWithId(PlayerHeadshotImageSize playerHeadShotImageSize)
     {
         // Arrange
         await using var nhlApi = new NhlApi();
 
         // Act
-        var image = await nhlApi.GetPlayerHeadshotImageAsync(8477932, PlayerHeadshotImageSize.Large);
+        var image = await nhlApi.GetPlayerHeadshotImageAsync(8477932, playerHeadShotImageSize);
 
         // Assert
         Assert.IsNotNull(image);
