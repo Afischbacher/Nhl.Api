@@ -1,7 +1,6 @@
 ﻿using Nhl.Api.Common.Http;
 using Nhl.Api.Common.Services;
 using Nhl.Api.Models.Player;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

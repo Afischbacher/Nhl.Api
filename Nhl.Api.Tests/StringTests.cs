@@ -15,5 +15,5 @@ public class StringTests
         var actual = PlayerEnumFileGeneratorHelper.ReplaceNonAsciiWithAscii(input);
 
         Assert.AreEqual(expected, actual);
-    }   
+    }
 }
