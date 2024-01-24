@@ -261,38 +261,73 @@ public class PlayerTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    [DataRow(PlayerEnum.MarcAndreFleury8470594, SeasonYear.season20222023, GameType.RegularSeason)]
-    [DataRow(PlayerEnum.JuuseSaros8477424, SeasonYear.season20182019, GameType.RegularSeason)]
-    [DataRow(PlayerEnum.JosephWoll8479361, SeasonYear.season20222023, GameType.RegularSeason)]
-    [DataRow(PlayerEnum.AndreiVasilevskiy8476883, SeasonYear.season20212022, GameType.Playoffs)]
-
-    public async Task GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync_Test_PlayerEnum_Fails_Season_Year_Invalid_Format(PlayerEnum playerEnum, string seasonYear, GameType gameType)
+    [DataRow(PlayerEnum.MarcAndreFleury8470594, GameType.RegularSeason)]
+    [DataRow(PlayerEnum.JuuseSaros8477424, GameType.RegularSeason)]
+    [DataRow(PlayerEnum.JosephWoll8479361, GameType.RegularSeason)]
+    [DataRow(PlayerEnum.AndreiVasilevskiy8476883, GameType.Playoffs)]
+    public async Task GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync_Test_PlayerEnum_Fails_Season_Year_Invalid_Format(PlayerEnum playerEnum, GameType gameType)
     {
         // Arrange 
         await using var nhlApi = new NhlApi();
 
         // Act / Assert
-        Assert.ThrowsException<ArgumentException>(async () =>
+        await Assert.ThrowsExceptionAsync<ArgumentException>(async () =>
         {
            await nhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(playerEnum, "999999", gameType);
         });
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    [DataRow(PlayerEnum.MarcAndreFleury8470594, SeasonYear.season20222023, GameType.RegularSeason)]
-    [DataRow(PlayerEnum.JuuseSaros8477424, SeasonYear.season20182019, GameType.RegularSeason)]
-    [DataRow(PlayerEnum.JosephWoll8479361, SeasonYear.season20222023, GameType.RegularSeason)]
-    [DataRow(PlayerEnum.AndreiVasilevskiy8476883, SeasonYear.season20212022, GameType.Playoffs)]
-
-    public async Task GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync_Test_PlayerEnum_Fails_Season_Year_Empty(PlayerEnum playerEnum, string seasonYear, GameType gameType)
+    [DataRow(PlayerEnum.MarcAndreFleury8470594,  GameType.RegularSeason)]
+    [DataRow(PlayerEnum.JuuseSaros8477424, GameType.RegularSeason)]
+    [DataRow(PlayerEnum.JosephWoll8479361,  GameType.RegularSeason)]
+    [DataRow(PlayerEnum.AndreiVasilevskiy8476883, GameType.Playoffs)]
+    public async Task GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync_Test_PlayerEnum_Fails_Season_Year_Empty(PlayerEnum playerEnum,  GameType gameType)
     {
         // Arrange 
         await using var nhlApi = new NhlApi();
 
         // Act / Assert
-        Assert.ThrowsException<ArgumentException>(async () =>
+        await Assert.ThrowsExceptionAsync<ArgumentException>(async () =>
         {
             await nhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(playerEnum, string.Empty, gameType);
+        });
+    }
+
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(8470594, SeasonYear.season20222023, GameType.RegularSeason)]
+    [DataRow(8477424, SeasonYear.season20182019, GameType.RegularSeason)]
+    [DataRow(8479361, SeasonYear.season20222023, GameType.RegularSeason)]
+    [DataRow(8476883, SeasonYear.season20212022, GameType.Playoffs)]
+
+    public async Task GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync_Test_PlayerId_Fails_Season_Year_Invalid_Format(int playerId, string seasonYear, GameType gameType)
+    {
+        // Arrange 
+        await using var nhlApi = new NhlApi();
+
+        // Act / Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(async () =>
+        {
+            await nhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(playerId, "999999", gameType);
+        });
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(8470594, SeasonYear.season20222023, GameType.RegularSeason)]
+    [DataRow(8477424, SeasonYear.season20182019, GameType.RegularSeason)]
+    [DataRow(8479361, SeasonYear.season20222023, GameType.RegularSeason)]
+    [DataRow(8476883, SeasonYear.season20212022, GameType.Playoffs)]
+
+    public async Task GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync_Test_PlayerId_Fails_Season_Year_Empty(int playerId, string seasonYear, GameType gameType)
+    {
+        // Arrange 
+        await using var nhlApi = new NhlApi();
+
+        // Act / Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(async () =>
+        {
+            await nhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(playerId, string.Empty, gameType);
         });
     }
 
