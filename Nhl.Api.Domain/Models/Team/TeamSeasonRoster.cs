@@ -180,7 +180,7 @@ public abstract class TeamRosterPlayer
     /// <summary>
     /// The NHL player full name
     /// </summary>  
-    public string FullName => $"{FirstName.Default} {LastName.Default}";
+    public string FullName => $"{FirstName?.Default} {LastName?.Default}";
 }
 
 /// <summary>
