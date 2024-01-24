@@ -701,7 +701,7 @@ public class PlayerTests
     }
 
 
-    [TestMethodWithRetry(RetryCount = 5)]
+    [TestMethodWithRetry(RetryCount = 25)]
     public void PlayerEnumFileGeneratorHelper_Returns_Valid_Content()
     {
         // Arrange

@@ -1,6 +1,7 @@
 ﻿using Nhl.Api.Common.Http;
 using Nhl.Api.Common.Services;
 using Nhl.Api.Models.Player;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,7 @@ public static class PlayerEnumFileGeneratorHelper
 
         var playerSearchResultsTasks = new List<Task<PlayerData>>();
         var players = new Dictionary<int, string>();
+        _nhlApiHttpClient.HttpClient.Timeout = TimeSpan.FromSeconds(90);
         var response = _nhlApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}").Result;
         var total = response.Total;
 
