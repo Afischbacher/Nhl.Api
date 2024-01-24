@@ -33,14 +33,11 @@ public class NhlCmsHttpClient : NhlApiHttpClient
         {
             lock (_lock)
             {
-                if (_httpClient == null)
+                _httpClient ??= new HttpClient
                 {
-                    _httpClient = new HttpClient
-                    {
-                        BaseAddress = new Uri($"{Client}{ClientVersion}"),
-                        Timeout = Timeout
-                    };
-                }
+                    BaseAddress = new Uri($"{Client}{ClientVersion}"),
+                    Timeout = Timeout
+                };
 
                 return _httpClient;
             }

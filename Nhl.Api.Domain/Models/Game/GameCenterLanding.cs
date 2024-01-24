@@ -162,7 +162,7 @@ public class GameInfo
 /// <summary>
 /// The NHL gamecenter landing game information team
 /// </summary>
-public class GameCenterLandingGameInfoTeam 
+public class GameCenterLandingGameInfoTeam
 {
     /// <summary>
     /// The NHL team head coach

@@ -22,7 +22,7 @@ public enum PlayerGameCenterStatistic
     /// <summary>
     /// The body check hit event for a player giving a body check in the GameCenter play by play
     /// </summary>
-    [EnumMember(Value ="hit")]
+    [EnumMember(Value = "hit")]
     HitGiven,
 
     /// <summary>
@@ -34,7 +34,7 @@ public enum PlayerGameCenterStatistic
     /// <summary>
     /// The shot on goal event in the GameCenter play by play
     /// </summary>
-    [EnumMember(Value = "shot-on-goal")] 
+    [EnumMember(Value = "shot-on-goal")]
     ShotOnGoal,
 
     /// <summary>

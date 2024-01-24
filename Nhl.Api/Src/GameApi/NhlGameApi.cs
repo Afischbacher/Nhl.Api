@@ -34,7 +34,7 @@ public class NhlGameApi : INhlGameApi
     /// <returns>Returns the current NHL team scoreboard for the current date and time, with upcoming game scores and completed game scores</returns>
     public async Task<TeamScoreboard> GetCurrentTeamScoreboardAsync(TeamEnum team, CancellationToken cancellationToken = default)
     {
-        var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team);
+        var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamEnumeration(team);
         return await _nhlApiWebHttpClient.GetAsync<TeamScoreboard>($"/scoreboard/{teamAbbreviation}/now", cancellationToken);
     }
 
@@ -46,7 +46,7 @@ public class NhlGameApi : INhlGameApi
     /// <returns>Returns the current NHL team scoreboard for the current date and time, with upcoming game scores and completed game scores</returns>
     public async Task<TeamScoreboard> GetCurrentTeamScoreboardAsync(int teamId, CancellationToken cancellationToken = default)
     {
-        var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId);
+        var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamId(teamId);
         return await _nhlApiWebHttpClient.GetAsync<TeamScoreboard>($"/scoreboard/{teamAbbreviation}/now", cancellationToken);
     }
 
@@ -70,7 +70,7 @@ public class NhlGameApi : INhlGameApi
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
     public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateAsync(int teamId, DateOnly date, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/week/{date:yyyy-MM-dd}", cancellationToken);
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentifierByTeamId(teamId)}/week/{date:yyyy-MM-dd}", cancellationToken);
     }
 
     /// <summary>
@@ -82,7 +82,7 @@ public class NhlGameApi : INhlGameApi
     /// <returns>Returns the NHL team schedule for the specified team and the specified date and time</returns>
     public async Task<TeamSeasonSchedule> GetTeamWeekScheduleByDateAsync(TeamEnum team, DateOnly date, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/week/{date:yyyy-MM-dd}", cancellationToken);
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentifierByTeamEnumeration(team)}/week/{date:yyyy-MM-dd}", cancellationToken);
     }
 
     /// <summary>
@@ -94,7 +94,7 @@ public class NhlGameApi : INhlGameApi
     /// <returns>Returns the NHL team schedule for the specified team and season year</returns>
     public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleBySeasonYearAsync(int teamId, string seasonYear, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule-season/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/{seasonYear}", cancellationToken);
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule-season/{_nhlTeamService.GetTeamCodeIdentifierByTeamId(teamId)}/{seasonYear}", cancellationToken);
     }
 
     /// <summary>
@@ -106,7 +106,7 @@ public class NhlGameApi : INhlGameApi
     /// <returns>Returns the NHL team schedule for the specified team and season year</returns>
     public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleBySeasonYearAsync(TeamEnum team, string seasonYear, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule-season/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/{seasonYear}", cancellationToken);
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule-season/{_nhlTeamService.GetTeamCodeIdentifierByTeamEnumeration(team)}/{seasonYear}", cancellationToken);
     }
 
     /// <summary>
@@ -119,7 +119,7 @@ public class NhlGameApi : INhlGameApi
     /// <returns>Returns the NHL team schedule for the specified team and season year and month</returns>
     public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleByYearAndMonthAsync(int teamId, int month, int year, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamId(teamId)}/month/{year}-{month}", cancellationToken);
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentifierByTeamId(teamId)}/month/{year}-{month}", cancellationToken);
     }
 
     /// <summary>
@@ -132,7 +132,7 @@ public class NhlGameApi : INhlGameApi
     /// <returns>Returns the NHL team schedule for the specified team and season year and month</returns>
     public async Task<TeamSeasonSchedule> GetTeamSeasonScheduleByYearAndMonthAsync(TeamEnum team, int month, int year, CancellationToken cancellationToken = default)
     {
-        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentfierByTeamEnumeration(team)}/month/{year}-{month}", cancellationToken);
+        return await _nhlApiWebHttpClient.GetAsync<TeamSeasonSchedule>($"/club-schedule/{_nhlTeamService.GetTeamCodeIdentifierByTeamEnumeration(team)}/month/{year}-{month}", cancellationToken);
     }
 
     /// <summary>

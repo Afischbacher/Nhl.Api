@@ -109,7 +109,7 @@ public class NhlApi : INhlApi
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public async Task<List<Models.Player.PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default)
+    public async Task<List<PlayerSearchResult>> SearchAllPlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default)
     {
         return await _nhlPlayerApi.SearchAllPlayersAsync(query, limit, cancellationToken);
     }
@@ -121,7 +121,7 @@ public class NhlApi : INhlApi
     /// <param name="limit">A parameter to limit the number of search results returned when searching for a player</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A collection of all NHL players based on the search query provided</returns>
-    public async Task<List<Models.Player.PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default)
+    public async Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default)
     {
         return await _nhlPlayerApi.SearchAllActivePlayersAsync(query, limit, cancellationToken);
     }
@@ -247,6 +247,7 @@ public class NhlApi : INhlApi
     /// <param name="playerId">An NHL player id, Example: 8479361 - Joseph Woll</param>
     /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="gameType">The game type parameter for determining the game type for the type of player season logs</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>The collection of player season game logs with each game played including statistics, all available season and more</returns>
     public async Task<GoalieSeasonGameLog> GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(int playerId, string seasonYear, GameType gameType, CancellationToken cancellationToken = default)
     {
@@ -719,26 +720,26 @@ public class NhlApi : INhlApi
     }
 
     /// <summary>
-    /// Returns the number of face offs won by a player for a specific season and game type
+    /// Returns the number of total number of a player statistics for a player for a specific season
     /// </summary>
     /// <param name="playerEnum">The player enumeration identifier, specifying which the NHL player, <see cref="PlayerEnum"/> for more information </param>
     /// <param name="playerGameCenterStatistic">The NHL player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information on valid game center statistics</param>
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>Returns the number of face offs won by a player for a specific season and game type</returns>
+    /// <returns>Returns the number of total number of a player statistics for a player for a specific season</returns>
     public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, CancellationToken cancellationToken = default)
     {
-       return await _nhlStatisticsApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum, playerGameCenterStatistic,seasonYear, cancellationToken);
+        return await _nhlStatisticsApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum, playerGameCenterStatistic, seasonYear, cancellationToken);
     }
 
     /// <summary>
-    /// Returns the number of face offs won by a player for a specific season and game type
+    /// Returns the number of total number of a player statistics for a player for a specific season 
     /// </summary>
     /// <param name="playerId">The NHL player identifier, Example: 8478402 - Connor McDavid</param>
     /// <param name="playerGameCenterStatistic">The NHL player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information on valid game center statistics</param>
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>Returns the number of face offs won by a player for a specific season and game type</returns>
+    /// <returns>Returns the number of total number of a player statistics for a player for a specific season</returns>
     public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, CancellationToken cancellationToken = default)
     {
         return await _nhlStatisticsApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId, playerGameCenterStatistic, seasonYear, cancellationToken);
@@ -755,6 +756,30 @@ public class NhlApi : INhlApi
     }
 
     /// <summary>
+    /// Returns the all the NHL player game center statistics for a specific player for a specific season and game type
+    /// </summary>
+    /// <param name="playerId">The NHL player identifier, specifying which the NHL player, Example: 8478402 - Connor McDavid </param>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
+    /// <returns>Returns the all the NHL player game center statistics for a specific player for a specific season and game type</returns>
+    public async Task<(PlayerProfile PlayerProfile, Dictionary<PlayerGameCenterStatistic, int> StatisticsTotals)> GetAllTotalPlayerStatisticValueBySeasonAsync(int playerId, string seasonYear, CancellationToken cancellationToken = default)
+    {
+        return await _nhlStatisticsApi.GetAllTotalPlayerStatisticValueBySeasonAsync(playerId, seasonYear, cancellationToken);
+    }
+
+    /// <summary>
+    /// Returns the all the NHL player game center statistics for a specific player for a specific season and game type
+    /// </summary>
+    /// <param name="playerEnum">The player enumeration identifier, specifying which the NHL player, <see cref="PlayerEnum"/> for more information </param>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
+    /// <returns>Returns the all the NHL player game center statistics for a specific player for a specific season and game type</returns>
+    public async Task<(PlayerProfile PlayerProfile, Dictionary<PlayerGameCenterStatistic, int> StatisticsTotals)> GetAllTotalPlayerStatisticValueBySeasonAsync(PlayerEnum playerEnum, string seasonYear, CancellationToken cancellationToken = default)
+    {
+        return await _nhlStatisticsApi.GetAllTotalPlayerStatisticValueBySeasonAsync(playerEnum, seasonYear, cancellationToken);
+    }
+
+    /// <summary>
     /// Releases and disposes all unused or garbage collected resources for the Nhl.Api
     /// </summary>
     public void Dispose() => _nhlPlayerApi?.Dispose();
@@ -764,4 +789,5 @@ public class NhlApi : INhlApi
     /// </summary>
     /// <returns>The await-able result of the asynchronous operation</returns>
     public async ValueTask DisposeAsync() => await Task.Run(() => _nhlPlayerApi?.Dispose());
+
 }

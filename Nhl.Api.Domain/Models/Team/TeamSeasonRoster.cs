@@ -168,7 +168,7 @@ public abstract class TeamRosterPlayer
     /// Example: CAN or USA
     /// </summary>
     [JsonProperty("birthCountry")]
-    public string BirthCountry { get; set; }
+    public string BirthCountry { get; set; }    
 
     /// <summary>
     /// The NHL player birth state or province <br/>
@@ -176,6 +176,11 @@ public abstract class TeamRosterPlayer
     /// </summary>
     [JsonProperty("birthStateProvince")]
     public BirthStateProvince BirthStateProvince { get; set; }
+
+    /// <summary>
+    /// The NHL player full name
+    /// </summary>  
+    public string FullName => $"{FirstName?.Default} {LastName?.Default}";
 }
 
 /// <summary>

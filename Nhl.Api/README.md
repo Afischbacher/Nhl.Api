@@ -386,7 +386,7 @@ Returns the all the NHL player game center statistics for a specific player for 
 
 ##### Returns
 
-Returns the all the NHL player game center statistics for a specific player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Parameters
 
@@ -405,7 +405,7 @@ Returns the all the NHL player game center statistics for a specific player for 
 
 ##### Returns
 
-Returns the all the NHL player game center statistics for a specific player for a specific season and game type
+Returns the number of total number of a player statistics for a player for a specific season
 
 ##### Parameters
 

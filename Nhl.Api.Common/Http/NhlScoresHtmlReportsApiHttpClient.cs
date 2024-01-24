@@ -4,29 +4,29 @@ using System.Net.Http;
 namespace Nhl.Api.Common.Http;
 
 /// <summary>
-/// The dedicated NHL statistics HTTP Client for the Nhl.Api
+/// The NHL endpoint for HTML reports
 /// </summary>
-public class NhlStatsApiHttpClient : NhlApiHttpClient
+public class NhlScoresHtmlReportsApiHttpClient : NhlApiHttpClient
 {
     private static readonly object _lock = new object();
     private static HttpClient _httpClient;
 
     /// <summary>
-    /// The NHL statistics NHL HTTP API endpoint
+    /// The NHL endpoint for HTML reports
     /// </summary>
-    public const string ClientApiUrl = "https://statsapi.web.nhl.com/api/";
+    public const string ClientApiUrl = "https://www.nhl.com/scores/htmlreports/";
 
 
     /// <summary>
-    /// The dedicated NHL statistics HTTP Client for the Nhl.Api
+    /// The dedicated NHL endpoint for HTML reports
     /// </summary>
-    public NhlStatsApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: "v1", timeoutInSeconds: 30)
+    public NhlScoresHtmlReportsApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
     {
 
     }
 
     /// <summary>
-    /// The HTTP client for the Nhl.Api
+    /// The HTTP Client dedicated NHL endpoint for HTML reports
     /// </summary>
     public override HttpClient HttpClient
     {

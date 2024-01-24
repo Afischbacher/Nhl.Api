@@ -1,4 +1,6 @@
+using Nhl.Api.Common.Http;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Nhl.Api.Tests;
 
@@ -194,5 +196,48 @@ public class GameTests
         Assert.IsNotNull(results.Teams);
         Assert.IsNotNull(results.SeasonStates);
 
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task NhlScoresHtmlReportsApiHttpClient_Can_Parse_Html_Report_For_Start_End_Period_Times()
+    {
+        var dictionary = new Dictionary<string, List<string>>
+        {
+            { "P1", new List<string>() },
+            { "P2", new List<string>() },
+            { "P3", new List<string>() },
+            { "OT", new List<string>() },
+            { "SH", new List<string>() },
+        };
+
+        var httpClient = new NhlScoresHtmlReportsApiHttpClient();
+        var gameReport = await httpClient.GetStringAsync("/20232024/PL020206.HTM");
+
+        var regex = Regex.Matches(@"(?<=<td class="" \+ bborder"">)Period(.*?)(?=</td>)", gameReport, RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(30)).ToList();
+
+        for (int i = 0; i < regex.Count; i++)
+        {
+            var value = Regex.Match(@"([0-9]{1,2}:[0-9]{2}\s[A-Z]{3})", gameReport, RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(30)).Groups[0].Value;
+            if (i <= 1)
+            {
+                dictionary["P1"].Add(value);
+            }
+            else if (i >= 2 && i <= 3)
+            {
+                dictionary["P2"].Add(value);
+            }
+            else if (i >= 4 && i <= 5)
+            {
+                dictionary["P3"].Add(value);
+            }
+            else if (i >= 6 && i <= 7)
+            {
+                dictionary["OT"].Add(value);
+            }
+            else if (i <= 9)
+            {
+                dictionary["SH"].Add(value);
+            }
+        }
     }
 }
