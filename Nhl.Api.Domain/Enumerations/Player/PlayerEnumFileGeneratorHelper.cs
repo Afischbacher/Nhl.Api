@@ -16,6 +16,7 @@ namespace Nhl.Api.Models.Enumerations.Player;
 public static class PlayerEnumFileGeneratorHelper
 {
     private static readonly INhlApiHttpClient _nhlApiHttpClient = new NhlEApiHttpClient();
+
     /// <summary>
     /// Retrieves all NHL players to have player in the NHL
     /// </summary>
@@ -26,7 +27,6 @@ public static class PlayerEnumFileGeneratorHelper
 
         var playerSearchResultsTasks = new List<Task<PlayerData>>();
         var players = new Dictionary<int, string>();
-        _nhlApiHttpClient.HttpClient.Timeout = TimeSpan.FromSeconds(90);
         var response = _nhlApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}").Result;
         var total = response.Total;
 
