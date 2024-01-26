@@ -763,7 +763,7 @@ public class PlayerTests
         }
     }
 
-    [TestMethodWithRetry(RetryCount = 5)]
+    [TestMethodWithRetry(RetryCount = 10, RetryDelayInSeconds = 10)]
     public async Task GetAllPlayersAsync_Returns_All_Players()
     {
         // Arrange 

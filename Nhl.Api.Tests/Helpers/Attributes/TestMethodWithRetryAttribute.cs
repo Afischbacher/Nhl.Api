@@ -17,19 +17,19 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute
     /// <summary>
     /// A delay time between each test execution retry attempt
     /// </summary>
-    public TimeSpan RetryDelay { get; set; } = TimeSpan.Zero;
+    public int RetryDelayInSeconds { get; set; } = 0;
 
     public override TestResult[] Execute(ITestMethod testMethod)
     {
         var count = RetryCount;
-        var backOffDelay = RetryDelay;
+        var backOffDelay = RetryDelayInSeconds;
 
         TestResult[] result = null;
         while (count > 0)
         {
             try
             {
-                Thread.Sleep(backOffDelay);
+                Thread.Sleep(backOffDelay * 1000);
                 result = base.Execute(testMethod);
                 if (result.Any(r => r.TestFailureException != null))
                 {

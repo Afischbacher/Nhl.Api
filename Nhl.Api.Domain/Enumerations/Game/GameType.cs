@@ -6,6 +6,11 @@
 public enum GameType
 {
     /// <summary>
+    /// The NHL game type is a pre season game, see <see cref="GameType"/> for more information
+    /// </summary>
+    PreSeason = 1,
+
+    /// <summary>
     /// The NHL game type is a regular season game, see <see cref="GameType"/> for more information
     /// </summary>
     RegularSeason = 2,

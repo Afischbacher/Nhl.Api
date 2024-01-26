@@ -161,7 +161,7 @@ public class StatisticsTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetAllTotalPlayerStatisticValueBySeasonAsync(playerEnum, seasonYear);
+        var result = await nhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(playerEnum, seasonYear);
 
         // Assert
         Assert.IsNotNull(result);
@@ -183,7 +183,7 @@ public class StatisticsTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetAllTotalPlayerStatisticValueBySeasonAsync(playerId, seasonYear);
+        var result = await nhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(playerId, seasonYear);
 
         // Assert
         Assert.IsNotNull(result);
@@ -204,7 +204,7 @@ public class StatisticsTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetAllTotalPlayerStatisticValueBySeasonAsync(playerId, seasonYear);
+        var result = await nhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(playerId, seasonYear);
 
         // Assert
         Assert.IsNotNull(result);
@@ -252,7 +252,7 @@ public class StatisticsTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetAllTotalPlayerStatisticValueBySeasonAsync(playerEnum, seasonYear);
+        var result = await nhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(playerEnum, seasonYear);
 
         // Assert
         Assert.IsNotNull(result);
@@ -288,5 +288,39 @@ public class StatisticsTests
                 Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.CommittedPenalty], 36);
                 break;
         }
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(8478465, "20232024")]
+    [DataRow(8482496, "20232024")]
+    [DataRow(8481479, "20232024")]
+    [DataRow(8477507, "20232024")]
+    public async Task GetTotalPlayerStatisticValuesByTypeAndSeasonAsync_Returns_Valid_Information_With_Player_Id_Certain_Cases(int playerId, string seasonYear)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(playerId, seasonYear, GameType.RegularSeason);
+
+        // Assert
+        Assert.IsNotNull(result);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(PlayerEnum.GuillaumeBrisebois8478465, "20232024")]
+    [DataRow(PlayerEnum.NilsAman8482496, "20232024")]
+    [DataRow(PlayerEnum.BroganRafferty8481479, "20232024")]
+    [DataRow(PlayerEnum.NikitaZadorov8477507, "20232024")]
+    public async Task GetTotalPlayerStatisticValuesByTypeAndSeasonAsync_Returns_Valid_Information_With_Player_Enum_Certain_Cases_For_Regular_Season(PlayerEnum playerEnum, string seasonYear)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(playerEnum, seasonYear, GameType.RegularSeason);
+
+        // Assert
+        Assert.IsNotNull(result);
     }
 }
