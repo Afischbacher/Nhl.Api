@@ -309,7 +309,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var player = await _nhlPlayerApi.GetPlayerInformationAsync(playerEnum, cancellationToken);
         if (player.Position == "G")
         {
-            throw new InvalidPlayerPositionException($"The player id {playerEnum} provided is a goaltender and is not a valid player");
+            return (player, statisticTotals);
         }
 
         // Get Player Team By Season
@@ -401,7 +401,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var player = await _nhlPlayerApi.GetPlayerInformationAsync(playerId, cancellationToken);
         if (player.Position == "G")
         {
-            throw new InvalidPlayerPositionException($"The player id {playerId} provided is a goaltender and is not a valid player");
+            return (player, statisticTotals);
         }
 
         // Get Player Team By Season
