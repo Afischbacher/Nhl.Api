@@ -109,8 +109,8 @@ public interface INhlStatisticsApi
     /// </summary>
     /// <param name="playerEnum">The player enumeration identifier, specifying which the NHL player, <see cref="PlayerEnum"/> for more information </param>
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
-    /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
     /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
     /// <returns>Returns the number of total number of a player statistics for a player for a specific season</returns>
     public Task<(PlayerProfile PlayerProfile, Dictionary<PlayerGameCenterStatistic, int> StatisticsTotals)> GetAllTotalPlayerStatisticValuesBySeasonAsync(PlayerEnum playerEnum, string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default);
 }
