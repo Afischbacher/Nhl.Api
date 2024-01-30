@@ -321,7 +321,7 @@ public class StatisticsTests
 
         // Act
         var result = await nhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(playerEnum, seasonYear, GameType.RegularSeason);
-
+       
         // Assert
         Assert.IsNotNull(result);
     }
