@@ -41,7 +41,10 @@ public static class PlayerEnumFileGeneratorHelper
         {
             foreach (var playerSearchResult in playerSearchResults.Data)
             {
-                players.Add(playerSearchResult.Id, $"{Regex.Replace(ReplaceNonAsciiWithAscii(playerSearchResult.FullName), @"('|\.|\s|-|_|&|)", string.Empty, RegexOptions.CultureInvariant | RegexOptions.Compiled)}{playerSearchResult.Id}");
+                if (!players.ContainsKey(playerSearchResult.Id))
+                {
+                    players.Add(playerSearchResult.Id, $"{Regex.Replace(ReplaceNonAsciiWithAscii(playerSearchResult.FullName), @"('|\.|\s|-|_|&|)", string.Empty, RegexOptions.CultureInvariant | RegexOptions.Compiled)}{playerSearchResult.Id}");
+                }
             }
         }
 
