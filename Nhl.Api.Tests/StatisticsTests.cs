@@ -204,7 +204,7 @@ public class StatisticsTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(playerId, seasonYear);
+        var result = await nhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(playerId, seasonYear, gameType: null);
 
         // Assert
         Assert.IsNotNull(result);
@@ -322,5 +322,22 @@ public class StatisticsTests
 
         // Assert
         Assert.IsNotNull(result);
+    }
+
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(8471675, "20122013")]
+    [DataRow(8471214, "20182019")]
+    public async Task GetTotalPlayerStatisticValueByTypeAndSeasonAsync_Returns_Valid_Information_With_Player_Id_For_Playoffs(int playerId, string seasonYear)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId, PlayerGameCenterStatistic.MissedShot,  seasonYear, gameType: GameType.Playoffs);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result > 5);   
     }
 }

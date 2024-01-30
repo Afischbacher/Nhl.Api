@@ -77,10 +77,11 @@ public interface INhlStatisticsApi
     /// </summary>
     /// <param name="playerEnum">The player enumeration identifier, specifying which the NHL player, <see cref="PlayerEnum"/> for more information </param>
     /// <param name="playerGameCenterStatistic">The player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information </param>
-    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>.
+    /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the total value of a statistic type for a player for a specific season, including face offs won, hits, shots on goal, missed shots, blocked shots, giveaways, penalties and takeaways</returns>
-    public Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, CancellationToken cancellationToken = default);
+    public Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Returns the total value of a statistic type for a player for a specific season, including face offs won, hits, shots on goal, missed shots, blocked shots, giveaways, penalties and takeaways
@@ -88,9 +89,10 @@ public interface INhlStatisticsApi
     /// <param name="playerId">The NHL player identifier, specifying which the NHL player, Example: 8478402 - Connor McDavid </param>
     /// <param name="playerGameCenterStatistic">The player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information </param>
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the total value of a statistic type for a player for a specific season, including face offs won, hits, shots on goal, missed shots, blocked shots, giveaways, penalties and takeaways</returns>
-    public Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, CancellationToken cancellationToken = default);
+    public Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Returns the all the NHL player game center statistics for a specific player for a specific season
