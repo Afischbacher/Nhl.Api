@@ -273,16 +273,16 @@ public class PlayerTests
         // Act / Assert
         await Assert.ThrowsExceptionAsync<ArgumentException>(async () =>
         {
-           await nhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(playerEnum, "999999", gameType);
+            await nhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(playerEnum, "999999", gameType);
         });
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    [DataRow(PlayerEnum.MarcAndreFleury8470594,  GameType.RegularSeason)]
+    [DataRow(PlayerEnum.MarcAndreFleury8470594, GameType.RegularSeason)]
     [DataRow(PlayerEnum.JuuseSaros8477424, GameType.RegularSeason)]
-    [DataRow(PlayerEnum.JosephWoll8479361,  GameType.RegularSeason)]
+    [DataRow(PlayerEnum.JosephWoll8479361, GameType.RegularSeason)]
     [DataRow(PlayerEnum.AndreiVasilevskiy8476883, GameType.Playoffs)]
-    public async Task GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync_Test_PlayerEnum_Fails_Season_Year_Empty(PlayerEnum playerEnum,  GameType gameType)
+    public async Task GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync_Test_PlayerEnum_Fails_Season_Year_Empty(PlayerEnum playerEnum, GameType gameType)
     {
         // Arrange 
         await using var nhlApi = new NhlApi();

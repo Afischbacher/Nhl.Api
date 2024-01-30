@@ -1,4 +1,5 @@
-﻿using Nhl.Api.Common.Helpers;
+﻿using Nhl.Api.Common.Extensions;
+using Nhl.Api.Common.Helpers;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Team;
 using System;
@@ -239,7 +240,7 @@ public class NhlTeamService : INhlTeamService
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
     public string GetTeamCodeIdentifierByTeamName(string teamName)
     {
-        return teamName switch
+        return teamName.ReplaceNonAsciiWithAscii() switch
         {
             TeamNames.AnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
             TeamNames.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,

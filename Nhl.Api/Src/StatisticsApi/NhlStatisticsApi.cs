@@ -1,5 +1,4 @@
-﻿using Nhl.Api.Common.Exceptions;
-using Nhl.Api.Common.Extensions;
+﻿using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Helpers;
 using Nhl.Api.Common.Http;
 using Nhl.Api.Enumerations.Game;
@@ -167,7 +166,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var player = await _nhlPlayerApi.GetPlayerInformationAsync(playerEnum, cancellationToken);
         if (player.Position == "G")
         {
-            throw new InvalidPlayerPositionException($"The player id {playerEnum} provided is a goaltender and is not a valid player");
+            return 0;
         }
 
         // Get team season schedule
@@ -233,7 +232,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var player = await _nhlPlayerApi.GetPlayerInformationAsync(playerId, cancellationToken);
         if (player.Position == "G")
         {
-            throw new InvalidPlayerPositionException($"The player id {playerId} provided is a goaltender and is not a valid player");
+            return 0;
         }
 
         // Get team season schedule
@@ -318,7 +317,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         {
             return (player, statisticTotals);
         }
-        
+
         var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamName(teamName);
 
         // Get team season schedule
@@ -405,7 +404,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
 
         // Get Player Team By Season
         var teamName = player.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
-        
+
         // If no team exists for the season, return the player and the statistic totals as empty
         if (string.IsNullOrWhiteSpace(teamName))
         {
@@ -416,9 +415,9 @@ public class NhlStatisticsApi : INhlStatisticsApi
 
         // Get team season schedule
         var schedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(teamAbbreviation, seasonYear, cancellationToken);
-        if (gameType.HasValue) 
-        {             
-           schedule.Games = schedule.Games.Where(x => x.GameType == (int)gameType).ToList();
+        if (gameType.HasValue)
+        {
+            schedule.Games = schedule.Games.Where(x => x.GameType == (int)gameType).ToList();
         }
 
         // Create tasks to retrieve game information

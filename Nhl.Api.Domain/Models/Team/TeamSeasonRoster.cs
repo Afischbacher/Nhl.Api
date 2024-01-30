@@ -168,7 +168,7 @@ public abstract class TeamRosterPlayer
     /// Example: CAN or USA
     /// </summary>
     [JsonProperty("birthCountry")]
-    public string BirthCountry { get; set; }    
+    public string BirthCountry { get; set; }
 
     /// <summary>
     /// The NHL player birth state or province <br/>
