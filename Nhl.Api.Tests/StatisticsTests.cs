@@ -1,6 +1,7 @@
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
 using Nhl.Api.Models.Season;
+using System.Collections.Concurrent;
 using System.Linq;
 
 namespace Nhl.Api.Tests;
@@ -324,6 +325,35 @@ public class StatisticsTests
         Assert.IsNotNull(result);
     }
 
+    [TestMethodWithRetry(RetryCount = 10)]
+    public async Task GetTotalPlayerStatisticValuesByTypeAndSeasonAsync_Returns_Valid_Information_For_Random_Players()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        var indexes = new HashSet<int>();
+        Enumerable.Range(1,50).ToList().ForEach( i => indexes.Add(new Random().Next(0, 1000)));
+
+        var concurrentCollection = new ConcurrentBag<PlayerEnum>(Enum.GetValues(typeof(PlayerEnum)).Cast<PlayerEnum>().ToList().Select((value, i) => 
+        {
+            if (indexes.Contains(i))
+            {
+                return value;
+            }
+
+            return default;
+
+        }).Where(x => x != default));
+        
+        Parallel.ForEach(concurrentCollection, new ParallelOptions { MaxDegreeOfParallelism = 16 }, async (playerEnum) =>
+        {
+            // Act
+            var result = await nhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(playerEnum, "20232024", GameType.RegularSeason);
+
+            // Assert
+            Assert.IsNotNull(result);
+        });
+    }
 
     [TestMethodWithRetry(RetryCount = 5)]
     [DataRow(8471675, "20122013")]
