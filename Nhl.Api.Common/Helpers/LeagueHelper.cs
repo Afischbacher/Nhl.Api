@@ -3,7 +3,8 @@
 /// <summary>
 /// The league helper class for all league related information
 /// </summary>
-public static class LeagueHelper
+public static class HockeyLeague
+
 {
     /// <summary>
     /// The National Hockey League

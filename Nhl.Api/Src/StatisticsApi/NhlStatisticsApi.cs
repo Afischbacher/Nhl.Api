@@ -313,7 +313,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         }
 
         // Get Player Team By Season
-        var teamName = player.SeasonTotals.Find(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(LeagueHelper.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
+        var teamName = player.SeasonTotals.Find(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
         // If no team exists for the season, return the player and the statistic totals as empty
         if (string.IsNullOrWhiteSpace(teamName))
         {
@@ -405,7 +405,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         }
 
         // Get Player Team By Season
-        var teamName = player.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(LeagueHelper.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
+        var teamName = player.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
         
         // If no team exists for the season, return the player and the statistic totals as empty
         if (string.IsNullOrWhiteSpace(teamName))
