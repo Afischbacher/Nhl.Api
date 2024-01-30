@@ -125,8 +125,8 @@ Thank you to all the people in the hockey community, especially:
   - [GetAllRosterSeasonsByTeamAsync(teamId,cancellationToken)](#M-Nhl-Api-NhlApi-GetAllRosterSeasonsByTeamAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllRosterSeasonsByTeamAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetAllRosterSeasonsByTeamAsync(team,cancellationToken)](#M-Nhl-Api-NhlApi-GetAllRosterSeasonsByTeamAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllRosterSeasonsByTeamAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Threading.CancellationToken)')
   - [GetAllSeasonsAsync()](#M-Nhl-Api-NhlApi-GetAllSeasonsAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllSeasonsAsync(System.Threading.CancellationToken)')
-  - [GetAllTotalPlayerStatisticValueBySeasonAsync(playerId,seasonYear,cancellationToken)](#M-Nhl-Api-NhlApi-GetAllTotalPlayerStatisticValueBySeasonAsync-System-Int32,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllTotalPlayerStatisticValueBySeasonAsync(System.Int32,System.String,System.Threading.CancellationToken)')
-  - [GetAllTotalPlayerStatisticValueBySeasonAsync(playerEnum,seasonYear,cancellationToken)](#M-Nhl-Api-NhlApi-GetAllTotalPlayerStatisticValueBySeasonAsync-PlayerEnum,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllTotalPlayerStatisticValueBySeasonAsync(PlayerEnum,System.String,System.Threading.CancellationToken)')
+  - [GetAllTotalPlayerStatisticValuesBySeasonAsync(playerId,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlApi-GetAllTotalPlayerStatisticValuesBySeasonAsync-System-Int32,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(System.Int32,System.String,System.Nullable{Nhl.Api.Enumerations.Game.GameType},System.Threading.CancellationToken)')
+  - [GetAllTotalPlayerStatisticValuesBySeasonAsync(playerEnum,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlApi-GetAllTotalPlayerStatisticValuesBySeasonAsync-PlayerEnum,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(PlayerEnum,System.String,System.Nullable{Nhl.Api.Enumerations.Game.GameType},System.Threading.CancellationToken)')
   - [GetCurrentTeamScoreboardAsync(teamId,cancellationToken)](#M-Nhl-Api-NhlApi-GetCurrentTeamScoreboardAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetCurrentTeamScoreboardAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetCurrentTeamScoreboardAsync(team,cancellationToken)](#M-Nhl-Api-NhlApi-GetCurrentTeamScoreboardAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetCurrentTeamScoreboardAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Threading.CancellationToken)')
   - [GetGameCenterBoxScoreByGameIdAsync(gameId,cancellationToken)](#M-Nhl-Api-NhlApi-GetGameCenterBoxScoreByGameIdAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetGameCenterBoxScoreByGameIdAsync(System.Int32,System.Threading.CancellationToken)')
@@ -177,8 +177,8 @@ Thank you to all the people in the hockey community, especially:
   - [GetTeamWeekScheduleByDateAsync(teamAbbreviation,date,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateAsync-System-String,System-DateOnly,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamWeekScheduleByDateAsync(System.String,System.DateOnly,System.Threading.CancellationToken)')
   - [GetTeamWeekScheduleByDateAsync(teamId,date,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateAsync-System-Int32,System-DateOnly,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamWeekScheduleByDateAsync(System.Int32,System.DateOnly,System.Threading.CancellationToken)')
   - [GetTeamWeekScheduleByDateAsync(team,date,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamWeekScheduleByDateAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-DateOnly,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamWeekScheduleByDateAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.DateOnly,System.Threading.CancellationToken)')
-  - [GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum,playerGameCenterStatistic,seasonYear,cancellationToken)](#M-Nhl-Api-NhlApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-PlayerEnum,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum,Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic,System.String,System.Threading.CancellationToken)')
-  - [GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId,playerGameCenterStatistic,seasonYear,cancellationToken)](#M-Nhl-Api-NhlApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-System-Int32,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(System.Int32,Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic,System.String,System.Threading.CancellationToken)')
+  - [GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum,playerGameCenterStatistic,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-PlayerEnum,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum,Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic,System.String,System.Nullable{Nhl.Api.Enumerations.Game.GameType},System.Threading.CancellationToken)')
+  - [GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId,playerGameCenterStatistic,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-System-Int32,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(System.Int32,Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic,System.String,System.Nullable{Nhl.Api.Enumerations.Game.GameType},System.Threading.CancellationToken)')
   - [GetTvScheduleBroadcastByDateAsync(date,cancellationToken)](#M-Nhl-Api-NhlApi-GetTvScheduleBroadcastByDateAsync-System-DateOnly,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTvScheduleBroadcastByDateAsync(System.DateOnly,System.Threading.CancellationToken)')
   - [IsLeagueActiveAsync()](#M-Nhl-Api-NhlApi-IsLeagueActiveAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlApi.IsLeagueActiveAsync(System.Threading.CancellationToken)')
   - [IsPlayoffSeasonActiveAsync(cancellationToken)](#M-Nhl-Api-NhlApi-IsPlayoffSeasonActiveAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlApi.IsPlayoffSeasonActiveAsync(System.Threading.CancellationToken)')
@@ -250,16 +250,16 @@ Thank you to all the people in the hockey community, especially:
   - [SearchAllPlayersAsync(query,limit,cancellationToken)](#M-Nhl-Api-NhlPlayerApi-SearchAllPlayersAsync-System-String,System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlPlayerApi.SearchAllPlayersAsync(System.String,System.Int32,System.Threading.CancellationToken)')
 - [NhlStatisticsApi](#T-Nhl-Api-NhlStatisticsApi 'Nhl.Api.NhlStatisticsApi')
   - [#ctor()](#M-Nhl-Api-NhlStatisticsApi-#ctor 'Nhl.Api.NhlStatisticsApi.#ctor')
-  - [GetAllTotalPlayerStatisticValueBySeasonAsync(playerEnum,seasonYear,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetAllTotalPlayerStatisticValueBySeasonAsync-PlayerEnum,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetAllTotalPlayerStatisticValueBySeasonAsync(PlayerEnum,System.String,System.Threading.CancellationToken)')
-  - [GetAllTotalPlayerStatisticValueBySeasonAsync(playerId,seasonYear,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetAllTotalPlayerStatisticValueBySeasonAsync-System-Int32,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetAllTotalPlayerStatisticValueBySeasonAsync(System.Int32,System.String,System.Threading.CancellationToken)')
+  - [GetAllTotalPlayerStatisticValuesBySeasonAsync(playerEnum,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetAllTotalPlayerStatisticValuesBySeasonAsync-PlayerEnum,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(PlayerEnum,System.String,System.Nullable{Nhl.Api.Enumerations.Game.GameType},System.Threading.CancellationToken)')
+  - [GetAllTotalPlayerStatisticValuesBySeasonAsync(playerId,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetAllTotalPlayerStatisticValuesBySeasonAsync-System-Int32,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(System.Int32,System.String,System.Nullable{Nhl.Api.Enumerations.Game.GameType},System.Threading.CancellationToken)')
   - [GetGoalieStatisticsLeadersAsync(goalieStatisticsType,seasonYear,gameType,limit,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsLeadersAsync-Nhl-Api-Enumerations-Statistic-GoalieStatisticsType,Nhl-Api-Enumerations-Game-GameType,System-String,System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetGoalieStatisticsLeadersAsync(Nhl.Api.Enumerations.Statistic.GoalieStatisticsType,Nhl.Api.Enumerations.Game.GameType,System.String,System.Int32,System.Threading.CancellationToken)')
   - [GetSkaterStatisticsLeadersAsync(playerStatisticsType,seasonYear,gameType,limit,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetSkaterStatisticsLeadersAsync-Nhl-Api-Enumerations-Statistic-PlayerStatisticsType,Nhl-Api-Enumerations-Game-GameType,System-String,System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetSkaterStatisticsLeadersAsync(Nhl.Api.Enumerations.Statistic.PlayerStatisticsType,Nhl.Api.Enumerations.Game.GameType,System.String,System.Int32,System.Threading.CancellationToken)')
   - [GetTeamStatisticsBySeasonAndGameTypeAsync(team,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetTeamStatisticsBySeasonAndGameTypeAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String,Nhl-Api-Enumerations-Game-GameType,System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetTeamStatisticsBySeasonAndGameTypeAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.String,Nhl.Api.Enumerations.Game.GameType,System.Threading.CancellationToken)')
   - [GetTeamStatisticsBySeasonAndGameTypeAsync(teamId,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetTeamStatisticsBySeasonAndGameTypeAsync-System-Int32,System-String,Nhl-Api-Enumerations-Game-GameType,System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetTeamStatisticsBySeasonAndGameTypeAsync(System.Int32,System.String,Nhl.Api.Enumerations.Game.GameType,System.Threading.CancellationToken)')
   - [GetTeamStatisticsBySeasonAsync(team,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetTeamStatisticsBySeasonAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetTeamStatisticsBySeasonAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Threading.CancellationToken)')
   - [GetTeamStatisticsBySeasonAsync(teamId,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetTeamStatisticsBySeasonAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetTeamStatisticsBySeasonAsync(System.Int32,System.Threading.CancellationToken)')
-  - [GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum,playerGameCenterStatistic,seasonYear,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-PlayerEnum,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum,Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic,System.String,System.Threading.CancellationToken)')
-  - [GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId,playerGameCenterStatistic,seasonYear,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-System-Int32,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(System.Int32,Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic,System.String,System.Threading.CancellationToken)')
+  - [GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum,playerGameCenterStatistic,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-PlayerEnum,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum,Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic,System.String,System.Nullable{Nhl.Api.Enumerations.Game.GameType},System.Threading.CancellationToken)')
+  - [GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId,playerGameCenterStatistic,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlStatisticsApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-System-Int32,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken- 'Nhl.Api.NhlStatisticsApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(System.Int32,Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic,System.String,System.Nullable{Nhl.Api.Enumerations.Game.GameType},System.Threading.CancellationToken)')
 
 <a name='T-Nhl-Api-NhlApi'></a>
 ## NhlApi `type`
@@ -377,8 +377,8 @@ Returns all the NHL seasons for the NHL league
 
 This method has no parameters.
 
-<a name='M-Nhl-Api-NhlApi-GetAllTotalPlayerStatisticValueBySeasonAsync-System-Int32,System-String,System-Threading-CancellationToken-'></a>
-### GetAllTotalPlayerStatisticValueBySeasonAsync(playerId,seasonYear,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlApi-GetAllTotalPlayerStatisticValuesBySeasonAsync-System-Int32,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken-'></a>
+### GetAllTotalPlayerStatisticValuesBySeasonAsync(playerId,seasonYear,gameType,cancellationToken) `method`
 
 ##### Summary
 
@@ -386,7 +386,7 @@ Returns the all the NHL player game center statistics for a specific player for 
 
 ##### Returns
 
-Returns the number of total number of a player statistics for a player for a specific season
+Returns the all the NHL player game center statistics for a specific player for a specific season and game type
 
 ##### Parameters
 
@@ -394,10 +394,11 @@ Returns the number of total number of a player statistics for a player for a spe
 | ---- | ---- | ----------- |
 | playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL player identifier, specifying which the NHL player, Example: 8478402 - Connor McDavid |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year to retrieve the team statistics, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information on valid season years |
+| gameType | [System.Nullable{Nhl.Api.Enumerations.Game.GameType}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{Nhl.Api.Enumerations.Game.GameType}') | The NHL game type to retrieve the team statistics, see [GameType](#T-Nhl-Api-Enumerations-Game-GameType 'Nhl.Api.Enumerations.Game.GameType') for more information on valid game types |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the asynchronous operation |
 
-<a name='M-Nhl-Api-NhlApi-GetAllTotalPlayerStatisticValueBySeasonAsync-PlayerEnum,System-String,System-Threading-CancellationToken-'></a>
-### GetAllTotalPlayerStatisticValueBySeasonAsync(playerEnum,seasonYear,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlApi-GetAllTotalPlayerStatisticValuesBySeasonAsync-PlayerEnum,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken-'></a>
+### GetAllTotalPlayerStatisticValuesBySeasonAsync(playerEnum,seasonYear,gameType,cancellationToken) `method`
 
 ##### Summary
 
@@ -405,7 +406,7 @@ Returns the all the NHL player game center statistics for a specific player for 
 
 ##### Returns
 
-Returns the number of total number of a player statistics for a player for a specific season
+Returns the all the NHL player game center statistics for a specific player for a specific season and game type
 
 ##### Parameters
 
@@ -413,6 +414,7 @@ Returns the number of total number of a player statistics for a player for a spe
 | ---- | ---- | ----------- |
 | playerEnum | [PlayerEnum](#T-PlayerEnum 'PlayerEnum') | The player enumeration identifier, specifying which the NHL player, [PlayerEnum](#T-PlayerEnum 'PlayerEnum') for more information |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year to retrieve the team statistics, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information on valid season years |
+| gameType | [System.Nullable{Nhl.Api.Enumerations.Game.GameType}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{Nhl.Api.Enumerations.Game.GameType}') | The NHL game type to retrieve the team statistics, see [GameType](#T-Nhl-Api-Enumerations-Game-GameType 'Nhl.Api.Enumerations.Game.GameType') for more information on valid game types |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the asynchronous operation |
 
 <a name='M-Nhl-Api-NhlApi-GetCurrentTeamScoreboardAsync-System-Int32,System-Threading-CancellationToken-'></a>
@@ -1347,8 +1349,8 @@ Returns the NHL team schedule for the specified team and the specified date and 
 | date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date and time, Example: 2020-10-02 |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
-<a name='M-Nhl-Api-NhlApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-PlayerEnum,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Threading-CancellationToken-'></a>
-### GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum,playerGameCenterStatistic,seasonYear,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-PlayerEnum,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken-'></a>
+### GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum,playerGameCenterStatistic,seasonYear,gameType,cancellationToken) `method`
 
 ##### Summary
 
@@ -1365,10 +1367,11 @@ Returns the number of total number of a player statistics for a player for a spe
 | playerEnum | [PlayerEnum](#T-PlayerEnum 'PlayerEnum') | The player enumeration identifier, specifying which the NHL player, [PlayerEnum](#T-PlayerEnum 'PlayerEnum') for more information |
 | playerGameCenterStatistic | [Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic](#T-Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic 'Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic') | The NHL player game center statistic type, [PlayerGameCenterStatistic](#T-Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic 'Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic') for more information on valid game center statistics |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year to retrieve the team statistics, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information on valid season years |
+| gameType | [System.Nullable{Nhl.Api.Enumerations.Game.GameType}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{Nhl.Api.Enumerations.Game.GameType}') | The NHL game type to retrieve the team statistics, see [GameType](#T-Nhl-Api-Enumerations-Game-GameType 'Nhl.Api.Enumerations.Game.GameType') for more information on valid game types |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
-<a name='M-Nhl-Api-NhlApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-System-Int32,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Threading-CancellationToken-'></a>
-### GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId,playerGameCenterStatistic,seasonYear,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-System-Int32,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken-'></a>
+### GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId,playerGameCenterStatistic,seasonYear,gameType,cancellationToken) `method`
 
 ##### Summary
 
@@ -1385,6 +1388,7 @@ Returns the number of total number of a player statistics for a player for a spe
 | playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL player identifier, Example: 8478402 - Connor McDavid |
 | playerGameCenterStatistic | [Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic](#T-Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic 'Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic') | The NHL player game center statistic type, [PlayerGameCenterStatistic](#T-Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic 'Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic') for more information on valid game center statistics |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year to retrieve the team statistics, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information on valid season years |
+| gameType | [System.Nullable{Nhl.Api.Enumerations.Game.GameType}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{Nhl.Api.Enumerations.Game.GameType}') | The NHL game type to retrieve the team statistics, see [GameType](#T-Nhl-Api-Enumerations-Game-GameType 'Nhl.Api.Enumerations.Game.GameType') for more information on valid game types |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
 <a name='M-Nhl-Api-NhlApi-GetTvScheduleBroadcastByDateAsync-System-DateOnly,System-Threading-CancellationToken-'></a>
@@ -2622,8 +2626,8 @@ The official unofficial NHL Statistics API providing various NHL information abo
 
 This constructor has no parameters.
 
-<a name='M-Nhl-Api-NhlStatisticsApi-GetAllTotalPlayerStatisticValueBySeasonAsync-PlayerEnum,System-String,System-Threading-CancellationToken-'></a>
-### GetAllTotalPlayerStatisticValueBySeasonAsync(playerEnum,seasonYear,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlStatisticsApi-GetAllTotalPlayerStatisticValuesBySeasonAsync-PlayerEnum,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken-'></a>
+### GetAllTotalPlayerStatisticValuesBySeasonAsync(playerEnum,seasonYear,gameType,cancellationToken) `method`
 
 ##### Summary
 
@@ -2639,10 +2643,11 @@ Returns the number of total number of a player statistics for a player for a spe
 | ---- | ---- | ----------- |
 | playerEnum | [PlayerEnum](#T-PlayerEnum 'PlayerEnum') | The player enumeration identifier, specifying which the NHL player, [PlayerEnum](#T-PlayerEnum 'PlayerEnum') for more information |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year to retrieve the team statistics, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information on valid season years |
+| gameType | [System.Nullable{Nhl.Api.Enumerations.Game.GameType}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{Nhl.Api.Enumerations.Game.GameType}') | The NHL game type to retrieve the team statistics, see [GameType](#T-Nhl-Api-Enumerations-Game-GameType 'Nhl.Api.Enumerations.Game.GameType') for more information on valid game types |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
-<a name='M-Nhl-Api-NhlStatisticsApi-GetAllTotalPlayerStatisticValueBySeasonAsync-System-Int32,System-String,System-Threading-CancellationToken-'></a>
-### GetAllTotalPlayerStatisticValueBySeasonAsync(playerId,seasonYear,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlStatisticsApi-GetAllTotalPlayerStatisticValuesBySeasonAsync-System-Int32,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken-'></a>
+### GetAllTotalPlayerStatisticValuesBySeasonAsync(playerId,seasonYear,gameType,cancellationToken) `method`
 
 ##### Summary
 
@@ -2658,6 +2663,7 @@ Returns the number of total number of a player statistics for a player for a spe
 | ---- | ---- | ----------- |
 | playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL player identifier, specifying which the NHL player, Example: 8478402 - Connor McDavid |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year to retrieve the team statistics, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information on valid season years |
+| gameType | [System.Nullable{Nhl.Api.Enumerations.Game.GameType}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{Nhl.Api.Enumerations.Game.GameType}') | The NHL game type to retrieve the team statistics, see [GameType](#T-Nhl-Api-Enumerations-Game-GameType 'Nhl.Api.Enumerations.Game.GameType') for more information on valid game types |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the asynchronous operation |
 
 <a name='M-Nhl-Api-NhlStatisticsApi-GetGoalieStatisticsLeadersAsync-Nhl-Api-Enumerations-Statistic-GoalieStatisticsType,Nhl-Api-Enumerations-Game-GameType,System-String,System-Int32,System-Threading-CancellationToken-'></a>
@@ -2778,8 +2784,8 @@ Returns all the NHL team valid game types for all valid NHL seasons for the sele
 | teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team identifier, specifying which the NHL team, Example: 55 - Seattle Kraken |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
-<a name='M-Nhl-Api-NhlStatisticsApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-PlayerEnum,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Threading-CancellationToken-'></a>
-### GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum,playerGameCenterStatistic,seasonYear,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlStatisticsApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-PlayerEnum,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken-'></a>
+### GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerEnum,playerGameCenterStatistic,seasonYear,gameType,cancellationToken) `method`
 
 ##### Summary
 
@@ -2796,10 +2802,11 @@ Returns the number of total number of a player statistics for a player for a spe
 | playerEnum | [PlayerEnum](#T-PlayerEnum 'PlayerEnum') | The player enumeration identifier, specifying which the NHL player, [PlayerEnum](#T-PlayerEnum 'PlayerEnum') for more information |
 | playerGameCenterStatistic | [Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic](#T-Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic 'Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic') | The NHL player game center statistic type, [PlayerGameCenterStatistic](#T-Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic 'Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic') for more information on valid game center statistics |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year to retrieve the team statistics, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information on valid season years |
+| gameType | [System.Nullable{Nhl.Api.Enumerations.Game.GameType}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{Nhl.Api.Enumerations.Game.GameType}') | The NHL game type to retrieve the team statistics, see [GameType](#T-Nhl-Api-Enumerations-Game-GameType 'Nhl.Api.Enumerations.Game.GameType') for more information on valid game types |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
-<a name='M-Nhl-Api-NhlStatisticsApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-System-Int32,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Threading-CancellationToken-'></a>
-### GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId,playerGameCenterStatistic,seasonYear,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlStatisticsApi-GetTotalPlayerStatisticValueByTypeAndSeasonAsync-System-Int32,Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken-'></a>
+### GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId,playerGameCenterStatistic,seasonYear,gameType,cancellationToken) `method`
 
 ##### Summary
 
@@ -2816,4 +2823,5 @@ Returns the number of total number of a player statistics for a player for a spe
 | playerId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL player identifier, specifying which the NHL player, Example: 8478402 - Connor McDavid |
 | playerGameCenterStatistic | [Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic](#T-Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic 'Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic') | The NHL player game center statistic type, [PlayerGameCenterStatistic](#T-Nhl-Api-Enumerations-Statistic-PlayerGameCenterStatistic 'Nhl.Api.Enumerations.Statistic.PlayerGameCenterStatistic') for more information on valid game center statistics |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year to retrieve the team statistics, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information on valid season years |
+| gameType | [System.Nullable{Nhl.Api.Enumerations.Game.GameType}](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Nullable 'System.Nullable{Nhl.Api.Enumerations.Game.GameType}') | The NHL game type to retrieve the team statistics, see [GameType](#T-Nhl-Api-Enumerations-Game-GameType 'Nhl.Api.Enumerations.Game.GameType') for more information on valid game types |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the asynchronous operation |

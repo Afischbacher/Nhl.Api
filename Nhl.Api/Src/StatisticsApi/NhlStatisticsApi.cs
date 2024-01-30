@@ -1,5 +1,6 @@
 ﻿using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Common.Extensions;
+using Nhl.Api.Common.Helpers;
 using Nhl.Api.Common.Http;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
@@ -151,9 +152,10 @@ public class NhlStatisticsApi : INhlStatisticsApi
     /// <param name="playerEnum">The player enumeration identifier, specifying which the NHL player, <see cref="PlayerEnum"/> for more information </param>
     /// <param name="playerGameCenterStatistic">The NHL player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information on valid game center statistics</param>
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the number of total number of a player statistics for a player for a specific season</returns>
-    public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, CancellationToken cancellationToken = default)
+    public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default)
     {
         var statisticTotal = 0;
         if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear.Length != 8)
@@ -170,6 +172,10 @@ public class NhlStatisticsApi : INhlStatisticsApi
 
         // Get team season schedule
         var schedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(player.CurrentTeamAbbrev, seasonYear, cancellationToken);
+        if (gameType.HasValue)
+        {
+            schedule.Games = schedule.Games.Where(x => x.GameType == (int)gameType).ToList();
+        }
 
         // Create tasks to retrieve game information
         var tasks = schedule.Games.Select(async game =>
@@ -212,9 +218,10 @@ public class NhlStatisticsApi : INhlStatisticsApi
     /// <param name="playerId">The NHL player identifier, specifying which the NHL player, Example: 8478402 - Connor McDavid </param>
     /// <param name="playerGameCenterStatistic">The NHL player game center statistic type, <see cref="PlayerGameCenterStatistic"/> for more information on valid game center statistics</param>
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
     /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
     /// <returns>Returns the number of total number of a player statistics for a player for a specific season</returns>
-    public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, CancellationToken cancellationToken = default)
+    public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default)
     {
         var statisticTotal = 0;
         if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear.Length != 8)
@@ -231,6 +238,10 @@ public class NhlStatisticsApi : INhlStatisticsApi
 
         // Get team season schedule
         var schedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(player.CurrentTeamAbbrev, seasonYear, cancellationToken);
+        if (gameType.HasValue)
+        {
+            schedule.Games = schedule.Games.Where(x => x.GameType == (int)gameType).ToList();
+        }
 
         // Create tasks to retrieve game information
         var tasks = schedule.Games.Select(async game =>
@@ -271,9 +282,10 @@ public class NhlStatisticsApi : INhlStatisticsApi
     /// </summary>
     /// <param name="playerEnum">The player enumeration identifier, specifying which the NHL player, <see cref="PlayerEnum"/> for more information </param>
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the number of total number of a player statistics for a player for a specific season</returns>
-    public async Task<(PlayerProfile PlayerProfile, Dictionary<PlayerGameCenterStatistic, int> StatisticsTotals)> GetAllTotalPlayerStatisticValueBySeasonAsync(PlayerEnum playerEnum, string seasonYear, CancellationToken cancellationToken = default)
+    public async Task<(PlayerProfile PlayerProfile, Dictionary<PlayerGameCenterStatistic, int> StatisticsTotals)> GetAllTotalPlayerStatisticValuesBySeasonAsync(PlayerEnum playerEnum, string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default)
     {
         var statisticTotals = new Dictionary<PlayerGameCenterStatistic, int>
         {
@@ -296,16 +308,25 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var player = await _nhlPlayerApi.GetPlayerInformationAsync(playerEnum, cancellationToken);
         if (player.Position == "G")
         {
-            throw new InvalidPlayerPositionException($"The player id {playerEnum} provided is a goaltender and is not a valid player");
+            return (player, statisticTotals);
         }
 
         // Get Player Team By Season
-        var teamName = player.SeasonTotals.Find(x => x.Season == int.Parse(seasonYear)).TeamName.Default ?? throw new InvalidSeasonException($"The season year {seasonYear} provided is invalid");
+        var teamName = player.SeasonTotals.Find(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
+        // If no team exists for the season, return the player and the statistic totals as empty
+        if (string.IsNullOrWhiteSpace(teamName))
+        {
+            return (player, statisticTotals);
+        }
+        
         var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamName(teamName);
 
         // Get team season schedule
         var schedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(teamAbbreviation, seasonYear, cancellationToken);
-
+        if (gameType.HasValue)
+        {
+            schedule.Games = schedule.Games.Where(x => x.GameType == (int)gameType).ToList();
+        }
         // Create tasks to retrieve game information
         var tasks = schedule.Games.Select(async game =>
         {
@@ -353,9 +374,10 @@ public class NhlStatisticsApi : INhlStatisticsApi
     /// </summary>
     /// <param name="playerId">The NHL player identifier, specifying which the NHL player, Example: 8478402 - Connor McDavid </param>
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
     /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
     /// <returns>Returns the number of total number of a player statistics for a player for a specific season</returns>
-    public async Task<(PlayerProfile PlayerProfile, Dictionary<PlayerGameCenterStatistic, int> StatisticsTotals)> GetAllTotalPlayerStatisticValueBySeasonAsync(int playerId, string seasonYear, CancellationToken cancellationToken = default)
+    public async Task<(PlayerProfile PlayerProfile, Dictionary<PlayerGameCenterStatistic, int> StatisticsTotals)> GetAllTotalPlayerStatisticValuesBySeasonAsync(int playerId, string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default)
     {
         var statisticTotals = new Dictionary<PlayerGameCenterStatistic, int>
         {
@@ -378,15 +400,26 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var player = await _nhlPlayerApi.GetPlayerInformationAsync(playerId, cancellationToken);
         if (player.Position == "G")
         {
-            throw new InvalidPlayerPositionException($"The player id {playerId} provided is a goaltender and is not a valid player");
+            return (player, statisticTotals);
         }
 
         // Get Player Team By Season
-        var teamName = player.SeasonTotals.Find(x => x.Season == int.Parse(seasonYear)).TeamName.Default ?? throw new InvalidSeasonException($"The season year {seasonYear} provided is invalid");
+        var teamName = player.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
+        
+        // If no team exists for the season, return the player and the statistic totals as empty
+        if (string.IsNullOrWhiteSpace(teamName))
+        {
+            return (player, statisticTotals);
+        }
+
         var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamName(teamName);
 
         // Get team season schedule
         var schedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(teamAbbreviation, seasonYear, cancellationToken);
+        if (gameType.HasValue) 
+        {             
+           schedule.Games = schedule.Games.Where(x => x.GameType == (int)gameType).ToList();
+        }
 
         // Create tasks to retrieve game information
         var tasks = schedule.Games.Select(async game =>

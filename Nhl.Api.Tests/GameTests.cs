@@ -213,11 +213,12 @@ public class GameTests
         var httpClient = new NhlScoresHtmlReportsApiHttpClient();
         var gameReport = await httpClient.GetStringAsync("/20232024/PL020206.HTM");
 
-        var regex = Regex.Matches(@"(?<=<td class="" \+ bborder"">)Period(.*?)(?=</td>)", gameReport, RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(30)).ToList();
+        var regex = Regex.Matches(gameReport, @"(?<=<td class="" \+ bborder"">)Period(.*?)(?=</td>)", RegexOptions.Compiled, TimeSpan.FromSeconds(30)).ToList();
 
         for (int i = 0; i < regex.Count; i++)
         {
-            var value = Regex.Match(@"([0-9]{1,2}:[0-9]{2}\s[A-Z]{3})", gameReport, RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(30)).Groups[0].Value;
+            var match = regex[i].Value;
+            var value = Regex.Match(match, @"([0-9]{1,2}:[0-9]{2}\s[A-Z]{3})", RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(30)).Groups[0].Value;
             if (i <= 1)
             {
                 dictionary["P1"].Add(value);
