@@ -321,7 +321,7 @@ public class StatisticsTests
 
         // Act
         var result = await nhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(playerEnum, seasonYear, GameType.RegularSeason);
-       
+
         // Assert
         Assert.IsNotNull(result);
     }
@@ -333,9 +333,9 @@ public class StatisticsTests
         await using var nhlApi = new NhlApi();
 
         var indexes = new HashSet<int>();
-        Enumerable.Range(1,50).ToList().ForEach( i => indexes.Add(new Random().Next(0, 1000)));
+        Enumerable.Range(1, 50).ToList().ForEach(i => indexes.Add(new Random().Next(0, 1000)));
 
-        var concurrentCollection = new ConcurrentBag<PlayerEnum>(Enum.GetValues(typeof(PlayerEnum)).Cast<PlayerEnum>().ToList().Select((value, i) => 
+        var concurrentCollection = new ConcurrentBag<PlayerEnum>(Enum.GetValues(typeof(PlayerEnum)).Cast<PlayerEnum>().ToList().Select((value, i) =>
         {
             if (indexes.Contains(i))
             {
@@ -345,7 +345,7 @@ public class StatisticsTests
             return default;
 
         }).Where(x => x != default));
-        
+
         Parallel.ForEach(concurrentCollection, new ParallelOptions { MaxDegreeOfParallelism = 16 }, async (playerEnum) =>
         {
             // Act
@@ -365,10 +365,10 @@ public class StatisticsTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId, PlayerGameCenterStatistic.MissedShot,  seasonYear, gameType: GameType.Playoffs);
+        var result = await nhlApi.GetTotalPlayerStatisticValueByTypeAndSeasonAsync(playerId, PlayerGameCenterStatistic.MissedShot, seasonYear, gameType: GameType.Playoffs);
 
         // Assert
         Assert.IsNotNull(result);
-        Assert.IsTrue(result > 5);   
+        Assert.IsTrue(result > 5);
     }
 }

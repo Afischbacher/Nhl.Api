@@ -1,5 +1,4 @@
-﻿using Nhl.Api.Common.Exceptions;
-using Nhl.Api.Common.Extensions;
+﻿using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Helpers;
 using Nhl.Api.Common.Http;
 using Nhl.Api.Enumerations.Game;
@@ -318,7 +317,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         {
             return (player, statisticTotals);
         }
-        
+
         var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamName(teamName);
 
         // Get team season schedule
@@ -404,8 +403,30 @@ public class NhlStatisticsApi : INhlStatisticsApi
         }
 
         // Get Player Team By Season
+
+        /* Unmerged change from project 'Nhl.Api (net6.0)'
+        Before:
+                var teamName = player.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
+
+                // If no team exists for the season, return the player and the statistic totals as empty
+        After:
+                var teamName = player.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
+
+                // If no team exists for the season, return the player and the statistic totals as empty
+        */
+
+        /* Unmerged change from project 'Nhl.Api (net8.0)'
+        Before:
+                var teamName = player.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
+
+                // If no team exists for the season, return the player and the statistic totals as empty
+        After:
+                var teamName = player.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
+
+                // If no team exists for the season, return the player and the statistic totals as empty
+        */
         var teamName = player.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
-        
+
         // If no team exists for the season, return the player and the statistic totals as empty
         if (string.IsNullOrWhiteSpace(teamName))
         {
@@ -416,9 +437,9 @@ public class NhlStatisticsApi : INhlStatisticsApi
 
         // Get team season schedule
         var schedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(teamAbbreviation, seasonYear, cancellationToken);
-        if (gameType.HasValue) 
-        {             
-           schedule.Games = schedule.Games.Where(x => x.GameType == (int)gameType).ToList();
+        if (gameType.HasValue)
+        {
+            schedule.Games = schedule.Games.Where(x => x.GameType == (int)gameType).ToList();
         }
 
         // Create tasks to retrieve game information
