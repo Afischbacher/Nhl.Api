@@ -12,7 +12,6 @@ using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Services;
 using System.Linq;
-using System.Security.AccessControl;
 using System.Threading;
 
 namespace Nhl.Api;
