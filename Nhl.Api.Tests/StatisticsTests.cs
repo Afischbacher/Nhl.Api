@@ -313,6 +313,7 @@ public class StatisticsTests
     [DataRow(PlayerEnum.NilsAman8482496, "20232024")]
     [DataRow(PlayerEnum.BroganRafferty8481479, "20232024")]
     [DataRow(PlayerEnum.NikitaZadorov8477507, "20232024")]
+    [DataRow(PlayerEnum.BrendanGallagher8475848, "20232024")]
     public async Task GetTotalPlayerStatisticValuesByTypeAndSeasonAsync_Returns_Valid_Information_With_Player_Enum_Certain_Cases_For_Regular_Season(PlayerEnum playerEnum, string seasonYear)
     {
         // Arrange
