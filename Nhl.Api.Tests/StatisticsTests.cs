@@ -5,8 +5,7 @@ using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Season;
 using System.Collections.Concurrent;
 using System.Linq;
-using System.Security.AccessControl;
-using System.Threading;
+using System.Text.Json;
 
 namespace Nhl.Api.Tests;
 
@@ -389,7 +388,19 @@ public class StatisticsTests
 
         // Assert
         Assert.IsNotNull(result);
+
         Assert.IsTrue(result.Count > 0);
+        Assert.IsTrue(result.Count > 650);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetAllPlayersStatisticValuesBySeasonAsync_Throws_Exception_Invalid_Season()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act/Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(async () => await nhlApi.GetAllPlayersStatisticValuesBySeasonAsync("56468548949864"));
     }
 
     [TestMethodWithRetry(RetryCount = 5)]

@@ -789,7 +789,7 @@ public class NhlApi : INhlApi
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
     /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
     /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
-    /// <returns>Returns the all the NHL player statistics for all of a players for a specific season</returns>
+    /// <returns>Returns the all the NHL players game center statistics for the entire NHL league for a specific season and game type</returns>
     public async Task<Dictionary<PlayerProfile, Dictionary<PlayerGameCenterStatistic, int>>> GetAllPlayersStatisticValuesBySeasonAsync(string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default)
     {
         return await _nhlStatisticsApi.GetAllPlayersStatisticValuesBySeasonAsync(seasonYear, gameType, cancellationToken);
