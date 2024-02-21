@@ -1,8 +1,8 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using Nhl.Api.Models.Team;
 
 namespace Nhl.Api.Models.Game;
-
 
 /// <summary>
 /// An NHL goalie's game log information for a specific season, game type and player
