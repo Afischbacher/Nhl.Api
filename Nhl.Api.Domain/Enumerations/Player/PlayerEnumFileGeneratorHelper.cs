@@ -54,13 +54,13 @@ public static class PlayerEnumFileGeneratorHelper
         outputFile.WriteLine($"/// </summary>");
         outputFile.WriteLine("public enum PlayerEnum");
         outputFile.WriteLine("{");
-        var lines = players.Select(x => $"    {x.Value} = {x.Key},");
-        foreach (string line in lines)
+        var lines = players.Select(x => new { PlayerName = x.Value, EnumValue = $"    {x.Value} = {x.Key}," });
+        foreach (var line in lines)
         {
             outputFile.WriteLine($"    /// <summary>");
-            outputFile.WriteLine($"    /// {line}");
+            outputFile.WriteLine($"    /// {line.PlayerName}");
             outputFile.WriteLine($"    /// </summary>");
-            outputFile.WriteLine(line);
+            outputFile.WriteLine(line.EnumValue);
         }
         outputFile.WriteLine("}");
 
