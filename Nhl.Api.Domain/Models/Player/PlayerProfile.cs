@@ -262,7 +262,7 @@ public class PlayerProfile
     /// <summary>
     /// Full name of the NHL player
     /// </summary>  
-    public string FullName => $"{FirstName?.Default} {LastName?.Default}" ??    ;
+    public string FullName => $"{FirstName?.Default} {LastName?.Default}" ?? string.Empty;
 }
 
 
