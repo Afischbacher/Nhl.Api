@@ -779,9 +779,9 @@ public class PlayerTests
 
 
     [TestMethodWithRetry(RetryCount = 25)]
-    public void PlayerEnumFileGeneratorHelper_Returns_Valid_Content()
+    public async Task PlayerEnumFileGeneratorHelper_Returns_Valid_Content()
     {
         // Arrange
-        PlayerEnumFileGeneratorHelper.GetAllPlayers("");
+        await PlayerEnumFileGeneratorHelper.UpdatePlayerEnumToFile(string.Empty);
     }
 }

@@ -1,5 +1,7 @@
+using Newtonsoft.Json;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
+using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Season;
 using System.Collections.Concurrent;
 using System.Linq;
@@ -314,6 +316,8 @@ public class StatisticsTests
     [DataRow(PlayerEnum.BroganRafferty8481479, "20232024")]
     [DataRow(PlayerEnum.NikitaZadorov8477507, "20232024")]
     [DataRow(PlayerEnum.BrendanGallagher8475848, "20232024")]
+    [DataRow(PlayerEnum.EliasPettersson8480012, "20232024")]
+
     public async Task GetTotalPlayerStatisticValuesByTypeAndSeasonAsync_Returns_Valid_Information_With_Player_Enum_Certain_Cases_For_Regular_Season(PlayerEnum playerEnum, string seasonYear)
     {
         // Arrange
@@ -370,5 +374,54 @@ public class StatisticsTests
         // Assert
         Assert.IsNotNull(result);
         Assert.IsTrue(result > 5);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetAllPlayersStatisticValuesBySeasonAsync_Returns_Valid_Information()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetAllPlayersStatisticValuesBySeasonAsync(SeasonYear.season20232024, GameType.RegularSeason);
+
+        // Assert
+        Assert.IsNotNull(result);
+
+        Assert.IsTrue(result.Count > 0);
+        Assert.IsTrue(result.Count > 650);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetAllPlayersStatisticValuesBySeasonAsync_Throws_Exception_Invalid_Season()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act/Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(async () => await nhlApi.GetAllPlayersStatisticValuesBySeasonAsync("56468548949864"));
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetTotalPlayerStatisticValuesByTypeAndSeasonAsync_Returns_Valid_Information_For_Playoffs()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        var schedule = await nhlApi.GetTeamScheduleBySeasonAsync("VAN", "20232024");
+        schedule.Games = schedule.Games.Where(x => x.GameType == 2).ToList();
+
+        var list = new List<GameCenterPlay>();
+
+        foreach (var game in schedule.Games)
+        {
+            list.AddRange(
+                (await nhlApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id)).Plays
+                .Where(p => p.Details?.BlockingPlayerId == 8480012)
+                .Select(p => p)
+                .ToList());
+        }
+
+        var item = JsonConvert.SerializeObject(list);
     }
 }

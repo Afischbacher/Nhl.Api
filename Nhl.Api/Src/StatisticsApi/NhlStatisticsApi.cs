@@ -461,6 +461,91 @@ public class NhlStatisticsApi : INhlStatisticsApi
         return (player, statisticTotals);
     }
 
+
+    /// <summary>
+    /// Returns the all the NHL players game center statistics for the entire NHL league for a specific season and game type
+    /// </summary>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="gameType">The NHL game type to retrieve the team statistics, see <see cref="GameType"/> for more information on valid game types</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
+    /// <returns>Returns the all the NHL player statistics for all of a players for a specific season</returns>
+    public async Task<Dictionary<PlayerProfile, Dictionary<PlayerGameCenterStatistic, int>>> GetAllPlayersStatisticValuesBySeasonAsync(string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default)
+    {
+        var allPlayerStatisticTotals = new Dictionary<PlayerProfile, Dictionary<PlayerGameCenterStatistic, int>>();
+
+        ValidateSeasonYear(seasonYear);
+
+        // Get all NHL teams
+        var allNhlTeams = Enum.GetValues(typeof(TeamEnum)).Cast<TeamEnum>().ToList();
+
+        var teamRosterTasks = allNhlTeams.Select(async (team) =>
+        {
+            return await _nhlLeagueApi.GetTeamRosterBySeasonYearAsync(team, seasonYear, cancellationToken);
+        });
+
+        // Get all team rosters
+        var allRoster = await Task.WhenAll(teamRosterTasks);
+
+        var allPlayers = new List<TeamRosterPlayer>();
+        allPlayers.AddRange(allRoster.SelectMany(x => x.Forwards).ToList());
+        allPlayers.AddRange(allRoster.SelectMany(x => x.Defensemen).ToList());
+
+        // Get all player profiles
+        var playerProfileTasks = allPlayers.DistinctBy(p => p.Id).Select(async player =>
+        {
+            var playerProfile = await _nhlPlayerApi.GetPlayerInformationAsync(player.Id, cancellationToken);
+            return playerProfile;
+        });
+
+        var playerProfiles = await Task.WhenAll(playerProfileTasks);
+
+        // Create collection of player statistic totals
+        allPlayerStatisticTotals = playerProfiles.ToDictionary(k => k, v => new Dictionary<PlayerGameCenterStatistic, int>
+        {
+            { PlayerGameCenterStatistic.FaceOffWon, 0 },
+            { PlayerGameCenterStatistic.FaceOffLost, 0 },
+            { PlayerGameCenterStatistic.HitGiven, 0 },
+            { PlayerGameCenterStatistic.HitReceived, 0 },
+            { PlayerGameCenterStatistic.ShotOnGoal, 0 },
+            { PlayerGameCenterStatistic.MissedShot, 0 },
+            { PlayerGameCenterStatistic.BlockedShot, 0 },
+            { PlayerGameCenterStatistic.Giveaway, 0 },
+            { PlayerGameCenterStatistic.DrawnPenalty, 0 },
+            { PlayerGameCenterStatistic.CommittedPenalty, 0 },
+            { PlayerGameCenterStatistic.Takeaway, 0 },
+        });
+
+        var teamScheduleTasks = allNhlTeams.Select(async team =>
+        {
+            var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamEnumeration(team);
+            var teamSchedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(teamAbbreviation, seasonYear, cancellationToken);
+
+            return teamSchedule;
+        });
+
+        var games = (await Task.WhenAll(teamScheduleTasks))
+            .SelectMany(schedule => schedule.Games)
+            .Where(g => g.GameType == (int)gameType)
+            .DistinctBy(g => g.Id)
+            .ToList();
+
+        var gamePlayByPlayTasks = games.Select(async game =>
+        {
+            // Count number of game events where player won a faceoff
+            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, cancellationToken);
+
+            gameCenterPlayByPlay.Plays.ForEach(play =>
+            {
+                GetPlayerStatisticTotal(play, ref allPlayers, ref allPlayerStatisticTotals);
+            });
+
+        });
+
+        await Task.WhenAll(gamePlayByPlayTasks);
+
+        return allPlayerStatisticTotals;
+    }
+
     private static void ValidateSeasonYear(string seasonYear)
     {
         if (string.IsNullOrEmpty(seasonYear))
@@ -471,6 +556,127 @@ public class NhlStatisticsApi : INhlStatisticsApi
         if (seasonYear.Length != 8)
         {
             throw new ArgumentException("The season year must be 8 digits in length");
+        }
+    }
+
+    private static void GetPlayerStatisticTotal(GameCenterPlay play, ref List<TeamRosterPlayer> allPlayers, ref Dictionary<PlayerProfile, Dictionary<PlayerGameCenterStatistic, int>> allPlayerStatisticTotals)
+    {
+        switch (play.TypeDescKey)
+        {
+            case "faceoff":
+                if (play.Details.WinningPlayerId.HasValue)
+                {
+                    var winningPlayer = allPlayers.FirstOrDefault(x => x.Id == play.Details.WinningPlayerId.Value);
+                    if (winningPlayer != null)
+                    {
+                        UpdateStatisticForPlayer(winningPlayer.Id, allPlayerStatisticTotals, PlayerGameCenterStatistic.FaceOffWon);
+                    }
+                }
+
+                if (play.Details.LosingPlayerId.HasValue)
+                {
+                    var losingPlayer = allPlayers.FirstOrDefault(x => x.Id == play.Details.LosingPlayerId.Value);
+                    if (losingPlayer != null)
+                    {
+                        UpdateStatisticForPlayer(losingPlayer.Id, allPlayerStatisticTotals, PlayerGameCenterStatistic.FaceOffLost);
+                    }
+                }
+                break;
+            case "hit":
+                if (play.Details.HittingPlayerId.HasValue)
+                {
+                    var hittingPlayer = allPlayers.FirstOrDefault(x => x.Id == play.Details.HittingPlayerId.Value);
+                    if (hittingPlayer != null)
+                    {
+                        UpdateStatisticForPlayer(hittingPlayer.Id, allPlayerStatisticTotals, PlayerGameCenterStatistic.HitGiven);
+                    }
+                }
+                if (play.Details.HitteePlayerId.HasValue)
+                {
+                    var hitteePlayer = allPlayers.FirstOrDefault(x => x.Id == play.Details.HitteePlayerId.Value);
+                    if (hitteePlayer != null)
+                    {
+                        UpdateStatisticForPlayer(hitteePlayer.Id, allPlayerStatisticTotals, PlayerGameCenterStatistic.HitReceived);
+                    }
+                }
+                break;
+            case "shot-on-goal":
+                if (play.Details.ShootingPlayerId.HasValue)
+                {
+                    var shootingPlayer = allPlayers.FirstOrDefault(x => x.Id == play.Details.ShootingPlayerId.Value);
+                    if (shootingPlayer != null)
+                    {
+                        UpdateStatisticForPlayer(shootingPlayer.Id, allPlayerStatisticTotals, PlayerGameCenterStatistic.ShotOnGoal);
+                    }
+                }
+                break;
+            case "missed-shot":
+                if (play.Details.ShootingPlayerId.HasValue)
+                {
+                    var shootingPlayer = allPlayers.FirstOrDefault(x => x.Id == play.Details.ShootingPlayerId.Value);
+                    if (shootingPlayer != null)
+                    {
+                        UpdateStatisticForPlayer(shootingPlayer.Id, allPlayerStatisticTotals, PlayerGameCenterStatistic.MissedShot);
+                    }
+                }
+                break;
+            case "blocked-shot":
+                if (play.Details.BlockingPlayerId.HasValue)
+                {
+                    var blockingPlayer = allPlayers.FirstOrDefault(x => x.Id == play.Details.BlockingPlayerId.Value);
+                    if (blockingPlayer != null)
+                    {
+                        UpdateStatisticForPlayer(blockingPlayer.Id, allPlayerStatisticTotals, PlayerGameCenterStatistic.BlockedShot);
+                    }
+                }
+                break;
+            case "giveaway":
+                if (play.Details.PlayerId.HasValue)
+                {
+                    var giveAwayPlayer = allPlayers.FirstOrDefault(x => x.Id == play.Details.PlayerId.Value);
+                    if (giveAwayPlayer != null)
+                    {
+                        UpdateStatisticForPlayer(giveAwayPlayer.Id, allPlayerStatisticTotals, PlayerGameCenterStatistic.Giveaway);
+                    }
+                }
+                break;
+            case "penalty":
+                if (play.Details.DrawnByPlayerId.HasValue)
+                {
+                    var drawnByPlayer = allPlayers.FirstOrDefault(x => x.Id == play.Details.DrawnByPlayerId.Value);
+                    if (drawnByPlayer != null)
+                    {
+                        UpdateStatisticForPlayer(drawnByPlayer.Id, allPlayerStatisticTotals, PlayerGameCenterStatistic.DrawnPenalty);
+                    }
+                }
+                if (play.Details.CommittedByPlayerId.HasValue)
+                {
+                    var committedByPlayer = allPlayers.FirstOrDefault(x => x.Id == play.Details.CommittedByPlayerId.Value);
+                    if (committedByPlayer != null)
+                    {
+                        UpdateStatisticForPlayer(committedByPlayer.Id, allPlayerStatisticTotals, PlayerGameCenterStatistic.CommittedPenalty);
+                    }
+                }
+                break;
+            case "takeaway":
+                if (play.Details.PlayerId.HasValue)
+                {
+                    var takeAwayPlayer = allPlayers.FirstOrDefault(x => x.Id == play.Details.PlayerId.Value);
+                    if (takeAwayPlayer != null)
+                    {
+                        UpdateStatisticForPlayer(takeAwayPlayer.Id, allPlayerStatisticTotals, PlayerGameCenterStatistic.Takeaway);
+                    }
+                }
+                break;
+        }
+
+        static void UpdateStatisticForPlayer(int playerId, Dictionary<PlayerProfile, Dictionary<PlayerGameCenterStatistic, int>> allPlayerStatisticTotals, PlayerGameCenterStatistic playerGameCenterStatistic)
+        {
+            var statistics = allPlayerStatisticTotals.SingleOrDefault(x => x.Key.PlayerId == playerId).Value;
+            if (statistics != null)
+            {
+                statistics[playerGameCenterStatistic] += 1;
+            }
         }
     }
 

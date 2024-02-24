@@ -1,20 +1,9 @@
 ﻿using Newtonsoft.Json;
+using Nhl.Api.Models.Team;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Game;
 
-/// <summary>
-/// A players team common name for the team a player plays for
-/// </summary>
-public class CommonName
-{
-    /// <summary>
-    /// The default common name for the team a player plays for <br/>
-    /// Example: "Oilers"
-    /// </summary>
-    [JsonProperty("default")]
-    public string Default { get; set; }
-}
 
 /// <summary>
 /// A player's game log information with specific statistics for a specific season, game type and player, including <br/> 

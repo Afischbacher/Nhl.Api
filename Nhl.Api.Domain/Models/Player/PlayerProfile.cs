@@ -258,6 +258,11 @@ public class PlayerProfile
     /// </summary>
     [JsonProperty("currentTeamRoster")]
     public List<CurrentTeamRoster> CurrentTeamRoster { get; set; }
+
+    /// <summary>
+    /// Full name of the NHL player
+    /// </summary>  
+    public string FullName => $"{FirstName?.Default} {LastName?.Default}" ?? string.Empty;
 }
 
 
