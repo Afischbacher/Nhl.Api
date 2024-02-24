@@ -1,5 +1,4 @@
 ﻿using Nhl.Api.Common.Http;
-using Nhl.Api.Common.Services;
 using Nhl.Api.Models.Player;
 using System.Collections.Generic;
 using System.IO;
@@ -20,13 +19,13 @@ public static class PlayerEnumFileGeneratorHelper
     /// Retrieves all NHL players to have player in the NHL
     /// </summary>
     /// <returns>A dictionary of players names and their identifiers for every NHL player to ever play</returns>
-    public static void GetAllPlayers(string path)
+    public static async Task UpdatePlayerEnumToFile(string path)
     {
         var startCount = 0;
 
         var playerSearchResultsTasks = new List<Task<PlayerData>>();
         var players = new Dictionary<int, string>();
-        var response = _nhlApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}").Result;
+        var response = await _nhlApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}");
         var total = response.Total;
 
         while (startCount <= total)
@@ -35,7 +34,7 @@ public static class PlayerEnumFileGeneratorHelper
             startCount += 5;
         }
 
-        var playerSearchResultsCollections = NhlApiAsyncHelper.RunSync(async () => await Task.WhenAll(playerSearchResultsTasks));
+        var playerSearchResultsCollections = await Task.WhenAll(playerSearchResultsTasks);
 
         foreach (var playerSearchResults in playerSearchResultsCollections)
         {
