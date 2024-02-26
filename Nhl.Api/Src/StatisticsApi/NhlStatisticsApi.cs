@@ -566,8 +566,18 @@ public class NhlStatisticsApi : INhlStatisticsApi
             throw new ArgumentException("A season year must be provided to retrieve the NHL player statistics");
         }
 
-        return await _nhlEApiWebHttpClient.GetAsync<PlayerStatisticsFilterResult>($"/skater/summary" +
-            $"?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={playerStatisticsFilterToSortBy.GetEnumMemberValue()}&{expressionPlayerFilter}", cancellationToken);
+        if (expressionPlayerFilter == null)
+        {
+            throw new ArgumentException("A player filter expression must be provided to retrieve the NHL player statistics");
+        }
+
+        var endpoint = new StringBuilder($"/skater/summary?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={playerStatisticsFilterToSortBy.GetEnumMemberValue()}");
+        if (expressionPlayerFilter.IsValidExpression) 
+        {
+            endpoint.Append($"&{expressionPlayerFilter}");
+        }
+
+        return await _nhlEApiWebHttpClient.GetAsync<PlayerStatisticsFilterResult>(endpoint.ToString(), cancellationToken);
     }
 
     private static void ValidateSeasonYear(string seasonYear)

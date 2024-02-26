@@ -32,10 +32,10 @@ public class PlayerFilterExpressionBuilder
     private readonly StringBuilder _filterExpression = new("factCayenneExp=");
 
     /// <summary>
-    /// Adds a filter to the expression filter to filter by any of the returned properties.
+    /// Adds a filter to the expression filter to filter by any of the returned properties
     /// </summary>
-    /// <param name="playerStatisticsFilter">The player statistics filter.</param>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <param name="playerStatisticsFilter">The player statistics filter</param>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder AddFilter(PlayerStatisticsFilter playerStatisticsFilter)
     {
         _filterExpression.Append($"{playerStatisticsFilter.GetEnumMemberValue()}");
@@ -43,10 +43,10 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Adds a 'contains' filter to the expression filter.
+    /// Adds a 'contains' filter to the expression filter
     /// </summary>
-    /// <param name="value">The value to search for.</param>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <param name="value">The value to search for</param>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder Contains(object value)
     {
         _filterExpression.Append($" like '%{value}%'");
@@ -54,10 +54,10 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Adds a 'not contains' filter to the expression filter.
+    /// Adds a 'not contains' filter to the expression filter
     /// </summary>
-    /// <param name="value">The value to exclude.</param>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <param name="value">The value to exclude</param>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder NotContains(object value)
     {
         _filterExpression.Append($" not like '%{value}%'");
@@ -65,9 +65,9 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Adds an 'AND' logical operator to the expression filter.
+    /// Adds an 'AND' logical operator to the expression filter
     /// </summary>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder And()
     {
         _filterExpression.Append(" and ");
@@ -75,9 +75,9 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Adds an 'OR' logical operator to the expression filter.
+    /// Adds an 'OR' logical operator to the expression filter
     /// </summary>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder Or()
     {
         _filterExpression.Append(" or ");
@@ -85,9 +85,9 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Adds a start group '(' to the expression filter.
+    /// Adds a start group '(' to the expression filter
     /// </summary>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder StartGroup()
     {
         _filterExpression.Append("(");
@@ -95,9 +95,9 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Adds an end group ')' to the expression filter.
+    /// Adds an end group ')' to the expression filter
     /// </summary>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder EndGroup()
     {
         _filterExpression.Append(")");
@@ -116,10 +116,10 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Adds a 'not equal to' filter to the expression filter.
+    /// Adds a 'not equal to' filter to the expression filter
     /// </summary>
     /// <param name="value">The value to compare against.</param>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder NotEqualTo(object value)
     {
         _filterExpression.Append($" != '{value}' ");
@@ -127,10 +127,10 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Adds a 'greater than' filter to the expression filter.
+    /// Adds a 'greater than' filter to the expression filter
     /// </summary>
     /// <param name="value">The value to compare against.</param>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder GreaterThan(object value)
     {
         _filterExpression.Append($" > {value} ");
@@ -138,10 +138,10 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Adds a 'greater than or equal to' filter to the expression filter.
+    /// Adds a 'greater than or equal to' filter to the expression filter
     /// </summary>
-    /// <param name="value">The value to compare against.</param>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <param name="value">The value to compare against</param>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder GreaterThanOrEqualTo(object value)
     {
         _filterExpression.Append($" >= {value}");
@@ -149,10 +149,10 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Adds a 'less than' filter to the expression filter.
+    /// Adds a 'less than' filter to the expression filter
     /// </summary>
-    /// <param name="value">The value to compare against.</param>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <param name="value">The value to compare against</param>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder LessThan(object value)
     {
         _filterExpression.Append($" < {value} ");
@@ -160,10 +160,10 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Adds a 'less than or equal to' filter to the expression filter.
+    /// Adds a 'less than or equal to' filter to the expression filter
     /// </summary>
-    /// <param name="value">The value to compare against.</param>
-    /// <returns>The builder to continue building the expression.</returns>
+    /// <param name="value">The value to compare against</param>
+    /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder LessThanOrEqualTo(object value)
     {
         _filterExpression.Append($" <= {value} ");
@@ -171,16 +171,16 @@ public class PlayerFilterExpressionBuilder
     }
 
     /// <summary>
-    /// Converts the expression filter to a string.
+    /// Converts the expression filter to a string
     /// </summary>
-    /// <returns>The expression filter as a string.</returns>
+    /// <returns>The expression filter as a string</returns>
     public override string ToString()
     {
         return _filterExpression.ToString();
     }
 
     /// <summary>
-    /// Builds the expression filter for the NHL API for player statistics.
+    /// Builds the expression filter for the NHL player statistics
     /// </summary>
     /// <returns>The built expression filter.</returns>
     public ExpressionPlayerFilter Build()
@@ -199,7 +199,7 @@ public class ExpressionPlayerFilter
     private readonly string _filterExpression;
 
     /// <summary>
-    /// A class that represents the expression filter for the NHL API for player statistics
+    /// A class that represents the expression filter for the NHL player statistics
     /// </summary>
     public ExpressionPlayerFilter(string filterExpression)
     {
@@ -215,6 +215,12 @@ public class ExpressionPlayerFilter
     {
         return _filterExpression.ToString();
     }
+
+    /// <summary>
+    /// Determines if the expression is valid based on the length of the expression
+    /// </summary>
+    public bool IsValidExpression => _filterExpression.Length > 15;
+
 }
 
 /// <summary>

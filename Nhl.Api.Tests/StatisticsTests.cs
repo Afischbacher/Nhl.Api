@@ -496,6 +496,24 @@ public class StatisticsTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetPlayerStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Empty_Expression()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        var expressionFilter = new PlayerFilterExpressionBuilder();
+
+        // Act
+        var expression = expressionFilter.Build();
+
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20102011, expression);
+
+        // Act
+        Assert.IsNotNull(expression);
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Total >= 800);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
     public async Task GetPlayerStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Filter_Query_For_Complex_Query_1()
     {
         // Arrange
