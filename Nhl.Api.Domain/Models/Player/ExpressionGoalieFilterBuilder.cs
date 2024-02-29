@@ -11,34 +11,33 @@ namespace Nhl.Api.Models.Player;
 /// <br/>
 /// <code>
 ///  expressionFilter
-///         .AddFilter(PlayerStatisticsFilter.GamesPlayed)
-///         .GreaterThanOrEqualTo(25)
+///         .AddFilter(PlayerStatisticsFilter.SavePercentage)
+///         .GreaterThanOrEqualTo(0.900)
 ///         .And()
 ///         .AddFilter(PlayerStatisticsFilter.Goals)
-///         .GreaterThan(5)
+///         .GreaterThan(1)
 ///         .And()
 ///         .AddFilter(PlayerStatisticsFilter.Assists)
-///         .GreaterThan(10)
+///         .GreaterThan(1)
 ///         .And()
 ///         .AddFilter(PlayerStatisticsFilter.SkaterFullName)
-///         .Contains("Ale")
+///         .Contains("Connor")
 ///         .Build();
 /// 
 /// </code>
 /// </summary>
-public class PlayerFilterExpressionBuilder
-
+public class GoalieFilterExpressionBuilder
 {
     private readonly StringBuilder _filterExpression = new("factCayenneExp=");
 
     /// <summary>
     /// Adds a filter to the expression filter to filter by any of the returned properties
     /// </summary>
-    /// <param name="playerStatisticsFilter">The player statistics filter</param>
+    /// <param name="goalieStatisticsFilter">The filter to add to the expression</param>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder AddFilter(PlayerStatisticsFilter playerStatisticsFilter)
+    public GoalieFilterExpressionBuilder AddFilter(GoalieStatisticsFilter goalieStatisticsFilter)
     {
-        _filterExpression.Append($"{playerStatisticsFilter.GetEnumMemberValue()}");
+        _filterExpression.Append($"{goalieStatisticsFilter.GetEnumMemberValue()}");
         return this;
     }
 
@@ -47,7 +46,7 @@ public class PlayerFilterExpressionBuilder
     /// </summary>
     /// <param name="value">The value to search for</param>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder Contains(object value)
+    public GoalieFilterExpressionBuilder Contains(object value)
     {
         _filterExpression.Append($" like '%{value}%'");
         return this;
@@ -58,7 +57,7 @@ public class PlayerFilterExpressionBuilder
     /// </summary>
     /// <param name="value">The value to exclude</param>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder NotContains(object value)
+    public GoalieFilterExpressionBuilder NotContains(object value)
     {
         _filterExpression.Append($" not like '%{value}%'");
         return this;
@@ -68,7 +67,7 @@ public class PlayerFilterExpressionBuilder
     /// Adds an 'AND' logical operator to the expression filter
     /// </summary>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder And()
+    public GoalieFilterExpressionBuilder And()
     {
         _filterExpression.Append(" and ");
         return this;
@@ -78,7 +77,7 @@ public class PlayerFilterExpressionBuilder
     /// Adds an 'OR' logical operator to the expression filter
     /// </summary>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder Or()
+    public GoalieFilterExpressionBuilder Or()
     {
         _filterExpression.Append(" or ");
         return this;
@@ -88,7 +87,7 @@ public class PlayerFilterExpressionBuilder
     /// Adds a start group '(' to the expression filter
     /// </summary>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder StartGroup()
+    public GoalieFilterExpressionBuilder StartGroup()
     {
         _filterExpression.Append("(");
         return this;
@@ -98,7 +97,7 @@ public class PlayerFilterExpressionBuilder
     /// Adds an end group ')' to the expression filter
     /// </summary>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder EndGroup()
+    public GoalieFilterExpressionBuilder EndGroup()
     {
         _filterExpression.Append(")");
         return this;
@@ -109,7 +108,7 @@ public class PlayerFilterExpressionBuilder
     /// </summary>
     /// <param name="value">The value to compare against.</param>
     /// <returns>The builder to continue building the expression.</returns>
-    public PlayerFilterExpressionBuilder EqualTo(object value)
+    public GoalieFilterExpressionBuilder EqualTo(object value)
     {
         _filterExpression.Append($" = '{value}' ");
         return this;
@@ -120,7 +119,7 @@ public class PlayerFilterExpressionBuilder
     /// </summary>
     /// <param name="value">The value to compare against.</param>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder NotEqualTo(object value)
+    public GoalieFilterExpressionBuilder NotEqualTo(object value)
     {
         _filterExpression.Append($" != '{value}' ");
         return this;
@@ -131,7 +130,7 @@ public class PlayerFilterExpressionBuilder
     /// </summary>
     /// <param name="value">The value to compare against.</param>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder GreaterThan(object value)
+    public GoalieFilterExpressionBuilder GreaterThan(object value)
     {
         _filterExpression.Append($" > {value} ");
         return this;
@@ -142,7 +141,7 @@ public class PlayerFilterExpressionBuilder
     /// </summary>
     /// <param name="value">The value to compare against</param>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder GreaterThanOrEqualTo(object value)
+    public GoalieFilterExpressionBuilder GreaterThanOrEqualTo(object value)
     {
         _filterExpression.Append($" >= {value}");
         return this;
@@ -153,7 +152,7 @@ public class PlayerFilterExpressionBuilder
     /// </summary>
     /// <param name="value">The value to compare against</param>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder LessThan(object value)
+    public GoalieFilterExpressionBuilder LessThan(object value)
     {
         _filterExpression.Append($" < {value} ");
         return this;
@@ -164,7 +163,7 @@ public class PlayerFilterExpressionBuilder
     /// </summary>
     /// <param name="value">The value to compare against</param>
     /// <returns>The builder to continue building the expression</returns>
-    public PlayerFilterExpressionBuilder LessThanOrEqualTo(object value)
+    public GoalieFilterExpressionBuilder LessThanOrEqualTo(object value)
     {
         _filterExpression.Append($" <= {value} ");
         return this;
@@ -183,15 +182,15 @@ public class PlayerFilterExpressionBuilder
     /// Builds the expression filter for the NHL player statistics
     /// </summary>
     /// <returns>The built expression filter.</returns>
-    public ExpressionPlayerFilter Build()
+    public ExpressionGoalieFilter Build()
     {
-        return new ExpressionPlayerFilter(_filterExpression.ToString());
+        return new ExpressionGoalieFilter(_filterExpression.ToString());
     }
 
     /// <summary>
-    /// An empty expression filter for the NHL player statistics
+    /// An empty expression filter for the NHL goalie statistics
     /// </summary>
-    public static ExpressionPlayerFilter Empty => new(string.Empty);
+    public static ExpressionGoalieFilter Empty => new(string.Empty);
 }
 
 
@@ -199,14 +198,14 @@ public class PlayerFilterExpressionBuilder
 /// A class that represents the expression filter for the NHL API for player statistics <br/>
 /// See <see cref="PlayerFilterExpressionBuilder"/> for an example of how to use the expression filter for NHL players to filter results
 /// </summary>
-public class ExpressionPlayerFilter
+public class ExpressionGoalieFilter
 {
     private readonly string _filterExpression;
 
     /// <summary>
     /// A class that represents the expression filter for the NHL player statistics
     /// </summary>
-    public ExpressionPlayerFilter(string filterExpression)
+    public ExpressionGoalieFilter(string filterExpression)
     {
         _filterExpression = filterExpression;
     }
@@ -227,203 +226,175 @@ public class ExpressionPlayerFilter
     public bool IsValidExpression => _filterExpression.Length > 15;
 
     /// <summary>
-    /// An empty expression filter for the NHL player statistics
+    /// An empty expression filter for the NHL goalie statistics
     /// </summary>
-    public static ExpressionPlayerFilter Empty => new(string.Empty);
+    public static ExpressionGoalieFilter Empty => new(string.Empty);
 
 }
 
 /// <summary>
-/// The enumeration for the NHL player statistics information for the NHL API for player statistics
+/// A class that represents the NHL goalie statistics filter for searching statistics
 /// </summary>
-public enum PlayerStatisticsFilter
+public enum GoalieStatisticsFilter
 {
     /// <summary>
-    /// Assists
+    /// The NHL goalie assists 
     /// </summary>
     [Description("assists")]
     [EnumMember(Value = "assists")]
     Assists,
 
     /// <summary>
-    /// Even goals
-    /// </summary>
-    [Description("evGoals")]
-    [EnumMember(Value = "evGoals")]
-    EvenGoals,
-
-    /// <summary>
-    /// Even points
-    /// </summary>
-    [Description("evPoints")]
-    [EnumMember(Value = "evPoints")]
-    EvenPoints,
-
-    /// <summary>
-    /// Faceoff win percentage
-    /// </summary>
-    [Description("faceoffWinPct")]
-    [EnumMember(Value = "faceoffWinPct")]
-    FaceoffWinPercentage,
-
-    /// <summary>
-    /// Game-winning goals
-    /// </summary>
-    [Description("gameWinningGoals")]
-    [EnumMember(Value = "gameWinningGoals")]
-    GameWinningGoals,
-
-    /// <summary>
-    /// Games played
+    /// The NHL goalie games played
     /// </summary>
     [Description("gamesPlayed")]
     [EnumMember(Value = "gamesPlayed")]
     GamesPlayed,
 
     /// <summary>
-    /// Goals
+    /// The NHL goalie games started
+    /// </summary>
+    [Description("gamesStarted")]
+    [EnumMember(Value = "gamesStarted")]
+    GamesStarted,
+
+    /// <summary>
+    /// The NHL goalie full name 
+    /// </summary>
+    [Description("goalieFullName")]
+    [EnumMember(Value = "goalieFullName")]
+    GoalieFullName,
+
+    /// <summary>
+    /// The NHL goalie goals
     /// </summary>
     [Description("goals")]
     [EnumMember(Value = "goals")]
     Goals,
 
     /// <summary>
-    /// Last name
+    /// The NHL goalie goals against
     /// </summary>
-    [Description("lastName")]
+    [Description("goalsAgainst")]
+    [EnumMember(Value = "goalsAgainst")]
+    GoalsAgainst,
+
+    /// <summary>
+    /// The NHL goalie goals against average 
+    /// </summary>
+    [Description("goalsAgainst")]
+    [EnumMember(Value = "goalsAgainstAverage")]
+    GoalsAgainstAverage,
+
+    /// <summary>
+    /// The NHL goalie last name
+    /// </summary>
     [EnumMember(Value = "lastName")]
+    [Description("lastName")]
     LastName,
 
     /// <summary>
-    /// Overtime goals
+    /// The NHL goalie losses
     /// </summary>
-    [Description("otGoals")]
-    [EnumMember(Value = "otGoals")]
-    OvertimeGoals,
+    [Description("losses")]
+    [EnumMember(Value = "losses")]
+    Losses,
 
     /// <summary>
-    /// Penalty minutes
+    /// The NHL goalie OT losses
+    /// </summary>
+    [Description("otLosses")]
+    [EnumMember(Value = "otLosses")]
+    OvertimeLosses,
+
+    /// <summary>
+    /// The NHL goalie penalty minutes
     /// </summary>
     [Description("penaltyMinutes")]
     [EnumMember(Value = "penaltyMinutes")]
     PenaltyMinutes,
 
     /// <summary>
-    /// Player ID
+    /// The NHL goalie player identifier
     /// </summary>
     [Description("playerId")]
     [EnumMember(Value = "playerId")]
     PlayerId,
 
     /// <summary>
-    /// Plus-minus
-    /// </summary>
-    [Description("plusMinus")]
-    [EnumMember(Value = "plusMinus")]
-    PlusMinus,
-
-    /// <summary>
-    /// Points
+    /// The NHL goalie points
     /// </summary>
     [Description("points")]
     [EnumMember(Value = "points")]
     Points,
 
     /// <summary>
-    /// Points per game
+    /// The NHL goalie save percentage
     /// </summary>
-    [Description("pointsPerGame")]
-    [EnumMember(Value = "pointsPerGame")]
-    PointsPerGame,
+    [Description("savePct")]
+    [EnumMember(Value = "savePct")]
+    SavePercentage,
 
     /// <summary>
-    /// Position code
+    /// The NHL goalie saves
     /// </summary>
-    [Description("positionCode")]
-    [EnumMember(Value = "positionCode")]
-    PositionCode,
+    [Description("saves")]
+    [EnumMember(Value = "saves")]
+    Saves,
 
     /// <summary>
-    /// Power play goals
-    /// </summary>
-    [Description("ppGoals")]
-    [EnumMember(Value = "ppGoals")]
-    PowerPlayGoals,
-
-    /// <summary>
-    /// Power play points
-    /// </summary>
-    [Description("ppPoints")]
-    [EnumMember(Value = "ppPoints")]
-    PowerPlayPoints,
-
-    /// <summary>
-    /// Season ID
+    /// The NHL goalie season identifier
     /// </summary>
     [Description("seasonId")]
     [EnumMember(Value = "seasonId")]
-    SeasonIdentifier,
+    SeasonId,
 
     /// <summary>
-    /// Short-handed goals
-    /// </summary>
-    [Description("shGoals")]
-    [EnumMember(Value = "shGoals")]
-    ShortHandedGoals,
-
-    /// <summary>
-    /// Short-handed points
-    /// </summary>
-    [Description("shPoints")]
-    [EnumMember(Value = "shPoints")]
-    ShortHandedPoints,
-
-    /// <summary>
-    /// Shooting percentage
-    /// </summary>
-    [Description("shootingPct")]
-    [EnumMember(Value = "shootingPct")]
-    ShootingPercentage,
-
-    /// <summary>
-    /// Shoots/Catches
+    /// The NHL goalie shoots and catches
     /// </summary>
     [Description("shootsCatches")]
     [EnumMember(Value = "shootsCatches")]
     ShootsCatches,
 
     /// <summary>
-    /// Shots
+    /// The NHL shots against
     /// </summary>
-    [Description("shots")]
-    [EnumMember(Value = "shots")]
-    Shots,
+    [Description("shotsAgainst")]
+    [EnumMember(Value = "shotsAgainst")]
+    ShotsAgainst,
 
     /// <summary>
-    /// Skater full name
+    /// The NHL shutouts
     /// </summary>
-    [Description("skaterFullName")]
-    [EnumMember(Value = "skaterFullName")]
-    SkaterFullName,
+    [Description("shutouts")]
+    [EnumMember(Value = "shutouts")]
+    Shutouts,
 
     /// <summary>
-    /// Team abbreviations
+    /// The NHL goalie team abbreviations
     /// </summary>
     [Description("teamAbbrevs")]
     [EnumMember(Value = "teamAbbrevs")]
-    TeamAbbreviation,
+    TeamAbbrevs,
 
     /// <summary>
-    /// Time on ice per game
+    /// The NHL goalie ties
     /// </summary>
-    [Description("timeOnIcePerGame")]
-    [EnumMember(Value = "timeOnIcePerGame")]
-    TimeOnIcePerGame,
+    [Description("ties")]
+    [EnumMember(Value = "ties")]
+    Ties,
 
     /// <summary>
-    /// Weight
+    /// The NHL goalie time on ice
     /// </summary>
-    [Description("weight")]
-    [EnumMember(Value = "weight")]
-    Weight
+    [Description("timeOnIce")]
+    [EnumMember(Value = "timeOnIce")]
+    TimeOnIce,
+
+    /// <summary>
+    /// The NHL goalie wins
+    /// </summary>
+    [Description("wins")]
+    [EnumMember(Value = "wins")]
+    Wins
 }

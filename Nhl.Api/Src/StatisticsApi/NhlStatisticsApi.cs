@@ -553,7 +553,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
     /// Returns all the NHL player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more
     /// </summary>
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
-    /// <param name="expressionPlayerFilter">The expression player filter to filter the player statistics by, see <see cref="ExpressionPlayerFilterBuilder"/> for more information on valid player filters</param>
+    /// <param name="expressionPlayerFilter">The expression player filter to filter the player statistics by, see <see cref="PlayerFilterExpressionBuilder"/> for more information on valid player filters</param>
     /// <param name="playerStatisticsFilterToSortBy">The player statistics filter to sort the player statistics by, see <see cref="PlayerStatisticsFilter"/> for more information on valid player statistics filters</param>
     /// <param name="limit">The limit to the number of results returned when reviewing the NHL player statistics</param>
     /// <param name="offsetStart">The offset to start the results from when reviewing the NHL player statistics</param>
@@ -572,12 +572,43 @@ public class NhlStatisticsApi : INhlStatisticsApi
         }
 
         var endpoint = new StringBuilder($"/skater/summary?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={playerStatisticsFilterToSortBy.GetEnumMemberValue()}");
-        if (expressionPlayerFilter.IsValidExpression) 
+        if (expressionPlayerFilter.IsValidExpression)
         {
             endpoint.Append($"&{expressionPlayerFilter}");
         }
 
         return await _nhlEApiWebHttpClient.GetAsync<PlayerStatisticsFilterResult>(endpoint.ToString(), cancellationToken);
+    }
+
+    /// <summary>
+    /// Returns all the NHL goalie statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more
+    /// </summary>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="expressionGoalieFilter">The expression goalie filter to filter the goalie statistics by, see <see cref="GoalieFilterExpressionBuilder"/> for more information on valid goalie filters</param>
+    /// <param name="goalieStatisticsFilterToSortBy">The goalie statistics filter to sort the goalie statistics by, see <see cref="GoalieStatisticsFilter"/> for more information on valid goalie statistics filters</param>
+    /// <param name="limit">The limit to the number of results returned when reviewing the NHL goalie statistics</param>
+    /// <param name="offsetStart">The offset to start the results from when reviewing the NHL goalie statistics</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
+    /// <returns> Returns all the NHL goalie statistics for a specific goalie for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more </returns>
+    public async Task<GoalieStatisticsFilterResult> GetGoalieStatisticsBySeasonAndFilterExpressionAsync(string seasonYear, ExpressionGoalieFilter expressionGoalieFilter, GoalieStatisticsFilter goalieStatisticsFilterToSortBy = GoalieStatisticsFilter.Wins, int limit = -1, int offsetStart = 0, CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrWhiteSpace(seasonYear))
+        {
+            throw new ArgumentException("A season year must be provided to retrieve the NHL player statistics");
+        }
+
+        if (expressionGoalieFilter == null)
+        {
+            throw new ArgumentException("A goalie filter expression must be provided to retrieve the NHL goalie statistics");
+        }
+
+        var endpoint = new StringBuilder($"/goalie/summary?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={goalieStatisticsFilterToSortBy.GetEnumMemberValue()}");
+        if (expressionGoalieFilter.IsValidExpression)
+        {
+            endpoint.Append($"&{expressionGoalieFilter}");
+        }
+
+        return await _nhlEApiWebHttpClient.GetAsync<GoalieStatisticsFilterResult>(endpoint.ToString(), cancellationToken);
     }
 
     private static void ValidateSeasonYear(string seasonYear)

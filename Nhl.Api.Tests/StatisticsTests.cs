@@ -1,7 +1,6 @@
 using Newtonsoft.Json;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
-using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
@@ -459,7 +458,7 @@ public class StatisticsTests
         foreach (var player in result.PlayerStatisticsResults)
         {
             Assert.IsTrue(player.Assists > 10);
-            Assert.IsTrue(player.TeamAbbreviation == TeamCodes.TorontoMapleLeafs);
+            Assert.IsTrue(player.TeamAbbreviations == TeamCodes.TorontoMapleLeafs);
             Assert.IsTrue(player.ShootsCatches == ShootsCatches.Left);
         }
     }
@@ -529,7 +528,7 @@ public class StatisticsTests
             .EqualTo(ShootsCatches.Right)
             .And()
             .AddFilter(PlayerStatisticsFilter.PointsPerGame)
-            .GreaterThan(0.7) 
+            .GreaterThan(0.7)
             .And()
             .AddFilter(PlayerStatisticsFilter.Goals)
             .GreaterThanOrEqualTo(20)
@@ -548,12 +547,12 @@ public class StatisticsTests
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total >= 2);
-        
+
         foreach (var player in result.PlayerStatisticsResults)
         {
             Assert.IsTrue(player.OvertimeGoals > 1);
             Assert.IsTrue(player.ShootsCatches == ShootsCatches.Right);
-            Assert.IsTrue(player.PointsPerGame > 0.7);
+            Assert.IsTrue(player.PointsPerGame > 0.7m);
             Assert.IsTrue(player.Goals >= 20);
             Assert.IsTrue(player.Assists >= 20);
             Assert.IsTrue(player.PlusMinus >= 10);
@@ -607,11 +606,99 @@ public class StatisticsTests
         {
             Assert.IsTrue(player.OvertimeGoals > 1);
             Assert.IsTrue(player.ShootsCatches == ShootsCatches.Right);
-            Assert.IsTrue(player.PointsPerGame > 0.7);
+            Assert.IsTrue(player.PointsPerGame > 0.7m);
             Assert.IsTrue(player.Goals >= 20);
             Assert.IsTrue(player.Assists >= 20);
             Assert.IsTrue(player.PlusMinus >= 10);
             Assert.IsTrue(player.PenaltyMinutes <= 50 || player.EvenStrengthGoals > 10);
+        }
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetGoalieStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Filter_With_No_Query()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, ExpressionPlayerFilter.Empty);
+
+        // Act
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Total > 800);
+
+    }
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetGoalieStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Filter_Query_For_Simple_Query()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        var expressionFilter = new GoalieFilterExpressionBuilder();
+
+        // Act
+        var expression = expressionFilter
+            .AddFilter(GoalieStatisticsFilter.Wins)
+            .GreaterThan(30)
+            .And()
+            .AddFilter(GoalieStatisticsFilter.GoalsAgainstAverage)
+            .LessThanOrEqualTo(2.5)
+            .Build();
+
+        var result = await nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+
+        // Act
+        Assert.IsNotNull(expression);
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Total >= 1);
+
+        foreach (var player in result.GoalieStatisticsResults)
+        {
+            Assert.IsTrue(player.Wins > 30);
+            Assert.IsTrue(player.GoalsAgainstAverage <= 2.5);
+        }
+    }
+
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetGoalieStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Filter_Query_For_Complex_Query()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        var expressionFilter = new GoalieFilterExpressionBuilder();
+
+        // Act
+        var expression = expressionFilter
+            .AddFilter(GoalieStatisticsFilter.Wins)
+            .GreaterThan(10)
+            .And()
+            .AddFilter(GoalieStatisticsFilter.GoalsAgainstAverage)
+            .LessThanOrEqualTo(3.5)
+            .And()
+            .AddFilter(GoalieStatisticsFilter.Shutouts)
+            .GreaterThan(0)
+            .And()
+            .StartGroup()
+            .AddFilter(GoalieStatisticsFilter.SavePercentage)
+            .GreaterThanOrEqualTo(0.900)
+            .Or()
+            .AddFilter(GoalieStatisticsFilter.PenaltyMinutes)
+            .GreaterThan(0)
+            .EndGroup()
+            .Build();
+
+        var result = await nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+
+        // Act
+        Assert.IsNotNull(expression);
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Total >= 1);
+
+        foreach (var player in result.GoalieStatisticsResults)
+        {
+            Assert.IsTrue(player.Wins > 10);
+            Assert.IsTrue(player.GoalsAgainstAverage <= 3.5);
+            Assert.IsTrue(player.Shutouts > 0);
+            Assert.IsTrue(player.SavePercentage >= 0.9 || player.Assists > 0);
         }
     }
 }

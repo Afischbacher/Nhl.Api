@@ -450,4 +450,28 @@ public class SeasonYear
     /// The NHL season 2028-2029
     /// </summary>
     public const string season20282029 = "20282029";
+    /// <summary>
+    /// The NHL season 2029-2030
+    /// </summary>
+    public const string season20292030 = "20292030";
+    /// <summary>
+    /// The NHL season 2030-2031    
+    /// </summary>
+    public const string season20302031 = "20302031";
+    /// <summary>
+    /// The NHL season 2031-2032
+    /// </summary>
+    public const string season20312032 = "20312032";
+    /// <summary>
+    /// The NHL season 2032-2033
+    /// </summary>
+    public const string season20322033 = "20322033";
+    /// <summary>
+    /// The NHL season 2033-2034
+    /// </summary>
+    public const string season20332034 = "20332034";
+    /// <summary>
+    /// The NHL season 2034-2035
+    /// </summary>
+    public const string season20342035 = "20342035";
 }
