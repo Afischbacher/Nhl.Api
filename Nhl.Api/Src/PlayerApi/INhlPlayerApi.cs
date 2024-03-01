@@ -1,5 +1,4 @@
 ﻿using Nhl.Api.Enumerations.Game;
-using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
@@ -32,22 +31,22 @@ public interface INhlPlayerApi : IDisposable
     public Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Returns the NHL player's head shot image by the selected size
+    /// Returns the NHL player's head shot image by season year
     /// </summary>
-    /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
-    /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="player">An NHL player, Example: 8478402 - Connor McDavid</param>
+    /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>A byte array content of an NHL player head shot image</returns>
-    public Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default);
+    /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
+    public Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, string seasonYear, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Returns the NHL player's head shot image by the selected size
+    /// Returns the NHL player's head shot image by season year
     /// </summary>
     /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
-    /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>A byte array content of an NHL player head shot image</returns>
-    public Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default);
+    /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
+    public Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, string seasonYear, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// The player season game log for an NHL player for a specific season and game type including stats such as goals, assists, points, plus/minus and more

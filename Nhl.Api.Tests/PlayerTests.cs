@@ -643,33 +643,34 @@ public class PlayerTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    [DataRow(PlayerHeadshotImageSize.Small)]
-    [DataRow(PlayerHeadshotImageSize.Medium)]
-    [DataRow(PlayerHeadshotImageSize.Large)]
-    public async Task TestDownloadPlayerHeadshotImageAsync(PlayerHeadshotImageSize playerHeadShotImageSize)
+    [DataRow("20222023")]
+    [DataRow("20182019")]
+    [DataRow("20202021")]
+    public async Task TestDownloadPlayerHeadshotImageAsync(string seasonYear)
     {
         // Arrange
         await using var nhlApi = new NhlApi();
 
         // Act
-        var image = await nhlApi.GetPlayerHeadshotImageAsync(PlayerEnum.ZackKassian8475178, playerHeadShotImageSize);
+        var image = await nhlApi.GetPlayerHeadshotImageAsync(PlayerEnum.ConnorMcDavid8478402, seasonYear);
 
         // Assert
         Assert.IsNotNull(image);
         Assert.IsTrue(image.Length > 5000);
     }
 
+
     [TestMethodWithRetry(RetryCount = 5)]
-    [DataRow(PlayerHeadshotImageSize.Small)]
-    [DataRow(PlayerHeadshotImageSize.Medium)]
-    [DataRow(PlayerHeadshotImageSize.Large)]
-    public async Task GetPlayerHeadshotImageAsync_TestDownload_PlayerHeadshot_ImageWithId(PlayerHeadshotImageSize playerHeadShotImageSize)
+    [DataRow("20222023")]
+    [DataRow("20182019")]
+    [DataRow("20202021")]
+    public async Task GetPlayerHeadshotImageAsync_TestDownload_PlayerHeadshot_ImageWithId(string seasonYear)
     {
         // Arrange
         await using var nhlApi = new NhlApi();
 
         // Act
-        var image = await nhlApi.GetPlayerHeadshotImageAsync(8477932, playerHeadShotImageSize);
+        var image = await nhlApi.GetPlayerHeadshotImageAsync(8477932, seasonYear);
 
         // Assert
         Assert.IsNotNull(image);
@@ -686,7 +687,7 @@ public class PlayerTests
         // Act / Assert
         await Assert.ThrowsExceptionAsync<HttpRequestException>(async () =>
         {
-            var image = await nhlApi.GetPlayerHeadshotImageAsync(999999, PlayerHeadshotImageSize.Large);
+            var image = await nhlApi.GetPlayerHeadshotImageAsync(999999, SeasonYear.season20162017);
         });
     }
 

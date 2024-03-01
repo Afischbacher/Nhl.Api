@@ -5,6 +5,7 @@ using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
+using Nhl.Api.Services;
 using System.Linq;
 using System.Threading;
 
@@ -19,8 +20,9 @@ public class NhlPlayerApi : INhlPlayerApi
     private static readonly INhlApiHttpClient _nhlEWebApiHttpClient = new NhlEApiHttpClient();
     private static readonly INhlApiHttpClient _nhlApiWebHttpClient = new NhlApiWebHttpClient();
     private static readonly INhlApiHttpClient _nhlSuggestionApiHttpClient = new NhlSuggestionApiHttpClient();
-    private static readonly INhlApiHttpClient _nhlCmsHttpClient = new NhlCmsHttpClient();
+    private static readonly INhlApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
     private static readonly ICachingService _cachingService = new CachingService();
+    private static readonly INhlTeamService _nhlTeamService = new NhlTeamService();
 
     /// <summary>
     /// The official unofficial NHL Player API providing various NHL information about players, draft prospects, rosters and more
@@ -65,39 +67,55 @@ public class NhlPlayerApi : INhlPlayerApi
     }
 
     /// <summary>
-    /// Returns the NHL player's head shot image by the selected size
+    /// Returns the NHL player's head shot image by season year
     /// </summary>
     /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
-    /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
-    public async Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default)
+    public async Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, string seasonYear, CancellationToken cancellationToken = default)
     {
-        return playerHeadshotImageSize switch
+        if (seasonYear?.Length != 8)
         {
-            PlayerHeadshotImageSize.Small => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}.png", cancellationToken),
-            PlayerHeadshotImageSize.Medium => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@2x.png", cancellationToken),
-            PlayerHeadshotImageSize.Large => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{(int)player}@3x.png", cancellationToken),
-            _ => null,
-        };
+            throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
+        }
+
+        var playerInformation = await GetPlayerInformationAsync(player, cancellationToken);
+        var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear)).TeamName.Default;
+        if (string.IsNullOrWhiteSpace(teamName))
+        {
+            return Array.Empty<byte>();
+        }
+
+        var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamName(teamName);
+
+        return await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync($"mugs/nhl/{seasonYear}/{teamAbbreviation}/{(int)player}.png", cancellationToken);
     }
 
     /// <summary>
-    /// Returns the NHL player's head shot image by the selected size
+    /// Returns the NHL player's head shot image by season year
     /// </summary>
     /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
-    /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
-    public async Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default)
+    public async Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, string seasonYear, CancellationToken cancellationToken = default)
     {
-        return playerHeadshotImageSize switch
+        if (seasonYear?.Length != 8)
         {
-            PlayerHeadshotImageSize.Small => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}.png", cancellationToken),
-            PlayerHeadshotImageSize.Medium => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@2x.png", cancellationToken),
-            PlayerHeadshotImageSize.Large => await _nhlCmsHttpClient.GetByteArrayAsync($"images/headshots/current/168x168/{playerId}@3x.png", cancellationToken),
-            _ => null,
-        };
+            throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
+        }
+
+        var playerInformation = await GetPlayerInformationAsync(playerId, cancellationToken);
+        var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear)).TeamName.Default;
+        if (string.IsNullOrWhiteSpace(teamName))
+        {
+            return Array.Empty<byte>();
+        }
+
+        var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamName(teamName);
+
+        return await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync($"mugs/nhl/{seasonYear}/{teamAbbreviation}/{playerId}.png", cancellationToken);
     }
 
     /// <summary>
@@ -115,7 +133,7 @@ public class NhlPlayerApi : INhlPlayerApi
             throw new ArgumentException($"The {nameof(seasonYear)} parameter is required", nameof(seasonYear));
         }
 
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
         }
@@ -138,7 +156,7 @@ public class NhlPlayerApi : INhlPlayerApi
             throw new ArgumentException($"The {nameof(seasonYear)} parameter is required", nameof(seasonYear));
         }
 
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
         }
@@ -161,7 +179,7 @@ public class NhlPlayerApi : INhlPlayerApi
             throw new ArgumentException($"The {nameof(seasonYear)} parameter is required", nameof(seasonYear));
         }
 
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
         }
@@ -184,7 +202,7 @@ public class NhlPlayerApi : INhlPlayerApi
             throw new ArgumentException($"The {nameof(seasonYear)} parameter is required", nameof(seasonYear));
         }
 
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
         }

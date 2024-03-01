@@ -1,6 +1,5 @@
 ﻿using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
-using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.League;
@@ -78,28 +77,29 @@ public class NhlApi : INhlApi
         return await _nhlLeagueApi.GetTeamColorsAsync(teamId, cancellationToken);
     }
 
+
     /// <summary>
-    /// Returns the NHL player's head shot image by the selected size
+    /// Returns the NHL player's head shot image by season year
     /// </summary>
     /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
-    /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>A byte array content of an NHL player head shot image</returns>
-    public async Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default)
+    /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
+    public async Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, string seasonYear, CancellationToken cancellationToken = default)
     {
-        return await _nhlPlayerApi.GetPlayerHeadshotImageAsync(player, playerHeadshotImageSize, cancellationToken);
+        return await _nhlPlayerApi.GetPlayerHeadshotImageAsync(player, seasonYear, cancellationToken);
     }
 
     /// <summary>
     /// Returns the NHL player's head shot image by the selected size
     /// </summary>
     /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
-    /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A byte array content of an NHL player head shot image</returns>
-    public async Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default)
+    public async Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, string seasonYear, CancellationToken cancellationToken = default)
     {
-        return await _nhlPlayerApi.GetPlayerHeadshotImageAsync(playerId, playerHeadshotImageSize, cancellationToken);
+        return await _nhlPlayerApi.GetPlayerHeadshotImageAsync(playerId, seasonYear, cancellationToken);
     }
 
     /// <summary>

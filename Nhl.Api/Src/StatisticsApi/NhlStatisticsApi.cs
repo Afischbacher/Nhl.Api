@@ -53,7 +53,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
             throw new ArgumentException("A season year must be provided to retrieve the NHL player statistics leaders for");
         }
 
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year must be 8 digits in length");
         }
@@ -82,7 +82,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
             throw new ArgumentException("A season year must be provided to retrieve the NHL player statistics leaders for");
         }
 
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year must be 8 digits in length");
         }
@@ -159,7 +159,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
     public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default)
     {
         var statisticTotal = 0;
-        if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear.Length != 8)
+        if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year provided is invalid");
         }
@@ -225,7 +225,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
     public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default)
     {
         var statisticTotal = 0;
-        if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear.Length != 8)
+        if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year provided is invalid");
         }
@@ -618,7 +618,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
             throw new ArgumentException("A season year must be provided to retrieve the NHL player statistics leaders for");
         }
 
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year must be 8 digits in length");
         }
