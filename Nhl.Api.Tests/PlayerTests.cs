@@ -1,4 +1,5 @@
-﻿using Nhl.Api.Enumerations.Game;
+﻿using Newtonsoft.Json;
+using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Season;
 using System.Linq;
@@ -685,7 +686,7 @@ public class PlayerTests
 
 
         // Act / Assert
-        await Assert.ThrowsExceptionAsync<HttpRequestException>(async () =>
+        await Assert.ThrowsExceptionAsync<JsonReaderException>(async () =>
         {
             var image = await nhlApi.GetPlayerHeadshotImageAsync(999999, SeasonYear.season20162017);
         });
