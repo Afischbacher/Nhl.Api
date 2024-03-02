@@ -641,7 +641,7 @@ public class StatisticsTests
             .GreaterThan(30)
             .And()
             .AddFilter(GoalieStatisticsFilter.GoalsAgainstAverage)
-            .LessThanOrEqualTo(2.5)
+            .LessThanOrEqualTo(3.15)
             .Build();
 
         var result = await nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
