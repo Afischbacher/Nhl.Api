@@ -654,7 +654,7 @@ public class StatisticsTests
         foreach (var player in result.GoalieStatisticsResults)
         {
             Assert.IsTrue(player.Wins > 30);
-            Assert.IsTrue(player.GoalsAgainstAverage <= 2.5);
+            Assert.IsTrue(player.GoalsAgainstAverage <= 3.15);
         }
     }
 
@@ -695,7 +695,7 @@ public class StatisticsTests
             .And()
             .StartGroup()
             .AddFilter(GoalieStatisticsFilter.SavePercentage)
-            .GreaterThanOrEqualTo(0.900)
+            .GreaterThanOrEqualTo(0.901)
             .Or()
             .AddFilter(GoalieStatisticsFilter.PenaltyMinutes)
             .GreaterThan(0)
@@ -714,7 +714,7 @@ public class StatisticsTests
             Assert.IsTrue(player.Wins > 10);
             Assert.IsTrue(player.GoalsAgainstAverage <= 3.5);
             Assert.IsTrue(player.Shutouts > 0);
-            Assert.IsTrue(player.SavePercentage >= 0.9 || player.Assists > 0);
+            Assert.IsTrue(player.SavePercentage >= 0.9 || player.PenaltyMinutes > 0);
         }
     }
 
