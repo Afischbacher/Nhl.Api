@@ -571,6 +571,17 @@ public class NhlStatisticsApi : INhlStatisticsApi
             throw new ArgumentException("A player filter expression must be provided to retrieve the NHL player statistics");
         }
 
+        // Validate limit and offsetStart values
+        if (limit < -1)
+        {
+            throw new ArgumentException("Limit must be greater than or equal to 0");
+        }
+
+        if (offsetStart < 0)
+        {
+            throw new ArgumentException("Offset start must be greater than or equal to 0");
+        }
+
         var endpoint = new StringBuilder($"/skater/summary?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={playerStatisticsFilterToSortBy.GetEnumMemberValue()}");
         if (expressionPlayerFilter.IsValidExpression)
         {
@@ -603,8 +614,15 @@ public class NhlStatisticsApi : INhlStatisticsApi
         }
 
         // Validate limit and offsetStart values
-        if (limit < 0) throw new ArgumentException("Limit must be greater than or equal to 0");
-        if (offsetStart < 0) throw new ArgumentException("Offset start must be greater than or equal to 0");
+        if (limit < -1)
+        {
+            throw new ArgumentException("Limit must be greater than or equal to 0");
+        }
+
+        if (offsetStart < 0)
+        {
+            throw new ArgumentException("Offset start must be greater than or equal to 0");
+        }
 
         var endpoint = new StringBuilder($"/goalie/summary?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={goalieStatisticsFilterToSortBy.GetEnumMemberValue()}");
         if (expressionGoalieFilter.IsValidExpression)
