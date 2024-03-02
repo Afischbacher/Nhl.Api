@@ -1,4 +1,5 @@
 ﻿using Nhl.Api.Common.Extensions;
+using System;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Text;
@@ -6,21 +7,21 @@ using System.Text;
 namespace Nhl.Api.Models.Player;
 
 /// <summary>
-/// The expression filter for the NHL API for player statistics, this class is used to build the expression filter for the NHL API for player statistics <br/>
-/// Here is an example of how to use the PlayerFilterExpressionBuilder to build an expression filter for the NHL API for player statistics <br/>
+/// The expression filter for the NHL API for goalie statistics, this class is used to build the expression filter for the NHL API for goalie statistics <br/>
+/// Here is an example of how to use the PlayerFilterExpressionBuilder to build an expression filter for the NHL API for goalie statistics <br/>
 /// <br/>
 /// <code>
 ///  expressionFilter
-///         .AddFilter(PlayerStatisticsFilter.SavePercentage)
+///         .AddFilter(GoalieStatisticsFilter.SavePercentage)
 ///         .GreaterThanOrEqualTo(0.900)
 ///         .And()
-///         .AddFilter(PlayerStatisticsFilter.Goals)
+///         .AddFilter(GoalieStatisticsFilter.Goals)
 ///         .GreaterThan(1)
 ///         .And()
-///         .AddFilter(PlayerStatisticsFilter.Assists)
+///         .AddFilter(GoalieStatisticsFilter.Assists)
 ///         .GreaterThan(1)
 ///         .And()
-///         .AddFilter(PlayerStatisticsFilter.SkaterFullName)
+///         .AddFilter(GoalieStatisticsFilter.SkaterFullName)
 ///         .Contains("Connor")
 ///         .Build();
 /// 
@@ -110,7 +111,15 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression.</returns>
     public GoalieFilterExpressionBuilder EqualTo(object value)
     {
-        _filterExpression.Append($" = '{value}' ");
+        if (value is string)
+        {
+            _filterExpression.Append($" = '{value}' ");
+        }
+        else
+        {
+            _filterExpression.Append($" = {value} ");
+        }
+
         return this;
     }
 
@@ -121,7 +130,15 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder NotEqualTo(object value)
     {
-        _filterExpression.Append($" != '{value}' ");
+        if (value is string)
+        {
+            _filterExpression.Append($" != '{value}' ");
+        }
+        else
+        {
+            _filterExpression.Append($" != {value} ");
+        }
+
         return this;
     }
 
@@ -132,7 +149,15 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder GreaterThan(object value)
     {
-        _filterExpression.Append($" > {value} ");
+        if (value is string)
+        {
+            _filterExpression.Append($" > '{value}' ");
+        }
+        else
+        {
+            _filterExpression.Append($" > {value} ");
+        }
+
         return this;
     }
 
@@ -143,7 +168,15 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder GreaterThanOrEqualTo(object value)
     {
-        _filterExpression.Append($" >= {value}");
+        if (value is string)
+        {
+            _filterExpression.Append($" >= '{value}' ");
+        }
+        else
+        {
+            _filterExpression.Append($" >= {value} ");
+        }
+
         return this;
     }
 
@@ -154,7 +187,16 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder LessThan(object value)
     {
-        _filterExpression.Append($" < {value} ");
+        if (value is string)
+        {
+            _filterExpression.Append($" < '{value}' ");
+
+        }
+        else
+        {
+            _filterExpression.Append($" < {value} ");
+        }
+
         return this;
     }
 
@@ -165,7 +207,15 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder LessThanOrEqualTo(object value)
     {
-        _filterExpression.Append($" <= {value} ");
+        if (value is string)
+        {
+            _filterExpression.Append($" <= '{value}' ");
+        }
+        else
+        {
+            _filterExpression.Append($" <= {value} ");
+        }
+
         return this;
     }
 
@@ -195,15 +245,15 @@ public class GoalieFilterExpressionBuilder
 
 
 /// <summary>
-/// A class that represents the expression filter for the NHL API for player statistics <br/>
-/// See <see cref="PlayerFilterExpressionBuilder"/> for an example of how to use the expression filter for NHL players to filter results
+/// A class that represents the expression filter for the NHL API for goalie statistics <br/>
+/// See <see cref="GoalieFilterExpressionBuilder"/> for an example of how to use the expression filter for NHL goalie to filter results
 /// </summary>
 public class ExpressionGoalieFilter
 {
     private readonly string _filterExpression;
 
     /// <summary>
-    /// A class that represents the expression filter for the NHL player statistics
+    /// A class that represents the expression filter for the NHL goalie statistics
     /// </summary>
     public ExpressionGoalieFilter(string filterExpression)
     {

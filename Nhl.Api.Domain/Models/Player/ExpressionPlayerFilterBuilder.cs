@@ -111,7 +111,15 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression.</returns>
     public PlayerFilterExpressionBuilder EqualTo(object value)
     {
-        _filterExpression.Append($" = '{value}' ");
+        if (value is string)
+        {
+            _filterExpression.Append($" = '{value}' ");
+        }
+        else
+        {
+            _filterExpression.Append($" = {value} ");
+        }
+
         return this;
     }
 
@@ -122,7 +130,15 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder NotEqualTo(object value)
     {
-        _filterExpression.Append($" != '{value}' ");
+        if (value is string)
+        {
+            _filterExpression.Append($" != '{value}' ");
+        }
+        else
+        {
+            _filterExpression.Append($" != {value} ");
+        }
+
         return this;
     }
 
@@ -144,7 +160,15 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder GreaterThanOrEqualTo(object value)
     {
-        _filterExpression.Append($" >= {value}");
+        if (value is string)
+        {
+            _filterExpression.Append($" > '{value}' ");
+        }
+        else
+        {
+            _filterExpression.Append($" > {value} ");
+        }
+
         return this;
     }
 
@@ -155,7 +179,16 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder LessThan(object value)
     {
-        _filterExpression.Append($" < {value} ");
+        if (value is string)
+        {
+            _filterExpression.Append($" < '{value}' ");
+
+        }
+        else
+        {
+            _filterExpression.Append($" < {value} ");
+        }
+
         return this;
     }
 
@@ -166,7 +199,15 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder LessThanOrEqualTo(object value)
     {
-        _filterExpression.Append($" <= {value} ");
+        if (value is string)
+        {
+            _filterExpression.Append($" <= '{value}' ");
+        }
+        else
+        {
+            _filterExpression.Append($" <= {value} ");
+        }
+
         return this;
     }
 
