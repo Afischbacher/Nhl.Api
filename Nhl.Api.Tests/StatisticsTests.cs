@@ -7,6 +7,7 @@ using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
 using System.Collections.Concurrent;
 using System.Linq;
+using System.Threading;
 
 namespace Nhl.Api.Tests;
 
@@ -25,7 +26,7 @@ public class StatisticsTests
     [DataRow(PlayerStatisticsType.TotalTimeOnIce, GameType.RegularSeason, SeasonYear.season20222023, 10)]
     [DataRow(PlayerStatisticsType.FaceOffPercentage, GameType.RegularSeason, SeasonYear.season20222023, 10)]
 
-    public async Task GetSkaterStatsisticsLeadersAsync_Returns_Valid_Information(PlayerStatisticsType playerStatisticsType, GameType gameType, string seasonYear, int limit)
+    public async Task GetSkaterStatisticsLeadersAsync_Returns_Valid_Information(PlayerStatisticsType playerStatisticsType, GameType gameType, string seasonYear, int limit)
     {
         // Arrange
         await using var nhlApi = new NhlApi();
@@ -89,7 +90,7 @@ public class StatisticsTests
     [DataRow(GoalieStatisticsType.SavePercentage, GameType.RegularSeason, SeasonYear.season20222023, 10)]
     [DataRow(GoalieStatisticsType.Shutouts, GameType.RegularSeason, SeasonYear.season20222023, 10)]
     [DataRow(GoalieStatisticsType.Wins, GameType.RegularSeason, SeasonYear.season20222023, 10)]
-    public async Task GetGoalieStatsisticsLeadersAsync_Returns_Valid_Information(GoalieStatisticsType goalieStatisticsType, GameType gameType, string seasonYear, int limit)
+    public async Task GetGoalieStatisticsLeadersAsync_Returns_Valid_Information(GoalieStatisticsType goalieStatisticsType, GameType gameType, string seasonYear, int limit)
     {
         // Arrange
         await using var nhlApi = new NhlApi();
@@ -223,6 +224,7 @@ public class StatisticsTests
                 Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.HitGiven], 25);
                 Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.HitReceived], 54);
                 Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.FaceOffLost], 553);
+                Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.ShotOnGoal], 161);
 
                 Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.MissedShot], 62);
                 Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.Giveaway], 69);
@@ -231,6 +233,7 @@ public class StatisticsTests
                 Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.CommittedPenalty], 12);
 
                 break;
+
             case 8479400:
                 Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.FaceOffWon], 544);
                 Assert.AreEqual(result.StatisticsTotals[PlayerGameCenterStatistic.BlockedShot], 59);
@@ -772,5 +775,207 @@ public class StatisticsTests
             Assert.IsTrue(!player.GoalieFullName.Contains("Ze"));
             Assert.IsTrue(player.PlayerId != 8471214);
         }
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [ExpectedException(typeof(ArgumentException))]
+    public async Task GetGoalieStatisticsLeadersAsync_EmptySeasonYear_ThrowsArgumentException()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        var goalieStatisticsType = GoalieStatisticsType.Wins;
+        var gameType = GameType.RegularSeason;
+        string seasonYear = string.Empty;
+        var limit = 10;
+        var cancellationToken = CancellationToken.None;
+
+        // Act / Assert
+        await nhlApi.GetGoalieStatisticsLeadersAsync(goalieStatisticsType, gameType, seasonYear, limit, cancellationToken);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [ExpectedException(typeof(ArgumentException))]
+    public async Task GetGoalieStatisticsLeadersAsync_InvalidSeasonYearLength_ThrowsArgumentException()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        var goalieStatisticsType = GoalieStatisticsType.Wins;
+        var gameType = GameType.RegularSeason;
+        var seasonYear = "2023"; // Invalid length
+        var limit = 10;
+        var cancellationToken = CancellationToken.None;
+
+        // Act / Assert
+        await nhlApi.GetGoalieStatisticsLeadersAsync(goalieStatisticsType, gameType, seasonYear, limit, cancellationToken);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [ExpectedException(typeof(ArgumentException))]
+    public async Task GetGoalieStatisticsLeadersAsync_LimitLessThanOne_ThrowsArgumentException()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        var goalieStatisticsType = GoalieStatisticsType.Wins;
+        var gameType = GameType.RegularSeason;
+        var seasonYear = "20232024";
+        var limit = 0; // Invalid limit
+        var cancellationToken = CancellationToken.None;
+
+        // Act / Assert
+        await nhlApi.GetGoalieStatisticsLeadersAsync(goalieStatisticsType, gameType, seasonYear, limit, cancellationToken);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetPlayerStatisticsBySeasonAndFilterExpressionAsync_ValidInput_ReturnsPlayerStatistics()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        string seasonYear = "2023"; // Example season year
+        var expressionPlayerFilter = ExpressionPlayerFilter.Empty; // Example filter
+        PlayerStatisticsFilter playerStatisticsFilterToSortBy = PlayerStatisticsFilter.Points; // Example filter to sort by
+        int limit = 10; // Example limit
+        int offsetStart = 0; // Example offset
+        CancellationToken cancellationToken = default;
+
+        // Act
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken);
+
+        // Assert
+        Assert.IsNotNull(result);
+        // Add more assertions based on expected result
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetPlayerStatisticsBySeasonAndFilterExpressionAsync_NullSeasonYear_ThrowsArgumentException()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        string seasonYear = null;
+        var expressionPlayerFilter = ExpressionPlayerFilter.Empty;
+        PlayerStatisticsFilter playerStatisticsFilterToSortBy = PlayerStatisticsFilter.Points;
+
+        int limit = 10;
+        int offsetStart = 0;
+        CancellationToken cancellationToken = default;
+
+        // Act & Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetPlayerStatisticsBySeasonAndFilterExpressionAsync_NullPlayerFilter_ThrowsArgumentException()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        string seasonYear = "2023";
+        ExpressionPlayerFilter expressionPlayerFilter = null;
+        PlayerStatisticsFilter playerStatisticsFilterToSortBy = PlayerStatisticsFilter.Points;
+        int limit = 10;
+        int offsetStart = 0;
+        CancellationToken cancellationToken = default;
+
+        // Act & Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetPlayerStatisticsBySeasonAndFilterExpressionAsync_InvalidLimit_ThrowsArgumentException()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        string seasonYear = "2023";
+        var expressionPlayerFilter = ExpressionPlayerFilter.Empty;
+        var playerStatisticsFilterToSortBy = PlayerStatisticsFilter.Points;
+        int limit = -5; // Invalid limit
+        int offsetStart = 0;
+        CancellationToken cancellationToken = default;
+
+        // Act & Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetPlayerStatisticsBySeasonAndFilterExpressionAsync_InvalidOffsetStart_ThrowsArgumentException()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        string seasonYear = "2023";
+        var expressionPlayerFilter = ExpressionPlayerFilter.Empty;
+        PlayerStatisticsFilter playerStatisticsFilterToSortBy = PlayerStatisticsFilter.Points;
+        int limit = 10;
+        int offsetStart = -3; // Invalid offset
+        CancellationToken cancellationToken = default;
+
+        // Act & Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+    }
+
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetGoalieStatisticsBySeasonAndFilterExpressionAsync_NullSeasonYear_ThrowsArgumentException()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        string seasonYear = null;
+        var expressionPlayerFilter = ExpressionGoalieFilter.Empty;
+        GoalieStatisticsFilter playerStatisticsFilterToSortBy = GoalieStatisticsFilter.Wins;
+
+        int limit = 10;
+        int offsetStart = 0;
+        CancellationToken cancellationToken = default;
+
+        // Act & Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetGoalieStatisticsBySeasonAndFilterExpressionAsync_NullPlayerFilter_ThrowsArgumentException()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        string seasonYear = "2023";
+        ExpressionGoalieFilter expressionPlayerFilter = null;
+        GoalieStatisticsFilter playerStatisticsFilterToSortBy = GoalieStatisticsFilter.Wins;
+        int limit = 10;
+        int offsetStart = 0;
+        CancellationToken cancellationToken = default;
+
+        // Act & Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetGoalieStatisticsBySeasonAndFilterExpressionAsync_InvalidLimit_ThrowsArgumentException()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        string seasonYear = "2023";
+        var expressionPlayerFilter = ExpressionGoalieFilter.Empty;
+        GoalieStatisticsFilter playerStatisticsFilterToSortBy = GoalieStatisticsFilter.Wins;
+        int limit = -5; // Invalid limit
+        int offsetStart = 0;
+        CancellationToken cancellationToken = default;
+
+        // Act & Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetGoalieStatisticsBySeasonAndFilterExpressionAsync_InvalidOffsetStart_ThrowsArgumentException()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        string seasonYear = "2023";
+        var expressionPlayerFilter = ExpressionGoalieFilter.Empty;
+        GoalieStatisticsFilter playerStatisticsFilterToSortBy = GoalieStatisticsFilter.Wins;
+        int limit = 10;
+        int offsetStart = -3; // Invalid offset
+        CancellationToken cancellationToken = default;
+
+        // Act & Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
     }
 }
