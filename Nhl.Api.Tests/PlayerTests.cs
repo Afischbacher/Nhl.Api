@@ -688,7 +688,7 @@ public class PlayerTests
         // Act / Assert
         await Assert.ThrowsExceptionAsync<JsonReaderException>(async () =>
         {
-            var image = await nhlApi.GetPlayerHeadshotImageAsync(999999, SeasonYear.season20162017);
+            var image = await nhlApi.GetPlayerHeadshotImageAsync(999999, "InvalidSeasonYear"); // If testing invalid season year is intended, or revert to previous parameter if testing invalid player ID.
         });
     }
 
