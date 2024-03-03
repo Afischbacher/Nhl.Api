@@ -127,7 +127,7 @@ public interface INhlStatisticsApi
     /// Returns all the NHL player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more
     /// </summary>
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
-    /// <param name="expressionPlayerFilter">The expression player filter to filter the player statistics by, see <see cref="ExpressionPlayerFilterBuilder"/> for more information on valid player filters</param>
+    /// <param name="expressionPlayerFilter">The expression player filter to filter the player statistics by, see <see cref="PlayerFilterExpressionBuilder"/> for more information on valid player filters</param>
     /// <param name="playerStatisticsFilterToSortBy">The player statistics filter to sort the player statistics by, see <see cref="PlayerStatisticsFilter"/> for more information on valid player statistics filters</param>
     /// <param name="limit">The limit to the number of results returned when reviewing the NHL player statistics, by default -1 represents no limit applied to results</param>
     /// <param name="offsetStart">The offset to start the results from when reviewing the NHL player statistics</param>
