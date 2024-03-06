@@ -490,6 +490,21 @@ public class PlayerTests
 
     }
 
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(8478402)]
+    public async Task GetGoalieInformationAsync_Test_ThrowsArgumentExceptionWithPlayerId(int playerId)
+    {
+        // Arrange 
+        await using var nhlApi = new NhlApi();
+
+        // Act / Assert
+
+        await Assert.ThrowsExceptionAsync<ArgumentException>(async () =>
+        {
+            await nhlApi.GetGoalieInformationAsync(playerId);
+        });
+    }
+
 
     [TestMethodWithRetry(RetryCount = 5)]
     [DataRow(PlayerEnum.ConnorMcDavid8478402)]
