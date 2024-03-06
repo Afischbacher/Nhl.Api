@@ -3,7 +3,6 @@ using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Season;
 using System.Linq;
-using System.Net.Http;
 
 namespace Nhl.Api.Tests;
 

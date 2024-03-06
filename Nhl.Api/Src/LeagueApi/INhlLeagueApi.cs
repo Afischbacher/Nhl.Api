@@ -6,7 +6,6 @@ using Nhl.Api.Models.Schedule;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Team;
-using System.Threading;
 
 namespace Nhl.Api;
 
@@ -147,7 +146,7 @@ public interface INhlLeagueApi
     /// </summary>
     /// <param name="teamId">The NHL team identifier, Example: 55 - Seattle Kraken</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns></returns>
+    /// <returns>Returns all the NHL prospects for the specified NHL team including forwards, defense men and goalies</returns>
     public Task<TeamProspects> GetTeamProspectsByTeamAsync(int teamId, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -155,7 +154,7 @@ public interface INhlLeagueApi
     /// </summary>
     /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 10 - Toronto Maple Leafs </param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns></returns>
+    /// <returns> Returns all the NHL prospects for the specified NHL team including forwards, defense men and goalies</returns>
     public Task<TeamProspects> GetTeamProspectsByTeamAsync(TeamEnum team, CancellationToken cancellationToken = default);
 
     /// <summary>

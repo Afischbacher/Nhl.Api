@@ -3,7 +3,6 @@ using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Schedule;
 using Nhl.Api.Models.Season;
-using System.Threading;
 
 namespace Nhl.Api;
 

@@ -1,7 +1,4 @@
-﻿using Nhl.Api.Common.Extensions;
-using Nhl.Api.Common.Helpers;
-using Nhl.Api.Common.Http;
-using Nhl.Api.Enumerations.Game;
+﻿using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Game;
@@ -10,9 +7,6 @@ using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Services;
-using System.Linq;
-using System.Text;
-using System.Threading;
 
 namespace Nhl.Api;
 
@@ -21,12 +15,12 @@ namespace Nhl.Api;
 /// </summary>
 public class NhlStatisticsApi : INhlStatisticsApi
 {
-    private static readonly INhlTeamService _nhlTeamService = new NhlTeamService();
-    private static readonly INhlApiHttpClient _nhlApiWebHttpClient = new NhlApiWebHttpClient();
-    private static readonly INhlApiHttpClient _nhlEApiWebHttpClient = new NhlEApiHttpClient();
-    private static readonly INhlGameApi _nhlGameApi = new NhlGameApi();
-    private static readonly INhlLeagueApi _nhlLeagueApi = new NhlLeagueApi();
-    private static readonly INhlPlayerApi _nhlPlayerApi = new NhlPlayerApi();
+    private static readonly NhlTeamService _nhlTeamService = new();
+    private static readonly NhlApiWebHttpClient _nhlApiWebHttpClient = new();
+    private static readonly NhlEApiHttpClient _nhlEApiWebHttpClient = new();
+    private static readonly NhlGameApi _nhlGameApi = new();
+    private static readonly NhlLeagueApi _nhlLeagueApi = new();
+    private static readonly NhlPlayerApi _nhlPlayerApi = new();
 
 
     /// <summary>

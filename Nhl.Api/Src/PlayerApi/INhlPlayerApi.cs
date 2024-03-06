@@ -2,7 +2,6 @@
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
-using System.Threading;
 
 namespace Nhl.Api;
 
@@ -93,7 +92,7 @@ public interface INhlPlayerApi : IDisposable
     /// </summary>
     /// <param name="playerId">An NHL player id, Example: 8480313 - Logan Thompson</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>Returns the NHL goalie's profile information </returns>
+    /// <returns>Returns the NHL goalie's profile information including their birth date, birth city, height, weight, position and much more </returns>
     public Task<GoalieProfile> GetGoalieInformationAsync(int playerId, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -101,7 +100,7 @@ public interface INhlPlayerApi : IDisposable
     /// </summary>
     /// <param name="player">An NHL player id, Example: 8480313 - Logan Thompson, see <see cref="PlayerEnum"/> for more information on NHL players</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>Returns the NHL goalie's profile information</returns>
+    /// <returns>Returns the NHL goalie's profile information including their birth date, birth city, height, weight, position and much more</returns>
     public Task<GoalieProfile> GetGoalieInformationAsync(PlayerEnum player, CancellationToken cancellationToken = default);
 
     /// <summary>

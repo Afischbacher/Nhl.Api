@@ -5,7 +5,6 @@ using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
-using System.Threading;
 
 namespace Nhl.Api;
 

@@ -1,5 +1,6 @@
 ﻿
 using System.IO;
+using System.Text;
 
 namespace Nhl.Api.Tests;
 
@@ -32,6 +33,8 @@ public class ProjectStructureTests
     [TestMethod]
     public void ValidateProjectStructure_Should_Never_Have_Domain_In_Namespace()
     {
+        var errors = new StringBuilder();
+
         var getSourceCSharpFiles = RootDirectoryFolder.GetFiles("*.cs", SearchOption.AllDirectories);
         foreach (var sourceCSharpFile in getSourceCSharpFiles)
         {
@@ -41,8 +44,14 @@ public class ProjectStructureTests
             }   
 
             var sourceCode = File.ReadAllText(sourceCSharpFile.FullName);
-            Assert.IsFalse(sourceCode.Contains("namespace Nhl.Api.Domain"));
+
+            if(sourceCode.Contains("namespace Nhl.Api.Domain")) 
+            {
+                errors.Append("Domain namespace found in file: " + sourceCSharpFile.FullName + "\n");
+            }
         }
+
+        Assert.IsTrue(errors.Length == 0, errors.ToString());
     }
 
     #region Private Methods

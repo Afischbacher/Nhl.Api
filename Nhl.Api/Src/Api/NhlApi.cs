@@ -9,7 +9,6 @@ using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Standing;
 using Nhl.Api.Models.Statistics;
 using Nhl.Api.Models.Team;
-using System.Threading;
 
 namespace Nhl.Api;
 
@@ -18,10 +17,10 @@ namespace Nhl.Api;
 /// </summary>
 public class NhlApi : INhlApi
 {
-    private static readonly INhlLeagueApi _nhlLeagueApi = new NhlLeagueApi();
-    private static readonly INhlGameApi _nhlGameApi = new NhlGameApi();
-    private static readonly INhlPlayerApi _nhlPlayerApi = new NhlPlayerApi();
-    private static readonly INhlStatisticsApi _nhlStatisticsApi = new NhlStatisticsApi();
+    private static readonly NhlLeagueApi _nhlLeagueApi = new();
+    private static readonly NhlGameApi _nhlGameApi = new();
+    private static readonly NhlPlayerApi _nhlPlayerApi = new();
+    private static readonly NhlStatisticsApi _nhlStatisticsApi = new();
 
     /// <summary>
     /// The official unofficial Nhl.Api providing various NHL information about players, teams, conferences, divisions, statistics and more

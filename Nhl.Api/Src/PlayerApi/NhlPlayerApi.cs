@@ -1,13 +1,10 @@
-﻿using Nhl.Api.Common.Http;
-using Nhl.Api.Common.Services;
+﻿using Nhl.Api.Common.Services;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Enumerations.Player;
 using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Services;
-using System.Linq;
-using System.Threading;
 
 namespace Nhl.Api;
 
@@ -16,12 +13,12 @@ namespace Nhl.Api;
 /// </summary>
 public class NhlPlayerApi : INhlPlayerApi
 {
-    private static readonly INhlApiHttpClient _nhlEWebApiHttpClient = new NhlEApiHttpClient();
-    private static readonly INhlApiHttpClient _nhlApiWebHttpClient = new NhlApiWebHttpClient();
-    private static readonly INhlApiHttpClient _nhlSuggestionApiHttpClient = new NhlSuggestionApiHttpClient();
-    private static readonly INhlApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
-    private static readonly ICachingService _cachingService = new CachingService();
-    private static readonly INhlTeamService _nhlTeamService = new NhlTeamService();
+    private static readonly NhlEApiHttpClient _nhlEWebApiHttpClient = new();
+    private static readonly NhlApiWebHttpClient _nhlApiWebHttpClient = new();
+    private static readonly NhlSuggestionApiHttpClient _nhlSuggestionApiHttpClient = new();
+    private static readonly NhlStaticAssetsApiHttpClient _nhlStaticAssetsApiHttpClient = new();
+    private static readonly CachingService _cachingService = new();
+    private static readonly NhlTeamService _nhlTeamService = new();
 
     /// <summary>
     /// The official unofficial NHL Player API providing various NHL information about players, draft prospects, rosters and more
