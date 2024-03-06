@@ -1,8 +1,4 @@
-﻿
-using System.IO;
-using System.Text;
-
-namespace Nhl.Api.Tests;
+﻿namespace Nhl.Api.Tests;
 
 [TestClass]
 public class ProjectStructureTests
