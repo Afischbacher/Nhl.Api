@@ -167,6 +167,34 @@ public class PlayerTests
         await Assert.ThrowsExceptionAsync<ArgumentException>(async () => await nhlApi.GetPlayerHeadshotImageAsync(8478402, "invalidYear"));
     }
 
+    [TestMethod]
+    public async Task GetPlayerHeadshotImageAsync_PlayerEnum_InvalidSeasonYear_layerId_Incorrect_Season_Year()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var headshot = await nhlApi.GetPlayerHeadshotImageAsync(8478402, SeasonYear.season19971998);
+
+        // Assert
+        Assert.IsNotNull(headshot);
+        Assert.AreEqual(headshot.Length, 0);
+    }
+
+    [TestMethod]
+    public async Task GetPlayerHeadshotImageAsync_PlayerEnum_InvalidSeasonYear_PlayerEnum_Incorrect_Season_Year()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var headshot = await nhlApi.GetPlayerHeadshotImageAsync(PlayerEnum.ConnorMcDavid8478402, SeasonYear.season19971998);
+    
+        // Assert
+        Assert.IsNotNull(headshot);
+        Assert.AreEqual(headshot.Length, 0);
+    }
+
     [TestMethodWithRetry(RetryCount = 5)]
     [DataRow(PlayerEnum.ConnorMcDavid8478402, SeasonYear.season20222023, GameType.RegularSeason)]
     [DataRow(PlayerEnum.SidneyCrosby8471675, SeasonYear.season20182019, GameType.RegularSeason)]

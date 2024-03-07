@@ -72,7 +72,7 @@ public class NhlPlayerApi : INhlPlayerApi
         }
 
         var playerInformation = await GetPlayerInformationAsync(player, cancellationToken);
-        var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear)).TeamName.Default;
+        var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear))?.TeamName?.Default;
         if (string.IsNullOrWhiteSpace(teamName))
         {
             return Array.Empty<byte>();
@@ -98,7 +98,7 @@ public class NhlPlayerApi : INhlPlayerApi
         }
 
         var playerInformation = await GetPlayerInformationAsync(playerId, cancellationToken);
-        var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear)).TeamName.Default;
+        var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear))?.TeamName?.Default;
         if (string.IsNullOrWhiteSpace(teamName))
         {
             return Array.Empty<byte>();
