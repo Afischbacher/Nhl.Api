@@ -2,6 +2,7 @@ using Nhl.Api.Common.Helpers;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
+using Nhl.Api.Services;
 using System.Linq;
 
 namespace Nhl.Api.Tests;
@@ -489,5 +490,46 @@ public class TeamTests
         Assert.AreEqual(TeamNames.OttawaSenators, "Ottawa Senators");
         Assert.AreEqual(TeamNames.TorontoMapleLeafs, "Toronto Maple Leafs");
         Assert.AreEqual(TeamNames.SeattleKraken, "Seattle Kraken");
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow("Tampa Bay Lightning")]
+    [DataRow("Boston Bruins")]
+    [DataRow("New York Islanders")]
+    [DataRow("New York Rangers")]
+    [DataRow("Philadelphia Flyers")]
+    [DataRow("Pittsburgh Penguins")]
+    [DataRow("Washington Capitals")]
+    [DataRow("Carolina Hurricanes")]
+    [DataRow("Columbus Blue Jackets")]
+    [DataRow("Detroit Red Wings")]
+    [DataRow("Chicago Blackhawks")]
+    [DataRow("Nashville Predators")]
+    [DataRow("St. Louis Blues")]
+    [DataRow("Calgary Flames")]
+    [DataRow("Colorado Avalanche")]
+    [DataRow("Edmonton Oilers")]
+    [DataRow("Vancouver Canucks")]
+    [DataRow("Vegas Golden Knights")]
+    [DataRow("Anaheim Ducks")]
+    [DataRow("Dallas Stars")]
+    [DataRow("Los Angeles Kings")]
+    [DataRow("San Jose Sharks")]
+    [DataRow("Arizona Coyotes")]
+    [DataRow("Minnesota Wild")]
+    [DataRow("Winnipeg Jets")]
+    [DataRow("Buffalo Sabres")]
+    [DataRow("Florida Panthers")]
+    [DataRow("Montreal Canadiens")]
+    [DataRow("Ottawa Senators")]
+    [DataRow("Toronto Maple Leafs")]
+    [DataRow("Seattle Kraken")]
+    public void TeamNames_Ensure_Each_TeamAbbreviation_Is_Correct(string teamName)
+    {
+        var nhlTeamService = new NhlTeamService();
+        var teamAbbreviation = nhlTeamService.GetTeamCodeIdentifierByTeamName(teamName);
+
+        Assert.IsNotNull(teamAbbreviation);
+        Assert.AreEqual(teamAbbreviation.Length, 3);
     }
 }
