@@ -1,13 +1,4 @@
-﻿using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.League;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Schedule;
-using Nhl.Api.Models.Season;
-using Nhl.Api.Models.Standing;
-using Nhl.Api.Models.Team;
-
-namespace Nhl.Api;
+﻿namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial NHL League API providing various NHL league information including teams, franchises, standings, awards and more

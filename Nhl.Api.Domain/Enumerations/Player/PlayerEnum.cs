@@ -1,3 +1,5 @@
+namespace Nhl.Api.Models.Enumerations.Player;
+
 /// <summary>
 /// The NHL player enumeration of all NHL players
 /// </summary>

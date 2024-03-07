@@ -1,9 +1,4 @@
-﻿using Nhl.Api.Enumerations.Game;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Season;
-
-namespace Nhl.Api;
+﻿namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial NHL Player API providing various NHL information about players, draft prospects, rosters and more

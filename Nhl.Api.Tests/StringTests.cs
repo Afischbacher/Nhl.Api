@@ -1,5 +1,4 @@
 ﻿using Nhl.Api.Common.Extensions;
-using Nhl.Api.Models.Enumerations.Player;
 
 namespace Nhl.Api.Tests;
 

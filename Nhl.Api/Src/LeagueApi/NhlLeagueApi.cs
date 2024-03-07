@@ -1,12 +1,4 @@
-﻿using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.League;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Schedule;
-using Nhl.Api.Models.Season;
-using Nhl.Api.Models.Standing;
-using Nhl.Api.Models.Team;
-using Nhl.Api.Services;
+﻿using Nhl.Api.Services;
 
 namespace Nhl.Api;
 
@@ -462,7 +454,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns the NHL team roster for a specific team by the team identifier and season year</returns>
     public async Task<TeamSeasonRoster> GetTeamRosterBySeasonYearAsync(int teamId, string seasonYear, CancellationToken cancellationToken = default)
     {
-       
+
 
         if (seasonYear?.Length != 8)
         {

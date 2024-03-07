@@ -1,12 +1,4 @@
-﻿using Nhl.Api.Enumerations.Game;
-using Nhl.Api.Enumerations.Statistic;
-using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Season;
-using Nhl.Api.Models.Statistics;
-using Nhl.Api.Models.Team;
-
-namespace Nhl.Api;
+﻿namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial NHL Statistics API providing various NHL information about in-depth player statistics, team statistics and more

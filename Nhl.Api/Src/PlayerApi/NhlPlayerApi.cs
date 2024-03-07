@@ -1,9 +1,4 @@
 ﻿using Nhl.Api.Common.Services;
-using Nhl.Api.Enumerations.Game;
-using Nhl.Api.Models.Enumerations.Player;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Season;
 using Nhl.Api.Services;
 
 namespace Nhl.Api;

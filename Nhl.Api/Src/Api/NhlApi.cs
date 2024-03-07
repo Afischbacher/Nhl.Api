@@ -1,16 +1,4 @@
-﻿using Nhl.Api.Enumerations.Game;
-using Nhl.Api.Enumerations.Statistic;
-using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.League;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Schedule;
-using Nhl.Api.Models.Season;
-using Nhl.Api.Models.Standing;
-using Nhl.Api.Models.Statistics;
-using Nhl.Api.Models.Team;
-
-namespace Nhl.Api;
+﻿namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial Nhl.Api providing various NHL information about players, teams, conferences, divisions, statistics and more
