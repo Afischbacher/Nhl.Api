@@ -195,6 +195,31 @@ public class PlayerTests
         Assert.AreEqual(headshot.Length, 0);
     }
 
+    [TestMethod]
+    public async Task GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync_ThrowsArgumentException_ForNullSeasonYear()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        var playerId = 8478402;
+        var gameType = GameType.PreSeason;
+
+        // Act & Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(async () => await nhlApi.GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync(playerId, null, gameType));
+    }
+
+    [TestMethod]
+    public async Task GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync_ThrowsArgumentException_ForEmptySeasonYear()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        var playerId = 8478402;
+        var gameType = GameType.RegularSeason;
+        var emptySeasonYear = "";
+
+        // Act & Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(async () => await nhlApi.GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync(playerId, emptySeasonYear, gameType));
+    }
+
     [TestMethodWithRetry(RetryCount = 5)]
     [DataRow(PlayerEnum.ConnorMcDavid8478402, SeasonYear.season20222023, GameType.RegularSeason)]
     [DataRow(PlayerEnum.SidneyCrosby8471675, SeasonYear.season20182019, GameType.RegularSeason)]
