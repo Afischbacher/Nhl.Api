@@ -1,11 +1,4 @@
-﻿using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Schedule;
-using Nhl.Api.Models.Season;
-using System.Threading;
-
-namespace Nhl.Api;
+﻿namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial NHL Game API providing various NHL information game information, game schedules, live game feeds and more

@@ -48,6 +48,7 @@ public static class PlayerEnumFileGeneratorHelper
         }
 
         using StreamWriter outputFile = new(Path.Combine(path, "InternalPlayerEnum.cs"));
+        outputFile.WriteLine($"namespace Nhl.Api.Models.Enumerations.Player;");
         outputFile.WriteLine($"/// <summary>");
         outputFile.WriteLine($"/// The NHL player enumeration of all NHL players");
         outputFile.WriteLine($"/// </summary>");

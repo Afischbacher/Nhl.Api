@@ -1,11 +1,4 @@
-﻿using Nhl.Api.Common.Http;
-using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Schedule;
-using Nhl.Api.Models.Season;
-using Nhl.Api.Services;
-using System.Threading;
+﻿using Nhl.Api.Services;
 
 namespace Nhl.Api;
 
@@ -14,9 +7,9 @@ namespace Nhl.Api;
 /// </summary>
 public class NhlGameApi : INhlGameApi
 {
-    private static readonly INhlApiHttpClient _nhlShiftChartHttpClient = new NhlShiftChartHttpClient();
-    private static readonly INhlApiHttpClient _nhlApiWebHttpClient = new NhlApiWebHttpClient();
-    private static readonly INhlTeamService _nhlTeamService = new NhlTeamService();
+    private static readonly NhlShiftChartHttpClient _nhlShiftChartHttpClient = new();
+    private static readonly NhlApiWebHttpClient _nhlApiWebHttpClient = new();
+    private static readonly NhlTeamService _nhlTeamService = new();
 
     /// <summary>
     /// The official unofficial NHL Game API providing various NHL information game information, game schedules, live game feeds and more

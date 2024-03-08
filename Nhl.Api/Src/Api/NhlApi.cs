@@ -1,28 +1,14 @@
-﻿using Nhl.Api.Enumerations.Game;
-using Nhl.Api.Enumerations.Statistic;
-using Nhl.Api.Models.Enumerations.Player;
-using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.League;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Schedule;
-using Nhl.Api.Models.Season;
-using Nhl.Api.Models.Standing;
-using Nhl.Api.Models.Statistics;
-using Nhl.Api.Models.Team;
-using System.Threading;
-
-namespace Nhl.Api;
+﻿namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial Nhl.Api providing various NHL information about players, teams, conferences, divisions, statistics and more
 /// </summary>
 public class NhlApi : INhlApi
 {
-    private static readonly INhlLeagueApi _nhlLeagueApi = new NhlLeagueApi();
-    private static readonly INhlGameApi _nhlGameApi = new NhlGameApi();
-    private static readonly INhlPlayerApi _nhlPlayerApi = new NhlPlayerApi();
-    private static readonly INhlStatisticsApi _nhlStatisticsApi = new NhlStatisticsApi();
+    private static readonly NhlLeagueApi _nhlLeagueApi = new();
+    private static readonly NhlGameApi _nhlGameApi = new();
+    private static readonly NhlPlayerApi _nhlPlayerApi = new();
+    private static readonly NhlStatisticsApi _nhlStatisticsApi = new();
 
     /// <summary>
     /// The official unofficial Nhl.Api providing various NHL information about players, teams, conferences, divisions, statistics and more
@@ -78,28 +64,29 @@ public class NhlApi : INhlApi
         return await _nhlLeagueApi.GetTeamColorsAsync(teamId, cancellationToken);
     }
 
+
     /// <summary>
-    /// Returns the NHL player's head shot image by the selected size
+    /// Returns the NHL player's head shot image by season year
     /// </summary>
     /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
-    /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>A byte array content of an NHL player head shot image</returns>
-    public async Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default)
+    /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
+    public async Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, string seasonYear, CancellationToken cancellationToken = default)
     {
-        return await _nhlPlayerApi.GetPlayerHeadshotImageAsync(player, playerHeadshotImageSize, cancellationToken);
+        return await _nhlPlayerApi.GetPlayerHeadshotImageAsync(player, seasonYear, cancellationToken);
     }
 
     /// <summary>
     /// Returns the NHL player's head shot image by the selected size
     /// </summary>
     /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
-    /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A byte array content of an NHL player head shot image</returns>
-    public async Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default)
+    public async Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, string seasonYear, CancellationToken cancellationToken = default)
     {
-        return await _nhlPlayerApi.GetPlayerHeadshotImageAsync(playerId, playerHeadshotImageSize, cancellationToken);
+        return await _nhlPlayerApi.GetPlayerHeadshotImageAsync(playerId, seasonYear, cancellationToken);
     }
 
     /// <summary>
@@ -796,6 +783,36 @@ public class NhlApi : INhlApi
     }
 
     /// <summary>
+    /// Returns all the NHL player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more
+    /// </summary>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="expressionPlayerFilter">The expression player filter to filter the player statistics by, see <see cref="PlayerFilterExpressionBuilder"/> for more information on valid player filters</param>
+    /// <param name="playerStatisticsFilterToSortBy">The player statistics filter to sort the player statistics by, see <see cref="PlayerStatisticsFilter"/> for more information on valid player statistics filters</param>
+    /// <param name="limit">The limit to the number of results returned when reviewing the NHL player statistics, by default -1 represents no limit applied to results</param>
+    /// <param name="offsetStart">The offset to start the results from when reviewing the NHL player statistics</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
+    /// <returns> Returns all the NHL player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more </returns>
+    public async Task<PlayerStatisticsFilterResult> GetPlayerStatisticsBySeasonAndFilterExpressionAsync(string seasonYear, ExpressionPlayerFilter expressionPlayerFilter, PlayerStatisticsFilter playerStatisticsFilterToSortBy = PlayerStatisticsFilter.Points, int limit = -1, int offsetStart = 0, CancellationToken cancellationToken = default)
+    {
+        return await _nhlStatisticsApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken);
+    }
+
+    /// <summary>
+    /// Returns all the NHL goalie statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more
+    /// </summary>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="expressionGoalieFilter">The expression goalie filter to filter the goalie statistics by, see <see cref="GoalieFilterExpressionBuilder"/> for more information on valid goalie filters</param>
+    /// <param name="goalieStatisticsFilterToSortBy">The goalie statistics filter to sort the goalie statistics by, see <see cref="GoalieStatisticsFilter"/> for more information on valid goalie statistics filters</param>
+    /// <param name="limit">The limit to the number of results returned when reviewing the NHL player statistics, by default -1 represents no limit applied to results</param>
+    /// <param name="offsetStart">The offset to start the results from when reviewing the NHL goalie statistics</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
+    /// <returns> Returns all the NHL goalie statistics for a specific goalie for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more </returns>
+    public async Task<GoalieStatisticsFilterResult> GetGoalieStatisticsBySeasonAndFilterExpressionAsync(string seasonYear, ExpressionGoalieFilter expressionGoalieFilter, GoalieStatisticsFilter goalieStatisticsFilterToSortBy = GoalieStatisticsFilter.Wins, int limit = -1, int offsetStart = 0, CancellationToken cancellationToken = default)
+    {
+        return await _nhlStatisticsApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionGoalieFilter, goalieStatisticsFilterToSortBy, limit, offsetStart, cancellationToken);
+    }
+
+    /// <summary>
     /// Releases and disposes all unused or garbage collected resources for the Nhl.Api
     /// </summary>
     public void Dispose() => _nhlPlayerApi?.Dispose();
@@ -805,4 +822,5 @@ public class NhlApi : INhlApi
     /// </summary>
     /// <returns>The await-able result of the asynchronous operation</returns>
     public async ValueTask DisposeAsync() => await Task.Run(() => _nhlPlayerApi?.Dispose());
+
 }

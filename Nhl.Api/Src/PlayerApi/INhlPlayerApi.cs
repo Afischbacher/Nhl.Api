@@ -1,11 +1,4 @@
-﻿using Nhl.Api.Enumerations.Game;
-using Nhl.Api.Models.Enumerations.Player;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Season;
-using System.Threading;
-
-namespace Nhl.Api;
+﻿namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial NHL Player API providing various NHL information about players, draft prospects, rosters and more
@@ -32,22 +25,22 @@ public interface INhlPlayerApi : IDisposable
     public Task<List<PlayerSearchResult>> SearchAllActivePlayersAsync(string query, int limit = 25, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Returns the NHL player's head shot image by the selected size
+    /// Returns the NHL player's head shot image by season year
     /// </summary>
-    /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
-    /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="player">An NHL player, Example: 8478402 - Connor McDavid</param>
+    /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>A byte array content of an NHL player head shot image</returns>
-    public Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default);
+    /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
+    public Task<byte[]> GetPlayerHeadshotImageAsync(PlayerEnum player, string seasonYear, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Returns the NHL player's head shot image by the selected size
+    /// Returns the NHL player's head shot image by season year
     /// </summary>
     /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
-    /// <param name="playerHeadshotImageSize">The size of the head shot image, see <see cref="PlayerHeadshotImageSize"/> for more information </param>
+    /// <param name="seasonYear">The season year parameter for determining the season for the season, <see cref="SeasonYear"/> for all available seasons</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>A byte array content of an NHL player head shot image</returns>
-    public Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, PlayerHeadshotImageSize playerHeadshotImageSize = PlayerHeadshotImageSize.Small, CancellationToken cancellationToken = default);
+    /// <returns>A URI endpoint with the image of an NHL player head shot image</returns>
+    public Task<byte[]> GetPlayerHeadshotImageAsync(int playerId, string seasonYear, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// The player season game log for an NHL player for a specific season and game type including stats such as goals, assists, points, plus/minus and more
@@ -94,7 +87,7 @@ public interface INhlPlayerApi : IDisposable
     /// </summary>
     /// <param name="playerId">An NHL player id, Example: 8480313 - Logan Thompson</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>Returns the NHL goalie's profile information </returns>
+    /// <returns>Returns the NHL goalie's profile information including their birth date, birth city, height, weight, position and much more </returns>
     public Task<GoalieProfile> GetGoalieInformationAsync(int playerId, CancellationToken cancellationToken = default);
 
     /// <summary>
@@ -102,7 +95,7 @@ public interface INhlPlayerApi : IDisposable
     /// </summary>
     /// <param name="player">An NHL player id, Example: 8480313 - Logan Thompson, see <see cref="PlayerEnum"/> for more information on NHL players</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>Returns the NHL goalie's profile information</returns>
+    /// <returns>Returns the NHL goalie's profile information including their birth date, birth city, height, weight, position and much more</returns>
     public Task<GoalieProfile> GetGoalieInformationAsync(PlayerEnum player, CancellationToken cancellationToken = default);
 
     /// <summary>

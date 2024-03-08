@@ -1,16 +1,4 @@
-﻿using Nhl.Api.Common.Http;
-using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.League;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Schedule;
-using Nhl.Api.Models.Season;
-using Nhl.Api.Models.Standing;
-using Nhl.Api.Models.Team;
-using Nhl.Api.Services;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using Nhl.Api.Services;
 
 namespace Nhl.Api;
 
@@ -19,9 +7,9 @@ namespace Nhl.Api;
 /// </summary>
 public class NhlLeagueApi : INhlLeagueApi
 {
-    private static readonly INhlApiHttpClient _nhlStaticAssetsApiHttpClient = new NhlStaticAssetsApiHttpClient();
-    private static readonly INhlTeamService _nhlTeamService = new NhlTeamService();
-    private static readonly INhlApiHttpClient _nhlWebApiHttpClient = new NhlApiWebHttpClient();
+    private static readonly NhlStaticAssetsApiHttpClient _nhlStaticAssetsApiHttpClient = new();
+    private static readonly NhlTeamService _nhlTeamService = new();
+    private static readonly NhlApiWebHttpClient _nhlWebApiHttpClient = new();
 
     /// <summary>
     /// The official unofficial NHL League API providing various NHL league information including teams, franchises, standings, awards and more
@@ -124,12 +112,7 @@ public class NhlLeagueApi : INhlLeagueApi
             throw new Exception($"The team abbreviation {teamAbbreviation} is not valid");
         }
 
-        if (string.IsNullOrWhiteSpace(seasonYear))
-        {
-            throw new ArgumentException("The season year is required");
-        }
-
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
         }
@@ -471,12 +454,9 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns the NHL team roster for a specific team by the team identifier and season year</returns>
     public async Task<TeamSeasonRoster> GetTeamRosterBySeasonYearAsync(int teamId, string seasonYear, CancellationToken cancellationToken = default)
     {
-        if (string.IsNullOrWhiteSpace(seasonYear))
-        {
-            throw new ArgumentException("The season year is required");
-        }
 
-        if (seasonYear.Length != 8)
+
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
         }
@@ -494,12 +474,7 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns the NHL team roster for a specific team by the team identifier and season year</returns>
     public async Task<TeamSeasonRoster> GetTeamRosterBySeasonYearAsync(TeamEnum team, string seasonYear, CancellationToken cancellationToken = default)
     {
-        if (string.IsNullOrWhiteSpace(seasonYear))
-        {
-            throw new ArgumentException("The season year is required");
-        }
-
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
         }

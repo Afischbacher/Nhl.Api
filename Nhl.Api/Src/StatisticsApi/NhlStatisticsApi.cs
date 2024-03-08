@@ -1,17 +1,4 @@
-﻿using Nhl.Api.Common.Extensions;
-using Nhl.Api.Common.Helpers;
-using Nhl.Api.Common.Http;
-using Nhl.Api.Enumerations.Game;
-using Nhl.Api.Enumerations.Statistic;
-using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Game;
-using Nhl.Api.Models.Player;
-using Nhl.Api.Models.Season;
-using Nhl.Api.Models.Statistics;
-using Nhl.Api.Models.Team;
-using Nhl.Api.Services;
-using System.Linq;
-using System.Threading;
+﻿using Nhl.Api.Services;
 
 namespace Nhl.Api;
 
@@ -20,11 +7,12 @@ namespace Nhl.Api;
 /// </summary>
 public class NhlStatisticsApi : INhlStatisticsApi
 {
-    private static readonly INhlTeamService _nhlTeamService = new NhlTeamService();
-    private static readonly INhlApiHttpClient _nhlApiWebHttpClient = new NhlApiWebHttpClient();
-    private static readonly INhlGameApi _nhlGameApi = new NhlGameApi();
-    private static readonly INhlLeagueApi _nhlLeagueApi = new NhlLeagueApi();
-    private static readonly INhlPlayerApi _nhlPlayerApi = new NhlPlayerApi();
+    private static readonly NhlTeamService _nhlTeamService = new();
+    private static readonly NhlApiWebHttpClient _nhlApiWebHttpClient = new();
+    private static readonly NhlEApiHttpClient _nhlEApiWebHttpClient = new();
+    private static readonly NhlGameApi _nhlGameApi = new();
+    private static readonly NhlLeagueApi _nhlLeagueApi = new();
+    private static readonly NhlPlayerApi _nhlPlayerApi = new();
 
 
     /// <summary>
@@ -51,7 +39,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
             throw new ArgumentException("A season year must be provided to retrieve the NHL player statistics leaders for");
         }
 
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year must be 8 digits in length");
         }
@@ -80,7 +68,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
             throw new ArgumentException("A season year must be provided to retrieve the NHL player statistics leaders for");
         }
 
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year must be 8 digits in length");
         }
@@ -157,7 +145,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
     public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(PlayerEnum playerEnum, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default)
     {
         var statisticTotal = 0;
-        if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear.Length != 8)
+        if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year provided is invalid");
         }
@@ -223,7 +211,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
     public async Task<int> GetTotalPlayerStatisticValueByTypeAndSeasonAsync(int playerId, PlayerGameCenterStatistic playerGameCenterStatistic, string seasonYear, GameType? gameType = null, CancellationToken cancellationToken = default)
     {
         var statisticTotal = 0;
-        if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear.Length != 8)
+        if (string.IsNullOrWhiteSpace(seasonYear) || seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year provided is invalid");
         }
@@ -546,6 +534,91 @@ public class NhlStatisticsApi : INhlStatisticsApi
         return allPlayerStatisticTotals;
     }
 
+
+    /// <summary>
+    /// Returns all the NHL player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more
+    /// </summary>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="expressionPlayerFilter">The expression player filter to filter the player statistics by, see <see cref="PlayerFilterExpressionBuilder"/> for more information on valid player filters</param>
+    /// <param name="playerStatisticsFilterToSortBy">The player statistics filter to sort the player statistics by, see <see cref="PlayerStatisticsFilter"/> for more information on valid player statistics filters</param>
+    /// <param name="limit">The limit to the number of results returned when reviewing the NHL player statistics, by default -1 represents no limit applied to results</param>
+    /// <param name="offsetStart">The offset to start the results from when reviewing the NHL player statistics</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
+    /// <returns> Returns all the NHL player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more </returns>
+    public async Task<PlayerStatisticsFilterResult> GetPlayerStatisticsBySeasonAndFilterExpressionAsync(string seasonYear, ExpressionPlayerFilter expressionPlayerFilter, PlayerStatisticsFilter playerStatisticsFilterToSortBy = PlayerStatisticsFilter.Points, int limit = -1, int offsetStart = 0, CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrWhiteSpace(seasonYear))
+        {
+            throw new ArgumentException("A season year must be provided to retrieve the NHL player statistics");
+        }
+
+        if (expressionPlayerFilter == null)
+        {
+            throw new ArgumentException("A player filter expression must be provided to retrieve the NHL player statistics");
+        }
+
+        // Validate limit and offsetStart values
+        if (limit < -1)
+        {
+            throw new ArgumentException("Limit must be greater than or equal to 0");
+        }
+
+        if (offsetStart < 0)
+        {
+            throw new ArgumentException("Offset start must be greater than or equal to 0");
+        }
+
+        var endpoint = new StringBuilder($"/skater/summary?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={playerStatisticsFilterToSortBy.GetEnumMemberValue()}");
+        if (expressionPlayerFilter.IsValidExpression)
+        {
+            endpoint.Append($"&{expressionPlayerFilter}");
+        }
+
+        return await _nhlEApiWebHttpClient.GetAsync<PlayerStatisticsFilterResult>(endpoint.ToString(), cancellationToken);
+    }
+
+    /// <summary>
+    /// Returns all the NHL goalie statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more
+    /// </summary>
+    /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
+    /// <param name="expressionGoalieFilter">The expression goalie filter to filter the goalie statistics by, see <see cref="GoalieFilterExpressionBuilder"/> for more information on valid goalie filters</param>
+    /// <param name="goalieStatisticsFilterToSortBy">The goalie statistics filter to sort the goalie statistics by, see <see cref="GoalieStatisticsFilter"/> for more information on valid goalie statistics filters</param>
+    /// <param name="limit">The limit to the number of results returned when reviewing the NHL player statistics, by default -1 represents no limit applied to results</param>
+    /// <param name="offsetStart">The offset to start the results from when reviewing the NHL goalie statistics</param>
+    /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
+    /// <returns> Returns all the NHL goalie statistics for a specific goalie for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more </returns>
+    public async Task<GoalieStatisticsFilterResult> GetGoalieStatisticsBySeasonAndFilterExpressionAsync(string seasonYear, ExpressionGoalieFilter expressionGoalieFilter, GoalieStatisticsFilter goalieStatisticsFilterToSortBy = GoalieStatisticsFilter.Wins, int limit = -1, int offsetStart = 0, CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrWhiteSpace(seasonYear))
+        {
+            throw new ArgumentException("A season year must be provided to retrieve the NHL player statistics");
+        }
+
+        if (expressionGoalieFilter == null)
+        {
+            throw new ArgumentException("A goalie filter expression must be provided to retrieve the NHL goalie statistics");
+        }
+
+        // Validate limit and offsetStart values
+        if (limit < -1)
+        {
+            throw new ArgumentException("Limit must be greater than or equal to 0");
+        }
+
+        if (offsetStart < 0)
+        {
+            throw new ArgumentException("Offset start must be greater than or equal to 0");
+        }
+
+        var endpoint = new StringBuilder($"/goalie/summary?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={goalieStatisticsFilterToSortBy.GetEnumMemberValue()}");
+        if (expressionGoalieFilter.IsValidExpression)
+        {
+            endpoint.Append($"&{expressionGoalieFilter}");
+        }
+
+        return await _nhlEApiWebHttpClient.GetAsync<GoalieStatisticsFilterResult>(endpoint.ToString(), cancellationToken);
+    }
+
     private static void ValidateSeasonYear(string seasonYear)
     {
         if (string.IsNullOrEmpty(seasonYear))
@@ -553,7 +626,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
             throw new ArgumentException("A season year must be provided to retrieve the NHL player statistics leaders for");
         }
 
-        if (seasonYear.Length != 8)
+        if (seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year must be 8 digits in length");
         }
@@ -735,5 +808,4 @@ public class NhlStatisticsApi : INhlStatisticsApi
                 break;
         }
     }
-
 }
