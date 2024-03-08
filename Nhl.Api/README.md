@@ -118,7 +118,6 @@ Thank you to all the people in the hockey community, especially:
 
 ### Contents 📋 <a name="contents"></a>
 - [NhlApi](#T-Nhl-Api-NhlApi 'Nhl.Api.NhlApi')
-- [NhlApi](#T-Nhl-Api-NhlApi 'Nhl.Api.NhlApi')
   - [#ctor()](#M-Nhl-Api-NhlApi-#ctor 'Nhl.Api.NhlApi.#ctor')
   - [Dispose()](#M-Nhl-Api-NhlApi-Dispose 'Nhl.Api.NhlApi.Dispose')
   - [DisposeAsync()](#M-Nhl-Api-NhlApi-DisposeAsync 'Nhl.Api.NhlApi.DisposeAsync')
