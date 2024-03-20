@@ -72,7 +72,7 @@ public class PlayerTests
 
 
     [TestMethodWithRetry(RetryCount = 5)]
-    [DataRow("Carter Hart")]
+    [DataRow("Joseph Woll")]
     [DataRow("David Pastrnak")]
     [DataRow("Connor McDavid")]
     [DataRow("Frederik Andersen")]
@@ -105,17 +105,17 @@ public class PlayerTests
                 Assert.AreEqual(88, playerSearchResult.PlayerNumber);
                 break;
 
-            case "Carter Hart":
-                Assert.AreEqual("Sherwood Park", playerSearchResult.BirthCity);
-                Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
-                Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
-                Assert.AreEqual("Alberta", playerSearchResult.BirthProvinceState);
-                Assert.AreEqual("Carter", playerSearchResult.FirstName);
-                Assert.AreEqual("Hart", playerSearchResult.LastName);
+            case "Joesph Woll":
+                Assert.AreEqual("Dardenne Prairie", playerSearchResult.BirthCity);
+                Assert.AreEqual("USA", playerSearchResult.BirthCountry);
+                Assert.AreEqual("United States of America", playerSearchResult.FullBirthCountry);
+                Assert.AreEqual("Missouri", playerSearchResult.BirthProvinceState);
+                Assert.AreEqual("Joseph", playerSearchResult.FirstName);
+                Assert.AreEqual("Woll", playerSearchResult.LastName);
                 Assert.AreEqual(true, playerSearchResult.IsActive);
-                Assert.AreEqual("PHI", playerSearchResult.TeamAbbreviation);
-                Assert.AreEqual("6\u00272\"", playerSearchResult.Height);
-                Assert.AreEqual(79, playerSearchResult.PlayerNumber);
+                Assert.AreEqual("TOR", playerSearchResult.TeamAbbreviation);
+                Assert.AreEqual("6\u00273\"", playerSearchResult.Height);
+                Assert.AreEqual(60, playerSearchResult.PlayerNumber);
                 break;
 
             case "Connor McDavid":
