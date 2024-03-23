@@ -141,17 +141,57 @@ public class Boxscore
     public GameReports GameReports { get; set; }
 
     /// <summary>
-    /// The NHL game center box score game player statistics for the game
-    /// </summary>
-    [JsonProperty("playerByGameStats")]
-    public PlayerByGameStats PlayerByGameStats { get; set; }
-
-    /// <summary>
     /// The NHL game center box score game information
     /// </summary>
     [JsonProperty("gameInfo")]
     public GameInfo GameInfo { get; set; }
+
+    /// <summary>
+    /// The NHL game center box score team game statistics
+    /// </summary>
+    [JsonProperty("teamGameStats")]
+    public List<TeamGameStatistics> TeamGameStatistics { get; set; }
+
+    /// <summary>
+    /// The NHL season series information for the 2 teams
+    /// </summary>
+    [JsonProperty("seasonSeries")]
+    public List<SeasonSeries> SeasonSeries { get; set; }
+
+    /// <summary>
+    /// The NHL game season series wins between both teams
+    /// </summary>
+    [JsonProperty("seasonSeriesWins")]
+    public SeasonSeriesWins SeasonSeriesWins { get; set; }
 }
+
+/// <summary>
+/// The NHL game center box score team game statistics
+/// </summary>
+public class TeamGameStatistics
+{
+    /// <summary>
+    /// The category for the team game statistics <br/>
+    /// Example: sog - Shots on Goal
+    /// </summary>
+    [JsonProperty("category")]
+    public string Category { get; set; }
+
+    /// <summary>
+    /// The NHL away team game statistics value <br/>
+    /// Example: 30
+    /// </summary>
+    [JsonProperty("awayValue")]
+    public object AwayValue { get; set; }
+
+    /// <summary>
+    /// The NHL home team game statistics value <br/>
+    /// Example: 26
+    /// </summary>
+    [JsonProperty("homeValue")]
+    public object HomeValue { get; set; }
+}
+
 
 /// <summary>
 /// The NHL game center box score game defense player information
@@ -921,9 +961,15 @@ public class GameCenterBoxScore
     public Clock Clock { get; set; }
 
     /// <summary>
+    /// The NHL game center box score game player statistics for the game
+    /// </summary>
+    [JsonProperty("playerByGameStats")]
+    public PlayerByGameStats PlayerByGameStatistics { get; set; }
+
+    /// <summary>
     /// The NHL game center box score information
     /// </summary>
-    [JsonProperty("boxscore")]
+    [JsonProperty("summary")]
     public Boxscore Boxscore { get; set; }
 
     /// <summary>
@@ -955,4 +1001,24 @@ public class Linescore
     /// </summary>
     [JsonProperty("totals")]
     public Totals Totals { get; set; }
+}
+
+/// <summary>
+/// The NHL game home versus away season series wins
+/// </summary>
+public class SeasonSeriesWins
+{
+    /// <summary>
+    /// The number of away team wins for the NHL game <br/>
+    /// Example: 0
+    /// </summary>
+    [JsonProperty("awayTeamWins")]
+    public int AwayTeamWins { get; set; }
+
+    /// <summary>
+    /// The number of home team wins for the NHL game <br/>
+    /// Example: 1
+    /// </summary>
+    [JsonProperty("homeTeamWins")]
+    public int HomeTeamWins { get; set; }
 }
