@@ -1,8 +1,7 @@
-﻿
+﻿namespace Nhl.Api.Common.Http;
+
 using System;
 using System.Net.Http;
-
-namespace Nhl.Api.Common.Http;
 
 /// <summary>
 /// The dedicated NHL Api Web HTTP Client for the Nhl.Api

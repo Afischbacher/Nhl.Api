@@ -1,6 +1,5 @@
-﻿using System.Text.RegularExpressions;
-
-namespace Nhl.Api.Common.Extensions;
+﻿namespace Nhl.Api.Common.Extensions;
+using System.Text.RegularExpressions;
 
 /// <summary>
 /// A helper class for string extensions

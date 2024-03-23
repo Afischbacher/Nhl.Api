@@ -1,7 +1,6 @@
-﻿using System.Linq;
+﻿namespace Nhl.Api.Tests.Helpers.Attributes;
+using System.Linq;
 using System.Threading;
-
-namespace Nhl.Api.Tests.Helpers.Attributes;
 
 /// <summary>
 /// An Microsoft Test custom attribute for retrying on failed test methods

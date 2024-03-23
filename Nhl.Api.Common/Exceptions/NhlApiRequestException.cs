@@ -1,6 +1,5 @@
-﻿using System;
-
-namespace Nhl.Api.Common.Exceptions;
+﻿namespace Nhl.Api.Common.Exceptions;
+using System;
 
 /// <summary>
 /// An exception for a failed Nhl.Api HTTP request

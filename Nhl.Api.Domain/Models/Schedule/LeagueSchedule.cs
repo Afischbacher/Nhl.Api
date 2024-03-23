@@ -1,8 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿namespace Nhl.Api.Models.Schedule;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-
-namespace Nhl.Api.Models.Schedule;
 
 /// <summary>
 /// The NHL away team information for the NHL game schedule

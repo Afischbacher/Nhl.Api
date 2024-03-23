@@ -1,10 +1,9 @@
-﻿using System;
+﻿namespace Nhl.Api.Common.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-
-namespace Nhl.Api.Common.Services;
 
 /// <summary>
 /// An asynchronous helper for running asynchronous code in synchronous environments
@@ -23,27 +22,21 @@ public static class NhlApiAsyncHelper
     /// <typeparam name="TResult">The type of the task result</typeparam>
     /// <param name="func">The task that is to be ran in a synchronous manner</param>
     /// <returns>The task result</returns>
-    public static TResult RunSync<TResult>(Func<Task<TResult>> func)
-    {
-        return NhlApiAsyncHelper._myTaskFactory
+    public static TResult RunSync<TResult>(Func<Task<TResult>> func) => NhlApiAsyncHelper._myTaskFactory
           .StartNew<Task<TResult>>(func)
           .Unwrap<TResult>()
           .GetAwaiter()
           .GetResult();
-    }
 
     /// <summary>
     /// Takes a asynchronous Task based function and runs it asynchronously in a void manner
     /// </summary>
     /// <param name="func">The task that is to be ran in a synchronous manner</param>
-    public static void RunSync(Func<Task> func)
-    {
-        NhlApiAsyncHelper._myTaskFactory
+    public static void RunSync(Func<Task> func) => NhlApiAsyncHelper._myTaskFactory
           .StartNew<Task>(func)
           .Unwrap()
           .GetAwaiter()
           .GetResult();
-    }
 
     /// <summary>
     /// A for each iterator that executes with a degree of parallelism for asynchronous function bodies

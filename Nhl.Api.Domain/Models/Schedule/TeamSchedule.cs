@@ -1,7 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿namespace Nhl.Api.Models.Schedule;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-
-namespace Nhl.Api.Models.Schedule;
 
 /// <summary>
 /// A team's schedule for a specific season

@@ -1,7 +1,6 @@
-﻿using System;
+﻿namespace Nhl.Api.Models.Player;
+using System;
 using System.Collections.Generic;
-
-namespace Nhl.Api.Models.Player;
 
 /// <summary>
 /// NHL Player Search Response

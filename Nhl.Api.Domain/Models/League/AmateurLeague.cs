@@ -1,6 +1,5 @@
-﻿using Newtonsoft.Json;
-
-namespace Nhl.Api.Models.League;
+﻿namespace Nhl.Api.Models.League;
+using Newtonsoft.Json;
 
 /// <summary>
 /// Amateur League

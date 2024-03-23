@@ -1,6 +1,5 @@
-﻿using Newtonsoft.Json;
-
-namespace Nhl.Api.Models.Game;
+﻿namespace Nhl.Api.Models.Game;
+using Newtonsoft.Json;
 
 /// <summary>
 /// Provides information about the home and away NHL broadcasts televised

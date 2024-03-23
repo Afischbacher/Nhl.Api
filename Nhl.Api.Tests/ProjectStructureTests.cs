@@ -1,10 +1,9 @@
-﻿using Microsoft.Build.Locator;
+﻿namespace Nhl.Api.Tests;
+using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.MSBuild;
 using System.Linq;
-
-namespace Nhl.Api.Tests;
 
 [TestClass]
 public class ProjectStructureTests
@@ -19,7 +18,7 @@ public class ProjectStructureTests
     [TestInitialize]
     public void TestInitialize()
     {
-        if (!MSBuildLocator.IsRegistered) 
+        if (!MSBuildLocator.IsRegistered)
         {
             MSBuildLocator.RegisterDefaults();
         }

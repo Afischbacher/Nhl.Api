@@ -1,7 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿namespace Nhl.Api.Models.Season;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-
-namespace Nhl.Api.Models.Season;
 
 
 /// <summary>

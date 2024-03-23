@@ -1,6 +1,5 @@
-﻿using Newtonsoft.Json;
-
-namespace Nhl.Api.Models.Team;
+﻿namespace Nhl.Api.Models.Team;
+using Newtonsoft.Json;
 
 /// <summary>
 /// Enables the type of NHL team logo type based on dark or light background

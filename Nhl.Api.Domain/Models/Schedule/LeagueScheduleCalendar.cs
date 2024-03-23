@@ -1,7 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿namespace Nhl.Api.Models.Schedule;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-
-namespace Nhl.Api.Models.Schedule;
 
 /// <summary>
 /// The common name of the NHL team

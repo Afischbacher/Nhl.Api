@@ -1,7 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿namespace Nhl.Api.Models.Team;
+using Newtonsoft.Json;
 using Nhl.Api.Models.Game;
-
-namespace Nhl.Api.Models.Team;
 
 /// <summary>
 /// The NHL home and away teams

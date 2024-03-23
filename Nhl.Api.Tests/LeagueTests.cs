@@ -1,10 +1,9 @@
+namespace Nhl.Api.Tests;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
 using System.Linq;
-
-namespace Nhl.Api.Tests;
 
 [TestClass]
 public class LeagueTests

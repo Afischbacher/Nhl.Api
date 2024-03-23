@@ -1,6 +1,5 @@
-﻿using Newtonsoft.Json;
-
-namespace Nhl.Api.Models.Statistics;
+﻿namespace Nhl.Api.Models.Statistics;
+using Newtonsoft.Json;
 
 /// <summary>
 /// The NHL team statistic details

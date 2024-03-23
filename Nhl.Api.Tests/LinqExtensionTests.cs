@@ -1,6 +1,5 @@
-﻿using System.Linq;
-
-namespace Nhl.Api.Tests;
+﻿namespace Nhl.Api.Tests;
+using System.Linq;
 
 
 [TestClass]

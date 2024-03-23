@@ -1,9 +1,8 @@
-﻿using Nhl.Api.Common.Extensions;
+﻿namespace Nhl.Api.Models.Player;
+using Nhl.Api.Common.Extensions;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Text;
-
-namespace Nhl.Api.Models.Player;
 
 /// <summary>
 /// The expression filter for the NHL API for goalie statistics, this class is used to build the expression filter for the NHL API for goalie statistics <br/>
@@ -222,19 +221,13 @@ public class GoalieFilterExpressionBuilder
     /// Converts the expression filter to a string
     /// </summary>
     /// <returns>The expression filter as a string</returns>
-    public override string ToString()
-    {
-        return _filterExpression.ToString();
-    }
+    public override string ToString() => _filterExpression.ToString();
 
     /// <summary>
     /// Builds the expression filter for the NHL player statistics
     /// </summary>
     /// <returns>The built expression filter.</returns>
-    public ExpressionGoalieFilter Build()
-    {
-        return new ExpressionGoalieFilter(_filterExpression.ToString());
-    }
+    public ExpressionGoalieFilter Build() => new ExpressionGoalieFilter(_filterExpression.ToString());
 
     /// <summary>
     /// An empty expression filter for the NHL goalie statistics
@@ -264,10 +257,7 @@ public class ExpressionGoalieFilter
     /// See <see cref="PlayerFilterExpressionBuilder"/> for an example of how to use the expression filter
     /// </summary>
     /// <returns>The raw expression for filtering</returns>
-    public override string ToString()
-    {
-        return _filterExpression.ToString();
-    }
+    public override string ToString() => _filterExpression.ToString();
 
     /// <summary>
     /// Determines if the expression is valid based on the length of the expression

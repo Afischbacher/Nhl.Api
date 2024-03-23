@@ -1,6 +1,5 @@
-﻿using Nhl.Api.Common.Extensions;
-
-namespace Nhl.Api.Tests;
+﻿namespace Nhl.Api.Tests;
+using Nhl.Api.Common.Extensions;
 
 [TestClass]
 public class StringTests
@@ -63,10 +62,7 @@ public class StringTests
     [DataRow("mønitor", "monitor")]
     [DataRow("éléphant", "elephant")]
     [DataRow("wôrld", "world")]
-    public void ReplaceNonAsciiWithAscii_Returns_Correct_Ascii_String_Extension(string input, string expected)
-    {
-        Assert.AreEqual(input.ReplaceNonAsciiWithAscii(), expected);
-    }
+    public void ReplaceNonAsciiWithAscii_Returns_Correct_Ascii_String_Extension(string input, string expected) => Assert.AreEqual(input.ReplaceNonAsciiWithAscii(), expected);
 
     [TestMethod]
     [DataRow("ÀÁÂÃÄÅ", "AAAAAA")]

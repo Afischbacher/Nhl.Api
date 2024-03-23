@@ -1,12 +1,11 @@
-﻿using Newtonsoft.Json;
+﻿namespace Nhl.Api.Common.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Concurrent;
 using System.IO;
 using System.IO.Compression;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Nhl.Api.Common.Services;
 
 
 /// <summary>
@@ -50,26 +49,17 @@ public class CachingService : ICachingService
     /// <summary>
     /// Removes the cached item by the key
     /// </summary>
-    public async Task<bool> RemoveAsync(string key)
-    {
-        return await Task.Run(() => _cacheStore.TryRemove(key, out var value));
-    }
+    public async Task<bool> RemoveAsync(string key) => await Task.Run(() => _cacheStore.TryRemove(key, out var value));
 
     /// <summary>
     /// Determines if the key is available within the caching service
     /// </summary>
-    public async Task<bool> ContainsKeyAsync(string key)
-    {
-        return await Task.Run(() => _cacheStore.ContainsKey(key));
-    }
+    public async Task<bool> ContainsKeyAsync(string key) => await Task.Run(() => _cacheStore.ContainsKey(key));
 
     /// <summary>
     /// Add's or updates the cached value based on the provided key and value
     /// </summary>
-    public async Task TryAddUpdateAsync<T>(string key, T value) where T : class
-    {
-        _cacheStore.AddOrUpdate(key, await Compress(JsonConvert.SerializeObject(value)), (a, b) => Compress(JsonConvert.SerializeObject(value)).Result);
-    }
+    public async Task TryAddUpdateAsync<T>(string key, T value) where T : class => _cacheStore.AddOrUpdate(key, await Compress(JsonConvert.SerializeObject(value)), (a, b) => Compress(JsonConvert.SerializeObject(value)).Result);
 
     /// <summary>
     /// Attempts to retrieve the cached value based on the provided key and generic type

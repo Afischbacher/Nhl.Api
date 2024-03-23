@@ -1,9 +1,8 @@
-﻿using Newtonsoft.Json;
+﻿namespace Nhl.Api.Tests;
+using Newtonsoft.Json;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Season;
 using System.Linq;
-
-namespace Nhl.Api.Tests;
 
 [TestClass]
 public class PlayerTests
@@ -189,7 +188,7 @@ public class PlayerTests
 
         // Act
         var headshot = await nhlApi.GetPlayerHeadshotImageAsync(PlayerEnum.ConnorMcDavid8478402, SeasonYear.season19971998);
-    
+
         // Assert
         Assert.IsNotNull(headshot);
         Assert.AreEqual(headshot.Length, 0);
@@ -866,9 +865,7 @@ public class PlayerTests
 
 
     [TestMethodWithRetry(RetryCount = 25)]
-    public async Task PlayerEnumFileGeneratorHelper_Returns_Valid_Content()
-    {
+    public async Task PlayerEnumFileGeneratorHelper_Returns_Valid_Content() =>
         // Arrange
         await PlayerEnumFileGeneratorHelper.UpdatePlayerEnumToFile(string.Empty);
-    }
 }

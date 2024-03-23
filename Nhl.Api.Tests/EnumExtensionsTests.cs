@@ -1,7 +1,6 @@
-﻿using Nhl.Api.Common.Extensions;
+﻿namespace Nhl.Api.Tests;
+using Nhl.Api.Common.Extensions;
 using Nhl.Api.Enumerations.Statistic;
-
-namespace Nhl.Api.Tests;
 
 
 [TestClass]

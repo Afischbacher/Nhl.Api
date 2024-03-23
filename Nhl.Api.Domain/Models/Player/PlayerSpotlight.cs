@@ -1,6 +1,5 @@
-﻿using Newtonsoft.Json;
-
-namespace Nhl.Api.Models.Player;
+﻿namespace Nhl.Api.Models.Player;
+using Newtonsoft.Json;
 
 /// <summary>
 /// The name of the NHL player in the spotlight

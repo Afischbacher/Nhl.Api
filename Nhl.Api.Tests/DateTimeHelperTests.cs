@@ -1,6 +1,5 @@
-﻿using Nhl.Api.Common.Helpers;
-
-namespace Nhl.Api.Tests;
+﻿namespace Nhl.Api.Tests;
+using Nhl.Api.Common.Helpers;
 
 
 [TestClass]

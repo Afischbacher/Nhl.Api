@@ -1,8 +1,7 @@
+namespace Nhl.Api.Tests;
 using Nhl.Api.Common.Http;
 using System.Linq;
 using System.Text.RegularExpressions;
-
-namespace Nhl.Api.Tests;
 
 [TestClass]
 public class GameTests
@@ -25,7 +24,8 @@ public class GameTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetGameScoresByDateAsync(DateOnly.Parse(date));
+        var dateOnly = DateOnly.ParseExact(date, "yyyy-MM-dd");
+        var result = await nhlApi.GetGameScoresByDateAsync(date: dateOnly);
 
         // Assert
         Assert.IsNotNull(result);

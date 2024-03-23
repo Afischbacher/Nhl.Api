@@ -1,6 +1,5 @@
-﻿using Nhl.Api.Common.Services;
-
-namespace Nhl.Api.Tests;
+﻿namespace Nhl.Api.Tests;
+using Nhl.Api.Common.Services;
 
 [TestClass]
 public class CachingServiceTests

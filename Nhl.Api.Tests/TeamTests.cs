@@ -1,11 +1,10 @@
+namespace Nhl.Api.Tests;
 using Nhl.Api.Common.Helpers;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
 using Nhl.Api.Services;
 using System.Linq;
-
-namespace Nhl.Api.Tests;
 
 [TestClass]
 public class TeamTests

@@ -1,6 +1,5 @@
-﻿using Newtonsoft.Json;
-
-namespace Nhl.Api.Models.Franchise;
+﻿namespace Nhl.Api.Models.Franchise;
+using Newtonsoft.Json;
 
 /// <summary>
 /// NHL Franchise
