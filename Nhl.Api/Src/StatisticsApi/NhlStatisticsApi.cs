@@ -1,4 +1,4 @@
-﻿namespace Nhl.Api;
+namespace Nhl.Api;
 using Nhl.Api.Services;
 
 /// <summary>
@@ -740,6 +740,8 @@ public class NhlStatisticsApi : INhlStatisticsApi
                     }
                 }
                 break;
+            default:
+                break;
         }
 
         static void UpdateStatisticForPlayer(int playerId, Dictionary<PlayerProfile, Dictionary<PlayerGameCenterStatistic, int>> allPlayerStatisticTotals, PlayerGameCenterStatistic playerGameCenterStatistic)
@@ -804,6 +806,8 @@ public class NhlStatisticsApi : INhlStatisticsApi
                 gameStatisticTotals[PlayerGameCenterStatistic.Takeaway] = play.Details.PlayerId == playerId
                     ? gameStatisticTotals[PlayerGameCenterStatistic.Giveaway] += 1
                     : gameStatisticTotals[PlayerGameCenterStatistic.Giveaway];
+                break;
+            default:
                 break;
         }
     }
