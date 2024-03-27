@@ -1,6 +1,6 @@
-﻿namespace Nhl.Api.Models.Draft;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
+namespace Nhl.Api.Models.Draft;
 /// <summary>
 /// NHL Prospect Ranks
 /// </summary>

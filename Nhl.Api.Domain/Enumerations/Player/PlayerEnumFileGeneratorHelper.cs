@@ -1,5 +1,4 @@
-﻿namespace Nhl.Api.Models.Enumerations.Player;
-using Nhl.Api.Common.Http;
+﻿using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Player;
 using System.Collections.Generic;
 using System.IO;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
+namespace Nhl.Api.Models.Enumerations.Player;
 /// <summary>
 /// A helper class for generating the <see cref="PlayerEnum"/> values
 /// </summary>

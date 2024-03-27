@@ -1,6 +1,6 @@
-﻿namespace Nhl.Api.Tests;
-using Nhl.Api.Common.Extensions;
+﻿using Nhl.Api.Common.Extensions;
 
+namespace Nhl.Api.Tests;
 [TestClass]
 public class StringTests
 {

@@ -1,9 +1,9 @@
-﻿namespace Nhl.Api.Tests;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Season;
 using System.Linq;
 
+namespace Nhl.Api.Tests;
 [TestClass]
 public class PlayerTests
 {

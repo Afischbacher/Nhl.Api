@@ -1,6 +1,6 @@
-﻿namespace Nhl.Api.Models.Standing;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
+namespace Nhl.Api.Models.Standing;
 /// <summary>
 /// The NHL league standing type
 /// </summary>

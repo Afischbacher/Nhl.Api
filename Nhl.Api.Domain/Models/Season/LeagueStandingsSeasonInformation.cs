@@ -1,8 +1,7 @@
-﻿namespace Nhl.Api.Models.Season;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-
+namespace Nhl.Api.Models.Season;
 /// <summary>
 /// The NHL league season information
 /// </summary>

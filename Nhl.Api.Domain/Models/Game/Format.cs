@@ -1,6 +1,6 @@
-﻿namespace Nhl.Api.Models.Game;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
+namespace Nhl.Api.Models.Game;
 /// <summary>
 /// NHL Playoff Game Format
 /// </summary>

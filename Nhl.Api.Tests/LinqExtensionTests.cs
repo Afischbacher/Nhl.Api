@@ -1,7 +1,6 @@
-﻿namespace Nhl.Api.Tests;
-using System.Linq;
+﻿using System.Linq;
 
-
+namespace Nhl.Api.Tests;
 [TestClass]
 public class LinqExtensionTests
 {

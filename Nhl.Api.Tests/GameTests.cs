@@ -1,7 +1,8 @@
-namespace Nhl.Api.Tests;
 using Nhl.Api.Common.Http;
 using System.Linq;
 using System.Text.RegularExpressions;
+
+namespace Nhl.Api.Tests;
 
 [TestClass]
 public class GameTests

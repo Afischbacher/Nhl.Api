@@ -1,7 +1,6 @@
-﻿namespace Nhl.Api.Models.Team;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
-
+namespace Nhl.Api.Models.Team;
 /// <summary>
 /// The NHL team name
 /// </summary>

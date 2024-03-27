@@ -1,8 +1,8 @@
-﻿namespace Nhl.Api.Models.Team;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Nhl.Api.Models.Player;
 using System.Collections.Generic;
 
+namespace Nhl.Api.Models.Team;
 /// <summary>
 /// An NHL team roster by season with forwards, defensemen and goalies
 /// </summary>

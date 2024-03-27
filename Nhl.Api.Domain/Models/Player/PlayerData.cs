@@ -1,7 +1,7 @@
-﻿namespace Nhl.Api.Models.Player;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
+namespace Nhl.Api.Models.Player;
 /// <summary>
 /// The NHL player search result
 /// </summary>

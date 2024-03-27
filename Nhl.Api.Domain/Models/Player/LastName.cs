@@ -1,6 +1,6 @@
-﻿namespace Nhl.Api.Models.Player;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
+namespace Nhl.Api.Models.Player;
 /// <summary>
 /// The last name of the NHL player
 /// </summary>

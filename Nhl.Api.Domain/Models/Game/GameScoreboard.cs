@@ -1,9 +1,8 @@
-﻿namespace Nhl.Api.Models.Game;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
-
+namespace Nhl.Api.Models.Game;
 /// <summary>
 /// The NHL away team for the game scoreboard for an NHL team
 /// </summary>

@@ -1,8 +1,8 @@
-﻿namespace Nhl.Api.Models.Game;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 
+namespace Nhl.Api.Models.Game;
 /// <summary>
 /// The NHL game center box score for the away team
 /// </summary>

@@ -1,6 +1,6 @@
-﻿namespace Nhl.Api.Models.Award;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
+namespace Nhl.Api.Models.Award;
 /// <summary>
 /// NHL Award
 /// </summary>

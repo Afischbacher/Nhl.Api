@@ -1,6 +1,6 @@
-﻿namespace Nhl.Api.Enumerations.Statistic;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 
+namespace Nhl.Api.Enumerations.Statistic;
 /// <summary>
 /// The GameCenter player statistics type for the NHL GameCenter play by play events
 /// </summary>

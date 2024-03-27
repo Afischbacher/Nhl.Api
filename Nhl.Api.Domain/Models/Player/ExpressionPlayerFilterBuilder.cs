@@ -1,9 +1,9 @@
-﻿namespace Nhl.Api.Models.Player;
-using Nhl.Api.Common.Extensions;
+﻿using Nhl.Api.Common.Extensions;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Text;
 
+namespace Nhl.Api.Models.Player;
 /// <summary>
 /// The expression filter for the NHL API for player statistics, this class is used to build the expression filter for the NHL API for player statistics <br/>
 /// Here is an example of how to use the PlayerFilterExpressionBuilder to build an expression filter for the NHL API for player statistics <br/>

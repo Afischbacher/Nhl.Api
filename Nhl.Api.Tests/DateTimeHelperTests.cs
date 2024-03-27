@@ -1,7 +1,6 @@
-﻿namespace Nhl.Api.Tests;
-using Nhl.Api.Common.Helpers;
+﻿using Nhl.Api.Common.Helpers;
 
-
+namespace Nhl.Api.Tests;
 [TestClass]
 public class DateTimeHelperTests
 {

@@ -1,8 +1,7 @@
-﻿namespace Nhl.Api.Models.Game;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-
+namespace Nhl.Api.Models.Game;
 /// <summary>
 /// The NHL game metadata information for the NHL game
 /// </summary>

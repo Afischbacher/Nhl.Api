@@ -1,6 +1,6 @@
-﻿namespace Nhl.Api.Models.Team;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
+namespace Nhl.Api.Models.Team;
 /// <summary>
 /// A players team common name for the team a player plays for
 /// </summary>

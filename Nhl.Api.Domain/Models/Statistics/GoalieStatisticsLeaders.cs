@@ -1,8 +1,7 @@
-﻿namespace Nhl.Api.Models.Statistics;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-
+namespace Nhl.Api.Models.Statistics;
 /// <summary>
 /// The base class model for NHL goalie statistic leaders
 /// </summary>

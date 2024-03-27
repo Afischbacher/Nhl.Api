@@ -1,7 +1,7 @@
-﻿namespace Nhl.Api.Models.Statistics;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
+namespace Nhl.Api.Models.Statistics;
 /// <summary>
 /// The returned results of the NHL player statistics summary search with filters
 /// </summary>

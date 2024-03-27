@@ -1,11 +1,10 @@
-﻿namespace Nhl.Api.Models.Game;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Standing;
 using System;
 using System.Collections.Generic;
 
-
+namespace Nhl.Api.Models.Game;
 /// <summary>
 /// An NHL game assist and information about the assist
 /// </summary>

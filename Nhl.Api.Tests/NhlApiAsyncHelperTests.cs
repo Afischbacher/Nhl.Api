@@ -1,8 +1,8 @@
-﻿namespace Nhl.Api.Tests;
-using Nhl.Api.Common.Services;
+﻿using Nhl.Api.Common.Services;
 using System.Collections.Concurrent;
 using System.Linq;
 
+namespace Nhl.Api.Tests;
 [TestClass]
 public class NhlApiAsyncHelperTests
 {
