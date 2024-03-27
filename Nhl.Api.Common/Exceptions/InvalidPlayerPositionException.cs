@@ -1,6 +1,6 @@
-﻿namespace Nhl.Api.Common.Exceptions;
 using System;
 
+namespace Nhl.Api.Common.Exceptions;
 /// <summary>
 /// An exception for when a request is made to the Nhl.Api and the player/goalie position is invalid 
 /// </summary>

@@ -1,6 +1,6 @@
-namespace Nhl.Api;
 using Nhl.Api.Services;
 
+namespace Nhl.Api;
 /// <summary>
 /// The official unofficial NHL League API providing various NHL league information including teams, franchises, standings, awards and more
 /// </summary>

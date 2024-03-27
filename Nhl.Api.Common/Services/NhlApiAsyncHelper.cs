@@ -1,10 +1,10 @@
-﻿namespace Nhl.Api.Common.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
+namespace Nhl.Api.Common.Services;
 /// <summary>
 /// An asynchronous helper for running asynchronous code in synchronous environments
 /// </summary>

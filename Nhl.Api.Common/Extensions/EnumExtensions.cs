@@ -1,9 +1,9 @@
-﻿namespace Nhl.Api.Common.Extensions;
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization;
 
+namespace Nhl.Api.Common.Extensions;
 /// <summary>
 /// An enumerations extension class for the Nhl.Api
 /// </summary>

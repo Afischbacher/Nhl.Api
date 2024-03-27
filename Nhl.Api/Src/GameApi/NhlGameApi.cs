@@ -1,6 +1,6 @@
-namespace Nhl.Api;
 using Nhl.Api.Services;
 
+namespace Nhl.Api;
 /// <summary>
 /// The official unofficial NHL Game API providing various NHL information game information, game schedules, live game feeds and more
 /// </summary>

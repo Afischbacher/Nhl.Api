@@ -1,6 +1,6 @@
-namespace Nhl.Api;
 using Nhl.Api.Services;
 
+namespace Nhl.Api;
 /// <summary>
 /// The official unofficial NHL Statistics API providing various NHL information about in-depth player statistics, team statistics and more
 /// </summary>

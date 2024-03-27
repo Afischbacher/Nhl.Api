@@ -1,5 +1,4 @@
-﻿namespace Nhl.Api.Common.Services;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Concurrent;
 using System.IO;
@@ -7,7 +6,7 @@ using System.IO.Compression;
 using System.Text;
 using System.Threading.Tasks;
 
-
+namespace Nhl.Api.Common.Services;
 /// <summary>
 /// A caching service for storing information for easy and quick access within the Nhl.Api
 /// </summary>

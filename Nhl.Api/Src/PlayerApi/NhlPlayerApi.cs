@@ -1,7 +1,7 @@
-namespace Nhl.Api;
 using Nhl.Api.Common.Services;
 using Nhl.Api.Services;
 
+namespace Nhl.Api;
 /// <summary>
 /// The official unofficial NHL Player API providing various NHL information about players, draft prospects, rosters and more
 /// </summary>

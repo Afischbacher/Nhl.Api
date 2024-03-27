@@ -1,7 +1,7 @@
-﻿namespace Nhl.Api.Common.Http;
-using System;
+﻿using System;
 using System.Net.Http;
 
+namespace Nhl.Api.Common.Http;
 /// <summary>
 /// The NHL endpoint for HTML reports
 /// </summary>

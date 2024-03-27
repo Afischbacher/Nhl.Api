@@ -1,6 +1,6 @@
-﻿namespace Nhl.Api.Common.Helpers;
-using System;
+﻿using System;
 
+namespace Nhl.Api.Common.Helpers;
 /// <summary>
 /// A helper class to parse the meta data time stamp in Nhl.Api responses
 /// </summary>
