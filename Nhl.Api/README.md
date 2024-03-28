@@ -309,7 +309,7 @@ Releases and disposes all unused or garbage collected resources for the Nhl.Api 
 
 ##### Returns
 
-The 	 	 await-able result of the asynchronous operation
+The await-able result of the asynchronous operation
 
 ##### Parameters
 

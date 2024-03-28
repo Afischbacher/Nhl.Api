@@ -689,7 +689,7 @@ public class NhlApi : INhlApi
     /// <summary>
     /// Releases and disposes all unused or garbage collected resources for the Nhl.Api asynchronously
     /// </summary>
-    /// <returns>The 	 	 await-able result of the asynchronous operation</returns>
+    /// <returns>The await-able result of the asynchronous operation</returns>
     public async ValueTask DisposeAsync() =>
            await Task.Run(() => _nhlPlayerApi?.Dispose());
 
