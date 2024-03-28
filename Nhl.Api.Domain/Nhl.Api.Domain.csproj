@@ -1,37 +1,38 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<Version>3.4.0</Version>
-		<TargetFrameworks>net8.0</TargetFrameworks>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-	</PropertyGroup>
+  <PropertyGroup>
+    <Version>3.4.1</Version>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
 
-	<ItemGroup>
-	  <Compile Remove="Models\Common\**" />
-	  <Compile Remove="Models\Conference\**" />
-	  <Compile Remove="Models\Division\**" />
-	  <EmbeddedResource Remove="Models\Common\**" />
-	  <EmbeddedResource Remove="Models\Conference\**" />
-	  <EmbeddedResource Remove="Models\Division\**" />
-	  <None Remove="Models\Common\**" />
-	  <None Remove="Models\Conference\**" />
-	  <None Remove="Models\Division\**" />
-	</ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models\Common\**" />
+    <Compile Remove="Models\Conference\**" />
+    <Compile Remove="Models\Division\**" />
+    <EmbeddedResource Remove="Models\Common\**" />
+    <EmbeddedResource Remove="Models\Conference\**" />
+    <EmbeddedResource Remove="Models\Division\**" />
+    <None Remove="Models\Common\**" />
+    <None Remove="Models\Conference\**" />
+    <None Remove="Models\Division\**" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\Nhl.Api.Common\Nhl.Api.Common.csproj" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Nhl.Api.Common\Nhl.Api.Common.csproj" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-	</ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.4.0" PrivateAssets="all" />
-	</ItemGroup>
-	
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.4.0" PrivateAssets="all" />
+  </ItemGroup>
+
 </Project>

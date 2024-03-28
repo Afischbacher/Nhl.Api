@@ -10,7 +10,6 @@ using System.Linq;
 using System.Threading;
 
 namespace Nhl.Api.Tests;
-
 [TestClass]
 public class StatisticsTests
 {

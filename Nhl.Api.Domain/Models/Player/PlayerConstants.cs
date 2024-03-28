@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 
 namespace Nhl.Api.Models.Player;
-
 /// <summary>
 /// NHL Player Constants
 /// </summary>

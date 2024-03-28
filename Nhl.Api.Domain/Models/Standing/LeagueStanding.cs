@@ -3,7 +3,6 @@ using Nhl.Api.Models.Team;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Standing;
-
 /// <summary>
 /// The NHL place name for the team
 /// </summary>

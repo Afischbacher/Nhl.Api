@@ -7,7 +7,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Nhl.Api.Models.Enumerations.Player;
-
 /// <summary>
 /// A helper class for generating the <see cref="PlayerEnum"/> values
 /// </summary>

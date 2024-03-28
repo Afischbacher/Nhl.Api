@@ -1,8 +1,7 @@
-﻿using Nhl.Api.Common.Services;
+using Nhl.Api.Common.Services;
 using Nhl.Api.Services;
 
 namespace Nhl.Api;
-
 /// <summary>
 /// The official unofficial NHL Player API providing various NHL information about players, draft prospects, rosters and more
 /// </summary>
@@ -75,7 +74,7 @@ public class NhlPlayerApi : INhlPlayerApi
         var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear))?.TeamName?.Default;
         if (string.IsNullOrWhiteSpace(teamName))
         {
-            return Array.Empty<byte>();
+            return [];
         }
 
         var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamName(teamName);
@@ -101,7 +100,7 @@ public class NhlPlayerApi : INhlPlayerApi
         var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear))?.TeamName?.Default;
         if (string.IsNullOrWhiteSpace(teamName))
         {
-            return Array.Empty<byte>();
+            return [];
         }
 
         var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamName(teamName);
@@ -241,10 +240,8 @@ public class NhlPlayerApi : INhlPlayerApi
     /// <param name="playerId">An NHL player id, Example: 8478402 - Connor McDavid</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL player's profile information </returns>
-    public async Task<PlayerProfile> GetPlayerInformationAsync(int playerId, CancellationToken cancellationToken = default)
-    {
-        return await _nhlApiWebHttpClient.GetAsync<PlayerProfile>($"/player/{playerId}/landing", cancellationToken);
-    }
+    public async Task<PlayerProfile> GetPlayerInformationAsync(int playerId, CancellationToken cancellationToken = default) =>
+        await _nhlApiWebHttpClient.GetAsync<PlayerProfile>($"/player/{playerId}/landing", cancellationToken);
 
     /// <summary>
     /// Returns the NHL player's profile information including their birth date, birth city, height, weight, position and much more
@@ -252,27 +249,16 @@ public class NhlPlayerApi : INhlPlayerApi
     /// <param name="player">An NHL player id, Example: 8478402 - Connor McDavid, see <see cref="PlayerEnum"/> for more information on NHL players</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL player's profile information</returns>
-    public async Task<PlayerProfile> GetPlayerInformationAsync(PlayerEnum player, CancellationToken cancellationToken = default)
-    {
-        return await _nhlApiWebHttpClient.GetAsync<PlayerProfile>($"/player/{(int)player}/landing", cancellationToken);
-
-    }
+    public async Task<PlayerProfile> GetPlayerInformationAsync(PlayerEnum player, CancellationToken cancellationToken = default) =>
+        await _nhlApiWebHttpClient.GetAsync<PlayerProfile>($"/player/{(int)player}/landing", cancellationToken);
 
     /// <summary>
     /// Returns the NHL player's in the spotlight based on their recent performances 
     /// </summary>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A collection of players and their information for players in the NHL spotlight</returns>
-    public async Task<List<PlayerSpotlight>> GetPlayerSpotlightAsync(CancellationToken cancellationToken = default)
-    {
-        return await _nhlApiWebHttpClient.GetAsync<List<PlayerSpotlight>>("/player-spotlight", cancellationToken);
-    }
-
-    /// <summary>
-    /// Disposes and releases all unneeded resources for the NHL player API
-    /// </summary>
-    /// <exception cref="NotImplementedException"></exception>
-    public void Dispose() => _cachingService?.Dispose();
+    public async Task<List<PlayerSpotlight>> GetPlayerSpotlightAsync(CancellationToken cancellationToken = default) =>
+        await _nhlApiWebHttpClient.GetAsync<List<PlayerSpotlight>>("/player-spotlight", cancellationToken);
 
     /// <summary>
     /// Returns all the NHL players to ever play in the NHL
@@ -294,6 +280,15 @@ public class NhlPlayerApi : INhlPlayerApi
         }
 
         return (await Task.WhenAll(playerSearchResultsTasks)).SelectMany(playerData => playerData.Data).ToList();
+    }
 
+    /// <summary>
+    /// Disposes and releases all unneeded resources for the NHL player API
+    /// </summary>
+    /// <exception cref="NotImplementedException"></exception>
+    public void Dispose()
+    {
+        _cachingService?.Dispose();
+        GC.SuppressFinalize(this);
     }
 }

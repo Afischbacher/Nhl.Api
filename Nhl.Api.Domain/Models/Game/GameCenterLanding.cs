@@ -5,8 +5,6 @@ using System;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Game;
-
-
 /// <summary>
 /// An NHL game assist and information about the assist
 /// </summary>

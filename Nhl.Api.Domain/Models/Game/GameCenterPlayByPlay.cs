@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Nhl.Api.Models.Player;
 using System;
 using System.Collections.Generic;

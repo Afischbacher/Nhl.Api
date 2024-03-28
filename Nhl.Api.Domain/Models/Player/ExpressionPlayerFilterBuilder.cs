@@ -4,7 +4,6 @@ using System.Runtime.Serialization;
 using System.Text;
 
 namespace Nhl.Api.Models.Player;
-
 /// <summary>
 /// The expression filter for the NHL API for player statistics, this class is used to build the expression filter for the NHL API for player statistics <br/>
 /// Here is an example of how to use the PlayerFilterExpressionBuilder to build an expression filter for the NHL API for player statistics <br/>
@@ -215,19 +214,13 @@ public class PlayerFilterExpressionBuilder
     /// Converts the expression filter to a string
     /// </summary>
     /// <returns>The expression filter as a string</returns>
-    public override string ToString()
-    {
-        return _filterExpression.ToString();
-    }
+    public override string ToString() => _filterExpression.ToString();
 
     /// <summary>
     /// Builds the expression filter for the NHL player statistics
     /// </summary>
     /// <returns>The built expression filter.</returns>
-    public ExpressionPlayerFilter Build()
-    {
-        return new ExpressionPlayerFilter(_filterExpression.ToString());
-    }
+    public ExpressionPlayerFilter Build() => new ExpressionPlayerFilter(_filterExpression.ToString());
 
     /// <summary>
     /// An empty expression filter for the NHL player statistics
@@ -257,10 +250,7 @@ public class ExpressionPlayerFilter
     /// See <see cref="PlayerFilterExpressionBuilder"/> for an example of how to use the expression filter
     /// </summary>
     /// <returns>The raw expression for filtering</returns>
-    public override string ToString()
-    {
-        return _filterExpression.ToString();
-    }
+    public override string ToString() => _filterExpression.ToString();
 
     /// <summary>
     /// Determines if the expression is valid based on the length of the expression

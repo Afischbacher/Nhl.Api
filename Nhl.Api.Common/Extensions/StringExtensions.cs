@@ -1,7 +1,6 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 
 namespace Nhl.Api.Common.Extensions;
-
 /// <summary>
 /// A helper class for string extensions
 /// </summary>

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.League;
-
-
 /// <summary>
 /// The current NHL team for the player metadata
 /// </summary>

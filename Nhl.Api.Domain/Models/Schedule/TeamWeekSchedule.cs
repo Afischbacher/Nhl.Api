@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Schedule;
-
 /// <summary>
 /// An NHL team's week based schedule with the start and end date for the week and games for the week
 /// </summary>

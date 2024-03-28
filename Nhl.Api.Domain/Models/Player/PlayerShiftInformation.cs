@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Player;
-
-
 /// <summary>
 /// NHL Live Game Feed Player Shifts
 /// </summary>

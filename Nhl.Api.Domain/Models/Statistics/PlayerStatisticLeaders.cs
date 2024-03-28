@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Statistics;
-
 /// <summary>
 /// The NHL player's statistic leaders for a specific player statistic type for the NHL season
 /// </summary>

@@ -1,8 +1,6 @@
 ﻿using Nhl.Api.Common.Helpers;
 
 namespace Nhl.Api.Tests;
-
-
 [TestClass]
 public class CountryCodeHelperTests
 {

@@ -5,7 +5,6 @@ using Microsoft.CodeAnalysis.MSBuild;
 using System.Linq;
 
 namespace Nhl.Api.Tests;
-
 [TestClass]
 public class ProjectStructureTests
 {
@@ -19,7 +18,7 @@ public class ProjectStructureTests
     [TestInitialize]
     public void TestInitialize()
     {
-        if (!MSBuildLocator.IsRegistered) 
+        if (!MSBuildLocator.IsRegistered)
         {
             MSBuildLocator.RegisterDefaults();
         }

@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Game;
-
 /// <summary>
 /// The NHL away team information for a specific game for the scoreboard for an NHL team
 /// </summary>

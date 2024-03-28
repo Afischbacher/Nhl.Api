@@ -2,7 +2,6 @@
 using System.Net.Http;
 
 namespace Nhl.Api.Common.Http;
-
 /// <summary>
 /// The dedicated NHL HTTP Client for the NHL suggestion API
 /// </summary>

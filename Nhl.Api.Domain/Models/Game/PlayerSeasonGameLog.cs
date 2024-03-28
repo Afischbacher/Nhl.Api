@@ -3,8 +3,6 @@ using Nhl.Api.Models.Team;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Game;
-
-
 /// <summary>
 /// A player's game log information with specific statistics for a specific season, game type and player, including <br/> 
 /// goals, assists, points, plus/minus, power play goals, power play points, game winning goals, overtime goals, shots, shifts, short handed goals, short handed points, penalty minutes and time on ice

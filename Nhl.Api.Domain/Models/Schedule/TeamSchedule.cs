@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Schedule;
-
 /// <summary>
 /// A team's schedule for a specific season
 /// </summary>

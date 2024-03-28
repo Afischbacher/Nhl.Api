@@ -3,15 +3,11 @@ using System.Collections.Concurrent;
 using System.Linq;
 
 namespace Nhl.Api.Tests;
-
 [TestClass]
 public class NhlApiAsyncHelperTests
 {
     [TestMethodWithRetry(RetryCount = 5)]
-    public void TestRunSyncAsync()
-    {
-        NhlApiAsyncHelper.RunSync(async () => await Task.Run(() => Task.Delay(100)));
-    }
+    public void TestRunSyncAsync() => NhlApiAsyncHelper.RunSync(async () => await Task.Run(() => Task.Delay(100)));
 
     [TestMethodWithRetry(RetryCount = 5)]
     public async Task TestForEachAsync()

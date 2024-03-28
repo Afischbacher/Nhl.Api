@@ -3,7 +3,6 @@ using Nhl.Api.Enumerations.Statistic;
 
 namespace Nhl.Api.Tests;
 
-
 [TestClass]
 public class EnumExtensionsTests
 {

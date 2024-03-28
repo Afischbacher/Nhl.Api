@@ -1,7 +1,6 @@
 ﻿using Nhl.Api.Common.Services;
 
 namespace Nhl.Api.Tests;
-
 [TestClass]
 public class CachingServiceTests
 {

@@ -2,8 +2,6 @@
 using System.Net.Http;
 
 namespace Nhl.Api.Common.Http;
-
-
 /// <summary>
 /// The dedicated NHL HTTP client for the shift charts for individual live game feeds
 /// </summary>

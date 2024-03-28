@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 
 namespace Nhl.Api.Models.Game;
-
-
 /// <summary>
 /// An NHL game watch source for watching NHL games in different markets
 /// </summary>

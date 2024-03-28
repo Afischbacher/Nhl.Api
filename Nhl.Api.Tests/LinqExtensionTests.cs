@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 
 namespace Nhl.Api.Tests;
-
-
 [TestClass]
 public class LinqExtensionTests
 {

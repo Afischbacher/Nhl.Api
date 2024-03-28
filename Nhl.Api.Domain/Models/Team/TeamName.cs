@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
 
 namespace Nhl.Api.Models.Team;
-
-
 /// <summary>
 /// The NHL team name
 /// </summary>

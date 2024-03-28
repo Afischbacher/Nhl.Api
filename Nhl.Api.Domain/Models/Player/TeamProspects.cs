@@ -3,7 +3,6 @@ using Nhl.Api.Models.Team;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Player;
-
 /// <summary>
 /// The NHL team prospects by position for an NHL team
 /// </summary>

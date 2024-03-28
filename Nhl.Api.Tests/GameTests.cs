@@ -25,7 +25,8 @@ public class GameTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetGameScoresByDateAsync(DateOnly.Parse(date));
+        var dateOnly = DateOnly.ParseExact(date, "yyyy-MM-dd");
+        var result = await nhlApi.GetGameScoresByDateAsync(date: dateOnly);
 
         // Assert
         Assert.IsNotNull(result);
@@ -109,6 +110,14 @@ public class GameTests
         Assert.IsNotNull(results);
         Assert.IsNotNull(results.GameDate);
         Assert.IsNotNull(results.GameType);
+        Assert.IsNotNull(results.Boxscore);
+
+        Assert.IsNotNull(results.Boxscore.Linescore);
+        Assert.IsNotNull(results.Boxscore.SeasonSeriesWins);
+        Assert.IsNotNull(results.Boxscore.SeasonSeries);
+        Assert.IsNotNull(results.Boxscore.TeamGameStatistics);
+        Assert.IsNotNull(results.PlayerByGameStatistics);
+
         Assert.IsNotNull(results.Id);
         Assert.IsNotNull(results.Clock);
         Assert.IsNotNull(results.Period);

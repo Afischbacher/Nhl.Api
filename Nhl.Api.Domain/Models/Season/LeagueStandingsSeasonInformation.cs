@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Season;
-
-
 /// <summary>
 /// The NHL league season information
 /// </summary>

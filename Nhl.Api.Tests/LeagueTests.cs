@@ -5,7 +5,6 @@ using Nhl.Api.Models.Team;
 using System.Linq;
 
 namespace Nhl.Api.Tests;
-
 [TestClass]
 public class LeagueTests
 {

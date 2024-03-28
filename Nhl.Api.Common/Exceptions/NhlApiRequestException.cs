@@ -1,7 +1,6 @@
 ﻿using System;
 
 namespace Nhl.Api.Common.Exceptions;
-
 /// <summary>
 /// An exception for a failed Nhl.Api HTTP request
 /// </summary>

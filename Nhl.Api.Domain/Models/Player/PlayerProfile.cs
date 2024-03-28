@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Player;
-
 /// <summary>
 /// The profile of an NHL player such as their height, weight, birth date, statistics and more
 /// </summary>

@@ -3,8 +3,6 @@ using System;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Schedule;
-
-
 /// <summary>
 /// The team season schedule period descriptor information for a specified NHL team
 /// </summary>

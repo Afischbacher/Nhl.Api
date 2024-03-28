@@ -1,7 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
 namespace Nhl.Api.Enumerations.Statistic;
-
 /// <summary>
 /// The types of NHL player statistics
 /// </summary>

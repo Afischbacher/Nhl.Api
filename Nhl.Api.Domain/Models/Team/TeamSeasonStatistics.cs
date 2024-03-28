@@ -3,8 +3,6 @@ using Nhl.Api.Models.Player;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Team;
-
-
 /// <summary>
 /// The NHL team goalie's and their team statistics 
 /// </summary>

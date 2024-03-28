@@ -3,7 +3,6 @@ using Nhl.Api.Models.Team;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Game;
-
 /// <summary>
 /// An NHL goalie's game log information for a specific season, game type and player
 /// </summary>
