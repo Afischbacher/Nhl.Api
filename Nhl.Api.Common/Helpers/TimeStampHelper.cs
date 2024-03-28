@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Globalization;
 
 namespace Nhl.Api.Common.Helpers;
 /// <summary>
@@ -39,7 +40,7 @@ public class TimeStampHelper
             var minute = datetime[1].Substring(2, 2);
             var second = datetime[1].Substring(4, 2);
 
-            return DateTimeOffset.Parse($"{year}-{month}-{day}T{hour}:{minute}:{second}") as DateTimeOffset? ?? null;
+            return DateTimeOffset.Parse($"{year}-{month}-{day}T{hour}:{minute}:{second}", CultureInfo.InvariantCulture) as DateTimeOffset? ?? null;
         }
         catch
         {
@@ -48,19 +49,19 @@ public class TimeStampHelper
     }
 
     /// <summary>
-    /// Parses a <see cref="DateTimeOffset"/> to a meta data timestamp for the Nhl.Api
+    /// Parses a <see cref="DateTimeOffset"/> to a meta data time-stamp for the Nhl.Api
     /// </summary>
-    /// <param name="dateTimeOffset">The timestamp, Example: <see cref="DateTimeOffset.Now"/> </param>
-    /// <returns>A parsed game meta data timestamp in UTC, Exampe: 20231105_201423</returns>
+    /// <param name="dateTimeOffset">The time-stamp, Example: <see cref="DateTimeOffset.Now"/> </param>
+    /// <returns>A parsed game meta data time-stamp in UTC, Example: 20231105_201423</returns>
     public static string ParseDateTimeOffsetFromTimeStamp(DateTimeOffset dateTimeOffset)
     {
         var year = dateTimeOffset.Year;
-        var day = dateTimeOffset.Day < 10 ? $"0{dateTimeOffset.Day}" : dateTimeOffset.Day.ToString();
-        var month = dateTimeOffset.Month < 10 ? $"0{dateTimeOffset.Month}" : dateTimeOffset.Month.ToString();
+        var day = dateTimeOffset.Day < 10 ? $"0{dateTimeOffset.Day}" : dateTimeOffset.Day.ToString(CultureInfo.InvariantCulture);
+        var month = dateTimeOffset.Month < 10 ? $"0{dateTimeOffset.Month}" : dateTimeOffset.Month.ToString(CultureInfo.InvariantCulture);
 
-        var hour = dateTimeOffset.Hour < 10 ? $"0{dateTimeOffset.Hour}" : dateTimeOffset.Hour.ToString();
-        var minute = dateTimeOffset.Minute < 10 ? $"0{dateTimeOffset.Minute}" : dateTimeOffset.Minute.ToString();
-        var second = dateTimeOffset.Second < 10 ? $"0{dateTimeOffset.Second}" : dateTimeOffset.Second.ToString();
+        var hour = dateTimeOffset.Hour < 10 ? $"0{dateTimeOffset.Hour}" : dateTimeOffset.Hour.ToString(CultureInfo.InvariantCulture);
+        var minute = dateTimeOffset.Minute < 10 ? $"0{dateTimeOffset.Minute}" : dateTimeOffset.Minute.ToString(CultureInfo.InvariantCulture);
+        var second = dateTimeOffset.Second < 10 ? $"0{dateTimeOffset.Second}" : dateTimeOffset.Second.ToString(CultureInfo.InvariantCulture);
 
         return $"{year}{month}{day}_{hour}{minute}{second}";
 
