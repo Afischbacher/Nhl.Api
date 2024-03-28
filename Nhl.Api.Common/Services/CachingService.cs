@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Concurrent;
 using System.IO;
@@ -43,7 +43,11 @@ public class CachingService : ICachingService
     /// <summary>
     /// Clears all cached values
     /// </summary>
-    public void Dispose() => _cacheStore?.Clear();
+    public void Dispose()
+    {
+        _cacheStore?.Clear();
+        GC.SuppressFinalize(this);
+    }
 
     /// <summary>
     /// Removes the cached item by the key

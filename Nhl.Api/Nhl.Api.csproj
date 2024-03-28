@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<Version>3.4.1</Version>
@@ -25,6 +25,7 @@
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
 		<DefaultItemExcludes>$(DefaultItemExcludes);..\Nhl.Api.Domain\Enumerations\Player\InternalPlayerEnum.cs</DefaultItemExcludes>
+    <Nullable>enable</Nullable>
 	</PropertyGroup>
 	
 	<ItemGroup>

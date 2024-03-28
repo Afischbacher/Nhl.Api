@@ -1,4 +1,4 @@
-﻿using Nhl.Api.Common.Extensions;
+using Nhl.Api.Common.Extensions;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Text;

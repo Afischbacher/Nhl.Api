@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -62,8 +62,7 @@ public abstract class NhlApiHttpClient : INhlApiHttpClient
     public NhlApiHttpClient(string clientApiUri, string clientVersion, int timeoutInSeconds = 30)
     {
         ServicePointManager.ReusePort = true;
-        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls13 | SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls13 | SecurityProtocolType.Tls12;
         Client = clientApiUri;
         ClientVersion = clientVersion;
         Timeout = TimeSpan.FromSeconds(timeoutInSeconds);
