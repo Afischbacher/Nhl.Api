@@ -33,7 +33,8 @@ public class TeamTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var teamColor = await nhlApi.GetTeamColorsAsync(99);
+        const int invalidTeamId = 99;
+        var teamColor = await nhlApi.GetTeamColorsAsync(invalidTeamId);
 
         // Assert
         Assert.IsNull(teamColor);

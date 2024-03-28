@@ -286,5 +286,9 @@ public class NhlPlayerApi : INhlPlayerApi
     /// Disposes and releases all unneeded resources for the NHL player API
     /// </summary>
     /// <exception cref="NotImplementedException"></exception>
-    public void Dispose() => _cachingService?.Dispose();
+    public void Dispose()
+    {
+        _cachingService?.Dispose();
+        GC.SuppressFinalize(this);
+    }
 }
