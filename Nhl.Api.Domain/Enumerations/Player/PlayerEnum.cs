@@ -1,5 +1,4 @@
 namespace Nhl.Api.Models.Enumerations.Player;
-
 /// <summary>
 /// The NHL player enumeration of all NHL players
 /// </summary>
@@ -350,10 +349,6 @@ public enum PlayerEnum
     /// </summary>
     JimLockhurst8457086 = 8457086,
     /// <summary>
-    /// RobertLowes8457108
-    /// </summary>
-    RobertLowes8457108 = 8457108,
-    /// <summary>
     /// KennethMacDermid8457130
     /// </summary>
     KennethMacDermid8457130 = 8457130,
@@ -606,10 +601,6 @@ public enum PlayerEnum
     /// </summary>
     TedOlson8457582 = 8457582,
     /// <summary>
-    /// RandyOswald8457593
-    /// </summary>
-    RandyOswald8457593 = 8457593,
-    /// <summary>
     /// MalcolmParks8457615
     /// </summary>
     MalcolmParks8457615 = 8457615,
@@ -785,10 +776,6 @@ public enum PlayerEnum
     /// DavidFalkenberg8456218
     /// </summary>
     DavidFalkenberg8456218 = 8456218,
-    /// <summary>
-    /// DouglasFeasby8456229
-    /// </summary>
-    DouglasFeasby8456229 = 8456229,
     /// <summary>
     /// TimothyFerguson8456240
     /// </summary>
@@ -1553,10 +1540,6 @@ public enum PlayerEnum
     /// LukeVitale8458320
     /// </summary>
     LukeVitale8458320 = 8458320,
-    /// <summary>
-    /// MikeWarus8458353
-    /// </summary>
-    MikeWarus8458353 = 8458353,
     /// <summary>
     /// RobertWhite8458386
     /// </summary>
@@ -3010,10 +2993,6 @@ public enum PlayerEnum
     /// </summary>
     BrentJarrett8456707 = 8456707,
     /// <summary>
-    /// DavidKunda8456916
-    /// </summary>
-    DavidKunda8456916 = 8456916,
-    /// <summary>
     /// GarryLacey8456927
     /// </summary>
     GarryLacey8456927 = 8456927,
@@ -3158,17 +3137,9 @@ public enum PlayerEnum
     /// </summary>
     LarryPower8457720 = 8457720,
     /// <summary>
-    /// PeterMarrin8449173
-    /// </summary>
-    PeterMarrin8449173 = 8449173,
-    /// <summary>
     /// GaryCullen8455982
     /// </summary>
     GaryCullen8455982 = 8455982,
-    /// <summary>
-    /// RobertDaly8456004
-    /// </summary>
-    RobertDaly8456004 = 8456004,
     /// <summary>
     /// ShaneDoyle8456103
     /// </summary>
@@ -3481,10 +3452,6 @@ public enum PlayerEnum
     /// RobertJones8456742
     /// </summary>
     RobertJones8456742 = 8456742,
-    /// <summary>
-    /// MichaelKozak8456885
-    /// </summary>
-    MichaelKozak8456885 = 8456885,
     /// <summary>
     /// BruceLandon8456962
     /// </summary>
@@ -5029,10 +4996,6 @@ public enum PlayerEnum
     /// JasonWelch8467010
     /// </summary>
     JasonWelch8467010 = 8467010,
-    /// <summary>
-    /// MarkAbbott8469925
-    /// </summary>
-    MarkAbbott8469925 = 8469925,
     /// <summary>
     /// JohnJarvis8470013
     /// </summary>
@@ -6986,10 +6949,6 @@ public enum PlayerEnum
     /// </summary>
     SteveMcKenzie8457314 = 8457314,
     /// <summary>
-    /// DennisMcLean8457325
-    /// </summary>
-    DennisMcLean8457325 = 8457325,
-    /// <summary>
     /// BrentMeckling8457347
     /// </summary>
     BrentMeckling8457347 = 8457347,
@@ -8402,10 +8361,6 @@ public enum PlayerEnum
     /// </summary>
     BrianDurand8456142 = 8456142,
     /// <summary>
-    /// DanielStephano8458122
-    /// </summary>
-    DanielStephano8458122 = 8458122,
-    /// <summary>
     /// EricStrobel8458144
     /// </summary>
     EricStrobel8458144 = 8458144,
@@ -8469,10 +8424,6 @@ public enum PlayerEnum
     /// MichaelHoar8456604
     /// </summary>
     MichaelHoar8456604 = 8456604,
-    /// <summary>
-    /// MarkHuglen8456659
-    /// </summary>
-    MarkHuglen8456659 = 8456659,
     /// <summary>
     /// KurtKalweit8456769
     /// </summary>
@@ -8821,10 +8772,6 @@ public enum PlayerEnum
     /// DougStromback8458145
     /// </summary>
     DougStromback8458145 = 8458145,
-    /// <summary>
-    /// ChrisThayer8458200
-    /// </summary>
-    ChrisThayer8458200 = 8458200,
     /// <summary>
     /// JosephBonvie8460807
     /// </summary>
@@ -9398,10 +9345,6 @@ public enum PlayerEnum
     /// </summary>
     ToddJohnson8456738 = 8456738,
     /// <summary>
-    /// VladimirKames8456771
-    /// </summary>
-    VladimirKames8456771 = 8456771,
-    /// <summary>
     /// JohnLabatt8456925
     /// </summary>
     JohnLabatt8456925 = 8456925,
@@ -9425,10 +9368,6 @@ public enum PlayerEnum
     /// DarinMacInnis8457145
     /// </summary>
     DarinMacInnis8457145 = 8457145,
-    /// <summary>
-    /// RobertMagnuson8457178
-    /// </summary>
-    RobertMagnuson8457178 = 8457178,
     /// <summary>
     /// MichaelMastrullo8457244
     /// </summary>
@@ -9557,10 +9496,6 @@ public enum PlayerEnum
     /// TylerSims8474987
     /// </summary>
     TylerSims8474987 = 8474987,
-    /// <summary>
-    /// LergJeff8475383
-    /// </summary>
-    LergJeff8475383 = 8475383,
     /// <summary>
     /// DanielSpence8475493
     /// </summary>
@@ -9893,10 +9828,6 @@ public enum PlayerEnum
     /// DanielVlaisaujevich8458323
     /// </summary>
     DanielVlaisaujevich8458323 = 8458323,
-    /// <summary>
-    /// DuaneWahlin8458334
-    /// </summary>
-    DuaneWahlin8458334 = 8458334,
     /// <summary>
     /// DanWilliams8458411
     /// </summary>
@@ -10302,10 +10233,6 @@ public enum PlayerEnum
     /// </summary>
     MilSukovic8458819 = 8458819,
     /// <summary>
-    /// GuyPerron8458852
-    /// </summary>
-    GuyPerron8458852 = 8458852,
-    /// <summary>
     /// GregBurke8459259
     /// </summary>
     GregBurke8459259 = 8459259,
@@ -10630,10 +10557,6 @@ public enum PlayerEnum
     /// </summary>
     PeterLisy8457082 = 8457082,
     /// <summary>
-    /// JackMacDougall8457137
-    /// </summary>
-    JackMacDougall8457137 = 8457137,
-    /// <summary>
     /// BradMcCaughey8457269
     /// </summary>
     BradMcCaughey8457269 = 8457269,
@@ -10721,10 +10644,6 @@ public enum PlayerEnum
     /// MatthewWinnicki8458435
     /// </summary>
     MatthewWinnicki8458435 = 8458435,
-    /// <summary>
-    /// ChrisWray8458457
-    /// </summary>
-    ChrisWray8458457 = 8458457,
     /// <summary>
     /// JeffJestadt8458765
     /// </summary>
@@ -11774,10 +11693,6 @@ public enum PlayerEnum
     /// </summary>
     ClintThomas8458207 = 8458207,
     /// <summary>
-    /// JohnTiano8458218
-    /// </summary>
-    JohnTiano8458218 = 8458218,
-    /// <summary>
     /// PatrickHollahan8461078
     /// </summary>
     PatrickHollahan8461078 = 8461078,
@@ -11849,10 +11764,6 @@ public enum PlayerEnum
     /// KeithHendrickson8456568
     /// </summary>
     KeithHendrickson8456568 = 8456568,
-    /// <summary>
-    /// JohnHerlihy8456579
-    /// </summary>
-    JohnHerlihy8456579 = 8456579,
     /// <summary>
     /// MikaelHjalm8456601
     /// </summary>
@@ -14314,10 +14225,6 @@ public enum PlayerEnum
     /// </summary>
     DesmondBergin8480708 = 8480708,
     /// <summary>
-    /// RyanSchmelzer8481115
-    /// </summary>
-    RyanSchmelzer8481115 = 8481115,
-    /// <summary>
     /// MichaelHuntebrinker8481148
     /// </summary>
     MichaelHuntebrinker8481148 = 8481148,
@@ -15133,10 +15040,6 @@ public enum PlayerEnum
     /// MarkMontanari8457413
     /// </summary>
     MarkMontanari8457413 = 8457413,
-    /// <summary>
-    /// SteveScheifele8457952
-    /// </summary>
-    SteveScheifele8457952 = 8457952,
     /// <summary>
     /// MichaelWilliams8458414
     /// </summary>
@@ -16626,10 +16529,6 @@ public enum PlayerEnum
     /// </summary>
     TomMacDonald8459177 = 8459177,
     /// <summary>
-    /// AndreiKarpotsev8459188
-    /// </summary>
-    AndreiKarpotsev8459188 = 8459188,
-    /// <summary>
     /// BillyJoeMacPherson8459199
     /// </summary>
     BillyJoeMacPherson8459199 = 8459199,
@@ -16973,10 +16872,6 @@ public enum PlayerEnum
     /// JosephHarwell8456527
     /// </summary>
     JosephHarwell8456527 = 8456527,
-    /// <summary>
-    /// ToddHilditch8456593
-    /// </summary>
-    ToddHilditch8456593 = 8456593,
     /// <summary>
     /// KenHouse8456637
     /// </summary>
@@ -19214,10 +19109,6 @@ public enum PlayerEnum
     /// </summary>
     BryanDeasley8456027 = 8456027,
     /// <summary>
-    /// DavidDiVita8456082
-    /// </summary>
-    DavidDiVita8456082 = 8456082,
-    /// <summary>
     /// JeffreySirkka8458040
     /// </summary>
     JeffreySirkka8458040 = 8458040,
@@ -19705,10 +19596,6 @@ public enum PlayerEnum
     /// DanielReja8460659
     /// </summary>
     DanielReja8460659 = 8460659,
-    /// <summary>
-    /// KevinHarper8460736
-    /// </summary>
-    KevinHarper8460736 = 8460736,
     /// <summary>
     /// TylerPerry8462188
     /// </summary>
@@ -22154,10 +22041,6 @@ public enum PlayerEnum
     /// </summary>
     MarkDeazeley8460897 = 8460897,
     /// <summary>
-    /// JohnBlessman8455628
-    /// </summary>
-    JohnBlessman8455628 = 8455628,
-    /// <summary>
     /// JohnBradley8455683
     /// </summary>
     JohnBradley8455683 = 8455683,
@@ -22630,10 +22513,6 @@ public enum PlayerEnum
     /// </summary>
     VladislavBulyin8459039 = 8459039,
     /// <summary>
-    /// IgorBoldin8459116
-    /// </summary>
-    IgorBoldin8459116 = 8459116,
-    /// <summary>
     /// MikeMathers8459127
     /// </summary>
     MikeMathers8459127 = 8459127,
@@ -22910,10 +22789,6 @@ public enum PlayerEnum
     /// </summary>
     ScottMacDonald8458710 = 8458710,
     /// <summary>
-    /// KevinRiehl8458743
-    /// </summary>
-    KevinRiehl8458743 = 8458743,
-    /// <summary>
     /// SergeiSorokin8458787
     /// </summary>
     SergeiSorokin8458787 = 8458787,
@@ -23173,10 +23048,6 @@ public enum PlayerEnum
     /// JarkkoPiiparinen8457677
     /// </summary>
     JarkkoPiiparinen8457677 = 8457677,
-    /// <summary>
-    /// MikeDubinsky8460581
-    /// </summary>
-    MikeDubinsky8460581 = 8460581,
     /// <summary>
     /// IanPerkins8468215
     /// </summary>
@@ -23902,10 +23773,6 @@ public enum PlayerEnum
     /// </summary>
     AndyAdams8460814 = 8460814,
     /// <summary>
-    /// JohnFerguson8456238
-    /// </summary>
-    JohnFerguson8456238 = 8456238,
-    /// <summary>
     /// MatsKihlstrom8456832
     /// </summary>
     MatsKihlstrom8456832 = 8456832,
@@ -24278,10 +24145,6 @@ public enum PlayerEnum
     /// </summary>
     XavierCormier8483631 = 8483631,
     /// <summary>
-    /// EliasPettersson8483678
-    /// </summary>
-    EliasPettersson8483678 = 8483678,
-    /// <summary>
     /// HaydenFowler8482185
     /// </summary>
     HaydenFowler8482185 = 8482185,
@@ -24369,10 +24232,6 @@ public enum PlayerEnum
     /// SpenserYoung8482400
     /// </summary>
     SpenserYoung8482400 = 8482400,
-    /// <summary>
-    /// CalThomas8482938
-    /// </summary>
-    CalThomas8482938 = 8482938,
     /// <summary>
     /// CalumRitchie8484221
     /// </summary>
@@ -25410,10 +25269,6 @@ public enum PlayerEnum
     /// </summary>
     BryceMisley8480204 = 8480204,
     /// <summary>
-    /// CedricPare8480249
-    /// </summary>
-    CedricPare8480249 = 8480249,
-    /// <summary>
     /// JordanHollett8480254
     /// </summary>
     JordanHollett8480254 = 8480254,
@@ -25526,10 +25381,6 @@ public enum PlayerEnum
     /// </summary>
     JacobRagnarsson8481021 = 8481021,
     /// <summary>
-    /// SimonKjellberg8481038
-    /// </summary>
-    SimonKjellberg8481038 = 8481038,
-    /// <summary>
     /// SemyonKizimov8481054
     /// </summary>
     SemyonKizimov8481054 = 8481054,
@@ -25621,14 +25472,6 @@ public enum PlayerEnum
     /// MaximDenezhkin8481734
     /// </summary>
     MaximDenezhkin8481734 = 8481734,
-    /// <summary>
-    /// QuinnOlson8481739
-    /// </summary>
-    QuinnOlson8481739 = 8481739,
-    /// <summary>
-    /// CarterBerger8481742
-    /// </summary>
-    CarterBerger8481742 = 8481742,
     /// <summary>
     /// TomasMazura8481752
     /// </summary>
@@ -25734,25 +25577,9 @@ public enum PlayerEnum
     /// </summary>
     AlexanderNikishin8482100 = 8482100,
     /// <summary>
-    /// MatiasRajaniemi8482464
-    /// </summary>
-    MatiasRajaniemi8482464 = 8482464,
-    /// <summary>
-    /// JeremiasLindewall8482469
-    /// </summary>
-    JeremiasLindewall8482469 = 8482469,
-    /// <summary>
-    /// ZionNybeck8482483
-    /// </summary>
-    ZionNybeck8482483 = 8482483,
-    /// <summary>
     /// BenMeehan8482489
     /// </summary>
     BenMeehan8482489 = 8482489,
-    /// <summary>
-    /// CarsonBantle8482490
-    /// </summary>
-    CarsonBantle8482490 = 8482490,
     /// <summary>
     /// BenjaminBaumgartner8482495
     /// </summary>
@@ -25761,10 +25588,6 @@ public enum PlayerEnum
     /// AlexanderGordin8482497
     /// </summary>
     AlexanderGordin8482497 = 8482497,
-    /// <summary>
-    /// ChaseBradley8482507
-    /// </summary>
-    ChaseBradley8482507 = 8482507,
     /// <summary>
     /// DominicCormier8482595
     /// </summary>
@@ -25778,17 +25601,9 @@ public enum PlayerEnum
     /// </summary>
     IanMcKinnon8482616 = 8482616,
     /// <summary>
-    /// DylanDuke8482663
-    /// </summary>
-    DylanDuke8482663 = 8482663,
-    /// <summary>
     /// CadenBrown8482685
     /// </summary>
     CadenBrown8482685 = 8482685,
-    /// <summary>
-    /// TristanBroz8482698
-    /// </summary>
-    TristanBroz8482698 = 8482698,
     /// <summary>
     /// AleksiMalinen8482756
     /// </summary>
@@ -25833,14 +25648,6 @@ public enum PlayerEnum
     /// LucaMunzenberger8482864
     /// </summary>
     LucaMunzenberger8482864 = 8482864,
-    /// <summary>
-    /// JakubMalek8482867
-    /// </summary>
-    JakubMalek8482867 = 8482867,
-    /// <summary>
-    /// RasmusKorhonen8482871
-    /// </summary>
-    RasmusKorhonen8482871 = 8482871,
     /// <summary>
     /// JakubKos8482894
     /// </summary>
@@ -26006,17 +25813,9 @@ public enum PlayerEnum
     /// </summary>
     DarienKielb8483403 = 8483403,
     /// <summary>
-    /// ArtemDuda8483436
-    /// </summary>
-    ArtemDuda8483436 = 8483436,
-    /// <summary>
     /// RuslanGazizov8483446
     /// </summary>
     RuslanGazizov8483446 = 8483446,
-    /// <summary>
-    /// IsaacHoward8483455
-    /// </summary>
-    IsaacHoward8483455 = 8483455,
     /// <summary>
     /// JackHughes8483456
     /// </summary>
@@ -26025,14 +25824,6 @@ public enum PlayerEnum
     /// DylanJames8483459
     /// </summary>
     DylanJames8483459 = 8483459,
-    /// <summary>
-    /// AleksanteriKaskimaki8483463
-    /// </summary>
-    AleksanteriKaskimaki8483463 = 8483463,
-    /// <summary>
-    /// JulianLutz8483483
-    /// </summary>
-    JulianLutz8483483 = 8483483,
     /// <summary>
     /// RutgerMcGroarty8483487
     /// </summary>
@@ -26061,10 +25852,6 @@ public enum PlayerEnum
     /// DrydenMcKay8483656
     /// </summary>
     DrydenMcKay8483656 = 8483656,
-    /// <summary>
-    /// MaratKhusnutdinov8482177
-    /// </summary>
-    MaratKhusnutdinov8482177 = 8482177,
     /// <summary>
     /// RobertCalisti8482191
     /// </summary>
@@ -26222,14 +26009,6 @@ public enum PlayerEnum
     /// </summary>
     ZakaryKarpa8483730 = 8483730,
     /// <summary>
-    /// NikitaGrebenkin8483733
-    /// </summary>
-    NikitaGrebenkin8483733 = 8483733,
-    /// <summary>
-    /// TniasMathurin8483735
-    /// </summary>
-    TniasMathurin8483735 = 8483735,
-    /// <summary>
     /// TylerMuszelik8483736
     /// </summary>
     TylerMuszelik8483736 = 8483736,
@@ -26274,10 +26053,6 @@ public enum PlayerEnum
     /// </summary>
     NoahLaaouan8483103 = 8483103,
     /// <summary>
-    /// VladislavFirstov8481706
-    /// </summary>
-    VladislavFirstov8481706 = 8481706,
-    /// <summary>
     /// BrooklynKalmikov8483658
     /// </summary>
     BrooklynKalmikov8483658 = 8483658,
@@ -26301,10 +26076,6 @@ public enum PlayerEnum
     /// CaleMorris8482528
     /// </summary>
     CaleMorris8482528 = 8482528,
-    /// <summary>
-    /// KyleKonin8483182
-    /// </summary>
-    KyleKonin8483182 = 8483182,
     /// <summary>
     /// JacobGaucher8481848
     /// </summary>
@@ -26542,14 +26313,6 @@ public enum PlayerEnum
     /// </summary>
     MattAnderson8483923 = 8483923,
     /// <summary>
-    /// JacobNewcombe8483925
-    /// </summary>
-    JacobNewcombe8483925 = 8483925,
-    /// <summary>
-    /// IvanIvan8483930
-    /// </summary>
-    IvanIvan8483930 = 8483930,
-    /// <summary>
     /// JacobMathieu8483931
     /// </summary>
     JacobMathieu8483931 = 8483931,
@@ -26569,10 +26332,6 @@ public enum PlayerEnum
     /// ChrisSnowdenSanti8483947
     /// </summary>
     ChrisSnowdenSanti8483947 = 8483947,
-    /// <summary>
-    /// RyanHumphrey8483955
-    /// </summary>
-    RyanHumphrey8483955 = 8483955,
     /// <summary>
     /// BradleyBarone8483960
     /// </summary>
@@ -26686,10 +26445,6 @@ public enum PlayerEnum
     /// </summary>
     CycloneTaylor8484097 = 8484097,
     /// <summary>
-    /// JeremyHanzel8483086
-    /// </summary>
-    JeremyHanzel8483086 = 8483086,
-    /// <summary>
     /// RaphaelAudet8484103
     /// </summary>
     RaphaelAudet8484103 = 8484103,
@@ -26762,10 +26517,6 @@ public enum PlayerEnum
     /// </summary>
     LukeMittelstadt8482687 = 8482687,
     /// <summary>
-    /// RhettPitlick8481746
-    /// </summary>
-    RhettPitlick8481746 = 8481746,
-    /// <summary>
     /// GunnarwolfeFontaine8482506
     /// </summary>
     GunnarwolfeFontaine8482506 = 8482506,
@@ -26789,10 +26540,6 @@ public enum PlayerEnum
     /// MattRegister8477188
     /// </summary>
     MattRegister8477188 = 8477188,
-    /// <summary>
-    /// SamLipkin8482924
-    /// </summary>
-    SamLipkin8482924 = 8482924,
     /// <summary>
     /// RyanOConnell8480290
     /// </summary>
@@ -26922,17 +26669,9 @@ public enum PlayerEnum
     /// </summary>
     LucaCagnoni8484152 = 8484152,
     /// <summary>
-    /// JonathanCastagna8484154
-    /// </summary>
-    JonathanCastagna8484154 = 8484154,
-    /// <summary>
     /// NoahDowerNilsson8484161
     /// </summary>
     NoahDowerNilsson8484161 = 8484161,
-    /// <summary>
-    /// DavidEdstrom8484165
-    /// </summary>
-    DavidEdstrom8484165 = 8484165,
     /// <summary>
     /// PaulFischer8484167
     /// </summary>
@@ -26954,10 +26693,6 @@ public enum PlayerEnum
     /// </summary>
     LarryKeenan8484182 = 8484182,
     /// <summary>
-    /// RasmusKumpulainen8484184
-    /// </summary>
-    RasmusKumpulainen8484184 = 8484184,
-    /// <summary>
     /// TheoLindstein8484188
     /// </summary>
     TheoLindstein8484188 = 8484188,
@@ -26973,10 +26708,6 @@ public enum PlayerEnum
     /// FelixNilsson8484206
     /// </summary>
     FelixNilsson8484206 = 8484206,
-    /// <summary>
-    /// NoelNordh8484207
-    /// </summary>
-    NoelNordh8484207 = 8484207,
     /// <summary>
     /// JesseNurmi8484208
     /// </summary>
@@ -27034,21 +26765,9 @@ public enum PlayerEnum
     /// </summary>
     RomanKantserov8484390 = 8484390,
     /// <summary>
-    /// JurajPekarcik8484393
-    /// </summary>
-    JurajPekarcik8484393 = 8484393,
-    /// <summary>
-    /// TannerLudtke8484394
-    /// </summary>
-    TannerLudtke8484394 = 8484394,
-    /// <summary>
     /// ArttuKarki8484397
     /// </summary>
     ArttuKarki8484397 = 8484397,
-    /// <summary>
-    /// VadimMoroz8484399
-    /// </summary>
-    VadimMoroz8484399 = 8484399,
     /// <summary>
     /// ChristopherPelosi8484401
     /// </summary>
@@ -27082,10 +26801,6 @@ public enum PlayerEnum
     /// </summary>
     KevinBicker8484432 = 8484432,
     /// <summary>
-    /// JustinKipkie8484434
-    /// </summary>
-    JustinKipkie8484434 = 8484434,
-    /// <summary>
     /// RasmusLarsson8484436
     /// </summary>
     RasmusLarsson8484436 = 8484436,
@@ -27097,10 +26812,6 @@ public enum PlayerEnum
     /// HudsonMalinoski8484438
     /// </summary>
     HudsonMalinoski8484438 = 8484438,
-    /// <summary>
-    /// RuslanKhazheyev8484440
-    /// </summary>
-    RuslanKhazheyev8484440 = 8484440,
     /// <summary>
     /// ColeBrown8484446
     /// </summary>
@@ -27274,10 +26985,6 @@ public enum PlayerEnum
     /// </summary>
     PascalAquin8481109 = 8481109,
     /// <summary>
-    /// TobieBisson8481110
-    /// </summary>
-    TobieBisson8481110 = 8481110,
-    /// <summary>
     /// AlexBreton8481132
     /// </summary>
     AlexBreton8481132 = 8481132,
@@ -27390,10 +27097,6 @@ public enum PlayerEnum
     /// </summary>
     CameronSupryka8483046 = 8483046,
     /// <summary>
-    /// ConnorUngar8483083
-    /// </summary>
-    ConnorUngar8483083 = 8483083,
-    /// <summary>
     /// OliverSatny8483089
     /// </summary>
     OliverSatny8483089 = 8483089,
@@ -27437,10 +27140,6 @@ public enum PlayerEnum
     /// DanilaYurov8483525
     /// </summary>
     DanilaYurov8483525 = 8483525,
-    /// <summary>
-    /// OwenSillinger8483538
-    /// </summary>
-    OwenSillinger8483538 = 8483538,
     /// <summary>
     /// TimTheocharidis8483547
     /// </summary>
@@ -27489,10 +27188,6 @@ public enum PlayerEnum
     /// KevinReidler8483762
     /// </summary>
     KevinReidler8483762 = 8483762,
-    /// <summary>
-    /// SandisVilmanis8483771
-    /// </summary>
-    SandisVilmanis8483771 = 8483771,
     /// <summary>
     /// JakobRobillard8483797
     /// </summary>
@@ -27582,10 +27277,6 @@ public enum PlayerEnum
     /// </summary>
     AlbertWikman8484411 = 8484411,
     /// <summary>
-    /// MelkerThelin8484423
-    /// </summary>
-    MelkerThelin8484423 = 8484423,
-    /// <summary>
     /// YegorYegorov8484459
     /// </summary>
     YegorYegorov8484459 = 8484459,
@@ -27658,10 +27349,6 @@ public enum PlayerEnum
     /// </summary>
     PavelShen8481082 = 8481082,
     /// <summary>
-    /// TyTaylor8481083
-    /// </summary>
-    TyTaylor8481083 = 8481083,
-    /// <summary>
     /// SeanStrange8481134
     /// </summary>
     SeanStrange8481134 = 8481134,
@@ -27686,10 +27373,6 @@ public enum PlayerEnum
     /// </summary>
     NolanYaremko8481492 = 8481492,
     /// <summary>
-    /// MarshallWarren8481569
-    /// </summary>
-    MarshallWarren8481569 = 8481569,
-    /// <summary>
     /// RoddyRoss8481671
     /// </summary>
     RoddyRoss8481671 = 8481671,
@@ -27709,14 +27392,6 @@ public enum PlayerEnum
     /// SamuelSjolund8481714
     /// </summary>
     SamuelSjolund8481714 = 8481714,
-    /// <summary>
-    /// KirillSlepets8481724
-    /// </summary>
-    KirillSlepets8481724 = 8481724,
-    /// <summary>
-    /// MassimoRizzo8481760
-    /// </summary>
-    MassimoRizzo8481760 = 8481760,
     /// <summary>
     /// LukeZazula8481765
     /// </summary>
@@ -27742,10 +27417,6 @@ public enum PlayerEnum
     /// </summary>
     JacobTruscott8482119 = 8482119,
     /// <summary>
-    /// LandonSlaggert8482172
-    /// </summary>
-    LandonSlaggert8482172 = 8482172,
-    /// <summary>
     /// ChaseYoder8482195
     /// </summary>
     ChaseYoder8482195 = 8482195,
@@ -27761,10 +27432,6 @@ public enum PlayerEnum
     /// KirillSteklov8482215
     /// </summary>
     KirillSteklov8482215 = 8482215,
-    /// <summary>
-    /// DmitryZlodeyev8482498
-    /// </summary>
-    DmitryZlodeyev8482498 = 8482498,
     /// <summary>
     /// ZackTrott8482602
     /// </summary>
@@ -27793,10 +27460,6 @@ public enum PlayerEnum
     /// TylerSavard8482971
     /// </summary>
     TylerSavard8482971 = 8482971,
-    /// <summary>
-    /// StuartRolofs8483097
-    /// </summary>
-    StuartRolofs8483097 = 8483097,
     /// <summary>
     /// WyattWilson8483938
     /// </summary>
@@ -27842,10 +27505,6 @@ public enum PlayerEnum
     /// </summary>
     DanielDAmato8483063 = 8483063,
     /// <summary>
-    /// PatrickGuay8483106
-    /// </summary>
-    PatrickGuay8483106 = 8483106,
-    /// <summary>
     /// JordanGustafson8483451
     /// </summary>
     JordanGustafson8483451 = 8483451,
@@ -27866,10 +27525,6 @@ public enum PlayerEnum
     /// </summary>
     DomenicDiVincentiis8483711 = 8483711,
     /// <summary>
-    /// AndrewOke8483784
-    /// </summary>
-    AndrewOke8483784 = 8483784,
-    /// <summary>
     /// JonathanLemieux8483800
     /// </summary>
     JonathanLemieux8483800 = 8483800,
@@ -27881,14 +27536,6 @@ public enum PlayerEnum
     /// AntonMalmstrom8484114
     /// </summary>
     AntonMalmstrom8484114 = 8484114,
-    /// <summary>
-    /// LiamOhgren8483499
-    /// </summary>
-    LiamOhgren8483499 = 8483499,
-    /// <summary>
-    /// RyanFanti8483534
-    /// </summary>
-    RyanFanti8483534 = 8483534,
     /// <summary>
     /// SamuelMayer8483897
     /// </summary>
@@ -27929,14 +27576,6 @@ public enum PlayerEnum
     /// TobiasAncicka8484510
     /// </summary>
     TobiasAncicka8484510 = 8484510,
-    /// <summary>
-    /// ConnorPunnett8484523
-    /// </summary>
-    ConnorPunnett8484523 = 8484523,
-    /// <summary>
-    /// ConnorClattenburg8484529
-    /// </summary>
-    ConnorClattenburg8484529 = 8484529,
     /// <summary>
     /// ColeBurbidge8484530
     /// </summary>
@@ -27982,10 +27621,6 @@ public enum PlayerEnum
     /// </summary>
     AntoninVerreault8484600 = 8484600,
     /// <summary>
-    /// CollinMacKenzie8484602
-    /// </summary>
-    CollinMacKenzie8484602 = 8484602,
-    /// <summary>
     /// ZacharyBowen8484604
     /// </summary>
     ZacharyBowen8484604 = 8484604,
@@ -28009,10 +27644,6 @@ public enum PlayerEnum
     /// SolagBakich8484628
     /// </summary>
     SolagBakich8484628 = 8484628,
-    /// <summary>
-    /// EricJamieson8484640
-    /// </summary>
-    EricJamieson8484640 = 8484640,
     /// <summary>
     /// JonathanLabrie8484647
     /// </summary>
@@ -28082,10 +27713,6 @@ public enum PlayerEnum
     /// </summary>
     MattRadomsky8484250 = 8484250,
     /// <summary>
-    /// WilmerSkoog8484380
-    /// </summary>
-    WilmerSkoog8484380 = 8484380,
-    /// <summary>
     /// SamuelHelenius8482726
     /// </summary>
     SamuelHelenius8482726 = 8482726,
@@ -28098,10 +27725,6 @@ public enum PlayerEnum
     /// </summary>
     ColbyBarlow8484143 = 8484143,
     /// <summary>
-    /// TristanAllard8484310
-    /// </summary>
-    TristanAllard8484310 = 8484310,
-    /// <summary>
     /// ColeKrygier8481051
     /// </summary>
     ColeKrygier8481051 = 8481051,
@@ -28109,18 +27732,6 @@ public enum PlayerEnum
     /// SamuelBitten8481183
     /// </summary>
     SamuelBitten8481183 = 8481183,
-    /// <summary>
-    /// KimNousiainen8481696
-    /// </summary>
-    KimNousiainen8481696 = 8481696,
-    /// <summary>
-    /// MaximGroshev8482168
-    /// </summary>
-    MaximGroshev8482168 = 8482168,
-    /// <summary>
-    /// MaxSasson8484136
-    /// </summary>
-    MaxSasson8484136 = 8484136,
     /// <summary>
     /// MarkSchacker8484675
     /// </summary>
@@ -28149,10 +27760,6 @@ public enum PlayerEnum
     /// CaedanBankier8482863
     /// </summary>
     CaedanBankier8482863 = 8482863,
-    /// <summary>
-    /// MaxMcCue8482881
-    /// </summary>
-    MaxMcCue8482881 = 8482881,
     /// <summary>
     /// AmadeusLombardi8483695
     /// </summary>
@@ -29110,10 +28717,6 @@ public enum PlayerEnum
     /// </summary>
     ColeHults8480217 = 8480217,
     /// <summary>
-    /// ParkerFoo8480227
-    /// </summary>
-    ParkerFoo8480227 = 8480227,
-    /// <summary>
     /// AntonAndersson8480272
     /// </summary>
     AntonAndersson8480272 = 8480272,
@@ -29302,10 +28905,6 @@ public enum PlayerEnum
     /// </summary>
     SchaelHigson8481262 = 8481262,
     /// <summary>
-    /// OwenLindmark8481531
-    /// </summary>
-    OwenLindmark8481531 = 8481531,
-    /// <summary>
     /// MichaelKoster8481565
     /// </summary>
     MichaelKoster8481565 = 8481565,
@@ -29426,77 +29025,29 @@ public enum PlayerEnum
     /// </summary>
     RileyLamb8481940 = 8481940,
     /// <summary>
-    /// JaromirPytlik8482084
-    /// </summary>
-    JaromirPytlik8482084 = 8482084,
-    /// <summary>
-    /// SamuelHlavaj8482085
-    /// </summary>
-    SamuelHlavaj8482085 = 8482085,
-    /// <summary>
     /// EamonPowell8482096
     /// </summary>
     EamonPowell8482096 = 8482096,
-    /// <summary>
-    /// DylanPeterson8482121
-    /// </summary>
-    DylanPeterson8482121 = 8482121,
-    /// <summary>
-    /// TheodorNiederbach8482140
-    /// </summary>
-    TheodorNiederbach8482140 = 8482140,
-    /// <summary>
-    /// AlexJefferies8482154
-    /// </summary>
-    AlexJefferies8482154 = 8482154,
     /// <summary>
     /// DonaldBusdeker8482397
     /// </summary>
     DonaldBusdeker8482397 = 8482397,
     /// <summary>
-    /// JuhoMarkkanen8482450
-    /// </summary>
-    JuhoMarkkanen8482450 = 8482450,
-    /// <summary>
     /// EricEngstrand8482457
     /// </summary>
     EricEngstrand8482457 = 8482457,
-    /// <summary>
-    /// FilipBarklund8482462
-    /// </summary>
-    FilipBarklund8482462 = 8482462,
     /// <summary>
     /// AatuJamsen8482466
     /// </summary>
     AatuJamsen8482466 = 8482466,
     /// <summary>
-    /// ElliotEkefjard8482467
-    /// </summary>
-    ElliotEkefjard8482467 = 8482467,
-    /// <summary>
     /// NoahBeck8482468
     /// </summary>
     NoahBeck8482468 = 8482468,
     /// <summary>
-    /// AlexanderLjungkrantz8482480
-    /// </summary>
-    AlexanderLjungkrantz8482480 = 8482480,
-    /// <summary>
-    /// AntonJohannesson8482486
-    /// </summary>
-    AntonJohannesson8482486 = 8482486,
-    /// <summary>
-    /// DanielLjungman8482491
-    /// </summary>
-    DanielLjungman8482491 = 8482491,
-    /// <summary>
     /// KyleAucoin8482492
     /// </summary>
     KyleAucoin8482492 = 8482492,
-    /// <summary>
-    /// SamuelJohannesson8482499
-    /// </summary>
-    SamuelJohannesson8482499 = 8482499,
     /// <summary>
     /// NoahEllis8482500
     /// </summary>
@@ -29505,22 +29056,6 @@ public enum PlayerEnum
     /// AmirMiftakhov8482501
     /// </summary>
     AmirMiftakhov8482501 = 8482501,
-    /// <summary>
-    /// ViktorPersson8482502
-    /// </summary>
-    ViktorPersson8482502 = 8482502,
-    /// <summary>
-    /// AlbertLyckasen8482503
-    /// </summary>
-    AlbertLyckasen8482503 = 8482503,
-    /// <summary>
-    /// HugoOllas8482504
-    /// </summary>
-    HugoOllas8482504 = 8482504,
-    /// <summary>
-    /// ElliotEkmark8482505
-    /// </summary>
-    ElliotEkmark8482505 = 8482505,
     /// <summary>
     /// JacksonHallum8482512
     /// </summary>
@@ -29545,10 +29080,6 @@ public enum PlayerEnum
     /// JohnFusco8482522
     /// </summary>
     JohnFusco8482522 = 8482522,
-    /// <summary>
-    /// JakubKonecny8482526
-    /// </summary>
-    JakubKonecny8482526 = 8482526,
     /// <summary>
     /// LukeMoncada8482569
     /// </summary>
@@ -29594,21 +29125,9 @@ public enum PlayerEnum
     /// </summary>
     GregPrintz8482645 = 8482645,
     /// <summary>
-    /// ScottMorrow8482666
-    /// </summary>
-    ScottMorrow8482666 = 8482666,
-    /// <summary>
-    /// SeanBehrens8482676
-    /// </summary>
-    SeanBehrens8482676 = 8482676,
-    /// <summary>
     /// AidanHreschuk8482680
     /// </summary>
     AidanHreschuk8482680 = 8482680,
-    /// <summary>
-    /// JackPeart8482686
-    /// </summary>
-    JackPeart8482686 = 8482686,
     /// <summary>
     /// DmitriKostenko8482710
     /// </summary>
@@ -29650,33 +29169,17 @@ public enum PlayerEnum
     /// </summary>
     VladislavLukashevich8482770 = 8482770,
     /// <summary>
-    /// ShaiBuium8482777
-    /// </summary>
-    ShaiBuium8482777 = 8482777,
-    /// <summary>
     /// VasilyAtanasov8482791
     /// </summary>
     VasilyAtanasov8482791 = 8482791,
-    /// <summary>
-    /// IlyaFedotov8482792
-    /// </summary>
-    IlyaFedotov8482792 = 8482792,
     /// <summary>
     /// JacobGuevin8482805
     /// </summary>
     JacobGuevin8482805 = 8482805,
     /// <summary>
-    /// ColeClayton8482839
-    /// </summary>
-    ColeClayton8482839 = 8482839,
-    /// <summary>
     /// AkuKoskenvuo8482875
     /// </summary>
     AkuKoskenvuo8482875 = 8482875,
-    /// <summary>
-    /// JaroslavChmelar8482877
-    /// </summary>
-    JaroslavChmelar8482877 = 8482877,
     /// <summary>
     /// HugoGabrielson8482887
     /// </summary>
@@ -29702,17 +29205,9 @@ public enum PlayerEnum
     /// </summary>
     TaigeHarding8482923 = 8482923,
     /// <summary>
-    /// ZakharBardakov8482947
-    /// </summary>
-    ZakharBardakov8482947 = 8482947,
-    /// <summary>
     /// ConnorKelley8482948
     /// </summary>
     ConnorKelley8482948 = 8482948,
-    /// <summary>
-    /// RobertFlinton8482951
-    /// </summary>
-    RobertFlinton8482951 = 8482951,
     /// <summary>
     /// IsiahCampbell8482968
     /// </summary>
@@ -29746,10 +29241,6 @@ public enum PlayerEnum
     /// </summary>
     TagBertuzzi8483050 = 8483050,
     /// <summary>
-    /// KalebLawrence8483052
-    /// </summary>
-    KalebLawrence8483052 = 8483052,
-    /// <summary>
     /// BradyBurns8483053
     /// </summary>
     BradyBurns8483053 = 8483053,
@@ -29757,10 +29248,6 @@ public enum PlayerEnum
     /// GerardKeane8483064
     /// </summary>
     GerardKeane8483064 = 8483064,
-    /// <summary>
-    /// KalebPearson8483065
-    /// </summary>
-    KalebPearson8483065 = 8483065,
     /// <summary>
     /// EthanBurroughs8483076
     /// </summary>
@@ -29822,10 +29309,6 @@ public enum PlayerEnum
     /// </summary>
     BrennanAli8483421 = 8483421,
     /// <summary>
-    /// LiamArnsby8483422
-    /// </summary>
-    LiamArnsby8483422 = 8483422,
-    /// <summary>
     /// KirillDolzhenkov8483434
     /// </summary>
     KirillDolzhenkov8483434 = 8483434,
@@ -29838,10 +29321,6 @@ public enum PlayerEnum
     /// </summary>
     RyanGreene8483450 = 8483450,
     /// <summary>
-    /// JeremyLanglois8483473
-    /// </summary>
-    JeremyLanglois8483473 = 8483473,
-    /// <summary>
     /// TopiasLeinonen8483475
     /// </summary>
     TopiasLeinonen8483475 = 8483475,
@@ -29850,25 +29329,13 @@ public enum PlayerEnum
     /// </summary>
     RiegerLorenz8483478 = 8483478,
     /// <summary>
-    /// CruzLucius8483479
-    /// </summary>
-    CruzLucius8483479 = 8483479,
-    /// <summary>
     /// NicholasMoldenhauer8483492
     /// </summary>
     NicholasMoldenhauer8483492 = 8483492,
     /// <summary>
-    /// FrankNazar8483493
-    /// </summary>
-    FrankNazar8483493 = 8483493,
-    /// <summary>
     /// AlexanderPerevalov8483501
     /// </summary>
     AlexanderPerevalov8483501 = 8483501,
-    /// <summary>
-    /// ServacPetrovsky8483502
-    /// </summary>
-    ServacPetrovsky8483502 = 8483502,
     /// <summary>
     /// AdamKarashik8483556
     /// </summary>
@@ -29894,10 +29361,6 @@ public enum PlayerEnum
     /// </summary>
     FilipNordberg8483670 = 8483670,
     /// <summary>
-    /// MikoMatikka8483671
-    /// </summary>
-    MikoMatikka8483671 = 8483671,
-    /// <summary>
     /// GarrettBrown8483672
     /// </summary>
     GarrettBrown8483672 = 8483672,
@@ -29909,10 +29372,6 @@ public enum PlayerEnum
     /// KennyConnors8483675
     /// </summary>
     KennyConnors8483675 = 8483675,
-    /// <summary>
-    /// StephenHalliday8483676
-    /// </summary>
-    StephenHalliday8483676 = 8483676,
     /// <summary>
     /// AntonJohansson8483679
     /// </summary>
@@ -29942,17 +29401,9 @@ public enum PlayerEnum
     /// </summary>
     MaksimBerezkin8482202 = 8482202,
     /// <summary>
-    /// KasperPuutio8482203
-    /// </summary>
-    KasperPuutio8482203 = 8482203,
-    /// <summary>
     /// DavidMa8482210
     /// </summary>
     DavidMa8482210 = 8482210,
-    /// <summary>
-    /// RileyDuran8482213
-    /// </summary>
-    RileyDuran8482213 = 8482213,
     /// <summary>
     /// RyanMcGuire8482218
     /// </summary>
@@ -30014,10 +29465,6 @@ public enum PlayerEnum
     /// </summary>
     AngusBooth8483699 = 8483699,
     /// <summary>
-    /// BrandonLisowsky8483700
-    /// </summary>
-    BrandonLisowsky8483700 = 8483700,
-    /// <summary>
     /// RyanHealey8483708
     /// </summary>
     RyanHealey8483708 = 8483708,
@@ -30029,10 +29476,6 @@ public enum PlayerEnum
     /// OwenMehlenbacher8483717
     /// </summary>
     OwenMehlenbacher8483717 = 8483717,
-    /// <summary>
-    /// MatthewMorden8483729
-    /// </summary>
-    MatthewMorden8483729 = 8483729,
     /// <summary>
     /// NilsJuntorp8483737
     /// </summary>
@@ -30049,10 +29492,6 @@ public enum PlayerEnum
     /// DominicJames8483752
     /// </summary>
     DominicJames8483752 = 8483752,
-    /// <summary>
-    /// NickMalik8483767
-    /// </summary>
-    NickMalik8483767 = 8483767,
     /// <summary>
     /// MichaelCallow8483770
     /// </summary>
@@ -30077,10 +29516,6 @@ public enum PlayerEnum
     /// FilipEngaras8482461
     /// </summary>
     FilipEngaras8482461 = 8482461,
-    /// <summary>
-    /// AlexanderPashin8482212
-    /// </summary>
-    AlexanderPashin8482212 = 8482212,
     /// <summary>
     /// TysonFeist8483109
     /// </summary>
@@ -30298,10 +29733,6 @@ public enum PlayerEnum
     /// </summary>
     RileyBezeau8483804 = 8483804,
     /// <summary>
-    /// LukasKlok8483810
-    /// </summary>
-    LukasKlok8483810 = 8483810,
-    /// <summary>
     /// FrancoisJamesButeau8483812
     /// </summary>
     FrancoisJamesButeau8483812 = 8483812,
@@ -30345,10 +29776,6 @@ public enum PlayerEnum
     /// MarcusLimparLantz8483932
     /// </summary>
     MarcusLimparLantz8483932 = 8483932,
-    /// <summary>
-    /// AndreiSvetlakov8480251
-    /// </summary>
-    AndreiSvetlakov8480251 = 8480251,
     /// <summary>
     /// ZacharyAndrews8479798
     /// </summary>
@@ -30410,18 +29837,6 @@ public enum PlayerEnum
     /// </summary>
     MitchellMiller8482083 = 8482083,
     /// <summary>
-    /// JonathanLekkerimaki8483476
-    /// </summary>
-    JonathanLekkerimaki8483476 = 8483476,
-    /// <summary>
-    /// IvanMorozov8480894
-    /// </summary>
-    IvanMorozov8480894 = 8480894,
-    /// <summary>
-    /// ConnorLockhart8482743
-    /// </summary>
-    ConnorLockhart8482743 = 8482743,
-    /// <summary>
     /// JackGorniak8480889
     /// </summary>
     JackGorniak8480889 = 8480889,
@@ -30466,10 +29881,6 @@ public enum PlayerEnum
     /// </summary>
     CharlieReid8484095 = 8484095,
     /// <summary>
-    /// JackHarvey8482774
-    /// </summary>
-    JackHarvey8482774 = 8482774,
-    /// <summary>
     /// MichalMrazik8484117
     /// </summary>
     MichalMrazik8484117 = 8484117,
@@ -30506,10 +29917,6 @@ public enum PlayerEnum
     /// </summary>
     GustavRydahl8483607 = 8483607,
     /// <summary>
-    /// NoahPhilp8481491
-    /// </summary>
-    NoahPhilp8481491 = 8481491,
-    /// <summary>
     /// ZackHayes8481849
     /// </summary>
     ZackHayes8481849 = 8481849,
@@ -30518,17 +29925,9 @@ public enum PlayerEnum
     /// </summary>
     MaximMarushev8482473 = 8482473,
     /// <summary>
-    /// LaneHutson8483457
-    /// </summary>
-    LaneHutson8483457 = 8483457,
-    /// <summary>
     /// AdamEngstrom8483686
     /// </summary>
     AdamEngstrom8483686 = 8483686,
-    /// <summary>
-    /// PetteriNurmi8483724
-    /// </summary>
-    PetteriNurmi8483724 = 8483724,
     /// <summary>
     /// EmmettCroteau8483765
     /// </summary>
@@ -30650,17 +30049,9 @@ public enum PlayerEnum
     /// </summary>
     BrodyClaeys8484118 = 8484118,
     /// <summary>
-    /// GavinBrindley8484149
-    /// </summary>
-    GavinBrindley8484149 = 8484149,
-    /// <summary>
     /// BradyCleveland8484157
     /// </summary>
     BradyCleveland8484157 = 8484157,
-    /// <summary>
-    /// OscarFiskerMolgaard8484168
-    /// </summary>
-    OscarFiskerMolgaard8484168 = 8484168,
     /// <summary>
     /// JacobFowler8484170
     /// </summary>
@@ -30670,18 +30061,6 @@ public enum PlayerEnum
     /// </summary>
     AdamGajan8484171 = 8484171,
     /// <summary>
-    /// AndrewGibson8484174
-    /// </summary>
-    AndrewGibson8484174 = 8484174,
-    /// <summary>
-    /// TerrellGoldsmith8484175
-    /// </summary>
-    TerrellGoldsmith8484175 = 8484175,
-    /// <summary>
-    /// MichaelHrabal8484181
-    /// </summary>
-    MichaelHrabal8484181 = 8484181,
-    /// <summary>
     /// EthanMiedema8484193
     /// </summary>
     EthanMiedema8484193 = 8484193,
@@ -30689,10 +30068,6 @@ public enum PlayerEnum
     /// OliverMoore8484197
     /// </summary>
     OliverMoore8484197 = 8484197,
-    /// <summary>
-    /// CarsenMusser8484199
-    /// </summary>
-    CarsenMusser8484199 = 8484199,
     /// <summary>
     /// ZachNehring8484204
     /// </summary>
@@ -30738,10 +30113,6 @@ public enum PlayerEnum
     /// </summary>
     MikhailGulyayev8484389 = 8484389,
     /// <summary>
-    /// DamianClara8484391
-    /// </summary>
-    DamianClara8484391 = 8484391,
-    /// <summary>
     /// VilmerAlriksson8484408
     /// </summary>
     VilmerAlriksson8484408 = 8484408,
@@ -30774,10 +30145,6 @@ public enum PlayerEnum
     /// </summary>
     MatthewMania8484435 = 8484435,
     /// <summary>
-    /// SamuBau8484444
-    /// </summary>
-    SamuBau8484444 = 8484444,
-    /// <summary>
     /// TimurMukhanov8484445
     /// </summary>
     TimurMukhanov8484445 = 8484445,
@@ -30805,10 +30172,6 @@ public enum PlayerEnum
     /// KalemParker8484460
     /// </summary>
     KalemParker8484460 = 8484460,
-    /// <summary>
-    /// WarrenClark8484462
-    /// </summary>
-    WarrenClark8484462 = 8484462,
     /// <summary>
     /// DaniilKarpovich8484465
     /// </summary>
@@ -31086,10 +30449,6 @@ public enum PlayerEnum
     /// </summary>
     RyanStLouis8482681 = 8482681,
     /// <summary>
-    /// RyanUfko8482715
-    /// </summary>
-    RyanUfko8482715 = 8482715,
-    /// <summary>
     /// SamuSalminen8482760
     /// </summary>
     SamuSalminen8482760 = 8482760,
@@ -31166,10 +30525,6 @@ public enum PlayerEnum
     /// </summary>
     BraydenWatts8483351 = 8483351,
     /// <summary>
-    /// TopiRonni8483508
-    /// </summary>
-    TopiRonni8483508 = 8483508,
-    /// <summary>
     /// OttoSalin8483509
     /// </summary>
     OttoSalin8483509 = 8483509,
@@ -31181,14 +30536,6 @@ public enum PlayerEnum
     /// NolanWalker8483660
     /// </summary>
     NolanWalker8483660 = 8483660,
-    /// <summary>
-    /// KlavsVeinbergs8483691
-    /// </summary>
-    KlavsVeinbergs8483691 = 8483691,
-    /// <summary>
-    /// LinusSjodin8483706
-    /// </summary>
-    LinusSjodin8483706 = 8483706,
     /// <summary>
     /// RikuTohila8483719
     /// </summary>
@@ -31246,10 +30593,6 @@ public enum PlayerEnum
     /// </summary>
     MichaelUnderwood8484132 = 8484132,
     /// <summary>
-    /// AxelSandinPellikka8484223
-    /// </summary>
-    AxelSandinPellikka8484223 = 8484223,
-    /// <summary>
     /// MaximStrbak8484233
     /// </summary>
     MaximStrbak8484233 = 8484233,
@@ -31273,10 +30616,6 @@ public enum PlayerEnum
     /// RyanSidorski8484245
     /// </summary>
     RyanSidorski8484245 = 8484245,
-    /// <summary>
-    /// DmitriySimashev8484386
-    /// </summary>
-    DmitriySimashev8484386 = 8484386,
     /// <summary>
     /// KonnorSmith8484395
     /// </summary>
@@ -31450,10 +30789,6 @@ public enum PlayerEnum
     /// </summary>
     EgorSerdyuk8481670 = 8481670,
     /// <summary>
-    /// DanilSavunov8481673
-    /// </summary>
-    DanilSavunov8481673 = 8481673,
-    /// <summary>
     /// JakeSchmaltz8481681
     /// </summary>
     JakeSchmaltz8481681 = 8481681,
@@ -31461,10 +30796,6 @@ public enum PlayerEnum
     /// McKadeWebster8481691
     /// </summary>
     McKadeWebster8481691 = 8481691,
-    /// <summary>
-    /// AnthonyRomano8481729
-    /// </summary>
-    AnthonyRomano8481729 = 8481729,
     /// <summary>
     /// JackYork8481775
     /// </summary>
@@ -31502,10 +30833,6 @@ public enum PlayerEnum
     /// </summary>
     SamStange8482129 = 8482129,
     /// <summary>
-    /// LukeTuch8482134
-    /// </summary>
-    LukeTuch8482134 = 8482134,
-    /// <summary>
     /// OliverSuni8482164
     /// </summary>
     OliverSuni8482164 = 8482164,
@@ -31525,10 +30852,6 @@ public enum PlayerEnum
     /// KoletraneWilson8482401
     /// </summary>
     KoletraneWilson8482401 = 8482401,
-    /// <summary>
-    /// OliverTarnstrom8482481
-    /// </summary>
-    OliverTarnstrom8482481 = 8482481,
     /// <summary>
     /// KeeganStevenson8482601
     /// </summary>
@@ -31550,10 +30873,6 @@ public enum PlayerEnum
     /// </summary>
     JacobPivonka8480795 = 8480795,
     /// <summary>
-    /// HenrikTikkanen8482472
-    /// </summary>
-    HenrikTikkanen8482472 = 8482472,
-    /// <summary>
     /// MikiAntonik8460845
     /// </summary>
     MikiAntonik8460845 = 8460845,
@@ -31561,10 +30880,6 @@ public enum PlayerEnum
     /// JonathanTychonick8480811
     /// </summary>
     JonathanTychonick8480811 = 8480811,
-    /// <summary>
-    /// WillSmith8484227
-    /// </summary>
-    WillSmith8484227 = 8484227,
     /// <summary>
     /// CarsonLatimer8482872
     /// </summary>
@@ -31577,10 +30892,6 @@ public enum PlayerEnum
     /// ColbySaganiuk8483066
     /// </summary>
     ColbySaganiuk8483066 = 8483066,
-    /// <summary>
-    /// JamesStefan8483100
-    /// </summary>
-    JamesStefan8483100 = 8483100,
     /// <summary>
     /// MitchellMartin8483785
     /// </summary>
@@ -31601,10 +30912,6 @@ public enum PlayerEnum
     /// BraedenBowman8483890
     /// </summary>
     BraedenBowman8483890 = 8483890,
-    /// <summary>
-    /// DalynWakely8483924
-    /// </summary>
-    DalynWakely8483924 = 8483924,
     /// <summary>
     /// JordanTourigny8484237
     /// </summary>
@@ -31690,17 +30997,9 @@ public enum PlayerEnum
     /// </summary>
     NolanDillingham8484499 = 8484499,
     /// <summary>
-    /// ReggieNewman8484505
-    /// </summary>
-    ReggieNewman8484505 = 8484505,
-    /// <summary>
     /// JacksonDesouza8484522
     /// </summary>
     JacksonDesouza8484522 = 8484522,
-    /// <summary>
-    /// FinnHarding8484525
-    /// </summary>
-    FinnHarding8484525 = 8484525,
     /// <summary>
     /// NicholasSima8484527
     /// </summary>
@@ -31718,10 +31017,6 @@ public enum PlayerEnum
     /// </summary>
     BronsonRide8484532 = 8484532,
     /// <summary>
-    /// BlakeSmith8484540
-    /// </summary>
-    BlakeSmith8484540 = 8484540,
-    /// <summary>
     /// ChasePauls8484551
     /// </summary>
     ChasePauls8484551 = 8484551,
@@ -31733,10 +31028,6 @@ public enum PlayerEnum
     /// BrockCaufield8484555
     /// </summary>
     BrockCaufield8484555 = 8484555,
-    /// <summary>
-    /// DonovanMcCoy8484560
-    /// </summary>
-    DonovanMcCoy8484560 = 8484560,
     /// <summary>
     /// LucasRomeo8484562
     /// </summary>
@@ -31774,10 +31065,6 @@ public enum PlayerEnum
     /// </summary>
     JoshVanMulligen8484596 = 8484596,
     /// <summary>
-    /// NateMisskey8484599
-    /// </summary>
-    NateMisskey8484599 = 8484599,
-    /// <summary>
     /// JoeyRocha8484605
     /// </summary>
     JoeyRocha8484605 = 8484605,
@@ -31789,10 +31076,6 @@ public enum PlayerEnum
     /// RyanLeibold8484611
     /// </summary>
     RyanLeibold8484611 = 8484611,
-    /// <summary>
-    /// MatyasMelovsky8484616
-    /// </summary>
-    MatyasMelovsky8484616 = 8484616,
     /// <summary>
     /// JoeLeahy8484618
     /// </summary>
@@ -31858,17 +31141,9 @@ public enum PlayerEnum
     /// </summary>
     EthanDeJong8484379 = 8484379,
     /// <summary>
-    /// SimonJohansson8481037
-    /// </summary>
-    SimonJohansson8481037 = 8481037,
-    /// <summary>
     /// PavelNovak8482217
     /// </summary>
     PavelNovak8482217 = 8482217,
-    /// <summary>
-    /// MikaelDiotte8483085
-    /// </summary>
-    MikaelDiotte8483085 = 8483085,
     /// <summary>
     /// MarkDuarte8483856
     /// </summary>
@@ -31877,10 +31152,6 @@ public enum PlayerEnum
     /// CarsonLambos8482781
     /// </summary>
     CarsonLambos8482781 = 8482781,
-    /// <summary>
-    /// NikitaTolopilo8484268
-    /// </summary>
-    NikitaTolopilo8484268 = 8484268,
     /// <summary>
     /// ErikPortillo8481707
     /// </summary>
@@ -31902,10 +31173,6 @@ public enum PlayerEnum
     /// </summary>
     KeatonMastrodonato8484276 = 8484276,
     /// <summary>
-    /// FilipJohansson8480872
-    /// </summary>
-    FilipJohansson8480872 = 8480872,
-    /// <summary>
     /// SamuelHonzek8484180
     /// </summary>
     SamuelHonzek8484180 = 8484180,
@@ -31913,10 +31180,6 @@ public enum PlayerEnum
     /// ThomasSullivan8484677
     /// </summary>
     ThomasSullivan8484677 = 8484677,
-    /// <summary>
-    /// SamHentges8481012
-    /// </summary>
-    SamHentges8481012 = 8481012,
     /// <summary>
     /// RyanMcCleary8482897
     /// </summary>
@@ -32754,10 +32017,6 @@ public enum PlayerEnum
     /// </summary>
     DanielBouchard8458907 = 8458907,
     /// <summary>
-    /// MarcusNilsson8464978
-    /// </summary>
-    MarcusNilsson8464978 = 8464978,
-    /// <summary>
     /// ColinRobinson8469139
     /// </summary>
     ColinRobinson8469139 = 8469139,
@@ -32781,10 +32040,6 @@ public enum PlayerEnum
     /// JoshHealey8479961
     /// </summary>
     JoshHealey8479961 = 8479961,
-    /// <summary>
-    /// MasonJobst8481480
-    /// </summary>
-    MasonJobst8481480 = 8481480,
     /// <summary>
     /// TheodorLennstrom8482242
     /// </summary>
@@ -33377,10 +32632,6 @@ public enum PlayerEnum
     /// DenisLeblanc8457023
     /// </summary>
     DenisLeblanc8457023 = 8457023,
-    /// <summary>
-    /// SergeLeblanc8457027
-    /// </summary>
-    SergeLeblanc8457027 = 8457027,
     /// <summary>
     /// JeanPierreLeclerc8457030
     /// </summary>
@@ -34054,10 +33305,6 @@ public enum PlayerEnum
     /// </summary>
     MiskaKukkonen8480983 = 8480983,
     /// <summary>
-    /// ArtyomManukyan8481045
-    /// </summary>
-    ArtyomManukyan8481045 = 8481045,
-    /// <summary>
     /// MartinBodak8481090
     /// </summary>
     MartinBodak8481090 = 8481090,
@@ -34093,10 +33340,6 @@ public enum PlayerEnum
     /// LeanBergmann8481640
     /// </summary>
     LeanBergmann8481640 = 8481640,
-    /// <summary>
-    /// AlexandrDarin8481713
-    /// </summary>
-    AlexandrDarin8481713 = 8481713,
     /// <summary>
     /// BryceBrodzinski8481735
     /// </summary>
@@ -34138,10 +33381,6 @@ public enum PlayerEnum
     /// </summary>
     MitchellBrown8481879 = 8481879,
     /// <summary>
-    /// JanBednar8482135
-    /// </summary>
-    JanBednar8482135 = 8482135,
-    /// <summary>
     /// BrinsonPasichnuk8482369
     /// </summary>
     BrinsonPasichnuk8482369 = 8482369,
@@ -34166,17 +33405,9 @@ public enum PlayerEnum
     /// </summary>
     DakotaKrebs8482607 = 8482607,
     /// <summary>
-    /// NikoHuuhtanen8482757
-    /// </summary>
-    NikoHuuhtanen8482757 = 8482757,
-    /// <summary>
     /// OliverKapanen8482775
     /// </summary>
     OliverKapanen8482775 = 8482775,
-    /// <summary>
-    /// JacksonBlake8482809
-    /// </summary>
-    JacksonBlake8482809 = 8482809,
     /// <summary>
     /// LucasForsell8482900
     /// </summary>
@@ -34218,10 +33449,6 @@ public enum PlayerEnum
     /// </summary>
     BaileyBrkin8483310 = 8483310,
     /// <summary>
-    /// SeamusCasey8483429
-    /// </summary>
-    SeamusCasey8483429 = 8483429,
-    /// <summary>
     /// JackDevine8483433
     /// </summary>
     JackDevine8483433 = 8483433,
@@ -34250,14 +33477,6 @@ public enum PlayerEnum
     /// </summary>
     ArtemBarabosha8483721 = 8483721,
     /// <summary>
-    /// ConnorKurth8483727
-    /// </summary>
-    ConnorKurth8483727 = 8483727,
-    /// <summary>
-    /// ReidDyck8483742
-    /// </summary>
-    ReidDyck8483742 = 8483742,
-    /// <summary>
     /// VictorMancini8483768
     /// </summary>
     VictorMancini8483768 = 8483768,
@@ -34270,17 +33489,9 @@ public enum PlayerEnum
     /// </summary>
     AndrewPerrott8481861 = 8481861,
     /// <summary>
-    /// JosefKorenar8480373
-    /// </summary>
-    JosefKorenar8480373 = 8480373,
-    /// <summary>
     /// EvgeniiKashnikov8482898
     /// </summary>
     EvgeniiKashnikov8482898 = 8482898,
-    /// <summary>
-    /// JuusoValimaki8479976
-    /// </summary>
-    JuusoValimaki8479976 = 8479976,
     /// <summary>
     /// ColinFelix8483590
     /// </summary>
@@ -34866,10 +34077,6 @@ public enum PlayerEnum
     /// </summary>
     ShaneCorston8458886 = 8458886,
     /// <summary>
-    /// KevinLankinen8480947
-    /// </summary>
-    KevinLankinen8480947 = 8480947,
-    /// <summary>
     /// JeanPhilippeChabot8473663
     /// </summary>
     JeanPhilippeChabot8473663 = 8473663,
@@ -34998,10 +34205,6 @@ public enum PlayerEnum
     /// </summary>
     JeffKubiak8480102 = 8480102,
     /// <summary>
-    /// JacobIngham8480857
-    /// </summary>
-    JacobIngham8480857 = 8480857,
-    /// <summary>
     /// CamHillis8480858
     /// </summary>
     CamHillis8480858 = 8480858,
@@ -35013,14 +34216,6 @@ public enum PlayerEnum
     /// PeterDiliberatore8481075
     /// </summary>
     PeterDiliberatore8481075 = 8481075,
-    /// <summary>
-    /// JonathanAspirot8481219
-    /// </summary>
-    JonathanAspirot8481219 = 8481219,
-    /// <summary>
-    /// JimmyHuntington8481228
-    /// </summary>
-    JimmyHuntington8481228 = 8481228,
     /// <summary>
     /// ViktorLodin8481657
     /// </summary>
@@ -35094,10 +34289,6 @@ public enum PlayerEnum
     /// </summary>
     EgorBashkatov8466032 = 8466032,
     /// <summary>
-    /// HunterMcDonald8483760
-    /// </summary>
-    HunterMcDonald8483760 = 8483760,
-    /// <summary>
     /// BobCaulfield8455823
     /// </summary>
     BobCaulfield8455823 = 8455823,
@@ -35109,10 +34300,6 @@ public enum PlayerEnum
     /// RogerKennedy8458914
     /// </summary>
     RogerKennedy8458914 = 8458914,
-    /// <summary>
-    /// ErikBrannstrom8480073
-    /// </summary>
-    ErikBrannstrom8480073 = 8480073,
     /// <summary>
     /// NilsHoglander8481535
     /// </summary>
@@ -35146,17 +34333,9 @@ public enum PlayerEnum
     /// </summary>
     LenniHameenaho8484177 = 8484177,
     /// <summary>
-    /// JesseKiiskinen8484183
-    /// </summary>
-    JesseKiiskinen8484183 = 8484183,
-    /// <summary>
     /// JadenLipinski8484189
     /// </summary>
     JadenLipinski8484189 = 8484189,
-    /// <summary>
-    /// BradlyNadeau8484203
-    /// </summary>
-    BradlyNadeau8484203 = 8484203,
     /// <summary>
     /// JaydenPerron8484211
     /// </summary>
@@ -35169,10 +34348,6 @@ public enum PlayerEnum
     /// ReidCooper8484297
     /// </summary>
     ReidCooper8484297 = 8484297,
-    /// <summary>
-    /// DaniilBut8484388
-    /// </summary>
-    DaniilBut8484388 = 8484388,
     /// <summary>
     /// JackPhelan8484426
     /// </summary>
@@ -35338,10 +34513,6 @@ public enum PlayerEnum
     /// </summary>
     BenStrinden8483707 = 8483707,
     /// <summary>
-    /// AdamZlnka8483714
-    /// </summary>
-    AdamZlnka8483714 = 8483714,
-    /// <summary>
     /// JakeRichard8483755
     /// </summary>
     JakeRichard8483755 = 8483755,
@@ -35353,10 +34524,6 @@ public enum PlayerEnum
     /// GracynSawchyn8484224
     /// </summary>
     GracynSawchyn8484224 = 8484224,
-    /// <summary>
-    /// JaysonShaugabay8484226
-    /// </summary>
-    JaysonShaugabay8484226 = 8484226,
     /// <summary>
     /// CharlieStramel8484231
     /// </summary>
@@ -35426,10 +34593,6 @@ public enum PlayerEnum
     /// </summary>
     JonathanYantsis8481770 = 8481770,
     /// <summary>
-    /// KasperSimontaival8482128
-    /// </summary>
-    KasperSimontaival8482128 = 8482128,
-    /// <summary>
     /// JakeRatzlaff8482190
     /// </summary>
     JakeRatzlaff8482190 = 8482190,
@@ -35441,10 +34604,6 @@ public enum PlayerEnum
     /// TimPoe8484644
     /// </summary>
     TimPoe8484644 = 8484644,
-    /// <summary>
-    /// UrhoVaakanainen8480001
-    /// </summary>
-    UrhoVaakanainen8480001 = 8480001,
     /// <summary>
     /// ConnorMcClennon8482220
     /// </summary>
@@ -35462,17 +34621,9 @@ public enum PlayerEnum
     /// </summary>
     QuintonBurns8484151 = 8484151,
     /// <summary>
-    /// OlofLindbom8481015
-    /// </summary>
-    OlofLindbom8481015 = 8481015,
-    /// <summary>
     /// JakeUberti8483098
     /// </summary>
     JakeUberti8483098 = 8483098,
-    /// <summary>
-    /// DillonHamaliuk8481549
-    /// </summary>
-    DillonHamaliuk8481549 = 8481549,
     /// <summary>
     /// JordanFrasca8483000
     /// </summary>
@@ -35514,10 +34665,6 @@ public enum PlayerEnum
     /// </summary>
     KasperHalttunen8484176 = 8484176,
     /// <summary>
-    /// TylerThorpe8484533
-    /// </summary>
-    TylerThorpe8484533 = 8484533,
-    /// <summary>
     /// MichaelBullion8484654
     /// </summary>
     MichaelBullion8484654 = 8484654,
@@ -35538,10 +34685,6 @@ public enum PlayerEnum
     /// </summary>
     KyleMasters8482707 = 8482707,
     /// <summary>
-    /// WillZmolek8484115
-    /// </summary>
-    WillZmolek8484115 = 8484115,
-    /// <summary>
     /// WillCranley8482205
     /// </summary>
     WillCranley8482205 = 8482205,
@@ -35549,10 +34692,6 @@ public enum PlayerEnum
     /// TristanLennox8482668
     /// </summary>
     TristanLennox8482668 = 8482668,
-    /// <summary>
-    /// GageAlexander8482936
-    /// </summary>
-    GageAlexander8482936 = 8482936,
     /// <summary>
     /// DjibrilToure8484534
     /// </summary>
@@ -35562,10 +34701,6 @@ public enum PlayerEnum
     /// </summary>
     IlyaNikolaev8481590 = 8481590,
     /// <summary>
-    /// JanMysak8482136
-    /// </summary>
-    JanMysak8482136 = 8482136,
-    /// <summary>
     /// TaylorWard8483406
     /// </summary>
     TaylorWard8483406 = 8483406,
@@ -35574,73 +34709,17 @@ public enum PlayerEnum
     /// </summary>
     ColtenEllis8481551 = 8481551,
     /// <summary>
-    /// AidanMcDonough8481683
-    /// </summary>
-    AidanMcDonough8481683 = 8481683,
-    /// <summary>
-    /// JakubDobes8482487
-    /// </summary>
-    JakubDobes8482487 = 8482487,
-    /// <summary>
-    /// HaydenHodgson8478173
-    /// </summary>
-    HaydenHodgson8478173 = 8478173,
-    /// <summary>
-    /// LiasAndersson8480072
-    /// </summary>
-    LiasAndersson8480072 = 8480072,
-    /// <summary>
     /// AntonioStranges8482120
     /// </summary>
     AntonioStranges8482120 = 8482120,
-    /// <summary>
-    /// ZachSawchenko8479313
-    /// </summary>
-    ZachSawchenko8479313 = 8479313,
     /// <summary>
     /// ColeReinhardt8481133
     /// </summary>
     ColeReinhardt8481133 = 8481133,
     /// <summary>
-    /// ColtonPoolman8482066
-    /// </summary>
-    ColtonPoolman8482066 = 8482066,
-    /// <summary>
     /// ZacharyUens8482098
     /// </summary>
     ZacharyUens8482098 = 8482098,
-    /// <summary>
-    /// TrentMiner8481529
-    /// </summary>
-    TrentMiner8481529 = 8481529,
-    /// <summary>
-    /// LaytonAhac8481613
-    /// </summary>
-    LaytonAhac8481613 = 8481613,
-    /// <summary>
-    /// TrevorKuntar8482479
-    /// </summary>
-    TrevorKuntar8482479 = 8482479,
-    /// <summary>
-    /// JesperVikman8482484
-    /// </summary>
-    JesperVikman8482484 = 8482484,
-    /// <summary>
-    /// TySmith8480883
-    /// </summary>
-    TySmith8480883 = 8480883,
-    /// <summary>
-    /// AatuRaty8482691
-    /// </summary>
-    AatuRaty8482691 = 8482691,
-    /// <summary>
-    /// ArvidHolm8480244
-    /// </summary>
-    ArvidHolm8480244 = 8480244,
-    /// <summary>
-    /// ReeceNewkirk8481666
-    /// </summary>
-    ReeceNewkirk8481666 = 8481666,
     /// <summary>
     /// EetuLiukas8482882
     /// </summary>
@@ -35653,22 +34732,6 @@ public enum PlayerEnum
     /// VincentRivest8484687
     /// </summary>
     VincentRivest8484687 = 8484687,
-    /// <summary>
-    /// KeithPetruzzelli8479975
-    /// </summary>
-    KeithPetruzzelli8479975 = 8479975,
-    /// <summary>
-    /// MikeHardman8482635
-    /// </summary>
-    MikeHardman8482635 = 8482635,
-    /// <summary>
-    /// ZackOstapchuk8482859
-    /// </summary>
-    ZackOstapchuk8482859 = 8482859,
-    /// <summary>
-    /// MaksymilianSzuber8483763
-    /// </summary>
-    MaksymilianSzuber8483763 = 8483763,
     /// <summary>
     /// PaulZanette8476204
     /// </summary>
@@ -35930,10 +34993,6 @@ public enum PlayerEnum
     /// </summary>
     MichaelLindqvist8480922 = 8480922,
     /// <summary>
-    /// MikhailVorobyev8478844
-    /// </summary>
-    MikhailVorobyev8478844 = 8478844,
-    /// <summary>
     /// OscarFantenberg8480147
     /// </summary>
     OscarFantenberg8480147 = 8480147,
@@ -36009,10 +35068,6 @@ public enum PlayerEnum
     /// JoshMelnick8480308
     /// </summary>
     JoshMelnick8480308 = 8480308,
-    /// <summary>
-    /// LoganOConnor8481186
-    /// </summary>
-    LoganOConnor8481186 = 8481186,
     /// <summary>
     /// ChaseBerger8481475
     /// </summary>
@@ -36121,10 +35176,6 @@ public enum PlayerEnum
     /// PierreOlivierMorin8475921
     /// </summary>
     PierreOlivierMorin8475921 = 8475921,
-    /// <summary>
-    /// CaseyMittelstadt8479999
-    /// </summary>
-    CaseyMittelstadt8479999 = 8479999,
     /// <summary>
     /// VadimShipachyov8479650
     /// </summary>
@@ -36262,10 +35313,6 @@ public enum PlayerEnum
     /// </summary>
     StefanosLekkas8482626 = 8482626,
     /// <summary>
-    /// JJMoser8482655
-    /// </summary>
-    JJMoser8482655 = 8482655,
-    /// <summary>
     /// DavidFarrance8480063
     /// </summary>
     DavidFarrance8480063 = 8480063,
@@ -36350,10 +35397,6 @@ public enum PlayerEnum
     /// </summary>
     EricFlorchuk8480812 = 8480812,
     /// <summary>
-    /// JackPerbix8480815
-    /// </summary>
-    JackPerbix8480815 = 8480815,
-    /// <summary>
     /// AlexanderKhovanov8480824
     /// </summary>
     AlexanderKhovanov8480824 = 8480824,
@@ -36385,10 +35428,6 @@ public enum PlayerEnum
     /// MikaelHakkarainen8481034
     /// </summary>
     MikaelHakkarainen8481034 = 8481034,
-    /// <summary>
-    /// NikolaiKovalenko8481042
-    /// </summary>
-    NikolaiKovalenko8481042 = 8481042,
     /// <summary>
     /// OttoKivenmaki8481047
     /// </summary>
@@ -36470,14 +35509,6 @@ public enum PlayerEnum
     /// </summary>
     JeremyMichel8481693 = 8481693,
     /// <summary>
-    /// ColeBrady8481744
-    /// </summary>
-    ColeBrady8481744 = 8481744,
-    /// <summary>
-    /// CarterGylander8481757
-    /// </summary>
-    CarterGylander8481757 = 8481757,
-    /// <summary>
     /// ArtemIvanyuzhenko8481786
     /// </summary>
     ArtemIvanyuzhenko8481786 = 8481786,
@@ -36493,10 +35524,6 @@ public enum PlayerEnum
     /// EthanBowen8482115
     /// </summary>
     EthanBowen8482115 = 8482115,
-    /// <summary>
-    /// SamColangelo8482118
-    /// </summary>
-    SamColangelo8482118 = 8482118,
     /// <summary>
     /// MatejChalupa8482308
     /// </summary>
@@ -36526,17 +35553,9 @@ public enum PlayerEnum
     /// </summary>
     PatrikHamrla8482921 = 8482921,
     /// <summary>
-    /// MatsLindgren8483477
-    /// </summary>
-    MatsLindgren8483477 = 8483477,
-    /// <summary>
     /// AlexCotton8482182
     /// </summary>
     AlexCotton8482182 = 8482182,
-    /// <summary>
-    /// MichaelKrutil8482208
-    /// </summary>
-    MichaelKrutil8482208 = 8482208,
     /// <summary>
     /// AlexandreGoulet8478145
     /// </summary>
@@ -36558,17 +35577,9 @@ public enum PlayerEnum
     /// </summary>
     DawsonLeedahl8478204 = 8478204,
     /// <summary>
-    /// ConnorHvidston8483744
-    /// </summary>
-    ConnorHvidston8483744 = 8483744,
-    /// <summary>
     /// JakeLee8481785
     /// </summary>
     JakeLee8481785 = 8481785,
-    /// <summary>
-    /// BenKing8482976
-    /// </summary>
-    BenKing8482976 = 8482976,
     /// <summary>
     /// JoaquimLemay8482931
     /// </summary>
@@ -36646,10 +35657,6 @@ public enum PlayerEnum
     /// </summary>
     MichaelFisher8483443 = 8483443,
     /// <summary>
-    /// MasonBeaupit8483682
-    /// </summary>
-    MasonBeaupit8483682 = 8483682,
-    /// <summary>
     /// JakeFurlong8483745
     /// </summary>
     JakeFurlong8483745 = 8483745,
@@ -36661,10 +35668,6 @@ public enum PlayerEnum
     /// BentonMaass8480253
     /// </summary>
     BentonMaass8480253 = 8480253,
-    /// <summary>
-    /// JosephAbate8483652
-    /// </summary>
-    JosephAbate8483652 = 8483652,
     /// <summary>
     /// JamesFisher8483715
     /// </summary>
@@ -36714,17 +35717,9 @@ public enum PlayerEnum
     /// </summary>
     SamuelBolduc8481541 = 8481541,
     /// <summary>
-    /// ReeseJohnson8481147
-    /// </summary>
-    ReeseJohnson8481147 = 8481147,
-    /// <summary>
     /// BrockFaber8482122
     /// </summary>
     BrockFaber8482122 = 8482122,
-    /// <summary>
-    /// LukeHughes8482684
-    /// </summary>
-    LukeHughes8482684 = 8482684,
     /// <summary>
     /// JacobHolmes8482732
     /// </summary>
@@ -36773,10 +35768,6 @@ public enum PlayerEnum
     /// KalleLoponen8481761
     /// </summary>
     KalleLoponen8481761 = 8481761,
-    /// <summary>
-    /// SeanDurzi8480434
-    /// </summary>
-    SeanDurzi8480434 = 8480434,
     /// <summary>
     /// YegorSharangovich8481068
     /// </summary>
@@ -36950,18 +35941,6 @@ public enum PlayerEnum
     /// </summary>
     RyanChesley8483430 = 8483430,
     /// <summary>
-    /// JakeKarabela8483462
-    /// </summary>
-    JakeKarabela8483462 = 8483462,
-    /// <summary>
-    /// OskarMagnusson8482509
-    /// </summary>
-    OskarMagnusson8482509 = 8482509,
-    /// <summary>
-    /// ThimoNickl8482127
-    /// </summary>
-    ThimoNickl8482127 = 8482127,
-    /// <summary>
     /// ZamPlante8483504
     /// </summary>
     ZamPlante8483504 = 8483504,
@@ -36994,10 +35973,6 @@ public enum PlayerEnum
     /// </summary>
     AlexBump8483731 = 8483731,
     /// <summary>
-    /// NolanCollins8483759
-    /// </summary>
-    NolanCollins8483759 = 8483759,
-    /// <summary>
     /// RobertMastrosimone8481561
     /// </summary>
     RobertMastrosimone8481561 = 8481561,
@@ -37014,14 +35989,6 @@ public enum PlayerEnum
     /// </summary>
     JoshuaNodler8481723 = 8481723,
     /// <summary>
-    /// IlyaLyubushkin8480950
-    /// </summary>
-    IlyaLyubushkin8480950 = 8480950,
-    /// <summary>
-    /// LoganCooley8483431
-    /// </summary>
-    LoganCooley8483431 = 8483431,
-    /// <summary>
     /// AlexeyToropchenko8480281
     /// </summary>
     AlexeyToropchenko8480281 = 8480281,
@@ -37029,14 +35996,6 @@ public enum PlayerEnum
     /// MorganBarron8480289
     /// </summary>
     MorganBarron8480289 = 8480289,
-    /// <summary>
-    /// KieferSherwood8480748
-    /// </summary>
-    KieferSherwood8480748 = 8480748,
-    /// <summary>
-    /// KevinBahl8480860
-    /// </summary>
-    KevinBahl8480860 = 8480860,
     /// <summary>
     /// JoelHofer8480981
     /// </summary>
@@ -37166,10 +36125,6 @@ public enum PlayerEnum
     /// </summary>
     JaydenHalbgewachs8480304 = 8480304,
     /// <summary>
-    /// LoganThompson8480313
-    /// </summary>
-    LoganThompson8480313 = 8480313,
-    /// <summary>
     /// AaronLuchuk8480364
     /// </summary>
     AaronLuchuk8480364 = 8480364,
@@ -37230,17 +36185,9 @@ public enum PlayerEnum
     /// </summary>
     CarlJohanLerby8481625 = 8481625,
     /// <summary>
-    /// MatiasMaccelli8481711
-    /// </summary>
-    MatiasMaccelli8481711 = 8481711,
-    /// <summary>
     /// JakeNeighbours8482089
     /// </summary>
     JakeNeighbours8482089 = 8482089,
-    /// <summary>
-    /// AlexanderHoltz8482125
-    /// </summary>
-    AlexanderHoltz8482125 = 8482125,
     /// <summary>
     /// JJPeterka8482175
     /// </summary>
@@ -37285,10 +36232,6 @@ public enum PlayerEnum
     /// ColinSwoyer8483533
     /// </summary>
     ColinSwoyer8483533 = 8483533,
-    /// <summary>
-    /// LandonSim8483741
-    /// </summary>
-    LandonSim8483741 = 8483741,
     /// <summary>
     /// EgorZavragin8484398
     /// </summary>
@@ -37374,10 +36317,6 @@ public enum PlayerEnum
     /// </summary>
     WyatteWylie8480984 = 8480984,
     /// <summary>
-    /// VladislavYeryomenko8480991
-    /// </summary>
-    VladislavYeryomenko8480991 = 8480991,
-    /// <summary>
     /// JosiahSlavin8481004
     /// </summary>
     JosiahSlavin8481004 = 8481004,
@@ -37397,10 +36336,6 @@ public enum PlayerEnum
     /// HudsonWilson8481135
     /// </summary>
     HudsonWilson8481135 = 8481135,
-    /// <summary>
-    /// CadeWebber8481570
-    /// </summary>
-    CadeWebber8481570 = 8481570,
     /// <summary>
     /// KirillTyutyayev8481680
     /// </summary>
@@ -37434,10 +36369,6 @@ public enum PlayerEnum
     /// </summary>
     AxelRindell8482463 = 8482463,
     /// <summary>
-    /// AlbinSundsvik8482494
-    /// </summary>
-    AlbinSundsvik8482494 = 8482494,
-    /// <summary>
     /// AlexYoung8482523
     /// </summary>
     AlexYoung8482523 = 8482523,
@@ -37445,10 +36376,6 @@ public enum PlayerEnum
     /// TimofeySpitserov8482524
     /// </summary>
     TimofeySpitserov8482524 = 8482524,
-    /// <summary>
-    /// MaximBarbashev8483423
-    /// </summary>
-    MaximBarbashev8483423 = 8483423,
     /// <summary>
     /// DylanRoobroeck8484461
     /// </summary>
@@ -37458,14 +36385,6 @@ public enum PlayerEnum
     /// </summary>
     JaredDavidson8483728 = 8483728,
     /// <summary>
-    /// CedrickGuindon8483723
-    /// </summary>
-    CedrickGuindon8483723 = 8483723,
-    /// <summary>
-    /// FlorianXhekaj8484403
-    /// </summary>
-    FlorianXhekaj8484403 = 8484403,
-    /// <summary>
     /// TySmilanic8482104
     /// </summary>
     TySmilanic8482104 = 8482104,
@@ -37473,14 +36392,6 @@ public enum PlayerEnum
     /// JackBeck8482736
     /// </summary>
     JackBeck8482736 = 8482736,
-    /// <summary>
-    /// NickLardis8484185
-    /// </summary>
-    NickLardis8484185 = 8484185,
-    /// <summary>
-    /// MartinMisiak8484195
-    /// </summary>
-    MartinMisiak8484195 = 8484195,
     /// <summary>
     /// JiriFelcman8484400
     /// </summary>
@@ -37510,10 +36421,6 @@ public enum PlayerEnum
     /// </summary>
     CaydenPrimeau8480051 = 8480051,
     /// <summary>
-    /// JesseYlonen8481058
-    /// </summary>
-    JesseYlonen8481058 = 8481058,
-    /// <summary>
     /// KaidenGuhle8482087
     /// </summary>
     KaidenGuhle8482087 = 8482087,
@@ -37521,10 +36428,6 @@ public enum PlayerEnum
     /// JoeVrbetic8482669
     /// </summary>
     JoeVrbetic8482669 = 8482669,
-    /// <summary>
-    /// PaulCotter8481032
-    /// </summary>
-    PaulCotter8481032 = 8481032,
     /// <summary>
     /// ColeCaufield8481540
     /// </summary>
@@ -37557,10 +36460,6 @@ public enum PlayerEnum
     /// TaylorGauthier8481526
     /// </summary>
     TaylorGauthier8481526 = 8481526,
-    /// <summary>
-    /// HunterJones8481545
-    /// </summary>
-    HunterJones8481545 = 8481545,
     /// <summary>
     /// TalynBoyko8482869
     /// </summary>
@@ -37618,10 +36517,6 @@ public enum PlayerEnum
     /// </summary>
     EduardSale8484222 = 8484222,
     /// <summary>
-    /// MasonPrimeau8481664
-    /// </summary>
-    MasonPrimeau8481664 = 8481664,
-    /// <summary>
     /// JurajSlafkovsky8483515
     /// </summary>
     JurajSlafkovsky8483515 = 8483515,
@@ -37658,10 +36553,6 @@ public enum PlayerEnum
     /// </summary>
     JustinLee8484249 = 8484249,
     /// <summary>
-    /// LukeToporowski8481866
-    /// </summary>
-    LukeToporowski8481866 = 8481866,
-    /// <summary>
     /// EvanVierling8482152
     /// </summary>
     EvanVierling8482152 = 8482152,
@@ -37678,10 +36569,6 @@ public enum PlayerEnum
     /// </summary>
     JakubBrabenec8482724 = 8482724,
     /// <summary>
-    /// JacobMelanson8482874
-    /// </summary>
-    JacobMelanson8482874 = 8482874,
-    /// <summary>
     /// EthanSamson8482890
     /// </summary>
     EthanSamson8482890 = 8482890,
@@ -37693,14 +36580,6 @@ public enum PlayerEnum
     /// JalenLuypen8482903
     /// </summary>
     JalenLuypen8482903 = 8482903,
-    /// <summary>
-    /// LucaDelBelBelluz8483432
-    /// </summary>
-    LucaDelBelBelluz8483432 = 8483432,
-    /// <summary>
-    /// BobbyTrivigno8483550
-    /// </summary>
-    BobbyTrivigno8483550 = 8483550,
     /// <summary>
     /// AlexisGendron8483697
     /// </summary>
@@ -37714,37 +36593,13 @@ public enum PlayerEnum
     /// </summary>
     AndrewCristall8484159 = 8484159,
     /// <summary>
-    /// NikolasBrouillard8477522
-    /// </summary>
-    NikolasBrouillard8477522 = 8477522,
-    /// <summary>
     /// JaredMoe8481044
     /// </summary>
     JaredMoe8481044 = 8481044,
     /// <summary>
-    /// KarlHenriksson8481548
-    /// </summary>
-    KarlHenriksson8481548 = 8481548,
-    /// <summary>
-    /// MikhailAbramov8481589
-    /// </summary>
-    MikhailAbramov8481589 = 8481589,
-    /// <summary>
-    /// MasonMillman8481658
-    /// </summary>
-    MasonMillman8481658 = 8481658,
-    /// <summary>
-    /// TylerAngle8481690
-    /// </summary>
-    TylerAngle8481690 = 8481690,
-    /// <summary>
     /// HunterSkinner8481715
     /// </summary>
     HunterSkinner8481715 = 8481715,
-    /// <summary>
-    /// ChristofferSedoff8482138
-    /// </summary>
-    ChristofferSedoff8482138 = 8482138,
     /// <summary>
     /// TannerDickinson8482156
     /// </summary>
@@ -37758,73 +36613,25 @@ public enum PlayerEnum
     /// </summary>
     SamuelKnazko8482448 = 8482448,
     /// <summary>
-    /// MikaelPyyhtia8482451
-    /// </summary>
-    MikaelPyyhtia8482451 = 8482451,
-    /// <summary>
     /// OleJulianBjorgvikHolm8482453
     /// </summary>
     OleJulianBjorgvikHolm8482453 = 8482453,
-    /// <summary>
-    /// LinusWeissbach8480261
-    /// </summary>
-    LinusWeissbach8480261 = 8480261,
-    /// <summary>
-    /// SashaPastujov8482682
-    /// </summary>
-    SashaPastujov8482682 = 8482682,
     /// <summary>
     /// OwenBeck8483424
     /// </summary>
     OwenBeck8483424 = 8483424,
     /// <summary>
-    /// MavericLamoureux8483472
-    /// </summary>
-    MavericLamoureux8483472 = 8483472,
-    /// <summary>
-    /// AdamSykora8483669
-    /// </summary>
-    AdamSykora8483669 = 8483669,
-    /// <summary>
     /// ParkerBell8483772
     /// </summary>
     ParkerBell8483772 = 8483772,
-    /// <summary>
-    /// NoelHoefenmayer8480202
-    /// </summary>
-    NoelHoefenmayer8480202 = 8480202,
-    /// <summary>
-    /// BlakeMcLaughlin8480816
-    /// </summary>
-    BlakeMcLaughlin8480816 = 8480816,
-    /// <summary>
-    /// OlivierRodrigue8480885
-    /// </summary>
-    OlivierRodrigue8480885 = 8480885,
-    /// <summary>
-    /// BraydenTracey8481530
-    /// </summary>
-    BraydenTracey8481530 = 8481530,
-    /// <summary>
-    /// NathanLegare8481594
-    /// </summary>
-    NathanLegare8481594 = 8481594,
     /// <summary>
     /// XavierSimoneau8481794
     /// </summary>
     XavierSimoneau8481794 = 8481794,
     /// <summary>
-    /// CarterSavoie8482108
-    /// </summary>
-    CarterSavoie8482108 = 8482108,
-    /// <summary>
     /// DonovanSebrango8482131
     /// </summary>
     DonovanSebrango8482131 = 8482131,
-    /// <summary>
-    /// JacobPerreault8482150
-    /// </summary>
-    JacobPerreault8482150 = 8482150,
     /// <summary>
     /// HelgeGrans8482169
     /// </summary>
@@ -37833,10 +36640,6 @@ public enum PlayerEnum
     /// RoryKerins8482209
     /// </summary>
     RoryKerins8482209 = 8482209,
-    /// <summary>
-    /// LeeviMerilainen8482447
-    /// </summary>
-    LeeviMerilainen8482447 = 8482447,
     /// <summary>
     /// ElliotDesnoyers8482452
     /// </summary>
@@ -37862,10 +36665,6 @@ public enum PlayerEnum
     /// </summary>
     ZacharyLHeureux8482742 = 8482742,
     /// <summary>
-    /// NikitaChibrikov8482787
-    /// </summary>
-    NikitaChibrikov8482787 = 8482787,
-    /// <summary>
     /// WilliamTrudeau8482806
     /// </summary>
     WilliamTrudeau8482806 = 8482806,
@@ -37886,10 +36685,6 @@ public enum PlayerEnum
     /// </summary>
     VilleOttavainen8482866 = 8482866,
     /// <summary>
-    /// DanilaKlimovich8482918
-    /// </summary>
-    DanilaKlimovich8482918 = 8482918,
-    /// <summary>
     /// DmitryKuzmin8482920
     /// </summary>
     DmitryKuzmin8482920 = 8482920,
@@ -37902,49 +36697,13 @@ public enum PlayerEnum
     /// </summary>
     RyanHofer8482960 = 8482960,
     /// <summary>
-    /// BrandonScanlin8483407
-    /// </summary>
-    BrandonScanlin8483407 = 8483407,
-    /// <summary>
     /// AlexanderSuzdalev8483518
     /// </summary>
     AlexanderSuzdalev8483518 = 8483518,
     /// <summary>
-    /// WyattBongiovanni8483579
-    /// </summary>
-    WyattBongiovanni8483579 = 8483579,
-    /// <summary>
-    /// OskariSalminen8483598
-    /// </summary>
-    OskariSalminen8483598 = 8483598,
-    /// <summary>
-    /// EetuMakiniemi8480199
-    /// </summary>
-    EetuMakiniemi8480199 = 8480199,
-    /// <summary>
-    /// JordanGross8480913
-    /// </summary>
-    JordanGross8480913 = 8480913,
-    /// <summary>
-    /// SimonLundmark8481547
-    /// </summary>
-    SimonLundmark8481547 = 8481547,
-    /// <summary>
-    /// ArtemiKniazev8481552
-    /// </summary>
-    ArtemiKniazev8481552 = 8481552,
-    /// <summary>
     /// AnttiSaarela8481588
     /// </summary>
     AnttiSaarela8481588 = 8481588,
-    /// <summary>
-    /// MichalTeply8481616
-    /// </summary>
-    MichalTeply8481616 = 8481616,
-    /// <summary>
-    /// KeeanWashkurak8481667
-    /// </summary>
-    KeeanWashkurak8481667 = 8481667,
     /// <summary>
     /// NavrinMutter8481817
     /// </summary>
@@ -37958,17 +36717,9 @@ public enum PlayerEnum
     /// </summary>
     BrandonCoe8482086 = 8482086,
     /// <summary>
-    /// BrettBerard8482132
-    /// </summary>
-    BrettBerard8482132 = 8482132,
-    /// <summary>
     /// DanielTorgersson8482139
     /// </summary>
     DanielTorgersson8482139 = 8482139,
-    /// <summary>
-    /// JustinRichards8482179
-    /// </summary>
-    JustinRichards8482179 = 8482179,
     /// <summary>
     /// TristenRobins8482181
     /// </summary>
@@ -37986,21 +36737,9 @@ public enum PlayerEnum
     /// </summary>
     LeoLoof8482478 = 8482478,
     /// <summary>
-    /// AdamWilsby8482482
-    /// </summary>
-    AdamWilsby8482482 = 8482482,
-    /// <summary>
     /// TysonHinds8482731
     /// </summary>
     TysonHinds8482731 = 8482731,
-    /// <summary>
-    /// EthanDelMastro8482807
-    /// </summary>
-    EthanDelMastro8482807 = 8482807,
-    /// <summary>
-    /// ConorGeekie8483447
-    /// </summary>
-    ConorGeekie8483447 = 8483447,
     /// <summary>
     /// PaulLudwinski8483480
     /// </summary>
@@ -38010,45 +36749,9 @@ public enum PlayerEnum
     /// </summary>
     DanilZhilkin8483526 = 8483526,
     /// <summary>
-    /// PhilippeMaillet8477544
-    /// </summary>
-    PhilippeMaillet8477544 = 8477544,
-    /// <summary>
-    /// MichaelDiPietro8480022
-    /// </summary>
-    MichaelDiPietro8480022 = 8480022,
-    /// <summary>
-    /// WyattKalynuk8480293
-    /// </summary>
-    WyattKalynuk8480293 = 8480293,
-    /// <summary>
-    /// KristianReichel8480443
-    /// </summary>
-    KristianReichel8480443 = 8480443,
-    /// <summary>
-    /// AkilThomas8480851
-    /// </summary>
-    AkilThomas8480851 = 8480851,
-    /// <summary>
-    /// CurtisDouglas8480876
-    /// </summary>
-    CurtisDouglas8480876 = 8480876,
-    /// <summary>
-    /// MontanaOnyebuchi8481159
-    /// </summary>
-    MontanaOnyebuchi8481159 = 8481159,
-    /// <summary>
     /// DrewHelleson8481563
     /// </summary>
     DrewHelleson8481563 = 8481563,
-    /// <summary>
-    /// MichaelVukojevic8481583
-    /// </summary>
-    MichaelVukojevic8481583 = 8481583,
-    /// <summary>
-    /// AkuRaty8481699
-    /// </summary>
-    AkuRaty8481699 = 8481699,
     /// <summary>
     /// RyderRolston8482082
     /// </summary>
@@ -38058,14 +36761,6 @@ public enum PlayerEnum
     /// </summary>
     DrewCommesso8482123 = 8482123,
     /// <summary>
-    /// JoshDoan8482659
-    /// </summary>
-    JoshDoan8482659 = 8482659,
-    /// <summary>
-    /// ArtemGrushnikov8482695
-    /// </summary>
-    ArtemGrushnikov8482695 = 8482695,
-    /// <summary>
     /// WyattJohnston8482740
     /// </summary>
     WyattJohnston8482740 = 8482740,
@@ -38073,10 +36768,6 @@ public enum PlayerEnum
     /// FrancescoArcuri8482891
     /// </summary>
     FrancescoArcuri8482891 = 8482891,
-    /// <summary>
-    /// JustinErtel8482919
-    /// </summary>
-    JustinErtel8482919 = 8482919,
     /// <summary>
     /// GavinWhite8483059
     /// </summary>
@@ -38110,14 +36801,6 @@ public enum PlayerEnum
     /// </summary>
     MiroHeiskanen8480036 = 8480036,
     /// <summary>
-    /// TyDellandrea8480848
-    /// </summary>
-    TyDellandrea8480848 = 8480848,
-    /// <summary>
-    /// NilsLundkvist8480878
-    /// </summary>
-    NilsLundkvist8480878 = 8480878,
-    /// <summary>
     /// ThomasHarley8481581
     /// </summary>
     ThomasHarley8481581 = 8481581,
@@ -38130,37 +36813,9 @@ public enum PlayerEnum
     /// </summary>
     JonRandallAvon8483010 = 8483010,
     /// <summary>
-    /// GavinBayreuther8479945
-    /// </summary>
-    GavinBayreuther8479945 = 8479945,
-    /// <summary>
-    /// SheldonDries8480326
-    /// </summary>
-    SheldonDries8480326 = 8480326,
-    /// <summary>
     /// WilliamVilleneuve8482174
     /// </summary>
     WilliamVilleneuve8482174 = 8482174,
-    /// <summary>
-    /// DmitryOvchinnikov8482488
-    /// </summary>
-    DmitryOvchinnikov8482488 = 8482488,
-    /// <summary>
-    /// BenJones8480259
-    /// </summary>
-    BenJones8480259 = 8480259,
-    /// <summary>
-    /// MichaelCallahan8480828
-    /// </summary>
-    MichaelCallahan8480828 = 8480828,
-    /// <summary>
-    /// JohnLeonard8481077
-    /// </summary>
-    JohnLeonard8481077 = 8481077,
-    /// <summary>
-    /// JeffMalott8482408
-    /// </summary>
-    JeffMalott8482408 = 8482408,
     /// <summary>
     /// ChaseStillman8482714
     /// </summary>
@@ -38170,29 +36825,9 @@ public enum PlayerEnum
     /// </summary>
     FabianLysell8482763 = 8482763,
     /// <summary>
-    /// RyanLomberg8479066
-    /// </summary>
-    RyanLomberg8479066 = 8479066,
-    /// <summary>
-    /// CalleSjalin8480228
-    /// </summary>
-    CalleSjalin8480228 = 8480228,
-    /// <summary>
-    /// SanttuKinnunen8481009
-    /// </summary>
-    SanttuKinnunen8481009 = 8481009,
-    /// <summary>
-    /// MikeBenning8482107
-    /// </summary>
-    MikeBenning8482107 = 8482107,
-    /// <summary>
     /// EvanNause8482734
     /// </summary>
     EvanNause8482734 = 8482734,
-    /// <summary>
-    /// MackGuzda8483122
-    /// </summary>
-    MackGuzda8483122 = 8483122,
     /// <summary>
     /// KaiSchwindt8483878
     /// </summary>
@@ -38210,18 +36845,6 @@ public enum PlayerEnum
     /// </summary>
     GageQuinney8479748 = 8479748,
     /// <summary>
-    /// ReillyWalsh8480054
-    /// </summary>
-    ReillyWalsh8480054 = 8480054,
-    /// <summary>
-    /// AdamGinning8480874
-    /// </summary>
-    AdamGinning8480874 = 8480874,
-    /// <summary>
-    /// NikitaNesterenko8481754
-    /// </summary>
-    NikitaNesterenko8481754 = 8481754,
-    /// <summary>
     /// TylerBoucher8482674
     /// </summary>
     TylerBoucher8482674 = 8482674,
@@ -38234,25 +36857,9 @@ public enum PlayerEnum
     /// </summary>
     DaylanKuefler8483104 = 8483104,
     /// <summary>
-    /// JaxsonStauber8483530
-    /// </summary>
-    JaxsonStauber8483530 = 8483530,
-    /// <summary>
-    /// PavolRegenda8483630
-    /// </summary>
-    PavolRegenda8483630 = 8483630,
-    /// <summary>
     /// LukeHenman8480869
     /// </summary>
     LukeHenman8480869 = 8480869,
-    /// <summary>
-    /// SamPoulin8481591
-    /// </summary>
-    SamPoulin8481591 = 8481591,
-    /// <summary>
-    /// ArtursSilovs8481668
-    /// </summary>
-    ArtursSilovs8481668 = 8481668,
     /// <summary>
     /// HenriNikkanen8481695
     /// </summary>
@@ -38274,26 +36881,6 @@ public enum PlayerEnum
     /// </summary>
     LucasCiona8482889 = 8482889,
     /// <summary>
-    /// PeetroSeppala8483599
-    /// </summary>
-    PeetroSeppala8483599 = 8483599,
-    /// <summary>
-    /// VillePetman8483635
-    /// </summary>
-    VillePetman8483635 = 8483635,
-    /// <summary>
-    /// GianniFairbrother8481654
-    /// </summary>
-    GianniFairbrother8481654 = 8481654,
-    /// <summary>
-    /// WyattAamodt8483569
-    /// </summary>
-    WyattAamodt8483569 = 8483569,
-    /// <summary>
-    /// KyleCriscuolo8479304
-    /// </summary>
-    KyleCriscuolo8479304 = 8479304,
-    /// <summary>
     /// TopiasVilen8482873
     /// </summary>
     TopiasVilen8482873 = 8482873,
@@ -38306,30 +36893,6 @@ public enum PlayerEnum
     /// </summary>
     JoshFilmon8483439 = 8483439,
     /// <summary>
-    /// MitchReinke8480761
-    /// </summary>
-    MitchReinke8480761 = 8480761,
-    /// <summary>
-    /// RuslanIskhakov8481016
-    /// </summary>
-    RuslanIskhakov8481016 = 8481016,
-    /// <summary>
-    /// MathiasEmilioPettersen8481041
-    /// </summary>
-    MathiasEmilioPettersen8481041 = 8481041,
-    /// <summary>
-    /// JimmySchuldt8481486
-    /// </summary>
-    JimmySchuldt8481486 = 8481486,
-    /// <summary>
-    /// SpencerKnight8481519
-    /// </summary>
-    SpencerKnight8481519 = 8481519,
-    /// <summary>
-    /// JamiesonRees8481579
-    /// </summary>
-    JamiesonRees8481579 = 8481579,
-    /// <summary>
     /// AnttiTuomisto8481587
     /// </summary>
     AnttiTuomisto8481587 = 8481587,
@@ -38337,10 +36900,6 @@ public enum PlayerEnum
     /// AlbertJohansson8481607
     /// </summary>
     AlbertJohansson8481607 = 8481607,
-    /// <summary>
-    /// BlakeMurray8481677
-    /// </summary>
-    BlakeMurray8481677 = 8481677,
     /// <summary>
     /// NoelGunler8482080
     /// </summary>
@@ -38350,10 +36909,6 @@ public enum PlayerEnum
     /// </summary>
     EemilViro8482163 = 8482163,
     /// <summary>
-    /// RonanSeeley8482187
-    /// </summary>
-    RonanSeeley8482187 = 8482187,
-    /// <summary>
     /// RaivisAnsons8482456
     /// </summary>
     RaivisAnsons8482456 = 8482456,
@@ -38362,21 +36917,9 @@ public enum PlayerEnum
     /// </summary>
     SebastianCossa8482657 = 8482657,
     /// <summary>
-    /// JamesMalatesta8482744
-    /// </summary>
-    JamesMalatesta8482744 = 8482744,
-    /// <summary>
     /// AleksiHeimosalmi8482860
     /// </summary>
     AleksiHeimosalmi8482860 = 8482860,
-    /// <summary>
-    /// VincentIorio8482861
-    /// </summary>
-    VincentIorio8482861 = 8482861,
-    /// <summary>
-    /// CameronButler8483045
-    /// </summary>
-    CameronButler8483045 = 8483045,
     /// <summary>
     /// MatthewMaggio8483062
     /// </summary>
@@ -38390,10 +36933,6 @@ public enum PlayerEnum
     /// </summary>
     CalleOdelius8483498 = 8483498,
     /// <summary>
-    /// GriffinMendel8483560
-    /// </summary>
-    GriffinMendel8483560 = 8483560,
-    /// <summary>
     /// EthenFrank8483573
     /// </summary>
     EthenFrank8483573 = 8483573,
@@ -38402,65 +36941,9 @@ public enum PlayerEnum
     /// </summary>
     HunterMcKown8484125 = 8484125,
     /// <summary>
-    /// ParkerFord8484135
-    /// </summary>
-    ParkerFord8484135 = 8484135,
-    /// <summary>
     /// TravisMitchell8484262
     /// </summary>
     TravisMitchell8484262 = 8484262,
-    /// <summary>
-    /// RobinSalo8480071
-    /// </summary>
-    RobinSalo8480071 = 8480071,
-    /// <summary>
-    /// CarsonMeyer8480292
-    /// </summary>
-    CarsonMeyer8480292 = 8480292,
-    /// <summary>
-    /// AlexanderTrue8480384
-    /// </summary>
-    AlexanderTrue8480384 = 8480384,
-    /// <summary>
-    /// JakubSkarek8480819
-    /// </summary>
-    JakubSkarek8480819 = 8480819,
-    /// <summary>
-    /// JaredMcIsaac8480862
-    /// </summary>
-    JaredMcIsaac8480862 = 8480862,
-    /// <summary>
-    /// KarsonKuhlman8480901
-    /// </summary>
-    KarsonKuhlman8480901 = 8480901,
-    /// <summary>
-    /// MitchellGibson8481064
-    /// </summary>
-    MitchellGibson8481064 = 8481064,
-    /// <summary>
-    /// TaroHirose8481433
-    /// </summary>
-    TaroHirose8481433 = 8481433,
-    /// <summary>
-    /// JoshDunne8482623
-    /// </summary>
-    JoshDunne8482623 = 8482623,
-    /// <summary>
-    /// AlexLimoges8482639
-    /// </summary>
-    AlexLimoges8482639 = 8482639,
-    /// <summary>
-    /// MattKiersted8482641
-    /// </summary>
-    MattKiersted8482641 = 8482641,
-    /// <summary>
-    /// TylerMadden8480805
-    /// </summary>
-    TylerMadden8480805 = 8480805,
-    /// <summary>
-    /// OskarBack8480840
-    /// </summary>
-    OskarBack8480840 = 8480840,
     /// <summary>
     /// MathiasLaferriere8481000
     /// </summary>
@@ -38470,34 +36953,6 @@ public enum PlayerEnum
     /// </summary>
     JachymKondelik8481029 = 8481029,
     /// <summary>
-    /// RyanSuzuki8481576
-    /// </summary>
-    RyanSuzuki8481576 = 8481576,
-    /// <summary>
-    /// AlexBeaucage8481595
-    /// </summary>
-    AlexBeaucage8481595 = 8481595,
-    /// <summary>
-    /// NickAbruzzese8481720
-    /// </summary>
-    NickAbruzzese8481720 = 8481720,
-    /// <summary>
-    /// RemiPoirier8482465
-    /// </summary>
-    RemiPoirier8482465 = 8482465,
-    /// <summary>
-    /// ZachDean8482784
-    /// </summary>
-    ZachDean8482784 = 8482784,
-    /// <summary>
-    /// AnsonThornton8483099
-    /// </summary>
-    AnsonThornton8483099 = 8483099,
-    /// <summary>
-    /// LianBichsel8483425
-    /// </summary>
-    LianBichsel8483425 = 8483425,
-    /// <summary>
     /// DarrenRaddysh8478178
     /// </summary>
     DarrenRaddysh8478178 = 8478178,
@@ -38506,37 +36961,13 @@ public enum PlayerEnum
     /// </summary>
     NickPerbix8480246 = 8480246,
     /// <summary>
-    /// LanePederson8478967
-    /// </summary>
-    LanePederson8478967 = 8478967,
-    /// <summary>
-    /// CollinDelia8480420
-    /// </summary>
-    CollinDelia8480420 = 8480420,
-    /// <summary>
-    /// RileyDamiani8480988
-    /// </summary>
-    RileyDamiani8480988 = 8480988,
-    /// <summary>
-    /// NolanFoote8481518
-    /// </summary>
-    NolanFoote8481518 = 8481518,
-    /// <summary>
     /// DomenickFensore8481562
     /// </summary>
     DomenickFensore8481562 = 8481562,
     /// <summary>
-    /// LassiThomson8481575
-    /// </summary>
-    LassiThomson8481575 = 8481575,
-    /// <summary>
     /// ElmerSoderblom8481725
     /// </summary>
     ElmerSoderblom8481725 = 8481725,
-    /// <summary>
-    /// JeradRosburg8482051
-    /// </summary>
-    JeradRosburg8482051 = 8482051,
     /// <summary>
     /// CrossHanas8482106
     /// </summary>
@@ -38629,10 +37060,6 @@ public enum PlayerEnum
     /// EricHunter8471441
     /// </summary>
     EricHunter8471441 = 8471441,
-    /// <summary>
-    /// CaseyPierroZabotel8474015
-    /// </summary>
-    CaseyPierroZabotel8474015 = 8474015,
     /// <summary>
     /// CedricMcNicoll8474785
     /// </summary>
@@ -38886,10 +37313,6 @@ public enum PlayerEnum
     /// </summary>
     DarcyHordichuk8468660 = 8468660,
     /// <summary>
-    /// JoeyCrabb8470156
-    /// </summary>
-    JoeyCrabb8470156 = 8470156,
-    /// <summary>
     /// ErikChristensen8470299
     /// </summary>
     ErikChristensen8470299 = 8470299,
@@ -38901,10 +37324,6 @@ public enum PlayerEnum
     /// VojtechPolak8470629
     /// </summary>
     VojtechPolak8470629 = 8470629,
-    /// <summary>
-    /// JayRosehill8470816
-    /// </summary>
-    JayRosehill8470816 = 8470816,
     /// <summary>
     /// ChrisLevesque8471135
     /// </summary>
@@ -39050,10 +37469,6 @@ public enum PlayerEnum
     /// </summary>
     JiriHudler8470201 = 8470201,
     /// <summary>
-    /// SeanSullivan8470861
-    /// </summary>
-    SeanSullivan8470861 = 8470861,
-    /// <summary>
     /// RandyJones8470905
     /// </summary>
     RandyJones8470905 = 8470905,
@@ -39169,14 +37584,6 @@ public enum PlayerEnum
     /// OlowSundstrom8460104
     /// </summary>
     OlowSundstrom8460104 = 8460104,
-    /// <summary>
-    /// RichardPetiot8469564
-    /// </summary>
-    RichardPetiot8469564 = 8469564,
-    /// <summary>
-    /// AndrewMurray8469685
-    /// </summary>
-    AndrewMurray8469685 = 8469685,
     /// <summary>
     /// FrancoisBouchard8473447
     /// </summary>
@@ -39350,10 +37757,6 @@ public enum PlayerEnum
     /// </summary>
     MacCarruth8475879 = 8475879,
     /// <summary>
-    /// ChristopherCrane8475890
-    /// </summary>
-    ChristopherCrane8475890 = 8475890,
-    /// <summary>
     /// ChristianIsackson8475901
     /// </summary>
     ChristianIsackson8475901 = 8475901,
@@ -39390,10 +37793,6 @@ public enum PlayerEnum
     /// </summary>
     DavidEddy8476781 = 8476781,
     /// <summary>
-    /// BradySkjei8476869
-    /// </summary>
-    BradySkjei8476869 = 8476869,
-    /// <summary>
     /// MarkusLauridsen8477078
     /// </summary>
     MarkusLauridsen8477078 = 8477078,
@@ -39421,10 +37820,6 @@ public enum PlayerEnum
     /// SergeyAndronov8475241
     /// </summary>
     SergeyAndronov8475241 = 8475241,
-    /// <summary>
-    /// WadeMegan8475263
-    /// </summary>
-    WadeMegan8475263 = 8475263,
     /// <summary>
     /// DerekRodwell8475285
     /// </summary>
@@ -39470,10 +37865,6 @@ public enum PlayerEnum
     /// </summary>
     ChrisMason8462152 = 8462152,
     /// <summary>
-    /// DanSpang8470314
-    /// </summary>
-    DanSpang8470314 = 8470314,
-    /// <summary>
     /// AnthonyBattaglia8470380
     /// </summary>
     AnthonyBattaglia8470380 = 8470380,
@@ -39485,10 +37876,6 @@ public enum PlayerEnum
     /// DerekJoslin8471810
     /// </summary>
     DerekJoslin8471810 = 8471810,
-    /// <summary>
-    /// TonyLucia8471854
-    /// </summary>
-    TonyLucia8471854 = 8471854,
     /// <summary>
     /// ScottMunroe8472371
     /// </summary>
@@ -39649,10 +38036,6 @@ public enum PlayerEnum
     /// KoryNagy8474704
     /// </summary>
     KoryNagy8474704 = 8474704,
-    /// <summary>
-    /// JerryDAmigo8475309
-    /// </summary>
-    JerryDAmigo8475309 = 8475309,
     /// <summary>
     /// OliverLauridsen8475342
     /// </summary>
@@ -39850,10 +38233,6 @@ public enum PlayerEnum
     /// </summary>
     BrianStewart8475651 = 8475651,
     /// <summary>
-    /// DustinStevenson8475662
-    /// </summary>
-    DustinStevenson8475662 = 8475662,
-    /// <summary>
     /// AndrewRowe8475684
     /// </summary>
     AndrewRowe8475684 = 8475684,
@@ -40026,10 +38405,6 @@ public enum PlayerEnum
     /// </summary>
     GustafWesslau8475685 = 8475685,
     /// <summary>
-    /// IvanTelegin8475828
-    /// </summary>
-    IvanTelegin8475828 = 8475828,
-    /// <summary>
     /// RandyJaycock8448263
     /// </summary>
     RandyJaycock8448263 = 8448263,
@@ -40137,10 +38512,6 @@ public enum PlayerEnum
     /// JeremyWelsh8476819
     /// </summary>
     JeremyWelsh8476819 = 8476819,
-    /// <summary>
-    /// SergeyKostenko8477039
-    /// </summary>
-    SergeyKostenko8477039 = 8477039,
     /// <summary>
     /// JoelRumpel8478392
     /// </summary>
@@ -40294,10 +38665,6 @@ public enum PlayerEnum
     /// </summary>
     StevenJohnson8478050 = 8478050,
     /// <summary>
-    /// IvanNalimov8478107
-    /// </summary>
-    IvanNalimov8478107 = 8478107,
-    /// <summary>
     /// JackRodewald8478268
     /// </summary>
     JackRodewald8478268 = 8478268,
@@ -40386,10 +38753,6 @@ public enum PlayerEnum
     /// </summary>
     RyanWeston8474508 = 8474508,
     /// <summary>
-    /// CurtisMcKenzie8475310
-    /// </summary>
-    CurtisMcKenzie8475310 = 8475310,
-    /// <summary>
     /// BenStreet8476043
     /// </summary>
     BenStreet8476043 = 8476043,
@@ -40418,17 +38781,9 @@ public enum PlayerEnum
     /// </summary>
     MichaelCichy8475333 = 8475333,
     /// <summary>
-    /// MikhailPashnin8475334
-    /// </summary>
-    MikhailPashnin8475334 = 8475334,
-    /// <summary>
     /// CameronReid8475349
     /// </summary>
     CameronReid8475349 = 8475349,
-    /// <summary>
-    /// AlexanderGuptill8475711
-    /// </summary>
-    AlexanderGuptill8475711 = 8475711,
     /// <summary>
     /// PeterStoykewych8475895
     /// </summary>
@@ -40438,25 +38793,9 @@ public enum PlayerEnum
     /// </summary>
     BradNavin8476281 = 8476281,
     /// <summary>
-    /// MaximShalunov8476351
-    /// </summary>
-    MaximShalunov8476351 = 8476351,
-    /// <summary>
-    /// YaroslavKosov8476366
-    /// </summary>
-    YaroslavKosov8476366 = 8476366,
-    /// <summary>
-    /// BlakePietila8476370
-    /// </summary>
-    BlakePietila8476370 = 8476370,
-    /// <summary>
     /// DaniilTarasov8476549
     /// </summary>
     DaniilTarasov8476549 = 8476549,
-    /// <summary>
-    /// PatrickSieloff8476890
-    /// </summary>
-    PatrickSieloff8476890 = 8476890,
     /// <summary>
     /// CollinOlson8477007
     /// </summary>
@@ -40501,10 +38840,6 @@ public enum PlayerEnum
     /// ZachSaar8480324
     /// </summary>
     ZachSaar8480324 = 8480324,
-    /// <summary>
-    /// BenHanowski8475196
-    /// </summary>
-    BenHanowski8475196 = 8475196,
     /// <summary>
     /// KevinLynch8475201
     /// </summary>
@@ -40642,10 +38977,6 @@ public enum PlayerEnum
     /// </summary>
     YanPavelLaplante8477483 = 8477483,
     /// <summary>
-    /// AdamTambellini8477487
-    /// </summary>
-    AdamTambellini8477487 = 8477487,
-    /// <summary>
     /// HunterGarlent8477629
     /// </summary>
     HunterGarlent8477629 = 8477629,
@@ -40677,10 +39008,6 @@ public enum PlayerEnum
     /// JoshuaHoSang8477959
     /// </summary>
     JoshuaHoSang8477959 = 8477959,
-    /// <summary>
-    /// BrandonPirri8475204
-    /// </summary>
-    BrandonPirri8475204 = 8475204,
     /// <summary>
     /// CurtisMcElhinney8470147
     /// </summary>
@@ -40746,10 +39073,6 @@ public enum PlayerEnum
     /// </summary>
     CamFowler8475764 = 8475764,
     /// <summary>
-    /// NickLeddy8475181
-    /// </summary>
-    NickLeddy8475181 = 8475181,
-    /// <summary>
     /// MathieuDarche8468463
     /// </summary>
     MathieuDarche8468463 = 8468463,
@@ -40790,10 +39113,6 @@ public enum PlayerEnum
     /// </summary>
     MaximeFortier8479616 = 8479616,
     /// <summary>
-    /// ErikHaula8475287
-    /// </summary>
-    ErikHaula8475287 = 8475287,
-    /// <summary>
     /// MarekLanghamer8476986
     /// </summary>
     MarekLanghamer8476986 = 8476986,
@@ -40833,10 +39152,6 @@ public enum PlayerEnum
     /// MitchellMattson8479360
     /// </summary>
     MitchellMattson8479360 = 8479360,
-    /// <summary>
-    /// LawsonCrouse8478474
-    /// </summary>
-    LawsonCrouse8478474 = 8478474,
     /// <summary>
     /// MartinNecas8480039
     /// </summary>
@@ -40901,10 +39216,6 @@ public enum PlayerEnum
     /// VilleMeskanen8480926
     /// </summary>
     VilleMeskanen8480926 = 8480926,
-    /// <summary>
-    /// EgorKorshkov8479510
-    /// </summary>
-    EgorKorshkov8479510 = 8479510,
     /// <summary>
     /// KyleOlson8480209
     /// </summary>
@@ -40981,10 +39292,6 @@ public enum PlayerEnum
     /// BrandonHalverson8477990
     /// </summary>
     BrandonHalverson8477990 = 8477990,
-    /// <summary>
-    /// BrandonHickey8477995
-    /// </summary>
-    BrandonHickey8477995 = 8477995,
     /// <summary>
     /// JackGlover8478000
     /// </summary>
@@ -41086,10 +39393,6 @@ public enum PlayerEnum
     /// </summary>
     JonathanHuberdeau8476456 = 8476456,
     /// <summary>
-    /// NoahHanifin8478396
-    /// </summary>
-    NoahHanifin8478396 = 8478396,
-    /// <summary>
     /// GarretSparks8476343
     /// </summary>
     GarretSparks8476343 = 8476343,
@@ -41158,10 +39461,6 @@ public enum PlayerEnum
     /// </summary>
     AnthonyGreco8479447 = 8479447,
     /// <summary>
-    /// AlexWennberg8477505
-    /// </summary>
-    AlexWennberg8477505 = 8477505,
-    /// <summary>
     /// JaredMcCann8477955
     /// </summary>
     JaredMcCann8477955 = 8477955,
@@ -41169,10 +39468,6 @@ public enum PlayerEnum
     /// MattiasHavelid8483666
     /// </summary>
     MattiasHavelid8483666 = 8483666,
-    /// <summary>
-    /// BrettLeason8481517
-    /// </summary>
-    BrettLeason8481517 = 8481517,
     /// <summary>
     /// JoeyMuldowney8483753
     /// </summary>
@@ -41198,17 +39493,9 @@ public enum PlayerEnum
     /// </summary>
     AdrianKempe8477960 = 8477960,
     /// <summary>
-    /// TeuvoTeravainen8476882
-    /// </summary>
-    TeuvoTeravainen8476882 = 8476882,
-    /// <summary>
     /// OlliMaatta8476874
     /// </summary>
     OlliMaatta8476874 = 8476874,
-    /// <summary>
-    /// DarcyKuemper8475311
-    /// </summary>
-    DarcyKuemper8475311 = 8475311,
     /// <summary>
     /// MikeChiasson8479109
     /// </summary>
@@ -41217,10 +39504,6 @@ public enum PlayerEnum
     /// PathrikWesterholm8476332
     /// </summary>
     PathrikWesterholm8476332 = 8476332,
-    /// <summary>
-    /// JustinSchultz8474602
-    /// </summary>
-    JustinSchultz8474602 = 8474602,
     /// <summary>
     /// JoakimLindstrom8470152
     /// </summary>
@@ -41270,10 +39553,6 @@ public enum PlayerEnum
     /// </summary>
     CavanFitzgerald8478981 = 8478981,
     /// <summary>
-    /// EvanCormier8479331
-    /// </summary>
-    EvanCormier8479331 = 8479331,
-    /// <summary>
     /// CarsenTwarynski8479358
     /// </summary>
     CarsenTwarynski8479358 = 8479358,
@@ -41322,10 +39601,6 @@ public enum PlayerEnum
     /// </summary>
     LoganHutsko8481025 = 8481025,
     /// <summary>
-    /// RobbieRusso8476418
-    /// </summary>
-    RobbieRusso8476418 = 8476418,
-    /// <summary>
     /// AntoineBibeau8477312
     /// </summary>
     AntoineBibeau8477312 = 8477312,
@@ -41342,21 +39617,9 @@ public enum PlayerEnum
     /// </summary>
     TeddyBlueger8476927 = 8476927,
     /// <summary>
-    /// JonathanDrouin8477494
-    /// </summary>
-    JonathanDrouin8477494 = 8477494,
-    /// <summary>
     /// RyanOReilly8475158
     /// </summary>
     RyanOReilly8475158 = 8475158,
-    /// <summary>
-    /// BrianDumoulin8475208
-    /// </summary>
-    BrianDumoulin8475208 = 8475208,
-    /// <summary>
-    /// RyanGraves8477435
-    /// </summary>
-    RyanGraves8477435 = 8477435,
     /// <summary>
     /// JohnParkerJones8483917
     /// </summary>
@@ -41397,10 +39660,6 @@ public enum PlayerEnum
     /// VinceDunn8478407
     /// </summary>
     VinceDunn8478407 = 8478407,
-    /// <summary>
-    /// BrandonDuhaime8479520
-    /// </summary>
-    BrandonDuhaime8479520 = 8479520,
     /// <summary>
     /// KaiWissmann8483634
     /// </summary>
@@ -41462,14 +39721,6 @@ public enum PlayerEnum
     /// </summary>
     MikeRobinson8478837 = 8478837,
     /// <summary>
-    /// AleksiSaarela8478839
-    /// </summary>
-    AleksiSaarela8478839 = 8478839,
-    /// <summary>
-    /// JorenVanPottelberghe8478847
-    /// </summary>
-    JorenVanPottelberghe8478847 = 8478847,
-    /// <summary>
     /// DevanteStephens8478855
     /// </summary>
     DevanteStephens8478855 = 8478855,
@@ -41509,10 +39760,6 @@ public enum PlayerEnum
     /// ChaseStewart8478983
     /// </summary>
     ChaseStewart8478983 = 8478983,
-    /// <summary>
-    /// BeckMalenstyn8479359
-    /// </summary>
-    BeckMalenstyn8479359 = 8479359,
     /// <summary>
     /// KasperBjorkqvist8479512
     /// </summary>
@@ -41590,18 +39837,6 @@ public enum PlayerEnum
     /// </summary>
     DmitryZavgorodniy8481005 = 8481005,
     /// <summary>
-    /// AustinWong8481084
-    /// </summary>
-    AustinWong8481084 = 8481084,
-    /// <summary>
-    /// TuukkaTieksola8481697
-    /// </summary>
-    TuukkaTieksola8481697 = 8481697,
-    /// <summary>
-    /// MiguelTourigny8483092
-    /// </summary>
-    MiguelTourigny8483092 = 8483092,
-    /// <summary>
     /// OscarPlandowski8482675
     /// </summary>
     OscarPlandowski8482675 = 8482675,
@@ -41634,17 +39869,9 @@ public enum PlayerEnum
     /// </summary>
     BraydenMcNabb8475188 = 8475188,
     /// <summary>
-    /// JakeDeBrusk8478498
-    /// </summary>
-    JakeDeBrusk8478498 = 8478498,
-    /// <summary>
     /// TrentFrederic8479365
     /// </summary>
     TrentFrederic8479365 = 8479365,
-    /// <summary>
-    /// LukasSvejkovsky8482449
-    /// </summary>
-    LukasSvejkovsky8482449 = 8482449,
     /// <summary>
     /// JakeBischoff8476987
     /// </summary>
@@ -41682,18 +39909,6 @@ public enum PlayerEnum
     /// </summary>
     DanielWalcott8478069 = 8478069,
     /// <summary>
-    /// LoganMorrison8483012
-    /// </summary>
-    LoganMorrison8483012 = 8483012,
-    /// <summary>
-    /// CurtisHall8480838
-    /// </summary>
-    CurtisHall8480838 = 8480838,
-    /// <summary>
-    /// JackStIvany8481030
-    /// </summary>
-    JackStIvany8481030 = 8481030,
-    /// <summary>
     /// OlivierNadeau8482746
     /// </summary>
     OlivierNadeau8482746 = 8482746,
@@ -41730,10 +39945,6 @@ public enum PlayerEnum
     /// </summary>
     VsevolodKomarov8483732 = 8483732,
     /// <summary>
-    /// TylerWotherspoon8476452
-    /// </summary>
-    TylerWotherspoon8476452 = 8476452,
-    /// <summary>
     /// JuddCaulfield8481538
     /// </summary>
     JuddCaulfield8481538 = 8481538,
@@ -41741,18 +39952,6 @@ public enum PlayerEnum
     /// ChazLucius8482780
     /// </summary>
     ChazLucius8482780 = 8482780,
-    /// <summary>
-    /// GregMcKegg8475735
-    /// </summary>
-    GregMcKegg8475735 = 8475735,
-    /// <summary>
-    /// JoshCurrie8477680
-    /// </summary>
-    JoshCurrie8477680 = 8477680,
-    /// <summary>
-    /// BradyKeeper8481442
-    /// </summary>
-    BradyKeeper8481442 = 8481442,
     /// <summary>
     /// HenrikRybinski8481662
     /// </summary>
@@ -41786,30 +39985,6 @@ public enum PlayerEnum
     /// </summary>
     DavidReinbacher8484220 = 8484220,
     /// <summary>
-    /// KevinConnauton8475246
-    /// </summary>
-    KevinConnauton8475246 = 8475246,
-    /// <summary>
-    /// MikhailMaltsev8479573
-    /// </summary>
-    MikhailMaltsev8479573 = 8479573,
-    /// <summary>
-    /// JeremyDavies8479602
-    /// </summary>
-    JeremyDavies8479602 = 8479602,
-    /// <summary>
-    /// NickSwaney8480275
-    /// </summary>
-    NickSwaney8480275 = 8480275,
-    /// <summary>
-    /// MacHollowell8480439
-    /// </summary>
-    MacHollowell8480439 = 8480439,
-    /// <summary>
-    /// NathanSmith8480979
-    /// </summary>
-    NathanSmith8480979 = 8480979,
-    /// <summary>
     /// JohnFarinacci8481558
     /// </summary>
     JohnFarinacci8481558 = 8481558,
@@ -41822,22 +39997,6 @@ public enum PlayerEnum
     /// </summary>
     BradGardiner8484172 = 8484172,
     /// <summary>
-    /// RadekFaksa8476889
-    /// </summary>
-    RadekFaksa8476889 = 8476889,
-    /// <summary>
-    /// SamSteel8479351
-    /// </summary>
-    SamSteel8479351 = 8479351,
-    /// <summary>
-    /// ScottReedy8480060
-    /// </summary>
-    ScottReedy8480060 = 8480060,
-    /// <summary>
-    /// MattDuchene8475168
-    /// </summary>
-    MattDuchene8475168 = 8475168,
-    /// <summary>
     /// BraedenKressler8482741
     /// </summary>
     BraedenKressler8482741 = 8482741,
@@ -41846,81 +40005,13 @@ public enum PlayerEnum
     /// </summary>
     TyVoit8482880 = 8482880,
     /// <summary>
-    /// NickCaamano8479381
-    /// </summary>
-    NickCaamano8479381 = 8479381,
-    /// <summary>
-    /// GerryMayhew8479933
-    /// </summary>
-    GerryMayhew8479933 = 8479933,
-    /// <summary>
-    /// XavierBourgault8482673
-    /// </summary>
-    XavierBourgault8482673 = 8482673,
-    /// <summary>
-    /// TravisBarron8479561
-    /// </summary>
-    TravisBarron8479561 = 8479561,
-    /// <summary>
-    /// CameronCrotty8480075
-    /// </summary>
-    CameronCrotty8480075 = 8480075,
-    /// <summary>
-    /// LoganMailloux8482733
-    /// </summary>
-    LoganMailloux8482733 = 8482733,
-    /// <summary>
-    /// PatrickGiles8480825
-    /// </summary>
-    PatrickGiles8480825 = 8480825,
-    /// <summary>
-    /// LudovicWaeber8484372
-    /// </summary>
-    LudovicWaeber8484372 = 8484372,
-    /// <summary>
-    /// OliverEkmanLarsson8475171
-    /// </summary>
-    OliverEkmanLarsson8475171 = 8475171,
-    /// <summary>
     /// GustavForsling8478055
     /// </summary>
     GustavForsling8478055 = 8478055,
     /// <summary>
-    /// DanRenouf8479252
-    /// </summary>
-    DanRenouf8479252 = 8479252,
-    /// <summary>
-    /// TannerLaczynski8479550
-    /// </summary>
-    TannerLaczynski8479550 = 8479550,
-    /// <summary>
-    /// AlecRegula8480831
-    /// </summary>
-    AlecRegula8480831 = 8480831,
-    /// <summary>
-    /// RonnieAttard8481521
-    /// </summary>
-    RonnieAttard8481521 = 8481521,
-    /// <summary>
     /// SamuTuomaala8482727
     /// </summary>
     SamuTuomaala8482727 = 8482727,
-    /// <summary>
-    /// MarcMcLaughlin8483397
-    /// </summary>
-    MarcMcLaughlin8483397 = 8483397,
-    /// <summary>
-    /// JaysonMegna8477126
-    /// </summary>
-    JaysonMegna8477126 = 8477126,
-    /// <summary>
-    /// ColtonWhite8478841
-    /// </summary>
-    ColtonWhite8478841 = 8478841,
-    /// <summary>
-    /// AlesStezka8478848
-    /// </summary>
-    AlesStezka8478848 = 8478848,
     /// <summary>
     /// CorsonCeulemans8482678
     /// </summary>
@@ -41930,21 +40021,9 @@ public enum PlayerEnum
     /// </summary>
     NoahWarren8483521 = 8483521,
     /// <summary>
-    /// FredrikOlofsson8478028
-    /// </summary>
-    FredrikOlofsson8478028 = 8478028,
-    /// <summary>
     /// MattStienburg8481737
     /// </summary>
     MattStienburg8481737 = 8481737,
-    /// <summary>
-    /// ChrisTierney8476919
-    /// </summary>
-    ChrisTierney8476919 = 8476919,
-    /// <summary>
-    /// ErikKallgren8478902
-    /// </summary>
-    ErikKallgren8478902 = 8478902,
     /// <summary>
     /// AnttoniHonka8481615
     /// </summary>
@@ -41966,50 +40045,6 @@ public enum PlayerEnum
     /// </summary>
     AidanFulp8484263 = 8484263,
     /// <summary>
-    /// DennisCholowski8479395
-    /// </summary>
-    DennisCholowski8479395 = 8479395,
-    /// <summary>
-    /// BillySweezey8482399
-    /// </summary>
-    BillySweezey8482399 = 8482399,
-    /// <summary>
-    /// MarcusBjork8483620
-    /// </summary>
-    MarcusBjork8483620 = 8483620,
-    /// <summary>
-    /// DillonHeatherington8477471
-    /// </summary>
-    DillonHeatherington8477471 = 8477471,
-    /// <summary>
-    /// CaleFleury8479985
-    /// </summary>
-    CaleFleury8479985 = 8479985,
-    /// <summary>
-    /// DavidGust8480328
-    /// </summary>
-    DavidGust8480328 = 8480328,
-    /// <summary>
-    /// PavelFrancouz8480925
-    /// </summary>
-    PavelFrancouz8480925 = 8480925,
-    /// <summary>
-    /// EgorSokolov8481102
-    /// </summary>
-    EgorSokolov8481102 = 8481102,
-    /// <summary>
-    /// MavrikBourque8482145
-    /// </summary>
-    MavrikBourque8482145 = 8482145,
-    /// <summary>
-    /// JeanLucFoudy8482147
-    /// </summary>
-    JeanLucFoudy8482147 = 8482147,
-    /// <summary>
-    /// MaxEllis8483566
-    /// </summary>
-    MaxEllis8483566 = 8483566,
-    /// <summary>
     /// KyleMcDonald8483799
     /// </summary>
     KyleMcDonald8483799 = 8483799,
@@ -42021,22 +40056,6 @@ public enum PlayerEnum
     /// AnthonyCirelli8478519
     /// </summary>
     AnthonyCirelli8478519 = 8478519,
-    /// <summary>
-    /// ChristianWolanin8478846
-    /// </summary>
-    ChristianWolanin8478846 = 8478846,
-    /// <summary>
-    /// DylanGambrell8479580
-    /// </summary>
-    DylanGambrell8479580 = 8479580,
-    /// <summary>
-    /// TopiNiemela8482158
-    /// </summary>
-    TopiNiemela8482158 = 8482158,
-    /// <summary>
-    /// KeithKinkaid8476234
-    /// </summary>
-    KeithKinkaid8476234 = 8476234,
     /// <summary>
     /// GregZanon8468636
     /// </summary>
@@ -42085,10 +40104,6 @@ public enum PlayerEnum
     /// BradMills8473927
     /// </summary>
     BradMills8473927 = 8473927,
-    /// <summary>
-    /// AndrewConboy8474147
-    /// </summary>
-    AndrewConboy8474147 = 8474147,
     /// <summary>
     /// MattBeaudoin8474378
     /// </summary>
@@ -42169,10 +40184,6 @@ public enum PlayerEnum
     /// CarlKlingberg8475159
     /// </summary>
     CarlKlingberg8475159 = 8475159,
-    /// <summary>
-    /// JeremyMorin8475214
-    /// </summary>
-    JeremyMorin8475214 = 8475214,
     /// <summary>
     /// OlivierRoy8475258
     /// </summary>
@@ -42306,17 +40317,9 @@ public enum PlayerEnum
     /// </summary>
     PatrickRissmiller8470321 = 8470321,
     /// <summary>
-    /// MattCarle8470640
-    /// </summary>
-    MattCarle8470640 = 8470640,
-    /// <summary>
     /// JohnMitchell8470750
     /// </summary>
     JohnMitchell8470750 = 8470750,
-    /// <summary>
-    /// ChrisPorter8470871
-    /// </summary>
-    ChrisPorter8470871 = 8470871,
     /// <summary>
     /// JamieJohnson8470959
     /// </summary>
@@ -42346,17 +40349,9 @@ public enum PlayerEnum
     /// </summary>
     PetteriSimila8475326 = 8475326,
     /// <summary>
-    /// MichaelSdao8475348
-    /// </summary>
-    MichaelSdao8475348 = 8475348,
-    /// <summary>
     /// CalebHerbert8475843
     /// </summary>
     CalebHerbert8475843 = 8475843,
-    /// <summary>
-    /// MauroJorg8475898
-    /// </summary>
-    MauroJorg8475898 = 8475898,
     /// <summary>
     /// JohnMitchell8475975
     /// </summary>
@@ -42410,10 +40405,6 @@ public enum PlayerEnum
     /// </summary>
     AlecRichards8475095 = 8475095,
     /// <summary>
-    /// PhilipSamuelsson8475194
-    /// </summary>
-    PhilipSamuelsson8475194 = 8475194,
-    /// <summary>
     /// BrettPonich8475205
     /// </summary>
     BrettPonich8475205 = 8475205,
@@ -42421,10 +40412,6 @@ public enum PlayerEnum
     /// EthanWerek8475216
     /// </summary>
     EthanWerek8475216 = 8475216,
-    /// <summary>
-    /// CorbanKnight8475260
-    /// </summary>
-    CorbanKnight8475260 = 8475260,
     /// <summary>
     /// AlexVelischek8475271
     /// </summary>
@@ -42530,10 +40517,6 @@ public enum PlayerEnum
     /// </summary>
     CharlieSarault8477098 = 8477098,
     /// <summary>
-    /// VictorOreskovich8471268
-    /// </summary>
-    VictorOreskovich8471268 = 8471268,
-    /// <summary>
     /// SamiLepisto8471279
     /// </summary>
     SamiLepisto8471279 = 8471279,
@@ -42618,10 +40601,6 @@ public enum PlayerEnum
     /// </summary>
     PAParenteau8469707 = 8469707,
     /// <summary>
-    /// NathanOystrick8470136
-    /// </summary>
-    NathanOystrick8470136 = 8470136,
-    /// <summary>
     /// GuillaumeDesbiens8470708
     /// </summary>
     GuillaumeDesbiens8470708 = 8470708,
@@ -42637,10 +40616,6 @@ public enum PlayerEnum
     /// RyanHamilton8472424
     /// </summary>
     RyanHamilton8472424 = 8472424,
-    /// <summary>
-    /// MichaelForney8473458
-    /// </summary>
-    MichaelForney8473458 = 8473458,
     /// <summary>
     /// JohnScott8473722
     /// </summary>
@@ -42786,10 +40761,6 @@ public enum PlayerEnum
     /// </summary>
     SebastienCaron8467959 = 8467959,
     /// <summary>
-    /// DavidMoss8469664
-    /// </summary>
-    DavidMoss8469664 = 8469664,
-    /// <summary>
     /// MarkCullen8470005
     /// </summary>
     MarkCullen8470005 = 8470005,
@@ -42817,10 +40788,6 @@ public enum PlayerEnum
     /// OlivierFortier8474119
     /// </summary>
     OlivierFortier8474119 = 8474119,
-    /// <summary>
-    /// TrentVogelhuber8474174
-    /// </summary>
-    TrentVogelhuber8474174 = 8474174,
     /// <summary>
     /// MichaelPelech8475318
     /// </summary>
@@ -42866,10 +40833,6 @@ public enum PlayerEnum
     /// </summary>
     ShawnHunwick8476803 = 8476803,
     /// <summary>
-    /// TimothyBoyle8476968
-    /// </summary>
-    TimothyBoyle8476968 = 8476968,
-    /// <summary>
     /// WesleyMyron8476990
     /// </summary>
     WesleyMyron8476990 = 8476990,
@@ -42897,10 +40860,6 @@ public enum PlayerEnum
     /// ChrisMcCarthy8477848
     /// </summary>
     ChrisMcCarthy8477848 = 8477848,
-    /// <summary>
-    /// TaylorChorney8471710
-    /// </summary>
-    TaylorChorney8471710 = 8471710,
     /// <summary>
     /// DarcyZajac8475670
     /// </summary>
@@ -42946,17 +40905,9 @@ public enum PlayerEnum
     /// </summary>
     MichaelRyan8467905 = 8467905,
     /// <summary>
-    /// DylanReese8470798
-    /// </summary>
-    DylanReese8470798 = 8470798,
-    /// <summary>
     /// CamBarker8471216
     /// </summary>
     CamBarker8471216 = 8471216,
-    /// <summary>
-    /// MattWatkins8471821
-    /// </summary>
-    MattWatkins8471821 = 8471821,
     /// <summary>
     /// JustinBernhardt8473636
     /// </summary>
@@ -43018,14 +40969,6 @@ public enum PlayerEnum
     /// </summary>
     AntonLander8475165 = 8475165,
     /// <summary>
-    /// MacBennett8475242
-    /// </summary>
-    MacBennett8475242 = 8475242,
-    /// <summary>
-    /// PatrickWey8475275
-    /// </summary>
-    PatrickWey8475275 = 8475275,
-    /// <summary>
     /// ScottJackson8471711
     /// </summary>
     ScottJackson8471711 = 8471711,
@@ -43061,18 +41004,6 @@ public enum PlayerEnum
     /// JasonBacashihua8469479
     /// </summary>
     JasonBacashihua8469479 = 8469479,
-    /// <summary>
-    /// MattSmaby8470634
-    /// </summary>
-    MattSmaby8470634 = 8470634,
-    /// <summary>
-    /// ByronBitz8470700
-    /// </summary>
-    ByronBitz8470700 = 8470700,
-    /// <summary>
-    /// TannerGlass8470854
-    /// </summary>
-    TannerGlass8470854 = 8470854,
     /// <summary>
     /// OskarsBartulis8471756
     /// </summary>
@@ -43138,10 +41069,6 @@ public enum PlayerEnum
     /// </summary>
     ViktorSvedberg8477300 = 8477300,
     /// <summary>
-    /// NicolasMattinen8479555
-    /// </summary>
-    NicolasMattinen8479555 = 8479555,
-    /// <summary>
     /// PatrickBjorkstrand8479654
     /// </summary>
     PatrickBjorkstrand8479654 = 8479654,
@@ -43165,10 +41092,6 @@ public enum PlayerEnum
     /// BornaRendulic8477916
     /// </summary>
     BornaRendulic8477916 = 8477916,
-    /// <summary>
-    /// DaveDziurzynski8475661
-    /// </summary>
-    DaveDziurzynski8475661 = 8475661,
     /// <summary>
     /// MarkVisentin8475771
     /// </summary>
@@ -43362,10 +41285,6 @@ public enum PlayerEnum
     /// </summary>
     AndreiKostitsyn8470603 = 8470603,
     /// <summary>
-    /// RyanPotulny8470680
-    /// </summary>
-    RyanPotulny8470680 = 8470680,
-    /// <summary>
     /// BryanRodney8470988
     /// </summary>
     BryanRodney8470988 = 8470988,
@@ -43494,10 +41413,6 @@ public enum PlayerEnum
     /// </summary>
     KyleLawson8471770 = 8471770,
     /// <summary>
-    /// MarcCheverie8473420
-    /// </summary>
-    MarcCheverie8473420 = 8473420,
-    /// <summary>
     /// RobKlinkhammer8473970
     /// </summary>
     RobKlinkhammer8473970 = 8473970,
@@ -43550,10 +41465,6 @@ public enum PlayerEnum
     /// </summary>
     FrankCorrado8476302 = 8476302,
     /// <summary>
-    /// SteveMichalek8476313
-    /// </summary>
-    SteveMichalek8476313 = 8476313,
-    /// <summary>
     /// DillonDonnelly8476335
     /// </summary>
     DillonDonnelly8476335 = 8476335,
@@ -43570,10 +41481,6 @@ public enum PlayerEnum
     /// </summary>
     BrettOlson8477138 = 8477138,
     /// <summary>
-    /// EmilGalimov8477347
-    /// </summary>
-    EmilGalimov8477347 = 8477347,
-    /// <summary>
     /// SvenAndrighetto8477413
     /// </summary>
     SvenAndrighetto8477413 = 8477413,
@@ -43585,10 +41492,6 @@ public enum PlayerEnum
     /// AdamPardy8471385
     /// </summary>
     AdamPardy8471385 = 8471385,
-    /// <summary>
-    /// TylerEckford8471429
-    /// </summary>
-    TylerEckford8471429 = 8471429,
     /// <summary>
     /// PeterHolland8475180
     /// </summary>
@@ -43686,10 +41589,6 @@ public enum PlayerEnum
     /// </summary>
     TylerGaudet8477715 = 8477715,
     /// <summary>
-    /// JoelLowry8476382
-    /// </summary>
-    JoelLowry8476382 = 8476382,
-    /// <summary>
     /// MitchellMoroz8476862
     /// </summary>
     MitchellMoroz8476862 = 8476862,
@@ -43758,10 +41657,6 @@ public enum PlayerEnum
     /// </summary>
     BradyVail8476980 = 8476980,
     /// <summary>
-    /// ArturGavrus8476993
-    /// </summary>
-    ArturGavrus8476993 = 8476993,
-    /// <summary>
     /// FrancisBeauvillier8476998
     /// </summary>
     FrancisBeauvillier8476998 = 8476998,
@@ -43801,10 +41696,6 @@ public enum PlayerEnum
     /// TyrelSeaman8477030
     /// </summary>
     TyrelSeaman8477030 = 8477030,
-    /// <summary>
-    /// ValeriVasiliev8477037
-    /// </summary>
-    ValeriVasiliev8477037 = 8477037,
     /// <summary>
     /// JaynenRissling8477045
     /// </summary>
@@ -43906,10 +41797,6 @@ public enum PlayerEnum
     /// </summary>
     NikolayGoldobin8477958 = 8477958,
     /// <summary>
-    /// VladislavKamenev8477973
-    /// </summary>
-    VladislavKamenev8477973 = 8477973,
-    /// <summary>
     /// DustinPenner8471208
     /// </summary>
     DustinPenner8471208 = 8471208,
@@ -43962,10 +41849,6 @@ public enum PlayerEnum
     /// </summary>
     TyrellGoulbourne8477399 = 8477399,
     /// <summary>
-    /// IanMcCoshen8477452
-    /// </summary>
-    IanMcCoshen8477452 = 8477452,
-    /// <summary>
     /// CaseyNelson8479268
     /// </summary>
     CaseyNelson8479268 = 8479268,
@@ -44010,14 +41893,6 @@ public enum PlayerEnum
     /// </summary>
     BrooksMacek8475804 = 8475804,
     /// <summary>
-    /// JulianMelchiori8475815
-    /// </summary>
-    JulianMelchiori8475815 = 8475815,
-    /// <summary>
-    /// SamBrittain8475821
-    /// </summary>
-    SamBrittain8475821 = 8475821,
-    /// <summary>
     /// CodyFerriero8475873
     /// </summary>
     CodyFerriero8475873 = 8475873,
@@ -44025,14 +41900,6 @@ public enum PlayerEnum
     /// ZacLarraza8476280
     /// </summary>
     ZacLarraza8476280 = 8476280,
-    /// <summary>
-    /// GarrettHaar8476291
-    /// </summary>
-    GarrettHaar8476291 = 8476291,
-    /// <summary>
-    /// TylerBiggs8476475
-    /// </summary>
-    TylerBiggs8476475 = 8476475,
     /// <summary>
     /// BooNieves8476922
     /// </summary>
@@ -44046,17 +41913,9 @@ public enum PlayerEnum
     /// </summary>
     MikkoVainonen8476956 = 8476956,
     /// <summary>
-    /// AlexanderDelnov8476964
-    /// </summary>
-    AlexanderDelnov8476964 = 8476964,
-    /// <summary>
     /// ThomasSpelling8477024
     /// </summary>
     ThomasSpelling8477024 = 8477024,
-    /// <summary>
-    /// JamiePhillips8477050
-    /// </summary>
-    JamiePhillips8477050 = 8477050,
     /// <summary>
     /// TroyJosephs8477349
     /// </summary>
@@ -44105,10 +41964,6 @@ public enum PlayerEnum
     /// TylerMoy8478896
     /// </summary>
     TylerMoy8478896 = 8478896,
-    /// <summary>
-    /// IvanChukarov8478901
-    /// </summary>
-    IvanChukarov8478901 = 8478901,
     /// <summary>
     /// TimMcGauley8478934
     /// </summary>
@@ -44170,10 +42025,6 @@ public enum PlayerEnum
     /// </summary>
     MichaelBrodzinski8477373 = 8477373,
     /// <summary>
-    /// FabriceHerzog8477374
-    /// </summary>
-    FabriceHerzog8477374 = 8477374,
-    /// <summary>
     /// BlakeHeinrich8477376
     /// </summary>
     BlakeHeinrich8477376 = 8477376,
@@ -44225,10 +42076,6 @@ public enum PlayerEnum
     /// MartinReway8477442
     /// </summary>
     MartinReway8477442 = 8477442,
-    /// <summary>
-    /// ConnorHurley8477459
-    /// </summary>
-    ConnorHurley8477459 = 8477459,
     /// <summary>
     /// ZachNastasiuk8477469
     /// </summary>
@@ -44282,10 +42129,6 @@ public enum PlayerEnum
     /// </summary>
     JoakimNordstrom8475807 = 8475807,
     /// <summary>
-    /// KennyAgostino8475844
-    /// </summary>
-    KennyAgostino8475844 = 8475844,
-    /// <summary>
     /// TylerGraovac8476344
     /// </summary>
     TylerGraovac8476344 = 8476344,
@@ -44297,10 +42140,6 @@ public enum PlayerEnum
     /// MikhailGrigorenko8476888
     /// </summary>
     MikhailGrigorenko8476888 = 8476888,
-    /// <summary>
-    /// MarcusHogberg8477405
-    /// </summary>
-    MarcusHogberg8477405 = 8477405,
     /// <summary>
     /// LucasWallmark8478027
     /// </summary>
@@ -44317,10 +42156,6 @@ public enum PlayerEnum
     /// DanielCarr8477901
     /// </summary>
     DanielCarr8477901 = 8477901,
-    /// <summary>
-    /// ClaytonKeller8479343
-    /// </summary>
-    ClaytonKeller8479343 = 8479343,
     /// <summary>
     /// RyanEllis8475176
     /// </summary>
@@ -44349,14 +42184,6 @@ public enum PlayerEnum
     /// DerekRyan8478585
     /// </summary>
     DerekRyan8478585 = 8478585,
-    /// <summary>
-    /// JTMiller8476468
-    /// </summary>
-    JTMiller8476468 = 8476468,
-    /// <summary>
-    /// NickJensen8475324
-    /// </summary>
-    NickJensen8475324 = 8475324,
     /// <summary>
     /// TimStapleton8472379
     /// </summary>
@@ -44434,29 +42261,13 @@ public enum PlayerEnum
     /// </summary>
     NikitaTryamkin8477997 = 8477997,
     /// <summary>
-    /// FilipLarsson8479548
-    /// </summary>
-    FilipLarsson8479548 = 8479548,
-    /// <summary>
     /// ColtonPoint8479589
     /// </summary>
     ColtonPoint8479589 = 8479589,
     /// <summary>
-    /// AndrewMangiapane8478233
-    /// </summary>
-    AndrewMangiapane8478233 = 8478233,
-    /// <summary>
-    /// YakovTrenin8478508
-    /// </summary>
-    YakovTrenin8478508 = 8478508,
-    /// <summary>
     /// JesperBratt8479407
     /// </summary>
     JesperBratt8479407 = 8479407,
-    /// <summary>
-    /// KevinLabanc8478099
-    /// </summary>
-    KevinLabanc8478099 = 8478099,
     /// <summary>
     /// JamesGreenway8479363
     /// </summary>
@@ -44470,10 +42281,6 @@ public enum PlayerEnum
     /// </summary>
     JakeKupsky8478910 = 8478910,
     /// <summary>
-    /// RodrigoAbols8479022
-    /// </summary>
-    RodrigoAbols8479022 = 8479022,
-    /// <summary>
     /// RyanJones8479527
     /// </summary>
     RyanJones8479527 = 8479527,
@@ -44485,10 +42292,6 @@ public enum PlayerEnum
     /// CamClarke8479590
     /// </summary>
     CamClarke8479590 = 8479590,
-    /// <summary>
-    /// PatrickKudla8479593
-    /// </summary>
-    PatrickKudla8479593 = 8479593,
     /// <summary>
     /// BlakeHillman8479595
     /// </summary>
@@ -44533,10 +42336,6 @@ public enum PlayerEnum
     /// LinusSoderstrom8478025
     /// </summary>
     LinusSoderstrom8478025 = 8478025,
-    /// <summary>
-    /// MichaelPrapavessis8478035
-    /// </summary>
-    MichaelPrapavessis8478035 = 8478035,
     /// <summary>
     /// JulienPelletier8478037
     /// </summary>
@@ -44634,18 +42433,6 @@ public enum PlayerEnum
     /// </summary>
     BenFinkelstein8479577 = 8479577,
     /// <summary>
-    /// BlakeColeman8476399
-    /// </summary>
-    BlakeColeman8476399 = 8476399,
-    /// <summary>
-    /// ChandlerStephenson8476905
-    /// </summary>
-    ChandlerStephenson8476905 = 8476905,
-    /// <summary>
-    /// StefanNoesen8476474
-    /// </summary>
-    StefanNoesen8476474 = 8476474,
-    /// <summary>
     /// CodyEakin8475236
     /// </summary>
     CodyEakin8475236 = 8475236,
@@ -44694,10 +42481,6 @@ public enum PlayerEnum
     /// </summary>
     MattTennyson8476807 = 8476807,
     /// <summary>
-    /// StefanMatteau8476870
-    /// </summary>
-    StefanMatteau8476870 = 8476870,
-    /// <summary>
     /// DannyDeKeyser8477215
     /// </summary>
     DannyDeKeyser8477215 = 8477215,
@@ -44742,21 +42525,9 @@ public enum PlayerEnum
     /// </summary>
     JanneKuokkanen8479511 = 8479511,
     /// <summary>
-    /// KaapoKahkonen8478039
-    /// </summary>
-    KaapoKahkonen8478039 = 8478039,
-    /// <summary>
     /// RobinLehner8475215
     /// </summary>
     RobinLehner8475215 = 8475215,
-    /// <summary>
-    /// JordanMartinook8476921
-    /// </summary>
-    JordanMartinook8476921 = 8476921,
-    /// <summary>
-    /// JonMerrill8475750
-    /// </summary>
-    JonMerrill8475750 = 8475750,
     /// <summary>
     /// YanniGourde8476826
     /// </summary>
@@ -44765,10 +42536,6 @@ public enum PlayerEnum
     /// JakeMiddleton8478136
     /// </summary>
     JakeMiddleton8478136 = 8478136,
-    /// <summary>
-    /// SamCarrick8475842
-    /// </summary>
-    SamCarrick8475842 = 8475842,
     /// <summary>
     /// JamieOleksiak8476467
     /// </summary>
@@ -44798,10 +42565,6 @@ public enum PlayerEnum
     /// </summary>
     LinusHogberg8479534 = 8479534,
     /// <summary>
-    /// SammyBlais8478104
-    /// </summary>
-    SammyBlais8478104 = 8478104,
-    /// <summary>
     /// PavelBuchnevich8477402
     /// </summary>
     PavelBuchnevich8477402 = 8477402,
@@ -44813,14 +42576,6 @@ public enum PlayerEnum
     /// NinoNiederreiter8475799
     /// </summary>
     NinoNiederreiter8475799 = 8475799,
-    /// <summary>
-    /// ThatcherDemko8477967
-    /// </summary>
-    ThatcherDemko8477967 = 8477967,
-    /// <summary>
-    /// MarcusJohansson8475149
-    /// </summary>
-    MarcusJohansson8475149 = 8475149,
     /// <summary>
     /// JeanGabrielPageau8476419
     /// </summary>
@@ -44902,10 +42657,6 @@ public enum PlayerEnum
     /// </summary>
     SlaterKoekkoek8476886 = 8476886,
     /// <summary>
-    /// MartinFrk8476924
-    /// </summary>
-    MartinFrk8476924 = 8476924,
-    /// <summary>
     /// GemelSmith8476966
     /// </summary>
     GemelSmith8476966 = 8476966,
@@ -44913,10 +42664,6 @@ public enum PlayerEnum
     /// DannyORegan8476982
     /// </summary>
     DannyORegan8476982 = 8476982,
-    /// <summary>
-    /// RileyBarber8477003
-    /// </summary>
-    RileyBarber8477003 = 8477003,
     /// <summary>
     /// SeanMalone8477391
     /// </summary>
@@ -44938,29 +42685,9 @@ public enum PlayerEnum
     /// </summary>
     DylanSikura8478106 = 8478106,
     /// <summary>
-    /// DmitryKulikov8475179
-    /// </summary>
-    DmitryKulikov8475179 = 8475179,
-    /// <summary>
     /// TristanJarry8477465
     /// </summary>
     TristanJarry8477465 = 8477465,
-    /// <summary>
-    /// MackenzieBlackwood8478406
-    /// </summary>
-    MackenzieBlackwood8478406 = 8478406,
-    /// <summary>
-    /// AnthonyStolarz8476932
-    /// </summary>
-    AnthonyStolarz8476932 = 8476932,
-    /// <summary>
-    /// AnthonyDuclair8477407
-    /// </summary>
-    AnthonyDuclair8477407 = 8477407,
-    /// <summary>
-    /// MichaelBunting8478047
-    /// </summary>
-    MichaelBunting8478047 = 8478047,
     /// <summary>
     /// LukasSutter8476859
     /// </summary>
@@ -44973,34 +42700,6 @@ public enum PlayerEnum
     /// FilipForsberg8476887
     /// </summary>
     FilipForsberg8476887 = 8476887,
-    /// <summary>
-    /// AlexKerfoot8477021
-    /// </summary>
-    AlexKerfoot8477021 = 8477021,
-    /// <summary>
-    /// KevinStenlund8478831
-    /// </summary>
-    KevinStenlund8478831 = 8478831,
-    /// <summary>
-    /// TonyDeAngelo8477950
-    /// </summary>
-    TonyDeAngelo8477950 = 8477950,
-    /// <summary>
-    /// JoeyDaccord8478916
-    /// </summary>
-    JoeyDaccord8478916 = 8478916,
-    /// <summary>
-    /// RossColton8479525
-    /// </summary>
-    RossColton8479525 = 8479525,
-    /// <summary>
-    /// MichaelCarcone8479619
-    /// </summary>
-    MichaelCarcone8479619 = 8479619,
-    /// <summary>
-    /// MattMurray8476899
-    /// </summary>
-    MattMurray8476899 = 8476899,
     /// <summary>
     /// RyanPilon8478395
     /// </summary>
@@ -45126,17 +42825,9 @@ public enum PlayerEnum
     /// </summary>
     KristianOldham8478878 = 8478878,
     /// <summary>
-    /// AndongSong8478893
-    /// </summary>
-    AndongSong8478893 = 8478893,
-    /// <summary>
     /// LiamDunda8478897
     /// </summary>
     LiamDunda8478897 = 8478897,
-    /// <summary>
-    /// AdamHuska8478903
-    /// </summary>
-    AdamHuska8478903 = 8478903,
     /// <summary>
     /// MarcusVela8478907
     /// </summary>
@@ -45166,10 +42857,6 @@ public enum PlayerEnum
     /// </summary>
     MichaelMcNiven8478933 = 8478933,
     /// <summary>
-    /// ConnorIngram8478971
-    /// </summary>
-    ConnorIngram8478971 = 8478971,
-    /// <summary>
     /// GabrielFontaine8479002
     /// </summary>
     GabrielFontaine8479002 = 8479002,
@@ -45190,10 +42877,6 @@ public enum PlayerEnum
     /// </summary>
     JakobStukel8479541 = 8479541,
     /// <summary>
-    /// CalvinThurkauf8479557
-    /// </summary>
-    CalvinThurkauf8479557 = 8479557,
-    /// <summary>
     /// StepanFalkovsky8479558
     /// </summary>
     StepanFalkovsky8479558 = 8479558,
@@ -45205,10 +42888,6 @@ public enum PlayerEnum
     /// JacobFriend8479567
     /// </summary>
     JacobFriend8479567 = 8479567,
-    /// <summary>
-    /// DamienRiat8479584
-    /// </summary>
-    DamienRiat8479584 = 8479584,
     /// <summary>
     /// NikolaiChebykin8479599
     /// </summary>
@@ -45266,14 +42945,6 @@ public enum PlayerEnum
     /// </summary>
     RyanLindgren8479324 = 8479324,
     /// <summary>
-    /// BarclayGoodrow8476624
-    /// </summary>
-    BarclayGoodrow8476624 = 8476624,
-    /// <summary>
-    /// ErikGustafsson8476979
-    /// </summary>
-    ErikGustafsson8476979 = 8476979,
-    /// <summary>
     /// IgorShesterkin8478048
     /// </summary>
     IgorShesterkin8478048 = 8478048,
@@ -45294,18 +42965,6 @@ public enum PlayerEnum
     /// </summary>
     MichaelPezzetta8479543 = 8479543,
     /// <summary>
-    /// JonathanMarchessault8476539
-    /// </summary>
-    JonathanMarchessault8476539 = 8476539,
-    /// <summary>
-    /// ChrisWideman8475227
-    /// </summary>
-    ChrisWideman8475227 = 8475227,
-    /// <summary>
-    /// MaxDomi8477503
-    /// </summary>
-    MaxDomi8477503 = 8477503,
-    /// <summary>
     /// MorganRielly8476853
     /// </summary>
     MorganRielly8476853 = 8476853,
@@ -45313,14 +42972,6 @@ public enum PlayerEnum
     /// JakeMcCabe8476931
     /// </summary>
     JakeMcCabe8476931 = 8476931,
-    /// <summary>
-    /// MitchellMarner8478483
-    /// </summary>
-    MitchellMarner8478483 = 8478483,
-    /// <summary>
-    /// LinusUllmark8476999
-    /// </summary>
-    LinusUllmark8476999 = 8476999,
     /// <summary>
     /// CodyCeci8476879
     /// </summary>
@@ -45330,10 +42981,6 @@ public enum PlayerEnum
     /// </summary>
     BrettKulak8476967 = 8476967,
     /// <summary>
-    /// WarrenFoegele8477998
-    /// </summary>
-    WarrenFoegele8477998 = 8477998,
-    /// <summary>
     /// EvanderKane8475169
     /// </summary>
     EvanderKane8475169 = 8475169,
@@ -45342,17 +42989,9 @@ public enum PlayerEnum
     /// </summary>
     MattiasEkholm8475218 = 8475218,
     /// <summary>
-    /// AndersLee8475314
-    /// </summary>
-    AndersLee8475314 = 8475314,
-    /// <summary>
     /// BoHorvat8477500
     /// </summary>
     BoHorvat8477500 = 8477500,
-    /// <summary>
-    /// SethHelgeson8475274
-    /// </summary>
-    SethHelgeson8475274 = 8475274,
     /// <summary>
     /// DmytroTimashov8478857
     /// </summary>
@@ -45362,165 +43001,41 @@ public enum PlayerEnum
     /// </summary>
     DmitryOrlov8475200 = 8475200,
     /// <summary>
-    /// JoshJacobs8477972
-    /// </summary>
-    JoshJacobs8477972 = 8477972,
-    /// <summary>
     /// BrandonHagel8479542
     /// </summary>
     BrandonHagel8479542 = 8479542,
-    /// <summary>
-    /// TaylorFedun8476166
-    /// </summary>
-    TaylorFedun8476166 = 8476166,
-    /// <summary>
-    /// KeatonMiddleton8479387
-    /// </summary>
-    KeatonMiddleton8479387 = 8479387,
-    /// <summary>
-    /// TurnerElson8476505
-    /// </summary>
-    TurnerElson8476505 = 8476505,
-    /// <summary>
-    /// TroyGrosenick8477234
-    /// </summary>
-    TroyGrosenick8477234 = 8477234,
     /// <summary>
     /// MasonGeertsen8477419
     /// </summary>
     MasonGeertsen8477419 = 8477419,
     /// <summary>
-    /// RolandMcKeown8477981
-    /// </summary>
-    RolandMcKeown8477981 = 8477981,
-    /// <summary>
     /// DrakeCaggiula8479465
     /// </summary>
     DrakeCaggiula8479465 = 8479465,
-    /// <summary>
-    /// CalvindeHaan8475177
-    /// </summary>
-    CalvindeHaan8475177 = 8475177,
-    /// <summary>
-    /// MatthewPeca8476285
-    /// </summary>
-    MatthewPeca8476285 = 8476285,
-    /// <summary>
-    /// TrevorCarrick8476953
-    /// </summary>
-    TrevorCarrick8476953 = 8476953,
     /// <summary>
     /// JoeHicketts8478176
     /// </summary>
     JoeHicketts8478176 = 8478176,
     /// <summary>
-    /// JosephCecconi8478863
-    /// </summary>
-    JosephCecconi8478863 = 8478863,
-    /// <summary>
-    /// WilliamBitten8479375
-    /// </summary>
-    WilliamBitten8479375 = 8479375,
-    /// <summary>
     /// EsaLindell8476902
     /// </summary>
     EsaLindell8476902 = 8476902,
-    /// <summary>
-    /// JoelHanley8477810
-    /// </summary>
-    JoelHanley8477810 = 8477810,
-    /// <summary>
-    /// RyanSuter8470600
-    /// </summary>
-    RyanSuter8470600 = 8470600,
-    /// <summary>
-    /// ScottWedgewood8475809
-    /// </summary>
-    ScottWedgewood8475809 = 8475809,
-    /// <summary>
-    /// FredrikKarlstrom8479518
-    /// </summary>
-    FredrikKarlstrom8479518 = 8479518,
-    /// <summary>
-    /// OscarDansk8476861
-    /// </summary>
-    OscarDansk8476861 = 8476861,
     /// <summary>
     /// ClarkBishop8478056
     /// </summary>
     ClarkBishop8478056 = 8478056,
     /// <summary>
-    /// AdamBrooks8478996
-    /// </summary>
-    AdamBrooks8478996 = 8478996,
-    /// <summary>
-    /// StevenLorentz8478904
-    /// </summary>
-    StevenLorentz8478904 = 8478904,
-    /// <summary>
     /// MatthewTkachuk8479314
     /// </summary>
     MatthewTkachuk8479314 = 8479314,
-    /// <summary>
-    /// LucasCarlsson8479523
-    /// </summary>
-    LucasCarlsson8479523 = 8479523,
     /// <summary>
     /// SergeiBobrovsky8475683
     /// </summary>
     SergeiBobrovsky8475683 = 8475683,
     /// <summary>
-    /// GlennGawdin8478446
-    /// </summary>
-    GlennGawdin8478446 = 8478446,
-    /// <summary>
-    /// NateClurman8479594
-    /// </summary>
-    NateClurman8479594 = 8479594,
-    /// <summary>
-    /// CameronHughes8478888
-    /// </summary>
-    CameronHughes8478888 = 8478888,
-    /// <summary>
-    /// GustavOlofsson8477467
-    /// </summary>
-    GustavOlofsson8477467 = 8477467,
-    /// <summary>
-    /// WadeAllison8479322
-    /// </summary>
-    WadeAllison8479322 = 8479322,
-    /// <summary>
     /// TimGettinger8479364
     /// </summary>
     TimGettinger8479364 = 8479364,
-    /// <summary>
-    /// OttoKoivula8479526
-    /// </summary>
-    OttoKoivula8479526 = 8479526,
-    /// <summary>
-    /// PaulLaDue8476983
-    /// </summary>
-    PaulLaDue8476983 = 8476983,
-    /// <summary>
-    /// BenHarpur8477433
-    /// </summary>
-    BenHarpur8477433 = 8477433,
-    /// <summary>
-    /// ChaseDeLeo8478029
-    /// </summary>
-    ChaseDeLeo8478029 = 8478029,
-    /// <summary>
-    /// BradHunt8476779
-    /// </summary>
-    BradHunt8476779 = 8476779,
-    /// <summary>
-    /// CamDineen8479341
-    /// </summary>
-    CamDineen8479341 = 8479341,
-    /// <summary>
-    /// RileyStillman8479388
-    /// </summary>
-    RileyStillman8479388 = 8479388,
     /// <summary>
     /// NikitaKucherov8476453
     /// </summary>
@@ -45541,18 +43056,6 @@ public enum PlayerEnum
     /// JonasJohansson8477992
     /// </summary>
     JonasJohansson8477992 = 8477992,
-    /// <summary>
-    /// KyleCapobianco8478476
-    /// </summary>
-    KyleCapobianco8478476 = 8478476,
-    /// <summary>
-    /// KyleClifford8475160
-    /// </summary>
-    KyleClifford8475160 = 8475160,
-    /// <summary>
-    /// BokondjiImama8478147
-    /// </summary>
-    BokondjiImama8478147 = 8478147,
     /// <summary>
     /// ScottBjugstad8445492
     /// </summary>
@@ -46014,10 +43517,6 @@ public enum PlayerEnum
     /// </summary>
     BrentRegner8474698 = 8474698,
     /// <summary>
-    /// BrettHextall8474720
-    /// </summary>
-    BrettHextall8474720 = 8474720,
-    /// <summary>
     /// ColinSullivan8476282
     /// </summary>
     ColinSullivan8476282 = 8476282,
@@ -46178,25 +43677,13 @@ public enum PlayerEnum
     /// </summary>
     DavidKlema8469595 = 8469595,
     /// <summary>
-    /// DimitriSemin8469606
-    /// </summary>
-    DimitriSemin8469606 = 8469606,
-    /// <summary>
     /// DanielBoisclair8469628
     /// </summary>
     DanielBoisclair8469628 = 8469628,
     /// <summary>
-    /// DavidVanDerGulik8470189
-    /// </summary>
-    DavidVanDerGulik8470189 = 8470189,
-    /// <summary>
     /// JeremyColliton8470651
     /// </summary>
     JeremyColliton8470651 = 8470651,
-    /// <summary>
-    /// AndrewJoudrey8470838
-    /// </summary>
-    AndrewJoudrey8470838 = 8470838,
     /// <summary>
     /// JoelMartin8471003
     /// </summary>
@@ -46205,10 +43692,6 @@ public enum PlayerEnum
     /// DavidSchulz8471465
     /// </summary>
     DavidSchulz8471465 = 8471465,
-    /// <summary>
-    /// DavidMcIntyre8473511
-    /// </summary>
-    DavidMcIntyre8473511 = 8473511,
     /// <summary>
     /// ErikCondra8473588
     /// </summary>
@@ -46262,10 +43745,6 @@ public enum PlayerEnum
     /// </summary>
     JonatanNielsen8477042 = 8477042,
     /// <summary>
-    /// JakobForsbackaKarlsson8478417
-    /// </summary>
-    JakobForsbackaKarlsson8478417 = 8478417,
-    /// <summary>
     /// TylerKennedy8471311
     /// </summary>
     TylerKennedy8471311 = 8471311,
@@ -46277,10 +43756,6 @@ public enum PlayerEnum
     /// ChrisBrown8475161
     /// </summary>
     ChrisBrown8475161 = 8475161,
-    /// <summary>
-    /// LouisLeblanc8475183
-    /// </summary>
-    LouisLeblanc8475183 = 8475183,
     /// <summary>
     /// HenrikBjorklund8475282
     /// </summary>
@@ -46390,10 +43865,6 @@ public enum PlayerEnum
     /// </summary>
     SheldonBrookbank8469992 = 8469992,
     /// <summary>
-    /// MikeMorris8470124
-    /// </summary>
-    MikeMorris8470124 = 8470124,
-    /// <summary>
     /// RobertNilsson8470608
     /// </summary>
     RobertNilsson8470608 = 8470608,
@@ -46409,10 +43880,6 @@ public enum PlayerEnum
     /// RyanKeller8471972
     /// </summary>
     RyanKeller8471972 = 8471972,
-    /// <summary>
-    /// KeithSeabrook8473413
-    /// </summary>
-    KeithSeabrook8473413 = 8473413,
     /// <summary>
     /// JustinFletcher8473930
     /// </summary>
@@ -46734,14 +44201,6 @@ public enum PlayerEnum
     /// </summary>
     MattSchneider8471412 = 8471412,
     /// <summary>
-    /// KennyRyan8475207
-    /// </summary>
-    KennyRyan8475207 = 8475207,
-    /// <summary>
-    /// ThomasLarkin8475262
-    /// </summary>
-    ThomasLarkin8475262 = 8475262,
-    /// <summary>
     /// JeremyPrice8475284
     /// </summary>
     JeremyPrice8475284 = 8475284,
@@ -46946,10 +44405,6 @@ public enum PlayerEnum
     /// </summary>
     NicoSacchetti8474020 = 8474020,
     /// <summary>
-    /// CorbinMcPherson8474196
-    /// </summary>
-    CorbinMcPherson8474196 = 8474196,
-    /// <summary>
     /// JoelRechlicz8474383
     /// </summary>
     JoelRechlicz8474383 = 8474383,
@@ -47149,10 +44604,6 @@ public enum PlayerEnum
     /// EricFehr8470611
     /// </summary>
     EricFehr8470611 = 8470611,
-    /// <summary>
-    /// ColinMcDonald8470644
-    /// </summary>
-    ColinMcDonald8470644 = 8470644,
     /// <summary>
     /// DavidTremblay8470732
     /// </summary>
@@ -47390,17 +44841,9 @@ public enum PlayerEnum
     /// </summary>
     MarkRooneem8470128 = 8470128,
     /// <summary>
-    /// DavidMacDonald8471437
-    /// </summary>
-    DavidMacDonald8471437 = 8471437,
-    /// <summary>
     /// MattButcher8471800
     /// </summary>
     MattButcher8471800 = 8471800,
-    /// <summary>
-    /// BrianFoster8471822
-    /// </summary>
-    BrianFoster8471822 = 8471822,
     /// <summary>
     /// DavidDesharnais8471976
     /// </summary>
@@ -47409,10 +44852,6 @@ public enum PlayerEnum
     /// JonasEnlund8473483
     /// </summary>
     JonasEnlund8473483 = 8473483,
-    /// <summary>
-    /// TonyRomano8473538
-    /// </summary>
-    TonyRomano8473538 = 8473538,
     /// <summary>
     /// DavidKveton8473593
     /// </summary>
@@ -47477,10 +44916,6 @@ public enum PlayerEnum
     /// KyleWharton8471272
     /// </summary>
     KyleWharton8471272 = 8471272,
-    /// <summary>
-    /// TorreyMitchell8471338
-    /// </summary>
-    TorreyMitchell8471338 = 8471338,
     /// <summary>
     /// JustinWeller8475221
     /// </summary>
@@ -47669,10 +45104,6 @@ public enum PlayerEnum
     /// DavidSvagrovsky8470723
     /// </summary>
     DavidSvagrovsky8470723 = 8470723,
-    /// <summary>
-    /// DavidJones8470877
-    /// </summary>
-    DavidJones8470877 = 8470877,
     /// <summary>
     /// TomPyatt8471768
     /// </summary>
@@ -47878,17 +45309,9 @@ public enum PlayerEnum
     /// </summary>
     DavidSchneider8470328 = 8470328,
     /// <summary>
-    /// DavidRohlfs8470746
-    /// </summary>
-    DavidRohlfs8470746 = 8470746,
-    /// <summary>
     /// TroyBodie8470867
     /// </summary>
     TroyBodie8470867 = 8470867,
-    /// <summary>
-    /// KrisFredheim8471846
-    /// </summary>
-    KrisFredheim8471846 = 8471846,
     /// <summary>
     /// DavidMcKee8472374
     /// </summary>
@@ -48310,10 +45733,6 @@ public enum PlayerEnum
     /// </summary>
     DaltonThrower8476926 = 8476926,
     /// <summary>
-    /// BrianHart8476928
-    /// </summary>
-    BrianHart8476928 = 8476928,
-    /// <summary>
     /// BrandenTroock8476938
     /// </summary>
     BrandenTroock8476938 = 8476938,
@@ -48321,10 +45740,6 @@ public enum PlayerEnum
     /// LoicLeduc8476965
     /// </summary>
     LoicLeduc8476965 = 8476965,
-    /// <summary>
-    /// AdamGilmour8476972
-    /// </summary>
-    AdamGilmour8476972 = 8476972,
     /// <summary>
     /// RhettHolland8476976
     /// </summary>
@@ -48486,17 +45901,9 @@ public enum PlayerEnum
     /// </summary>
     MattFillier8474126 = 8474126,
     /// <summary>
-    /// MaximChudinov8475892
-    /// </summary>
-    MaximChudinov8475892 = 8475892,
-    /// <summary>
     /// IiroPakarinen8476336
     /// </summary>
     IiroPakarinen8476336 = 8476336,
-    /// <summary>
-    /// MichaelPaliotta8476394
-    /// </summary>
-    MichaelPaliotta8476394 = 8476394,
     /// <summary>
     /// RobertBaillargeon8476940
     /// </summary>
@@ -48586,10 +45993,6 @@ public enum PlayerEnum
     /// </summary>
     JordanSubban8477441 = 8477441,
     /// <summary>
-    /// ThomasVannelli8477468
-    /// </summary>
-    ThomasVannelli8477468 = 8477468,
-    /// <summary>
     /// JordanMaletta8477638
     /// </summary>
     JordanMaletta8477638 = 8477638,
@@ -48605,10 +46008,6 @@ public enum PlayerEnum
     /// DrewShore8475213
     /// </summary>
     DrewShore8475213 = 8475213,
-    /// <summary>
-    /// DavidBackes8470655
-    /// </summary>
-    DavidBackes8470655 = 8470655,
     /// <summary>
     /// NateProsser8475613
     /// </summary>
@@ -48629,14 +46028,6 @@ public enum PlayerEnum
     /// JakeVirtanen8477937
     /// </summary>
     JakeVirtanen8477937 = 8477937,
-    /// <summary>
-    /// BrettPesce8477488
-    /// </summary>
-    BrettPesce8477488 = 8477488,
-    /// <summary>
-    /// DavidThibeault8465150
-    /// </summary>
-    DavidThibeault8465150 = 8465150,
     /// <summary>
     /// SamReinhart8477933
     /// </summary>
@@ -48673,10 +46064,6 @@ public enum PlayerEnum
     /// TomDraper8446480
     /// </summary>
     TomDraper8446480 = 8446480,
-    /// <summary>
-    /// DaveForbes8446908
-    /// </summary>
-    DaveForbes8446908 = 8446908,
     /// <summary>
     /// DannyGeoffrion8447115
     /// </summary>
@@ -48770,10 +46157,6 @@ public enum PlayerEnum
     /// </summary>
     ErikGudbranson8475790 = 8475790,
     /// <summary>
-    /// KarelVejmelka8478872
-    /// </summary>
-    KarelVejmelka8478872 = 8478872,
-    /// <summary>
     /// ToddBurgess8479586
     /// </summary>
     ToddBurgess8479586 = 8479586,
@@ -48793,10 +46176,6 @@ public enum PlayerEnum
     /// VaclavKarabacek8477980
     /// </summary>
     VaclavKarabacek8477980 = 8477980,
-    /// <summary>
-    /// JackDougherty8477982
-    /// </summary>
-    JackDougherty8477982 = 8477982,
     /// <summary>
     /// ConnorChatham8478002
     /// </summary>
@@ -48942,10 +46321,6 @@ public enum PlayerEnum
     /// </summary>
     RyanHartman8477451 = 8477451,
     /// <summary>
-    /// ChrisTanev8475690
-    /// </summary>
-    ChrisTanev8475690 = 8475690,
-    /// <summary>
     /// MarcAntoinePouliot8470615
     /// </summary>
     MarcAntoinePouliot8470615 = 8470615,
@@ -48954,21 +46329,9 @@ public enum PlayerEnum
     /// </summary>
     TomWilson8476880 = 8476880,
     /// <summary>
-    /// TysonBarrie8475197
-    /// </summary>
-    TysonBarrie8475197 = 8475197,
-    /// <summary>
-    /// JoshBrown8477384
-    /// </summary>
-    JoshBrown8477384 = 8477384,
-    /// <summary>
     /// CurtisLazar8477508
     /// </summary>
     CurtisLazar8477508 = 8477508,
-    /// <summary>
-    /// TylerToffoli8475726
-    /// </summary>
-    TylerToffoli8475726 = 8475726,
     /// <summary>
     /// AndersCarlsson8445937
     /// </summary>
@@ -49005,10 +46368,6 @@ public enum PlayerEnum
     /// DavidUllstrom8474666
     /// </summary>
     DavidUllstrom8474666 = 8474666,
-    /// <summary>
-    /// JakobSilfverberg8475164
-    /// </summary>
-    JakobSilfverberg8475164 = 8475164,
     /// <summary>
     /// SimonKarlsson8476383
     /// </summary>
@@ -49066,10 +46425,6 @@ public enum PlayerEnum
     /// </summary>
     RadkoGudas8475462 = 8475462,
     /// <summary>
-    /// RyanJohansen8475793
-    /// </summary>
-    RyanJohansen8475793 = 8475793,
-    /// <summary>
     /// OskarSundqvist8476897
     /// </summary>
     OskarSundqvist8476897 = 8476897,
@@ -49078,21 +46433,9 @@ public enum PlayerEnum
     /// </summary>
     SergeiFedotov8462064 = 8462064,
     /// <summary>
-    /// NickBjugstad8475760
-    /// </summary>
-    NickBjugstad8475760 = 8475760,
-    /// <summary>
-    /// KyleBurroughs8477335
-    /// </summary>
-    KyleBurroughs8477335 = 8477335,
-    /// <summary>
     /// ArvidHenrikson8479559
     /// </summary>
     ArvidHenrikson8479559 = 8479559,
-    /// <summary>
-    /// MichaelMcCarron8477446
-    /// </summary>
-    MichaelMcCarron8477446 = 8477446,
     /// <summary>
     /// NoahJuulsen8478454
     /// </summary>
@@ -49101,10 +46444,6 @@ public enum PlayerEnum
     /// WillBorgen8478840
     /// </summary>
     WillBorgen8478840 = 8478840,
-    /// <summary>
-    /// AlexandreCarrier8478851
-    /// </summary>
-    AlexandreCarrier8478851 = 8478851,
     /// <summary>
     /// NicholasShore8476406
     /// </summary>
@@ -49162,17 +46501,9 @@ public enum PlayerEnum
     /// </summary>
     JCBeaudin8478833 = 8478833,
     /// <summary>
-    /// ViliSaarijarvi8478834
-    /// </summary>
-    ViliSaarijarvi8478834 = 8478834,
-    /// <summary>
     /// SergeyZborovskiy8478835
     /// </summary>
     SergeyZborovskiy8478835 = 8478835,
-    /// <summary>
-    /// DmitryZhukenov8478850
-    /// </summary>
-    DmitryZhukenov8478850 = 8478850,
     /// <summary>
     /// MatthewBradley8478862
     /// </summary>
@@ -49210,10 +46541,6 @@ public enum PlayerEnum
     /// </summary>
     RileyBruce8478913 = 8478913,
     /// <summary>
-    /// PhilipNyberg8479529
-    /// </summary>
-    PhilipNyberg8479529 = 8479529,
-    /// <summary>
     /// ManuelWiederer8479538
     /// </summary>
     ManuelWiederer8479538 = 8479538,
@@ -49234,10 +46561,6 @@ public enum PlayerEnum
     /// </summary>
     MarkShoemaker8479556 = 8479556,
     /// <summary>
-    /// JakeRyczek8479568
-    /// </summary>
-    JakeRyczek8479568 = 8479568,
-    /// <summary>
     /// DeanStewart8479600
     /// </summary>
     DeanStewart8479600 = 8479600,
@@ -49253,10 +46576,6 @@ public enum PlayerEnum
     /// MikaZibanejad8476459
     /// </summary>
     MikaZibanejad8476459 = 8476459,
-    /// <summary>
-    /// JacobTrouba8476885
-    /// </summary>
-    JacobTrouba8476885 = 8476885,
     /// <summary>
     /// JoshAnderson8476981
     /// </summary>
@@ -49282,61 +46601,13 @@ public enum PlayerEnum
     /// </summary>
     CharlieCoyle8475745 = 8475745,
     /// <summary>
-    /// ZachHyman8475786
-    /// </summary>
-    ZachHyman8475786 = 8475786,
-    /// <summary>
-    /// KylePalmieri8475151
-    /// </summary>
-    KylePalmieri8475151 = 8475151,
-    /// <summary>
-    /// ConnorBrown8477015
-    /// </summary>
-    ConnorBrown8477015 = 8477015,
-    /// <summary>
-    /// GarrettPilon8479516
-    /// </summary>
-    GarrettPilon8479516 = 8479516,
-    /// <summary>
-    /// TJTynan8476391
-    /// </summary>
-    TJTynan8476391 = 8476391,
-    /// <summary>
-    /// StevenFogarty8476396
-    /// </summary>
-    StevenFogarty8476396 = 8476396,
-    /// <summary>
-    /// StevenSantini8477463
-    /// </summary>
-    StevenSantini8477463 = 8477463,
-    /// <summary>
-    /// CraigSmith8475225
-    /// </summary>
-    CraigSmith8475225 = 8475225,
-    /// <summary>
     /// TylerSeguin8475794
     /// </summary>
     TylerSeguin8475794 = 8475794,
     /// <summary>
-    /// JaniHakanpaa8475825
-    /// </summary>
-    JaniHakanpaa8475825 = 8475825,
-    /// <summary>
     /// EvanRodrigues8478542
     /// </summary>
     EvanRodrigues8478542 = 8478542,
-    /// <summary>
-    /// SpencerSmallman8478867
-    /// </summary>
-    SpencerSmallman8478867 = 8478867,
-    /// <summary>
-    /// ConnorCarrick8476941
-    /// </summary>
-    ConnorCarrick8476941 = 8476941,
-    /// <summary>
-    /// BrianPinho8477314
-    /// </summary>
-    BrianPinho8477314 = 8477314,
     /// <summary>
     /// BraydenPoint8478010
     /// </summary>
@@ -49345,10 +46616,6 @@ public enum PlayerEnum
     /// ErikCernak8478416
     /// </summary>
     ErikCernak8478416 = 8478416,
-    /// <summary>
-    /// CaseyFitzgerald8479578
-    /// </summary>
-    CaseyFitzgerald8479578 = 8479578,
     /// <summary>
     /// GregAdams8444898
     /// </summary>
@@ -49653,10 +46920,6 @@ public enum PlayerEnum
     /// HannesHyvonen8468130
     /// </summary>
     HannesHyvonen8468130 = 8468130,
-    /// <summary>
-    /// BrianLee8471683
-    /// </summary>
-    BrianLee8471683 = 8471683,
     /// <summary>
     /// BillAnderson8444877
     /// </summary>
@@ -50270,10 +47533,6 @@ public enum PlayerEnum
     /// </summary>
     RobbyDee8471751 = 8471751,
     /// <summary>
-    /// ChrisVandeVelde8471762
-    /// </summary>
-    ChrisVandeVelde8471762 = 8471762,
-    /// <summary>
     /// MortenMadsen8471784
     /// </summary>
     MortenMadsen8471784 = 8471784,
@@ -50301,10 +47560,6 @@ public enum PlayerEnum
     /// TJFox8473896
     /// </summary>
     TJFox8473896 = 8473896,
-    /// <summary>
-    /// TheoRuth8474017
-    /// </summary>
-    TheoRuth8474017 = 8474017,
     /// <summary>
     /// LindenRowat8474182
     /// </summary>
@@ -50446,10 +47701,6 @@ public enum PlayerEnum
     /// </summary>
     BillyODwyer8449950 = 8449950,
     /// <summary>
-    /// BillCarson8450159
-    /// </summary>
-    BillCarson8450159 = 8450159,
-    /// <summary>
     /// BruceRacine8450643
     /// </summary>
     BruceRacine8450643 = 8450643,
@@ -50570,10 +47821,6 @@ public enum PlayerEnum
     /// </summary>
     LeonidZhvachin8469673 = 8469673,
     /// <summary>
-    /// JeanFrancoisSoucy8469695
-    /// </summary>
-    JeanFrancoisSoucy8469695 = 8469695,
-    /// <summary>
     /// DovGrumetMorris8470102
     /// </summary>
     DovGrumetMorris8470102 = 8470102,
@@ -50621,10 +47868,6 @@ public enum PlayerEnum
     /// AndySackrison8473457
     /// </summary>
     AndySackrison8473457 = 8473457,
-    /// <summary>
-    /// CadeFairchild8474029
-    /// </summary>
-    CadeFairchild8474029 = 8474029,
     /// <summary>
     /// MattJones8474502
     /// </summary>
@@ -50846,10 +48089,6 @@ public enum PlayerEnum
     /// </summary>
     ShannonFinn8459422 = 8459422,
     /// <summary>
-    /// JohnTuohy8460709
-    /// </summary>
-    JohnTuohy8460709 = 8460709,
-    /// <summary>
     /// DaveDuerden8462106
     /// </summary>
     DaveDuerden8462106 = 8462106,
@@ -50953,10 +48192,6 @@ public enum PlayerEnum
     /// LucaCaputi8473997
     /// </summary>
     LucaCaputi8473997 = 8473997,
-    /// <summary>
-    /// LouieCaporusso8474129
-    /// </summary>
-    LouieCaporusso8474129 = 8474129,
     /// <summary>
     /// BrandonMcMillan8474646
     /// </summary>
@@ -51262,10 +48497,6 @@ public enum PlayerEnum
     /// </summary>
     MartinGuerin8470863 = 8470863,
     /// <summary>
-    /// KrisChucko8471237
-    /// </summary>
-    KrisChucko8471237 = 8471237,
-    /// <summary>
     /// LoganStephenson8471248
     /// </summary>
     LoganStephenson8471248 = 8471248,
@@ -51302,17 +48533,9 @@ public enum PlayerEnum
     /// </summary>
     EricODell8474603 = 8474603,
     /// <summary>
-    /// BrandonBurlon8474614
-    /// </summary>
-    BrandonBurlon8474614 = 8474614,
-    /// <summary>
     /// JonGleed8471424
     /// </summary>
     JonGleed8471424 = 8471424,
-    /// <summary>
-    /// AndrewKozek8471666
-    /// </summary>
-    AndrewKozek8471666 = 8471666,
     /// <summary>
     /// JimAgnew8444893
     /// </summary>
@@ -51594,10 +48817,6 @@ public enum PlayerEnum
     /// </summary>
     NateMiller8468873 = 8468873,
     /// <summary>
-    /// BrandonRogers8469566
-    /// </summary>
-    BrandonRogers8469566 = 8469566,
-    /// <summary>
     /// ColeJarrett8469588
     /// </summary>
     ColeJarrett8469588 = 8469588,
@@ -51638,10 +48857,6 @@ public enum PlayerEnum
     /// </summary>
     DanielCarcillo8470666 = 8470666,
     /// <summary>
-    /// KonstantinBarulin8470677
-    /// </summary>
-    KonstantinBarulin8470677 = 8470677,
-    /// <summary>
     /// FrankRediker8470710
     /// </summary>
     FrankRediker8470710 = 8470710,
@@ -51649,10 +48864,6 @@ public enum PlayerEnum
     /// LasseKukkonen8470743
     /// </summary>
     LasseKukkonen8470743 = 8470743,
-    /// <summary>
-    /// MattZaba8470820
-    /// </summary>
-    MattZaba8470820 = 8470820,
     /// <summary>
     /// MichaelGrenzy8470864
     /// </summary>
@@ -51694,10 +48905,6 @@ public enum PlayerEnum
     /// </summary>
     AndreiLoktionov8474681 = 8474681,
     /// <summary>
-    /// RobBellamy8471304
-    /// </summary>
-    RobBellamy8471304 = 8471304,
-    /// <summary>
     /// AndrewSarauer8471337
     /// </summary>
     AndrewSarauer8471337 = 8471337,
@@ -51709,10 +48916,6 @@ public enum PlayerEnum
     /// BrettPalin8471546
     /// </summary>
     BrettPalin8471546 = 8471546,
-    /// <summary>
-    /// TJFast8471722
-    /// </summary>
-    TJFast8471722 = 8471722,
     /// <summary>
     /// HenryHarris8444850
     /// </summary>
@@ -52614,10 +49817,6 @@ public enum PlayerEnum
     /// </summary>
     TomWalsh8470053 = 8470053,
     /// <summary>
-    /// JeffPietrasiak8470163
-    /// </summary>
-    JeffPietrasiak8470163 = 8470163,
-    /// <summary>
     /// MarcusPaulsson8470218
     /// </summary>
     MarcusPaulsson8470218 = 8470218,
@@ -53002,10 +50201,6 @@ public enum PlayerEnum
     /// </summary>
     ZdenekBahensky8471286 = 8471286,
     /// <summary>
-    /// DerekPeltier8471396
-    /// </summary>
-    DerekPeltier8471396 = 8471396,
-    /// <summary>
     /// PeterMetcalf8468140
     /// </summary>
     PeterMetcalf8468140 = 8468140,
@@ -53294,10 +50489,6 @@ public enum PlayerEnum
     /// </summary>
     BlakeComeau8471260 = 8471260,
     /// <summary>
-    /// KyleTurris8474068
-    /// </summary>
-    KyleTurris8474068 = 8474068,
-    /// <summary>
     /// ColtonSceviour8474098
     /// </summary>
     ColtonSceviour8474098 = 8474098,
@@ -53329,10 +50520,6 @@ public enum PlayerEnum
     /// AlexeiTezikov8465071
     /// </summary>
     AlexeiTezikov8465071 = 8465071,
-    /// <summary>
-    /// TomCavanagh8469629
-    /// </summary>
-    TomCavanagh8469629 = 8469629,
     /// <summary>
     /// DanielSedin8467875
     /// </summary>
@@ -53385,10 +50572,6 @@ public enum PlayerEnum
     /// JonathanHedstrom8466345
     /// </summary>
     JonathanHedstrom8466345 = 8466345,
-    /// <summary>
-    /// TravisHamonic8474612
-    /// </summary>
-    TravisHamonic8474612 = 8474612,
     /// <summary>
     /// AlexRoberts8457815
     /// </summary>
@@ -53757,10 +50940,6 @@ public enum PlayerEnum
     /// AlexLeavitt8473685
     /// </summary>
     AlexLeavitt8473685 = 8473685,
-    /// <summary>
-    /// DannyKristo8474620
-    /// </summary>
-    DannyKristo8474620 = 8474620,
     /// <summary>
     /// KristofferBerglund8474686
     /// </summary>
@@ -54142,10 +51321,6 @@ public enum PlayerEnum
     /// </summary>
     SergeiKorostin8474170 = 8474170,
     /// <summary>
-    /// MattFrattin8474192
-    /// </summary>
-    MattFrattin8474192 = 8474192,
-    /// <summary>
     /// MattDelahey8474676
     /// </summary>
     MattDelahey8474676 = 8474676,
@@ -54157,10 +51332,6 @@ public enum PlayerEnum
     /// MitchMaunu8471332
     /// </summary>
     MitchMaunu8471332 = 8471332,
-    /// <summary>
-    /// StevenZalewski8471365
-    /// </summary>
-    StevenZalewski8471365 = 8471365,
     /// <summary>
     /// BillArmstrong8445065
     /// </summary>
@@ -54418,10 +51589,6 @@ public enum PlayerEnum
     /// </summary>
     MichaelGarnett8469529 = 8469529,
     /// <summary>
-    /// KevinEstrada8469540
-    /// </summary>
-    KevinEstrada8469540 = 8469540,
-    /// <summary>
     /// AntonKadeykin8470079
     /// </summary>
     AntonKadeykin8470079 = 8470079,
@@ -54485,10 +51652,6 @@ public enum PlayerEnum
     /// KyleDeCoste8474710
     /// </summary>
     KyleDeCoste8474710 = 8474710,
-    /// <summary>
-    /// ShawnWeller8471289
-    /// </summary>
-    ShawnWeller8471289 = 8471289,
     /// <summary>
     /// ClaytonBarthel8471300
     /// </summary>
@@ -55074,10 +52237,6 @@ public enum PlayerEnum
     /// </summary>
     PaulPostma8474074 = 8474074,
     /// <summary>
-    /// BlakeKessel8474140
-    /// </summary>
-    BlakeKessel8474140 = 8474140,
-    /// <summary>
     /// JeffLovecchio8474470
     /// </summary>
     JeffLovecchio8474470 = 8474470,
@@ -55326,10 +52485,6 @@ public enum PlayerEnum
     /// </summary>
     TomasPlihal8469587 = 8469587,
     /// <summary>
-    /// JordanSigalet8469653
-    /// </summary>
-    JordanSigalet8469653 = 8469653,
-    /// <summary>
     /// MartinGerber8469675
     /// </summary>
     MartinGerber8469675 = 8469675,
@@ -55381,10 +52536,6 @@ public enum PlayerEnum
     /// NicolasBlanchard8471853
     /// </summary>
     NicolasBlanchard8471853 = 8471853,
-    /// <summary>
-    /// JoshMeyers8471864
-    /// </summary>
-    JoshMeyers8471864 = 8471864,
     /// <summary>
     /// MatthewMcCollem8473448
     /// </summary>
@@ -55802,10 +52953,6 @@ public enum PlayerEnum
     /// </summary>
     BrettPeterson8457665 = 8457665,
     /// <summary>
-    /// DimitriRiabykin8460536
-    /// </summary>
-    DimitriRiabykin8460536 = 8460536,
-    /// <summary>
     /// RejeanStringer8468236
     /// </summary>
     RejeanStringer8468236 = 8468236,
@@ -56010,10 +53157,6 @@ public enum PlayerEnum
     /// </summary>
     JoeJensen8470821 = 8470821,
     /// <summary>
-    /// MatthewSiddall8471481
-    /// </summary>
-    MatthewSiddall8471481 = 8471481,
-    /// <summary>
     /// StephenMcClellan8471492
     /// </summary>
     StephenMcClellan8471492 = 8471492,
@@ -56069,10 +53212,6 @@ public enum PlayerEnum
     /// AlexBourret8471690
     /// </summary>
     AlexBourret8471690 = 8471690,
-    /// <summary>
-    /// JeffFrazee8471712
-    /// </summary>
-    JeffFrazee8471712 = 8471712,
     /// <summary>
     /// TomBissett8445489
     /// </summary>
@@ -56398,17 +53537,9 @@ public enum PlayerEnum
     /// </summary>
     RaimondsDanilics8470844 = 8470844,
     /// <summary>
-    /// KevinRegan8470866
-    /// </summary>
-    KevinRegan8470866 = 8470866,
-    /// <summary>
     /// JeanPhilippeLevasseur8471845
     /// </summary>
     JeanPhilippeLevasseur8471845 = 8471845,
-    /// <summary>
-    /// JoeVitale8471856
-    /// </summary>
-    JoeVitale8471856 = 8471856,
     /// <summary>
     /// MylesRumsey8471878
     /// </summary>
@@ -56417,10 +53548,6 @@ public enum PlayerEnum
     /// SebastienBisaillon8471911
     /// </summary>
     SebastienBisaillon8471911 = 8471911,
-    /// <summary>
-    /// MikeHoeffel8474023
-    /// </summary>
-    MikeHoeffel8474023 = 8474023,
     /// <summary>
     /// ZachHamill8474045
     /// </summary>
@@ -56762,10 +53889,6 @@ public enum PlayerEnum
     /// </summary>
     BryceWandler8468414 = 8468414,
     /// <summary>
-    /// TrevorLudwig8471395
-    /// </summary>
-    TrevorLudwig8471395 = 8471395,
-    /// <summary>
     /// BrandonReid8468161
     /// </summary>
     BrandonReid8468161 = 8468161,
@@ -56837,10 +53960,6 @@ public enum PlayerEnum
     /// RockyDundas8446503
     /// </summary>
     RockyDundas8446503 = 8446503,
-    /// <summary>
-    /// RonEllis8446668
-    /// </summary>
-    RonEllis8446668 = 8446668,
     /// <summary>
     /// ShawnEvans8446734
     /// </summary>
@@ -57102,17 +54221,9 @@ public enum PlayerEnum
     /// </summary>
     JosephMurphy8468426 = 8468426,
     /// <summary>
-    /// MichailYunkov8471275
-    /// </summary>
-    MichailYunkov8471275 = 8471275,
-    /// <summary>
     /// DevinSetoguchi8471682
     /// </summary>
     DevinSetoguchi8471682 = 8471682,
-    /// <summary>
-    /// MattDonovan8474659
-    /// </summary>
-    MattDonovan8474659 = 8474659,
     /// <summary>
     /// MikeGreen8471242
     /// </summary>
@@ -57358,10 +54469,6 @@ public enum PlayerEnum
     /// </summary>
     EvgeniMalkin8471215 = 8471215,
     /// <summary>
-    /// JamieBenn8473994
-    /// </summary>
-    JamieBenn8473994 = 8473994,
-    /// <summary>
     /// DustinBrown8470606
     /// </summary>
     DustinBrown8470606 = 8470606,
@@ -57369,10 +54476,6 @@ public enum PlayerEnum
     /// NateThompson8470775
     /// </summary>
     NateThompson8470775 = 8470775,
-    /// <summary>
-    /// AlexBiega8473415
-    /// </summary>
-    AlexBiega8473415 = 8473415,
     /// <summary>
     /// LeoKomarov8473463
     /// </summary>
@@ -57426,10 +54529,6 @@ public enum PlayerEnum
     /// </summary>
     BerndBruckler8469597 = 8469597,
     /// <summary>
-    /// AdamHenrique8474641
-    /// </summary>
-    AdamHenrique8474641 = 8474641,
-    /// <summary>
     /// MichalVondrka8469602
     /// </summary>
     MichalVondrka8469602 = 8469602,
@@ -57457,10 +54556,6 @@ public enum PlayerEnum
     /// MatsLindgren8459437
     /// </summary>
     MatsLindgren8459437 = 8459437,
-    /// <summary>
-    /// TobiasJohansson8465169
-    /// </summary>
-    TobiasJohansson8465169 = 8465169,
     /// <summary>
     /// AndrewLadd8471217
     /// </summary>
@@ -57742,10 +54837,6 @@ public enum PlayerEnum
     /// </summary>
     MikeLephart8469450 = 8469450,
     /// <summary>
-    /// NoahWelch8469505
-    /// </summary>
-    NoahWelch8469505 = 8469505,
-    /// <summary>
     /// AndrewArcher8469648
     /// </summary>
     AndrewArcher8469648 = 8469648,
@@ -57786,10 +54877,6 @@ public enum PlayerEnum
     /// </summary>
     LandonBathe8470451 = 8470451,
     /// <summary>
-    /// RylanKaip8470858
-    /// </summary>
-    RylanKaip8470858 = 8470858,
-    /// <summary>
     /// ScottTodd8471870
     /// </summary>
     ScottTodd8471870 = 8471870,
@@ -57809,10 +54896,6 @@ public enum PlayerEnum
     /// RyanWatson8474070
     /// </summary>
     RyanWatson8474070 = 8474070,
-    /// <summary>
-    /// JoeLavin8474103
-    /// </summary>
-    JoeLavin8474103 = 8474103,
     /// <summary>
     /// OscarMoller8474114
     /// </summary>
@@ -57881,10 +54964,6 @@ public enum PlayerEnum
     /// QuinnFair8460486
     /// </summary>
     QuinnFair8460486 = 8460486,
-    /// <summary>
-    /// GrantPotulny8468637
-    /// </summary>
-    GrantPotulny8468637 = 8468637,
     /// <summary>
     /// MikkoMakela8449079
     /// </summary>
@@ -58162,17 +55241,9 @@ public enum PlayerEnum
     /// </summary>
     OlivierMagnan8471508 = 8471508,
     /// <summary>
-    /// ChrisButler8471761
-    /// </summary>
-    ChrisButler8471761 = 8471761,
-    /// <summary>
     /// VitalyKolesnik8471915
     /// </summary>
     VitalyKolesnik8471915 = 8471915,
-    /// <summary>
-    /// KevinQuick8473433
-    /// </summary>
-    KevinQuick8473433 = 8473433,
     /// <summary>
     /// TomasZaborsky8473609
     /// </summary>
@@ -58221,10 +55292,6 @@ public enum PlayerEnum
     /// DanTurple8471398
     /// </summary>
     DanTurple8471398 = 8471398,
-    /// <summary>
-    /// AndrewGordon8471409
-    /// </summary>
-    AndrewGordon8471409 = 8471409,
     /// <summary>
     /// JimArchibald8445054
     /// </summary>
@@ -58794,10 +55861,6 @@ public enum PlayerEnum
     /// </summary>
     LiamLindstrom8470707 = 8470707,
     /// <summary>
-    /// TysonStrachan8470729
-    /// </summary>
-    TysonStrachan8470729 = 8470729,
-    /// <summary>
     /// OskariKorpikari8470806
     /// </summary>
     OskariKorpikari8470806 = 8470806,
@@ -59078,10 +56141,6 @@ public enum PlayerEnum
     /// </summary>
     BobPrier8465208 = 8465208,
     /// <summary>
-    /// JeffDessner8465219
-    /// </summary>
-    JeffDessner8465219 = 8465219,
-    /// <summary>
     /// JeffLibby8466132
     /// </summary>
     JeffLibby8466132 = 8466132,
@@ -59154,10 +56213,6 @@ public enum PlayerEnum
     /// </summary>
     MarcAndreBernier8470653 = 8470653,
     /// <summary>
-    /// IvanKhomutov8470686
-    /// </summary>
-    IvanKhomutov8470686 = 8470686,
-    /// <summary>
     /// GrigoryMisharin8470796
     /// </summary>
     GrigoryMisharin8470796 = 8470796,
@@ -59165,10 +56220,6 @@ public enum PlayerEnum
     /// VjateslavBuravchikov8471852
     /// </summary>
     VjateslavBuravchikov8471852 = 8471852,
-    /// <summary>
-    /// ChadRau8471885
-    /// </summary>
-    ChadRau8471885 = 8471885,
     /// <summary>
     /// RyanVesce8472215
     /// </summary>
@@ -59221,10 +56272,6 @@ public enum PlayerEnum
     /// KarelHromas8471335
     /// </summary>
     KarelHromas8471335 = 8471335,
-    /// <summary>
-    /// MikeSantorelli8471390
-    /// </summary>
-    MikeSantorelli8471390 = 8471390,
     /// <summary>
     /// AndrewMcPherson8468134
     /// </summary>
@@ -59474,10 +56521,6 @@ public enum PlayerEnum
     /// </summary>
     DanielFernholm8470071 = 8470071,
     /// <summary>
-    /// TomGilbert8470104
-    /// </summary>
-    TomGilbert8470104 = 8470104,
-    /// <summary>
     /// IlkkaPikkarainen8470225
     /// </summary>
     IlkkaPikkarainen8470225 = 8470225,
@@ -59513,14 +56556,6 @@ public enum PlayerEnum
     /// DrewStafford8471226
     /// </summary>
     DrewStafford8471226 = 8471226,
-    /// <summary>
-    /// AntonKrysanov8471809
-    /// </summary>
-    AntonKrysanov8471809 = 8471809,
-    /// <summary>
-    /// TimKennedy8471842
-    /// </summary>
-    TimKennedy8471842 = 8471842,
     /// <summary>
     /// MikeWeber8473426
     /// </summary>
@@ -59814,10 +56849,6 @@ public enum PlayerEnum
     /// </summary>
     MartinTuma8470754 = 8470754,
     /// <summary>
-    /// AndreiPervyshin8470842
-    /// </summary>
-    AndreiPervyshin8470842 = 8470842,
-    /// <summary>
     /// ZbynekHrdel8470875
     /// </summary>
     ZbynekHrdel8470875 = 8470875,
@@ -59846,10 +56877,6 @@ public enum PlayerEnum
     /// </summary>
     MaxWarn8473460 = 8473460,
     /// <summary>
-    /// NickPetrecki8474032
-    /// </summary>
-    NickPetrecki8474032 = 8474032,
-    /// <summary>
     /// JohanAlcen8474065
     /// </summary>
     JohanAlcen8474065 = 8474065,
@@ -59870,10 +56897,6 @@ public enum PlayerEnum
     /// </summary>
     JaredStaal8474615 = 8474615,
     /// <summary>
-    /// RobertCzarnik8474626
-    /// </summary>
-    RobertCzarnik8474626 = 8474626,
-    /// <summary>
     /// MathieuBrodeur8474637
     /// </summary>
     MathieuBrodeur8474637 = 8474637,
@@ -59881,10 +56904,6 @@ public enum PlayerEnum
     /// AndrePetersson8474670
     /// </summary>
     AndrePetersson8474670 = 8474670,
-    /// <summary>
-    /// KirillLyamin8471271
-    /// </summary>
-    KirillLyamin8471271 = 8471271,
     /// <summary>
     /// VaclavMeidl8471293
     /// </summary>
@@ -59917,10 +56936,6 @@ public enum PlayerEnum
     /// RogerAkerstrom8455410
     /// </summary>
     RogerAkerstrom8455410 = 8455410,
-    /// <summary>
-    /// IlyaNikulin8468511
-    /// </summary>
-    IlyaNikulin8468511 = 8468511,
     /// <summary>
     /// KenDuggan8446500
     /// </summary>
@@ -59973,10 +56988,6 @@ public enum PlayerEnum
     /// LarryMurphy8449745
     /// </summary>
     LarryMurphy8449745 = 8449745,
-    /// <summary>
-    /// MikeBauman8449778
-    /// </summary>
-    MikeBauman8449778 = 8449778,
     /// <summary>
     /// PerryPelensky8450284
     /// </summary>
@@ -60178,10 +57189,6 @@ public enum PlayerEnum
     /// </summary>
     AndreiMukhachev8470799 = 8470799,
     /// <summary>
-    /// EvgenySkachkov8470810
-    /// </summary>
-    EvgenySkachkov8470810 = 8470810,
-    /// <summary>
     /// StephenWood8471184
     /// </summary>
     StephenWood8471184 = 8471184,
@@ -60222,10 +57229,6 @@ public enum PlayerEnum
     /// </summary>
     ScottKishel8474165 = 8474165,
     /// <summary>
-    /// PatrickWiercioch8474605
-    /// </summary>
-    PatrickWiercioch8474605 = 8474605,
-    /// <summary>
     /// WesONeill8471327
     /// </summary>
     WesONeill8471327 = 8471327,
@@ -60237,10 +57240,6 @@ public enum PlayerEnum
     /// LoicLacasse8471393
     /// </summary>
     LoicLacasse8471393 = 8471393,
-    /// <summary>
-    /// JoeFinley8471701
-    /// </summary>
-    JoeFinley8471701 = 8471701,
     /// <summary>
     /// RussAnderson8444961
     /// </summary>
@@ -60469,10 +57468,6 @@ public enum PlayerEnum
     /// RobertNyholm8473528
     /// </summary>
     RobertNyholm8473528 = 8473528,
-    /// <summary>
-    /// CarlSneep8473539
-    /// </summary>
-    CarlSneep8473539 = 8473539,
     /// <summary>
     /// ChrisFrank8473594
     /// </summary>
@@ -60710,21 +57705,9 @@ public enum PlayerEnum
     /// </summary>
     AlexanderGuskov8470790 = 8470790,
     /// <summary>
-    /// BradyGreco8470845
-    /// </summary>
-    BradyGreco8470845 = 8470845,
-    /// <summary>
     /// MarkFistric8471241
     /// </summary>
     MarkFistric8471241 = 8471241,
-    /// <summary>
-    /// BrandonYip8471450
-    /// </summary>
-    BrandonYip8471450 = 8471450,
-    /// <summary>
-    /// NathanPerkovich8471461
-    /// </summary>
-    NathanPerkovich8471461 = 8471461,
     /// <summary>
     /// TaylorDakers8471802
     /// </summary>
@@ -61010,10 +57993,6 @@ public enum PlayerEnum
     /// </summary>
     JasonMaleyko8468668 = 8468668,
     /// <summary>
-    /// AndreiTaratukhin8469493
-    /// </summary>
-    AndreiTaratukhin8469493 = 8469493,
-    /// <summary>
     /// TomasMalec8469515
     /// </summary>
     TomasMalec8469515 = 8469515,
@@ -61026,17 +58005,9 @@ public enum PlayerEnum
     /// </summary>
     LadislavKouba8470087 = 8470087,
     /// <summary>
-    /// GeoffWaugh8470164
-    /// </summary>
-    GeoffWaugh8470164 = 8470164,
-    /// <summary>
     /// JevonDesautels8470219
     /// </summary>
     JevonDesautels8470219 = 8470219,
-    /// <summary>
-    /// SergeiGimayev8470758
-    /// </summary>
-    SergeiGimayev8470758 = 8470758,
     /// <summary>
     /// IgorVolkov8470835
     /// </summary>
@@ -61073,10 +58044,6 @@ public enum PlayerEnum
     /// MitchWahl8474608
     /// </summary>
     MitchWahl8474608 = 8474608,
-    /// <summary>
-    /// MaxNicastro8474652
-    /// </summary>
-    MaxNicastro8474652 = 8474652,
     /// <summary>
     /// StephenJohnston8474740
     /// </summary>
@@ -61474,14 +58441,6 @@ public enum PlayerEnum
     /// </summary>
     LukasZib8462086 = 8462086,
     /// <summary>
-    /// BenBishop8471750
-    /// </summary>
-    BenBishop8471750 = 8471750,
-    /// <summary>
-    /// LukeWitkowski8474722
-    /// </summary>
-    LukeWitkowski8474722 = 8474722,
-    /// <summary>
     /// EdKastelic8448413
     /// </summary>
     EdKastelic8448413 = 8448413,
@@ -61501,14 +58460,6 @@ public enum PlayerEnum
     /// BrianGlynn8447630
     /// </summary>
     BrianGlynn8447630 = 8447630,
-    /// <summary>
-    /// JonathanQuick8471734
-    /// </summary>
-    JonathanQuick8471734 = 8471734,
-    /// <summary>
-    /// CalClutterbuck8473504
-    /// </summary>
-    CalClutterbuck8473504 = 8473504,
     /// <summary>
     /// TonyLagerstrom8473591
     /// </summary>
@@ -61706,10 +58657,6 @@ public enum PlayerEnum
     /// </summary>
     BeatForster8469527 = 8469527,
     /// <summary>
-    /// AndrewAlberts8469626
-    /// </summary>
-    AndrewAlberts8469626 = 8469626,
-    /// <summary>
     /// ZbynekNovak8469637
     /// </summary>
     ZbynekNovak8469637 = 8469637,
@@ -61789,10 +58736,6 @@ public enum PlayerEnum
     /// MaximGratchev8474169
     /// </summary>
     MaximGratchev8474169 = 8474169,
-    /// <summary>
-    /// EricSelleck8474554
-    /// </summary>
-    EricSelleck8474554 = 8474554,
     /// <summary>
     /// MarcAndreBourdon8474631
     /// </summary>
@@ -62022,10 +58965,6 @@ public enum PlayerEnum
     /// </summary>
     MatthewSpiller8469484 = 8469484,
     /// <summary>
-    /// EgorShastin8469572
-    /// </summary>
-    EgorShastin8469572 = 8469572,
-    /// <summary>
     /// JussiJokinen8469638
     /// </summary>
     JussiJokinen8469638 = 8469638,
@@ -62117,10 +59056,6 @@ public enum PlayerEnum
     /// BenBlood8474016
     /// </summary>
     BenBlood8474016 = 8474016,
-    /// <summary>
-    /// JustinVaive8474104
-    /// </summary>
-    JustinVaive8474104 = 8474104,
     /// <summary>
     /// AJJenks8474665
     /// </summary>
@@ -62382,10 +59317,6 @@ public enum PlayerEnum
     /// </summary>
     MarekTomica8469727 = 8469727,
     /// <summary>
-    /// SergeiAnshakov8470057
-    /// </summary>
-    SergeiAnshakov8470057 = 8470057,
-    /// <summary>
     /// PierreJohnsson8470178
     /// </summary>
     PierreJohnsson8470178 = 8470178,
@@ -62417,10 +59348,6 @@ public enum PlayerEnum
     /// JohnSeymour8471883
     /// </summary>
     JohnSeymour8471883 = 8471883,
-    /// <summary>
-    /// KyleMedvec8473445
-    /// </summary>
-    KyleMedvec8473445 = 8473445,
     /// <summary>
     /// NikoSnellman8473555
     /// </summary>
@@ -62654,10 +59581,6 @@ public enum PlayerEnum
     /// </summary>
     MarkKosick8467539 = 8467539,
     /// <summary>
-    /// KonstantinKoltsov8467891
-    /// </summary>
-    KonstantinKoltsov8467891 = 8467891,
-    /// <summary>
     /// MattMurley8467924
     /// </summary>
     MattMurley8467924 = 8467924,
@@ -62738,10 +59661,6 @@ public enum PlayerEnum
     /// </summary>
     ShaneOBrien8470839 = 8470839,
     /// <summary>
-    /// ChrisBourque8471246
-    /// </summary>
-    ChrisBourque8471246 = 8471246,
-    /// <summary>
     /// JasonPitton8471455
     /// </summary>
     JasonPitton8471455 = 8471455,
@@ -62778,10 +59697,6 @@ public enum PlayerEnum
     /// </summary>
     RyanJones8471323 = 8471323,
     /// <summary>
-    /// MasonRaymond8471664
-    /// </summary>
-    MasonRaymond8471664 = 8471664,
-    /// <summary>
     /// JeanCusson8445837
     /// </summary>
     JeanCusson8445837 = 8445837,
@@ -62817,10 +59732,6 @@ public enum PlayerEnum
     /// RichardSmehlik8458058
     /// </summary>
     RichardSmehlik8458058 = 8458058,
-    /// <summary>
-    /// MikaStromberg8458146
-    /// </summary>
-    MikaStromberg8458146 = 8458146,
     /// <summary>
     /// KyleMcLaren8462040
     /// </summary>
@@ -63374,10 +60285,6 @@ public enum PlayerEnum
     /// </summary>
     MilanMichalek8470599 = 8470599,
     /// <summary>
-    /// EvgeniIsakov8470753
-    /// </summary>
-    EvgeniIsakov8470753 = 8470753,
-    /// <summary>
     /// PavelVoroshnin8470764
     /// </summary>
     PavelVoroshnin8470764 = 8470764,
@@ -63406,10 +60313,6 @@ public enum PlayerEnum
     /// </summary>
     HannuPikkarainen8471974 = 8471974,
     /// <summary>
-    /// JayBarriball8473437
-    /// </summary>
-    JayBarriball8473437 = 8473437,
-    /// <summary>
     /// JesseJoensuu8473514
     /// </summary>
     JesseJoensuu8473514 = 8473514,
@@ -63429,10 +60332,6 @@ public enum PlayerEnum
     /// PhilippeCornet8474691
     /// </summary>
     PhilippeCornet8474691 = 8474691,
-    /// <summary>
-    /// NicholasDAgostino8474768
-    /// </summary>
-    NicholasDAgostino8474768 = 8474768,
     /// <summary>
     /// GeoffPaukovich8471270
     /// </summary>
@@ -63642,10 +60541,6 @@ public enum PlayerEnum
     /// </summary>
     ChristianEhrhoff8469555 = 8469555,
     /// <summary>
-    /// MiroslavBlatak8469577
-    /// </summary>
-    MiroslavBlatak8469577 = 8469577,
-    /// <summary>
     /// IvanKolozvary8469643
     /// </summary>
     IvanKolozvary8469643 = 8469643,
@@ -63685,10 +60580,6 @@ public enum PlayerEnum
     /// PatrikValcak8470721
     /// </summary>
     PatrikValcak8470721 = 8470721,
-    /// <summary>
-    /// DrewBagnall8470787
-    /// </summary>
-    DrewBagnall8470787 = 8470787,
     /// <summary>
     /// ClaytonStoner8470886
     /// </summary>
@@ -63990,10 +60881,6 @@ public enum PlayerEnum
     /// </summary>
     MikkoKalteva8470095 = 8470095,
     /// <summary>
-    /// KirilKoltsov8470117
-    /// </summary>
-    KirilKoltsov8470117 = 8470117,
-    /// <summary>
     /// DmitriUtkin8470139
     /// </summary>
     DmitriUtkin8470139 = 8470139,
@@ -64066,10 +60953,6 @@ public enum PlayerEnum
     /// </summary>
     CoreySyvret8474044 = 8474044,
     /// <summary>
-    /// JasonGregoire8474132
-    /// </summary>
-    JasonGregoire8474132 = 8474132,
-    /// <summary>
     /// NicholasLarson8474671
     /// </summary>
     NicholasLarson8474671 = 8474671,
@@ -64077,10 +60960,6 @@ public enum PlayerEnum
     /// JoelChouinard8474726
     /// </summary>
     JoelChouinard8474726 = 8474726,
-    /// <summary>
-    /// AndrewMacWilliam8474748
-    /// </summary>
-    AndrewMacWilliam8474748 = 8474748,
     /// <summary>
     /// HarryYoung8474759
     /// </summary>
@@ -64113,10 +60992,6 @@ public enum PlayerEnum
     /// JohanEneqvist8468589
     /// </summary>
     JohanEneqvist8468589 = 8468589,
-    /// <summary>
-    /// MattHendricks8468611
-    /// </summary>
-    MattHendricks8468611 = 8468611,
     /// <summary>
     /// BillCass8468633
     /// </summary>
@@ -64198,10 +61073,6 @@ public enum PlayerEnum
     /// </summary>
     SergeiPetrenko8459591 = 8459591,
     /// <summary>
-    /// DimitriGorenko8459635
-    /// </summary>
-    DimitriGorenko8459635 = 8459635,
-    /// <summary>
     /// DerekDiener8460680
     /// </summary>
     DerekDiener8460680 = 8460680,
@@ -64278,10 +61149,6 @@ public enum PlayerEnum
     /// </summary>
     TomasMicka8470217 = 8470217,
     /// <summary>
-    /// IgorIgnatushkin8470228
-    /// </summary>
-    IgorIgnatushkin8470228 = 8470228,
-    /// <summary>
     /// RadoslavHecl8470239
     /// </summary>
     RadoslavHecl8470239 = 8470239,
@@ -64302,10 +61169,6 @@ public enum PlayerEnum
     /// </summary>
     KevinRomy8470701 = 8470701,
     /// <summary>
-    /// DrewMiller8470778
-    /// </summary>
-    DrewMiller8470778 = 8470778,
-    /// <summary>
     /// TristonGrant8470899
     /// </summary>
     TristonGrant8470899 = 8470899,
@@ -64313,10 +61176,6 @@ public enum PlayerEnum
     /// CurtisGlencross8471185
     /// </summary>
     CurtisGlencross8471185 = 8471185,
-    /// <summary>
-    /// GrantClitsome8471482
-    /// </summary>
-    GrantClitsome8471482 = 8471482,
     /// <summary>
     /// ValeriKlimov8471493
     /// </summary>
@@ -64329,10 +61188,6 @@ public enum PlayerEnum
     /// KasparsDaugavins8473484
     /// </summary>
     KasparsDaugavins8473484 = 8473484,
-    /// <summary>
-    /// JohnAlbert8474012
-    /// </summary>
-    JohnAlbert8474012 = 8474012,
     /// <summary>
     /// DwightKing8474100
     /// </summary>
@@ -64650,10 +61505,6 @@ public enum PlayerEnum
     /// </summary>
     SeanCollins8470042 = 8470042,
     /// <summary>
-    /// BrettSkinner8470119
-    /// </summary>
-    BrettSkinner8470119 = 8470119,
-    /// <summary>
     /// AndrewSertich8470174
     /// </summary>
     AndrewSertich8470174 = 8470174,
@@ -64673,10 +61524,6 @@ public enum PlayerEnum
     /// WilliamEngasser8471472
     /// </summary>
     WilliamEngasser8471472 = 8471472,
-    /// <summary>
-    /// LukeBeaverson8471494
-    /// </summary>
-    LukeBeaverson8471494 = 8471494,
     /// <summary>
     /// RadekSmolenak8471736
     /// </summary>
@@ -64954,10 +61801,6 @@ public enum PlayerEnum
     /// </summary>
     AlexeiSemenov8467909 = 8467909,
     /// <summary>
-    /// VladimirMalenkykh8468030
-    /// </summary>
-    VladimirMalenkykh8468030 = 8468030,
-    /// <summary>
     /// BlairStayzer8468063
     /// </summary>
     BlairStayzer8468063 = 8468063,
@@ -64989,10 +61832,6 @@ public enum PlayerEnum
     /// DarrenMclachlan8469526
     /// </summary>
     DarrenMclachlan8469526 = 8469526,
-    /// <summary>
-    /// AndySchneider8469603
-    /// </summary>
-    AndySchneider8469603 = 8469603,
     /// <summary>
     /// MichalBlazek8469614
     /// </summary>
@@ -65029,10 +61868,6 @@ public enum PlayerEnum
     /// JohnWikner8471495
     /// </summary>
     JohnWikner8471495 = 8471495,
-    /// <summary>
-    /// DimitriMegalinsky8471847
-    /// </summary>
-    DimitriMegalinsky8471847 = 8471847,
     /// <summary>
     /// RileyEmmerson8471858
     /// </summary>
@@ -65266,10 +62101,6 @@ public enum PlayerEnum
     /// </summary>
     LucaSbisa8474579 = 8474579,
     /// <summary>
-    /// AaronNess8474604
-    /// </summary>
-    AaronNess8474604 = 8474604,
-    /// <summary>
     /// MattCalvert8474685
     /// </summary>
     MattCalvert8474685 = 8474685,
@@ -65414,14 +62245,6 @@ public enum PlayerEnum
     /// </summary>
     JamesNeal8471707 = 8471707,
     /// <summary>
-    /// KeithYandle8471735
-    /// </summary>
-    KeithYandle8471735 = 8471735,
-    /// <summary>
-    /// JakeMuzzin8474162
-    /// </summary>
-    JakeMuzzin8474162 = 8474162,
-    /// <summary>
     /// RegBentley8445064
     /// </summary>
     RegBentley8445064 = 8445064,
@@ -65458,17 +62281,9 @@ public enum PlayerEnum
     /// </summary>
     AdamComrie8474640 = 8474640,
     /// <summary>
-    /// TJBrodie8474673
-    /// </summary>
-    TJBrodie8474673 = 8474673,
-    /// <summary>
     /// FrancoisHardy8465103
     /// </summary>
     FrancoisHardy8465103 = 8465103,
-    /// <summary>
-    /// MarcoScandella8474618
-    /// </summary>
-    MarcoScandella8474618 = 8474618,
     /// <summary>
     /// JohanBjork8470271
     /// </summary>
@@ -65538,18 +62353,6 @@ public enum PlayerEnum
     /// </summary>
     PierreCedricLabrie8474201 = 8474201,
     /// <summary>
-    /// JakeGardiner8474581
-    /// </summary>
-    JakeGardiner8474581 = 8474581,
-    /// <summary>
-    /// JackJohnson8471677
-    /// </summary>
-    JackJohnson8471677 = 8471677,
-    /// <summary>
-    /// JamesvanRiemsdyk8474037
-    /// </summary>
-    JamesvanRiemsdyk8474037 = 8474037,
-    /// <summary>
     /// JergusBaca8445195
     /// </summary>
     JergusBaca8445195 = 8445195,
@@ -65569,10 +62372,6 @@ public enum PlayerEnum
     /// TimRamholt8470632
     /// </summary>
     TimRamholt8470632 = 8470632,
-    /// <summary>
-    /// IanCole8474013
-    /// </summary>
-    IanCole8474013 = 8474013,
     /// <summary>
     /// RegAbbott8444854
     /// </summary>
@@ -65706,10 +62505,6 @@ public enum PlayerEnum
     /// </summary>
     MichaelONeill8457559 = 8457559,
     /// <summary>
-    /// MikaValila8458285
-    /// </summary>
-    MikaValila8458285 = 8458285,
-    /// <summary>
     /// MikaelJohansson8458648
     /// </summary>
     MikaelJohansson8458648 = 8458648,
@@ -65834,37 +62629,17 @@ public enum PlayerEnum
     /// </summary>
     ColinZulianello8469769 = 8469769,
     /// <summary>
-    /// GlennFisher8470044
-    /// </summary>
-    GlennFisher8470044 = 8470044,
-    /// <summary>
-    /// VasilyKoshechkin8470066
-    /// </summary>
-    VasilyKoshechkin8470066 = 8470066,
-    /// <summary>
     /// KirillSidorenko8470099
     /// </summary>
     KirillSidorenko8470099 = 8470099,
-    /// <summary>
-    /// SergeiMozyakin8470253
-    /// </summary>
-    SergeiMozyakin8470253 = 8470253,
     /// <summary>
     /// BarryBrust8470264
     /// </summary>
     BarryBrust8470264 = 8470264,
     /// <summary>
-    /// ColtonFretter8470275
-    /// </summary>
-    ColtonFretter8470275 = 8470275,
-    /// <summary>
     /// LoganKoopmans8470308
     /// </summary>
     LoganKoopmans8470308 = 8470308,
-    /// <summary>
-    /// IgorMirnov8470660
-    /// </summary>
-    IgorMirnov8470660 = 8470660,
     /// <summary>
     /// AlexeiIvanov8470748
     /// </summary>
@@ -65933,10 +62708,6 @@ public enum PlayerEnum
     /// NicolasDeschamps8474598
     /// </summary>
     NicolasDeschamps8474598 = 8474598,
-    /// <summary>
-    /// AlexanderPechurskiy8474708
-    /// </summary>
-    AlexanderPechurskiy8474708 = 8474708,
     /// <summary>
     /// TeemuHartikainen8474719
     /// </summary>
@@ -66242,10 +63013,6 @@ public enum PlayerEnum
     /// </summary>
     VladimirRuzicka8474159 = 8474159,
     /// <summary>
-    /// JoeColborne8474577
-    /// </summary>
-    JoeColborne8474577 = 8474577,
-    /// <summary>
     /// CoreyTrivino8474599
     /// </summary>
     CoreyTrivino8474599 = 8474599,
@@ -66478,10 +63245,6 @@ public enum PlayerEnum
     /// </summary>
     ScottHollis8459101 = 8459101,
     /// <summary>
-    /// PetterRonnquist8459200
-    /// </summary>
-    PetterRonnquist8459200 = 8459200,
-    /// <summary>
     /// MikhailShtalenkov8459365
     /// </summary>
     MikhailShtalenkov8459365 = 8459365,
@@ -66574,10 +63337,6 @@ public enum PlayerEnum
     /// </summary>
     DerekRoy8469485 = 8469485,
     /// <summary>
-    /// AndreiMedvedev8469507
-    /// </summary>
-    AndreiMedvedev8469507 = 8469507,
-    /// <summary>
     /// TomasDuba8469661
     /// </summary>
     TomasDuba8469661 = 8469661,
@@ -66614,10 +63373,6 @@ public enum PlayerEnum
     /// </summary>
     GrantStevenson8470574 = 8470574,
     /// <summary>
-    /// DimitriPestunov8470673
-    /// </summary>
-    DimitriPestunov8470673 = 8470673,
-    /// <summary>
     /// KonstantinVolkov8470717
     /// </summary>
     KonstantinVolkov8470717 = 8470717,
@@ -66629,10 +63384,6 @@ public enum PlayerEnum
     /// AdamHobson8471861
     /// </summary>
     AdamHobson8471861 = 8471861,
-    /// <summary>
-    /// MattClackson8471872
-    /// </summary>
-    MattClackson8471872 = 8471872,
     /// <summary>
     /// BryanPitton8473489
     /// </summary>
@@ -66701,10 +63452,6 @@ public enum PlayerEnum
     /// SeanGillam8460565
     /// </summary>
     SeanGillam8460565 = 8460565,
-    /// <summary>
-    /// KristoferOttosson8468628
-    /// </summary>
-    KristoferOttosson8468628 = 8468628,
     /// <summary>
     /// PavelTorgaev8460763
     /// </summary>
@@ -66974,10 +63721,6 @@ public enum PlayerEnum
     /// </summary>
     JoeRooney8474227 = 8474227,
     /// <summary>
-    /// SteveQuailer8474645
-    /// </summary>
-    SteveQuailer8474645 = 8474645,
-    /// <summary>
     /// JulienCayer8474711
     /// </summary>
     JulienCayer8474711 = 8474711,
@@ -66989,10 +63732,6 @@ public enum PlayerEnum
     /// ChrisZarb8471356
     /// </summary>
     ChrisZarb8471356 = 8471356,
-    /// <summary>
-    /// PeterGuggisberg8471378
-    /// </summary>
-    PeterGuggisberg8471378 = 8471378,
     /// <summary>
     /// ChuckArnason8445089
     /// </summary>
@@ -67053,10 +63792,6 @@ public enum PlayerEnum
     /// TommySoderstrom8458080
     /// </summary>
     TommySoderstrom8458080 = 8458080,
-    /// <summary>
-    /// SergeiBerezin8460742
-    /// </summary>
-    SergeiBerezin8460742 = 8460742,
     /// <summary>
     /// DougFavell8446794
     /// </summary>
@@ -67270,10 +64005,6 @@ public enum PlayerEnum
     /// </summary>
     KirillTulupov8473524 = 8473524,
     /// <summary>
-    /// AndreasNodl8473568
-    /// </summary>
-    AndreasNodl8473568 = 8473568,
-    /// <summary>
     /// JakubKovar8473601
     /// </summary>
     JakubKovar8473601 = 8473601,
@@ -67285,10 +64016,6 @@ public enum PlayerEnum
     /// ErikErsberg8473975
     /// </summary>
     ErikErsberg8473975 = 8473975,
-    /// <summary>
-    /// AaronPalushaj8474030
-    /// </summary>
-    AaronPalushaj8474030 = 8474030,
     /// <summary>
     /// SimonHjalmarsson8474173
     /// </summary>
@@ -67658,10 +64385,6 @@ public enum PlayerEnum
     /// </summary>
     NathanMartz8468620 = 8468620,
     /// <summary>
-    /// MikhailKazakevich8460744
-    /// </summary>
-    MikhailKazakevich8460744 = 8460744,
-    /// <summary>
     /// NikitaAlexeev8468488
     /// </summary>
     NikitaAlexeev8468488 = 8468488,
@@ -67861,10 +64584,6 @@ public enum PlayerEnum
     /// TysonKellerman8470050
     /// </summary>
     TysonKellerman8470050 = 8470050,
-    /// <summary>
-    /// VictorBobrov8470094
-    /// </summary>
-    VictorBobrov8470094 = 8470094,
     /// <summary>
     /// MikaelVuorio8470160
     /// </summary>
@@ -68121,10 +64840,6 @@ public enum PlayerEnum
     /// TommiJaminki8469589
     /// </summary>
     TommiJaminki8469589 = 8469589,
-    /// <summary>
-    /// YuriTrubachev8469611
-    /// </summary>
-    YuriTrubachev8469611 = 8469611,
     /// <summary>
     /// KonstantinMihailov8469688
     /// </summary>
@@ -68550,10 +65265,6 @@ public enum PlayerEnum
     /// </summary>
     KirillPetrov8474639 = 8474639,
     /// <summary>
-    /// VictorAlexandrov8471295
-    /// </summary>
-    VictorAlexandrov8471295 = 8471295,
-    /// <summary>
     /// FederikCabana8471383
     /// </summary>
     FederikCabana8471383 = 8471383,
@@ -68818,10 +65529,6 @@ public enum PlayerEnum
     /// </summary>
     JordanFulton8473606 = 8473606,
     /// <summary>
-    /// AllenYork8474057
-    /// </summary>
-    AllenYork8474057 = 8474057,
-    /// <summary>
     /// MichaelLeeTeslak8474475
     /// </summary>
     MichaelLeeTeslak8474475 = 8474475,
@@ -68889,10 +65596,6 @@ public enum PlayerEnum
     /// NathanSmith8468503
     /// </summary>
     NathanSmith8468503 = 8468503,
-    /// <summary>
-    /// RuslanZainullin8468514
-    /// </summary>
-    RuslanZainullin8468514 = 8468514,
     /// <summary>
     /// RobertDupuis8446536
     /// </summary>
@@ -69138,10 +65841,6 @@ public enum PlayerEnum
     /// </summary>
     JoakimAndersson8474168 = 8474168,
     /// <summary>
-    /// SergeiGayduchenko8474179
-    /// </summary>
-    SergeiGayduchenko8474179 = 8474179,
-    /// <summary>
     /// TylerBeskorowany8474619
     /// </summary>
     TylerBeskorowany8474619 = 8474619,
@@ -69165,10 +65864,6 @@ public enum PlayerEnum
     /// OndrejPavelec8471715
     /// </summary>
     OndrejPavelec8471715 = 8471715,
-    /// <summary>
-    /// RichardBachman8473614
-    /// </summary>
-    RichardBachman8473614 = 8473614,
     /// <summary>
     /// JohanFranzen8471309
     /// </summary>
@@ -69538,14 +66233,6 @@ public enum PlayerEnum
     /// </summary>
     EtienneDrapeau8465054 = 8465054,
     /// <summary>
-    /// PatrickEhelechner8470731
-    /// </summary>
-    PatrickEhelechner8470731 = 8470731,
-    /// <summary>
-    /// JakubVoracek8474161
-    /// </summary>
-    JakubVoracek8474161 = 8474161,
-    /// <summary>
     /// MikaelAndersson8444963
     /// </summary>
     MikaelAndersson8444963 = 8444963,
@@ -69561,14 +66248,6 @@ public enum PlayerEnum
     /// MikeSmith8469608
     /// </summary>
     MikeSmith8469608 = 8469608,
-    /// <summary>
-    /// CorySchneider8471239
-    /// </summary>
-    CorySchneider8471239 = 8471239,
-    /// <summary>
-    /// AndrewCogliano8471699
-    /// </summary>
-    AndrewCogliano8471699 = 8471699,
     /// <summary>
     /// FlavienConne8468730
     /// </summary>
@@ -69597,14 +66276,6 @@ public enum PlayerEnum
     /// MikkoKoivu8469459
     /// </summary>
     MikkoKoivu8469459 = 8469459,
-    /// <summary>
-    /// JakeAllen8474596
-    /// </summary>
-    JakeAllen8474596 = 8474596,
-    /// <summary>
-    /// JoePavelski8470794
-    /// </summary>
-    JoePavelski8470794 = 8470794,
     /// <summary>
     /// DustyBlair8445096
     /// </summary>
@@ -69802,17 +66473,9 @@ public enum PlayerEnum
     /// </summary>
     FredericCloutier8469758 = 8469758,
     /// <summary>
-    /// MattGreene8470121
-    /// </summary>
-    MattGreene8470121 = 8470121,
-    /// <summary>
     /// MattFoy8470165
     /// </summary>
     MattFoy8470165 = 8470165,
-    /// <summary>
-    /// VinceBellissimo8470198
-    /// </summary>
-    VinceBellissimo8470198 = 8470198,
     /// <summary>
     /// MarcusSmith8470297
     /// </summary>
@@ -69825,10 +66488,6 @@ public enum PlayerEnum
     /// HughJessiman8470605
     /// </summary>
     HughJessiman8470605 = 8470605,
-    /// <summary>
-    /// DannyIrmen8470671
-    /// </summary>
-    DannyIrmen8470671 = 8470671,
     /// <summary>
     /// PaulBrown8470682
     /// </summary>
@@ -69858,14 +66517,6 @@ public enum PlayerEnum
     /// </summary>
     DerekDorsett8473432 = 8473432,
     /// <summary>
-    /// JulianWalker8473487
-    /// </summary>
-    JulianWalker8473487 = 8473487,
-    /// <summary>
-    /// BenRyan8474004
-    /// </summary>
-    BenRyan8474004 = 8474004,
-    /// <summary>
     /// GregNemisz8474587
     /// </summary>
     GregNemisz8474587 = 8474587,
@@ -69877,14 +66528,6 @@ public enum PlayerEnum
     /// MarkVanGuilder8474939
     /// </summary>
     MarkVanGuilder8474939 = 8474939,
-    /// <summary>
-    /// KyleKlubertanz8471287
-    /// </summary>
-    KyleKlubertanz8471287 = 8471287,
-    /// <summary>
-    /// JimMcKenzie8471353
-    /// </summary>
-    JimMcKenzie8471353 = 8471353,
     /// <summary>
     /// WayneBabych8445207
     /// </summary>
@@ -69981,10 +66624,6 @@ public enum PlayerEnum
     /// MartinProchazka8458649
     /// </summary>
     MartinProchazka8458649 = 8458649,
-    /// <summary>
-    /// MarcHussey8458979
-    /// </summary>
-    MarcHussey8458979 = 8458979,
     /// <summary>
     /// KevinBrown8459023
     /// </summary>
@@ -70118,10 +66757,6 @@ public enum PlayerEnum
     /// </summary>
     JohnDoherty8470650 = 8470650,
     /// <summary>
-    /// RyanOByrne8470672
-    /// </summary>
-    RyanOByrne8470672 = 8470672,
-    /// <summary>
     /// ChadBrownlee8470782
     /// </summary>
     ChadBrownlee8470782 = 8470782,
@@ -70133,10 +66768,6 @@ public enum PlayerEnum
     /// KyleBailey8471772
     /// </summary>
     KyleBailey8471772 = 8471772,
-    /// <summary>
-    /// MarkFayne8471816
-    /// </summary>
-    MarkFayne8471816 = 8471816,
     /// <summary>
     /// JoeCharlebois8471849
     /// </summary>
@@ -70558,10 +67189,6 @@ public enum PlayerEnum
     /// </summary>
     GregoryJacina8469805 = 8469805,
     /// <summary>
-    /// JohnZeiler8470113
-    /// </summary>
-    JohnZeiler8470113 = 8470113,
-    /// <summary>
     /// JakeTaylor8470135
     /// </summary>
     JakeTaylor8470135 = 8470135,
@@ -70590,10 +67217,6 @@ public enum PlayerEnum
     /// </summary>
     ShaunHeshka8471895 = 8471895,
     /// <summary>
-    /// EricGryba8473468
-    /// </summary>
-    EricGryba8473468 = 8473468,
-    /// <summary>
     /// KevinWestgarth8473908
     /// </summary>
     KevinWestgarth8473908 = 8473908,
@@ -70605,10 +67228,6 @@ public enum PlayerEnum
     /// MaximTrunev8474700
     /// </summary>
     MaximTrunev8474700 = 8474700,
-    /// <summary>
-    /// JTWyman8471312
-    /// </summary>
-    JTWyman8471312 = 8471312,
     /// <summary>
     /// MaxGordichuk8471389
     /// </summary>
@@ -70673,10 +67292,6 @@ public enum PlayerEnum
     /// JackMcVicar8447828
     /// </summary>
     JackMcVicar8447828 = 8447828,
-    /// <summary>
-    /// MartyPavelich8448103
-    /// </summary>
-    MartyPavelich8448103 = 8448103,
     /// <summary>
     /// GerryPlamondon8448158
     /// </summary>
@@ -70749,10 +67364,6 @@ public enum PlayerEnum
     /// LindsayMiddlebrook8449588
     /// </summary>
     LindsayMiddlebrook8449588 = 8449588,
-    /// <summary>
-    /// SteveWojciechowski8449599
-    /// </summary>
-    SteveWojciechowski8449599 = 8449599,
     /// <summary>
     /// AlexanderMogilny8449654
     /// </summary>
@@ -70925,10 +67536,6 @@ public enum PlayerEnum
     /// JuhaMattiTapioAaltonen8470873
     /// </summary>
     JuhaMattiTapioAaltonen8470873 = 8470873,
-    /// <summary>
-    /// MatthewFord8471467
-    /// </summary>
-    MatthewFord8471467 = 8471467,
     /// <summary>
     /// CodyFranson8471742
     /// </summary>
@@ -71154,10 +67761,6 @@ public enum PlayerEnum
     /// </summary>
     BrettWestgarth8473943 = 8473943,
     /// <summary>
-    /// CoreyTropp8474130
-    /// </summary>
-    CoreyTropp8474130 = 8474130,
-    /// <summary>
     /// CodyHodgson8474570
     /// </summary>
     CodyHodgson8474570 = 8474570,
@@ -71209,10 +67812,6 @@ public enum PlayerEnum
     /// CarlMallette8468587
     /// </summary>
     CarlMallette8468587 = 8468587,
-    /// <summary>
-    /// TroyRiddle8468609
-    /// </summary>
-    TroyRiddle8468609 = 8468609,
     /// <summary>
     /// PaulDiPietro8456080
     /// </summary>
@@ -71373,10 +67972,6 @@ public enum PlayerEnum
     /// JohnCarter8471502
     /// </summary>
     JohnCarter8471502 = 8471502,
-    /// <summary>
-    /// JaredBoll8471766
-    /// </summary>
-    JaredBoll8471766 = 8471766,
     /// <summary>
     /// ChrisHarrington8472404
     /// </summary>
@@ -71853,10 +68448,6 @@ public enum PlayerEnum
     /// BlairJones8471767
     /// </summary>
     BlairJones8471767 = 8471767,
-    /// <summary>
-    /// MattGenerous8471866
-    /// </summary>
-    MattGenerous8471866 = 8471866,
     /// <summary>
     /// JesseDudas8473428
     /// </summary>
@@ -72914,10 +69505,6 @@ public enum PlayerEnum
     /// </summary>
     IanWhite8470273 = 8470273,
     /// <summary>
-    /// NateGuenin8470317
-    /// </summary>
-    NateGuenin8470317 = 8470317,
-    /// <summary>
     /// BJCrombeen8470647
     /// </summary>
     BJCrombeen8470647 = 8470647,
@@ -73250,10 +69837,6 @@ public enum PlayerEnum
     /// </summary>
     DanRyder8471737 = 8471737,
     /// <summary>
-    /// AlexBerry8471814
-    /// </summary>
-    AlexBerry8471814 = 8471814,
-    /// <summary>
     /// PatBrosnihan8471869
     /// </summary>
     PatBrosnihan8471869 = 8471869,
@@ -73269,10 +69852,6 @@ public enum PlayerEnum
     /// JohnArmstrong8473530
     /// </summary>
     JohnArmstrong8473530 = 8473530,
-    /// <summary>
-    /// JoeStejskal8474036
-    /// </summary>
-    JoeStejskal8474036 = 8474036,
     /// <summary>
     /// BrettBellemore8474135
     /// </summary>
@@ -73438,10 +70017,6 @@ public enum PlayerEnum
     /// </summary>
     AdamCracknell8471490 = 8471490,
     /// <summary>
-    /// MattNiskanen8471702
-    /// </summary>
-    MattNiskanen8471702 = 8471702,
-    /// <summary>
     /// CoreyFienhage8474643
     /// </summary>
     CoreyFienhage8474643 = 8474643,
@@ -73450,17 +70025,9 @@ public enum PlayerEnum
     /// </summary>
     BobbyRyan8471676 = 8471676,
     /// <summary>
-    /// JeffCarter8470604
-    /// </summary>
-    JeffCarter8470604 = 8470604,
-    /// <summary>
     /// MarcBureau8445775
     /// </summary>
     MarcBureau8445775 = 8445775,
-    /// <summary>
-    /// BryanLittle8473412
-    /// </summary>
-    BryanLittle8473412 = 8473412,
     /// <summary>
     /// PaulSzczechura8473898
     /// </summary>
@@ -73594,10 +70161,6 @@ public enum PlayerEnum
     /// </summary>
     MartinNolet8473552 = 8473552,
     /// <summary>
-    /// SheaWeber8470642
-    /// </summary>
-    SheaWeber8470642 = 8470642,
-    /// <summary>
     /// AlexOvechkin8471214
     /// </summary>
     AlexOvechkin8471214 = 8471214,
@@ -73621,18 +70184,6 @@ public enum PlayerEnum
     /// MartinSagat8470684
     /// </summary>
     MartinSagat8470684 = 8470684,
-    /// <summary>
-    /// KevinShattenkirk8474031
-    /// </summary>
-    KevinShattenkirk8474031 = 8474031,
-    /// <summary>
-    /// StevenStamkos8474564
-    /// </summary>
-    StevenStamkos8474564 = 8474564,
-    /// <summary>
-    /// ZacDalpe8474610
-    /// </summary>
-    ZacDalpe8474610 = 8474610,
     /// <summary>
     /// ChrisAhrens8444865
     /// </summary>
@@ -73661,10 +70212,6 @@ public enum PlayerEnum
     /// GaryDornhoefer8445943
     /// </summary>
     GaryDornhoefer8445943 = 8445943,
-    /// <summary>
-    /// TimEcclestone8445998
-    /// </summary>
-    TimEcclestone8445998 = 8445998,
     /// <summary>
     /// PaulEvans8446174
     /// </summary>
@@ -74986,10 +71533,6 @@ public enum PlayerEnum
     /// </summary>
     LenBroderick8449840 = 8449840,
     /// <summary>
-    /// EdChadwick8449851
-    /// </summary>
-    EdChadwick8449851 = 8449851,
-    /// <summary>
     /// RockyFarr8449917
     /// </summary>
     RockyFarr8449917 = 8449917,
@@ -75534,10 +72077,6 @@ public enum PlayerEnum
     /// </summary>
     MichaelBoivin8479046 = 8479046,
     /// <summary>
-    /// NickJohnson8471280
-    /// </summary>
-    NickJohnson8471280 = 8471280,
-    /// <summary>
     /// CodySol8475273
     /// </summary>
     CodySol8475273 = 8475273,
@@ -76018,10 +72557,6 @@ public enum PlayerEnum
     /// </summary>
     SergeiShumakov8481258 = 8481258,
     /// <summary>
-    /// DylanOlsen8475153
-    /// </summary>
-    DylanOlsen8475153 = 8475153,
-    /// <summary>
     /// ChrisBreen8475648
     /// </summary>
     ChrisBreen8475648 = 8475648,
@@ -76189,10 +72724,6 @@ public enum PlayerEnum
     /// WillieMarshall8447621
     /// </summary>
     WillieMarshall8447621 = 8447621,
-    /// <summary>
-    /// PaulMasnick8447632
-    /// </summary>
-    PaulMasnick8447632 = 8447632,
     /// <summary>
     /// TomMcCarthy8447676
     /// </summary>
@@ -76417,14 +72948,6 @@ public enum PlayerEnum
     /// CarterCamper8476211
     /// </summary>
     CarterCamper8476211 = 8476211,
-    /// <summary>
-    /// RyanBourque8475243
-    /// </summary>
-    RyanBourque8475243 = 8475243,
-    /// <summary>
-    /// AlexFallstrom8475276
-    /// </summary>
-    AlexFallstrom8475276 = 8475276,
     /// <summary>
     /// RyanSpooner8475727
     /// </summary>
@@ -77046,10 +73569,6 @@ public enum PlayerEnum
     /// </summary>
     JimmyHoward8470657 = 8470657,
     /// <summary>
-    /// JustinAbdelkader8471716
-    /// </summary>
-    JustinAbdelkader8471716 = 8471716,
-    /// <summary>
     /// JohnHenderson8449991
     /// </summary>
     JohnHenderson8449991 = 8449991,
@@ -77170,10 +73689,6 @@ public enum PlayerEnum
     /// </summary>
     ValtteriFilppula8470047 = 8470047,
     /// <summary>
-    /// TravisZajac8471233
-    /// </summary>
-    TravisZajac8471233 = 8471233,
-    /// <summary>
     /// AndreHinse8446880
     /// </summary>
     AndreHinse8446880 = 8446880,
@@ -77189,10 +73704,6 @@ public enum PlayerEnum
     /// MikeBoland8445112
     /// </summary>
     MikeBoland8445112 = 8445112,
-    /// <summary>
-    /// MarcelBonin8445116
-    /// </summary>
-    MarcelBonin8445116 = 8445116,
     /// <summary>
     /// ButchBouchard8445132
     /// </summary>
@@ -77494,10 +74005,6 @@ public enum PlayerEnum
     /// </summary>
     PaulMeger8447833 = 8447833,
     /// <summary>
-    /// NickSchmaltz8477951
-    /// </summary>
-    NickSchmaltz8477951 = 8477951,
-    /// <summary>
     /// StuSmith8449086
     /// </summary>
     StuSmith8449086 = 8449086,
@@ -77517,10 +74024,6 @@ public enum PlayerEnum
     /// MartinHas8481700
     /// </summary>
     MartinHas8481700 = 8481700,
-    /// <summary>
-    /// ReillySmith8475191
-    /// </summary>
-    ReillySmith8475191 = 8475191,
     /// <summary>
     /// ChrisJensen8448268
     /// </summary>
@@ -77550,14 +74053,6 @@ public enum PlayerEnum
     /// </summary>
     JeremyGroleau8481208 = 8481208,
     /// <summary>
-    /// KevinHayes8475763
-    /// </summary>
-    KevinHayes8475763 = 8475763,
-    /// <summary>
-    /// MilesWood8477425
-    /// </summary>
-    MilesWood8477425 = 8477425,
-    /// <summary>
     /// DuncanKeith8470281
     /// </summary>
     DuncanKeith8470281 = 8470281,
@@ -77569,10 +74064,6 @@ public enum PlayerEnum
     /// DaveReece8450098
     /// </summary>
     DaveReece8450098 = 8450098,
-    /// <summary>
-    /// KailerYamamoto8479977
-    /// </summary>
-    KailerYamamoto8479977 = 8479977,
     /// <summary>
     /// NoahBushnell8478960
     /// </summary>
@@ -77618,22 +74109,6 @@ public enum PlayerEnum
     /// </summary>
     JakeLivingstone8484256 = 8484256,
     /// <summary>
-    /// KevinGravel8475857
-    /// </summary>
-    KevinGravel8475857 = 8475857,
-    /// <summary>
-    /// KyleKeyser8480356
-    /// </summary>
-    KyleKeyser8480356 = 8480356,
-    /// <summary>
-    /// CooperMarody8478442
-    /// </summary>
-    CooperMarody8478442 = 8478442,
-    /// <summary>
-    /// AshtonSautner8477085
-    /// </summary>
-    AshtonSautner8477085 = 8477085,
-    /// <summary>
     /// NikoMikkola8478859
     /// </summary>
     NikoMikkola8478859 = 8478859,
@@ -77645,10 +74120,6 @@ public enum PlayerEnum
     /// MartinStPierre8470366
     /// </summary>
     MartinStPierre8470366 = 8470366,
-    /// <summary>
-    /// AndrewAgozzino8475461
-    /// </summary>
-    AndrewAgozzino8475461 = 8475461,
     /// <summary>
     /// DaveAmadio8444876
     /// </summary>
@@ -78438,10 +74909,6 @@ public enum PlayerEnum
     /// </summary>
     ColinFraser8470662 = 8470662,
     /// <summary>
-    /// ChrisHolt8470772
-    /// </summary>
-    ChrisHolt8470772 = 8470772,
-    /// <summary>
     /// ChadJohnson8473434
     /// </summary>
     ChadJohnson8473434 = 8473434,
@@ -78449,10 +74916,6 @@ public enum PlayerEnum
     /// CraigCunningham8475414
     /// </summary>
     CraigCunningham8475414 = 8475414,
-    /// <summary>
-    /// AlexBroadhurst8476283
-    /// </summary>
-    AlexBroadhurst8476283 = 8476283,
     /// <summary>
     /// ZackPhillips8476481
     /// </summary>
@@ -79898,10 +76361,6 @@ public enum PlayerEnum
     /// </summary>
     DanOlesevich8450055 = 8450055,
     /// <summary>
-    /// JacquesPlante8450066
-    /// </summary>
-    JacquesPlante8450066 = 8450066,
-    /// <summary>
     /// HerbRheaume8450099
     /// </summary>
     HerbRheaume8450099 = 8450099,
@@ -79998,10 +76457,6 @@ public enum PlayerEnum
     /// </summary>
     JohanWitehall8467534 = 8467534,
     /// <summary>
-    /// NathanMarsters8468645
-    /// </summary>
-    NathanMarsters8468645 = 8468645,
-    /// <summary>
     /// FedorTyutin8469492
     /// </summary>
     FedorTyutin8469492 = 8469492,
@@ -80013,10 +76468,6 @@ public enum PlayerEnum
     /// AlMontoya8471219
     /// </summary>
     AlMontoya8471219 = 8471219,
-    /// <summary>
-    /// ColbyCohen8474002
-    /// </summary>
-    ColbyCohen8474002 = 8474002,
     /// <summary>
     /// MaxSauve8474607
     /// </summary>
@@ -80422,10 +76873,6 @@ public enum PlayerEnum
     /// </summary>
     JimJohannson8456722 = 8456722,
     /// <summary>
-    /// ChrisSimon8458031
-    /// </summary>
-    ChrisSimon8458031 = 8458031,
-    /// <summary>
     /// DougWeight8458361
     /// </summary>
     DougWeight8458361 = 8458361,
@@ -80738,10 +77185,6 @@ public enum PlayerEnum
     /// </summary>
     ZachTrotman8475902 = 8475902,
     /// <summary>
-    /// DavidWarsofsky8474660
-    /// </summary>
-    DavidWarsofsky8474660 = 8474660,
-    /// <summary>
     /// JohnnyGottselig8446617
     /// </summary>
     JohnnyGottselig8446617 = 8446617,
@@ -80774,17 +77217,9 @@ public enum PlayerEnum
     /// </summary>
     MatthewCairns8479417 = 8479417,
     /// <summary>
-    /// BrentSeabrook8470607
-    /// </summary>
-    BrentSeabrook8470607 = 8470607,
-    /// <summary>
     /// ArtemAnisimov8473573
     /// </summary>
     ArtemAnisimov8473573 = 8473573,
-    /// <summary>
-    /// MattBartkowski8474749
-    /// </summary>
-    MattBartkowski8474749 = 8474749,
     /// <summary>
     /// KevanMiller8476191
     /// </summary>
@@ -81302,10 +77737,6 @@ public enum PlayerEnum
     /// </summary>
     ZdenoChara8465009 = 8465009,
     /// <summary>
-    /// BrianBoyle8470619
-    /// </summary>
-    BrianBoyle8470619 = 8470619,
-    /// <summary>
     /// LouiEriksson8470626
     /// </summary>
     LouiEriksson8470626 = 8470626,
@@ -81434,25 +77865,13 @@ public enum PlayerEnum
     /// </summary>
     HerbDickenson8445903 = 8445903,
     /// <summary>
-    /// RyanMcDonagh8474151
-    /// </summary>
-    RyanMcDonagh8474151 = 8474151,
-    /// <summary>
     /// ToreyKrug8476792
     /// </summary>
     ToreyKrug8476792 = 8476792,
     /// <summary>
-    /// JohnMarino8478507
-    /// </summary>
-    JohnMarino8478507 = 8478507,
-    /// <summary>
     /// MichaelHaviland8456534
     /// </summary>
     MichaelHaviland8456534 = 8456534,
-    /// <summary>
-    /// JoshManson8476312
-    /// </summary>
-    JoshManson8476312 = 8476312,
     /// <summary>
     /// BrandonSaad8476438
     /// </summary>
@@ -81461,10 +77880,6 @@ public enum PlayerEnum
     /// DaveGardner8447042
     /// </summary>
     DaveGardner8447042 = 8447042,
-    /// <summary>
-    /// RaymondSawada8471265
-    /// </summary>
-    RaymondSawada8471265 = 8471265,
     /// <summary>
     /// KennyGirard8446589
     /// </summary>
@@ -81554,10 +77969,6 @@ public enum PlayerEnum
     /// </summary>
     IsakWalther8481730 = 8481730,
     /// <summary>
-    /// JohnathanKovacevic8480192
-    /// </summary>
-    JohnathanKovacevic8480192 = 8480192,
-    /// <summary>
     /// NicolasKerdiles8476866
     /// </summary>
     NicolasKerdiles8476866 = 8476866,
@@ -81577,10 +77988,6 @@ public enum PlayerEnum
     /// ConnorMcDavid8478402
     /// </summary>
     ConnorMcDavid8478402 = 8478402,
-    /// <summary>
-    /// VincentDesharnais8479576
-    /// </summary>
-    VincentDesharnais8479576 = 8479576,
     /// <summary>
     /// EvanBouchard8480803
     /// </summary>
@@ -81605,22 +78012,6 @@ public enum PlayerEnum
     /// RyanMcLeod8480802
     /// </summary>
     RyanMcLeod8480802 = 8480802,
-    /// <summary>
-    /// SethGriffith8476495
-    /// </summary>
-    SethGriffith8476495 = 8476495,
-    /// <summary>
-    /// XavierOuellet8476443
-    /// </summary>
-    XavierOuellet8476443 = 8476443,
-    /// <summary>
-    /// BradMalone8474089
-    /// </summary>
-    BradMalone8474089 = 8474089,
-    /// <summary>
-    /// MalcolmSubban8476876
-    /// </summary>
-    MalcolmSubban8476876 = 8476876,
     /// <summary>
     /// MylesLane8447318
     /// </summary>
@@ -84014,10 +80405,6 @@ public enum PlayerEnum
     /// </summary>
     ConnieDion8449896 = 8449896,
     /// <summary>
-    /// JimmyHayes8474625
-    /// </summary>
-    JimmyHayes8474625 = 8474625,
-    /// <summary>
     /// TonyFeatherstone8446196
     /// </summary>
     TonyFeatherstone8446196 = 8446196,
@@ -84146,10 +80533,6 @@ public enum PlayerEnum
     /// </summary>
     LarryHillman8446864 = 8446864,
     /// <summary>
-    /// RonaldKennedy8448453
-    /// </summary>
-    RonaldKennedy8448453 = 8448453,
-    /// <summary>
     /// HenryBoucha8445129
     /// </summary>
     HenryBoucha8445129 = 8445129,
@@ -84161,14 +80544,6 @@ public enum PlayerEnum
     /// NathanPilling8484545
     /// </summary>
     NathanPilling8484545 = 8484545,
-    /// <summary>
-    /// MikeHoffman8474884
-    /// </summary>
-    MikeHoffman8474884 = 8474884,
-    /// <summary>
-    /// BradLambert8483471
-    /// </summary>
-    BradLambert8483471 = 8483471,
     /// <summary>
     /// MasonAppleton8478891
     /// </summary>
@@ -84190,21 +80565,9 @@ public enum PlayerEnum
     /// </summary>
     NealPionk8480145 = 8480145,
     /// <summary>
-    /// VilleHeinola8481572
-    /// </summary>
-    VilleHeinola8481572 = 8481572,
-    /// <summary>
     /// ColePerfetti8482149
     /// </summary>
     ColePerfetti8482149 = 8482149,
-    /// <summary>
-    /// BrendenDillon8475455
-    /// </summary>
-    BrendenDillon8475455 = 8475455,
-    /// <summary>
-    /// LaurentBrossoit8476316
-    /// </summary>
-    LaurentBrossoit8476316 = 8476316,
     /// <summary>
     /// DylanDeMelo8476331
     /// </summary>
@@ -84218,14 +80581,6 @@ public enum PlayerEnum
     /// </summary>
     VladislavNamestnikov8476480 = 8476480,
     /// <summary>
-    /// ConnorHellebuyck8476945
-    /// </summary>
-    ConnorHellebuyck8476945 = 8476945,
-    /// <summary>
-    /// NateSchmidt8477220
-    /// </summary>
-    NateSchmidt8477220 = 8477220,
-    /// <summary>
     /// JoshMorrissey8477504
     /// </summary>
     JoshMorrissey8477504 = 8477504,
@@ -84233,10 +80588,6 @@ public enum PlayerEnum
     /// NikolajEhlers8477940
     /// </summary>
     NikolajEhlers8477940 = 8477940,
-    /// <summary>
-    /// CamAtkinson8474715
-    /// </summary>
-    CamAtkinson8474715 = 8474715,
     /// <summary>
     /// NicolasDeslauriers8475235
     /// </summary>
@@ -84262,10 +80613,6 @@ public enum PlayerEnum
     /// </summary>
     TysonFoerster8482159 = 8482159,
     /// <summary>
-    /// NickSeeler8476372
-    /// </summary>
-    NickSeeler8476372 = 8476372,
-    /// <summary>
     /// ScottLaughton8476872
     /// </summary>
     ScottLaughton8476872 = 8476872,
@@ -84281,10 +80628,6 @@ public enum PlayerEnum
     /// RyanPoehling8480068
     /// </summary>
     RyanPoehling8480068 = 8480068,
-    /// <summary>
-    /// SeanWalker8480336
-    /// </summary>
-    SeanWalker8480336 = 8480336,
     /// <summary>
     /// SamuelErsson8481035
     /// </summary>
@@ -84342,10 +80685,6 @@ public enum PlayerEnum
     /// </summary>
     TylerBenson8479347 = 8479347,
     /// <summary>
-    /// KiefferBellows8479356
-    /// </summary>
-    KiefferBellows8479356 = 8479356,
-    /// <summary>
     /// DylanWells8479380
     /// </summary>
     DylanWells8479380 = 8479380,
@@ -84353,10 +80692,6 @@ public enum PlayerEnum
     /// HenrikBorgstrom8479404
     /// </summary>
     HenrikBorgstrom8479404 = 8479404,
-    /// <summary>
-    /// MaxComtois8480031
-    /// </summary>
-    MaxComtois8480031 = 8480031,
     /// <summary>
     /// JoelTeasdale8480034
     /// </summary>
@@ -84377,10 +80712,6 @@ public enum PlayerEnum
     /// AustinStrand8480467
     /// </summary>
     AustinStrand8480467 = 8480467,
-    /// <summary>
-    /// FilipKral8480820
-    /// </summary>
-    FilipKral8480820 = 8480820,
     /// <summary>
     /// MartinKaut8480822
     /// </summary>
@@ -84450,10 +80781,6 @@ public enum PlayerEnum
     /// </summary>
     JaroslavHalak8470860 = 8470860,
     /// <summary>
-    /// BrianElliott8470880
-    /// </summary>
-    BrianElliott8470880 = 8470880,
-    /// <summary>
     /// DavidKrejci8471276
     /// </summary>
     DavidKrejci8471276 = 8471276,
@@ -84518,21 +80845,9 @@ public enum PlayerEnum
     /// </summary>
     JoshBailey8474573 = 8474573,
     /// <summary>
-    /// DerekStepan8474613
-    /// </summary>
-    DerekStepan8474613 = 8474613,
-    /// <summary>
     /// MichaelStone8474628
     /// </summary>
     MichaelStone8474628 = 8474628,
-    /// <summary>
-    /// DerekGrant8474683
-    /// </summary>
-    DerekGrant8474683 = 8474683,
-    /// <summary>
-    /// MarkBorowiecki8474697
-    /// </summary>
-    MarkBorowiecki8474697 = 8474697,
     /// <summary>
     /// JordieBenn8474818
     /// </summary>
@@ -84557,10 +80872,6 @@ public enum PlayerEnum
     /// LukasSedlak8476310
     /// </summary>
     LukasSedlak8476310 = 8476310,
-    /// <summary>
-    /// JoshArchibald8476326
-    /// </summary>
-    JoshArchibald8476326 = 8476326,
     /// <summary>
     /// JosephCramarossa8476390
     /// </summary>
@@ -84594,17 +80905,9 @@ public enum PlayerEnum
     /// </summary>
     AlexGalchenyuk8476851 = 8476851,
     /// <summary>
-    /// JonGillies8476903
-    /// </summary>
-    JonGillies8476903 = 8476903,
-    /// <summary>
     /// CharlesHudon8476948
     /// </summary>
     CharlesHudon8476948 = 8476948,
-    /// <summary>
-    /// AaronDell8477180
-    /// </summary>
-    AaronDell8477180 = 8477180,
     /// <summary>
     /// BuddyRobinson8477210
     /// </summary>
@@ -84646,25 +80949,9 @@ public enum PlayerEnum
     /// </summary>
     CraigAnderson8467950 = 8467950,
     /// <summary>
-    /// VasilyPodkolzin8481617
-    /// </summary>
-    VasilyPodkolzin8481617 = 8481617,
-    /// <summary>
-    /// RileySutter8480791
-    /// </summary>
-    RileySutter8480791 = 8480791,
-    /// <summary>
-    /// ConnorMcMichael8481580
-    /// </summary>
-    ConnorMcMichael8481580 = 8481580,
-    /// <summary>
     /// EastonCowan8484158
     /// </summary>
     EastonCowan8484158 = 8484158,
-    /// <summary>
-    /// NoahGregor8479393
-    /// </summary>
-    NoahGregor8479393 = 8479393,
     /// <summary>
     /// AndreHeim8484316
     /// </summary>
@@ -84686,41 +80973,13 @@ public enum PlayerEnum
     /// </summary>
     AlexDeBrincat8479337 = 8479337,
     /// <summary>
-    /// JamesReimer8473503
-    /// </summary>
-    JamesReimer8473503 = 8473503,
-    /// <summary>
-    /// JeffPetry8473507
-    /// </summary>
-    JeffPetry8473507 = 8473507,
-    /// <summary>
-    /// DavidPerron8474102
-    /// </summary>
-    DavidPerron8474102 = 8474102,
-    /// <summary>
     /// BenChiarot8475279
     /// </summary>
     BenChiarot8475279 = 8475279,
     /// <summary>
-    /// JustinHoll8475718
-    /// </summary>
-    JustinHoll8475718 = 8475718,
-    /// <summary>
-    /// ShayneGostisbehere8476906
-    /// </summary>
-    ShayneGostisbehere8476906 = 8476906,
-    /// <summary>
-    /// JakeWalman8478013
-    /// </summary>
-    JakeWalman8478013 = 8478013,
-    /// <summary>
     /// MichaelRasmussen8479992
     /// </summary>
     MichaelRasmussen8479992 = 8479992,
-    /// <summary>
-    /// JoeVeleno8480813
-    /// </summary>
-    JoeVeleno8480813 = 8480813,
     /// <summary>
     /// MoritzSeider8481542
     /// </summary>
@@ -84734,17 +80993,9 @@ public enum PlayerEnum
     /// </summary>
     ArthurKaliyev8481560 = 8481560,
     /// <summary>
-    /// TrevorLewis8473453
-    /// </summary>
-    TrevorLewis8473453 = 8473453,
-    /// <summary>
     /// QuintonByfield8482124
     /// </summary>
     QuintonByfield8482124 = 8482124,
-    /// <summary>
-    /// CamTalbot8475660
-    /// </summary>
-    CamTalbot8475660 = 8475660,
     /// <summary>
     /// KevinFiala8477942
     /// </summary>
@@ -84753,14 +81004,6 @@ public enum PlayerEnum
     /// AndreasEnglund8477971
     /// </summary>
     AndreasEnglund8477971 = 8477971,
-    /// <summary>
-    /// MattRoy8478911
-    /// </summary>
-    MattRoy8478911 = 8478911,
-    /// <summary>
-    /// PierreLucDubois8479400
-    /// </summary>
-    PierreLucDubois8479400 = 8479400,
     /// <summary>
     /// TrevorMoore8479675
     /// </summary>
@@ -84778,26 +81021,6 @@ public enum PlayerEnum
     /// </summary>
     ClaudeGiroux8473512 = 8473512,
     /// <summary>
-    /// VladimirTarasenko8475765
-    /// </summary>
-    VladimirTarasenko8475765 = 8475765,
-    /// <summary>
-    /// JoonasKorpisalo8476914
-    /// </summary>
-    JoonasKorpisalo8476914 = 8476914,
-    /// <summary>
-    /// DominikKubalik8477330
-    /// </summary>
-    DominikKubalik8477330 = 8477330,
-    /// <summary>
-    /// JakobChychrun8479345
-    /// </summary>
-    JakobChychrun8479345 = 8479345,
-    /// <summary>
-    /// ParkerKelly8480448
-    /// </summary>
-    ParkerKelly8480448 = 8480448,
-    /// <summary>
     /// BradyTkachuk8480801
     /// </summary>
     BradyTkachuk8480801 = 8480801,
@@ -84814,29 +81037,9 @@ public enum PlayerEnum
     /// </summary>
     JakeSanderson8482105 = 8482105,
     /// <summary>
-    /// MarkusNiemelainen8479338
-    /// </summary>
-    MarkusNiemelainen8479338 = 8479338,
-    /// <summary>
     /// TyGlover8483535
     /// </summary>
     TyGlover8483535 = 8483535,
-    /// <summary>
-    /// JackRathbone8480056
-    /// </summary>
-    JackRathbone8480056 = 8480056,
-    /// <summary>
-    /// GuillaumeBrisebois8478465
-    /// </summary>
-    GuillaumeBrisebois8478465 = 8478465,
-    /// <summary>
-    /// JoshNorris8480064
-    /// </summary>
-    JoshNorris8480064 = 8480064,
-    /// <summary>
-    /// NikitaOkhotiuk8481537
-    /// </summary>
-    NikitaOkhotiuk8481537 = 8481537,
     /// <summary>
     /// KarelPlasek8481728
     /// </summary>
@@ -84846,29 +81049,9 @@ public enum PlayerEnum
     /// </summary>
     MarkFriedman8478017 = 8478017,
     /// <summary>
-    /// SamLafferty8478043
-    /// </summary>
-    SamLafferty8478043 = 8478043,
-    /// <summary>
-    /// CaseyDeSmith8479193
-    /// </summary>
-    CaseyDeSmith8479193 = 8479193,
-    /// <summary>
-    /// JohnnyGaudreau8476346
-    /// </summary>
-    JohnnyGaudreau8476346 = 8476346,
-    /// <summary>
     /// IvanProvorov8478500
     /// </summary>
     IvanProvorov8478500 = 8478500,
-    /// <summary>
-    /// AndrewPeeke8479369
-    /// </summary>
-    AndrewPeeke8479369 = 8479369,
-    /// <summary>
-    /// JakeBean8479402
-    /// </summary>
-    JakeBean8479402 = 8479402,
     /// <summary>
     /// MathieuOlivier8479671
     /// </summary>
@@ -84878,10 +81061,6 @@ public enum PlayerEnum
     /// </summary>
     JustinDanforth8479941 = 8479941,
     /// <summary>
-    /// AlexandreTexier8480074
-    /// </summary>
-    AlexandreTexier8480074 = 8480074,
-    /// <summary>
     /// KirillMarchenko8480893
     /// </summary>
     KirillMarchenko8480893 = 8480893,
@@ -84889,10 +81068,6 @@ public enum PlayerEnum
     /// AdamFantilli8484166
     /// </summary>
     AdamFantilli8484166 = 8484166,
-    /// <summary>
-    /// RadimSimek8480160
-    /// </summary>
-    RadimSimek8480160 = 8480160,
     /// <summary>
     /// KirbyDach8481523
     /// </summary>
@@ -84954,10 +81129,6 @@ public enum PlayerEnum
     /// </summary>
     BenAllison8483095 = 8483095,
     /// <summary>
-    /// MichaelSimpson8483101
-    /// </summary>
-    MichaelSimpson8483101 = 8483101,
-    /// <summary>
     /// JacobFrasca8483107
     /// </summary>
     JacobFrasca8483107 = 8483107,
@@ -84973,10 +81144,6 @@ public enum PlayerEnum
     /// OwenFlores8483781
     /// </summary>
     OwenFlores8483781 = 8483781,
-    /// <summary>
-    /// OwenAllard8483798
-    /// </summary>
-    OwenAllard8483798 = 8483798,
     /// <summary>
     /// SpencerSova8483811
     /// </summary>
@@ -85002,17 +81169,9 @@ public enum PlayerEnum
     /// </summary>
     AdamMechura8483892 = 8483892,
     /// <summary>
-    /// TomasSuchanek8483898
-    /// </summary>
-    TomasSuchanek8483898 = 8483898,
-    /// <summary>
     /// MaxNamestnikov8483912
     /// </summary>
     MaxNamestnikov8483912 = 8483912,
-    /// <summary>
-    /// MiloRoelens8483921
-    /// </summary>
-    MiloRoelens8483921 = 8483921,
     /// <summary>
     /// LouisBoudon8484119
     /// </summary>
@@ -85058,10 +81217,6 @@ public enum PlayerEnum
     /// </summary>
     PierOlivierRoy8484512 = 8484512,
     /// <summary>
-    /// LucasMoore8484513
-    /// </summary>
-    LucasMoore8484513 = 8484513,
-    /// <summary>
     /// MarcoMignosa8484514
     /// </summary>
     MarcoMignosa8484514 = 8484514,
@@ -85097,10 +81252,6 @@ public enum PlayerEnum
     /// KochaDelic8484536
     /// </summary>
     KochaDelic8484536 = 8484536,
-    /// <summary>
-    /// OasizWiesblatt8484537
-    /// </summary>
-    OasizWiesblatt8484537 = 8484537,
     /// <summary>
     /// NicholasDeangelis8484538
     /// </summary>
@@ -85146,10 +81297,6 @@ public enum PlayerEnum
     /// </summary>
     FelixGagnon8484585 = 8484585,
     /// <summary>
-    /// JosephHenneberry8484586
-    /// </summary>
-    JosephHenneberry8484586 = 8484586,
-    /// <summary>
     /// KyleCrnkovic8484594
     /// </summary>
     KyleCrnkovic8484594 = 8484594,
@@ -85161,14 +81308,6 @@ public enum PlayerEnum
     /// MazdenLeslie8484631
     /// </summary>
     MazdenLeslie8484631 = 8484631,
-    /// <summary>
-    /// IlyaMikheyev8481624
-    /// </summary>
-    IlyaMikheyev8481624 = 8481624,
-    /// <summary>
-    /// CallahanBurke8482250
-    /// </summary>
-    CallahanBurke8482250 = 8482250,
     /// <summary>
     /// JacobBernardDocker8480879
     /// </summary>
@@ -85194,18 +81333,6 @@ public enum PlayerEnum
     /// </summary>
     DuncWilson8450148 = 8450148,
     /// <summary>
-    /// CoreyAndonovski8483394
-    /// </summary>
-    CoreyAndonovski8483394 = 8483394,
-    /// <summary>
-    /// OzzyWiesblatt8482103
-    /// </summary>
-    OzzyWiesblatt8482103 = 8482103,
-    /// <summary>
-    /// GeorgiRomanov8484312
-    /// </summary>
-    GeorgiRomanov8484312 = 8484312,
-    /// <summary>
     /// ValtteriPulli8484313
     /// </summary>
     ValtteriPulli8484313 = 8484313,
@@ -85214,65 +81341,17 @@ public enum PlayerEnum
     /// </summary>
     AndreiSvechnikov8480830 = 8480830,
     /// <summary>
-    /// WilliamLagesson8478021
-    /// </summary>
-    WilliamLagesson8478021 = 8478021,
-    /// <summary>
     /// FraserMinten8483489
     /// </summary>
     FraserMinten8483489 = 8483489,
-    /// <summary>
-    /// MilanLucic8473473
-    /// </summary>
-    MilanLucic8473473 = 8473473,
-    /// <summary>
-    /// DylanCoghlan8479639
-    /// </summary>
-    DylanCoghlan8479639 = 8479639,
-    /// <summary>
-    /// JakubZboril8478415
-    /// </summary>
-    JakubZboril8478415 = 8478415,
-    /// <summary>
-    /// JacobPeterson8480216
-    /// </summary>
-    JacobPeterson8480216 = 8480216,
-    /// <summary>
-    /// ThomasBordeleau8482133
-    /// </summary>
-    ThomasBordeleau8482133 = 8482133,
-    /// <summary>
-    /// CoreySchueneman8481461
-    /// </summary>
-    CoreySchueneman8481461 = 8481461,
-    /// <summary>
-    /// DevinCooley8482445
-    /// </summary>
-    DevinCooley8482445 = 8482445,
     /// <summary>
     /// AdamJohnson8480341
     /// </summary>
     AdamJohnson8480341 = 8480341,
     /// <summary>
-    /// BenMcCartney8481827
-    /// </summary>
-    BenMcCartney8481827 = 8481827,
-    /// <summary>
-    /// JujharKhaira8476915
-    /// </summary>
-    JujharKhaira8476915 = 8476915,
-    /// <summary>
-    /// DantonHeinen8478046
-    /// </summary>
-    DantonHeinen8478046 = 8478046,
-    /// <summary>
     /// NicklasBackstrom8473563
     /// </summary>
     NicklasBackstrom8473563 = 8473563,
-    /// <summary>
-    /// SamGagner8474040
-    /// </summary>
-    SamGagner8474040 = 8474040,
     /// <summary>
     /// LloydAndrews8444936
     /// </summary>
@@ -85334,49 +81413,13 @@ public enum PlayerEnum
     /// </summary>
     YegorChinakhov8482475 = 8482475,
     /// <summary>
-    /// FilipChytil8480078
-    /// </summary>
-    FilipChytil8480078 = 8480078,
-    /// <summary>
     /// JackMalone8481731
     /// </summary>
     JackMalone8481731 = 8481731,
     /// <summary>
-    /// NicholasRobertson8481582
-    /// </summary>
-    NicholasRobertson8481582 = 8481582,
-    /// <summary>
-    /// TylerMotte8477353
-    /// </summary>
-    TylerMotte8477353 = 8477353,
-    /// <summary>
-    /// ConnorZary8482074
-    /// </summary>
-    ConnorZary8482074 = 8482074,
-    /// <summary>
-    /// FrederikAndersen8475883
-    /// </summary>
-    FrederikAndersen8475883 = 8475883,
-    /// <summary>
     /// JonahGadjovich8479981
     /// </summary>
     JonahGadjovich8479981 = 8479981,
-    /// <summary>
-    /// BradyLyle8480404
-    /// </summary>
-    BradyLyle8480404 = 8480404,
-    /// <summary>
-    /// IvanZhigalov8482990
-    /// </summary>
-    IvanZhigalov8482990 = 8482990,
-    /// <summary>
-    /// RobbyFabbri8477952
-    /// </summary>
-    RobbyFabbri8477952 = 8477952,
-    /// <summary>
-    /// SimonKnak8482204
-    /// </summary>
-    SimonKnak8482204 = 8482204,
     /// <summary>
     /// ArseniGritsyuk8481721
     /// </summary>
@@ -85390,25 +81433,9 @@ public enum PlayerEnum
     /// </summary>
     ChasePriskie8479597 = 8479597,
     /// <summary>
-    /// MichaelKesselring8480891
-    /// </summary>
-    MichaelKesselring8480891 = 8480891,
-    /// <summary>
-    /// JackCampbell8475789
-    /// </summary>
-    JackCampbell8475789 = 8475789,
-    /// <summary>
-    /// CalenAddison8480884
-    /// </summary>
-    CalenAddison8480884 = 8480884,
-    /// <summary>
     /// CalvinPickard8475717
     /// </summary>
     CalvinPickard8475717 = 8475717,
-    /// <summary>
-    /// OndrejPavel8484259
-    /// </summary>
-    OndrejPavel8484259 = 8484259,
     /// <summary>
     /// ZachBogosian8474567
     /// </summary>
@@ -85418,29 +81445,13 @@ public enum PlayerEnum
     /// </summary>
     GlenHanlon8447505 = 8447505,
     /// <summary>
-    /// JasonZucker8475722
-    /// </summary>
-    JasonZucker8475722 = 8475722,
-    /// <summary>
     /// AndreasJohnsson8477341
     /// </summary>
     AndreasJohnsson8477341 = 8477341,
     /// <summary>
-    /// JakubLauko8480880
-    /// </summary>
-    JakubLauko8480880 = 8480880,
-    /// <summary>
-    /// DavidKase8478436
-    /// </summary>
-    DavidKase8478436 = 8478436,
-    /// <summary>
     /// TarmoReunanen8479462
     /// </summary>
     TarmoReunanen8479462 = 8479462,
-    /// <summary>
-    /// VilleKoivunen8482758
-    /// </summary>
-    VilleKoivunen8482758 = 8482758,
     /// <summary>
     /// SimonForsmark8483674
     /// </summary>
@@ -85450,14 +81461,6 @@ public enum PlayerEnum
     /// </summary>
     MichaelEmerson8484469 = 8484469,
     /// <summary>
-    /// NicolasAubeKubel8477979
-    /// </summary>
-    NicolasAubeKubel8477979 = 8477979,
-    /// <summary>
-    /// DylanGarand8482193
-    /// </summary>
-    DylanGarand8482193 = 8482193,
-    /// <summary>
     /// ZachWhitecloud8480727
     /// </summary>
     ZachWhitecloud8480727 = 8480727,
@@ -85465,10 +81468,6 @@ public enum PlayerEnum
     /// NikolasMatinpalo8484321
     /// </summary>
     NikolasMatinpalo8484321 = 8484321,
-    /// <summary>
-    /// JoelBlomqvist8482446
-    /// </summary>
-    JoelBlomqvist8482446 = 8482446,
     /// <summary>
     /// MattSavoie8483512
     /// </summary>
@@ -85482,37 +81481,13 @@ public enum PlayerEnum
     /// </summary>
     RomanCechmanek8468651 = 8468651,
     /// <summary>
-    /// LouisDomingue8475839
-    /// </summary>
-    LouisDomingue8475839 = 8475839,
-    /// <summary>
-    /// VictorMete8479376
-    /// </summary>
-    VictorMete8479376 = 8479376,
-    /// <summary>
     /// AlexLaferriere8482155
     /// </summary>
     AlexLaferriere8482155 = 8482155,
     /// <summary>
-    /// JoelKiviranta8481641
-    /// </summary>
-    JoelKiviranta8481641 = 8481641,
-    /// <summary>
     /// BrandonTanev8479293
     /// </summary>
     BrandonTanev8479293 = 8479293,
-    /// <summary>
-    /// JaretAndersonDolan8479994
-    /// </summary>
-    JaretAndersonDolan8479994 = 8479994,
-    /// <summary>
-    /// RyanWinterton8482751
-    /// </summary>
-    RyanWinterton8482751 = 8482751,
-    /// <summary>
-    /// ColinMiller8476525
-    /// </summary>
-    ColinMiller8476525 = 8476525,
     /// <summary>
     /// TomBarrasso8445275
     /// </summary>
@@ -85530,14 +81505,6 @@ public enum PlayerEnum
     /// </summary>
     MikeVernon8452217 = 8452217,
     /// <summary>
-    /// CalebJones8478452
-    /// </summary>
-    CalebJones8478452 = 8478452,
-    /// <summary>
-    /// MarcDelGaizo8481743
-    /// </summary>
-    MarcDelGaizo8481743 = 8481743,
-    /// <summary>
     /// NicolasRoy8478462
     /// </summary>
     NicolasRoy8478462 = 8478462,
@@ -85550,41 +81517,13 @@ public enum PlayerEnum
     /// </summary>
     MatsNaslund8449796 = 8449796,
     /// <summary>
-    /// DanilGushchin8482101
-    /// </summary>
-    DanilGushchin8482101 = 8482101,
-    /// <summary>
     /// AaronEkblad8477932
     /// </summary>
     AaronEkblad8477932 = 8477932,
     /// <summary>
-    /// BrandonMontour8477986
-    /// </summary>
-    BrandonMontour8477986 = 8477986,
-    /// <summary>
-    /// HardyHamanAktell8479522
-    /// </summary>
-    HardyHamanAktell8479522 = 8479522,
-    /// <summary>
-    /// LukasRousek8481751
-    /// </summary>
-    LukasRousek8481751 = 8481751,
-    /// <summary>
-    /// DylanMcIlrath8475795
-    /// </summary>
-    DylanMcIlrath8475795 = 8475795,
-    /// <summary>
     /// TrevorvanRiemsdyk8477845
     /// </summary>
     TrevorvanRiemsdyk8477845 = 8477845,
-    /// <summary>
-    /// JoelEdmundson8476441
-    /// </summary>
-    JoelEdmundson8476441 = 8476441,
-    /// <summary>
-    /// AnthonyMantha8477511
-    /// </summary>
-    AnthonyMantha8477511 = 8477511,
     /// <summary>
     /// JoakimJordansson8484708
     /// </summary>
@@ -85602,33 +81541,9 @@ public enum PlayerEnum
     /// </summary>
     AlexNedeljkovic8477968 = 8477968,
     /// <summary>
-    /// TylerKleven8482095
-    /// </summary>
-    TylerKleven8482095 = 8482095,
-    /// <summary>
-    /// MarcStaal8471686
-    /// </summary>
-    MarcStaal8471686 = 8471686,
-    /// <summary>
-    /// JaydenStruble8481593
-    /// </summary>
-    JaydenStruble8481593 = 8481593,
-    /// <summary>
-    /// JackAhcan8482072
-    /// </summary>
-    JackAhcan8482072 = 8482072,
-    /// <summary>
-    /// TreyFixWolansky8480441
-    /// </summary>
-    TreyFixWolansky8480441 = 8480441,
-    /// <summary>
     /// ThomasMilic8483114
     /// </summary>
     ThomasMilic8483114 = 8483114,
-    /// <summary>
-    /// MattiasJanmark8477406
-    /// </summary>
-    MattiasJanmark8477406 = 8477406,
     /// <summary>
     /// CaleMakar8480069
     /// </summary>
@@ -85638,21 +81553,9 @@ public enum PlayerEnum
     /// </summary>
     TaylorHall8475791 = 8475791,
     /// <summary>
-    /// AndreasAthanasiou8476960
-    /// </summary>
-    AndreasAthanasiou8476960 = 8476960,
-    /// <summary>
-    /// JohnKlingberg8475906
-    /// </summary>
-    JohnKlingberg8475906 = 8475906,
-    /// <summary>
     /// MorganGeekie8479987
     /// </summary>
     MorganGeekie8479987 = 8479987,
-    /// <summary>
-    /// AlexGoligoski8471274
-    /// </summary>
-    AlexGoligoski8471274 = 8471274,
     /// <summary>
     /// NilsAman8482496
     /// </summary>
@@ -85662,41 +81565,17 @@ public enum PlayerEnum
     /// </summary>
     AndreiVasilevskiy8476883 = 8476883,
     /// <summary>
-    /// MattTomkins8477035
-    /// </summary>
-    MattTomkins8477035 = 8477035,
-    /// <summary>
-    /// RasmusRistolainen8477499
-    /// </summary>
-    RasmusRistolainen8477499 = 8477499,
-    /// <summary>
-    /// MattGrzelcyk8476891
-    /// </summary>
-    MattGrzelcyk8476891 = 8476891,
-    /// <summary>
     /// JoelArmia8476469
     /// </summary>
     JoelArmia8476469 = 8476469,
-    /// <summary>
-    /// RileyTufte8479362
-    /// </summary>
-    RileyTufte8479362 = 8479362,
     /// <summary>
     /// NicoHischier8480002
     /// </summary>
     NicoHischier8480002 = 8480002,
     /// <summary>
-    /// KyleOkposo8473449
-    /// </summary>
-    KyleOkposo8473449 = 8473449,
-    /// <summary>
     /// ConnorClifton8477365
     /// </summary>
     ConnorClifton8477365 = 8477365,
-    /// <summary>
-    /// VictorOlofsson8478109
-    /// </summary>
-    VictorOlofsson8478109 = 8478109,
     /// <summary>
     /// RasmusDahlin8480839
     /// </summary>
@@ -85710,14 +81589,6 @@ public enum PlayerEnum
     /// </summary>
     ZachBenson8484145 = 8484145,
     /// <summary>
-    /// TyceThompson8481740
-    /// </summary>
-    TyceThompson8481740 = 8481740,
-    /// <summary>
-    /// ArnaudDurandeau8480242
-    /// </summary>
-    ArnaudDurandeau8480242 = 8480242,
-    /// <summary>
     /// LukeSchenn8474568
     /// </summary>
     LukeSchenn8474568 = 8474568,
@@ -85726,10 +81597,6 @@ public enum PlayerEnum
     /// </summary>
     RobyJarventie8482162 = 8482162,
     /// <summary>
-    /// JanJenik8480890
-    /// </summary>
-    JanJenik8480890 = 8480890,
-    /// <summary>
     /// SimonBenoit8481122
     /// </summary>
     SimonBenoit8481122 = 8481122,
@@ -85737,10 +81604,6 @@ public enum PlayerEnum
     /// JustinBailey8477473
     /// </summary>
     JustinBailey8477473 = 8477473,
-    /// <summary>
-    /// MikeReilly8476422
-    /// </summary>
-    MikeReilly8476422 = 8476422,
     /// <summary>
     /// JonnyBrodzinski8477380
     /// </summary>
@@ -85753,10 +81616,6 @@ public enum PlayerEnum
     /// MarekAlscher8483687
     /// </summary>
     MarekAlscher8483687 = 8483687,
-    /// <summary>
-    /// DanielSprong8478466
-    /// </summary>
-    DanielSprong8478466 = 8478466,
     /// <summary>
     /// DaniilBourash8483818
     /// </summary>
@@ -85782,10 +81641,6 @@ public enum PlayerEnum
     /// </summary>
     AdamFox8479323 = 8479323,
     /// <summary>
-    /// JordanOesterle8477851
-    /// </summary>
-    JordanOesterle8477851 = 8477851,
-    /// <summary>
     /// AkitoHirose8484254
     /// </summary>
     AkitoHirose8484254 = 8484254,
@@ -85802,29 +81657,9 @@ public enum PlayerEnum
     /// </summary>
     JiriKulich8483468 = 8483468,
     /// <summary>
-    /// JacobJackson8477340
-    /// </summary>
-    JacobJackson8477340 = 8477340,
-    /// <summary>
-    /// NathanTodd8479309
-    /// </summary>
-    NathanTodd8479309 = 8479309,
-    /// <summary>
-    /// KentJohnson8482660
-    /// </summary>
-    KentJohnson8482660 = 8482660,
-    /// <summary>
     /// GabrielVilardi8480014
     /// </summary>
     GabrielVilardi8480014 = 8480014,
-    /// <summary>
-    /// ColeMcWard8484287
-    /// </summary>
-    ColeMcWard8484287 = 8484287,
-    /// <summary>
-    /// AndrewPoturalski8479249
-    /// </summary>
-    AndrewPoturalski8479249 = 8479249,
     /// <summary>
     /// DougieHamilton8476462
     /// </summary>
@@ -85834,69 +81669,25 @@ public enum PlayerEnum
     /// </summary>
     SimonNemec8483495 = 8483495,
     /// <summary>
-    /// MattIrwin8475625
-    /// </summary>
-    MattIrwin8475625 = 8475625,
-    /// <summary>
-    /// JoshMahura8479372
-    /// </summary>
-    JoshMahura8479372 = 8479372,
-    /// <summary>
-    /// MarkPysyk8475796
-    /// </summary>
-    MarkPysyk8475796 = 8475796,
-    /// <summary>
     /// SamuelLaberge8478956
     /// </summary>
     SamuelLaberge8478956 = 8478956,
-    /// <summary>
-    /// MatthewHighmore8478146
-    /// </summary>
-    MatthewHighmore8478146 = 8478146,
     /// <summary>
     /// MattNieto8476442
     /// </summary>
     MattNieto8476442 = 8476442,
     /// <summary>
-    /// NikolaiKnyzhov8481812
-    /// </summary>
-    NikolaiKnyzhov8481812 = 8481812,
-    /// <summary>
     /// JanRutta8480172
     /// </summary>
     JanRutta8480172 = 8480172,
-    /// <summary>
-    /// AlexanderBarabanov8482222
-    /// </summary>
-    AlexanderBarabanov8482222 = 8482222,
-    /// <summary>
-    /// NikitaZadorov8477507
-    /// </summary>
-    NikitaZadorov8477507 = 8477507,
     /// <summary>
     /// RidlyGreig8482092
     /// </summary>
     RidlyGreig8482092 = 8482092,
     /// <summary>
-    /// FilipZadina8480821
-    /// </summary>
-    FilipZadina8480821 = 8480821,
-    /// <summary>
-    /// MartinJones8474889
-    /// </summary>
-    MartinJones8474889 = 8474889,
-    /// <summary>
     /// AlexVlasic8481568
     /// </summary>
     AlexVlasic8481568 = 8481568,
-    /// <summary>
-    /// PatrikKoch8484326
-    /// </summary>
-    PatrikKoch8484326 = 8484326,
-    /// <summary>
-    /// BrandonBiro8482061
-    /// </summary>
-    BrandonBiro8482061 = 8482061,
     /// <summary>
     /// MaxMcCormick8476323
     /// </summary>
@@ -85909,10 +81700,6 @@ public enum PlayerEnum
     /// DaniilTarasov8480193
     /// </summary>
     DaniilTarasov8480193 = 8480193,
-    /// <summary>
-    /// JasperWeatherby8481061
-    /// </summary>
-    JasperWeatherby8481061 = 8481061,
     /// <summary>
     /// FedorSvechkov8482768
     /// </summary>
@@ -85938,14 +81725,6 @@ public enum PlayerEnum
     /// </summary>
     JoeyWillis8484412 = 8484412,
     /// <summary>
-    /// EricRobinson8480762
-    /// </summary>
-    EricRobinson8480762 = 8480762,
-    /// <summary>
-    /// GrahamSward8482962
-    /// </summary>
-    GrahamSward8482962 = 8482962,
-    /// <summary>
     /// DylanMacKinnon8484190
     /// </summary>
     DylanMacKinnon8484190 = 8484190,
@@ -85966,38 +81745,6 @@ public enum PlayerEnum
     /// </summary>
     TommyNovak8478438 = 8478438,
     /// <summary>
-    /// TravisBoyd8476329
-    /// </summary>
-    TravisBoyd8476329 = 8476329,
-    /// <summary>
-    /// TravisDermott8478408
-    /// </summary>
-    TravisDermott8478408 = 8478408,
-    /// <summary>
-    /// PhilipBroberg8481598
-    /// </summary>
-    PhilipBroberg8481598 = 8481598,
-    /// <summary>
-    /// SpencerStastney8481056
-    /// </summary>
-    SpencerStastney8481056 = 8481056,
-    /// <summary>
-    /// JoonaKoppanen8479533
-    /// </summary>
-    JoonaKoppanen8479533 = 8479533,
-    /// <summary>
-    /// MacKenzieEntwistle8480025
-    /// </summary>
-    MacKenzieEntwistle8480025 = 8480025,
-    /// <summary>
-    /// LiamFoudy8480853
-    /// </summary>
-    LiamFoudy8480853 = 8480853,
-    /// <summary>
-    /// IsaakPhillips8482192
-    /// </summary>
-    IsaakPhillips8482192 = 8482192,
-    /// <summary>
     /// TristanLuneau8483482
     /// </summary>
     TristanLuneau8483482 = 8483482,
@@ -86006,77 +81753,29 @@ public enum PlayerEnum
     /// </summary>
     CodyGlass8479996 = 8479996,
     /// <summary>
-    /// JosephWoll8479361
-    /// </summary>
-    JosephWoll8479361 = 8479361,
-    /// <summary>
-    /// ColeSillinger8482705
-    /// </summary>
-    ColeSillinger8482705 = 8482705,
-    /// <summary>
-    /// MikkoKokkonen8481614
-    /// </summary>
-    MikkoKokkonen8481614 = 8481614,
-    /// <summary>
-    /// MattiasNorlinder8481555
-    /// </summary>
-    MattiasNorlinder8481555 = 8481555,
-    /// <summary>
     /// DavidSavard8475233
     /// </summary>
     DavidSavard8475233 = 8475233,
-    /// <summary>
-    /// JetGreaves8482982
-    /// </summary>
-    JetGreaves8482982 = 8482982,
-    /// <summary>
-    /// RileyNash8474062
-    /// </summary>
-    RileyNash8474062 = 8474062,
     /// <summary>
     /// IsakRosen8482765
     /// </summary>
     IsakRosen8482765 = 8482765,
     /// <summary>
-    /// RyanMcGregor8480248
-    /// </summary>
-    RyanMcGregor8480248 = 8480248,
-    /// <summary>
     /// MattBenning8476988
     /// </summary>
     MattBenning8476988 = 8476988,
-    /// <summary>
-    /// DmitriSamorukov8480041
-    /// </summary>
-    DmitriSamorukov8480041 = 8480041,
-    /// <summary>
-    /// PierreOlivierJoseph8480058
-    /// </summary>
-    PierreOlivierJoseph8480058 = 8480058,
     /// <summary>
     /// LukeKunin8479316
     /// </summary>
     LukeKunin8479316 = 8479316,
     /// <summary>
-    /// MarkKastelic8480355
-    /// </summary>
-    MarkKastelic8480355 = 8480355,
-    /// <summary>
     /// HartlandMonahan8449675
     /// </summary>
     HartlandMonahan8449675 = 8449675,
     /// <summary>
-    /// SebastianAho8480222
-    /// </summary>
-    SebastianAho8480222 = 8480222,
-    /// <summary>
     /// AlexTuch8477949
     /// </summary>
     AlexTuch8477949 = 8477949,
-    /// <summary>
-    /// DakotaMermis8477541
-    /// </summary>
-    DakotaMermis8477541 = 8477541,
     /// <summary>
     /// ConorSheary8477839
     /// </summary>
@@ -86098,41 +81797,9 @@ public enum PlayerEnum
     /// </summary>
     LouieBelpedio8478011 = 8478011,
     /// <summary>
-    /// FelixSandstrom8478433
-    /// </summary>
-    FelixSandstrom8478433 = 8478433,
-    /// <summary>
-    /// UvisBalinskis8484304
-    /// </summary>
-    UvisBalinskis8484304 = 8484304,
-    /// <summary>
-    /// JackMcBain8480855
-    /// </summary>
-    JackMcBain8480855 = 8480855,
-    /// <summary>
     /// DavidRittich8479496
     /// </summary>
     DavidRittich8479496 = 8479496,
-    /// <summary>
-    /// WilliamLockwood8479367
-    /// </summary>
-    WilliamLockwood8479367 = 8479367,
-    /// <summary>
-    /// MarianStudenic8480226
-    /// </summary>
-    MarianStudenic8480226 = 8480226,
-    /// <summary>
-    /// NickCicek8482824
-    /// </summary>
-    NickCicek8482824 = 8482824,
-    /// <summary>
-    /// TomasTatar8475193
-    /// </summary>
-    TomasTatar8475193 = 8475193,
-    /// <summary>
-    /// ShaneWright8483524
-    /// </summary>
-    ShaneWright8483524 = 8483524,
     /// <summary>
     /// TyeKartye8481789
     /// </summary>
@@ -86146,49 +81813,13 @@ public enum PlayerEnum
     /// </summary>
     TimothyLiljegren8480043 = 8480043,
     /// <summary>
-    /// ChadRuhwedel8477244
-    /// </summary>
-    ChadRuhwedel8477244 = 8477244,
-    /// <summary>
     /// JosephOBrien8483181
     /// </summary>
     JosephOBrien8483181 = 8483181,
     /// <summary>
-    /// PheonixCopley8477831
-    /// </summary>
-    PheonixCopley8477831 = 8477831,
-    /// <summary>
-    /// IlyaSolovyov8482470
-    /// </summary>
-    IlyaSolovyov8482470 = 8482470,
-    /// <summary>
-    /// JacobMarkstrom8474593
-    /// </summary>
-    JacobMarkstrom8474593 = 8474593,
-    /// <summary>
-    /// ColinBlackwell8476278
-    /// </summary>
-    ColinBlackwell8476278 = 8476278,
-    /// <summary>
-    /// AlecMartinez8474166
-    /// </summary>
-    AlecMartinez8474166 = 8474166,
-    /// <summary>
     /// LiamGorman8481074
     /// </summary>
     LiamGorman8481074 = 8481074,
-    /// <summary>
-    /// JoeSnively8481441
-    /// </summary>
-    JoeSnively8481441 = 8481441,
-    /// <summary>
-    /// DylanLarkin8477946
-    /// </summary>
-    DylanLarkin8477946 = 8477946,
-    /// <summary>
-    /// OskarLindblom8478067
-    /// </summary>
-    OskarLindblom8478067 = 8478067,
     /// <summary>
     /// MarcJohnstone8483401
     /// </summary>
@@ -86198,14 +81829,6 @@ public enum PlayerEnum
     /// </summary>
     RickardRakell8476483 = 8476483,
     /// <summary>
-    /// JustinSourdif8482088
-    /// </summary>
-    JustinSourdif8482088 = 8482088,
-    /// <summary>
-    /// LucasJohansen8479321
-    /// </summary>
-    LucasJohansen8479321 = 8479321,
-    /// <summary>
     /// PavelZacha8478401
     /// </summary>
     PavelZacha8478401 = 8478401,
@@ -86214,21 +81837,9 @@ public enum PlayerEnum
     /// </summary>
     CharlieMcAvoy8479325 = 8479325,
     /// <summary>
-    /// BrettMurray8479419
-    /// </summary>
-    BrettMurray8479419 = 8479419,
-    /// <summary>
     /// HughMcGing8481070
     /// </summary>
     HughMcGing8481070 = 8481070,
-    /// <summary>
-    /// MilosKelemen8483597
-    /// </summary>
-    MilosKelemen8483597 = 8483597,
-    /// <summary>
-    /// MattMartin8474709
-    /// </summary>
-    MattMartin8474709 = 8474709,
     /// <summary>
     /// CalleClang8482477
     /// </summary>
@@ -86246,45 +81857,17 @@ public enum PlayerEnum
     /// </summary>
     JordanGreenway8478413 = 8478413,
     /// <summary>
-    /// JacobLarsson8478491
-    /// </summary>
-    JacobLarsson8478491 = 8478491,
-    /// <summary>
     /// JohnGibson8476434
     /// </summary>
     JohnGibson8476434 = 8476434,
-    /// <summary>
-    /// FilipRoos8483619
-    /// </summary>
-    FilipRoos8483619 = 8483619,
-    /// <summary>
-    /// WyattKaiser8482176
-    /// </summary>
-    WyattKaiser8482176 = 8482176,
     /// <summary>
     /// DamonSeverson8476923
     /// </summary>
     DamonSeverson8476923 = 8476923,
     /// <summary>
-    /// KoleLind8479986
-    /// </summary>
-    KoleLind8479986 = 8479986,
-    /// <summary>
-    /// AntonLundell8482113
-    /// </summary>
-    AntonLundell8482113 = 8482113,
-    /// <summary>
-    /// AnttiRaanta8477293
-    /// </summary>
-    AnttiRaanta8477293 = 8477293,
-    /// <summary>
     /// JeremyLauzon8478468
     /// </summary>
     JeremyLauzon8478468 = 8478468,
-    /// <summary>
-    /// NicoDaws8482076
-    /// </summary>
-    NicoDaws8482076 = 8482076,
     /// <summary>
     /// VladislavGavrikov8478882
     /// </summary>
@@ -86302,37 +81885,13 @@ public enum PlayerEnum
     /// </summary>
     JordanHarris8480887 = 8480887,
     /// <summary>
-    /// JacobMoverare8479421
-    /// </summary>
-    JacobMoverare8479421 = 8479421,
-    /// <summary>
-    /// RyanCarpenter8477846
-    /// </summary>
-    RyanCarpenter8477846 = 8477846,
-    /// <summary>
-    /// SimonEdvinsson8482762
-    /// </summary>
-    SimonEdvinsson8482762 = 8482762,
-    /// <summary>
     /// TageThompson8479420
     /// </summary>
     TageThompson8479420 = 8479420,
     /// <summary>
-    /// JackRoslovic8478458
-    /// </summary>
-    JackRoslovic8478458 = 8478458,
-    /// <summary>
-    /// MichaelHutchinson8474636
-    /// </summary>
-    MichaelHutchinson8474636 = 8474636,
-    /// <summary>
     /// AlexLyon8479312
     /// </summary>
     AlexLyon8479312 = 8479312,
-    /// <summary>
-    /// TysonJost8479370
-    /// </summary>
-    TysonJost8479370 = 8479370,
     /// <summary>
     /// AndreBurakovsky8477444
     /// </summary>
@@ -86342,37 +81901,9 @@ public enum PlayerEnum
     /// </summary>
     EthanBear8478451 = 8478451,
     /// <summary>
-    /// RyanJohnson8481564
-    /// </summary>
-    RyanJohnson8481564 = 8481564,
-    /// <summary>
-    /// BorisKatchouk8479383
-    /// </summary>
-    BorisKatchouk8479383 = 8479383,
-    /// <summary>
-    /// MatthewKessel8482516
-    /// </summary>
-    MatthewKessel8482516 = 8482516,
-    /// <summary>
-    /// BenGleason8479416
-    /// </summary>
-    BenGleason8479416 = 8479416,
-    /// <summary>
     /// ReginaldSavage8451152
     /// </summary>
     ReginaldSavage8451152 = 8451152,
-    /// <summary>
-    /// AustinCzarnik8478512
-    /// </summary>
-    AustinCzarnik8478512 = 8478512,
-    /// <summary>
-    /// JonatanBerggren8481013
-    /// </summary>
-    JonatanBerggren8481013 = 8481013,
-    /// <summary>
-    /// IvanMiroshnichenko8483491
-    /// </summary>
-    IvanMiroshnichenko8483491 = 8483491,
     /// <summary>
     /// SamuelGirard8479398
     /// </summary>
@@ -86382,33 +81913,13 @@ public enum PlayerEnum
     /// </summary>
     ThomasChabot8478469 = 8478469,
     /// <summary>
-    /// ChristianFischer8478432
-    /// </summary>
-    ChristianFischer8478432 = 8478432,
-    /// <summary>
     /// YaroslavAskarov8482137
     /// </summary>
     YaroslavAskarov8482137 = 8482137,
     /// <summary>
-    /// ScottMayfield8476429
-    /// </summary>
-    ScottMayfield8476429 = 8476429,
-    /// <summary>
     /// MackenzieMacEachern8476907
     /// </summary>
     MackenzieMacEachern8476907 = 8476907,
-    /// <summary>
-    /// ZemgusGirgensons8476878
-    /// </summary>
-    ZemgusGirgensons8476878 = 8476878,
-    /// <summary>
-    /// RaphaelLavoie8481534
-    /// </summary>
-    RaphaelLavoie8481534 = 8481534,
-    /// <summary>
-    /// JeffreyViel8479705
-    /// </summary>
-    JeffreyViel8479705 = 8479705,
     /// <summary>
     /// NathanWalker8477573
     /// </summary>
@@ -86418,25 +81929,9 @@ public enum PlayerEnum
     /// </summary>
     PontusHolmberg8480995 = 8480995,
     /// <summary>
-    /// DysinMayo8478062
-    /// </summary>
-    DysinMayo8478062 = 8478062,
-    /// <summary>
-    /// BryanRust8475810
-    /// </summary>
-    BryanRust8475810 = 8475810,
-    /// <summary>
-    /// RobertBortuzzo8474145
-    /// </summary>
-    RobertBortuzzo8474145 = 8474145,
-    /// <summary>
     /// SteveJanaszak8448218
     /// </summary>
     SteveJanaszak8448218 = 8448218,
-    /// <summary>
-    /// MaxPacioretty8474157
-    /// </summary>
-    MaxPacioretty8474157 = 8474157,
     /// <summary>
     /// IsacLundestrom8480806
     /// </summary>
@@ -86446,25 +81941,9 @@ public enum PlayerEnum
     /// </summary>
     JaredSpurgeon8474716 = 8474716,
     /// <summary>
-    /// JaycobMegna8477034
-    /// </summary>
-    JaycobMegna8477034 = 8477034,
-    /// <summary>
     /// SammyWalker8480267
     /// </summary>
     SammyWalker8480267 = 8480267,
-    /// <summary>
-    /// ChristianDvorak8477989
-    /// </summary>
-    ChristianDvorak8477989 = 8477989,
-    /// <summary>
-    /// JackStudnicka8480021
-    /// </summary>
-    JackStudnicka8480021 = 8480021,
-    /// <summary>
-    /// JakeChristiansen8481161
-    /// </summary>
-    JakeChristiansen8481161 = 8481161,
     /// <summary>
     /// LanceBreault8445679
     /// </summary>
@@ -86533,10 +82012,6 @@ public enum PlayerEnum
     /// AndreasLindstrom8468759
     /// </summary>
     AndreasLindstrom8468759 = 8468759,
-    /// <summary>
-    /// IvanFedotov8478905
-    /// </summary>
-    IvanFedotov8478905 = 8478905,
     /// <summary>
     /// DavidBernhardt8479565
     /// </summary>
@@ -86670,10 +82145,6 @@ public enum PlayerEnum
     /// </summary>
     DustinSmith8479137 = 8479137,
     /// <summary>
-    /// MagnusChrona8480992
-    /// </summary>
-    MagnusChrona8480992 = 8480992,
-    /// <summary>
     /// MichaelHaggerty8481263
     /// </summary>
     MichaelHaggerty8481263 = 8481263,
@@ -86718,10 +82189,6 @@ public enum PlayerEnum
     /// </summary>
     MitchellFossier8482395 = 8482395,
     /// <summary>
-    /// JohnLethemon8482571
-    /// </summary>
-    JohnLethemon8482571 = 8482571,
-    /// <summary>
     /// DjKing8482590
     /// </summary>
     DjKing8482590 = 8482590,
@@ -86765,10 +82232,6 @@ public enum PlayerEnum
     /// KohenOlischefski8483419
     /// </summary>
     KohenOlischefski8483419 = 8483419,
-    /// <summary>
-    /// MarcGatcomb8483553
-    /// </summary>
-    MarcGatcomb8483553 = 8483553,
     /// <summary>
     /// LindenMarshall8483572
     /// </summary>
@@ -86826,10 +82289,6 @@ public enum PlayerEnum
     /// </summary>
     LouisRoehl8484252 = 8484252,
     /// <summary>
-    /// GustavsGrigals8484274
-    /// </summary>
-    GustavsGrigals8484274 = 8484274,
-    /// <summary>
     /// BenjaminBerard8484275
     /// </summary>
     BenjaminBerard8484275 = 8484275,
@@ -86837,10 +82296,6 @@ public enum PlayerEnum
     /// BryanThomson8484294
     /// </summary>
     BryanThomson8484294 = 8484294,
-    /// <summary>
-    /// GabrielSzturc8484507
-    /// </summary>
-    GabrielSzturc8484507 = 8484507,
     /// <summary>
     /// JoshSamanski8484509
     /// </summary>
@@ -86853,10 +82308,6 @@ public enum PlayerEnum
     /// GunnerKinniburgh8484558
     /// </summary>
     GunnerKinniburgh8484558 = 8484558,
-    /// <summary>
-    /// AnthonyRomani8484565
-    /// </summary>
-    AnthonyRomani8484565 = 8484565,
     /// <summary>
     /// BradleyMarek8484566
     /// </summary>
@@ -86885,10 +82336,6 @@ public enum PlayerEnum
     /// RomanKukumberg8484634
     /// </summary>
     RomanKukumberg8484634 = 8484634,
-    /// <summary>
-    /// HarrisonMeneghin8484636
-    /// </summary>
-    HarrisonMeneghin8484636 = 8484636,
     /// <summary>
     /// AnthonyLuckow8484679
     /// </summary>
@@ -87014,89 +82461,21 @@ public enum PlayerEnum
     /// </summary>
     MattLoen8467015 = 8467015,
     /// <summary>
-    /// DenisGurianov8478495
-    /// </summary>
-    DenisGurianov8478495 = 8478495,
-    /// <summary>
-    /// DylanGuenther8482699
-    /// </summary>
-    DylanGuenther8482699 = 8482699,
-    /// <summary>
     /// RhettGardner8479587
     /// </summary>
     RhettGardner8479587 = 8479587,
-    /// <summary>
-    /// GeorgiiMerkulov8483567
-    /// </summary>
-    GeorgiiMerkulov8483567 = 8483567,
     /// <summary>
     /// ParkerWotherspoon8478450
     /// </summary>
     ParkerWotherspoon8478450 = 8478450,
     /// <summary>
-    /// JesperBoqvist8480003
-    /// </summary>
-    JesperBoqvist8480003 = 8480003,
-    /// <summary>
-    /// GraemeClarke8481578
-    /// </summary>
-    GraemeClarke8481578 = 8481578,
-    /// <summary>
-    /// BenMeyers8483570
-    /// </summary>
-    BenMeyers8483570 = 8483570,
-    /// <summary>
-    /// VasilyPonomarev8482102
-    /// </summary>
-    VasilyPonomarev8482102 = 8482102,
-    /// <summary>
-    /// ZachAstonReese8479944
-    /// </summary>
-    ZachAstonReese8479944 = 8479944,
-    /// <summary>
-    /// AngusCrookshank8481065
-    /// </summary>
-    AngusCrookshank8481065 = 8481065,
-    /// <summary>
-    /// JiriSmejkal8484314
-    /// </summary>
-    JiriSmejkal8484314 = 8484314,
-    /// <summary>
-    /// ZacharySanford8477482
-    /// </summary>
-    ZacharySanford8477482 = 8477482,
-    /// <summary>
     /// TroyTerry8478873
     /// </summary>
     TroyTerry8478873 = 8478873,
     /// <summary>
-    /// ZaneMcIntyre8475876
-    /// </summary>
-    ZaneMcIntyre8475876 = 8475876,
-    /// <summary>
-    /// AlexStalock8471774
-    /// </summary>
-    AlexStalock8471774 = 8471774,
-    /// <summary>
     /// JacksonLaCombe8481605
     /// </summary>
     JacksonLaCombe8481605 = 8481605,
-    /// <summary>
-    /// MathieuJoseph8478472
-    /// </summary>
-    MathieuJoseph8478472 = 8478472,
-    /// <summary>
-    /// JadenSchwartz8475768
-    /// </summary>
-    JadenSchwartz8475768 = 8475768,
-    /// <summary>
-    /// JoeyAnderson8479315
-    /// </summary>
-    JoeyAnderson8479315 = 8479315,
-    /// <summary>
-    /// TaylorRaddysh8479390
-    /// </summary>
-    TaylorRaddysh8479390 = 8479390,
     /// <summary>
     /// AdamPelech8476917
     /// </summary>
@@ -87110,45 +82489,9 @@ public enum PlayerEnum
     /// </summary>
     RasmusKupari8480845 = 8480845,
     /// <summary>
-    /// HunterShepard8482411
-    /// </summary>
-    HunterShepard8482411 = 8482411,
-    /// <summary>
-    /// JamieDrysdale8482142
-    /// </summary>
-    JamieDrysdale8482142 = 8482142,
-    /// <summary>
     /// BrettSeney8478881
     /// </summary>
     BrettSeney8478881 = 8478881,
-    /// <summary>
-    /// IlyaSamsonov8478492
-    /// </summary>
-    IlyaSamsonov8478492 = 8478492,
-    /// <summary>
-    /// WilliamCarrier8477478
-    /// </summary>
-    WilliamCarrier8477478 = 8477478,
-    /// <summary>
-    /// TrevorZegras8481533
-    /// </summary>
-    TrevorZegras8481533 = 8481533,
-    /// <summary>
-    /// GustavLindstrom8480184
-    /// </summary>
-    GustavLindstrom8480184 = 8480184,
-    /// <summary>
-    /// TJOshie8471698
-    /// </summary>
-    TJOshie8471698 = 8471698,
-    /// <summary>
-    /// KurtisMacDermid8477073
-    /// </summary>
-    KurtisMacDermid8477073 = 8477073,
-    /// <summary>
-    /// FilipCederqvist8481722
-    /// </summary>
-    FilipCederqvist8481722 = 8481722,
     /// <summary>
     /// LukasCormier8482141
     /// </summary>
@@ -87162,10 +82505,6 @@ public enum PlayerEnum
     /// </summary>
     EdSandford8448783 = 8448783,
     /// <summary>
-    /// JakubVrana8477944
-    /// </summary>
-    JakubVrana8477944 = 8477944,
-    /// <summary>
     /// FilipGustavsson8479406
     /// </summary>
     FilipGustavsson8479406 = 8479406,
@@ -87178,41 +82517,17 @@ public enum PlayerEnum
     /// </summary>
     KirillKaprizov8478864 = 8478864,
     /// <summary>
-    /// TobiasBjornfot8481600
-    /// </summary>
-    TobiasBjornfot8481600 = 8481600,
-    /// <summary>
     /// KaapoKakko8481554
     /// </summary>
     KaapoKakko8481554 = 8481554,
-    /// <summary>
-    /// NicPetan8477464
-    /// </summary>
-    NicPetan8477464 = 8477464,
-    /// <summary>
-    /// AntonBlidh8477320
-    /// </summary>
-    AntonBlidh8477320 = 8477320,
     /// <summary>
     /// YanKuznetsov8482165
     /// </summary>
     YanKuznetsov8482165 = 8482165,
     /// <summary>
-    /// JackEichel8478403
-    /// </summary>
-    JackEichel8478403 = 8478403,
-    /// <summary>
-    /// KlimKostin8480011
-    /// </summary>
-    KlimKostin8480011 = 8480011,
-    /// <summary>
     /// SeanKuraly8476374
     /// </summary>
     SeanKuraly8476374 = 8476374,
-    /// <summary>
-    /// BrendanGaunce8476867
-    /// </summary>
-    BrendanGaunce8476867 = 8476867,
     /// <summary>
     /// JonasBrodin8476463
     /// </summary>
@@ -87230,26 +82545,6 @@ public enum PlayerEnum
     /// </summary>
     AlinaMuller8484723 = 8484723,
     /// <summary>
-    /// ValeriNichushkin8477501
-    /// </summary>
-    ValeriNichushkin8477501 = 8477501,
-    /// <summary>
-    /// EmilMartinsenLilleberg8482929
-    /// </summary>
-    EmilMartinsenLilleberg8482929 = 8482929,
-    /// <summary>
-    /// HugoAlnefelt8481597
-    /// </summary>
-    HugoAlnefelt8481597 = 8481597,
-    /// <summary>
-    /// LoganBrown8479366
-    /// </summary>
-    LoganBrown8479366 = 8479366,
-    /// <summary>
-    /// SeanDay8479413
-    /// </summary>
-    SeanDay8479413 = 8479413,
-    /// <summary>
     /// GabrielFortier8480863
     /// </summary>
     GabrielFortier8480863 = 8480863,
@@ -87258,17 +82553,9 @@ public enum PlayerEnum
     /// </summary>
     JackFinley8482090 = 8482090,
     /// <summary>
-    /// JackThompson8482144
-    /// </summary>
-    JackThompson8482144 = 8482144,
-    /// <summary>
     /// GageGoncalves8482201
     /// </summary>
     GageGoncalves8482201 = 8482201,
-    /// <summary>
-    /// FelixRobert8482440
-    /// </summary>
-    FelixRobert8482440 = 8482440,
     /// <summary>
     /// JaydonDureau8482454
     /// </summary>
@@ -87278,34 +82565,6 @@ public enum PlayerEnum
     /// </summary>
     DeclanCarlile8483398 = 8483398,
     /// <summary>
-    /// IlyaUsau8483408
-    /// </summary>
-    IlyaUsau8483408 = 8483408,
-    /// <summary>
-    /// LucasEdmonds8483437
-    /// </summary>
-    LucasEdmonds8483437 = 8483437,
-    /// <summary>
-    /// EthanGauthier8484173
-    /// </summary>
-    EthanGauthier8484173 = 8484173,
-    /// <summary>
-    /// RomanSchmidt8482693
-    /// </summary>
-    RomanSchmidt8482693 = 8482693,
-    /// <summary>
-    /// DyllanGill8483692
-    /// </summary>
-    DyllanGill8483692 = 8483692,
-    /// <summary>
-    /// EthanHay8484484
-    /// </summary>
-    EthanHay8484484 = 8484484,
-    /// <summary>
-    /// BrandonBussi8483548
-    /// </summary>
-    BrandonBussi8483548 = 8483548,
-    /// <summary>
     /// GlenCochrane8446111
     /// </summary>
     GlenCochrane8446111 = 8446111,
@@ -87314,26 +82573,6 @@ public enum PlayerEnum
     /// </summary>
     KyleConnor8478398 = 8478398,
     /// <summary>
-    /// NikitaZaitsev8479458
-    /// </summary>
-    NikitaZaitsev8479458 = 8479458,
-    /// <summary>
-    /// BennettMacArthur8483102
-    /// </summary>
-    BennettMacArthur8483102 = 8483102,
-    /// <summary>
-    /// MattMurray8483575
-    /// </summary>
-    MattMurray8483575 = 8483575,
-    /// <summary>
-    /// RadimZohorna8482241
-    /// </summary>
-    RadimZohorna8482241 = 8482241,
-    /// <summary>
-    /// ShaneBowers8480032
-    /// </summary>
-    ShaneBowers8480032 = 8480032,
-    /// <summary>
     /// TimoMeier8478414
     /// </summary>
     TimoMeier8478414 = 8478414,
@@ -87341,10 +82580,6 @@ public enum PlayerEnum
     /// BooneJenner8476432
     /// </summary>
     BooneJenner8476432 = 8476432,
-    /// <summary>
-    /// RasmusAsplund8479335
-    /// </summary>
-    RasmusAsplund8479335 = 8479335,
     /// <summary>
     /// DaemonHunt8482094
     /// </summary>
@@ -87366,65 +82601,17 @@ public enum PlayerEnum
     /// </summary>
     NicoSturm8481477 = 8481477,
     /// <summary>
-    /// JohnBeecher8481556
-    /// </summary>
-    JohnBeecher8481556 = 8481556,
-    /// <summary>
-    /// DerekForbort8475762
-    /// </summary>
-    DerekForbort8475762 = 8475762,
-    /// <summary>
     /// BrandonCarlo8478443
     /// </summary>
     BrandonCarlo8478443 = 8478443,
-    /// <summary>
-    /// DennisGilbert8478502
-    /// </summary>
-    DennisGilbert8478502 = 8478502,
     /// <summary>
     /// JasonPolin8484255
     /// </summary>
     JasonPolin8484255 = 8484255,
     /// <summary>
-    /// ShanePinto8481596
-    /// </summary>
-    ShanePinto8481596 = 8481596,
-    /// <summary>
-    /// MatthewRobertson8481525
-    /// </summary>
-    MatthewRobertson8481525 = 8481525,
-    /// <summary>
-    /// JacobBryson8480196
-    /// </summary>
-    JacobBryson8480196 = 8480196,
-    /// <summary>
-    /// BobbyBrink8481553
-    /// </summary>
-    BobbyBrink8481553 = 8481553,
-    /// <summary>
-    /// BowenByram8481524
-    /// </summary>
-    BowenByram8481524 = 8481524,
-    /// <summary>
-    /// DillonDube8479346
-    /// </summary>
-    DillonDube8479346 = 8479346,
-    /// <summary>
     /// SemyonVarlamov8473575
     /// </summary>
     SemyonVarlamov8473575 = 8473575,
-    /// <summary>
-    /// KennethAppleby8478965
-    /// </summary>
-    KennethAppleby8478965 = 8478965,
-    /// <summary>
-    /// JustinBarron8482111
-    /// </summary>
-    JustinBarron8482111 = 8482111,
-    /// <summary>
-    /// ConnorMurphy8476473
-    /// </summary>
-    ConnorMurphy8476473 = 8476473,
     /// <summary>
     /// NickFoligno8473422
     /// </summary>
@@ -87442,10 +82629,6 @@ public enum PlayerEnum
     /// </summary>
     BryanYoon8484741 = 8484741,
     /// <summary>
-    /// TroyStecher8479442
-    /// </summary>
-    TroyStecher8479442 = 8479442,
-    /// <summary>
     /// ScottSabourin8477149
     /// </summary>
     ScottSabourin8477149 = 8477149,
@@ -87453,10 +82636,6 @@ public enum PlayerEnum
     /// RyanReaves8471817
     /// </summary>
     RyanReaves8471817 = 8471817,
-    /// <summary>
-    /// MitchellStephens8478477
-    /// </summary>
-    MitchellStephens8478477 = 8478477,
     /// <summary>
     /// RasmusSandin8480873
     /// </summary>
@@ -87466,57 +82645,13 @@ public enum PlayerEnum
     /// </summary>
     AdinHill8478499 = 8478499,
     /// <summary>
-    /// ChrisDriedger8476904
-    /// </summary>
-    ChrisDriedger8476904 = 8476904,
-    /// <summary>
     /// PhilippGrubauer8475831
     /// </summary>
     PhilippGrubauer8475831 = 8475831,
     /// <summary>
-    /// JuusoParssinen8481704
-    /// </summary>
-    JuusoParssinen8481704 = 8481704,
-    /// <summary>
-    /// TannerPearson8476871
-    /// </summary>
-    TannerPearson8476871 = 8476871,
-    /// <summary>
-    /// CalPetersen8477361
-    /// </summary>
-    CalPetersen8477361 = 8477361,
-    /// <summary>
-    /// CoreyPerry8470621
-    /// </summary>
-    CoreyPerry8470621 = 8470621,
-    /// <summary>
-    /// JeffSkinner8475784
-    /// </summary>
-    JeffSkinner8475784 = 8475784,
-    /// <summary>
-    /// IsaiahSaville8481520
-    /// </summary>
-    IsaiahSaville8481520 = 8481520,
-    /// <summary>
-    /// AdamErne8477454
-    /// </summary>
-    AdamErne8477454 = 8477454,
-    /// <summary>
     /// ArtturiLehkonen8477476
     /// </summary>
     ArtturiLehkonen8477476 = 8477476,
-    /// <summary>
-    /// PhilippeMyers8479026
-    /// </summary>
-    PhilippeMyers8479026 = 8479026,
-    /// <summary>
-    /// MichaelMcLeod8479415
-    /// </summary>
-    MichaelMcLeod8479415 = 8479415,
-    /// <summary>
-    /// CalFoote8479984
-    /// </summary>
-    CalFoote8479984 = 8479984,
     /// <summary>
     /// VilleHusso8478024
     /// </summary>
@@ -87525,10 +82660,6 @@ public enum PlayerEnum
     /// WalkerDuehr8482652
     /// </summary>
     WalkerDuehr8482652 = 8482652,
-    /// <summary>
-    /// DavidJiricek8483460
-    /// </summary>
-    DavidJiricek8483460 = 8483460,
     /// <summary>
     /// ZachWerenski8478460
     /// </summary>
@@ -87542,65 +82673,9 @@ public enum PlayerEnum
     /// </summary>
     NickDeSimone8480084 = 8480084,
     /// <summary>
-    /// WillButcher8477355
-    /// </summary>
-    WillButcher8477355 = 8477355,
-    /// <summary>
-    /// OliverKylington8478430
-    /// </summary>
-    OliverKylington8478430 = 8478430,
-    /// <summary>
-    /// MaximCajkovic8481738
-    /// </summary>
-    MaximCajkovic8481738 = 8481738,
-    /// <summary>
-    /// TylerBertuzzi8477479
-    /// </summary>
-    TylerBertuzzi8477479 = 8477479,
-    /// <summary>
     /// MattyBeniers8482665
     /// </summary>
     MattyBeniers8482665 = 8482665,
-    /// <summary>
-    /// PhilipKemp8480274
-    /// </summary>
-    PhilipKemp8480274 = 8480274,
-    /// <summary>
-    /// MichaelAmadio8478020
-    /// </summary>
-    MichaelAmadio8478020 = 8478020,
-    /// <summary>
-    /// TyEmberson8480834
-    /// </summary>
-    TyEmberson8480834 = 8480834,
-    /// <summary>
-    /// RobertHagg8477462
-    /// </summary>
-    RobertHagg8477462 = 8477462,
-    /// <summary>
-    /// PatrickBrown8477887
-    /// </summary>
-    PatrickBrown8477887 = 8477887,
-    /// <summary>
-    /// VictorSoderstrom8481599
-    /// </summary>
-    VictorSoderstrom8481599 = 8481599,
-    /// <summary>
-    /// DevonLevi8482221
-    /// </summary>
-    DevonLevi8482221 = 8482221,
-    /// <summary>
-    /// EricComrie8477480
-    /// </summary>
-    EricComrie8477480 = 8477480,
-    /// <summary>
-    /// HaydnFleury8477938
-    /// </summary>
-    HaydnFleury8477938 = 8477938,
-    /// <summary>
-    /// RyanShea8478854
-    /// </summary>
-    RyanShea8478854 = 8478854,
     /// <summary>
     /// WaltteriMerela8484325
     /// </summary>
@@ -87618,29 +82693,9 @@ public enum PlayerEnum
     /// </summary>
     DaniilMisyul8481536 = 8481536,
     /// <summary>
-    /// MackieSamoskevich8482713
-    /// </summary>
-    MackieSamoskevich8482713 = 8482713,
-    /// <summary>
-    /// AdamKlapka8483609
-    /// </summary>
-    AdamKlapka8483609 = 8483609,
-    /// <summary>
-    /// WyattNewpower8482251
-    /// </summary>
-    WyattNewpower8482251 = 8482251,
-    /// <summary>
     /// ColeGuttman8480252
     /// </summary>
     ColeGuttman8480252 = 8480252,
-    /// <summary>
-    /// JesperWallstedt8482661
-    /// </summary>
-    JesperWallstedt8482661 = 8482661,
-    /// <summary>
-    /// MattCoronato8482679
-    /// </summary>
-    MattCoronato8482679 = 8482679,
     /// <summary>
     /// WilliamKarlsson8476448
     /// </summary>
@@ -87654,25 +82709,9 @@ public enum PlayerEnum
     /// </summary>
     NicolasBeaudin8480814 = 8480814,
     /// <summary>
-    /// CutterGauthier8483445
-    /// </summary>
-    CutterGauthier8483445 = 8483445,
-    /// <summary>
     /// PatrikLaine8479339
     /// </summary>
     PatrikLaine8479339 = 8479339,
-    /// <summary>
-    /// DevinShore8476913
-    /// </summary>
-    DevinShore8476913 = 8476913,
-    /// <summary>
-    /// AdamGaudette8478874
-    /// </summary>
-    AdamGaudette8478874 = 8478874,
-    /// <summary>
-    /// NickBlankenburg8483565
-    /// </summary>
-    NickBlankenburg8483565 = 8483565,
     /// <summary>
     /// MeghanAgosta8482007
     /// </summary>
@@ -87806,22 +82845,6 @@ public enum PlayerEnum
     /// </summary>
     NicoleHensley8484734 = 8484734,
     /// <summary>
-    /// RourkeChartier8478078
-    /// </summary>
-    RourkeChartier8478078 = 8478078,
-    /// <summary>
-    /// ColtonYoung8484743
-    /// </summary>
-    ColtonYoung8484743 = 8484743,
-    /// <summary>
-    /// MadsSogaard8481544
-    /// </summary>
-    MadsSogaard8481544 = 8481544,
-    /// <summary>
-    /// SamuelFagemo8481239
-    /// </summary>
-    SamuelFagemo8481239 = 8481239,
-    /// <summary>
     /// BroganRafferty8481479
     /// </summary>
     BroganRafferty8481479 = 8481479,
@@ -87830,41 +82853,13 @@ public enum PlayerEnum
     /// </summary>
     ShakirMukhamadullin8482166 = 8482166,
     /// <summary>
-    /// OlenZellweger8482803
-    /// </summary>
-    OlenZellweger8482803 = 8482803,
-    /// <summary>
     /// AndreiKuzmenko8483808
     /// </summary>
     AndreiKuzmenko8483808 = 8483808,
     /// <summary>
-    /// JoniJurmo8482170
-    /// </summary>
-    JoniJurmo8482170 = 8482170,
-    /// <summary>
     /// HunterBrzustewicz8484150
     /// </summary>
     HunterBrzustewicz8484150 = 8484150,
-    /// <summary>
-    /// CarterHart8479394
-    /// </summary>
-    CarterHart8479394 = 8479394,
-    /// <summary>
-    /// EliasLindholm8477496
-    /// </summary>
-    EliasLindholm8477496 = 8477496,
-    /// <summary>
-    /// SeanMonahan8477497
-    /// </summary>
-    SeanMonahan8477497 = 8477497,
-    /// <summary>
-    /// ZachParise8470610
-    /// </summary>
-    ZachParise8470610 = 8470610,
-    /// <summary>
-    /// JulienGauthier8479328
-    /// </summary>
-    JulienGauthier8479328 = 8479328,
     /// <summary>
     /// RyanPulock8477506
     /// </summary>
@@ -87886,49 +82881,13 @@ public enum PlayerEnum
     /// </summary>
     BraydenPachal8481167 = 8481167,
     /// <summary>
-    /// CalleJarnkrok8475714
-    /// </summary>
-    CalleJarnkrok8475714 = 8475714,
-    /// <summary>
-    /// IvanProsvetov8481031
-    /// </summary>
-    IvanProsvetov8481031 = 8481031,
-    /// <summary>
-    /// AJGreer8478421
-    /// </summary>
-    AJGreer8478421 = 8478421,
-    /// <summary>
     /// KevinRooney8479291
     /// </summary>
     KevinRooney8479291 = 8479291,
     /// <summary>
-    /// JakobPelletier8481592
-    /// </summary>
-    JakobPelletier8481592 = 8481592,
-    /// <summary>
-    /// DylanHolloway8482077
-    /// </summary>
-    DylanHolloway8482077 = 8482077,
-    /// <summary>
-    /// PatMaroon8474034
-    /// </summary>
-    PatMaroon8474034 = 8474034,
-    /// <summary>
     /// MitchellChaffee8482070
     /// </summary>
     MitchellChaffee8482070 = 8482070,
-    /// <summary>
-    /// JacobLucchini8481422
-    /// </summary>
-    JacobLucchini8481422 = 8481422,
-    /// <summary>
-    /// StevenKampfer8474000
-    /// </summary>
-    StevenKampfer8474000 = 8474000,
-    /// <summary>
-    /// JustinKirkland8477993
-    /// </summary>
-    JustinKirkland8477993 = 8477993,
     /// <summary>
     /// JessePuljujarvi8479344
     /// </summary>
@@ -87938,89 +82897,25 @@ public enum PlayerEnum
     /// </summary>
     BobbyMcMann8482259 = 8482259,
     /// <summary>
-    /// EvgenyKuznetsov8475744
-    /// </summary>
-    EvgenyKuznetsov8475744 = 8475744,
-    /// <summary>
     /// MichaelSgarbossa8475958
     /// </summary>
     MichaelSgarbossa8475958 = 8475958,
-    /// <summary>
-    /// ConnorMackey8482067
-    /// </summary>
-    ConnorMackey8482067 = 8482067,
     /// <summary>
     /// AdamRaska8482197
     /// </summary>
     AdamRaska8482197 = 8482197,
     /// <summary>
-    /// NickCousins8476393
-    /// </summary>
-    NickCousins8476393 = 8476393,
-    /// <summary>
     /// MarkScheifele8476460
     /// </summary>
     MarkScheifele8476460 = 8476460,
-    /// <summary>
-    /// AxelJonssonFjallby8479536
-    /// </summary>
-    AxelJonssonFjallby8479536 = 8479536,
     /// <summary>
     /// OwenTippett8480015
     /// </summary>
     OwenTippett8480015 = 8480015,
     /// <summary>
-    /// TomasNosek8477931
-    /// </summary>
-    TomasNosek8477931 = 8477931,
-    /// <summary>
-    /// ErikJohnson8473446
-    /// </summary>
-    ErikJohnson8473446 = 8473446,
-    /// <summary>
     /// MattiasSamuelsson8480807
     /// </summary>
     MattiasSamuelsson8480807 = 8480807,
-    /// <summary>
-    /// TylerJohnson8474870
-    /// </summary>
-    TylerJohnson8474870 = 8474870,
-    /// <summary>
-    /// VladislavKolyachonok8481609
-    /// </summary>
-    VladislavKolyachonok8481609 = 8481609,
-    /// <summary>
-    /// LouisCrevier8481806
-    /// </summary>
-    LouisCrevier8481806 = 8481806,
-    /// <summary>
-    /// VinniLettieri8479968
-    /// </summary>
-    VinniLettieri8479968 = 8479968,
-    /// <summary>
-    /// DaniilMiromanov8482624
-    /// </summary>
-    DaniilMiromanov8482624 = 8482624,
-    /// <summary>
-    /// LinusKarlsson8481024
-    /// </summary>
-    LinusKarlsson8481024 = 8481024,
-    /// <summary>
-    /// NickBonino8474009
-    /// </summary>
-    NickBonino8474009 = 8474009,
-    /// <summary>
-    /// RykerEvans8482858
-    /// </summary>
-    RykerEvans8482858 = 8482858,
-    /// <summary>
-    /// AustinWatson8475766
-    /// </summary>
-    AustinWatson8475766 = 8475766,
-    /// <summary>
-    /// BrandtClarke8482730
-    /// </summary>
-    BrandtClarke8482730 = 8482730,
     /// <summary>
     /// CaseyCizikas8475231
     /// </summary>
@@ -88030,22 +82925,6 @@ public enum PlayerEnum
     /// </summary>
     JackHughes8481559 = 8481559,
     /// <summary>
-    /// MattDumba8476856
-    /// </summary>
-    MattDumba8476856 = 8476856,
-    /// <summary>
-    /// BarrettHayton8480849
-    /// </summary>
-    BarrettHayton8480849 = 8480849,
-    /// <summary>
-    /// JustinFaulk8475753
-    /// </summary>
-    JustinFaulk8475753 = 8475753,
-    /// <summary>
-    /// MaxJones8479368
-    /// </summary>
-    MaxJones8479368 = 8479368,
-    /// <summary>
     /// LeonGawanke8480219
     /// </summary>
     LeonGawanke8480219 = 8480219,
@@ -88053,22 +82932,6 @@ public enum PlayerEnum
     /// LucasCondotta8483549
     /// </summary>
     LucasCondotta8483549 = 8483549,
-    /// <summary>
-    /// MikhailSergachev8479410
-    /// </summary>
-    MikhailSergachev8479410 = 8479410,
-    /// <summary>
-    /// KaedanKorczak8481527
-    /// </summary>
-    KaedanKorczak8481527 = 8481527,
-    /// <summary>
-    /// KasperiKapanen8477953
-    /// </summary>
-    KasperiKapanen8477953 = 8477953,
-    /// <summary>
-    /// AdamBoqvist8480871
-    /// </summary>
-    AdamBoqvist8480871 = 8480871,
     /// <summary>
     /// PatrickKane8474141
     /// </summary>
@@ -88082,49 +82945,13 @@ public enum PlayerEnum
     /// </summary>
     PhillipDiGiuseppe8476858 = 8476858,
     /// <summary>
-    /// RafaelHarveyPinard8481093
-    /// </summary>
-    RafaelHarveyPinard8481093 = 8481093,
-    /// <summary>
-    /// JoshuaRoy8482749
-    /// </summary>
-    JoshuaRoy8482749 = 8482749,
-    /// <summary>
-    /// JakeLeschyshyn8479991
-    /// </summary>
-    JakeLeschyshyn8479991 = 8479991,
-    /// <summary>
-    /// AdamEdstrom8481726
-    /// </summary>
-    AdamEdstrom8481726 = 8481726,
-    /// <summary>
-    /// SamMalinski8484258
-    /// </summary>
-    SamMalinski8484258 = 8484258,
-    /// <summary>
     /// PhilipTomasino8481577
     /// </summary>
     PhilipTomasino8481577 = 8481577,
     /// <summary>
-    /// EgorAfanasyev8481585
-    /// </summary>
-    EgorAfanasyev8481585 = 8481585,
-    /// <summary>
-    /// TomasHertl8476881
-    /// </summary>
-    TomasHertl8476881 = 8476881,
-    /// <summary>
-    /// CarsonSoucy8477369
-    /// </summary>
-    CarsonSoucy8477369 = 8477369,
-    /// <summary>
     /// NolanStevens8479588
     /// </summary>
     NolanStevens8479588 = 8479588,
-    /// <summary>
-    /// MaxWillman8478051
-    /// </summary>
-    MaxWillman8478051 = 8478051,
     /// <summary>
     /// DominicToninato8476952
     /// </summary>
@@ -88134,65 +82961,21 @@ public enum PlayerEnum
     /// </summary>
     DavidGustafsson8481019 = 8481019,
     /// <summary>
-    /// MarcusFoligno8475220
-    /// </summary>
-    MarcusFoligno8475220 = 8475220,
-    /// <summary>
-    /// ConnorDewar8480980
-    /// </summary>
-    ConnorDewar8480980 = 8480980,
-    /// <summary>
-    /// PavelDorofeyev8481604
-    /// </summary>
-    PavelDorofeyev8481604 = 8481604,
-    /// <summary>
     /// BenHutton8477018
     /// </summary>
     BenHutton8477018 = 8477018,
-    /// <summary>
-    /// ConorTimmins8479982
-    /// </summary>
-    ConorTimmins8479982 = 8479982,
     /// <summary>
     /// DavidKampf8480144
     /// </summary>
     DavidKampf8480144 = 8480144,
     /// <summary>
-    /// JiriPatera8480238
-    /// </summary>
-    JiriPatera8480238 = 8480238,
-    /// <summary>
-    /// EvgeniiDadonov8474149
-    /// </summary>
-    EvgeniiDadonov8474149 = 8474149,
-    /// <summary>
     /// PavelMintyukov8483490
     /// </summary>
     PavelMintyukov8483490 = 8483490,
     /// <summary>
-    /// PierreEdouardBellemare8477930
-    /// </summary>
-    PierreEdouardBellemare8477930 = 8477930,
-    /// <summary>
-    /// ZackMacEwen8479772
-    /// </summary>
-    ZackMacEwen8479772 = 8479772,
-    /// <summary>
-    /// KevinMandolese8480867
-    /// </summary>
-    KevinMandolese8480867 = 8480867,
-    /// <summary>
     /// AntonForsberg8476341
     /// </summary>
     AntonForsberg8476341 = 8476341,
-    /// <summary>
-    /// BrendanSmith8474090
-    /// </summary>
-    BrendanSmith8474090 = 8474090,
-    /// <summary>
-    /// SanteriHatakka8481701
-    /// </summary>
-    SanteriHatakka8481701 = 8481701,
     /// <summary>
     /// MikaelGranlund8475798
     /// </summary>
@@ -88202,61 +82985,13 @@ public enum PlayerEnum
     /// </summary>
     MarioFerraro8479983 = 8479983,
     /// <summary>
-    /// TylerPitlick8475752
-    /// </summary>
-    TylerPitlick8475752 = 8475752,
-    /// <summary>
-    /// CarlGrundstrom8479336
-    /// </summary>
-    CarlGrundstrom8479336 = 8479336,
-    /// <summary>
-    /// AlexBelzile8475968
-    /// </summary>
-    AlexBelzile8475968 = 8475968,
-    /// <summary>
-    /// LukePhilp8478224
-    /// </summary>
-    LukePhilp8478224 = 8478224,
-    /// <summary>
-    /// AdamBeckman8481550
-    /// </summary>
-    AdamBeckman8481550 = 8481550,
-    /// <summary>
-    /// JarredTinordi8475797
-    /// </summary>
-    JarredTinordi8475797 = 8475797,
-    /// <summary>
-    /// AlexSteeves8482634
-    /// </summary>
-    AlexSteeves8482634 = 8482634,
-    /// <summary>
-    /// RemPitlick8479514
-    /// </summary>
-    RemPitlick8479514 = 8479514,
-    /// <summary>
     /// ConnorBedard8484144
     /// </summary>
     ConnorBedard8484144 = 8484144,
     /// <summary>
-    /// JackQuinn8482097
-    /// </summary>
-    JackQuinn8482097 = 8482097,
-    /// <summary>
-    /// JakeGuentzel8477404
-    /// </summary>
-    JakeGuentzel8477404 = 8477404,
-    /// <summary>
-    /// ValtteriPuustinen8481703
-    /// </summary>
-    ValtteriPuustinen8481703 = 8481703,
-    /// <summary>
     /// JohnLudvig8481206
     /// </summary>
     JohnLudvig8481206 = 8481206,
-    /// <summary>
-    /// MattRempe8482460
-    /// </summary>
-    MattRempe8482460 = 8482460,
     /// <summary>
     /// ColeSchwindt8481655
     /// </summary>
@@ -88266,113 +83001,25 @@ public enum PlayerEnum
     /// </summary>
     DanVladar8478435 = 8478435,
     /// <summary>
-    /// LiamOBrien8477070
-    /// </summary>
-    LiamOBrien8477070 = 8477070,
-    /// <summary>
-    /// DustinWolf8481692
-    /// </summary>
-    DustinWolf8481692 = 8481692,
-    /// <summary>
     /// DrydenHunt8478211
     /// </summary>
     DrydenHunt8478211 = 8478211,
-    /// <summary>
-    /// MaxenceGuenette8481679
-    /// </summary>
-    MaxenceGuenette8481679 = 8481679,
-    /// <summary>
-    /// BlakeWheeler8471218
-    /// </summary>
-    BlakeWheeler8471218 = 8471218,
-    /// <summary>
-    /// MatthewPhillips8479547
-    /// </summary>
-    MatthewPhillips8479547 = 8479547,
-    /// <summary>
-    /// MasonShaw8479972
-    /// </summary>
-    MasonShaw8479972 = 8479972,
     /// <summary>
     /// MarcusKallionkieli8481573
     /// </summary>
     MarcusKallionkieli8481573 = 8481573,
     /// <summary>
-    /// AnthonyRichard8478409
-    /// </summary>
-    AnthonyRichard8478409 = 8478409,
-    /// <summary>
-    /// SonnyMilano8477947
-    /// </summary>
-    SonnyMilano8477947 = 8477947,
-    /// <summary>
-    /// ChrisWagner8475780
-    /// </summary>
-    ChrisWagner8475780 = 8475780,
-    /// <summary>
-    /// ArshdeepBains8483395
-    /// </summary>
-    ArshdeepBains8483395 = 8483395,
-    /// <summary>
-    /// MarkGiordano8470966
-    /// </summary>
-    MarkGiordano8470966 = 8470966,
-    /// <summary>
-    /// BrockMcGinn8476934
-    /// </summary>
-    BrockMcGinn8476934 = 8476934,
-    /// <summary>
     /// AlexKillorn8473986
     /// </summary>
     AlexKillorn8473986 = 8473986,
-    /// <summary>
-    /// LukasReichel8482117
-    /// </summary>
-    LukasReichel8482117 = 8482117,
-    /// <summary>
-    /// VinnieHinostroza8476994
-    /// </summary>
-    VinnieHinostroza8476994 = 8476994,
-    /// <summary>
-    /// JonathanGruden8480836
-    /// </summary>
-    JonathanGruden8480836 = 8480836,
-    /// <summary>
-    /// DennisHildeby8483710
-    /// </summary>
-    DennisHildeby8483710 = 8483710,
-    /// <summary>
-    /// JansenHarkins8478424
-    /// </summary>
-    JansenHarkins8478424 = 8478424,
-    /// <summary>
-    /// JonasRondbjerg8480007
-    /// </summary>
-    JonasRondbjerg8480007 = 8480007,
-    /// <summary>
-    /// MasonMorelli8481462
-    /// </summary>
-    MasonMorelli8481462 = 8481462,
     /// <summary>
     /// MatthewPoitras8483505
     /// </summary>
     MatthewPoitras8483505 = 8483505,
     /// <summary>
-    /// MatejBlumel8481712
-    /// </summary>
-    MatejBlumel8481712 = 8481712,
-    /// <summary>
-    /// OwenPower8482671
-    /// </summary>
-    OwenPower8482671 = 8482671,
-    /// <summary>
     /// BryanForbes8484752
     /// </summary>
     BryanForbes8484752 = 8484752,
-    /// <summary>
-    /// AnthonyBeauvillier8478463
-    /// </summary>
-    AnthonyBeauvillier8478463 = 8478463,
     /// <summary>
     /// LoganCouture8474053
     /// </summary>
@@ -88382,57 +83029,13 @@ public enum PlayerEnum
     /// </summary>
     SheaTheodore8477447 = 8477447,
     /// <summary>
-    /// MattLuff8479644
-    /// </summary>
-    MattLuff8479644 = 8479644,
-    /// <summary>
     /// HenryThrun8481567
     /// </summary>
     HenryThrun8481567 = 8481567,
     /// <summary>
-    /// OskarSteen8479546
-    /// </summary>
-    OskarSteen8479546 = 8479546,
-    /// <summary>
-    /// DustinTokarski8474682
-    /// </summary>
-    DustinTokarski8474682 = 8474682,
-    /// <summary>
-    /// KaleClague8479348
-    /// </summary>
-    KaleClague8479348 = 8479348,
-    /// <summary>
-    /// BoGroulx8480870
-    /// </summary>
-    BoGroulx8480870 = 8480870,
-    /// <summary>
-    /// MasonLohrei8482511
-    /// </summary>
-    MasonLohrei8482511 = 8482511,
-    /// <summary>
-    /// MichalStinil8484718
-    /// </summary>
-    MichalStinil8484718 = 8484718,
-    /// <summary>
     /// SavannahHarmon8484720
     /// </summary>
     SavannahHarmon8484720 = 8484720,
-    /// <summary>
-    /// CharlesMartin8484735
-    /// </summary>
-    CharlesMartin8484735 = 8484735,
-    /// <summary>
-    /// CameronConnolly8484750
-    /// </summary>
-    CameronConnolly8484750 = 8484750,
-    /// <summary>
-    /// AlexanderPetrovic8475755
-    /// </summary>
-    AlexanderPetrovic8475755 = 8475755,
-    /// <summary>
-    /// VitekVanecek8477970
-    /// </summary>
-    VitekVanecek8477970 = 8477970,
     /// <summary>
     /// RickMartin8449275
     /// </summary>
@@ -88454,10 +83057,6 @@ public enum PlayerEnum
     /// </summary>
     JustinJanicke8482694 = 8482694,
     /// <summary>
-    /// KyleJackson8483013
-    /// </summary>
-    KyleJackson8483013 = 8483013,
-    /// <summary>
     /// BenMacDonald8483484
     /// </summary>
     BenMacDonald8483484 = 8483484,
@@ -88466,21 +83065,9 @@ public enum PlayerEnum
     /// </summary>
     AndreiLoshko8484415 = 8484415,
     /// <summary>
-    /// HudsonFasching8477392
-    /// </summary>
-    HudsonFasching8477392 = 8477392,
-    /// <summary>
     /// JaniRita8467886
     /// </summary>
     JaniRita8467886 = 8467886,
-    /// <summary>
-    /// AkiraSchmid8481033
-    /// </summary>
-    AkiraSchmid8481033 = 8481033,
-    /// <summary>
-    /// TannerJeannot8479661
-    /// </summary>
-    TannerJeannot8479661 = 8479661,
     /// <summary>
     /// JaniNyman8483497
     /// </summary>
@@ -88514,185 +83101,33 @@ public enum PlayerEnum
     /// </summary>
     VisaVedenpaa8484451 = 8484451,
     /// <summary>
-    /// MartinFehervary8480796
-    /// </summary>
-    MartinFehervary8480796 = 8480796,
-    /// <summary>
-    /// PierrickDube8483920
-    /// </summary>
-    PierrickDube8483920 = 8483920,
-    /// <summary>
-    /// AlexTurcotte8481532
-    /// </summary>
-    AlexTurcotte8481532 = 8481532,
-    /// <summary>
-    /// JacobMacDonald8479439
-    /// </summary>
-    JacobMacDonald8479439 = 8479439,
-    /// <summary>
-    /// IsaacPoulter8483659
-    /// </summary>
-    IsaacPoulter8483659 = 8483659,
-    /// <summary>
     /// GivaniSmith8479379
     /// </summary>
     GivaniSmith8479379 = 8479379,
-    /// <summary>
-    /// DakotaJoshua8478057
-    /// </summary>
-    DakotaJoshua8478057 = 8478057,
-    /// <summary>
-    /// JettWoo8480808
-    /// </summary>
-    JettWoo8480808 = 8480808,
-    /// <summary>
-    /// ViktorArvidsson8478042
-    /// </summary>
-    ViktorArvidsson8478042 = 8478042,
-    /// <summary>
-    /// ColeKoepke8481043
-    /// </summary>
-    ColeKoepke8481043 = 8481043,
-    /// <summary>
-    /// MattVillalta8480191
-    /// </summary>
-    MattVillalta8480191 = 8480191,
-    /// <summary>
-    /// HampusLindholm8476854
-    /// </summary>
-    HampusLindholm8476854 = 8476854,
     /// <summary>
     /// ScottPerunovich8481059
     /// </summary>
     ScottPerunovich8481059 = 8481059,
     /// <summary>
-    /// CalleRosen8480157
-    /// </summary>
-    CalleRosen8480157 = 8480157,
-    /// <summary>
-    /// GrigoriDenisenko8480844
-    /// </summary>
-    GrigoriDenisenko8480844 = 8480844,
-    /// <summary>
-    /// SheldonRempal8480776
-    /// </summary>
-    SheldonRempal8480776 = 8480776,
-    /// <summary>
-    /// MarkStone8475913
-    /// </summary>
-    MarkStone8475913 = 8475913,
-    /// <summary>
-    /// ByronFroese8475278
-    /// </summary>
-    ByronFroese8475278 = 8475278,
-    /// <summary>
-    /// BrendanBrisson8482153
-    /// </summary>
-    BrendanBrisson8482153 = 8482153,
-    /// <summary>
-    /// ColinWhite8478400
-    /// </summary>
-    ColinWhite8478400 = 8478400,
-    /// <summary>
     /// BrandonGignac8479330
     /// </summary>
     BrandonGignac8479330 = 8479330,
-    /// <summary>
-    /// NoelAcciari8478569
-    /// </summary>
-    NoelAcciari8478569 = 8478569,
-    /// <summary>
-    /// OlleLycksell8480245
-    /// </summary>
-    OlleLycksell8480245 = 8480245,
-    /// <summary>
-    /// BlakeLizotte8481481
-    /// </summary>
-    BlakeLizotte8481481 = 8481481,
-    /// <summary>
-    /// MagnusHellberg8476433
-    /// </summary>
-    MagnusHellberg8476433 = 8476433,
-    /// <summary>
-    /// BrennanOthmann8482747
-    /// </summary>
-    BrennanOthmann8482747 = 8482747,
-    /// <summary>
-    /// AlexanderNylander8479423
-    /// </summary>
-    AlexanderNylander8479423 = 8479423,
-    /// <summary>
-    /// EmilBemstrom8480205
-    /// </summary>
-    EmilBemstrom8480205 = 8480205,
-    /// <summary>
-    /// ZackBolduc8482737
-    /// </summary>
-    ZackBolduc8482737 = 8482737,
     /// <summary>
     /// JeanGuyTalbot8449214
     /// </summary>
     JeanGuyTalbot8449214 = 8449214,
     /// <summary>
-    /// MarshallRifai8483546
-    /// </summary>
-    MarshallRifai8483546 = 8483546,
-    /// <summary>
     /// JustinBrazeau8479638
     /// </summary>
     JustinBrazeau8479638 = 8479638,
-    /// <summary>
-    /// IanMitchell8480070
-    /// </summary>
-    IanMitchell8480070 = 8480070,
-    /// <summary>
-    /// MaxLajoie8479320
-    /// </summary>
-    MaxLajoie8479320 = 8479320,
-    /// <summary>
-    /// BrettHowden8479353
-    /// </summary>
-    BrettHowden8479353 = 8479353,
-    /// <summary>
-    /// JakubDemek8482933
-    /// </summary>
-    JakubDemek8482933 = 8482933,
-    /// <summary>
-    /// NicDowd8475343
-    /// </summary>
-    NicDowd8475343 = 8475343,
     /// <summary>
     /// NathanBastian8479414
     /// </summary>
     NathanBastian8479414 = 8479414,
     /// <summary>
-    /// AlexBarreBoulet8479718
-    /// </summary>
-    AlexBarreBoulet8479718 = 8479718,
-    /// <summary>
-    /// MaxwellCrozier8481719
-    /// </summary>
-    MaxwellCrozier8481719 = 8481719,
-    /// <summary>
-    /// HendrixLapierre8482148
-    /// </summary>
-    HendrixLapierre8482148 = 8482148,
-    /// <summary>
-    /// BrianHalonen8483531
-    /// </summary>
-    BrianHalonen8483531 = 8483531,
-    /// <summary>
     /// MarkJankowski8476873
     /// </summary>
     MarkJankowski8476873 = 8476873,
-    /// <summary>
-    /// DerrickPouliot8476884
-    /// </summary>
-    DerrickPouliot8476884 = 8476884,
-    /// <summary>
-    /// LoganStankoven8482702
-    /// </summary>
-    LoganStankoven8482702 = 8482702,
     /// <summary>
     /// JustinBieber8484747
     /// </summary>
@@ -88702,11 +83137,6851 @@ public enum PlayerEnum
     /// </summary>
     JordanSpence8481606 = 8481606,
     /// <summary>
+    /// AdamRuzicka8480008
+    /// </summary>
+    AdamRuzicka8480008 = 8480008,
+    /// <summary>
     /// KyleMacLean8481237
     /// </summary>
     KyleMacLean8481237 = 8481237,
     /// <summary>
-    /// AdamRuzicka8480008
+    /// OwenPower8482671
     /// </summary>
-    AdamRuzicka8480008 = 8480008,
+    OwenPower8482671 = 8482671,
+    /// <summary>
+    /// JettWoo8480808
+    /// </summary>
+    JettWoo8480808 = 8480808,
+    /// <summary>
+    /// RasmusRistolainen8477499
+    /// </summary>
+    RasmusRistolainen8477499 = 8477499,
+    /// <summary>
+    /// JacquesPlante8450066
+    /// </summary>
+    JacquesPlante8450066 = 8450066,
+    /// <summary>
+    /// ColeBrady8481744
+    /// </summary>
+    ColeBrady8481744 = 8481744,
+    /// <summary>
+    /// ArtemGrushnikov8482695
+    /// </summary>
+    ArtemGrushnikov8482695 = 8482695,
+    /// <summary>
+    /// JakubDemek8482933
+    /// </summary>
+    JakubDemek8482933 = 8482933,
+    /// <summary>
+    /// JoshNorris8480064
+    /// </summary>
+    JoshNorris8480064 = 8480064,
+    /// <summary>
+    /// JosephWoll8479361
+    /// </summary>
+    JosephWoll8479361 = 8479361,
+    /// <summary>
+    /// KirillSlepets8481724
+    /// </summary>
+    KirillSlepets8481724 = 8481724,
+    /// <summary>
+    /// MaxMcCue8482881
+    /// </summary>
+    MaxMcCue8482881 = 8482881,
+    /// <summary>
+    /// OlenZellweger8482803
+    /// </summary>
+    OlenZellweger8482803 = 8482803,
+    /// <summary>
+    /// ZakharBardakov8482947
+    /// </summary>
+    ZakharBardakov8482947 = 8482947,
+    /// <summary>
+    /// SandisVilmanis8483771
+    /// </summary>
+    SandisVilmanis8483771 = 8483771,
+    /// <summary>
+    /// MikaelDiotte8483085
+    /// </summary>
+    MikaelDiotte8483085 = 8483085,
+    /// <summary>
+    /// KurtisMacDermid8477073
+    /// </summary>
+    KurtisMacDermid8477073 = 8477073,
+    /// <summary>
+    /// LeeviMerilainen8482447
+    /// </summary>
+    LeeviMerilainen8482447 = 8482447,
+    /// <summary>
+    /// KentJohnson8482660
+    /// </summary>
+    KentJohnson8482660 = 8482660,
+    /// <summary>
+    /// PierrickDube8483920
+    /// </summary>
+    PierrickDube8483920 = 8483920,
+    /// <summary>
+    /// JackEichel8478403
+    /// </summary>
+    JackEichel8478403 = 8478403,
+    /// <summary>
+    /// TimEcclestone8445998
+    /// </summary>
+    TimEcclestone8445998 = 8445998,
+    /// <summary>
+    /// MattZaba8470820
+    /// </summary>
+    MattZaba8470820 = 8470820,
+    /// <summary>
+    /// BrianFoster8471822
+    /// </summary>
+    BrianFoster8471822 = 8471822,
+    /// <summary>
+    /// CalPetersen8477361
+    /// </summary>
+    CalPetersen8477361 = 8477361,
+    /// <summary>
+    /// JakubDobes8482487
+    /// </summary>
+    JakubDobes8482487 = 8482487,
+    /// <summary>
+    /// NathanMarsters8468645
+    /// </summary>
+    NathanMarsters8468645 = 8468645,
+    /// <summary>
+    /// JordanSigalet8469653
+    /// </summary>
+    JordanSigalet8469653 = 8469653,
+    /// <summary>
+    /// SamBrittain8475821
+    /// </summary>
+    SamBrittain8475821 = 8475821,
+    /// <summary>
+    /// SteveMichalek8476313
+    /// </summary>
+    SteveMichalek8476313 = 8476313,
+    /// <summary>
+    /// JonGillies8476903
+    /// </summary>
+    JonGillies8476903 = 8476903,
+    /// <summary>
+    /// ConnorHellebuyck8476945
+    /// </summary>
+    ConnorHellebuyck8476945 = 8476945,
+    /// <summary>
+    /// JamiePhillips8477050
+    /// </summary>
+    JamiePhillips8477050 = 8477050,
+    /// <summary>
+    /// AdamHuska8478903
+    /// </summary>
+    AdamHuska8478903 = 8478903,
+    /// <summary>
+    /// JoeyDaccord8478916
+    /// </summary>
+    JoeyDaccord8478916 = 8478916,
+    /// <summary>
+    /// BrianElliott8470880
+    /// </summary>
+    BrianElliott8470880 = 8470880,
+    /// <summary>
+    /// CorySchneider8471239
+    /// </summary>
+    CorySchneider8471239 = 8471239,
+    /// <summary>
+    /// JeffFrazee8471712
+    /// </summary>
+    JeffFrazee8471712 = 8471712,
+    /// <summary>
+    /// JonathanQuick8471734
+    /// </summary>
+    JonathanQuick8471734 = 8471734,
+    /// <summary>
+    /// BenBishop8471750
+    /// </summary>
+    BenBishop8471750 = 8471750,
+    /// <summary>
+    /// MarcCheverie8473420
+    /// </summary>
+    MarcCheverie8473420 = 8473420,
+    /// <summary>
+    /// RichardBachman8473614
+    /// </summary>
+    RichardBachman8473614 = 8473614,
+    /// <summary>
+    /// AllenYork8474057
+    /// </summary>
+    AllenYork8474057 = 8474057,
+    /// <summary>
+    /// GlennFisher8470044
+    /// </summary>
+    GlennFisher8470044 = 8470044,
+    /// <summary>
+    /// ChrisHolt8470772
+    /// </summary>
+    ChrisHolt8470772 = 8470772,
+    /// <summary>
+    /// KevinRegan8470866
+    /// </summary>
+    KevinRegan8470866 = 8470866,
+    /// <summary>
+    /// ScottMayfield8476429
+    /// </summary>
+    ScottMayfield8476429 = 8476429,
+    /// <summary>
+    /// HudsonFasching8477392
+    /// </summary>
+    HudsonFasching8477392 = 8477392,
+    /// <summary>
+    /// IvanIvan8483930
+    /// </summary>
+    IvanIvan8483930 = 8483930,
+    /// <summary>
+    /// RafaelHarveyPinard8481093
+    /// </summary>
+    RafaelHarveyPinard8481093 = 8481093,
+    /// <summary>
+    /// JoelHanley8477810
+    /// </summary>
+    JoelHanley8477810 = 8477810,
+    /// <summary>
+    /// RichardPetiot8469564
+    /// </summary>
+    RichardPetiot8469564 = 8469564,
+    /// <summary>
+    /// JayRosehill8470816
+    /// </summary>
+    JayRosehill8470816 = 8470816,
+    /// <summary>
+    /// NickJohnson8471280
+    /// </summary>
+    NickJohnson8471280 = 8471280,
+    /// <summary>
+    /// MasonRaymond8471664
+    /// </summary>
+    MasonRaymond8471664 = 8471664,
+    /// <summary>
+    /// TJFast8471722
+    /// </summary>
+    TJFast8471722 = 8471722,
+    /// <summary>
+    /// MattFrattin8474192
+    /// </summary>
+    MattFrattin8474192 = 8474192,
+    /// <summary>
+    /// TyEmberson8480834
+    /// </summary>
+    TyEmberson8480834 = 8480834,
+    /// <summary>
+    /// CarsonSoucy8477369
+    /// </summary>
+    CarsonSoucy8477369 = 8477369,
+    /// <summary>
+    /// TonyRomano8473538
+    /// </summary>
+    TonyRomano8473538 = 8473538,
+    /// <summary>
+    /// JoeColborne8474577
+    /// </summary>
+    JoeColborne8474577 = 8474577,
+    /// <summary>
+    /// AndrewMacWilliam8474748
+    /// </summary>
+    AndrewMacWilliam8474748 = 8474748,
+    /// <summary>
+    /// DylanOlsen8475153
+    /// </summary>
+    DylanOlsen8475153 = 8475153,
+    /// <summary>
+    /// CorbanKnight8475260
+    /// </summary>
+    CorbanKnight8475260 = 8475260,
+    /// <summary>
+    /// BrandonHickey8477995
+    /// </summary>
+    BrandonHickey8477995 = 8477995,
+    /// <summary>
+    /// KevinEstrada8469540
+    /// </summary>
+    KevinEstrada8469540 = 8469540,
+    /// <summary>
+    /// NathanOystrick8470136
+    /// </summary>
+    NathanOystrick8470136 = 8470136,
+    /// <summary>
+    /// DavidVanDerGulik8470189
+    /// </summary>
+    DavidVanDerGulik8470189 = 8470189,
+    /// <summary>
+    /// RyanOByrne8470672
+    /// </summary>
+    RyanOByrne8470672 = 8470672,
+    /// <summary>
+    /// ByronBitz8470700
+    /// </summary>
+    ByronBitz8470700 = 8470700,
+    /// <summary>
+    /// TannerGlass8470854
+    /// </summary>
+    TannerGlass8470854 = 8470854,
+    /// <summary>
+    /// DavidJones8470877
+    /// </summary>
+    DavidJones8470877 = 8470877,
+    /// <summary>
+    /// TravisZajac8471233
+    /// </summary>
+    TravisZajac8471233 = 8471233,
+    /// <summary>
+    /// KrisChucko8471237
+    /// </summary>
+    KrisChucko8471237 = 8471237,
+    /// <summary>
+    /// RaymondSawada8471265
+    /// </summary>
+    RaymondSawada8471265 = 8471265,
+    /// <summary>
+    /// MikeSantorelli8471390
+    /// </summary>
+    MikeSantorelli8471390 = 8471390,
+    /// <summary>
+    /// TylerEckford8471429
+    /// </summary>
+    TylerEckford8471429 = 8471429,
+    /// <summary>
+    /// BrandonYip8471450
+    /// </summary>
+    BrandonYip8471450 = 8471450,
+    /// <summary>
+    /// MatthewSiddall8471481
+    /// </summary>
+    MatthewSiddall8471481 = 8471481,
+    /// <summary>
+    /// AndrewKozek8471666
+    /// </summary>
+    AndrewKozek8471666 = 8471666,
+    /// <summary>
+    /// KeithSeabrook8473413
+    /// </summary>
+    KeithSeabrook8473413 = 8473413,
+    /// <summary>
+    /// RileyNash8474062
+    /// </summary>
+    RileyNash8474062 = 8474062,
+    /// <summary>
+    /// KyleTurris8474068
+    /// </summary>
+    KyleTurris8474068 = 8474068,
+    /// <summary>
+    /// JamieBenn8473994
+    /// </summary>
+    JamieBenn8473994 = 8473994,
+    /// <summary>
+    /// CaseyPierroZabotel8474015
+    /// </summary>
+    CaseyPierroZabotel8474015 = 8474015,
+    /// <summary>
+    /// ZacDalpe8474610
+    /// </summary>
+    ZacDalpe8474610 = 8474610,
+    /// <summary>
+    /// DerekGrant8474683
+    /// </summary>
+    DerekGrant8474683 = 8474683,
+    /// <summary>
+    /// BrettHextall8474720
+    /// </summary>
+    BrettHextall8474720 = 8474720,
+    /// <summary>
+    /// CurtisMcKenzie8475310
+    /// </summary>
+    CurtisMcKenzie8475310 = 8475310,
+    /// <summary>
+    /// JoshManson8476312
+    /// </summary>
+    JoshManson8476312 = 8476312,
+    /// <summary>
+    /// JoelLowry8476382
+    /// </summary>
+    JoelLowry8476382 = 8476382,
+    /// <summary>
+    /// AdamTambellini8477487
+    /// </summary>
+    AdamTambellini8477487 = 8477487,
+    /// <summary>
+    /// TysonStrachan8470729
+    /// </summary>
+    TysonStrachan8470729 = 8470729,
+    /// <summary>
+    /// MattWatkins8471821
+    /// </summary>
+    MattWatkins8471821 = 8471821,
+    /// <summary>
+    /// CorbinMcPherson8474196
+    /// </summary>
+    CorbinMcPherson8474196 = 8474196,
+    /// <summary>
+    /// DaveDziurzynski8475661
+    /// </summary>
+    DaveDziurzynski8475661 = 8475661,
+    /// <summary>
+    /// AlexanderGuptill8475711
+    /// </summary>
+    AlexanderGuptill8475711 = 8475711,
+    /// <summary>
+    /// JulianMelchiori8475815
+    /// </summary>
+    JulianMelchiori8475815 = 8475815,
+    /// <summary>
+    /// ColinMcDonald8470644
+    /// </summary>
+    ColinMcDonald8470644 = 8470644,
+    /// <summary>
+    /// ShawnWeller8471289
+    /// </summary>
+    ShawnWeller8471289 = 8471289,
+    /// <summary>
+    /// RobBellamy8471304
+    /// </summary>
+    RobBellamy8471304 = 8471304,
+    /// <summary>
+    /// GrantClitsome8471482
+    /// </summary>
+    GrantClitsome8471482 = 8471482,
+    /// <summary>
+    /// MarkBorowiecki8474697
+    /// </summary>
+    MarkBorowiecki8474697 = 8474697,
+    /// <summary>
+    /// ZachHyman8475786
+    /// </summary>
+    ZachHyman8475786 = 8475786,
+    /// <summary>
+    /// ThomasBordeleau8482133
+    /// </summary>
+    ThomasBordeleau8482133 = 8482133,
+    /// <summary>
+    /// AndrewMurray8469685
+    /// </summary>
+    AndrewMurray8469685 = 8469685,
+    /// <summary>
+    /// DavidRohlfs8470746
+    /// </summary>
+    DavidRohlfs8470746 = 8470746,
+    /// <summary>
+    /// TrevorLudwig8471395
+    /// </summary>
+    TrevorLudwig8471395 = 8471395,
+    /// <summary>
+    /// DavidMacDonald8471437
+    /// </summary>
+    DavidMacDonald8471437 = 8471437,
+    /// <summary>
+    /// AlexBerry8471814
+    /// </summary>
+    AlexBerry8471814 = 8471814,
+    /// <summary>
+    /// MattGenerous8471866
+    /// </summary>
+    MattGenerous8471866 = 8471866,
+    /// <summary>
+    /// ColtonFretter8470275
+    /// </summary>
+    ColtonFretter8470275 = 8470275,
+    /// <summary>
+    /// DylanReese8470798
+    /// </summary>
+    DylanReese8470798 = 8470798,
+    /// <summary>
+    /// AndrewJoudrey8470838
+    /// </summary>
+    AndrewJoudrey8470838 = 8470838,
+    /// <summary>
+    /// RylanKaip8470858
+    /// </summary>
+    RylanKaip8470858 = 8470858,
+    /// <summary>
+    /// AndrewGordon8471409
+    /// </summary>
+    AndrewGordon8471409 = 8471409,
+    /// <summary>
+    /// DavidMcIntyre8473511
+    /// </summary>
+    DavidMcIntyre8473511 = 8473511,
+    /// <summary>
+    /// LouieCaporusso8474129
+    /// </summary>
+    LouieCaporusso8474129 = 8474129,
+    /// <summary>
+    /// TrentVogelhuber8474174
+    /// </summary>
+    TrentVogelhuber8474174 = 8474174,
+    /// <summary>
+    /// EricSelleck8474554
+    /// </summary>
+    EricSelleck8474554 = 8474554,
+    /// <summary>
+    /// BrandonBurlon8474614
+    /// </summary>
+    BrandonBurlon8474614 = 8474614,
+    /// <summary>
+    /// NicholasDAgostino8474768
+    /// </summary>
+    NicholasDAgostino8474768 = 8474768,
+    /// <summary>
+    /// BrandonPirri8475204
+    /// </summary>
+    BrandonPirri8475204 = 8475204,
+    /// <summary>
+    /// MichaelPrapavessis8478035
+    /// </summary>
+    MichaelPrapavessis8478035 = 8478035,
+    /// <summary>
+    /// GeoffWaugh8470164
+    /// </summary>
+    GeoffWaugh8470164 = 8470164,
+    /// <summary>
+    /// DrewBagnall8470787
+    /// </summary>
+    DrewBagnall8470787 = 8470787,
+    /// <summary>
+    /// KrisFredheim8471846
+    /// </summary>
+    KrisFredheim8471846 = 8471846,
+    /// <summary>
+    /// TheoRuth8474017
+    /// </summary>
+    TheoRuth8474017 = 8474017,
+    /// <summary>
+    /// MikeHoeffel8474023
+    /// </summary>
+    MikeHoeffel8474023 = 8474023,
+    /// <summary>
+    /// DustinStevenson8475662
+    /// </summary>
+    DustinStevenson8475662 = 8475662,
+    /// <summary>
+    /// NoahWelch8469505
+    /// </summary>
+    NoahWelch8469505 = 8469505,
+    /// <summary>
+    /// TomCavanagh8469629
+    /// </summary>
+    TomCavanagh8469629 = 8469629,
+    /// <summary>
+    /// MikeMorris8470124
+    /// </summary>
+    MikeMorris8470124 = 8470124,
+    /// <summary>
+    /// DanSpang8470314
+    /// </summary>
+    DanSpang8470314 = 8470314,
+    /// <summary>
+    /// BrianBoyle8470619
+    /// </summary>
+    BrianBoyle8470619 = 8470619,
+    /// <summary>
+    /// SeanSullivan8470861
+    /// </summary>
+    SeanSullivan8470861 = 8470861,
+    /// <summary>
+    /// JohnAlbert8474012
+    /// </summary>
+    JohnAlbert8474012 = 8474012,
+    /// <summary>
+    /// CadeFairchild8474029
+    /// </summary>
+    CadeFairchild8474029 = 8474029,
+    /// <summary>
+    /// JoeLavin8474103
+    /// </summary>
+    JoeLavin8474103 = 8474103,
+    /// <summary>
+    /// JustinVaive8474104
+    /// </summary>
+    JustinVaive8474104 = 8474104,
+    /// <summary>
+    /// DannyKristo8474620
+    /// </summary>
+    DannyKristo8474620 = 8474620,
+    /// <summary>
+    /// RobertCzarnik8474626
+    /// </summary>
+    RobertCzarnik8474626 = 8474626,
+    /// <summary>
+    /// DavidWarsofsky8474660
+    /// </summary>
+    DavidWarsofsky8474660 = 8474660,
+    /// <summary>
+    /// KylePalmieri8475151
+    /// </summary>
+    KylePalmieri8475151 = 8475151,
+    /// <summary>
+    /// KennyRyan8475207
+    /// </summary>
+    KennyRyan8475207 = 8475207,
+    /// <summary>
+    /// JeremyMorin8475214
+    /// </summary>
+    JeremyMorin8475214 = 8475214,
+    /// <summary>
+    /// RyanBourque8475243
+    /// </summary>
+    RyanBourque8475243 = 8475243,
+    /// <summary>
+    /// JerryDAmigo8475309
+    /// </summary>
+    JerryDAmigo8475309 = 8475309,
+    /// <summary>
+    /// ChrisBourque8471246
+    /// </summary>
+    ChrisBourque8471246 = 8471246,
+    /// <summary>
+    /// TorreyMitchell8471338
+    /// </summary>
+    TorreyMitchell8471338 = 8471338,
+    /// <summary>
+    /// StevenZalewski8471365
+    /// </summary>
+    StevenZalewski8471365 = 8471365,
+    /// <summary>
+    /// KeithYandle8471735
+    /// </summary>
+    KeithYandle8471735 = 8471735,
+    /// <summary>
+    /// MarkFayne8471816
+    /// </summary>
+    MarkFayne8471816 = 8471816,
+    /// <summary>
+    /// AlexBiega8473415
+    /// </summary>
+    AlexBiega8473415 = 8473415,
+    /// <summary>
+    /// KevinQuick8473433
+    /// </summary>
+    KevinQuick8473433 = 8473433,
+    /// <summary>
+    /// NickBonino8474009
+    /// </summary>
+    NickBonino8474009 = 8474009,
+    /// <summary>
+    /// MacBennett8475242
+    /// </summary>
+    MacBennett8475242 = 8475242,
+    /// <summary>
+    /// BrandonRogers8469566
+    /// </summary>
+    BrandonRogers8469566 = 8469566,
+    /// <summary>
+    /// MattSmaby8470634
+    /// </summary>
+    MattSmaby8470634 = 8470634,
+    /// <summary>
+    /// ThomasLarkin8475262
+    /// </summary>
+    ThomasLarkin8475262 = 8475262,
+    /// <summary>
+    /// WadeMegan8475263
+    /// </summary>
+    WadeMegan8475263 = 8475263,
+    /// <summary>
+    /// KennyAgostino8475844
+    /// </summary>
+    KennyAgostino8475844 = 8475844,
+    /// <summary>
+    /// BrianHart8476928
+    /// </summary>
+    BrianHart8476928 = 8476928,
+    /// <summary>
+    /// AdamGilmour8476972
+    /// </summary>
+    AdamGilmour8476972 = 8476972,
+    /// <summary>
+    /// MilesWood8477425
+    /// </summary>
+    MilesWood8477425 = 8477425,
+    /// <summary>
+    /// ThomasVannelli8477468
+    /// </summary>
+    ThomasVannelli8477468 = 8477468,
+    /// <summary>
+    /// JTWyman8471312
+    /// </summary>
+    JTWyman8471312 = 8471312,
+    /// <summary>
+    /// BrianLee8471683
+    /// </summary>
+    BrianLee8471683 = 8471683,
+    /// <summary>
+    /// MattNiskanen8471702
+    /// </summary>
+    MattNiskanen8471702 = 8471702,
+    /// <summary>
+    /// TaylorChorney8471710
+    /// </summary>
+    TaylorChorney8471710 = 8471710,
+    /// <summary>
+    /// ChrisVandeVelde8471762
+    /// </summary>
+    ChrisVandeVelde8471762 = 8471762,
+    /// <summary>
+    /// TonyLucia8471854
+    /// </summary>
+    TonyLucia8471854 = 8471854,
+    /// <summary>
+    /// KyleMedvec8473445
+    /// </summary>
+    KyleMedvec8473445 = 8473445,
+    /// <summary>
+    /// MichaelForney8473458
+    /// </summary>
+    MichaelForney8473458 = 8473458,
+    /// <summary>
+    /// CarlSneep8473539
+    /// </summary>
+    CarlSneep8473539 = 8473539,
+    /// <summary>
+    /// JoeStejskal8474036
+    /// </summary>
+    JoeStejskal8474036 = 8474036,
+    /// <summary>
+    /// JakeGardiner8474581
+    /// </summary>
+    JakeGardiner8474581 = 8474581,
+    /// <summary>
+    /// AaronNess8474604
+    /// </summary>
+    AaronNess8474604 = 8474604,
+    /// <summary>
+    /// DerekStepan8474613
+    /// </summary>
+    DerekStepan8474613 = 8474613,
+    /// <summary>
+    /// NickLeddy8475181
+    /// </summary>
+    NickLeddy8475181 = 8475181,
+    /// <summary>
+    /// BenHanowski8475196
+    /// </summary>
+    BenHanowski8475196 = 8475196,
+    /// <summary>
+    /// AlexFallstrom8475276
+    /// </summary>
+    AlexFallstrom8475276 = 8475276,
+    /// <summary>
+    /// ErikHaula8475287
+    /// </summary>
+    ErikHaula8475287 = 8475287,
+    /// <summary>
+    /// AndersLee8475314
+    /// </summary>
+    AndersLee8475314 = 8475314,
+    /// <summary>
+    /// JoshArchibald8476326
+    /// </summary>
+    JoshArchibald8476326 = 8476326,
+    /// <summary>
+    /// MattHendricks8468611
+    /// </summary>
+    MattHendricks8468611 = 8468611,
+    /// <summary>
+    /// JustinHoll8475718
+    /// </summary>
+    JustinHoll8475718 = 8475718,
+    /// <summary>
+    /// GuillaumeBrisebois8478465
+    /// </summary>
+    GuillaumeBrisebois8478465 = 8478465,
+    /// <summary>
+    /// CaseyMittelstadt8479999
+    /// </summary>
+    CaseyMittelstadt8479999 = 8479999,
+    /// <summary>
+    /// BowenByram8481524
+    /// </summary>
+    BowenByram8481524 = 8481524,
+    /// <summary>
+    /// TyTaylor8481083
+    /// </summary>
+    TyTaylor8481083 = 8481083,
+    /// <summary>
+    /// OndrejPavel8484259
+    /// </summary>
+    OndrejPavel8484259 = 8484259,
+    /// <summary>
+    /// ConnorPunnett8484523
+    /// </summary>
+    ConnorPunnett8484523 = 8484523,
+    /// <summary>
+    /// NoahHanifin8478396
+    /// </summary>
+    NoahHanifin8478396 = 8478396,
+    /// <summary>
+    /// MadsSogaard8481544
+    /// </summary>
+    MadsSogaard8481544 = 8481544,
+    /// <summary>
+    /// JanMysak8482136
+    /// </summary>
+    JanMysak8482136 = 8482136,
+    /// <summary>
+    /// FrederikAndersen8475883
+    /// </summary>
+    FrederikAndersen8475883 = 8475883,
+    /// <summary>
+    /// DaniilMiromanov8482624
+    /// </summary>
+    DaniilMiromanov8482624 = 8482624,
+    /// <summary>
+    /// JeremyHanzel8483086
+    /// </summary>
+    JeremyHanzel8483086 = 8483086,
+    /// <summary>
+    /// JoonaKoppanen8479533
+    /// </summary>
+    JoonaKoppanen8479533 = 8479533,
+    /// <summary>
+    /// RyanJohnson8481564
+    /// </summary>
+    RyanJohnson8481564 = 8481564,
+    /// <summary>
+    /// TySmith8480883
+    /// </summary>
+    TySmith8480883 = 8480883,
+    /// <summary>
+    /// VasilyPonomarev8482102
+    /// </summary>
+    VasilyPonomarev8482102 = 8482102,
+    /// <summary>
+    /// VilleKoivunen8482758
+    /// </summary>
+    VilleKoivunen8482758 = 8482758,
+    /// <summary>
+    /// CruzLucius8483479
+    /// </summary>
+    CruzLucius8483479 = 8483479,
+    /// <summary>
+    /// SamuelFagemo8481239
+    /// </summary>
+    SamuelFagemo8481239 = 8481239,
+    /// <summary>
+    /// JakeAllen8474596
+    /// </summary>
+    JakeAllen8474596 = 8474596,
+    /// <summary>
+    /// MarcusFoligno8475220
+    /// </summary>
+    MarcusFoligno8475220 = 8475220,
+    /// <summary>
+    /// EvgenyKuznetsov8475744
+    /// </summary>
+    EvgenyKuznetsov8475744 = 8475744,
+    /// <summary>
+    /// VitekVanecek8477970
+    /// </summary>
+    VitekVanecek8477970 = 8477970,
+    /// <summary>
+    /// KaleClague8479348
+    /// </summary>
+    KaleClague8479348 = 8479348,
+    /// <summary>
+    /// LouisCrevier8481806
+    /// </summary>
+    LouisCrevier8481806 = 8481806,
+    /// <summary>
+    /// LukeToporowski8481866
+    /// </summary>
+    LukeToporowski8481866 = 8481866,
+    /// <summary>
+    /// IsaakPhillips8482192
+    /// </summary>
+    IsaakPhillips8482192 = 8482192,
+    /// <summary>
+    /// BrandtClarke8482730
+    /// </summary>
+    BrandtClarke8482730 = 8482730,
+    /// <summary>
+    /// DavidEdstrom8484165
+    /// </summary>
+    DavidEdstrom8484165 = 8484165,
+    /// <summary>
+    /// MichaelBunting8478047
+    /// </summary>
+    MichaelBunting8478047 = 8478047,
+    /// <summary>
+    /// MattRempe8482460
+    /// </summary>
+    MattRempe8482460 = 8482460,
+    /// <summary>
+    /// ConnorDewar8480980
+    /// </summary>
+    ConnorDewar8480980 = 8480980,
+    /// <summary>
+    /// HampusLindholm8476854
+    /// </summary>
+    HampusLindholm8476854 = 8476854,
+    /// <summary>
+    /// MaratKhusnutdinov8482177
+    /// </summary>
+    MaratKhusnutdinov8482177 = 8482177,
+    /// <summary>
+    /// AndrewPeeke8479369
+    /// </summary>
+    AndrewPeeke8479369 = 8479369,
+    /// <summary>
+    /// TobiasBjornfot8481600
+    /// </summary>
+    TobiasBjornfot8481600 = 8481600,
+    /// <summary>
+    /// KlimKostin8480011
+    /// </summary>
+    KlimKostin8480011 = 8480011,
+    /// <summary>
+    /// TJOshie8471698
+    /// </summary>
+    TJOshie8471698 = 8471698,
+    /// <summary>
+    /// JustinErtel8482919
+    /// </summary>
+    JustinErtel8482919 = 8482919,
+    /// <summary>
+    /// NathanLegare8481594
+    /// </summary>
+    NathanLegare8481594 = 8481594,
+    /// <summary>
+    /// LandonSlaggert8482172
+    /// </summary>
+    LandonSlaggert8482172 = 8482172,
+    /// <summary>
+    /// AndreasAthanasiou8476960
+    /// </summary>
+    AndreasAthanasiou8476960 = 8476960,
+    /// <summary>
+    /// MarcusJohansson8475149
+    /// </summary>
+    MarcusJohansson8475149 = 8475149,
+    /// <summary>
+    /// NikitaOkhotiuk8481537
+    /// </summary>
+    NikitaOkhotiuk8481537 = 8481537,
+    /// <summary>
+    /// BrettHowden8479353
+    /// </summary>
+    BrettHowden8479353 = 8479353,
+    /// <summary>
+    /// TroyRiddle8468609
+    /// </summary>
+    TroyRiddle8468609 = 8468609,
+    /// <summary>
+    /// AndrewAlberts8469626
+    /// </summary>
+    AndrewAlberts8469626 = 8469626,
+    /// <summary>
+    /// DavidMoss8469664
+    /// </summary>
+    DavidMoss8469664 = 8469664,
+    /// <summary>
+    /// MattGreene8470121
+    /// </summary>
+    MattGreene8470121 = 8470121,
+    /// <summary>
+    /// BrettSkinner8470119
+    /// </summary>
+    BrettSkinner8470119 = 8470119,
+    /// <summary>
+    /// MattCarle8470640
+    /// </summary>
+    MattCarle8470640 = 8470640,
+    /// <summary>
+    /// DavidBackes8470655
+    /// </summary>
+    DavidBackes8470655 = 8470655,
+    /// <summary>
+    /// DannyIrmen8470671
+    /// </summary>
+    DannyIrmen8470671 = 8470671,
+    /// <summary>
+    /// RyanPotulny8470680
+    /// </summary>
+    RyanPotulny8470680 = 8470680,
+    /// <summary>
+    /// DrewMiller8470778
+    /// </summary>
+    DrewMiller8470778 = 8470778,
+    /// <summary>
+    /// BradyGreco8470845
+    /// </summary>
+    BradyGreco8470845 = 8470845,
+    /// <summary>
+    /// VictorOreskovich8471268
+    /// </summary>
+    VictorOreskovich8471268 = 8471268,
+    /// <summary>
+    /// NicDowd8475343
+    /// </summary>
+    NicDowd8475343 = 8475343,
+    /// <summary>
+    /// MartinFehervary8480796
+    /// </summary>
+    MartinFehervary8480796 = 8480796,
+    /// <summary>
+    /// JacobPerreault8482150
+    /// </summary>
+    JacobPerreault8482150 = 8482150,
+    /// <summary>
+    /// RyanJohansen8475793
+    /// </summary>
+    RyanJohansen8475793 = 8475793,
+    /// <summary>
+    /// HugoOllas8482504
+    /// </summary>
+    HugoOllas8482504 = 8482504,
+    /// <summary>
+    /// WyattBongiovanni8483579
+    /// </summary>
+    WyattBongiovanni8483579 = 8483579,
+    /// <summary>
+    /// NicholasRobertson8481582
+    /// </summary>
+    NicholasRobertson8481582 = 8481582,
+    /// <summary>
+    /// JamiesonRees8481579
+    /// </summary>
+    JamiesonRees8481579 = 8481579,
+    /// <summary>
+    /// ZacharySanford8477482
+    /// </summary>
+    ZacharySanford8477482 = 8477482,
+    /// <summary>
+    /// ConorTimmins8479982
+    /// </summary>
+    ConorTimmins8479982 = 8479982,
+    /// <summary>
+    /// MaxenceGuenette8481679
+    /// </summary>
+    MaxenceGuenette8481679 = 8481679,
+    /// <summary>
+    /// LoganStankoven8482702
+    /// </summary>
+    LoganStankoven8482702 = 8482702,
+    /// <summary>
+    /// PavolRegenda8483630
+    /// </summary>
+    PavolRegenda8483630 = 8483630,
+    /// <summary>
+    /// TravisHamonic8474612
+    /// </summary>
+    TravisHamonic8474612 = 8474612,
+    /// <summary>
+    /// ConnorUngar8483083
+    /// </summary>
+    ConnorUngar8483083 = 8483083,
+    /// <summary>
+    /// NicoDaws8482076
+    /// </summary>
+    NicoDaws8482076 = 8482076,
+    /// <summary>
+    /// RasmusKumpulainen8484184
+    /// </summary>
+    RasmusKumpulainen8484184 = 8484184,
+    /// <summary>
+    /// KonstantinKoltsov8467891
+    /// </summary>
+    KonstantinKoltsov8467891 = 8467891,
+    /// <summary>
+    /// RobbieRusso8476418
+    /// </summary>
+    RobbieRusso8476418 = 8476418,
+    /// <summary>
+    /// AlesStezka8478848
+    /// </summary>
+    AlesStezka8478848 = 8478848,
+    /// <summary>
+    /// LukasKlok8483810
+    /// </summary>
+    LukasKlok8483810 = 8483810,
+    /// <summary>
+    /// KyleKlubertanz8471287
+    /// </summary>
+    KyleKlubertanz8471287 = 8471287,
+    /// <summary>
+    /// MatthewFord8471467
+    /// </summary>
+    MatthewFord8471467 = 8471467,
+    /// <summary>
+    /// JoshMeyers8471864
+    /// </summary>
+    JoshMeyers8471864 = 8471864,
+    /// <summary>
+    /// ChadRau8471885
+    /// </summary>
+    ChadRau8471885 = 8471885,
+    /// <summary>
+    /// JasonGregoire8474132
+    /// </summary>
+    JasonGregoire8474132 = 8474132,
+    /// <summary>
+    /// BlakeKessel8474140
+    /// </summary>
+    BlakeKessel8474140 = 8474140,
+    /// <summary>
+    /// GrantPotulny8468637
+    /// </summary>
+    GrantPotulny8468637 = 8468637,
+    /// <summary>
+    /// JohnZeiler8470113
+    /// </summary>
+    JohnZeiler8470113 = 8470113,
+    /// <summary>
+    /// JoeyCrabb8470156
+    /// </summary>
+    JoeyCrabb8470156 = 8470156,
+    /// <summary>
+    /// VinceBellissimo8470198
+    /// </summary>
+    VinceBellissimo8470198 = 8470198,
+    /// <summary>
+    /// NateGuenin8470317
+    /// </summary>
+    NateGuenin8470317 = 8470317,
+    /// <summary>
+    /// ChrisPorter8470871
+    /// </summary>
+    ChrisPorter8470871 = 8470871,
+    /// <summary>
+    /// SashaPastujov8482682
+    /// </summary>
+    SashaPastujov8482682 = 8482682,
+    /// <summary>
+    /// JackDougherty8477982
+    /// </summary>
+    JackDougherty8477982 = 8477982,
+    /// <summary>
+    /// RossColton8479525
+    /// </summary>
+    RossColton8479525 = 8479525,
+    /// <summary>
+    /// JakobPelletier8481592
+    /// </summary>
+    JakobPelletier8481592 = 8481592,
+    /// <summary>
+    /// MichaelMcCarron8477446
+    /// </summary>
+    MichaelMcCarron8477446 = 8477446,
+    /// <summary>
+    /// IanMcCoshen8477452
+    /// </summary>
+    IanMcCoshen8477452 = 8477452,
+    /// <summary>
+    /// DylanLarkin8477946
+    /// </summary>
+    DylanLarkin8477946 = 8477946,
+    /// <summary>
+    /// SonnyMilano8477947
+    /// </summary>
+    SonnyMilano8477947 = 8477947,
+    /// <summary>
+    /// MichaelSdao8475348
+    /// </summary>
+    MichaelSdao8475348 = 8475348,
+    /// <summary>
+    /// JonMerrill8475750
+    /// </summary>
+    JonMerrill8475750 = 8475750,
+    /// <summary>
+    /// JustinFaulk8475753
+    /// </summary>
+    JustinFaulk8475753 = 8475753,
+    /// <summary>
+    /// JadenSchwartz8475768
+    /// </summary>
+    JadenSchwartz8475768 = 8475768,
+    /// <summary>
+    /// BryanRust8475810
+    /// </summary>
+    BryanRust8475810 = 8475810,
+    /// <summary>
+    /// ChristopherCrane8475890
+    /// </summary>
+    ChristopherCrane8475890 = 8475890,
+    /// <summary>
+    /// AlexBroadhurst8476283
+    /// </summary>
+    AlexBroadhurst8476283 = 8476283,
+    /// <summary>
+    /// JohnnyGaudreau8476346
+    /// </summary>
+    JohnnyGaudreau8476346 = 8476346,
+    /// <summary>
+    /// BlakePietila8476370
+    /// </summary>
+    BlakePietila8476370 = 8476370,
+    /// <summary>
+    /// MichaelPaliotta8476394
+    /// </summary>
+    MichaelPaliotta8476394 = 8476394,
+    /// <summary>
+    /// BlakeColeman8476399
+    /// </summary>
+    BlakeColeman8476399 = 8476399,
+    /// <summary>
+    /// JTMiller8476468
+    /// </summary>
+    JTMiller8476468 = 8476468,
+    /// <summary>
+    /// TylerBiggs8476475
+    /// </summary>
+    TylerBiggs8476475 = 8476475,
+    /// <summary>
+    /// StefanMatteau8476870
+    /// </summary>
+    StefanMatteau8476870 = 8476870,
+    /// <summary>
+    /// JacobTrouba8476885
+    /// </summary>
+    JacobTrouba8476885 = 8476885,
+    /// <summary>
+    /// PatrickSieloff8476890
+    /// </summary>
+    PatrickSieloff8476890 = 8476890,
+    /// <summary>
+    /// RileyBarber8477003
+    /// </summary>
+    RileyBarber8477003 = 8477003,
+    /// <summary>
+    /// PhilipSamuelsson8475194
+    /// </summary>
+    PhilipSamuelsson8475194 = 8475194,
+    /// <summary>
+    /// SethHelgeson8475274
+    /// </summary>
+    SethHelgeson8475274 = 8475274,
+    /// <summary>
+    /// PatrickWey8475275
+    /// </summary>
+    PatrickWey8475275 = 8475275,
+    /// <summary>
+    /// MattClackson8471872
+    /// </summary>
+    MattClackson8471872 = 8471872,
+    /// <summary>
+    /// JayBarriball8473437
+    /// </summary>
+    JayBarriball8473437 = 8473437,
+    /// <summary>
+    /// EricGryba8473468
+    /// </summary>
+    EricGryba8473468 = 8473468,
+    /// <summary>
+    /// JeffPetry8473507
+    /// </summary>
+    JeffPetry8473507 = 8473507,
+    /// <summary>
+    /// AndreasNodl8473568
+    /// </summary>
+    AndreasNodl8473568 = 8473568,
+    /// <summary>
+    /// ColbyCohen8474002
+    /// </summary>
+    ColbyCohen8474002 = 8474002,
+    /// <summary>
+    /// BenRyan8474004
+    /// </summary>
+    BenRyan8474004 = 8474004,
+    /// <summary>
+    /// AaronPalushaj8474030
+    /// </summary>
+    AaronPalushaj8474030 = 8474030,
+    /// <summary>
+    /// NickPetrecki8474032
+    /// </summary>
+    NickPetrecki8474032 = 8474032,
+    /// <summary>
+    /// CoreyTropp8474130
+    /// </summary>
+    CoreyTropp8474130 = 8474130,
+    /// <summary>
+    /// AndrewConboy8474147
+    /// </summary>
+    AndrewConboy8474147 = 8474147,
+    /// <summary>
+    /// PatrickWiercioch8474605
+    /// </summary>
+    PatrickWiercioch8474605 = 8474605,
+    /// <summary>
+    /// JimmyHayes8474625
+    /// </summary>
+    JimmyHayes8474625 = 8474625,
+    /// <summary>
+    /// SteveQuailer8474645
+    /// </summary>
+    SteveQuailer8474645 = 8474645,
+    /// <summary>
+    /// MaxNicastro8474652
+    /// </summary>
+    MaxNicastro8474652 = 8474652,
+    /// <summary>
+    /// MattDonovan8474659
+    /// </summary>
+    MattDonovan8474659 = 8474659,
+    /// <summary>
+    /// LukeWitkowski8474722
+    /// </summary>
+    LukeWitkowski8474722 = 8474722,
+    /// <summary>
+    /// MattBartkowski8474749
+    /// </summary>
+    MattBartkowski8474749 = 8474749,
+    /// <summary>
+    /// LouisLeblanc8475183
+    /// </summary>
+    LouisLeblanc8475183 = 8475183,
+    /// <summary>
+    /// NathanPerkovich8471461
+    /// </summary>
+    NathanPerkovich8471461 = 8471461,
+    /// <summary>
+    /// LukeBeaverson8471494
+    /// </summary>
+    LukeBeaverson8471494 = 8471494,
+    /// <summary>
+    /// JoeFinley8471701
+    /// </summary>
+    JoeFinley8471701 = 8471701,
+    /// <summary>
+    /// JustinAbdelkader8471716
+    /// </summary>
+    JustinAbdelkader8471716 = 8471716,
+    /// <summary>
+    /// ChrisButler8471761
+    /// </summary>
+    ChrisButler8471761 = 8471761,
+    /// <summary>
+    /// JaredBoll8471766
+    /// </summary>
+    JaredBoll8471766 = 8471766,
+    /// <summary>
+    /// TimKennedy8471842
+    /// </summary>
+    TimKennedy8471842 = 8471842,
+    /// <summary>
+    /// JoeVitale8471856
+    /// </summary>
+    JoeVitale8471856 = 8471856,
+    /// <summary>
+    /// AndySchneider8469603
+    /// </summary>
+    AndySchneider8469603 = 8469603,
+    /// <summary>
+    /// TomGilbert8470104
+    /// </summary>
+    TomGilbert8470104 = 8470104,
+    /// <summary>
+    /// JimMcKenzie8471353
+    /// </summary>
+    JimMcKenzie8471353 = 8471353,
+    /// <summary>
+    /// DerekPeltier8471396
+    /// </summary>
+    DerekPeltier8471396 = 8471396,
+    /// <summary>
+    /// CarterGylander8481757
+    /// </summary>
+    CarterGylander8481757 = 8481757,
+    /// <summary>
+    /// ChrisSimon8458031
+    /// </summary>
+    ChrisSimon8458031 = 8458031,
+    /// <summary>
+    /// JaroslavChmelar8482877
+    /// </summary>
+    JaroslavChmelar8482877 = 8482877,
+    /// <summary>
+    /// MackenzieBlackwood8478406
+    /// </summary>
+    MackenzieBlackwood8478406 = 8478406,
+    /// <summary>
+    /// MagnusChrona8480992
+    /// </summary>
+    MagnusChrona8480992 = 8480992,
+    /// <summary>
+    /// TomasSuchanek8483898
+    /// </summary>
+    TomasSuchanek8483898 = 8483898,
+    /// <summary>
+    /// JamesStefan8483100
+    /// </summary>
+    JamesStefan8483100 = 8483100,
+    /// <summary>
+    /// StephenHalliday8483676
+    /// </summary>
+    StephenHalliday8483676 = 8483676,
+    /// <summary>
+    /// ConnorZary8482074
+    /// </summary>
+    ConnorZary8482074 = 8482074,
+    /// <summary>
+    /// RileyDuran8482213
+    /// </summary>
+    RileyDuran8482213 = 8482213,
+    /// <summary>
+    /// JoniJurmo8482170
+    /// </summary>
+    JoniJurmo8482170 = 8482170,
+    /// <summary>
+    /// IsaacPoulter8483659
+    /// </summary>
+    IsaacPoulter8483659 = 8483659,
+    /// <summary>
+    /// LoganOConnor8481186
+    /// </summary>
+    LoganOConnor8481186 = 8481186,
+    /// <summary>
+    /// JonatanBerggren8481013
+    /// </summary>
+    JonatanBerggren8481013 = 8481013,
+    /// <summary>
+    /// NoelAcciari8478569
+    /// </summary>
+    NoelAcciari8478569 = 8478569,
+    /// <summary>
+    /// JackPeart8482686
+    /// </summary>
+    JackPeart8482686 = 8482686,
+    /// <summary>
+    /// TrevorZegras8481533
+    /// </summary>
+    TrevorZegras8481533 = 8481533,
+    /// <summary>
+    /// RyanSiedem8484884
+    /// </summary>
+    RyanSiedem8484884 = 8484884,
+    /// <summary>
+    /// NickStofcheck8484885
+    /// </summary>
+    NickStofcheck8484885 = 8484885,
+    /// <summary>
+    /// CameronGray8484886
+    /// </summary>
+    CameronGray8484886 = 8484886,
+    /// <summary>
+    /// MarcelBonin8445116
+    /// </summary>
+    MarcelBonin8445116 = 8445116,
+    /// <summary>
+    /// PaulMasnick8447632
+    /// </summary>
+    PaulMasnick8447632 = 8447632,
+    /// <summary>
+    /// JackQuinn8482097
+    /// </summary>
+    JackQuinn8482097 = 8482097,
+    /// <summary>
+    /// SteveWochy8449599
+    /// </summary>
+    SteveWochy8449599 = 8449599,
+    /// <summary>
+    /// DakotaJoshua8478057
+    /// </summary>
+    DakotaJoshua8478057 = 8478057,
+    /// <summary>
+    /// MarcDelGaizo8481743
+    /// </summary>
+    MarcDelGaizo8481743 = 8481743,
+    /// <summary>
+    /// GustavOlofsson8477467
+    /// </summary>
+    GustavOlofsson8477467 = 8477467,
+    /// <summary>
+    /// JacobMoverare8479421
+    /// </summary>
+    JacobMoverare8479421 = 8479421,
+    /// <summary>
+    /// JonathanGruden8480836
+    /// </summary>
+    JonathanGruden8480836 = 8480836,
+    /// <summary>
+    /// RyanUfko8482715
+    /// </summary>
+    RyanUfko8482715 = 8482715,
+    /// <summary>
+    /// IvanFedotov8478905
+    /// </summary>
+    IvanFedotov8478905 = 8478905,
+    /// <summary>
+    /// NickSeeler8476372
+    /// </summary>
+    NickSeeler8476372 = 8476372,
+    /// <summary>
+    /// CameronButler8483045
+    /// </summary>
+    CameronButler8483045 = 8483045,
+    /// <summary>
+    /// JackPerbix8480815
+    /// </summary>
+    JackPerbix8480815 = 8480815,
+    /// <summary>
+    /// QuinnOlson8481739
+    /// </summary>
+    QuinnOlson8481739 = 8481739,
+    /// <summary>
+    /// JamieDrysdale8482142
+    /// </summary>
+    JamieDrysdale8482142 = 8482142,
+    /// <summary>
+    /// SanteriHatakka8481701
+    /// </summary>
+    SanteriHatakka8481701 = 8481701,
+    /// <summary>
+    /// JakeChristiansen8481161
+    /// </summary>
+    JakeChristiansen8481161 = 8481161,
+    /// <summary>
+    /// KyleKonin8483182
+    /// </summary>
+    KyleKonin8483182 = 8483182,
+    /// <summary>
+    /// ZcharyOkabe8484883
+    /// </summary>
+    ZcharyOkabe8484883 = 8484883,
+    /// <summary>
+    /// GuyPerron8458852
+    /// </summary>
+    GuyPerron8458852 = 8458852,
+    /// <summary>
+    /// MarkAbbott8469925
+    /// </summary>
+    MarkAbbott8469925 = 8469925,
+    /// <summary>
+    /// JoelBlomqvist8482446
+    /// </summary>
+    JoelBlomqvist8482446 = 8482446,
+    /// <summary>
+    /// UvisBalinskis8484304
+    /// </summary>
+    UvisBalinskis8484304 = 8484304,
+    /// <summary>
+    /// DevonLevi8482221
+    /// </summary>
+    DevonLevi8482221 = 8482221,
+    /// <summary>
+    /// ScottMorrow8482666
+    /// </summary>
+    ScottMorrow8482666 = 8482666,
+    /// <summary>
+    /// NickLardis8484185
+    /// </summary>
+    NickLardis8484185 = 8484185,
+    /// <summary>
+    /// SamuelHlavaj8482085
+    /// </summary>
+    SamuelHlavaj8482085 = 8482085,
+    /// <summary>
+    /// MaxWillman8478051
+    /// </summary>
+    MaxWillman8478051 = 8478051,
+    /// <summary>
+    /// TylerKleven8482095
+    /// </summary>
+    TylerKleven8482095 = 8482095,
+    /// <summary>
+    /// DonovanHouleVilleneuve8484923
+    /// </summary>
+    DonovanHouleVilleneuve8484923 = 8484923,
+    /// <summary>
+    /// RieseGaber8484920
+    /// </summary>
+    RieseGaber8484920 = 8484920,
+    /// <summary>
+    /// HunterShepard8482411
+    /// </summary>
+    HunterShepard8482411 = 8482411,
+    /// <summary>
+    /// MitchMarner8478483
+    /// </summary>
+    MitchMarner8478483 = 8478483,
+    /// <summary>
+    /// ZackMacEwen8479772
+    /// </summary>
+    ZackMacEwen8479772 = 8479772,
+    /// <summary>
+    /// WyattKaiser8482176
+    /// </summary>
+    WyattKaiser8482176 = 8482176,
+    /// <summary>
+    /// BradlyNadeau8484203
+    /// </summary>
+    BradlyNadeau8484203 = 8484203,
+    /// <summary>
+    /// TomasHertl8476881
+    /// </summary>
+    TomasHertl8476881 = 8476881,
+    /// <summary>
+    /// SamPoulin8481591
+    /// </summary>
+    SamPoulin8481591 = 8481591,
+    /// <summary>
+    /// DylanHolloway8482077
+    /// </summary>
+    DylanHolloway8482077 = 8482077,
+    /// <summary>
+    /// ChristianDvorak8477989
+    /// </summary>
+    ChristianDvorak8477989 = 8477989,
+    /// <summary>
+    /// FlorianXhekaj8484403
+    /// </summary>
+    FlorianXhekaj8484403 = 8484403,
+    /// <summary>
+    /// MasonKlee8484932
+    /// </summary>
+    MasonKlee8484932 = 8484932,
+    /// <summary>
+    /// BrianHalonen8483531
+    /// </summary>
+    BrianHalonen8483531 = 8483531,
+    /// <summary>
+    /// NikitaNesterenko8481754
+    /// </summary>
+    NikitaNesterenko8481754 = 8481754,
+    /// <summary>
+    /// JackMillar8484934
+    /// </summary>
+    JackMillar8484934 = 8484934,
+    /// <summary>
+    /// RyanGraves8477435
+    /// </summary>
+    RyanGraves8477435 = 8477435,
+    /// <summary>
+    /// ConnorMurphy8476473
+    /// </summary>
+    ConnorMurphy8476473 = 8476473,
+    /// <summary>
+    /// WilmerSkoog8484380
+    /// </summary>
+    WilmerSkoog8484380 = 8484380,
+    /// <summary>
+    /// RonaldKennedy8448453
+    /// </summary>
+    RonaldKennedy8448453 = 8448453,
+    /// <summary>
+    /// RyanWinterton8482751
+    /// </summary>
+    RyanWinterton8482751 = 8482751,
+    /// <summary>
+    /// ShaneWright8483524
+    /// </summary>
+    ShaneWright8483524 = 8483524,
+    /// <summary>
+    /// LiamOhgren8483499
+    /// </summary>
+    LiamOhgren8483499 = 8483499,
+    /// <summary>
+    /// SamColangelo8482118
+    /// </summary>
+    SamColangelo8482118 = 8482118,
+    /// <summary>
+    /// OwenLindmark8481531
+    /// </summary>
+    OwenLindmark8481531 = 8481531,
+    /// <summary>
+    /// CarterBerger8481742
+    /// </summary>
+    CarterBerger8481742 = 8481742,
+    /// <summary>
+    /// LaneHutson8483457
+    /// </summary>
+    LaneHutson8483457 = 8483457,
+    /// <summary>
+    /// DylanPeterson8482121
+    /// </summary>
+    DylanPeterson8482121 = 8482121,
+    /// <summary>
+    /// MatthewHighmore8478146
+    /// </summary>
+    MatthewHighmore8478146 = 8478146,
+    /// <summary>
+    /// FrankNazar8483493
+    /// </summary>
+    FrankNazar8483493 = 8483493,
+    /// <summary>
+    /// EthanDelMastro8482807
+    /// </summary>
+    EthanDelMastro8482807 = 8482807,
+    /// <summary>
+    /// NicolasMattinen8479555
+    /// </summary>
+    NicolasMattinen8479555 = 8479555,
+    /// <summary>
+    /// CutterGauthier8483445
+    /// </summary>
+    CutterGauthier8483445 = 8483445,
+    /// <summary>
+    /// TreyFixWolansky8480441
+    /// </summary>
+    TreyFixWolansky8480441 = 8480441,
+    /// <summary>
+    /// HunterMcDonald8483760
+    /// </summary>
+    HunterMcDonald8483760 = 8483760,
+    /// <summary>
+    /// LukasRousek8481751
+    /// </summary>
+    LukasRousek8481751 = 8481751,
+    /// <summary>
+    /// LukeTuch8482134
+    /// </summary>
+    LukeTuch8482134 = 8482134,
+    /// <summary>
+    /// ShaneBowers8480032
+    /// </summary>
+    ShaneBowers8480032 = 8480032,
+    /// <summary>
+    /// JonasRondbjerg8480007
+    /// </summary>
+    JonasRondbjerg8480007 = 8480007,
+    /// <summary>
+    /// GavinBrindley8484149
+    /// </summary>
+    GavinBrindley8484149 = 8484149,
+    /// <summary>
+    /// ThatcherDemko8477967
+    /// </summary>
+    ThatcherDemko8477967 = 8477967,
+    /// <summary>
+    /// AkilThomas8480851
+    /// </summary>
+    AkilThomas8480851 = 8480851,
+    /// <summary>
+    /// SimonEdvinsson8482762
+    /// </summary>
+    SimonEdvinsson8482762 = 8482762,
+    /// <summary>
+    /// LucaDelBelBelluz8483432
+    /// </summary>
+    LucaDelBelBelluz8483432 = 8483432,
+    /// <summary>
+    /// MikaelPyyhtia8482451
+    /// </summary>
+    MikaelPyyhtia8482451 = 8482451,
+    /// <summary>
+    /// JesperWallstedt8482661
+    /// </summary>
+    JesperWallstedt8482661 = 8482661,
+    /// <summary>
+    /// JamesMalatesta8482744
+    /// </summary>
+    JamesMalatesta8482744 = 8482744,
+    /// <summary>
+    /// CaleFleury8479985
+    /// </summary>
+    CaleFleury8479985 = 8479985,
+    /// <summary>
+    /// LoganMailloux8482733
+    /// </summary>
+    LoganMailloux8482733 = 8482733,
+    /// <summary>
+    /// JoshuaRoy8482749
+    /// </summary>
+    JoshuaRoy8482749 = 8482749,
+    /// <summary>
+    /// ShaiBuium8482777
+    /// </summary>
+    ShaiBuium8482777 = 8482777,
+    /// <summary>
+    /// JetGreaves8482982
+    /// </summary>
+    JetGreaves8482982 = 8482982,
+    /// <summary>
+    /// DavidJiricek8483460
+    /// </summary>
+    DavidJiricek8483460 = 8483460,
+    /// <summary>
+    /// ZackOstapchuk8482859
+    /// </summary>
+    ZackOstapchuk8482859 = 8482859,
+    /// <summary>
+    /// MassimoRizzo8481760
+    /// </summary>
+    MassimoRizzo8481760 = 8481760,
+    /// <summary>
+    /// OlleLycksell8480245
+    /// </summary>
+    OlleLycksell8480245 = 8480245,
+    /// <summary>
+    /// AdamGinning8480874
+    /// </summary>
+    AdamGinning8480874 = 8480874,
+    /// <summary>
+    /// RonnieAttard8481521
+    /// </summary>
+    RonnieAttard8481521 = 8481521,
+    /// <summary>
+    /// BobbyBrink8481553
+    /// </summary>
+    BobbyBrink8481553 = 8481553,
+    /// <summary>
+    /// EvgeniiDadonov8474149
+    /// </summary>
+    EvgeniiDadonov8474149 = 8474149,
+    /// <summary>
+    /// JaydenStruble8481593
+    /// </summary>
+    JaydenStruble8481593 = 8481593,
+    /// <summary>
+    /// JustinBarron8482111
+    /// </summary>
+    JustinBarron8482111 = 8482111,
+    /// <summary>
+    /// RuslanIskhakov8481016
+    /// </summary>
+    RuslanIskhakov8481016 = 8481016,
+    /// <summary>
+    /// LukeHughes8482684
+    /// </summary>
+    LukeHughes8482684 = 8482684,
+    /// <summary>
+    /// JackStIvany8481030
+    /// </summary>
+    JackStIvany8481030 = 8481030,
+    /// <summary>
+    /// ValtteriPuustinen8481703
+    /// </summary>
+    ValtteriPuustinen8481703 = 8481703,
+    /// <summary>
+    /// MatthewQuercia8484890
+    /// </summary>
+    MatthewQuercia8484890 = 8484890,
+    /// <summary>
+    /// MatthewKessel8482516
+    /// </summary>
+    MatthewKessel8482516 = 8482516,
+    /// <summary>
+    /// ZackBolduc8482737
+    /// </summary>
+    ZackBolduc8482737 = 8482737,
+    /// <summary>
+    /// ZachDean8482784
+    /// </summary>
+    ZachDean8482784 = 8482784,
+    /// <summary>
+    /// IlyaSolovyov8482470
+    /// </summary>
+    IlyaSolovyov8482470 = 8482470,
+    /// <summary>
+    /// MattCoronato8482679
+    /// </summary>
+    MattCoronato8482679 = 8482679,
+    /// <summary>
+    /// AdamKlapka8483609
+    /// </summary>
+    AdamKlapka8483609 = 8483609,
+    /// <summary>
+    /// DustinWolf8481692
+    /// </summary>
+    DustinWolf8481692 = 8481692,
+    /// <summary>
+    /// LukasReichel8482117
+    /// </summary>
+    LukasReichel8482117 = 8482117,
+    /// <summary>
+    /// JohnBeecher8481556
+    /// </summary>
+    JohnBeecher8481556 = 8481556,
+    /// <summary>
+    /// BradLambert8483471
+    /// </summary>
+    BradLambert8483471 = 8483471,
+    /// <summary>
+    /// JakubSkarek8480819
+    /// </summary>
+    JakubSkarek8480819 = 8480819,
+    /// <summary>
+    /// NikitaChibrikov8482787
+    /// </summary>
+    NikitaChibrikov8482787 = 8482787,
+    /// <summary>
+    /// ParkerFord8484135
+    /// </summary>
+    ParkerFord8484135 = 8484135,
+    /// <summary>
+    /// DanilGushchin8482101
+    /// </summary>
+    DanilGushchin8482101 = 8482101,
+    /// <summary>
+    /// JackThompson8482144
+    /// </summary>
+    JackThompson8482144 = 8482144,
+    /// <summary>
+    /// GeorgiRomanov8484312
+    /// </summary>
+    GeorgiRomanov8484312 = 8484312,
+    /// <summary>
+    /// AlexTurcotte8481532
+    /// </summary>
+    AlexTurcotte8481532 = 8481532,
+    /// <summary>
+    /// AlexJefferies8482154
+    /// </summary>
+    AlexJefferies8482154 = 8482154,
+    /// <summary>
+    /// MarshallWarren8481569
+    /// </summary>
+    MarshallWarren8481569 = 8481569,
+    /// <summary>
+    /// HenrikTikkanen8482472
+    /// </summary>
+    HenrikTikkanen8482472 = 8482472,
+    /// <summary>
+    /// CadeWebber8481570
+    /// </summary>
+    CadeWebber8481570 = 8481570,
+    /// <summary>
+    /// SeanBehrens8482676
+    /// </summary>
+    SeanBehrens8482676 = 8482676,
+    /// <summary>
+    /// TristanBroz8482698
+    /// </summary>
+    TristanBroz8482698 = 8482698,
+    /// <summary>
+    /// TopiRonni8483508
+    /// </summary>
+    TopiRonni8483508 = 8483508,
+    /// <summary>
+    /// AdamEdstrom8481726
+    /// </summary>
+    AdamEdstrom8481726 = 8481726,
+    /// <summary>
+    /// CalleJarnkrok8475714
+    /// </summary>
+    CalleJarnkrok8475714 = 8475714,
+    /// <summary>
+    /// RykerEvans8482858
+    /// </summary>
+    RykerEvans8482858 = 8482858,
+    /// <summary>
+    /// AngusCrookshank8481065
+    /// </summary>
+    AngusCrookshank8481065 = 8481065,
+    /// <summary>
+    /// MarkStone8475913
+    /// </summary>
+    MarkStone8475913 = 8475913,
+    /// <summary>
+    /// MasonLohrei8482511
+    /// </summary>
+    MasonLohrei8482511 = 8482511,
+    /// <summary>
+    /// JulienGauthier8479328
+    /// </summary>
+    JulienGauthier8479328 = 8479328,
+    /// <summary>
+    /// DylanCoghlan8479639
+    /// </summary>
+    DylanCoghlan8479639 = 8479639,
+    /// <summary>
+    /// HarrisonRees8484947
+    /// </summary>
+    HarrisonRees8484947 = 8484947,
+    /// <summary>
+    /// WyllumDeveaux8484948
+    /// </summary>
+    WyllumDeveaux8484948 = 8484948,
+    /// <summary>
+    /// VincentDuplessis8484949
+    /// </summary>
+    VincentDuplessis8484949 = 8484949,
+    /// <summary>
+    /// NicholasZabaneh8484950
+    /// </summary>
+    NicholasZabaneh8484950 = 8484950,
+    /// <summary>
+    /// ArtursSilovs8481668
+    /// </summary>
+    ArtursSilovs8481668 = 8481668,
+    /// <summary>
+    /// EdChadwick8449851
+    /// </summary>
+    EdChadwick8449851 = 8449851,
+    /// <summary>
+    /// DysinMayo8478062
+    /// </summary>
+    DysinMayo8478062 = 8478062,
+    /// <summary>
+    /// GrigoriDenisenko8480844
+    /// </summary>
+    GrigoriDenisenko8480844 = 8480844,
+    /// <summary>
+    /// MasonMorelli8481462
+    /// </summary>
+    MasonMorelli8481462 = 8481462,
+    /// <summary>
+    /// IsaiahSaville8481520
+    /// </summary>
+    IsaiahSaville8481520 = 8481520,
+    /// <summary>
+    /// ChristofferSedoff8482138
+    /// </summary>
+    ChristofferSedoff8482138 = 8482138,
+    /// <summary>
+    /// BrendanBrisson8482153
+    /// </summary>
+    BrendanBrisson8482153 = 8482153,
+    /// <summary>
+    /// JesperVikman8482484
+    /// </summary>
+    JesperVikman8482484 = 8482484,
+    /// <summary>
+    /// RonanSeeley8482187
+    /// </summary>
+    RonanSeeley8482187 = 8482187,
+    /// <summary>
+    /// RyanSuzuki8481576
+    /// </summary>
+    RyanSuzuki8481576 = 8481576,
+    /// <summary>
+    /// AxelJonssonFjallby8479536
+    /// </summary>
+    AxelJonssonFjallby8479536 = 8479536,
+    /// <summary>
+    /// PhilipBroberg8481598
+    /// </summary>
+    PhilipBroberg8481598 = 8481598,
+    /// <summary>
+    /// HardyHamanAktell8479522
+    /// </summary>
+    HardyHamanAktell8479522 = 8479522,
+    /// <summary>
+    /// ChrisWagner8475780
+    /// </summary>
+    ChrisWagner8475780 = 8475780,
+    /// <summary>
+    /// DylanMcIlrath8475795
+    /// </summary>
+    DylanMcIlrath8475795 = 8475795,
+    /// <summary>
+    /// KeatonMiddleton8479387
+    /// </summary>
+    KeatonMiddleton8479387 = 8479387,
+    /// <summary>
+    /// JackAhcan8482072
+    /// </summary>
+    JackAhcan8482072 = 8482072,
+    /// <summary>
+    /// JeanLucFoudy8482147
+    /// </summary>
+    JeanLucFoudy8482147 = 8482147,
+    /// <summary>
+    /// SamMalinski8484258
+    /// </summary>
+    SamMalinski8484258 = 8484258,
+    /// <summary>
+    /// NikolaiKovalenko8481042
+    /// </summary>
+    NikolaiKovalenko8481042 = 8481042,
+    /// <summary>
+    /// FilipLarsson8479548
+    /// </summary>
+    FilipLarsson8479548 = 8479548,
+    /// <summary>
+    /// HendrixLapierre8482148
+    /// </summary>
+    HendrixLapierre8482148 = 8482148,
+    /// <summary>
+    /// IvanMiroshnichenko8483491
+    /// </summary>
+    IvanMiroshnichenko8483491 = 8483491,
+    /// <summary>
+    /// MattTomkins8477035
+    /// </summary>
+    MattTomkins8477035 = 8477035,
+    /// <summary>
+    /// MaxwellCrozier8481719
+    /// </summary>
+    MaxwellCrozier8481719 = 8481719,
+    /// <summary>
+    /// EmilLilleberg8482929
+    /// </summary>
+    EmilLilleberg8482929 = 8482929,
+    /// <summary>
+    /// SamuelJohannesson8482499
+    /// </summary>
+    SamuelJohannesson8482499 = 8482499,
+    /// <summary>
+    /// RyanSchmelzer8481115
+    /// </summary>
+    RyanSchmelzer8481115 = 8481115,
+    /// <summary>
+    /// NikitaGrebenkin8483733
+    /// </summary>
+    NikitaGrebenkin8483733 = 8483733,
+    /// <summary>
+    /// NickAbruzzese8481720
+    /// </summary>
+    NickAbruzzese8481720 = 8481720,
+    /// <summary>
+    /// TopiNiemela8482158
+    /// </summary>
+    TopiNiemela8482158 = 8482158,
+    /// <summary>
+    /// AlexSteeves8482634
+    /// </summary>
+    AlexSteeves8482634 = 8482634,
+    /// <summary>
+    /// DennisHildeby8483710
+    /// </summary>
+    DennisHildeby8483710 = 8483710,
+    /// <summary>
+    /// MarshallRifai8483546
+    /// </summary>
+    MarshallRifai8483546 = 8483546,
+    /// <summary>
+    /// MikkoKokkonen8481614
+    /// </summary>
+    MikkoKokkonen8481614 = 8481614,
+    /// <summary>
+    /// RuslanKhazheev8484440
+    /// </summary>
+    RuslanKhazheev8484440 = 8484440,
+    /// <summary>
+    /// SpencerKnight8481519
+    /// </summary>
+    SpencerKnight8481519 = 8481519,
+    /// <summary>
+    /// KevinGravel8475857
+    /// </summary>
+    KevinGravel8475857 = 8475857,
+    /// <summary>
+    /// JuusoParssinen8481704
+    /// </summary>
+    JuusoParssinen8481704 = 8481704,
+    /// <summary>
+    /// CamDineen8479341
+    /// </summary>
+    CamDineen8479341 = 8479341,
+    /// <summary>
+    /// BenGleason8479416
+    /// </summary>
+    BenGleason8479416 = 8479416,
+    /// <summary>
+    /// PhilipKemp8480274
+    /// </summary>
+    PhilipKemp8480274 = 8480274,
+    /// <summary>
+    /// OlivierRodrigue8480885
+    /// </summary>
+    OlivierRodrigue8480885 = 8480885,
+    /// <summary>
+    /// RaphaelLavoie8481534
+    /// </summary>
+    RaphaelLavoie8481534 = 8481534,
+    /// <summary>
+    /// AlexanderPashin8482212
+    /// </summary>
+    AlexanderPashin8482212 = 8482212,
+    /// <summary>
+    /// WilliamLockwood8479367
+    /// </summary>
+    WilliamLockwood8479367 = 8479367,
+    /// <summary>
+    /// JustinSourdif8482088
+    /// </summary>
+    JustinSourdif8482088 = 8482088,
+    /// <summary>
+    /// MikeBenning8482107
+    /// </summary>
+    MikeBenning8482107 = 8482107,
+    /// <summary>
+    /// MattKiersted8482641
+    /// </summary>
+    MattKiersted8482641 = 8482641,
+    /// <summary>
+    /// MackieSamoskevich8482713
+    /// </summary>
+    MackieSamoskevich8482713 = 8482713,
+    /// <summary>
+    /// XavierBourgault8482673
+    /// </summary>
+    XavierBourgault8482673 = 8482673,
+    /// <summary>
+    /// PatrickGiles8480825
+    /// </summary>
+    PatrickGiles8480825 = 8480825,
+    /// <summary>
+    /// SeamusCasey8483429
+    /// </summary>
+    SeamusCasey8483429 = 8483429,
+    /// <summary>
+    /// AxelSandinPellikka8484223
+    /// </summary>
+    AxelSandinPellikka8484223 = 8484223,
+    /// <summary>
+    /// LanePederson8478967
+    /// </summary>
+    LanePederson8478967 = 8478967,
+    /// <summary>
+    /// SpencerStastney8481056
+    /// </summary>
+    SpencerStastney8481056 = 8481056,
+    /// <summary>
+    /// FilipChytil8480078
+    /// </summary>
+    FilipChytil8480078 = 8480078,
+    /// <summary>
+    /// DanilaKlimovich8482918
+    /// </summary>
+    DanilaKlimovich8482918 = 8482918,
+    /// <summary>
+    /// NikitaTolopilo8484268
+    /// </summary>
+    NikitaTolopilo8484268 = 8484268,
+    /// <summary>
+    /// ChristianWolanin8478846
+    /// </summary>
+    ChristianWolanin8478846 = 8478846,
+    /// <summary>
+    /// LinusKarlsson8481024
+    /// </summary>
+    LinusKarlsson8481024 = 8481024,
+    /// <summary>
+    /// VasilyPodkolzin8481617
+    /// </summary>
+    VasilyPodkolzin8481617 = 8481617,
+    /// <summary>
+    /// AatuRaty8482691
+    /// </summary>
+    AatuRaty8482691 = 8482691,
+    /// <summary>
+    /// ArshdeepBains8483395
+    /// </summary>
+    ArshdeepBains8483395 = 8483395,
+    /// <summary>
+    /// JonathanLekkerimaki8483476
+    /// </summary>
+    JonathanLekkerimaki8483476 = 8483476,
+    /// <summary>
+    /// EliasPettersson8483678
+    /// </summary>
+    EliasPettersson8483678 = 8483678,
+    /// <summary>
+    /// MaxSasson8484136
+    /// </summary>
+    MaxSasson8484136 = 8484136,
+    /// <summary>
+    /// ColeMcWard8484287
+    /// </summary>
+    ColeMcWard8484287 = 8484287,
+    /// <summary>
+    /// RonEllis8446668
+    /// </summary>
+    RonEllis8446668 = 8446668,
+    /// <summary>
+    /// PatrickBrown8477887
+    /// </summary>
+    PatrickBrown8477887 = 8477887,
+    /// <summary>
+    /// BrandonBussi8483548
+    /// </summary>
+    BrandonBussi8483548 = 8483548,
+    /// <summary>
+    /// MarcusHogberg8477405
+    /// </summary>
+    MarcusHogberg8477405 = 8477405,
+    /// <summary>
+    /// TrentMiner8481529
+    /// </summary>
+    TrentMiner8481529 = 8481529,
+    /// <summary>
+    /// ValeriNichushkin8477501
+    /// </summary>
+    ValeriNichushkin8477501 = 8477501,
+    /// <summary>
+    /// DaveForbes8446908
+    /// </summary>
+    DaveForbes8446908 = 8446908,
+    /// <summary>
+    /// NikoHuuhtanen8482757
+    /// </summary>
+    NikoHuuhtanen8482757 = 8482757,
+    /// <summary>
+    /// AlexanderPetrovic8475755
+    /// </summary>
+    AlexanderPetrovic8475755 = 8475755,
+    /// <summary>
+    /// MavrikBourque8482145
+    /// </summary>
+    MavrikBourque8482145 = 8482145,
+    /// <summary>
+    /// LianBichsel8483425
+    /// </summary>
+    LianBichsel8483425 = 8483425,
+    /// <summary>
+    /// VladislavFirstov8481706
+    /// </summary>
+    VladislavFirstov8481706 = 8481706,
+    /// <summary>
+    /// IanMitchell8480070
+    /// </summary>
+    IanMitchell8480070 = 8480070,
+    /// <summary>
+    /// GeorgiiMerkulov8483567
+    /// </summary>
+    GeorgiiMerkulov8483567 = 8483567,
+    /// <summary>
+    /// MichaelDiPietro8480022
+    /// </summary>
+    MichaelDiPietro8480022 = 8480022,
+    /// <summary>
+    /// TrevorKuntar8482479
+    /// </summary>
+    TrevorKuntar8482479 = 8482479,
+    /// <summary>
+    /// MarcMcLaughlin8483397
+    /// </summary>
+    MarcMcLaughlin8483397 = 8483397,
+    /// <summary>
+    /// DimitriRiabykin8460536
+    /// </summary>
+    DimitriRiabykin8460536 = 8460536,
+    /// <summary>
+    /// RuslanZainullin8468514
+    /// </summary>
+    RuslanZainullin8468514 = 8468514,
+    /// <summary>
+    /// AndreiMedvedev8469507
+    /// </summary>
+    AndreiMedvedev8469507 = 8469507,
+    /// <summary>
+    /// EgorShastin8469572
+    /// </summary>
+    EgorShastin8469572 = 8469572,
+    /// <summary>
+    /// YuriTrubachev8469611
+    /// </summary>
+    YuriTrubachev8469611 = 8469611,
+    /// <summary>
+    /// VictorBobrov8470094
+    /// </summary>
+    VictorBobrov8470094 = 8470094,
+    /// <summary>
+    /// SergeiMozyakin8470253
+    /// </summary>
+    SergeiMozyakin8470253 = 8470253,
+    /// <summary>
+    /// DimitriPestunov8470673
+    /// </summary>
+    DimitriPestunov8470673 = 8470673,
+    /// <summary>
+    /// SergeiGimayev8470758
+    /// </summary>
+    SergeiGimayev8470758 = 8470758,
+    /// <summary>
+    /// KirillLyamin8471271
+    /// </summary>
+    KirillLyamin8471271 = 8471271,
+    /// <summary>
+    /// AntonKrysanov8471809
+    /// </summary>
+    AntonKrysanov8471809 = 8471809,
+    /// <summary>
+    /// JulianWalker8473487
+    /// </summary>
+    JulianWalker8473487 = 8473487,
+    /// <summary>
+    /// SergeiGayduchenko8474179
+    /// </summary>
+    SergeiGayduchenko8474179 = 8474179,
+    /// <summary>
+    /// MikhailPashnin8475334
+    /// </summary>
+    MikhailPashnin8475334 = 8475334,
+    /// <summary>
+    /// MaximChudinov8475892
+    /// </summary>
+    MaximChudinov8475892 = 8475892,
+    /// <summary>
+    /// MauroJorg8475898
+    /// </summary>
+    MauroJorg8475898 = 8475898,
+    /// <summary>
+    /// MaximShalunov8476351
+    /// </summary>
+    MaximShalunov8476351 = 8476351,
+    /// <summary>
+    /// YaroslavKosov8476366
+    /// </summary>
+    YaroslavKosov8476366 = 8476366,
+    /// <summary>
+    /// AlexanderDelnov8476964
+    /// </summary>
+    AlexanderDelnov8476964 = 8476964,
+    /// <summary>
+    /// TimothyBoyle8476968
+    /// </summary>
+    TimothyBoyle8476968 = 8476968,
+    /// <summary>
+    /// ArturGavrus8476993
+    /// </summary>
+    ArturGavrus8476993 = 8476993,
+    /// <summary>
+    /// ConnorHurley8477459
+    /// </summary>
+    ConnorHurley8477459 = 8477459,
+    /// <summary>
+    /// IvanNalimov8478107
+    /// </summary>
+    IvanNalimov8478107 = 8478107,
+    /// <summary>
+    /// AndongSong8478893
+    /// </summary>
+    AndongSong8478893 = 8478893,
+    /// <summary>
+    /// IvanChukarov8478901
+    /// </summary>
+    IvanChukarov8478901 = 8478901,
+    /// <summary>
+    /// PhilipNyberg8479529
+    /// </summary>
+    PhilipNyberg8479529 = 8479529,
+    /// <summary>
+    /// JakeRyczek8479568
+    /// </summary>
+    JakeRyczek8479568 = 8479568,
+    /// <summary>
+    /// PatrickKudla8479593
+    /// </summary>
+    PatrickKudla8479593 = 8479593,
+    /// <summary>
+    /// ParkerFoo8480227
+    /// </summary>
+    ParkerFoo8480227 = 8480227,
+    /// <summary>
+    /// AndreiSvetlakov8480251
+    /// </summary>
+    AndreiSvetlakov8480251 = 8480251,
+    /// <summary>
+    /// VladislavYeryomenko8480991
+    /// </summary>
+    VladislavYeryomenko8480991 = 8480991,
+    /// <summary>
+    /// SimonKjellberg8481038
+    /// </summary>
+    SimonKjellberg8481038 = 8481038,
+    /// <summary>
+    /// DanilSavunov8481673
+    /// </summary>
+    DanilSavunov8481673 = 8481673,
+    /// <summary>
+    /// AlexandrDarin8481713
+    /// </summary>
+    AlexandrDarin8481713 = 8481713,
+    /// <summary>
+    /// IgorMirnov8470660
+    /// </summary>
+    IgorMirnov8470660 = 8470660,
+    /// <summary>
+    /// DimitriMegalinsky8471847
+    /// </summary>
+    DimitriMegalinsky8471847 = 8471847,
+    /// <summary>
+    /// MikhailKazakevich8460744
+    /// </summary>
+    MikhailKazakevich8460744 = 8460744,
+    /// <summary>
+    /// VladimirMalenkykh8468030
+    /// </summary>
+    VladimirMalenkykh8468030 = 8468030,
+    /// <summary>
+    /// DimitriSemin8469606
+    /// </summary>
+    DimitriSemin8469606 = 8469606,
+    /// <summary>
+    /// SergeiAnshakov8470057
+    /// </summary>
+    SergeiAnshakov8470057 = 8470057,
+    /// <summary>
+    /// VasilyKoshechkin8470066
+    /// </summary>
+    VasilyKoshechkin8470066 = 8470066,
+    /// <summary>
+    /// IgorIgnatushkin8470228
+    /// </summary>
+    IgorIgnatushkin8470228 = 8470228,
+    /// <summary>
+    /// KonstantinBarulin8470677
+    /// </summary>
+    KonstantinBarulin8470677 = 8470677,
+    /// <summary>
+    /// EvgeniIsakov8470753
+    /// </summary>
+    EvgeniIsakov8470753 = 8470753,
+    /// <summary>
+    /// EvgenySkachkov8470810
+    /// </summary>
+    EvgenySkachkov8470810 = 8470810,
+    /// <summary>
+    /// AndreiPervyshin8470842
+    /// </summary>
+    AndreiPervyshin8470842 = 8470842,
+    /// <summary>
+    /// MichailYunkov8471275
+    /// </summary>
+    MichailYunkov8471275 = 8471275,
+    /// <summary>
+    /// VictorAlexandrov8471295
+    /// </summary>
+    VictorAlexandrov8471295 = 8471295,
+    /// <summary>
+    /// PeterGuggisberg8471378
+    /// </summary>
+    PeterGuggisberg8471378 = 8471378,
+    /// <summary>
+    /// AlexanderPechurskiy8474708
+    /// </summary>
+    AlexanderPechurskiy8474708 = 8474708,
+    /// <summary>
+    /// GarrettHaar8476291
+    /// </summary>
+    GarrettHaar8476291 = 8476291,
+    /// <summary>
+    /// ValeriVasiliev8477037
+    /// </summary>
+    ValeriVasiliev8477037 = 8477037,
+    /// <summary>
+    /// SergeyKostenko8477039
+    /// </summary>
+    SergeyKostenko8477039 = 8477039,
+    /// <summary>
+    /// JacobJackson8477340
+    /// </summary>
+    JacobJackson8477340 = 8477340,
+    /// <summary>
+    /// EmilGalimov8477347
+    /// </summary>
+    EmilGalimov8477347 = 8477347,
+    /// <summary>
+    /// FabriceHerzog8477374
+    /// </summary>
+    FabriceHerzog8477374 = 8477374,
+    /// <summary>
+    /// JorenVanPottelberghe8478847
+    /// </summary>
+    JorenVanPottelberghe8478847 = 8478847,
+    /// <summary>
+    /// DmitryZhukenov8478850
+    /// </summary>
+    DmitryZhukenov8478850 = 8478850,
+    /// <summary>
+    /// ArtyomManukyan8481045
+    /// </summary>
+    ArtyomManukyan8481045 = 8481045,
+    /// <summary>
+    /// AustinWong8481084
+    /// </summary>
+    AustinWong8481084 = 8481084,
+    /// <summary>
+    /// MikaStromberg8458146
+    /// </summary>
+    MikaStromberg8458146 = 8458146,
+    /// <summary>
+    /// PetterRonnquist8459200
+    /// </summary>
+    PetterRonnquist8459200 = 8459200,
+    /// <summary>
+    /// IlyaNikulin8468511
+    /// </summary>
+    IlyaNikulin8468511 = 8468511,
+    /// <summary>
+    /// KristoferOttosson8468628
+    /// </summary>
+    KristoferOttosson8468628 = 8468628,
+    /// <summary>
+    /// MiroslavBlatak8469577
+    /// </summary>
+    MiroslavBlatak8469577 = 8469577,
+    /// <summary>
+    /// JakobForsbackaKarlsson8478417
+    /// </summary>
+    JakobForsbackaKarlsson8478417 = 8478417,
+    /// <summary>
+    /// AndreiTaratukhin8469493
+    /// </summary>
+    AndreiTaratukhin8469493 = 8469493,
+    /// <summary>
+    /// IvanKhomutov8470686
+    /// </summary>
+    IvanKhomutov8470686 = 8470686,
+    /// <summary>
+    /// PatrickEhelechner8470731
+    /// </summary>
+    PatrickEhelechner8470731 = 8470731,
+    /// <summary>
+    /// KirilKoltsov8470117
+    /// </summary>
+    KirilKoltsov8470117 = 8470117,
+    /// <summary>
+    /// IvanTelegin8475828
+    /// </summary>
+    IvanTelegin8475828 = 8475828,
+    /// <summary>
+    /// OskarBack8480840
+    /// </summary>
+    OskarBack8480840 = 8480840,
+    /// <summary>
+    /// MatejBlumel8481712
+    /// </summary>
+    MatejBlumel8481712 = 8481712,
+    /// <summary>
+    /// RemiPoirier8482465
+    /// </summary>
+    RemiPoirier8482465 = 8482465,
+    /// <summary>
+    /// RyanMcDonagh8474151
+    /// </summary>
+    RyanMcDonagh8474151 = 8474151,
+    /// <summary>
+    /// FilipKral8480820
+    /// </summary>
+    FilipKral8480820 = 8480820,
+    /// <summary>
+    /// VincentIorio8482861
+    /// </summary>
+    VincentIorio8482861 = 8482861,
+    /// <summary>
+    /// KalebLawrence8483052
+    /// </summary>
+    KalebLawrence8483052 = 8483052,
+    /// <summary>
+    /// AlexBelzile8475968
+    /// </summary>
+    AlexBelzile8475968 = 8475968,
+    /// <summary>
+    /// LouisDomingue8475839
+    /// </summary>
+    LouisDomingue8475839 = 8475839,
+    /// <summary>
+    /// AntonBlidh8477320
+    /// </summary>
+    AntonBlidh8477320 = 8477320,
+    /// <summary>
+    /// BenHarpur8477433
+    /// </summary>
+    BenHarpur8477433 = 8477433,
+    /// <summary>
+    /// JakeLeschyshyn8479991
+    /// </summary>
+    JakeLeschyshyn8479991 = 8479991,
+    /// <summary>
+    /// ConnorMackey8482067
+    /// </summary>
+    ConnorMackey8482067 = 8482067,
+    /// <summary>
+    /// BrettBerard8482132
+    /// </summary>
+    BrettBerard8482132 = 8482132,
+    /// <summary>
+    /// DylanGarand8482193
+    /// </summary>
+    DylanGarand8482193 = 8482193,
+    /// <summary>
+    /// BrennanOthmann8482747
+    /// </summary>
+    BrennanOthmann8482747 = 8482747,
+    /// <summary>
+    /// BrandonScanlin8483407
+    /// </summary>
+    BrandonScanlin8483407 = 8483407,
+    /// <summary>
+    /// AdamSykora8483669
+    /// </summary>
+    AdamSykora8483669 = 8483669,
+    /// <summary>
+    /// IlyaUsau8483408
+    /// </summary>
+    IlyaUsau8483408 = 8483408,
+    /// <summary>
+    /// AleksanteriKaskimaki8483463
+    /// </summary>
+    AleksanteriKaskimaki8483463 = 8483463,
+    /// <summary>
+    /// WillSmith8484227
+    /// </summary>
+    WillSmith8484227 = 8484227,
+    /// <summary>
+    /// MartinMisiak8484195
+    /// </summary>
+    MartinMisiak8484195 = 8484195,
+    /// <summary>
+    /// JakubMalek8482867
+    /// </summary>
+    JakubMalek8482867 = 8482867,
+    /// <summary>
+    /// JurajPekarcik8484393
+    /// </summary>
+    JurajPekarcik8484393 = 8484393,
+    /// <summary>
+    /// KimNousiainen8481696
+    /// </summary>
+    KimNousiainen8481696 = 8481696,
+    /// <summary>
+    /// JaromirPytlik8482084
+    /// </summary>
+    JaromirPytlik8482084 = 8482084,
+    /// <summary>
+    /// ThimoNickl8482127
+    /// </summary>
+    ThimoNickl8482127 = 8482127,
+    /// <summary>
+    /// KasperSimontaival8482128
+    /// </summary>
+    KasperSimontaival8482128 = 8482128,
+    /// <summary>
+    /// JanBednar8482135
+    /// </summary>
+    JanBednar8482135 = 8482135,
+    /// <summary>
+    /// TheodorNiederbach8482140
+    /// </summary>
+    TheodorNiederbach8482140 = 8482140,
+    /// <summary>
+    /// KasperPuutio8482203
+    /// </summary>
+    KasperPuutio8482203 = 8482203,
+    /// <summary>
+    /// SimonKnak8482204
+    /// </summary>
+    SimonKnak8482204 = 8482204,
+    /// <summary>
+    /// MichaelKrutil8482208
+    /// </summary>
+    MichaelKrutil8482208 = 8482208,
+    /// <summary>
+    /// JuhoMarkkanen8482450
+    /// </summary>
+    JuhoMarkkanen8482450 = 8482450,
+    /// <summary>
+    /// FilipBarklund8482462
+    /// </summary>
+    FilipBarklund8482462 = 8482462,
+    /// <summary>
+    /// MatiasRajaniemi8482464
+    /// </summary>
+    MatiasRajaniemi8482464 = 8482464,
+    /// <summary>
+    /// ElliotEkefjard8482467
+    /// </summary>
+    ElliotEkefjard8482467 = 8482467,
+    /// <summary>
+    /// JeremiasLindewall8482469
+    /// </summary>
+    JeremiasLindewall8482469 = 8482469,
+    /// <summary>
+    /// AlexanderLjungkrantz8482480
+    /// </summary>
+    AlexanderLjungkrantz8482480 = 8482480,
+    /// <summary>
+    /// OliverTarnstrom8482481
+    /// </summary>
+    OliverTarnstrom8482481 = 8482481,
+    /// <summary>
+    /// ZionNybeck8482483
+    /// </summary>
+    ZionNybeck8482483 = 8482483,
+    /// <summary>
+    /// AntonJohannesson8482486
+    /// </summary>
+    AntonJohannesson8482486 = 8482486,
+    /// <summary>
+    /// DanielLjungman8482491
+    /// </summary>
+    DanielLjungman8482491 = 8482491,
+    /// <summary>
+    /// AlbinSundsvik8482494
+    /// </summary>
+    AlbinSundsvik8482494 = 8482494,
+    /// <summary>
+    /// DmitryZlodeyev8482498
+    /// </summary>
+    DmitryZlodeyev8482498 = 8482498,
+    /// <summary>
+    /// ViktorPersson8482502
+    /// </summary>
+    ViktorPersson8482502 = 8482502,
+    /// <summary>
+    /// AlbertLyckasen8482503
+    /// </summary>
+    AlbertLyckasen8482503 = 8482503,
+    /// <summary>
+    /// ElliotEkmark8482505
+    /// </summary>
+    ElliotEkmark8482505 = 8482505,
+    /// <summary>
+    /// OskarMagnusson8482509
+    /// </summary>
+    OskarMagnusson8482509 = 8482509,
+    /// <summary>
+    /// JakubKonecny8482526
+    /// </summary>
+    JakubKonecny8482526 = 8482526,
+    /// <summary>
+    /// GrahamSward8482962
+    /// </summary>
+    GrahamSward8482962 = 8482962,
+    /// <summary>
+    /// BenKing8482976
+    /// </summary>
+    BenKing8482976 = 8482976,
+    /// <summary>
+    /// IvanZhigalov8482990
+    /// </summary>
+    IvanZhigalov8482990 = 8482990,
+    /// <summary>
+    /// KyleJackson8483013
+    /// </summary>
+    KyleJackson8483013 = 8483013,
+    /// <summary>
+    /// MiguelTourigny8483092
+    /// </summary>
+    MiguelTourigny8483092 = 8483092,
+    /// <summary>
+    /// PatrickGuay8483106
+    /// </summary>
+    PatrickGuay8483106 = 8483106,
+    /// <summary>
+    /// LiamArnsby8483422
+    /// </summary>
+    LiamArnsby8483422 = 8483422,
+    /// <summary>
+    /// MaximBarbashev8483423
+    /// </summary>
+    MaximBarbashev8483423 = 8483423,
+    /// <summary>
+    /// JeremyLanglois8483473
+    /// </summary>
+    JeremyLanglois8483473 = 8483473,
+    /// <summary>
+    /// MatsLindgren8483477
+    /// </summary>
+    MatsLindgren8483477 = 8483477,
+    /// <summary>
+    /// ServacPetrovsky8483502
+    /// </summary>
+    ServacPetrovsky8483502 = 8483502,
+    /// <summary>
+    /// BrandonLisowsky8483700
+    /// </summary>
+    BrandonLisowsky8483700 = 8483700,
+    /// <summary>
+    /// LinusSjodin8483706
+    /// </summary>
+    LinusSjodin8483706 = 8483706,
+    /// <summary>
+    /// AdamZlnka8483714
+    /// </summary>
+    AdamZlnka8483714 = 8483714,
+    /// <summary>
+    /// CedrickGuindon8483723
+    /// </summary>
+    CedrickGuindon8483723 = 8483723,
+    /// <summary>
+    /// PetteriNurmi8483724
+    /// </summary>
+    PetteriNurmi8483724 = 8483724,
+    /// <summary>
+    /// TniasMathurin8483735
+    /// </summary>
+    TniasMathurin8483735 = 8483735,
+    /// <summary>
+    /// LandonSim8483741
+    /// </summary>
+    LandonSim8483741 = 8483741,
+    /// <summary>
+    /// ReidDyck8483742
+    /// </summary>
+    ReidDyck8483742 = 8483742,
+    /// <summary>
+    /// ConnorHvidston8483744
+    /// </summary>
+    ConnorHvidston8483744 = 8483744,
+    /// <summary>
+    /// NolanCollins8483759
+    /// </summary>
+    NolanCollins8483759 = 8483759,
+    /// <summary>
+    /// DamianClara8484391
+    /// </summary>
+    DamianClara8484391 = 8484391,
+    /// <summary>
+    /// JacobMelanson8482874
+    /// </summary>
+    JacobMelanson8482874 = 8482874,
+    /// <summary>
+    /// LoganMorrison8483012
+    /// </summary>
+    LoganMorrison8483012 = 8483012,
+    /// <summary>
+    /// OscarFiskerMolgaard8484168
+    /// </summary>
+    OscarFiskerMolgaard8484168 = 8484168,
+    /// <summary>
+    /// JacksonBlake8482809
+    /// </summary>
+    JacksonBlake8482809 = 8482809,
+    /// <summary>
+    /// PeterMarrin8449173
+    /// </summary>
+    PeterMarrin8449173 = 8449173,
+    /// <summary>
+    /// MikeBauman8449778
+    /// </summary>
+    MikeBauman8449778 = 8449778,
+    /// <summary>
+    /// BillCarson8450159
+    /// </summary>
+    BillCarson8450159 = 8450159,
+    /// <summary>
+    /// JohnBlessman8455628
+    /// </summary>
+    JohnBlessman8455628 = 8455628,
+    /// <summary>
+    /// RobertDaly8456004
+    /// </summary>
+    RobertDaly8456004 = 8456004,
+    /// <summary>
+    /// DavidDiVita8456082
+    /// </summary>
+    DavidDiVita8456082 = 8456082,
+    /// <summary>
+    /// DouglasFeasby8456229
+    /// </summary>
+    DouglasFeasby8456229 = 8456229,
+    /// <summary>
+    /// JohnFerguson8456238
+    /// </summary>
+    JohnFerguson8456238 = 8456238,
+    /// <summary>
+    /// JohnHerlihy8456579
+    /// </summary>
+    JohnHerlihy8456579 = 8456579,
+    /// <summary>
+    /// ToddHilditch8456593
+    /// </summary>
+    ToddHilditch8456593 = 8456593,
+    /// <summary>
+    /// MarkHuglen8456659
+    /// </summary>
+    MarkHuglen8456659 = 8456659,
+    /// <summary>
+    /// VladimirKames8456771
+    /// </summary>
+    VladimirKames8456771 = 8456771,
+    /// <summary>
+    /// MichaelKozak8456885
+    /// </summary>
+    MichaelKozak8456885 = 8456885,
+    /// <summary>
+    /// DavidKunda8456916
+    /// </summary>
+    DavidKunda8456916 = 8456916,
+    /// <summary>
+    /// SergeLeblanc8457027
+    /// </summary>
+    SergeLeblanc8457027 = 8457027,
+    /// <summary>
+    /// RobertLowes8457108
+    /// </summary>
+    RobertLowes8457108 = 8457108,
+    /// <summary>
+    /// JackMacDougall8457137
+    /// </summary>
+    JackMacDougall8457137 = 8457137,
+    /// <summary>
+    /// RobertMagnuson8457178
+    /// </summary>
+    RobertMagnuson8457178 = 8457178,
+    /// <summary>
+    /// DennisMcLean8457325
+    /// </summary>
+    DennisMcLean8457325 = 8457325,
+    /// <summary>
+    /// RandyOswald8457593
+    /// </summary>
+    RandyOswald8457593 = 8457593,
+    /// <summary>
+    /// SteveScheifele8457952
+    /// </summary>
+    SteveScheifele8457952 = 8457952,
+    /// <summary>
+    /// DanielStephano8458122
+    /// </summary>
+    DanielStephano8458122 = 8458122,
+    /// <summary>
+    /// ChrisThayer8458200
+    /// </summary>
+    ChrisThayer8458200 = 8458200,
+    /// <summary>
+    /// JohnTiano8458218
+    /// </summary>
+    JohnTiano8458218 = 8458218,
+    /// <summary>
+    /// MikaValila8458285
+    /// </summary>
+    MikaValila8458285 = 8458285,
+    /// <summary>
+    /// DuaneWahlin8458334
+    /// </summary>
+    DuaneWahlin8458334 = 8458334,
+    /// <summary>
+    /// MikeWarus8458353
+    /// </summary>
+    MikeWarus8458353 = 8458353,
+    /// <summary>
+    /// ChrisWray8458457
+    /// </summary>
+    ChrisWray8458457 = 8458457,
+    /// <summary>
+    /// KevinRiehl8458743
+    /// </summary>
+    KevinRiehl8458743 = 8458743,
+    /// <summary>
+    /// MarcHussey8458979
+    /// </summary>
+    MarcHussey8458979 = 8458979,
+    /// <summary>
+    /// IgorBoldin8459116
+    /// </summary>
+    IgorBoldin8459116 = 8459116,
+    /// <summary>
+    /// AndreiKarpotsev8459188
+    /// </summary>
+    AndreiKarpotsev8459188 = 8459188,
+    /// <summary>
+    /// DimitriGorenko8459635
+    /// </summary>
+    DimitriGorenko8459635 = 8459635,
+    /// <summary>
+    /// MikeDubinsky8460581
+    /// </summary>
+    MikeDubinsky8460581 = 8460581,
+    /// <summary>
+    /// JohnTuohy8460709
+    /// </summary>
+    JohnTuohy8460709 = 8460709,
+    /// <summary>
+    /// KevinHarper8460736
+    /// </summary>
+    KevinHarper8460736 = 8460736,
+    /// <summary>
+    /// DavidThibeault8465150
+    /// </summary>
+    DavidThibeault8465150 = 8465150,
+    /// <summary>
+    /// TobiasJohansson8465169
+    /// </summary>
+    TobiasJohansson8465169 = 8465169,
+    /// <summary>
+    /// JeffDessner8465219
+    /// </summary>
+    JeffDessner8465219 = 8465219,
+    /// <summary>
+    /// JeanFrancoisSoucy8469695
+    /// </summary>
+    JeanFrancoisSoucy8469695 = 8469695,
+    /// <summary>
+    /// JeffPietrasiak8470163
+    /// </summary>
+    JeffPietrasiak8470163 = 8470163,
+    /// <summary>
+    /// NathanTodd8479309
+    /// </summary>
+    NathanTodd8479309 = 8479309,
+    /// <summary>
+    /// SheaWeber8470642
+    /// </summary>
+    SheaWeber8470642 = 8470642,
+    /// <summary>
+    /// NickBjugstad8475760
+    /// </summary>
+    NickBjugstad8475760 = 8475760,
+    /// <summary>
+    /// AlexKerfoot8477021
+    /// </summary>
+    AlexKerfoot8477021 = 8477021,
+    /// <summary>
+    /// LiamOBrien8477070
+    /// </summary>
+    LiamOBrien8477070 = 8477070,
+    /// <summary>
+    /// NickSchmaltz8477951
+    /// </summary>
+    NickSchmaltz8477951 = 8477951,
+    /// <summary>
+    /// LawsonCrouse8478474
+    /// </summary>
+    LawsonCrouse8478474 = 8478474,
+    /// <summary>
+    /// KarelVejmelka8478872
+    /// </summary>
+    KarelVejmelka8478872 = 8478872,
+    /// <summary>
+    /// ConnorIngram8478971
+    /// </summary>
+    ConnorIngram8478971 = 8478971,
+    /// <summary>
+    /// ClaytonKeller8479343
+    /// </summary>
+    ClaytonKeller8479343 = 8479343,
+    /// <summary>
+    /// MichaelCarcone8479619
+    /// </summary>
+    MichaelCarcone8479619 = 8479619,
+    /// <summary>
+    /// JuusoValimaki8479976
+    /// </summary>
+    JuusoValimaki8479976 = 8479976,
+    /// <summary>
+    /// MattVillalta8480191
+    /// </summary>
+    MattVillalta8480191 = 8480191,
+    /// <summary>
+    /// JosefKorenar8480373
+    /// </summary>
+    JosefKorenar8480373 = 8480373,
+    /// <summary>
+    /// SeanDurzi8480434
+    /// </summary>
+    SeanDurzi8480434 = 8480434,
+    /// <summary>
+    /// BarrettHayton8480849
+    /// </summary>
+    BarrettHayton8480849 = 8480849,
+    /// <summary>
+    /// JackMcBain8480855
+    /// </summary>
+    JackMcBain8480855 = 8480855,
+    /// <summary>
+    /// MichaelKesselring8480891
+    /// </summary>
+    MichaelKesselring8480891 = 8480891,
+    /// <summary>
+    /// MontanaOnyebuchi8481159
+    /// </summary>
+    MontanaOnyebuchi8481159 = 8481159,
+    /// <summary>
+    /// VictorSoderstrom8481599
+    /// </summary>
+    VictorSoderstrom8481599 = 8481599,
+    /// <summary>
+    /// VladislavKolyachonok8481609
+    /// </summary>
+    VladislavKolyachonok8481609 = 8481609,
+    /// <summary>
+    /// AkuRaty8481699
+    /// </summary>
+    AkuRaty8481699 = 8481699,
+    /// <summary>
+    /// MatiasMaccelli8481711
+    /// </summary>
+    MatiasMaccelli8481711 = 8481711,
+    /// <summary>
+    /// BenMcCartney8481827
+    /// </summary>
+    BenMcCartney8481827 = 8481827,
+    /// <summary>
+    /// CarsonBantle8482490
+    /// </summary>
+    CarsonBantle8482490 = 8482490,
+    /// <summary>
+    /// JoshDoan8482659
+    /// </summary>
+    JoshDoan8482659 = 8482659,
+    /// <summary>
+    /// DylanGuenther8482699
+    /// </summary>
+    DylanGuenther8482699 = 8482699,
+    /// <summary>
+    /// IlyaFedotov8482792
+    /// </summary>
+    IlyaFedotov8482792 = 8482792,
+    /// <summary>
+    /// RasmusKorhonen8482871
+    /// </summary>
+    RasmusKorhonen8482871 = 8482871,
+    /// <summary>
+    /// SamLipkin8482924
+    /// </summary>
+    SamLipkin8482924 = 8482924,
+    /// <summary>
+    /// CalThomas8482938
+    /// </summary>
+    CalThomas8482938 = 8482938,
+    /// <summary>
+    /// AnsonThornton8483099
+    /// </summary>
+    AnsonThornton8483099 = 8483099,
+    /// <summary>
+    /// LoganCooley8483431
+    /// </summary>
+    LoganCooley8483431 = 8483431,
+    /// <summary>
+    /// ArtemDuda8483436
+    /// </summary>
+    ArtemDuda8483436 = 8483436,
+    /// <summary>
+    /// MavericLamoureux8483472
+    /// </summary>
+    MavericLamoureux8483472 = 8483472,
+    /// <summary>
+    /// JulianLutz8483483
+    /// </summary>
+    JulianLutz8483483 = 8483483,
+    /// <summary>
+    /// MilosKelemen8483597
+    /// </summary>
+    MilosKelemen8483597 = 8483597,
+    /// <summary>
+    /// MatthewMorden8483729
+    /// </summary>
+    MatthewMorden8483729 = 8483729,
+    /// <summary>
+    /// MaksymilianSzuber8483763
+    /// </summary>
+    MaksymilianSzuber8483763 = 8483763,
+    /// <summary>
+    /// JonathanCastagna8484154
+    /// </summary>
+    JonathanCastagna8484154 = 8484154,
+    /// <summary>
+    /// TerrellGoldsmith8484175
+    /// </summary>
+    TerrellGoldsmith8484175 = 8484175,
+    /// <summary>
+    /// MichaelHrabal8484181
+    /// </summary>
+    MichaelHrabal8484181 = 8484181,
+    /// <summary>
+    /// CarsenMusser8484199
+    /// </summary>
+    CarsenMusser8484199 = 8484199,
+    /// <summary>
+    /// NoelNordh8484207
+    /// </summary>
+    NoelNordh8484207 = 8484207,
+    /// <summary>
+    /// PatrikKoch8484326
+    /// </summary>
+    PatrikKoch8484326 = 8484326,
+    /// <summary>
+    /// DmitriySimashev8484386
+    /// </summary>
+    DmitriySimashev8484386 = 8484386,
+    /// <summary>
+    /// DaniilBut8484388
+    /// </summary>
+    DaniilBut8484388 = 8484388,
+    /// <summary>
+    /// TannerLudtke8484394
+    /// </summary>
+    TannerLudtke8484394 = 8484394,
+    /// <summary>
+    /// VadimMoroz8484399
+    /// </summary>
+    VadimMoroz8484399 = 8484399,
+    /// <summary>
+    /// MelkerThelin8484423
+    /// </summary>
+    MelkerThelin8484423 = 8484423,
+    /// <summary>
+    /// JustinKipkie8484434
+    /// </summary>
+    JustinKipkie8484434 = 8484434,
+    /// <summary>
+    /// SamuBau8484444
+    /// </summary>
+    SamuBau8484444 = 8484444,
+    /// <summary>
+    /// RodrigoAbols8479022
+    /// </summary>
+    RodrigoAbols8479022 = 8479022,
+    /// <summary>
+    /// BrockMcGinn8476934
+    /// </summary>
+    BrockMcGinn8476934 = 8476934,
+    /// <summary>
+    /// JacobMarkstrom8474593
+    /// </summary>
+    JacobMarkstrom8474593 = 8474593,
+    /// <summary>
+    /// BarclayGoodrow8476624
+    /// </summary>
+    BarclayGoodrow8476624 = 8476624,
+    /// <summary>
+    /// TyDellandrea8480848
+    /// </summary>
+    TyDellandrea8480848 = 8480848,
+    /// <summary>
+    /// DarcyKuemper8475311
+    /// </summary>
+    DarcyKuemper8475311 = 8475311,
+    /// <summary>
+    /// NolanFoote8481518
+    /// </summary>
+    NolanFoote8481518 = 8481518,
+    /// <summary>
+    /// AdamBeckman8481550
+    /// </summary>
+    AdamBeckman8481550 = 8481550,
+    /// <summary>
+    /// GraemeClarke8481578
+    /// </summary>
+    GraemeClarke8481578 = 8481578,
+    /// <summary>
+    /// KevinBahl8480860
+    /// </summary>
+    KevinBahl8480860 = 8480860,
+    /// <summary>
+    /// EgorAfanasyev8481585
+    /// </summary>
+    EgorAfanasyev8481585 = 8481585,
+    /// <summary>
+    /// OzzyWiesblatt8482103
+    /// </summary>
+    OzzyWiesblatt8482103 = 8482103,
+    /// <summary>
+    /// LinusUllmark8476999
+    /// </summary>
+    LinusUllmark8476999 = 8476999,
+    /// <summary>
+    /// JoonasKorpisalo8476914
+    /// </summary>
+    JoonasKorpisalo8476914 = 8476914,
+    /// <summary>
+    /// MarkKastelic8480355
+    /// </summary>
+    MarkKastelic8480355 = 8480355,
+    /// <summary>
+    /// JesseKiiskinen8484183
+    /// </summary>
+    JesseKiiskinen8484183 = 8484183,
+    /// <summary>
+    /// AndrewGibson8484174
+    /// </summary>
+    AndrewGibson8484174 = 8484174,
+    /// <summary>
+    /// JakeWalman8478013
+    /// </summary>
+    JakeWalman8478013 = 8478013,
+    /// <summary>
+    /// MathiasEmilioPettersen8481041
+    /// </summary>
+    MathiasEmilioPettersen8481041 = 8481041,
+    /// <summary>
+    /// IlyaMikheyev8481624
+    /// </summary>
+    IlyaMikheyev8481624 = 8481624,
+    /// <summary>
+    /// SergeiBerezin8460742
+    /// </summary>
+    SergeiBerezin8460742 = 8460742,
+    /// <summary>
+    /// KyleBurroughs8477335
+    /// </summary>
+    KyleBurroughs8477335 = 8477335,
+    /// <summary>
+    /// CarlGrundstrom8479336
+    /// </summary>
+    CarlGrundstrom8479336 = 8479336,
+    /// <summary>
+    /// AndrewMangiapane8478233
+    /// </summary>
+    AndrewMangiapane8478233 = 8478233,
+    /// <summary>
+    /// RyanSuter8470600
+    /// </summary>
+    RyanSuter8470600 = 8470600,
+    /// <summary>
+    /// AlexandreTexier8480074
+    /// </summary>
+    AlexandreTexier8480074 = 8480074,
+    /// <summary>
+    /// MacklinCelebrini8484801
+    /// </summary>
+    MacklinCelebrini8484801 = 8484801,
+    /// <summary>
+    /// MichaelBrandseggNygard8484794
+    /// </summary>
+    MichaelBrandseggNygard8484794 = 8484794,
+    /// <summary>
+    /// BeckMalenstyn8479359
+    /// </summary>
+    BeckMalenstyn8479359 = 8479359,
+    /// <summary>
+    /// JJMoser8482655
+    /// </summary>
+    JJMoser8482655 = 8482655,
+    /// <summary>
+    /// MikhailSergachev8479410
+    /// </summary>
+    MikhailSergachev8479410 = 8479410,
+    /// <summary>
+    /// SamOReilly8484770
+    /// </summary>
+    SamOReilly8484770 = 8484770,
+    /// <summary>
+    /// JohnMarino8478507
+    /// </summary>
+    JohnMarino8478507 = 8478507,
+    /// <summary>
+    /// TannerJeannot8479661
+    /// </summary>
+    TannerJeannot8479661 = 8479661,
+    /// <summary>
+    /// KevinHayes8475763
+    /// </summary>
+    KevinHayes8475763 = 8475763,
+    /// <summary>
+    /// ArtyomLevshunov8484783
+    /// </summary>
+    ArtyomLevshunov8484783 = 8484783,
+    /// <summary>
+    /// CaydenLindstrom8484780
+    /// </summary>
+    CaydenLindstrom8484780 = 8484780,
+    /// <summary>
+    /// BeckettSennecke8484762
+    /// </summary>
+    BeckettSennecke8484762 = 8484762,
+    /// <summary>
+    /// TijIginla8484795
+    /// </summary>
+    TijIginla8484795 = 8484795,
+    /// <summary>
+    /// CarterYakemchuk8484759
+    /// </summary>
+    CarterYakemchuk8484759 = 8484759,
+    /// <summary>
+    /// JettLuchanko8484779
+    /// </summary>
+    JettLuchanko8484779 = 8484779,
+    /// <summary>
+    /// KonstaHelenius8484797
+    /// </summary>
+    KonstaHelenius8484797 = 8484797,
+    /// <summary>
+    /// BerklyCatton8484800
+    /// </summary>
+    BerklyCatton8484800 = 8484800,
+    /// <summary>
+    /// SamDickinson8484806
+    /// </summary>
+    SamDickinson8484806 = 8484806,
+    /// <summary>
+    /// ZayneParekh8484768
+    /// </summary>
+    ZayneParekh8484768 = 8484768,
+    /// <summary>
+    /// ZeevBuium8484798
+    /// </summary>
+    ZeevBuium8484798 = 8484798,
+    /// <summary>
+    /// ColeEiserman8484807
+    /// </summary>
+    ColeEiserman8484807 = 8484807,
+    /// <summary>
+    /// StianSolberg8484859
+    /// </summary>
+    StianSolberg8484859 = 8484859,
+    /// <summary>
+    /// TerikParascak8484769
+    /// </summary>
+    TerikParascak8484769 = 8484769,
+    /// <summary>
+    /// AdamJiricek8484790
+    /// </summary>
+    AdamJiricek8484790 = 8484790,
+    /// <summary>
+    /// TrevorConnelly8484803
+    /// </summary>
+    TrevorConnelly8484803 = 8484803,
+    /// <summary>
+    /// MichaelHage8484799
+    /// </summary>
+    MichaelHage8484799 = 8484799,
+    /// <summary>
+    /// SachaBoisvert8484793
+    /// </summary>
+    SachaBoisvert8484793 = 8484793,
+    /// <summary>
+    /// DeanLetourneau8484879
+    /// </summary>
+    DeanLetourneau8484879 = 8484879,
+    /// <summary>
+    /// MarekVanacker8484761
+    /// </summary>
+    MarekVanacker8484761 = 8484761,
+    /// <summary>
+    /// MatveiGridin8484860
+    /// </summary>
+    MatveiGridin8484860 = 8484860,
+    /// <summary>
+    /// ColeBeaudoin8484786
+    /// </summary>
+    ColeBeaudoin8484786 = 8484786,
+    /// <summary>
+    /// EJEmery8484848
+    /// </summary>
+    EJEmery8484848 = 8484848,
+    /// <summary>
+    /// LiamGreentree8484802
+    /// </summary>
+    LiamGreentree8484802 = 8484802,
+    /// <summary>
+    /// BenDanford8484805
+    /// </summary>
+    BenDanford8484805 = 8484805,
+    /// <summary>
+    /// EmilHemming8484796
+    /// </summary>
+    EmilHemming8484796 = 8484796,
+    /// <summary>
+    /// VinniLettieri8479968
+    /// </summary>
+    VinniLettieri8479968 = 8479968,
+    /// <summary>
+    /// JakubLauko8480880
+    /// </summary>
+    JakubLauko8480880 = 8480880,
+    /// <summary>
+    /// TylerThorpe8484533
+    /// </summary>
+    TylerThorpe8484533 = 8484533,
+    /// <summary>
+    /// OwenAllard8483798
+    /// </summary>
+    OwenAllard8483798 = 8483798,
+    /// <summary>
+    /// AlexanderHoltz8482125
+    /// </summary>
+    AlexanderHoltz8482125 = 8482125,
+    /// <summary>
+    /// NateMisskey8484599
+    /// </summary>
+    NateMisskey8484599 = 8484599,
+    /// <summary>
+    /// ConnorClattenburg8484529
+    /// </summary>
+    ConnorClattenburg8484529 = 8484529,
+    /// <summary>
+    /// AnthonyRomani8484565
+    /// </summary>
+    AnthonyRomani8484565 = 8484565,
+    /// <summary>
+    /// MatyasMelovsky8484616
+    /// </summary>
+    MatyasMelovsky8484616 = 8484616,
+    /// <summary>
+    /// DalynWakely8483924
+    /// </summary>
+    DalynWakely8483924 = 8483924,
+    /// <summary>
+    /// EricJamieson8484640
+    /// </summary>
+    EricJamieson8484640 = 8484640,
+    /// <summary>
+    /// RasmusBergqvist8485093
+    /// </summary>
+    RasmusBergqvist8485093 = 8485093,
+    /// <summary>
+    /// GregorBiber8485010
+    /// </summary>
+    GregorBiber8485010 = 8485010,
+    /// <summary>
+    /// FinnHarding8484525
+    /// </summary>
+    FinnHarding8484525 = 8484525,
+    /// <summary>
+    /// MaxPlante8484870
+    /// </summary>
+    MaxPlante8484870 = 8484870,
+    /// <summary>
+    /// JacobQuillan8484901
+    /// </summary>
+    JacobQuillan8484901 = 8484901,
+    /// <summary>
+    /// StevieLeskovar8485074
+    /// </summary>
+    StevieLeskovar8485074 = 8485074,
+    /// <summary>
+    /// JeremieBucheler8484893
+    /// </summary>
+    JeremieBucheler8484893 = 8484893,
+    /// <summary>
+    /// MarkoSikic8484992
+    /// </summary>
+    MarkoSikic8484992 = 8484992,
+    /// <summary>
+    /// BlakeMontgomery8485016
+    /// </summary>
+    BlakeMontgomery8485016 = 8485016,
+    /// <summary>
+    /// KamilBednarik8484788
+    /// </summary>
+    KamilBednarik8484788 = 8484788,
+    /// <summary>
+    /// WilliamNicholl8485087
+    /// </summary>
+    WilliamNicholl8485087 = 8485087,
+    /// <summary>
+    /// JohnMustard8484771
+    /// </summary>
+    JohnMustard8484771 = 8484771,
+    /// <summary>
+    /// TannerHowe8484869
+    /// </summary>
+    TannerHowe8484869 = 8484869,
+    /// <summary>
+    /// FisherScott8485103
+    /// </summary>
+    FisherScott8485103 = 8485103,
+    /// <summary>
+    /// SimonpierBrunet8485027
+    /// </summary>
+    SimonpierBrunet8485027 = 8485027,
+    /// <summary>
+    /// JamesReeder8485089
+    /// </summary>
+    JamesReeder8485089 = 8485089,
+    /// <summary>
+    /// WilliamZellers8484842
+    /// </summary>
+    WilliamZellers8484842 = 8484842,
+    /// <summary>
+    /// JustinPoirier8485048
+    /// </summary>
+    JustinPoirier8485048 = 8485048,
+    /// <summary>
+    /// EmileChouinard8484991
+    /// </summary>
+    EmileChouinard8484991 = 8484991,
+    /// <summary>
+    /// LoukaCloutier8485030
+    /// </summary>
+    LoukaCloutier8485030 = 8485030,
+    /// <summary>
+    /// ParkerAlcos8485067
+    /// </summary>
+    ParkerAlcos8485067 = 8485067,
+    /// <summary>
+    /// LukasFischer8484810
+    /// </summary>
+    LukasFischer8484810 = 8484810,
+    /// <summary>
+    /// XavierVeilleux8485078
+    /// </summary>
+    XavierVeilleux8485078 = 8485078,
+    /// <summary>
+    /// SamStevens8484942
+    /// </summary>
+    SamStevens8484942 = 8484942,
+    /// <summary>
+    /// BenKraws8484835
+    /// </summary>
+    BenKraws8484835 = 8484835,
+    /// <summary>
+    /// MattLahey8485092
+    /// </summary>
+    MattLahey8485092 = 8485092,
+    /// <summary>
+    /// AustinBurnevik8485059
+    /// </summary>
+    AustinBurnevik8485059 = 8485059,
+    /// <summary>
+    /// AlexandreBlais8485009
+    /// </summary>
+    AlexandreBlais8485009 = 8485009,
+    /// <summary>
+    /// CooperBlack8484900
+    /// </summary>
+    CooperBlack8484900 = 8484900,
+    /// <summary>
+    /// ColtonRoberts8484764
+    /// </summary>
+    ColtonRoberts8484764 = 8484764,
+    /// <summary>
+    /// JustinHryckowian8484829
+    /// </summary>
+    JustinHryckowian8484829 = 8484829,
+    /// <summary>
+    /// MathieuDeStPhalle8484909
+    /// </summary>
+    MathieuDeStPhalle8484909 = 8484909,
+    /// <summary>
+    /// SpencerGill8484804
+    /// </summary>
+    SpencerGill8484804 = 8484804,
+    /// <summary>
+    /// LucasVanroboys8484908
+    /// </summary>
+    LucasVanroboys8484908 = 8484908,
+    /// <summary>
+    /// GabrielCarriere8484887
+    /// </summary>
+    GabrielCarriere8484887 = 8484887,
+    /// <summary>
+    /// ConnorMayer8484897
+    /// </summary>
+    ConnorMayer8484897 = 8484897,
+    /// <summary>
+    /// SamMccue8485107
+    /// </summary>
+    SamMccue8485107 = 8485107,
+    /// <summary>
+    /// Anthony(AJ)Spellacy8484858
+    /// </summary>
+    Anthony(AJ)Spellacy8484858 = 8484858,
+    /// <summary>
+    /// HirokiGojsic8485005
+    /// </summary>
+    HirokiGojsic8485005 = 8485005,
+    /// <summary>
+    /// EvanGardner8484997
+    /// </summary>
+    EvanGardner8484997 = 8484997,
+    /// <summary>
+    /// CamdenThiesing8484830
+    /// </summary>
+    CamdenThiesing8484830 = 8484830,
+    /// <summary>
+    /// ColtonYoung8484743
+    /// </summary>
+    ColtonYoung8484743 = 8484743,
+    /// <summary>
+    /// RyanPouliot8484819
+    /// </summary>
+    RyanPouliot8484819 = 8484819,
+    /// <summary>
+    /// ColinRalph8484865
+    /// </summary>
+    ColinRalph8484865 = 8484865,
+    /// <summary>
+    /// JonathanMorello8485053
+    /// </summary>
+    JonathanMorello8485053 = 8485053,
+    /// <summary>
+    /// MiroslavSatan8485106
+    /// </summary>
+    MiroslavSatan8485106 = 8485106,
+    /// <summary>
+    /// KieronWalton8485070
+    /// </summary>
+    KieronWalton8485070 = 8485070,
+    /// <summary>
+    /// ColeHutson8484873
+    /// </summary>
+    ColeHutson8484873 = 8484873,
+    /// <summary>
+    /// RileyPatterson8484874
+    /// </summary>
+    RileyPatterson8484874 = 8484874,
+    /// <summary>
+    /// MarcusGidlof8485044
+    /// </summary>
+    MarcusGidlof8485044 = 8485044,
+    /// <summary>
+    /// JoshHowell8484812
+    /// </summary>
+    JoshHowell8484812 = 8484812,
+    /// <summary>
+    /// RyersonLeenders8485101
+    /// </summary>
+    RyersonLeenders8485101 = 8485101,
+    /// <summary>
+    /// AndreGhantous8484832
+    /// </summary>
+    AndreGhantous8484832 = 8484832,
+    /// <summary>
+    /// HunterStMartin8485071
+    /// </summary>
+    HunterStMartin8485071 = 8485071,
+    /// <summary>
+    /// AlexisBernier8484838
+    /// </summary>
+    AlexisBernier8484838 = 8484838,
+    /// <summary>
+    /// CarsonWetsch8484845
+    /// </summary>
+    CarsonWetsch8484845 = 8484845,
+    /// <summary>
+    /// HenryMews8484774
+    /// </summary>
+    HenryMews8484774 = 8484774,
+    /// <summary>
+    /// OwenProtz8485008
+    /// </summary>
+    OwenProtz8485008 = 8485008,
+    /// <summary>
+    /// DrewDeRidder8484831
+    /// </summary>
+    DrewDeRidder8484831 = 8484831,
+    /// <summary>
+    /// LukeMisa8484878
+    /// </summary>
+    LukeMisa8484878 = 8484878,
+    /// <summary>
+    /// NathanAspinall8485039
+    /// </summary>
+    NathanAspinall8485039 = 8485039,
+    /// <summary>
+    /// AndrewLucas8484898
+    /// </summary>
+    AndrewLucas8484898 = 8484898,
+    /// <summary>
+    /// JacquesBouquot8484816
+    /// </summary>
+    JacquesBouquot8484816 = 8484816,
+    /// <summary>
+    /// CharlieForslund8485079
+    /// </summary>
+    CharlieForslund8485079 = 8485079,
+    /// <summary>
+    /// DylanAnhorn8484906
+    /// </summary>
+    DylanAnhorn8484906 = 8484906,
+    /// <summary>
+    /// TrevorHoskin8485013
+    /// </summary>
+    TrevorHoskin8485013 = 8485013,
+    /// <summary>
+    /// LukeAshton8485068
+    /// </summary>
+    LukeAshton8485068 = 8485068,
+    /// <summary>
+    /// GabeSmith8485007
+    /// </summary>
+    GabeSmith8485007 = 8485007,
+    /// <summary>
+    /// DylanWendt8484916
+    /// </summary>
+    DylanWendt8484916 = 8484916,
+    /// <summary>
+    /// DavidSilye8484919
+    /// </summary>
+    DavidSilye8484919 = 8484919,
+    /// <summary>
+    /// RaoulBoilard8484791
+    /// </summary>
+    RaoulBoilard8484791 = 8484791,
+    /// <summary>
+    /// JacobBattaglia8484785
+    /// </summary>
+    JacobBattaglia8484785 = 8484785,
+    /// <summary>
+    /// GarrettPyke8484922
+    /// </summary>
+    GarrettPyke8484922 = 8484922,
+    /// <summary>
+    /// LoganSawyer8485001
+    /// </summary>
+    LoganSawyer8485001 = 8485001,
+    /// <summary>
+    /// RyderRitchie8484765
+    /// </summary>
+    RyderRitchie8484765 = 8484765,
+    /// <summary>
+    /// TeddyStiga8484856
+    /// </summary>
+    TeddyStiga8484856 = 8484856,
+    /// <summary>
+    /// CarterGeorge8484857
+    /// </summary>
+    CarterGeorge8484857 = 8484857,
+    /// <summary>
+    /// MaximMasse8484776
+    /// </summary>
+    MaximMasse8484776 = 8484776,
+    /// <summary>
+    /// ClarkeCaswell8485036
+    /// </summary>
+    ClarkeCaswell8485036 = 8485036,
+    /// <summary>
+    /// NicholasKempf8485023
+    /// </summary>
+    NicholasKempf8485023 = 8485023,
+    /// <summary>
+    /// TyHenry8485056
+    /// </summary>
+    TyHenry8485056 = 8485056,
+    /// <summary>
+    /// NathanMayes8485088
+    /// </summary>
+    NathanMayes8485088 = 8485088,
+    /// <summary>
+    /// NathanVilleneuve8484760
+    /// </summary>
+    NathanVilleneuve8484760 = 8484760,
+    /// <summary>
+    /// JackRandl8484903
+    /// </summary>
+    JackRandl8484903 = 8484903,
+    /// <summary>
+    /// LucasEllinas8485006
+    /// </summary>
+    LucasEllinas8485006 = 8485006,
+    /// <summary>
+    /// TarinSmith8484862
+    /// </summary>
+    TarinSmith8484862 = 8484862,
+    /// <summary>
+    /// ToryPitner8485064
+    /// </summary>
+    ToryPitner8485064 = 8485064,
+    /// <summary>
+    /// ChaseWutzke8485037
+    /// </summary>
+    ChaseWutzke8485037 = 8485037,
+    /// <summary>
+    /// JackPridham8484868
+    /// </summary>
+    JackPridham8484868 = 8484868,
+    /// <summary>
+    /// CharlesMartin8484735
+    /// </summary>
+    CharlesMartin8484735 = 8484735,
+    /// <summary>
+    /// AntoineDorion8485086
+    /// </summary>
+    AntoineDorion8485086 = 8485086,
+    /// <summary>
+    /// EthanProcyszyn8484867
+    /// </summary>
+    EthanProcyszyn8484867 = 8484867,
+    /// <summary>
+    /// CameronConnolly8484750
+    /// </summary>
+    CameronConnolly8484750 = 8484750,
+    /// <summary>
+    /// MaxGraham8485035
+    /// </summary>
+    MaxGraham8485035 = 8485035,
+    /// <summary>
+    /// MathieuGosselin8484924
+    /// </summary>
+    MathieuGosselin8484924 = 8484924,
+    /// <summary>
+    /// CollinGraf8484911
+    /// </summary>
+    CollinGraf8484911 = 8484911,
+    /// <summary>
+    /// BauerBerry8485083
+    /// </summary>
+    BauerBerry8485083 = 8485083,
+    /// <summary>
+    /// CharlieElick8484808
+    /// </summary>
+    CharlieElick8484808 = 8484808,
+    /// <summary>
+    /// LandonMiller8485024
+    /// </summary>
+    LandonMiller8485024 = 8485024,
+    /// <summary>
+    /// TrentSwick8485057
+    /// </summary>
+    TrentSwick8485057 = 8485057,
+    /// <summary>
+    /// AndrewBasha8484782
+    /// </summary>
+    AndrewBasha8484782 = 8484782,
+    /// <summary>
+    /// PatrickGeary8485066
+    /// </summary>
+    PatrickGeary8485066 = 8485066,
+    /// <summary>
+    /// AdamKleber8484875
+    /// </summary>
+    AdamKleber8484875 = 8484875,
+    /// <summary>
+    /// JamieArmstrong8484986
+    /// </summary>
+    JamieArmstrong8484986 = 8484986,
+    /// <summary>
+    /// MattKopperud8484828
+    /// </summary>
+    MattKopperud8484828 = 8484828,
+    /// <summary>
+    /// JaredWoolley8484844
+    /// </summary>
+    JaredWoolley8484844 = 8484844,
+    /// <summary>
+    /// TomasLavoie8484880
+    /// </summary>
+    TomasLavoie8484880 = 8484880,
+    /// <summary>
+    /// LukeGrainger8484907
+    /// </summary>
+    LukeGrainger8484907 = 8484907,
+    /// <summary>
+    /// WilliamMcisaac8485042
+    /// </summary>
+    WilliamMcisaac8485042 = 8485042,
+    /// <summary>
+    /// LleytonRoed8484891
+    /// </summary>
+    LleytonRoed8484891 = 8484891,
+    /// <summary>
+    /// LinusEriksson8484850
+    /// </summary>
+    LinusEriksson8484850 = 8484850,
+    /// <summary>
+    /// TomasMrsic8485021
+    /// </summary>
+    TomasMrsic8485021 = 8485021,
+    /// <summary>
+    /// CamMcDonald8484985
+    /// </summary>
+    CamMcDonald8484985 = 8484985,
+    /// <summary>
+    /// NoahPowell8485045
+    /// </summary>
+    NoahPowell8485045 = 8485045,
+    /// <summary>
+    /// MiguelMarques8484778
+    /// </summary>
+    MiguelMarques8484778 = 8484778,
+    /// <summary>
+    /// LucaMarrelli8484777
+    /// </summary>
+    LucaMarrelli8484777 = 8484777,
+    /// <summary>
+    /// OllieJosephson8484789
+    /// </summary>
+    OllieJosephson8484789 = 8484789,
+    /// <summary>
+    /// BenSteeves8484834
+    /// </summary>
+    BenSteeves8484834 = 8484834,
+    /// <summary>
+    /// ConnorHughes8484968
+    /// </summary>
+    ConnorHughes8484968 = 8484968,
+    /// <summary>
+    /// VeetiLouhivaara8485043
+    /// </summary>
+    VeetiLouhivaara8485043 = 8485043,
+    /// <summary>
+    /// JessePulkkinen8484766
+    /// </summary>
+    JessePulkkinen8484766 = 8484766,
+    /// <summary>
+    /// SebastianSoini8484861
+    /// </summary>
+    SebastianSoini8484861 = 8484861,
+    /// <summary>
+    /// BlakePietila8484927
+    /// </summary>
+    BlakePietila8484927 = 8484927,
+    /// <summary>
+    /// AustinMagera8484754
+    /// </summary>
+    AustinMagera8484754 = 8484754,
+    /// <summary>
+    /// MikusVecvanags8485038
+    /// </summary>
+    MikusVecvanags8485038 = 8485038,
+    /// <summary>
+    /// EemilVinni8484881
+    /// </summary>
+    EemilVinni8484881 = 8484881,
+    /// <summary>
+    /// JakubFibigr8485096
+    /// </summary>
+    JakubFibigr8485096 = 8485096,
+    /// <summary>
+    /// JackBerglund8484837
+    /// </summary>
+    JackBerglund8484837 = 8484837,
+    /// <summary>
+    /// JakubMilota8485011
+    /// </summary>
+    JakubMilota8485011 = 8485011,
+    /// <summary>
+    /// KasperPikkarainen8484872
+    /// </summary>
+    KasperPikkarainen8484872 = 8484872,
+    /// <summary>
+    /// JaxonNelson8484899
+    /// </summary>
+    JaxonNelson8484899 = 8484899,
+    /// <summary>
+    /// MikulasHovorka8484933
+    /// </summary>
+    MikulasHovorka8484933 = 8484933,
+    /// <summary>
+    /// ChadHillebrand8484921
+    /// </summary>
+    ChadHillebrand8484921 = 8484921,
+    /// <summary>
+    /// MarkusLoponen8485052
+    /// </summary>
+    MarkusLoponen8485052 = 8485052,
+    /// <summary>
+    /// RyanBischel8484931
+    /// </summary>
+    RyanBischel8484931 = 8484931,
+    /// <summary>
+    /// BenMerrill8485060
+    /// </summary>
+    BenMerrill8485060 = 8485060,
+    /// <summary>
+    /// LeonMuggli8484772
+    /// </summary>
+    LeonMuggli8484772 = 8484772,
+    /// <summary>
+    /// LukeOsburn8485015
+    /// </summary>
+    LukeOsburn8485015 = 8485015,
+    /// <summary>
+    /// JuhaJaaska8484929
+    /// </summary>
+    JuhaJaaska8484929 = 8484929,
+    /// <summary>
+    /// NiilopekkaMuhonen8485041
+    /// </summary>
+    NiilopekkaMuhonen8485041 = 8485041,
+    /// <summary>
+    /// SamMorton8484821
+    /// </summary>
+    SamMorton8484821 = 8484821,
+    /// <summary>
+    /// MiroslavHolinka8485049
+    /// </summary>
+    MiroslavHolinka8485049 = 8485049,
+    /// <summary>
+    /// MaximTsyplakov8484958
+    /// </summary>
+    MaximTsyplakov8484958 = 8484958,
+    /// <summary>
+    /// HarrisonBrunicke8484839
+    /// </summary>
+    HarrisonBrunicke8484839 = 8484839,
+    /// <summary>
+    /// HagenBurrows8484840
+    /// </summary>
+    HagenBurrows8484840 = 8484840,
+    /// <summary>
+    /// BrodieZiemer8484758
+    /// </summary>
+    BrodieZiemer8484758 = 8484758,
+    /// <summary>
+    /// AlesCech8485054
+    /// </summary>
+    AlesCech8485054 = 8485054,
+    /// <summary>
+    /// LoganPietila8484926
+    /// </summary>
+    LoganPietila8484926 = 8484926,
+    /// <summary>
+    /// MaxmilianCurran8484846
+    /// </summary>
+    MaxmilianCurran8484846 = 8484846,
+    /// <summary>
+    /// EriksMateiko8484775
+    /// </summary>
+    EriksMateiko8484775 = 8484775,
+    /// <summary>
+    /// TylerGratton8484820
+    /// </summary>
+    TylerGratton8484820 = 8484820,
+    /// <summary>
+    /// KevinLombardi8484818
+    /// </summary>
+    KevinLombardi8484818 = 8484818,
+    /// <summary>
+    /// WaltteriIgnatjew8484939
+    /// </summary>
+    WaltteriIgnatjew8484939 = 8484939,
+    /// <summary>
+    /// PhilipWaugh8484814
+    /// </summary>
+    PhilipWaugh8484814 = 8484814,
+    /// <summary>
+    /// MatveiShuravin8485004
+    /// </summary>
+    MatveiShuravin8485004 = 8485004,
+    /// <summary>
+    /// AdamJecho8484792
+    /// </summary>
+    AdamJecho8484792 = 8484792,
+    /// <summary>
+    /// ChristianHumphreys8484871
+    /// </summary>
+    ChristianHumphreys8484871 = 8484871,
+    /// <summary>
+    /// JakeFisher8485028
+    /// </summary>
+    JakeFisher8485028 = 8485028,
+    /// <summary>
+    /// LucasVanVliet8484849
+    /// </summary>
+    LucasVanVliet8484849 = 8484849,
+    /// <summary>
+    /// VeetiVaisanen8484851
+    /// </summary>
+    VeetiVaisanen8484851 = 8484851,
+    /// <summary>
+    /// EerikWallenius8485032
+    /// </summary>
+    EerikWallenius8485032 = 8485032,
+    /// <summary>
+    /// KimSaarinen8485003
+    /// </summary>
+    KimSaarinen8485003 = 8485003,
+    /// <summary>
+    /// DmitryGamzin8485020
+    /// </summary>
+    DmitryGamzin8485020 = 8485020,
+    /// <summary>
+    /// AustinMoline8485100
+    /// </summary>
+    AustinMoline8485100 = 8485100,
+    /// <summary>
+    /// MacSwanson8485102
+    /// </summary>
+    MacSwanson8485102 = 8485102,
+    /// <summary>
+    /// LudvigLafton8485062
+    /// </summary>
+    LudvigLafton8485062 = 8485062,
+    /// <summary>
+    /// DrewBavaro8484813
+    /// </summary>
+    DrewBavaro8484813 = 8484813,
+    /// <summary>
+    /// MatthewMiller8484905
+    /// </summary>
+    MatthewMiller8484905 = 8484905,
+    /// <summary>
+    /// ArttuHyry8484938
+    /// </summary>
+    ArttuHyry8484938 = 8484938,
+    /// <summary>
+    /// PetrSikora8485080
+    /// </summary>
+    PetrSikora8485080 = 8485080,
+    /// <summary>
+    /// JuliusMiettinen8484773
+    /// </summary>
+    JuliusMiettinen8484773 = 8484773,
+    /// <summary>
+    /// AatosKoivu8484877
+    /// </summary>
+    AatosKoivu8484877 = 8484877,
+    /// <summary>
+    /// KevinHe8484864
+    /// </summary>
+    KevinHe8484864 = 8484864,
+    /// <summary>
+    /// IlyaProtas8484999
+    /// </summary>
+    IlyaProtas8484999 = 8484999,
+    /// <summary>
+    /// JoonaVaisanen8485076
+    /// </summary>
+    JoonaVaisanen8485076 = 8485076,
+    /// <summary>
+    /// SethEisele8484896
+    /// </summary>
+    SethEisele8484896 = 8484896,
+    /// <summary>
+    /// OndrejBecher8484836
+    /// </summary>
+    OndrejBecher8484836 = 8484836,
+    /// <summary>
+    /// DarelsUljanskis8485090
+    /// </summary>
+    DarelsUljanskis8485090 = 8485090,
+    /// <summary>
+    /// MichalStinil8484718
+    /// </summary>
+    MichalStinil8484718 = 8484718,
+    /// <summary>
+    /// JasonGrande8484892
+    /// </summary>
+    JasonGrande8484892 = 8484892,
+    /// <summary>
+    /// HunterLaing8485065
+    /// </summary>
+    HunterLaing8485065 = 8485065,
+    /// <summary>
+    /// MatthewBarbolini8484888
+    /// </summary>
+    MatthewBarbolini8484888 = 8484888,
+    /// <summary>
+    /// ChristianFelton8484815
+    /// </summary>
+    ChristianFelton8484815 = 8484815,
+    /// <summary>
+    /// TomasGalvas8484855
+    /// </summary>
+    TomasGalvas8484855 = 8484855,
+    /// <summary>
+    /// ChasePietila8485019
+    /// </summary>
+    ChasePietila8485019 = 8485019,
+    /// <summary>
+    /// LukeRowe8484756
+    /// </summary>
+    LukeRowe8484756 = 8484756,
+    /// <summary>
+    /// PavelMoysevich8485002
+    /// </summary>
+    PavelMoysevich8485002 = 8485002,
+    /// <summary>
+    /// NoahSteen8485091
+    /// </summary>
+    NoahSteen8485091 = 8485091,
+    /// <summary>
+    /// DominikBadinka8484781
+    /// </summary>
+    DominikBadinka8484781 = 8484781,
+    /// <summary>
+    /// NoelFransen8484998
+    /// </summary>
+    NoelFransen8484998 = 8484998,
+    /// <summary>
+    /// JohnWhipple8485040
+    /// </summary>
+    JohnWhipple8485040 = 8485040,
+    /// <summary>
+    /// AronKiviharju8484787
+    /// </summary>
+    AronKiviharju8484787 = 8484787,
+    /// <summary>
+    /// BrandonTabakin8484925
+    /// </summary>
+    BrandonTabakin8484925 = 8484925,
+    /// <summary>
+    /// HeikkiRuohonen8485014
+    /// </summary>
+    HeikkiRuohonen8485014 = 8485014,
+    /// <summary>
+    /// VasilyZelenov8485109
+    /// </summary>
+    VasilyZelenov8485109 = 8485109,
+    /// <summary>
+    /// TannerHenricks8484866
+    /// </summary>
+    TannerHenricks8484866 = 8484866,
+    /// <summary>
+    /// LukeKrys8484822
+    /// </summary>
+    LukeKrys8484822 = 8484822,
+    /// <summary>
+    /// AustinBaker8485098
+    /// </summary>
+    AustinBaker8485098 = 8485098,
+    /// <summary>
+    /// VojtechHradec8485061
+    /// </summary>
+    VojtechHradec8485061 = 8485061,
+    /// <summary>
+    /// TimurKol8485051
+    /// </summary>
+    TimurKol8485051 = 8485051,
+    /// <summary>
+    /// KyleMcClellan8484930
+    /// </summary>
+    KyleMcClellan8484930 = 8484930,
+    /// <summary>
+    /// KeatonPehrson8484988
+    /// </summary>
+    KeatonPehrson8484988 = 8484988,
+    /// <summary>
+    /// JakubRychlovsky8484966
+    /// </summary>
+    JakubRychlovsky8484966 = 8484966,
+    /// <summary>
+    /// MarcusSylvegard8484951
+    /// </summary>
+    MarcusSylvegard8484951 = 8484951,
+    /// <summary>
+    /// AntonSilayev8484987
+    /// </summary>
+    AntonSilayev8484987 = 8484987,
+    /// <summary>
+    /// MakarKhanin8485082
+    /// </summary>
+    MakarKhanin8485082 = 8485082,
+    /// <summary>
+    /// MatveiKorotky8485104
+    /// </summary>
+    MatveiKorotky8485104 = 8485104,
+    /// <summary>
+    /// EgorSurin8484993
+    /// </summary>
+    EgorSurin8484993 = 8484993,
+    /// <summary>
+    /// WillSkahan8484863
+    /// </summary>
+    WillSkahan8484863 = 8484863,
+    /// <summary>
+    /// LucasPettersson8484767
+    /// </summary>
+    LucasPettersson8484767 = 8484767,
+    /// <summary>
+    /// IvanDemidov8484984
+    /// </summary>
+    IvanDemidov8484984 = 8484984,
+    /// <summary>
+    /// ChristianKirsch8485018
+    /// </summary>
+    ChristianKirsch8485018 = 8485018,
+    /// <summary>
+    /// WilliamSamuelsson8485095
+    /// </summary>
+    WilliamSamuelsson8485095 = 8485095,
+    /// <summary>
+    /// OndrejKos8484784
+    /// </summary>
+    OndrejKos8484784 = 8484784,
+    /// <summary>
+    /// HermanTraff8484853
+    /// </summary>
+    HermanTraff8484853 = 8484853,
+    /// <summary>
+    /// ZacFunk8484757
+    /// </summary>
+    ZacFunk8484757 = 8484757,
+    /// <summary>
+    /// KirillZarubin8485012
+    /// </summary>
+    KirillZarubin8485012 = 8485012,
+    /// <summary>
+    /// IlyaPautov8485073
+    /// </summary>
+    IlyaPautov8485073 = 8485073,
+    /// <summary>
+    /// LokeJohansson8485072
+    /// </summary>
+    LokeJohansson8485072 = 8485072,
+    /// <summary>
+    /// IlyaNabokov8484996
+    /// </summary>
+    IlyaNabokov8484996 = 8484996,
+    /// <summary>
+    /// SimonZether8484841
+    /// </summary>
+    SimonZether8484841 = 8484841,
+    /// <summary>
+    /// OscarEklind8484928
+    /// </summary>
+    OscarEklind8484928 = 8484928,
+    /// <summary>
+    /// IvanYunin8485033
+    /// </summary>
+    IvanYunin8485033 = 8485033,
+    /// <summary>
+    /// MikhailYegorov8484843
+    /// </summary>
+    MikhailYegorov8484843 = 8484843,
+    /// <summary>
+    /// ErikPahlsson8485108
+    /// </summary>
+    ErikPahlsson8485108 = 8485108,
+    /// <summary>
+    /// YaroslavKorostelyov8485084
+    /// </summary>
+    YaroslavKorostelyov8485084 = 8485084,
+    /// <summary>
+    /// FyodorAvramov8485069
+    /// </summary>
+    FyodorAvramov8485069 = 8485069,
+    /// <summary>
+    /// AlbinSundin8485077
+    /// </summary>
+    AlbinSundin8485077 = 8485077,
+    /// <summary>
+    /// DenisGabdrakhmanov8485094
+    /// </summary>
+    DenisGabdrakhmanov8485094 = 8485094,
+    /// <summary>
+    /// AlexanderPlesovskikh8485050
+    /// </summary>
+    AlexanderPlesovskikh8485050 = 8485050,
+    /// <summary>
+    /// LeoSahlinWallenius8484763
+    /// </summary>
+    LeoSahlinWallenius8484763 = 8484763,
+    /// <summary>
+    /// JavonMoore8484876
+    /// </summary>
+    JavonMoore8484876 = 8484876,
+    /// <summary>
+    /// AlexanderSiryatsky8485026
+    /// </summary>
+    AlexanderSiryatsky8485026 = 8485026,
+    /// <summary>
+    /// JereInnala8484976
+    /// </summary>
+    JereInnala8484976 = 8484976,
+    /// <summary>
+    /// JakeBarczewski8484941
+    /// </summary>
+    JakeBarczewski8484941 = 8484941,
+    /// <summary>
+    /// ViggoGustafsson8485000
+    /// </summary>
+    ViggoGustafsson8485000 = 8485000,
+    /// <summary>
+    /// StepanGorbunov8485063
+    /// </summary>
+    StepanGorbunov8485063 = 8485063,
+    /// <summary>
+    /// GabrielEliasson8484847
+    /// </summary>
+    GabrielEliasson8484847 = 8484847,
+    /// <summary>
+    /// NikitaArtamonov8484995
+    /// </summary>
+    NikitaArtamonov8484995 = 8484995,
+    /// <summary>
+    /// ViktorNorringer8485022
+    /// </summary>
+    ViktorNorringer8485022 = 8485022,
+    /// <summary>
+    /// TimofeiObvintsev8485046
+    /// </summary>
+    TimofeiObvintsev8485046 = 8485046,
+    /// <summary>
+    /// NikitaPrishchepov8485105
+    /// </summary>
+    NikitaPrishchepov8485105 = 8485105,
+    /// <summary>
+    /// RomanShokhrin8485075
+    /// </summary>
+    RomanShokhrin8485075 = 8485075,
+    /// <summary>
+    /// VictorOstman8484910
+    /// </summary>
+    VictorOstman8484910 = 8484910,
+    /// <summary>
+    /// OskarVuollet8485031
+    /// </summary>
+    OskarVuollet8485031 = 8485031,
+    /// <summary>
+    /// GabrielChicoine8484755
+    /// </summary>
+    GabrielChicoine8484755 = 8484755,
+    /// <summary>
+    /// ElliottGroenewold8485017
+    /// </summary>
+    ElliottGroenewold8485017 = 8485017,
+    /// <summary>
+    /// AlfonsFreij8484854
+    /// </summary>
+    AlfonsFreij8484854 = 8484854,
+    /// <summary>
+    /// OliverOkuliar8484935
+    /// </summary>
+    OliverOkuliar8484935 = 8484935,
+    /// <summary>
+    /// VictorJohansson8485029
+    /// </summary>
+    VictorJohansson8485029 = 8485029,
+    /// <summary>
+    /// IgorChernyshov8484994
+    /// </summary>
+    IgorChernyshov8484994 = 8484994,
+    /// <summary>
+    /// JoelSvensson8485034
+    /// </summary>
+    JoelSvensson8485034 = 8485034,
+    /// <summary>
+    /// RicoGredig8485058
+    /// </summary>
+    RicoGredig8485058 = 8485058,
+    /// <summary>
+    /// BasileSansonnens8485097
+    /// </summary>
+    BasileSansonnens8485097 = 8485097,
+    /// <summary>
+    /// MelvinFernstrom8484852
+    /// </summary>
+    MelvinFernstrom8484852 = 8484852,
+    /// <summary>
+    /// AndreyKrutov8485099
+    /// </summary>
+    AndreyKrutov8485099 = 8485099,
+    /// <summary>
+    /// GianfrancoCassaro8484990
+    /// </summary>
+    GianfrancoCassaro8484990 = 8484990,
+    /// <summary>
+    /// RhettPitlick8481746
+    /// </summary>
+    RhettPitlick8481746 = 8481746,
+    /// <summary>
+    /// JakeGuentzel8477404
+    /// </summary>
+    JakeGuentzel8477404 = 8477404,
+    /// <summary>
+    /// NikolaiKnyzhov8481812
+    /// </summary>
+    NikolaiKnyzhov8481812 = 8481812,
+    /// <summary>
+    /// LukasSvejkovsky8482449
+    /// </summary>
+    LukasSvejkovsky8482449 = 8482449,
+    /// <summary>
+    /// BennettMacArthur8483102
+    /// </summary>
+    BennettMacArthur8483102 = 8483102,
+    /// <summary>
+    /// LoganThompson8480313
+    /// </summary>
+    LoganThompson8480313 = 8480313,
+    /// <summary>
+    /// CarterSavoie8482108
+    /// </summary>
+    CarterSavoie8482108 = 8482108,
+    /// <summary>
+    /// GregMcKegg8475735
+    /// </summary>
+    GregMcKegg8475735 = 8475735,
+    /// <summary>
+    /// BraydenTracey8481530
+    /// </summary>
+    BraydenTracey8481530 = 8481530,
+    /// <summary>
+    /// GerryMayhew8479933
+    /// </summary>
+    GerryMayhew8479933 = 8479933,
+    /// <summary>
+    /// BorisKatchouk8479383
+    /// </summary>
+    BorisKatchouk8479383 = 8479383,
+    /// <summary>
+    /// JasperWeatherby8481061
+    /// </summary>
+    JasperWeatherby8481061 = 8481061,
+    /// <summary>
+    /// OlofLindbom8481015
+    /// </summary>
+    OlofLindbom8481015 = 8481015,
+    /// <summary>
+    /// MarianStudenic8480226
+    /// </summary>
+    MarianStudenic8480226 = 8480226,
+    /// <summary>
+    /// RadimSimek8480160
+    /// </summary>
+    RadimSimek8480160 = 8480160,
+    /// <summary>
+    /// JeffCarter8470604
+    /// </summary>
+    JeffCarter8470604 = 8470604,
+    /// <summary>
+    /// AleksiSaarela8478839
+    /// </summary>
+    AleksiSaarela8478839 = 8478839,
+    /// <summary>
+    /// DillonDube8479346
+    /// </summary>
+    DillonDube8479346 = 8479346,
+    /// <summary>
+    /// JustinSchultz8474602
+    /// </summary>
+    JustinSchultz8474602 = 8474602,
+    /// <summary>
+    /// MarkGiordano8470966
+    /// </summary>
+    MarkGiordano8470966 = 8470966,
+    /// <summary>
+    /// SethGriffith8476495
+    /// </summary>
+    SethGriffith8476495 = 8476495,
+    /// <summary>
+    /// FilipCederqvist8481722
+    /// </summary>
+    FilipCederqvist8481722 = 8481722,
+    /// <summary>
+    /// AlexBeaucage8481595
+    /// </summary>
+    AlexBeaucage8481595 = 8481595,
+    /// <summary>
+    /// KevinShattenkirk8474031
+    /// </summary>
+    KevinShattenkirk8474031 = 8474031,
+    /// <summary>
+    /// MikeHoffman8474884
+    /// </summary>
+    MikeHoffman8474884 = 8474884,
+    /// <summary>
+    /// MaximCajkovic8481738
+    /// </summary>
+    MaximCajkovic8481738 = 8481738,
+    /// <summary>
+    /// MatthewPhillips8479547
+    /// </summary>
+    MatthewPhillips8479547 = 8479547,
+    /// <summary>
+    /// LucasJohansen8479321
+    /// </summary>
+    LucasJohansen8479321 = 8479321,
+    /// <summary>
+    /// SheldonRempal8480776
+    /// </summary>
+    SheldonRempal8480776 = 8480776,
+    /// <summary>
+    /// JohnLeonard8481077
+    /// </summary>
+    JohnLeonard8481077 = 8481077,
+    /// <summary>
+    /// GustavLindstrom8480184
+    /// </summary>
+    GustavLindstrom8480184 = 8480184,
+    /// <summary>
+    /// TannerPearson8476871
+    /// </summary>
+    TannerPearson8476871 = 8476871,
+    /// <summary>
+    /// OskarSteen8479546
+    /// </summary>
+    OskarSteen8479546 = 8479546,
+    /// <summary>
+    /// AdamWilsby8482482
+    /// </summary>
+    AdamWilsby8482482 = 8482482,
+    /// <summary>
+    /// MagnusHellberg8476433
+    /// </summary>
+    MagnusHellberg8476433 = 8476433,
+    /// <summary>
+    /// MatthewPeca8476285
+    /// </summary>
+    MatthewPeca8476285 = 8476285,
+    /// <summary>
+    /// ZachSawchenko8479313
+    /// </summary>
+    ZachSawchenko8479313 = 8479313,
+    /// <summary>
+    /// JoshCurrie8477680
+    /// </summary>
+    JoshCurrie8477680 = 8477680,
+    /// <summary>
+    /// BrianPinho8477314
+    /// </summary>
+    BrianPinho8477314 = 8477314,
+    /// <summary>
+    /// TysonBarrie8475197
+    /// </summary>
+    TysonBarrie8475197 = 8475197,
+    /// <summary>
+    /// TaylorFedun8476166
+    /// </summary>
+    TaylorFedun8476166 = 8476166,
+    /// <summary>
+    /// CurtisDouglas8480876
+    /// </summary>
+    CurtisDouglas8480876 = 8480876,
+    /// <summary>
+    /// AlexanderBarabanov8482222
+    /// </summary>
+    AlexanderBarabanov8482222 = 8482222,
+    /// <summary>
+    /// MaxEllis8483566
+    /// </summary>
+    MaxEllis8483566 = 8483566,
+    /// <summary>
+    /// WyattNewpower8482251
+    /// </summary>
+    WyattNewpower8482251 = 8482251,
+    /// <summary>
+    /// BlakeWheeler8471218
+    /// </summary>
+    BlakeWheeler8471218 = 8471218,
+    /// <summary>
+    /// RourkeChartier8478078
+    /// </summary>
+    RourkeChartier8478078 = 8478078,
+    /// <summary>
+    /// PhilippeMaillet8477544
+    /// </summary>
+    PhilippeMaillet8477544 = 8477544,
+    /// <summary>
+    /// DmitryOvchinnikov8482488
+    /// </summary>
+    DmitryOvchinnikov8482488 = 8482488,
+    /// <summary>
+    /// KarlHenriksson8481548
+    /// </summary>
+    KarlHenriksson8481548 = 8481548,
+    /// <summary>
+    /// NicPetan8477464
+    /// </summary>
+    NicPetan8477464 = 8477464,
+    /// <summary>
+    /// AlecRegula8480831
+    /// </summary>
+    AlecRegula8480831 = 8480831,
+    /// <summary>
+    /// RemPitlick8479514
+    /// </summary>
+    RemPitlick8479514 = 8479514,
+    /// <summary>
+    /// CooperMarody8478442
+    /// </summary>
+    CooperMarody8478442 = 8478442,
+    /// <summary>
+    /// EgorKorshkov8479510
+    /// </summary>
+    EgorKorshkov8479510 = 8479510,
+    /// <summary>
+    /// TonyDeAngelo8477950
+    /// </summary>
+    TonyDeAngelo8477950 = 8477950,
+    /// <summary>
+    /// AdamBrooks8478996
+    /// </summary>
+    AdamBrooks8478996 = 8478996,
+    /// <summary>
+    /// ArvidHolm8480244
+    /// </summary>
+    ArvidHolm8480244 = 8480244,
+    /// <summary>
+    /// DillonHeatherington8477471
+    /// </summary>
+    DillonHeatherington8477471 = 8477471,
+    /// <summary>
+    /// ZaneMcIntyre8475876
+    /// </summary>
+    ZaneMcIntyre8475876 = 8475876,
+    /// <summary>
+    /// JakubVoracek8474161
+    /// </summary>
+    JakubVoracek8474161 = 8474161,
+    /// <summary>
+    /// AndrewCogliano8471699
+    /// </summary>
+    AndrewCogliano8471699 = 8471699,
+    /// <summary>
+    /// ColinWhite8478400
+    /// </summary>
+    ColinWhite8478400 = 8478400,
+    /// <summary>
+    /// DustinTokarski8474682
+    /// </summary>
+    DustinTokarski8474682 = 8474682,
+    /// <summary>
+    /// ChaseDeLeo8478029
+    /// </summary>
+    ChaseDeLeo8478029 = 8478029,
+    /// <summary>
+    /// JackRoslovic8478458
+    /// </summary>
+    JackRoslovic8478458 = 8478458,
+    /// <summary>
+    /// AaronDell8477180
+    /// </summary>
+    AaronDell8477180 = 8477180,
+    /// <summary>
+    /// HunterJones8481545
+    /// </summary>
+    HunterJones8481545 = 8481545,
+    /// <summary>
+    /// JordanGross8480913
+    /// </summary>
+    JordanGross8480913 = 8480913,
+    /// <summary>
+    /// CalleSjalin8480228
+    /// </summary>
+    CalleSjalin8480228 = 8480228,
+    /// <summary>
+    /// AdamErne8477454
+    /// </summary>
+    AdamErne8477454 = 8477454,
+    /// <summary>
+    /// MattMartin8474709
+    /// </summary>
+    MattMartin8474709 = 8474709,
+    /// <summary>
+    /// PierreEdouardBellemare8477930
+    /// </summary>
+    PierreEdouardBellemare8477930 = 8477930,
+    /// <summary>
+    /// BobbyTrivigno8483550
+    /// </summary>
+    BobbyTrivigno8483550 = 8483550,
+    /// <summary>
+    /// TylerWotherspoon8476452
+    /// </summary>
+    TylerWotherspoon8476452 = 8476452,
+    /// <summary>
+    /// JamesvanRiemsdyk8474037
+    /// </summary>
+    JamesvanRiemsdyk8474037 = 8474037,
+    /// <summary>
+    /// JeradRosburg8482051
+    /// </summary>
+    JeradRosburg8482051 = 8482051,
+    /// <summary>
+    /// NickCaamano8479381
+    /// </summary>
+    NickCaamano8479381 = 8479381,
+    /// <summary>
+    /// KailerYamamoto8479977
+    /// </summary>
+    KailerYamamoto8479977 = 8479977,
+    /// <summary>
+    /// TylerPitlick8475752
+    /// </summary>
+    TylerPitlick8475752 = 8475752,
+    /// <summary>
+    /// TurnerElson8476505
+    /// </summary>
+    TurnerElson8476505 = 8476505,
+    /// <summary>
+    /// MichaelVukojevic8481583
+    /// </summary>
+    MichaelVukojevic8481583 = 8481583,
+    /// <summary>
+    /// DavidGust8480328
+    /// </summary>
+    DavidGust8480328 = 8480328,
+    /// <summary>
+    /// KennethAppleby8478965
+    /// </summary>
+    KennethAppleby8478965 = 8478965,
+    /// <summary>
+    /// ScottReedy8480060
+    /// </summary>
+    ScottReedy8480060 = 8480060,
+    /// <summary>
+    /// SamGagner8474040
+    /// </summary>
+    SamGagner8474040 = 8474040,
+    /// <summary>
+    /// GriffinMendel8483560
+    /// </summary>
+    GriffinMendel8483560 = 8483560,
+    /// <summary>
+    /// MikhailVorobyev8478844
+    /// </summary>
+    MikhailVorobyev8478844 = 8478844,
+    /// <summary>
+    /// DanielSprong8478466
+    /// </summary>
+    DanielSprong8478466 = 8478466,
+    /// <summary>
+    /// JoshMahura8479372
+    /// </summary>
+    JoshMahura8479372 = 8479372,
+    /// <summary>
+    /// TravisDermott8478408
+    /// </summary>
+    TravisDermott8478408 = 8478408,
+    /// <summary>
+    /// MalcolmSubban8476876
+    /// </summary>
+    MalcolmSubban8476876 = 8476876,
+    /// <summary>
+    /// RobertBortuzzo8474145
+    /// </summary>
+    RobertBortuzzo8474145 = 8474145,
+    /// <summary>
+    /// TylerAngle8481690
+    /// </summary>
+    TylerAngle8481690 = 8481690,
+    /// <summary>
+    /// StevenLorentz8478904
+    /// </summary>
+    StevenLorentz8478904 = 8478904,
+    /// <summary>
+    /// VilleHeinola8481572
+    /// </summary>
+    VilleHeinola8481572 = 8481572,
+    /// <summary>
+    /// ArtemiKniazev8481552
+    /// </summary>
+    ArtemiKniazev8481552 = 8481552,
+    /// <summary>
+    /// AlexStalock8471774
+    /// </summary>
+    AlexStalock8471774 = 8471774,
+    /// <summary>
+    /// NickCicek8482824
+    /// </summary>
+    NickCicek8482824 = 8482824,
+    /// <summary>
+    /// JacobLarsson8478491
+    /// </summary>
+    JacobLarsson8478491 = 8478491,
+    /// <summary>
+    /// SanttuKinnunen8481009
+    /// </summary>
+    SanttuKinnunen8481009 = 8481009,
+    /// <summary>
+    /// FelixRobert8482440
+    /// </summary>
+    FelixRobert8482440 = 8482440,
+    /// <summary>
+    /// WilliamBitten8479375
+    /// </summary>
+    WilliamBitten8479375 = 8479375,
+    /// <summary>
+    /// MasonShaw8479972
+    /// </summary>
+    MasonShaw8479972 = 8479972,
+    /// <summary>
+    /// RyanMcGregor8480248
+    /// </summary>
+    RyanMcGregor8480248 = 8480248,
+    /// <summary>
+    /// AustinWatson8475766
+    /// </summary>
+    AustinWatson8475766 = 8475766,
+    /// <summary>
+    /// CalvinThurkauf8479557
+    /// </summary>
+    CalvinThurkauf8479557 = 8479557,
+    /// <summary>
+    /// MattiasNorlinder8481555
+    /// </summary>
+    MattiasNorlinder8481555 = 8481555,
+    /// <summary>
+    /// VillePetman8483635
+    /// </summary>
+    VillePetman8483635 = 8483635,
+    /// <summary>
+    /// EvanCormier8479331
+    /// </summary>
+    EvanCormier8479331 = 8479331,
+    /// <summary>
+    /// KevinLankinen8480947
+    /// </summary>
+    KevinLankinen8480947 = 8480947,
+    /// <summary>
+    /// RileyDamiani8480988
+    /// </summary>
+    RileyDamiani8480988 = 8480988,
+    /// <summary>
+    /// CarterHart8479394
+    /// </summary>
+    CarterHart8479394 = 8479394,
+    /// <summary>
+    /// RobinSalo8480071
+    /// </summary>
+    RobinSalo8480071 = 8480071,
+    /// <summary>
+    /// BradyKeeper8481442
+    /// </summary>
+    BradyKeeper8481442 = 8481442,
+    /// <summary>
+    /// CoreyAndonovski8483394
+    /// </summary>
+    CoreyAndonovski8483394 = 8483394,
+    /// <summary>
+    /// LaytonAhac8481613
+    /// </summary>
+    LaytonAhac8481613 = 8481613,
+    /// <summary>
+    /// LudovicWaeber8484372
+    /// </summary>
+    LudovicWaeber8484372 = 8484372,
+    /// <summary>
+    /// DanRenouf8479252
+    /// </summary>
+    DanRenouf8479252 = 8479252,
+    /// <summary>
+    /// LassiThomson8481575
+    /// </summary>
+    LassiThomson8481575 = 8481575,
+    /// <summary>
+    /// CalFoote8479984
+    /// </summary>
+    CalFoote8479984 = 8479984,
+    /// <summary>
+    /// JoeyAbate8483652
+    /// </summary>
+    JoeyAbate8483652 = 8483652,
+    /// <summary>
+    /// CalenAddison8480884
+    /// </summary>
+    CalenAddison8480884 = 8480884,
+    /// <summary>
+    /// KyleKeyser8480356
+    /// </summary>
+    KyleKeyser8480356 = 8480356,
+    /// <summary>
+    /// KeithPetruzzelli8479975
+    /// </summary>
+    KeithPetruzzelli8479975 = 8479975,
+    /// <summary>
+    /// LinusWeissbach8480261
+    /// </summary>
+    LinusWeissbach8480261 = 8480261,
+    /// <summary>
+    /// RyanFanti8483534
+    /// </summary>
+    RyanFanti8483534 = 8483534,
+    /// <summary>
+    /// LiamFoudy8480853
+    /// </summary>
+    LiamFoudy8480853 = 8480853,
+    /// <summary>
+    /// MikhailMaltsev8479573
+    /// </summary>
+    MikhailMaltsev8479573 = 8479573,
+    /// <summary>
+    /// DominikKubalik8477330
+    /// </summary>
+    DominikKubalik8477330 = 8477330,
+    /// <summary>
+    /// KevinMandolese8480867
+    /// </summary>
+    KevinMandolese8480867 = 8480867,
+    /// <summary>
+    /// WadeAllison8479322
+    /// </summary>
+    WadeAllison8479322 = 8479322,
+    /// <summary>
+    /// MichaelCallahan8480828
+    /// </summary>
+    MichaelCallahan8480828 = 8480828,
+    /// <summary>
+    /// DmitriSamorukov8480041
+    /// </summary>
+    DmitriSamorukov8480041 = 8480041,
+    /// <summary>
+    /// MarcusBjork8483620
+    /// </summary>
+    MarcusBjork8483620 = 8483620,
+    /// <summary>
+    /// JaniHakanpaa8475825
+    /// </summary>
+    JaniHakanpaa8475825 = 8475825,
+    /// <summary>
+    /// CalClutterbuck8473504
+    /// </summary>
+    CalClutterbuck8473504 = 8473504,
+    /// <summary>
+    /// CurtisHall8480838
+    /// </summary>
+    CurtisHall8480838 = 8480838,
+    /// <summary>
+    /// JujharKhaira8476915
+    /// </summary>
+    JujharKhaira8476915 = 8476915,
+    /// <summary>
+    /// BrentSeabrook8470607
+    /// </summary>
+    BrentSeabrook8470607 = 8470607,
+    /// <summary>
+    /// MattLuff8479644
+    /// </summary>
+    MattLuff8479644 = 8479644,
+    /// <summary>
+    /// KristianReichel8480443
+    /// </summary>
+    KristianReichel8480443 = 8480443,
+    /// <summary>
+    /// PavelFrancouz8480925
+    /// </summary>
+    PavelFrancouz8480925 = 8480925,
+    /// <summary>
+    /// JakobSilfverberg8475164
+    /// </summary>
+    JakobSilfverberg8475164 = 8475164,
+    /// <summary>
+    /// OskarLindblom8478067
+    /// </summary>
+    OskarLindblom8478067 = 8478067,
+    /// <summary>
+    /// MichaelMcLeod8479415
+    /// </summary>
+    MichaelMcLeod8479415 = 8479415,
+    /// <summary>
+    /// MarkPysyk8475796
+    /// </summary>
+    MarkPysyk8475796 = 8475796,
+    /// <summary>
+    /// GavinBayreuther8479945
+    /// </summary>
+    GavinBayreuther8479945 = 8479945,
+    /// <summary>
+    /// MaximeComtois8480031
+    /// </summary>
+    MaximeComtois8480031 = 8480031,
+    /// <summary>
+    /// WillZmolek8484115
+    /// </summary>
+    WillZmolek8484115 = 8484115,
+    /// <summary>
+    /// ZachParise8470610
+    /// </summary>
+    ZachParise8470610 = 8470610,
+    /// <summary>
+    /// IvanMorozov8480894
+    /// </summary>
+    IvanMorozov8480894 = 8480894,
+    /// <summary>
+    /// MarcoScandella8474618
+    /// </summary>
+    MarcoScandella8474618 = 8474618,
+    /// <summary>
+    /// SeanDay8479413
+    /// </summary>
+    SeanDay8479413 = 8479413,
+    /// <summary>
+    /// BryanLittle8473412
+    /// </summary>
+    BryanLittle8473412 = 8473412,
+    /// <summary>
+    /// StevenKampfer8474000
+    /// </summary>
+    StevenKampfer8474000 = 8474000,
+    /// <summary>
+    /// JohnKlingberg8475906
+    /// </summary>
+    JohnKlingberg8475906 = 8475906,
+    /// <summary>
+    /// TaroHirose8481433
+    /// </summary>
+    TaroHirose8481433 = 8481433,
+    /// <summary>
+    /// ChadRuhwedel8477244
+    /// </summary>
+    ChadRuhwedel8477244 = 8477244,
+    /// <summary>
+    /// MattIrwin8475625
+    /// </summary>
+    MattIrwin8475625 = 8475625,
+    /// <summary>
+    /// VladislavKamenev8477973
+    /// </summary>
+    VladislavKamenev8477973 = 8477973,
+    /// <summary>
+    /// JiriSmejkal8484314
+    /// </summary>
+    JiriSmejkal8484314 = 8484314,
+    /// <summary>
+    /// AshtonSautner8477085
+    /// </summary>
+    AshtonSautner8477085 = 8477085,
+    /// <summary>
+    /// KevinLabanc8478099
+    /// </summary>
+    KevinLabanc8478099 = 8478099,
+    /// <summary>
+    /// PeetroSeppala8483599
+    /// </summary>
+    PeetroSeppala8483599 = 8483599,
+    /// <summary>
+    /// LoganBrown8479366
+    /// </summary>
+    LoganBrown8479366 = 8479366,
+    /// <summary>
+    /// AlexanderTrue8480384
+    /// </summary>
+    AlexanderTrue8480384 = 8480384,
+    /// <summary>
+    /// ErikKallgren8478902
+    /// </summary>
+    ErikKallgren8478902 = 8478902,
+    /// <summary>
+    /// VictorMete8479376
+    /// </summary>
+    VictorMete8479376 = 8479376,
+    /// <summary>
+    /// FilipZadina8480821
+    /// </summary>
+    FilipZadina8480821 = 8480821,
+    /// <summary>
+    /// JustinRichards8482179
+    /// </summary>
+    JustinRichards8482179 = 8482179,
+    /// <summary>
+    /// JaysonMegna8477126
+    /// </summary>
+    JaysonMegna8477126 = 8477126,
+    /// <summary>
+    /// SimonJohansson8481037
+    /// </summary>
+    SimonJohansson8481037 = 8481037,
+    /// <summary>
+    /// TrevorCarrick8476953
+    /// </summary>
+    TrevorCarrick8476953 = 8476953,
+    /// <summary>
+    /// JohnLethemon8482571
+    /// </summary>
+    JohnLethemon8482571 = 8482571,
+    /// <summary>
+    /// AustinCzarnik8478512
+    /// </summary>
+    AustinCzarnik8478512 = 8478512,
+    /// <summary>
+    /// RadimZohorna8482241
+    /// </summary>
+    RadimZohorna8482241 = 8482241,
+    /// <summary>
+    /// FredrikOlofsson8478028
+    /// </summary>
+    FredrikOlofsson8478028 = 8478028,
+    /// <summary>
+    /// MaxPacioretty8474157
+    /// </summary>
+    MaxPacioretty8474157 = 8474157,
+    /// <summary>
+    /// GustavsGrigals8484274
+    /// </summary>
+    GustavsGrigals8484274 = 8484274,
+    /// <summary>
+    /// OscarDansk8476861
+    /// </summary>
+    OscarDansk8476861 = 8476861,
+    /// <summary>
+    /// JarredTinordi8475797
+    /// </summary>
+    JarredTinordi8475797 = 8475797,
+    /// <summary>
+    /// RolandMcKeown8477981
+    /// </summary>
+    RolandMcKeown8477981 = 8477981,
+    /// <summary>
+    /// JakubVrana8477944
+    /// </summary>
+    JakubVrana8477944 = 8477944,
+    /// <summary>
+    /// BradMalone8474089
+    /// </summary>
+    BradMalone8474089 = 8474089,
+    /// <summary>
+    /// MichaelHutchinson8474636
+    /// </summary>
+    MichaelHutchinson8474636 = 8474636,
+    /// <summary>
+    /// EetuMakiniemi8480199
+    /// </summary>
+    EetuMakiniemi8480199 = 8480199,
+    /// <summary>
+    /// ByronFroese8475278
+    /// </summary>
+    ByronFroese8475278 = 8475278,
+    /// <summary>
+    /// MartinJones8474889
+    /// </summary>
+    MartinJones8474889 = 8474889,
+    /// <summary>
+    /// MackGuzda8483122
+    /// </summary>
+    MackGuzda8483122 = 8483122,
+    /// <summary>
+    /// JacobPeterson8480216
+    /// </summary>
+    JacobPeterson8480216 = 8480216,
+    /// <summary>
+    /// MilanLucic8473473
+    /// </summary>
+    MilanLucic8473473 = 8473473,
+    /// <summary>
+    /// HaydnFleury8477938
+    /// </summary>
+    HaydnFleury8477938 = 8477938,
+    /// <summary>
+    /// SamHentges8481012
+    /// </summary>
+    SamHentges8481012 = 8481012,
+    /// <summary>
+    /// JakubZboril8478415
+    /// </summary>
+    JakubZboril8478415 = 8478415,
+    /// <summary>
+    /// JakeMuzzin8474162
+    /// </summary>
+    JakeMuzzin8474162 = 8474162,
+    /// <summary>
+    /// KyleClifford8475160
+    /// </summary>
+    KyleClifford8475160 = 8475160,
+    /// <summary>
+    /// JoshJacobs8477972
+    /// </summary>
+    JoshJacobs8477972 = 8477972,
+    /// <summary>
+    /// TylerJohnson8474870
+    /// </summary>
+    TylerJohnson8474870 = 8474870,
+    /// <summary>
+    /// MarkusNiemelainen8479338
+    /// </summary>
+    MarkusNiemelainen8479338 = 8479338,
+    /// <summary>
+    /// KeithKinkaid8476234
+    /// </summary>
+    KeithKinkaid8476234 = 8476234,
+    /// <summary>
+    /// ChrisWideman8475227
+    /// </summary>
+    ChrisWideman8475227 = 8475227,
+    /// <summary>
+    /// BradHunt8476779
+    /// </summary>
+    BradHunt8476779 = 8476779,
+    /// <summary>
+    /// DamienRiat8479584
+    /// </summary>
+    DamienRiat8479584 = 8479584,
+    /// <summary>
+    /// JaycobMegna8477034
+    /// </summary>
+    JaycobMegna8477034 = 8477034,
+    /// <summary>
+    /// KyleOkposo8473449
+    /// </summary>
+    KyleOkposo8473449 = 8473449,
+    /// <summary>
+    /// JacobIngham8480857
+    /// </summary>
+    JacobIngham8480857 = 8480857,
+    /// <summary>
+    /// ChrisTierney8476919
+    /// </summary>
+    ChrisTierney8476919 = 8476919,
+    /// <summary>
+    /// PaulLaDue8476983
+    /// </summary>
+    PaulLaDue8476983 = 8476983,
+    /// <summary>
+    /// AlexLimoges8482639
+    /// </summary>
+    AlexLimoges8482639 = 8482639,
+    /// <summary>
+    /// KeeanWashkurak8481667
+    /// </summary>
+    KeeanWashkurak8481667 = 8481667,
+    /// <summary>
+    /// JoePavelski8470794
+    /// </summary>
+    JoePavelski8470794 = 8470794,
+    /// <summary>
+    /// StevenFogarty8476396
+    /// </summary>
+    StevenFogarty8476396 = 8476396,
+    /// <summary>
+    /// NickSwaney8480275
+    /// </summary>
+    NickSwaney8480275 = 8480275,
+    /// <summary>
+    /// BradyLyle8480404
+    /// </summary>
+    BradyLyle8480404 = 8480404,
+    /// <summary>
+    /// AnttiRaanta8477293
+    /// </summary>
+    AnttiRaanta8477293 = 8477293,
+    /// <summary>
+    /// JaxsonStauber8483530
+    /// </summary>
+    JaxsonStauber8483530 = 8483530,
+    /// <summary>
+    /// MarcStaal8471686
+    /// </summary>
+    MarcStaal8471686 = 8471686,
+    /// <summary>
+    /// ViliSaarijarvi8478834
+    /// </summary>
+    ViliSaarijarvi8478834 = 8478834,
+    /// <summary>
+    /// KarsonKuhlman8480901
+    /// </summary>
+    KarsonKuhlman8480901 = 8480901,
+    /// <summary>
+    /// WillButcher8477355
+    /// </summary>
+    WillButcher8477355 = 8477355,
+    /// <summary>
+    /// RyanCarpenter8477846
+    /// </summary>
+    RyanCarpenter8477846 = 8477846,
+    /// <summary>
+    /// XavierOuellet8476443
+    /// </summary>
+    XavierOuellet8476443 = 8476443,
+    /// <summary>
+    /// MasonMillman8481658
+    /// </summary>
+    MasonMillman8481658 = 8481658,
+    /// <summary>
+    /// CalebJones8478452
+    /// </summary>
+    CalebJones8478452 = 8478452,
+    /// <summary>
+    /// BlakeMcLaughlin8480816
+    /// </summary>
+    BlakeMcLaughlin8480816 = 8480816,
+    /// <summary>
+    /// SammyBlais8478104
+    /// </summary>
+    SammyBlais8478104 = 8478104,
+    /// <summary>
+    /// JaredMcIsaac8480862
+    /// </summary>
+    JaredMcIsaac8480862 = 8480862,
+    /// <summary>
+    /// DennisCholowski8479395
+    /// </summary>
+    DennisCholowski8479395 = 8479395,
+    /// <summary>
+    /// OliverKylington8478430
+    /// </summary>
+    OliverKylington8478430 = 8478430,
+    /// <summary>
+    /// OttoKoivula8479526
+    /// </summary>
+    OttoKoivula8479526 = 8479526,
+    /// <summary>
+    /// DillonHamaliuk8481549
+    /// </summary>
+    DillonHamaliuk8481549 = 8481549,
+    /// <summary>
+    /// LiasAndersson8480072
+    /// </summary>
+    LiasAndersson8480072 = 8480072,
+    /// <summary>
+    /// BlakeMurray8481677
+    /// </summary>
+    BlakeMurray8481677 = 8481677,
+    /// <summary>
+    /// MatthewRobertson8481525
+    /// </summary>
+    MatthewRobertson8481525 = 8481525,
+    /// <summary>
+    /// AlexGoligoski8471274
+    /// </summary>
+    AlexGoligoski8471274 = 8471274,
+    /// <summary>
+    /// DavidKase8478436
+    /// </summary>
+    DavidKase8478436 = 8478436,
+    /// <summary>
+    /// MitchReinke8480761
+    /// </summary>
+    MitchReinke8480761 = 8480761,
+    /// <summary>
+    /// TuukkaTieksola8481697
+    /// </summary>
+    TuukkaTieksola8481697 = 8481697,
+    /// <summary>
+    /// GianniFairbrother8481654
+    /// </summary>
+    GianniFairbrother8481654 = 8481654,
+    /// <summary>
+    /// KyleCriscuolo8479304
+    /// </summary>
+    KyleCriscuolo8479304 = 8479304,
+    /// <summary>
+    /// ReeceNewkirk8481666
+    /// </summary>
+    ReeceNewkirk8481666 = 8481666,
+    /// <summary>
+    /// DenisGurianov8478495
+    /// </summary>
+    DenisGurianov8478495 = 8478495,
+    /// <summary>
+    /// HugoAlnefelt8481597
+    /// </summary>
+    HugoAlnefelt8481597 = 8481597,
+    /// <summary>
+    /// IvanProsvetov8481031
+    /// </summary>
+    IvanProsvetov8481031 = 8481031,
+    /// <summary>
+    /// ArnaudDurandeau8480242
+    /// </summary>
+    ArnaudDurandeau8480242 = 8480242,
+    /// <summary>
+    /// SimonLundmark8481547
+    /// </summary>
+    SimonLundmark8481547 = 8481547,
+    /// <summary>
+    /// MichalTeply8481616
+    /// </summary>
+    MichalTeply8481616 = 8481616,
+    /// <summary>
+    /// MasonPrimeau8481664
+    /// </summary>
+    MasonPrimeau8481664 = 8481664,
+    /// <summary>
+    /// AidanMcDonough8481683
+    /// </summary>
+    AidanMcDonough8481683 = 8481683,
+    /// <summary>
+    /// WyattKalynuk8480293
+    /// </summary>
+    WyattKalynuk8480293 = 8480293,
+    /// <summary>
+    /// FilipJohansson8480872
+    /// </summary>
+    FilipJohansson8480872 = 8480872,
+    /// <summary>
+    /// NikitaZaitsev8479458
+    /// </summary>
+    NikitaZaitsev8479458 = 8479458,
+    /// <summary>
+    /// TyceThompson8481740
+    /// </summary>
+    TyceThompson8481740 = 8481740,
+    /// <summary>
+    /// OskariSalminen8483598
+    /// </summary>
+    OskariSalminen8483598 = 8483598,
+    /// <summary>
+    /// AlexNylander8479423
+    /// </summary>
+    AlexNylander8479423 = 8479423,
+    /// <summary>
+    /// MikhailAbramov8481589
+    /// </summary>
+    MikhailAbramov8481589 = 8481589,
+    /// <summary>
+    /// NickCousins8476393
+    /// </summary>
+    NickCousins8476393 = 8476393,
+    /// <summary>
+    /// PierreLucDubois8479400
+    /// </summary>
+    PierreLucDubois8479400 = 8479400,
+    /// <summary>
+    /// JakeKarabela8483462
+    /// </summary>
+    JakeKarabela8483462 = 8483462,
+    /// <summary>
+    /// KyleLooft8484940
+    /// </summary>
+    KyleLooft8484940 = 8484940,
+    /// <summary>
+    /// GabrielFrasca8484809
+    /// </summary>
+    GabrielFrasca8484809 = 8484809,
+    /// <summary>
+    /// KalebPearson8483065
+    /// </summary>
+    KalebPearson8483065 = 8483065,
+    /// <summary>
+    /// JosephHenneberry8484586
+    /// </summary>
+    JosephHenneberry8484586 = 8484586,
+    /// <summary>
+    /// AnthonyRomano8481729
+    /// </summary>
+    AnthonyRomano8481729 = 8481729,
+    /// <summary>
+    /// NickJensen8475324
+    /// </summary>
+    NickJensen8475324 = 8475324,
+    /// <summary>
+    /// AdamBoqvist8480871
+    /// </summary>
+    AdamBoqvist8480871 = 8480871,
+    /// <summary>
+    /// JakobChychrun8479345
+    /// </summary>
+    JakobChychrun8479345 = 8479345,
+    /// <summary>
+    /// KasperiKapanen8477953
+    /// </summary>
+    KasperiKapanen8477953 = 8477953,
+    /// <summary>
+    /// BrettLeason8481517
+    /// </summary>
+    BrettLeason8481517 = 8481517,
+    /// <summary>
+    /// UrhoVaakanainen8480001
+    /// </summary>
+    UrhoVaakanainen8480001 = 8480001,
+    /// <summary>
+    /// MitchellGibson8481064
+    /// </summary>
+    MitchellGibson8481064 = 8481064,
+    /// <summary>
+    /// ConnorMcMichael8481580
+    /// </summary>
+    ConnorMcMichael8481580 = 8481580,
+    /// <summary>
+    /// DmitryKulikov8475179
+    /// </summary>
+    DmitryKulikov8475179 = 8475179,
+    /// <summary>
+    /// SamSteel8479351
+    /// </summary>
+    SamSteel8479351 = 8479351,
+    /// <summary>
+    /// RasmusAsplund8479335
+    /// </summary>
+    RasmusAsplund8479335 = 8479335,
+    /// <summary>
+    /// CoreyPerry8470621
+    /// </summary>
+    CoreyPerry8470621 = 8470621,
+    /// <summary>
+    /// BrandonMontour8477986
+    /// </summary>
+    BrandonMontour8477986 = 8477986,
+    /// <summary>
+    /// ColeClayton8482839
+    /// </summary>
+    ColeClayton8482839 = 8482839,
+    /// <summary>
+    /// NoelHoefenmayer8480202
+    /// </summary>
+    NoelHoefenmayer8480202 = 8480202,
+    /// <summary>
+    /// PheonixCopley8477831
+    /// </summary>
+    PheonixCopley8477831 = 8477831,
+    /// <summary>
+    /// ConnorBrown8477015
+    /// </summary>
+    ConnorBrown8477015 = 8477015,
+    /// <summary>
+    /// TrevorLewis8473453
+    /// </summary>
+    TrevorLewis8473453 = 8473453,
+    /// <summary>
+    /// DennisGilbert8478502
+    /// </summary>
+    DennisGilbert8478502 = 8478502,
+    /// <summary>
+    /// MikoMatikka8483671
+    /// </summary>
+    MikoMatikka8483671 = 8483671,
+    /// <summary>
+    /// NoahPhilp8481491
+    /// </summary>
+    NoahPhilp8481491 = 8481491,
+    /// <summary>
+    /// BrendanSmith8474090
+    /// </summary>
+    BrendanSmith8474090 = 8474090,
+    /// <summary>
+    /// NateClurman8479594
+    /// </summary>
+    NateClurman8479594 = 8479594,
+    /// <summary>
+    /// MacHollowell8480439
+    /// </summary>
+    MacHollowell8480439 = 8480439,
+    /// <summary>
+    /// JoshBrown8477384
+    /// </summary>
+    JoshBrown8477384 = 8477384,
+    /// <summary>
+    /// TobieBisson8481110
+    /// </summary>
+    TobieBisson8481110 = 8481110,
+    /// <summary>
+    /// ChrisDriedger8476904
+    /// </summary>
+    ChrisDriedger8476904 = 8476904,
+    /// <summary>
+    /// ViktorArvidsson8478042
+    /// </summary>
+    ViktorArvidsson8478042 = 8478042,
+    /// <summary>
+    /// BrandonDuhaime8479520
+    /// </summary>
+    BrandonDuhaime8479520 = 8479520,
+    /// <summary>
+    /// KoleLind8479986
+    /// </summary>
+    KoleLind8479986 = 8479986,
+    /// <summary>
+    /// CameronHughes8478888
+    /// </summary>
+    CameronHughes8478888 = 8478888,
+    /// <summary>
+    /// SpencerSmallman8478867
+    /// </summary>
+    SpencerSmallman8478867 = 8478867,
+    /// <summary>
+    /// ErikJohnson8473446
+    /// </summary>
+    ErikJohnson8473446 = 8473446,
+    /// <summary>
+    /// JasonZucker8475722
+    /// </summary>
+    JasonZucker8475722 = 8475722,
+    /// <summary>
+    /// RyanShea8478854
+    /// </summary>
+    RyanShea8478854 = 8478854,
+    /// <summary>
+    /// BokondjiImama8478147
+    /// </summary>
+    BokondjiImama8478147 = 8478147,
+    /// <summary>
+    /// DavidPerron8474102
+    /// </summary>
+    DavidPerron8474102 = 8474102,
+    /// <summary>
+    /// JonathanDrouin8477494
+    /// </summary>
+    JonathanDrouin8477494 = 8477494,
+    /// <summary>
+    /// GarrettPilon8479516
+    /// </summary>
+    GarrettPilon8479516 = 8479516,
+    /// <summary>
+    /// JimmyHuntington8481228
+    /// </summary>
+    JimmyHuntington8481228 = 8481228,
+    /// <summary>
+    /// TysonJost8479370
+    /// </summary>
+    TysonJost8479370 = 8479370,
+    /// <summary>
+    /// EricRobinson8480762
+    /// </summary>
+    EricRobinson8480762 = 8480762,
+    /// <summary>
+    /// AnthonyBeauvillier8478463
+    /// </summary>
+    AnthonyBeauvillier8478463 = 8478463,
+    /// <summary>
+    /// JoelKiviranta8481641
+    /// </summary>
+    JoelKiviranta8481641 = 8481641,
+    /// <summary>
+    /// ReillySmith8475191
+    /// </summary>
+    ReillySmith8475191 = 8475191,
+    /// <summary>
+    /// SamCarrick8475842
+    /// </summary>
+    SamCarrick8475842 = 8475842,
+    /// <summary>
+    /// TomasNosek8477931
+    /// </summary>
+    TomasNosek8477931 = 8477931,
+    /// <summary>
+    /// AlexBarreBoulet8479718
+    /// </summary>
+    AlexBarreBoulet8479718 = 8479718,
+    /// <summary>
+    /// JiriPatera8480238
+    /// </summary>
+    JiriPatera8480238 = 8480238,
+    /// <summary>
+    /// ChrisTanev8475690
+    /// </summary>
+    ChrisTanev8475690 = 8475690,
+    /// <summary>
+    /// AJGreer8478421
+    /// </summary>
+    AJGreer8478421 = 8478421,
+    /// <summary>
+    /// DerekForbort8475762
+    /// </summary>
+    DerekForbort8475762 = 8475762,
+    /// <summary>
+    /// KieferSherwood8480748
+    /// </summary>
+    KieferSherwood8480748 = 8480748,
+    /// <summary>
+    /// KyleCapobianco8478476
+    /// </summary>
+    KyleCapobianco8478476 = 8478476,
+    /// <summary>
+    /// MattGrzelcyk8476891
+    /// </summary>
+    MattGrzelcyk8476891 = 8476891,
+    /// <summary>
+    /// JacobBryson8480196
+    /// </summary>
+    JacobBryson8480196 = 8480196,
+    /// <summary>
+    /// IanCole8474013
+    /// </summary>
+    IanCole8474013 = 8474013,
+    /// <summary>
+    /// JeremyDavies8479602
+    /// </summary>
+    JeremyDavies8479602 = 8479602,
+    /// <summary>
+    /// JoshDunne8482623
+    /// </summary>
+    JoshDunne8482623 = 8482623,
+    /// <summary>
+    /// EmilBemstrom8480205
+    /// </summary>
+    EmilBemstrom8480205 = 8480205,
+    /// <summary>
+    /// AnthonyMantha8477511
+    /// </summary>
+    AnthonyMantha8477511 = 8477511,
+    /// <summary>
+    /// KevinStenlund8478831
+    /// </summary>
+    KevinStenlund8478831 = 8478831,
+    /// <summary>
+    /// TeuvoTeravainen8476882
+    /// </summary>
+    TeuvoTeravainen8476882 = 8476882,
+    /// <summary>
+    /// MartinFrk8476924
+    /// </summary>
+    MartinFrk8476924 = 8476924,
+    /// <summary>
+    /// JoeyAnderson8479315
+    /// </summary>
+    JoeyAnderson8479315 = 8479315,
+    /// <summary>
+    /// SeanWalker8480336
+    /// </summary>
+    SeanWalker8480336 = 8480336,
+    /// <summary>
+    /// KevinConnauton8475246
+    /// </summary>
+    KevinConnauton8475246 = 8475246,
+    /// <summary>
+    /// JordanMartinook8476921
+    /// </summary>
+    JordanMartinook8476921 = 8476921,
+    /// <summary>
+    /// JacobBengtsson8485110
+    /// </summary>
+    JacobBengtsson8485110 = 8485110,
+    /// <summary>
+    /// DerrickPouliot8476884
+    /// </summary>
+    DerrickPouliot8476884 = 8476884,
+    /// <summary>
+    /// CraigSmith8475225
+    /// </summary>
+    CraigSmith8475225 = 8475225,
+    /// <summary>
+    /// TylerBertuzzi8477479
+    /// </summary>
+    TylerBertuzzi8477479 = 8477479,
+    /// <summary>
+    /// ThomasDesruisseaux8485111
+    /// </summary>
+    ThomasDesruisseaux8485111 = 8485111,
+    /// <summary>
+    /// YakovTrenin8478508
+    /// </summary>
+    YakovTrenin8478508 = 8478508,
+    /// <summary>
+    /// JesseYlonen8481058
+    /// </summary>
+    JesseYlonen8481058 = 8481058,
+    /// <summary>
+    /// NikitaZadorov8477507
+    /// </summary>
+    NikitaZadorov8477507 = 8477507,
+    /// <summary>
+    /// AnthonyDuclair8477407
+    /// </summary>
+    AnthonyDuclair8477407 = 8477407,
+    /// <summary>
+    /// PatMaroon8474034
+    /// </summary>
+    PatMaroon8474034 = 8474034,
+    /// <summary>
+    /// NilsLundkvist8480878
+    /// </summary>
+    NilsLundkvist8480878 = 8480878,
+    /// <summary>
+    /// RileyTufte8479362
+    /// </summary>
+    RileyTufte8479362 = 8479362,
+    /// <summary>
+    /// SamLafferty8478043
+    /// </summary>
+    SamLafferty8478043 = 8478043,
+    /// <summary>
+    /// JordanOesterle8477851
+    /// </summary>
+    JordanOesterle8477851 = 8477851,
+    /// <summary>
+    /// AlecMartinez8474166
+    /// </summary>
+    AlecMartinez8474166 = 8474166,
+    /// <summary>
+    /// MaxJones8479368
+    /// </summary>
+    MaxJones8479368 = 8479368,
+    /// <summary>
+    /// ColeKoepke8481043
+    /// </summary>
+    ColeKoepke8481043 = 8481043,
+    /// <summary>
+    /// MikeReilly8476422
+    /// </summary>
+    MikeReilly8476422 = 8476422,
+    /// <summary>
+    /// BrettMurray8479419
+    /// </summary>
+    BrettMurray8479419 = 8479419,
+    /// <summary>
+    /// CalvindeHaan8475177
+    /// </summary>
+    CalvindeHaan8475177 = 8475177,
+    /// <summary>
+    /// BrettPesce8477488
+    /// </summary>
+    BrettPesce8477488 = 8477488,
+    /// <summary>
+    /// JackRathbone8480056
+    /// </summary>
+    JackRathbone8480056 = 8480056,
+    /// <summary>
+    /// SeanMonahan8477497
+    /// </summary>
+    SeanMonahan8477497 = 8477497,
+    /// <summary>
+    /// MitchellStephens8478477
+    /// </summary>
+    MitchellStephens8478477 = 8478477,
+    /// <summary>
+    /// BillySweezey8482399
+    /// </summary>
+    BillySweezey8482399 = 8482399,
+    /// <summary>
+    /// LukePhilp8478224
+    /// </summary>
+    LukePhilp8478224 = 8478224,
+    /// <summary>
+    /// JeffreyViel8479705
+    /// </summary>
+    JeffreyViel8479705 = 8479705,
+    /// <summary>
+    /// MattDuchene8475168
+    /// </summary>
+    MattDuchene8475168 = 8475168,
+    /// <summary>
+    /// CaseyDeSmith8479193
+    /// </summary>
+    CaseyDeSmith8479193 = 8479193,
+    /// <summary>
+    /// MaxDomi8477503
+    /// </summary>
+    MaxDomi8477503 = 8477503,
+    /// <summary>
+    /// EricComrie8477480
+    /// </summary>
+    EricComrie8477480 = 8477480,
+    /// <summary>
+    /// BrandonBiro8482061
+    /// </summary>
+    BrandonBiro8482061 = 8482061,
+    /// <summary>
+    /// BrendanGaunce8476867
+    /// </summary>
+    BrendanGaunce8476867 = 8476867,
+    /// <summary>
+    /// StevenSantini8477463
+    /// </summary>
+    StevenSantini8477463 = 8477463,
+    /// <summary>
+    /// ZachAstonReese8479944
+    /// </summary>
+    ZachAstonReese8479944 = 8479944,
+    /// <summary>
+    /// NikolasBrouillard8477522
+    /// </summary>
+    NikolasBrouillard8477522 = 8477522,
+    /// <summary>
+    /// WilliamLagesson8478021
+    /// </summary>
+    WilliamLagesson8478021 = 8478021,
+    /// <summary>
+    /// MikeHardman8482635
+    /// </summary>
+    MikeHardman8482635 = 8482635,
+    /// <summary>
+    /// CamTalbot8475660
+    /// </summary>
+    CamTalbot8475660 = 8475660,
+    /// <summary>
+    /// ChristianFischer8478432
+    /// </summary>
+    ChristianFischer8478432 = 8478432,
+    /// <summary>
+    /// JackCampbell8475789
+    /// </summary>
+    JackCampbell8475789 = 8475789,
+    /// <summary>
+    /// DevinShore8476913
+    /// </summary>
+    DevinShore8476913 = 8476913,
+    /// <summary>
+    /// ColtonWhite8478841
+    /// </summary>
+    ColtonWhite8478841 = 8478841,
+    /// <summary>
+    /// BenMeyers8483570
+    /// </summary>
+    BenMeyers8483570 = 8483570,
+    /// <summary>
+    /// DevinCooley8482445
+    /// </summary>
+    DevinCooley8482445 = 8482445,
+    /// <summary>
+    /// OwenSillinger8483538
+    /// </summary>
+    OwenSillinger8483538 = 8483538,
+    /// <summary>
+    /// NoahGregor8479393
+    /// </summary>
+    NoahGregor8479393 = 8479393,
+    /// <summary>
+    /// TJTynan8476391
+    /// </summary>
+    TJTynan8476391 = 8476391,
+    /// <summary>
+    /// ColeSillinger8482705
+    /// </summary>
+    ColeSillinger8482705 = 8482705,
+    /// <summary>
+    /// SheldonDries8480326
+    /// </summary>
+    SheldonDries8480326 = 8480326,
+    /// <summary>
+    /// JacobMacDonald8479439
+    /// </summary>
+    JacobMacDonald8479439 = 8479439,
+    /// <summary>
+    /// TravisBoyd8476329
+    /// </summary>
+    TravisBoyd8476329 = 8476329,
+    /// <summary>
+    /// NathanSmith8480979
+    /// </summary>
+    NathanSmith8480979 = 8480979,
+    /// <summary>
+    /// JohnathanKovacevic8480192
+    /// </summary>
+    JohnathanKovacevic8480192 = 8480192,
+    /// <summary>
+    /// PaulCotter8481032
+    /// </summary>
+    PaulCotter8481032 = 8481032,
+    /// <summary>
+    /// ReeseJohnson8481147
+    /// </summary>
+    ReeseJohnson8481147 = 8481147,
+    /// <summary>
+    /// JosephCecconi8478863
+    /// </summary>
+    JosephCecconi8478863 = 8478863,
+    /// <summary>
+    /// CameronCrotty8480075
+    /// </summary>
+    CameronCrotty8480075 = 8480075,
+    /// <summary>
+    /// DantonHeinen8478046
+    /// </summary>
+    DantonHeinen8478046 = 8478046,
+    /// <summary>
+    /// TroyGrosenick8477234
+    /// </summary>
+    TroyGrosenick8477234 = 8477234,
+    /// <summary>
+    /// JakeDeBrusk8478498
+    /// </summary>
+    JakeDeBrusk8478498 = 8478498,
+    /// <summary>
+    /// BenJones8480259
+    /// </summary>
+    BenJones8480259 = 8480259,
+    /// <summary>
+    /// EliasLindholm8477496
+    /// </summary>
+    EliasLindholm8477496 = 8477496,
+    /// <summary>
+    /// VincentDesharnais8479576
+    /// </summary>
+    VincentDesharnais8479576 = 8479576,
+    /// <summary>
+    /// TylerToffoli8475726
+    /// </summary>
+    TylerToffoli8475726 = 8475726,
+    /// <summary>
+    /// FilipRoos8483619
+    /// </summary>
+    FilipRoos8483619 = 8483619,
+    /// <summary>
+    /// BrendenDillon8475455
+    /// </summary>
+    BrendenDillon8475455 = 8475455,
+    /// <summary>
+    /// IlyaLyubushkin8480950
+    /// </summary>
+    IlyaLyubushkin8480950 = 8480950,
+    /// <summary>
+    /// AlexanderWennberg8477505
+    /// </summary>
+    AlexanderWennberg8477505 = 8477505,
+    /// <summary>
+    /// JoeSnively8481441
+    /// </summary>
+    JoeSnively8481441 = 8481441,
+    /// <summary>
+    /// ErikGustafsson8476979
+    /// </summary>
+    ErikGustafsson8476979 = 8476979,
+    /// <summary>
+    /// CaseyFitzgerald8479578
+    /// </summary>
+    CaseyFitzgerald8479578 = 8479578,
+    /// <summary>
+    /// StevenStamkos8474564
+    /// </summary>
+    StevenStamkos8474564 = 8474564,
+    /// <summary>
+    /// JimmySchuldt8481486
+    /// </summary>
+    JimmySchuldt8481486 = 8481486,
+    /// <summary>
+    /// MasonJobst8481480
+    /// </summary>
+    MasonJobst8481480 = 8481480,
+    /// <summary>
+    /// FelixSandstrom8478433
+    /// </summary>
+    FelixSandstrom8478433 = 8478433,
+    /// <summary>
+    /// JesperBoqvist8480003
+    /// </summary>
+    JesperBoqvist8480003 = 8480003,
+    /// <summary>
+    /// LucasCarlsson8479523
+    /// </summary>
+    LucasCarlsson8479523 = 8479523,
+    /// <summary>
+    /// CalleRosen8480157
+    /// </summary>
+    CalleRosen8480157 = 8480157,
+    /// <summary>
+    /// JansenHarkins8478424
+    /// </summary>
+    JansenHarkins8478424 = 8478424,
+    /// <summary>
+    /// MattRoy8478911
+    /// </summary>
+    MattRoy8478911 = 8478911,
+    /// <summary>
+    /// ParkerKelly8480448
+    /// </summary>
+    ParkerKelly8480448 = 8480448,
+    /// <summary>
+    /// BradySkjei8476869
+    /// </summary>
+    BradySkjei8476869 = 8476869,
+    /// <summary>
+    /// NicolasAubeKubel8477979
+    /// </summary>
+    NicolasAubeKubel8477979 = 8477979,
+    /// <summary>
+    /// BlakeLizotte8481481
+    /// </summary>
+    BlakeLizotte8481481 = 8481481,
+    /// <summary>
+    /// JoelEdmundson8476441
+    /// </summary>
+    JoelEdmundson8476441 = 8476441,
+    /// <summary>
+    /// TJBrodie8474673
+    /// </summary>
+    TJBrodie8474673 = 8474673,
+    /// <summary>
+    /// TaylorRaddysh8479390
+    /// </summary>
+    TaylorRaddysh8479390 = 8479390,
+    /// <summary>
+    /// JacobLucchini8481422
+    /// </summary>
+    JacobLucchini8481422 = 8481422,
+    /// <summary>
+    /// GlennGawdin8478446
+    /// </summary>
+    GlennGawdin8478446 = 8478446,
+    /// <summary>
+    /// AlexandreCarrier8478851
+    /// </summary>
+    AlexandreCarrier8478851 = 8478851,
+    /// <summary>
+    /// ShayneGostisbehere8476906
+    /// </summary>
+    ShayneGostisbehere8476906 = 8476906,
+    /// <summary>
+    /// ReillyWalsh8480054
+    /// </summary>
+    ReillyWalsh8480054 = 8480054,
+    /// <summary>
+    /// ScottWedgewood8475809
+    /// </summary>
+    ScottWedgewood8475809 = 8475809,
+    /// <summary>
+    /// JamesReimer8473503
+    /// </summary>
+    JamesReimer8473503 = 8473503,
+    /// <summary>
+    /// TylerMadden8480805
+    /// </summary>
+    TylerMadden8480805 = 8480805,
+    /// <summary>
+    /// JonathanMarchessault8476539
+    /// </summary>
+    JonathanMarchessault8476539 = 8476539,
+    /// <summary>
+    /// VinnieHinostroza8476994
+    /// </summary>
+    VinnieHinostroza8476994 = 8476994,
+    /// <summary>
+    /// MaxLajoie8479320
+    /// </summary>
+    MaxLajoie8479320 = 8479320,
+    /// <summary>
+    /// LaurentBrossoit8476316
+    /// </summary>
+    LaurentBrossoit8476316 = 8476316,
+    /// <summary>
+    /// DylanGambrell8479580
+    /// </summary>
+    DylanGambrell8479580 = 8479580,
+    /// <summary>
+    /// CallahanBurke8482250
+    /// </summary>
+    CallahanBurke8482250 = 8482250,
+    /// <summary>
+    /// NickBlankenburg8483565
+    /// </summary>
+    NickBlankenburg8483565 = 8483565,
+    /// <summary>
+    /// ChandlerStephenson8476905
+    /// </summary>
+    ChandlerStephenson8476905 = 8476905,
+    /// <summary>
+    /// MattMurray8483575
+    /// </summary>
+    MattMurray8483575 = 8483575,
+    /// <summary>
+    /// WarrenFoegele8477998
+    /// </summary>
+    WarrenFoegele8477998 = 8477998,
+    /// <summary>
+    /// JeffMalott8482408
+    /// </summary>
+    JeffMalott8482408 = 8482408,
+    /// <summary>
+    /// TroyStecher8479442
+    /// </summary>
+    TroyStecher8479442 = 8479442,
+    /// <summary>
+    /// HaydenHodgson8478173
+    /// </summary>
+    HaydenHodgson8478173 = 8478173,
+    /// <summary>
+    /// MattiasJanmark8477406
+    /// </summary>
+    MattiasJanmark8477406 = 8477406,
+    /// <summary>
+    /// ZemgusGirgensons8476878
+    /// </summary>
+    ZemgusGirgensons8476878 = 8476878,
+    /// <summary>
+    /// IlyaSamsonov8478492
+    /// </summary>
+    IlyaSamsonov8478492 = 8478492,
+    /// <summary>
+    /// RobertHagg8477462
+    /// </summary>
+    RobertHagg8477462 = 8477462,
+    /// <summary>
+    /// JackStudnicka8480021
+    /// </summary>
+    JackStudnicka8480021 = 8480021,
+    /// <summary>
+    /// TannerLaczynski8479550
+    /// </summary>
+    TannerLaczynski8479550 = 8479550,
+    /// <summary>
+    /// KaedanKorczak8481527
+    /// </summary>
+    KaedanKorczak8481527 = 8481527,
+    /// <summary>
+    /// MarcGatcomb8483553
+    /// </summary>
+    MarcGatcomb8483553 = 8483553,
+    /// <summary>
+    /// MathewDumba8476856
+    /// </summary>
+    MathewDumba8476856 = 8476856,
+    /// <summary>
+    /// BoGroulx8480870
+    /// </summary>
+    BoGroulx8480870 = 8480870,
+    /// <summary>
+    /// AdamHenrique8474641
+    /// </summary>
+    AdamHenrique8474641 = 8474641,
+    /// <summary>
+    /// FredrikKarlstrom8479518
+    /// </summary>
+    FredrikKarlstrom8479518 = 8479518,
+    /// <summary>
+    /// AdamGaudette8478874
+    /// </summary>
+    AdamGaudette8478874 = 8478874,
+    /// <summary>
+    /// AnthonyRichard8478409
+    /// </summary>
+    AnthonyRichard8478409 = 8478409,
+    /// <summary>
+    /// AndrewAgozzino8475461
+    /// </summary>
+    AndrewAgozzino8475461 = 8475461,
+    /// <summary>
+    /// SebastianAho8480222
+    /// </summary>
+    SebastianAho8480222 = 8480222,
+    /// <summary>
+    /// CoreySchueneman8481461
+    /// </summary>
+    CoreySchueneman8481461 = 8481461,
+    /// <summary>
+    /// ReggieNewman8484505
+    /// </summary>
+    ReggieNewman8484505 = 8484505,
+    /// <summary>
+    /// WilliamGavin8484889
+    /// </summary>
+    WilliamGavin8484889 = 8484889,
+    /// <summary>
+    /// JacobNewcombe8483925
+    /// </summary>
+    JacobNewcombe8483925 = 8483925,
+    /// <summary>
+    /// ColinMiller8476525
+    /// </summary>
+    ColinMiller8476525 = 8476525,
+    /// <summary>
+    /// KaapoKahkonen8478039
+    /// </summary>
+    KaapoKahkonen8478039 = 8478039,
+    /// <summary>
+    /// HunterJohannes8484904
+    /// </summary>
+    HunterJohannes8484904 = 8484904,
+    /// <summary>
+    /// GabrielSeger8484989
+    /// </summary>
+    GabrielSeger8484989 = 8484989,
+    /// <summary>
+    /// BlakeSmith8484540
+    /// </summary>
+    BlakeSmith8484540 = 8484540,
+    /// <summary>
+    /// MattMurray8476899
+    /// </summary>
+    MattMurray8476899 = 8476899,
+    /// <summary>
+    /// AndrewOke8483784
+    /// </summary>
+    AndrewOke8483784 = 8483784,
+    /// <summary>
+    /// RadekFaksa8476889
+    /// </summary>
+    RadekFaksa8476889 = 8476889,
+    /// <summary>
+    /// MathieuJoseph8478472
+    /// </summary>
+    MathieuJoseph8478472 = 8478472,
+    /// <summary>
+    /// ErikBrannstrom8480073
+    /// </summary>
+    ErikBrannstrom8480073 = 8480073,
+    /// <summary>
+    /// RyanHumphrey8483955
+    /// </summary>
+    RyanHumphrey8483955 = 8483955,
+    /// <summary>
+    /// MacKenzieEntwistle8480025
+    /// </summary>
+    MacKenzieEntwistle8480025 = 8480025,
+    /// <summary>
+    /// StuartRolofs8483097
+    /// </summary>
+    StuartRolofs8483097 = 8483097,
+    /// <summary>
+    /// AnthonyStolarz8476932
+    /// </summary>
+    AnthonyStolarz8476932 = 8476932,
+    /// <summary>
+    /// ConnorLockhart8482743
+    /// </summary>
+    ConnorLockhart8482743 = 8482743,
+    /// <summary>
+    /// OliverEkmanLarsson8475171
+    /// </summary>
+    OliverEkmanLarsson8475171 = 8475171,
+    /// <summary>
+    /// MichaelSimpson8483101
+    /// </summary>
+    MichaelSimpson8483101 = 8483101,
+    /// <summary>
+    /// ColinBlackwell8476278
+    /// </summary>
+    ColinBlackwell8476278 = 8476278,
+    /// <summary>
+    /// ChaseBradley8482507
+    /// </summary>
+    ChaseBradley8482507 = 8482507,
+    /// <summary>
+    /// ChaseLefebvre8485117
+    /// </summary>
+    ChaseLefebvre8485117 = 8485117,
+    /// <summary>
+    /// DylanEdwards8485118
+    /// </summary>
+    DylanEdwards8485118 = 8485118,
+    /// <summary>
+    /// EliotLItalien8485126
+    /// </summary>
+    EliotLItalien8485126 = 8485126,
+    /// <summary>
+    /// CharliePaquette8485120
+    /// </summary>
+    CharliePaquette8485120 = 8485120,
+    /// <summary>
+    /// NiallCrocker8485124
+    /// </summary>
+    NiallCrocker8485124 = 8485124,
+    /// <summary>
+    /// JoshZakreski8485114
+    /// </summary>
+    JoshZakreski8485114 = 8485114,
+    /// <summary>
+    /// AnthonyCristoforo8485123
+    /// </summary>
+    AnthonyCristoforo8485123 = 8485123,
+    /// <summary>
+    /// LandenWard8485127
+    /// </summary>
+    LandenWard8485127 = 8485127,
+    /// <summary>
+    /// MarcusKearsey8485116
+    /// </summary>
+    MarcusKearsey8485116 = 8485116,
+    /// <summary>
+    /// DavidEgorov8485125
+    /// </summary>
+    DavidEgorov8485125 = 8485125,
+    /// <summary>
+    /// BoryaValis8485115
+    /// </summary>
+    BoryaValis8485115 = 8485115,
+    /// <summary>
+    /// PhilippeMyers8479026
+    /// </summary>
+    PhilippeMyers8479026 = 8479026,
+    /// <summary>
+    /// WyattAamodt8483569
+    /// </summary>
+    WyattAamodt8483569 = 8483569,
+    /// <summary>
+    /// DakotaMermis8477541
+    /// </summary>
+    DakotaMermis8477541 = 8477541,
+    /// <summary>
+    /// CedricPare8480249
+    /// </summary>
+    CedricPare8480249 = 8480249,
+    /// <summary>
+    /// BrianDumoulin8475208
+    /// </summary>
+    BrianDumoulin8475208 = 8475208,
+    /// <summary>
+    /// LucasMoore8484513
+    /// </summary>
+    LucasMoore8484513 = 8484513,
+    /// <summary>
+    /// JaretAndersonDolan8479994
+    /// </summary>
+    JaretAndersonDolan8479994 = 8479994,
+    /// <summary>
+    /// BraydenEdwards8485119
+    /// </summary>
+    BraydenEdwards8485119 = 8485119,
+    /// <summary>
+    /// RyanLomberg8479066
+    /// </summary>
+    RyanLomberg8479066 = 8479066,
+    /// <summary>
+    /// JakeBean8479402
+    /// </summary>
+    JakeBean8479402 = 8479402,
+    /// <summary>
+    /// MartyPavelich8448103
+    /// </summary>
+    MartyPavelich8448103 = 8448103,
+    /// <summary>
+    /// MichaelAmadio8478020
+    /// </summary>
+    MichaelAmadio8478020 = 8478020,
+    /// <summary>
+    /// AkiraSchmid8481033
+    /// </summary>
+    AkiraSchmid8481033 = 8481033,
+    /// <summary>
+    /// VictorOlofsson8478109
+    /// </summary>
+    VictorOlofsson8478109 = 8478109,
+    /// <summary>
+    /// RileySutter8480791
+    /// </summary>
+    RileySutter8480791 = 8480791,
+    /// <summary>
+    /// PavelDorofeyev8481604
+    /// </summary>
+    PavelDorofeyev8481604 = 8481604,
+    /// <summary>
+    /// AndrewPoturalski8479249
+    /// </summary>
+    AndrewPoturalski8479249 = 8479249,
+    /// <summary>
+    /// CarsonMeyer8480292
+    /// </summary>
+    CarsonMeyer8480292 = 8480292,
+    /// <summary>
+    /// NateSchmidt8477220
+    /// </summary>
+    NateSchmidt8477220 = 8477220,
+    /// <summary>
+    /// AntonLundell8482113
+    /// </summary>
+    AntonLundell8482113 = 8482113,
+    /// <summary>
+    /// RileyStillman8479388
+    /// </summary>
+    RileyStillman8479388 = 8479388,
+    /// <summary>
+    /// PierreOlivierJoseph8480058
+    /// </summary>
+    PierreOlivierJoseph8480058 = 8480058,
+    /// <summary>
+    /// ShanePinto8481596
+    /// </summary>
+    ShanePinto8481596 = 8481596,
+    /// <summary>
+    /// CamAtkinson8474715
+    /// </summary>
+    CamAtkinson8474715 = 8474715,
+    /// <summary>
+    /// TylerMotte8477353
+    /// </summary>
+    TylerMotte8477353 = 8477353,
+    /// <summary>
+    /// WilliamCarrier8477478
+    /// </summary>
+    WilliamCarrier8477478 = 8477478,
+    /// <summary>
+    /// ColtonPoolman8482066
+    /// </summary>
+    ColtonPoolman8482066 = 8482066,
+    /// <summary>
+    /// JackJohnson8471677
+    /// </summary>
+    JackJohnson8471677 = 8471677,
+    /// <summary>
+    /// MasonBeaupit8483682
+    /// </summary>
+    MasonBeaupit8483682 = 8483682,
+    /// <summary>
+    /// CollinMacKenzie8484602
+    /// </summary>
+    CollinMacKenzie8484602 = 8484602,
+    /// <summary>
+    /// OasizWiesblatt8484537
+    /// </summary>
+    OasizWiesblatt8484537 = 8484537,
+    /// <summary>
+    /// TravisBarron8479561
+    /// </summary>
+    TravisBarron8479561 = 8479561,
+    /// <summary>
+    /// JustinKirkland8477993
+    /// </summary>
+    JustinKirkland8477993 = 8477993,
+    /// <summary>
+    /// JonathanAspirot8481219
+    /// </summary>
+    JonathanAspirot8481219 = 8481219,
+    /// <summary>
+    /// JanJenik8480890
+    /// </summary>
+    JanJenik8480890 = 8480890,
+    /// <summary>
+    /// EgorSokolov8481102
+    /// </summary>
+    EgorSokolov8481102 = 8481102,
+    /// <summary>
+    /// ConnorCarrick8476941
+    /// </summary>
+    ConnorCarrick8476941 = 8476941,
+    /// <summary>
+    /// JeffSkinner8475784
+    /// </summary>
+    JeffSkinner8475784 = 8475784,
+    /// <summary>
+    /// CollinDelia8480420
+    /// </summary>
+    CollinDelia8480420 = 8480420,
+    /// <summary>
+    /// HudsonThornton8485129
+    /// </summary>
+    HudsonThornton8485129 = 8485129,
+    /// <summary>
+    /// AyoAdeniye8485131
+    /// </summary>
+    AyoAdeniye8485131 = 8485131,
+    /// <summary>
+    /// JoeConnor8485085
+    /// </summary>
+    JoeConnor8485085 = 8485085,
+    /// <summary>
+    /// TristanAllard8484310
+    /// </summary>
+    TristanAllard8484310 = 8484310,
+    /// <summary>
+    /// TomasTatar8475193
+    /// </summary>
+    TomasTatar8475193 = 8475193,
+    /// <summary>
+    /// DyllanGill8483692
+    /// </summary>
+    DyllanGill8483692 = 8483692,
+    /// <summary>
+    /// KadenPitre8485055
+    /// </summary>
+    KadenPitre8485055 = 8485055,
+    /// <summary>
+    /// NickMalik8483767
+    /// </summary>
+    NickMalik8483767 = 8483767,
+    /// <summary>
+    /// ConorGeekie8483447
+    /// </summary>
+    ConorGeekie8483447 = 8483447,
+    /// <summary>
+    /// CooperFlinton8482951
+    /// </summary>
+    CooperFlinton8482951 = 8482951,
+    /// <summary>
+    /// HarrisonMeneghin8484636
+    /// </summary>
+    HarrisonMeneghin8484636 = 8484636,
+    /// <summary>
+    /// JanGolicic8485025
+    /// </summary>
+    JanGolicic8485025 = 8485025,
+    /// <summary>
+    /// DonovanMcCoy8484560
+    /// </summary>
+    DonovanMcCoy8484560 = 8484560,
+    /// <summary>
+    /// GabrielSzturc8484507
+    /// </summary>
+    GabrielSzturc8484507 = 8484507,
+    /// <summary>
+    /// KlavsVeinbergs8483691
+    /// </summary>
+    KlavsVeinbergs8483691 = 8483691,
+    /// <summary>
+    /// JaysonShaugabay8484226
+    /// </summary>
+    JaysonShaugabay8484226 = 8484226,
+    /// <summary>
+    /// EthanGauthier8484173
+    /// </summary>
+    EthanGauthier8484173 = 8484173,
+    /// <summary>
+    /// JackHarvey8482774
+    /// </summary>
+    JackHarvey8482774 = 8482774,
+    /// <summary>
+    /// ConnorKurth8483727
+    /// </summary>
+    ConnorKurth8483727 = 8483727,
+    /// <summary>
+    /// JoonaSaarelainen8485047
+    /// </summary>
+    JoonaSaarelainen8485047 = 8485047,
+    /// <summary>
+    /// LucasEdmonds8483437
+    /// </summary>
+    LucasEdmonds8483437 = 8483437,
+    /// <summary>
+    /// RomanSchmidt8482693
+    /// </summary>
+    RomanSchmidt8482693 = 8482693,
+    /// <summary>
+    /// DylanDuke8482663
+    /// </summary>
+    DylanDuke8482663 = 8482663,
+    /// <summary>
+    /// MaximGroshev8482168
+    /// </summary>
+    MaximGroshev8482168 = 8482168,
+    /// <summary>
+    /// StefanNoesen8476474
+    /// </summary>
+    StefanNoesen8476474 = 8476474,
+    /// <summary>
+    /// IsaacHoward8483455
+    /// </summary>
+    IsaacHoward8483455 = 8483455,
+    /// <summary>
+    /// EthanHay8484484
+    /// </summary>
+    EthanHay8484484 = 8484484,
+    /// <summary>
+    /// MiloRoelens8483921
+    /// </summary>
+    MiloRoelens8483921 = 8483921,
+    /// <summary>
+    /// WarrenClark8484462
+    /// </summary>
+    WarrenClark8484462 = 8484462,
+    /// <summary>
+    /// ScooterBrickey8484833
+    /// </summary>
+    ScooterBrickey8484833 = 8484833,
+    /// <summary>
+    /// WilliamGerrior8485133
+    /// </summary>
+    WilliamGerrior8485133 = 8485133,
+    /// <summary>
+    /// KiefferBellows8479356
+    /// </summary>
+    KiefferBellows8479356 = 8479356,
+    /// <summary>
+    /// JoeVeleno8480813
+    /// </summary>
+    JoeVeleno8480813 = 8480813,
+    /// <summary>
+    /// VladimirTarasenko8475765
+    /// </summary>
+    VladimirTarasenko8475765 = 8475765,
+    /// <summary>
+    /// RobbyFabbri8477952
+    /// </summary>
+    RobbyFabbri8477952 = 8477952,
+    /// <summary>
+    /// GageAlexander8482936
+    /// </summary>
+    GageAlexander8482936 = 8482936,
 }

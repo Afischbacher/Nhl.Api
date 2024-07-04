@@ -1,4 +1,4 @@
-﻿using Nhl.Api.Common.Http;
+using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Player;
 using System.Collections.Generic;
 using System.IO;
@@ -73,12 +73,12 @@ public static class PlayerEnumFileGeneratorHelper
     public static string ReplaceNonAsciiWithAscii(string input)
     {
         // Define a regular expression pattern for non-ASCII characters
-        string pattern = @"[^\x00-\x7F]";
+        var pattern = @"[^\x00-\x7F]";
 
         // Replace non-ASCII characters with their ASCII equivalents
-        string output = Regex.Replace(input, pattern, (match) =>
+        var output = Regex.Replace(input, pattern, (match) =>
         {
-            char c = match.Value[0];
+            var c = match.Value[0];
             return c switch
             {
                 'À' or 'Á' or 'Â' or 'Ã' or 'Ä' => "A",
