@@ -23,7 +23,7 @@ public static class PlayerEnumFileGeneratorHelper
         var startCount = 0;
 
         var playerSearchResultsTasks = new List<Task<PlayerData>>();
-        var players = new Dictionary<int, string>();
+        var players = new Dictionary<int, (string playerName, string playerDetails)>();
         var response = await _nhlApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}");
         var total = response.Total;
 
@@ -41,7 +41,7 @@ public static class PlayerEnumFileGeneratorHelper
             {
                 if (!players.ContainsKey(playerSearchResult.Id))
                 {
-                    players.Add(playerSearchResult.Id, $"{Regex.Replace(ReplaceNonAsciiWithAscii(playerSearchResult.FullName), @"('|\.|\s|-|_|&|)", string.Empty, RegexOptions.CultureInvariant | RegexOptions.Compiled)}{playerSearchResult.Id}");
+                    players.Add(playerSearchResult.Id, (playerName: playerSearchResult.FullName, playerDetails: $"{Regex.Replace(ReplaceNonAsciiWithAscii(playerSearchResult.FullName), @"('|\.|\s|-|_|&|)", string.Empty, RegexOptions.CultureInvariant | RegexOptions.Compiled)} | Player Identifier: {playerSearchResult.Id} | Position: {playerSearchResult.PositionCode}"));
                 }
             }
         }
@@ -53,11 +53,11 @@ public static class PlayerEnumFileGeneratorHelper
         outputFile.WriteLine($"/// </summary>");
         outputFile.WriteLine("public enum PlayerEnum");
         outputFile.WriteLine("{");
-        var lines = players.Select(x => new { PlayerName = x.Value, EnumValue = $"    {x.Value} = {x.Key}," });
+        var lines = players.Select(x => new { PlayerName = x.Value.playerName, PlayerDetails = x.Value.playerDetails, EnumValue = $"    {x.Value.playerName}{x.Key} = {x.Key}," });
         foreach (var line in lines)
         {
             outputFile.WriteLine($"    /// <summary>");
-            outputFile.WriteLine($"    /// {line.PlayerName}");
+            outputFile.WriteLine($"    /// {line.PlayerDetails}");
             outputFile.WriteLine($"    /// </summary>");
             outputFile.WriteLine(line.EnumValue);
         }
