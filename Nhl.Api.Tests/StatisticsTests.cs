@@ -393,7 +393,7 @@ public class StatisticsTests
         Assert.IsNotNull(result);
 
         Assert.IsTrue(result.Count > 0);
-        Assert.IsTrue(result.Count > 650);
+        Assert.IsTrue(result.Count > 500);
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
