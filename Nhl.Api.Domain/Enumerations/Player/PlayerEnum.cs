@@ -86839,7 +86839,7 @@ public enum PlayerEnum
     /// <summary>
     /// Anthony(AJ)Spellacy8484858
     /// </summary>
-    Anthony(AJ)Spellacy8484858 = 8484858,
+    AnthonyAJSpellacy8484858 = 8484858,
     /// <summary>
     /// HirokiGojsic8485005
     /// </summary>

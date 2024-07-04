@@ -110,6 +110,7 @@ public static class PlayerEnumFileGeneratorHelper
                 'š' => "s",
                 'ý' or 'ÿ' => "y",
                 'ž' => "z",
+                '(' or ')' => string.Empty,
                 _ => c.ToString(),
             };
         });
