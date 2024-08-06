@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Standing;
 using System;
@@ -894,11 +894,6 @@ public class Summary
     [JsonProperty("shootout")]
     public List<Shootout> Shootout { get; set; }
 
-    /// <summary>
-    /// The 3 stars of the NHL game
-    /// </summary>
-    [JsonProperty("threeStars")]
-    public List<ThreeStar> ThreeStars { get; set; }
 
     /// <summary>
     /// The NHL team game statistics for the NHL game
@@ -1038,35 +1033,35 @@ public class ThreeStar
     /// Example: PIT
     /// </summary>
     [JsonProperty("teamAbbrev")]
-    public string TeamAbbrev { get; set; }
+    public string? TeamAbbrev { get; set; }
 
     /// <summary>
     /// The url link to the headshot of the NHL player who is the star of the game <br/>
     /// Example: <a href="https://assets.nhle.com/mugs/nhl/20232024/PIT/8471675.png">https://assets.nhle.com/mugs/nhl/20232024/PIT/8471675.png</a>
     /// </summary>
     [JsonProperty("headshot")]
-    public string Headshot { get; set; }
+    public string? Headshot { get; set; }
 
     /// <summary>
     /// The full name of the NHL player who is the star of the game <br/>
     /// Example: S. Crosby
     /// </summary>
     [JsonProperty("name")]
-    public string Name { get; set; }
+    public string? Name { get; set; }
 
     /// <summary>
     /// The first name of the NHL player who is the star of the game <br/>
     /// Example: Sidney
     /// </summary>
     [JsonProperty("firstName")]
-    public string FirstName { get; set; }
+    public string? FirstName { get; set; }
 
     /// <summary>
     /// The last name of the NHL player who is the star of the game <br/>
     /// Example: Crosby
     /// </summary>
     [JsonProperty("lastName")]
-    public string LastName { get; set; }
+    public string? LastName { get; set; }
 
     /// <summary>
     /// The sweater number of the NHL player who is the star of the game <br/>
@@ -1080,7 +1075,7 @@ public class ThreeStar
     /// Example: C
     /// </summary>
     [JsonProperty("position")]
-    public string Position { get; set; }
+    public string? Position { get; set; }
 
     /// <summary>
     /// The goalie goals against average of the NHL player who is the star of the game <br/>

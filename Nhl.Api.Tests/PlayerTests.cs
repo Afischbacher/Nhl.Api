@@ -883,5 +883,5 @@ public class PlayerTests
     [TestMethodWithRetry(RetryCount = 25)]
     public async Task PlayerEnumFileGeneratorHelper_Returns_Valid_Content() =>
         // Arrange
-        await PlayerEnumFileGeneratorHelper.UpdatePlayerEnumToFile("C:\\Users\\ital-\\source\\repos\\Nhl.Api\\Nhl.Api.Domain\\Enumerations\\Player");
+        await PlayerEnumFileGeneratorHelper.UpdatePlayerEnumToFile(string.Empty);
 }

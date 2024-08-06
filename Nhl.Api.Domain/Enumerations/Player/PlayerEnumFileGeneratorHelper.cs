@@ -41,7 +41,10 @@ public static class PlayerEnumFileGeneratorHelper
             {
                 if (!players.ContainsKey(playerSearchResult.Id))
                 {
-                    players.Add(playerSearchResult.Id, (playerName: playerSearchResult.FullName, playerDetails: $"{Regex.Replace(ReplaceNonAsciiWithAscii(playerSearchResult.FullName), @"('|\.|\s|-|_|&|)", string.Empty, RegexOptions.CultureInvariant | RegexOptions.Compiled)} | Player Identifier: {playerSearchResult.Id} | Position: {playerSearchResult.PositionCode}"));
+                    var playerName = Regex.Replace(ReplaceNonAsciiWithAscii(playerSearchResult.FullName.Replace(" ", "")), @"('|\.|\s|-|_|&|\(|\))", string.Empty, RegexOptions.CultureInvariant | RegexOptions.Compiled);
+                    var playerDetails = $"{playerName} | Player Identifier: {playerSearchResult.Id} | Position: {playerSearchResult.PositionCode}";
+
+                    players.Add(playerSearchResult.Id, (playerName, playerDetails));
                 }
             }
         }
