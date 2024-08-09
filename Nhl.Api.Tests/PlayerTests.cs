@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Season;
 using System.Linq;
@@ -484,6 +484,22 @@ public class PlayerTests
         Assert.IsNotNull(goalieProfile.HeightInCentimeters);
 
     }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(PlayerEnum.TonyMeagher8457344)]
+    public async Task GetPlayerInformationAsync_Test_PlayerEnum_Returns_Valid_Information_Null_Age(PlayerEnum playerEnum)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var playerProfile = await nhlApi.GetPlayerInformationAsync(playerEnum);
+
+        // Assert
+        Assert.IsNotNull(playerProfile);
+        Assert.IsNull(playerProfile.Age);
+    }
+
 
     [TestMethodWithRetry(RetryCount = 5)]
     [DataRow(PlayerEnum.FilipGustavsson8479406)]

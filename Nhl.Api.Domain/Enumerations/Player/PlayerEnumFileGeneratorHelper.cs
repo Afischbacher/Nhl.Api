@@ -1,4 +1,4 @@
-﻿using Nhl.Api.Common.Http;
+using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Player;
 using System.Collections.Generic;
 using System.IO;
@@ -23,7 +23,7 @@ public static class PlayerEnumFileGeneratorHelper
         var startCount = 0;
 
         var playerSearchResultsTasks = new List<Task<PlayerData>>();
-        var players = new Dictionary<int, string>();
+        var players = new Dictionary<int, (string playerName, string playerDetails)>();
         var response = await _nhlApiHttpClient.GetAsync<PlayerData>($"/players?start={startCount}");
         var total = response.Total;
 
@@ -41,7 +41,10 @@ public static class PlayerEnumFileGeneratorHelper
             {
                 if (!players.ContainsKey(playerSearchResult.Id))
                 {
-                    players.Add(playerSearchResult.Id, $"{Regex.Replace(ReplaceNonAsciiWithAscii(playerSearchResult.FullName), @"('|\.|\s|-|_|&|)", string.Empty, RegexOptions.CultureInvariant | RegexOptions.Compiled)}{playerSearchResult.Id}");
+                    var playerName = Regex.Replace(ReplaceNonAsciiWithAscii(playerSearchResult.FullName.Replace(" ", "")), @"('|\.|\s|-|_|&|\(|\))", string.Empty, RegexOptions.CultureInvariant | RegexOptions.Compiled);
+                    var playerDetails = $"{playerName} | Player Identifier: {playerSearchResult.Id} | Position: {playerSearchResult.PositionCode}";
+
+                    players.Add(playerSearchResult.Id, (playerName, playerDetails));
                 }
             }
         }
@@ -53,11 +56,11 @@ public static class PlayerEnumFileGeneratorHelper
         outputFile.WriteLine($"/// </summary>");
         outputFile.WriteLine("public enum PlayerEnum");
         outputFile.WriteLine("{");
-        var lines = players.Select(x => new { PlayerName = x.Value, EnumValue = $"    {x.Value} = {x.Key}," });
+        var lines = players.Select(x => new { PlayerName = x.Value.playerName, PlayerDetails = x.Value.playerDetails, EnumValue = $"    {x.Value.playerName}{x.Key} = {x.Key}," });
         foreach (var line in lines)
         {
             outputFile.WriteLine($"    /// <summary>");
-            outputFile.WriteLine($"    /// {line.PlayerName}");
+            outputFile.WriteLine($"    /// {line.PlayerDetails}");
             outputFile.WriteLine($"    /// </summary>");
             outputFile.WriteLine(line.EnumValue);
         }
@@ -73,12 +76,12 @@ public static class PlayerEnumFileGeneratorHelper
     public static string ReplaceNonAsciiWithAscii(string input)
     {
         // Define a regular expression pattern for non-ASCII characters
-        string pattern = @"[^\x00-\x7F]";
+        var pattern = @"[^\x00-\x7F]";
 
         // Replace non-ASCII characters with their ASCII equivalents
-        string output = Regex.Replace(input, pattern, (match) =>
+        var output = Regex.Replace(input, pattern, (match) =>
         {
-            char c = match.Value[0];
+            var c = match.Value[0];
             return c switch
             {
                 'À' or 'Á' or 'Â' or 'Ã' or 'Ä' => "A",
@@ -110,6 +113,7 @@ public static class PlayerEnumFileGeneratorHelper
                 'š' => "s",
                 'ý' or 'ÿ' => "y",
                 'ž' => "z",
+                '(' or ')' => string.Empty,
                 _ => c.ToString(),
             };
         });

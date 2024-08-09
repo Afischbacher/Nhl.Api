@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Nhl.Api.Models.Player;
 /// <summary>
@@ -97,13 +98,13 @@ public class PlayerProfile
     /// Example: 73
     /// </summary>
     [JsonProperty("heightInInches")]
-    public int HeightInInches { get; set; }
+    public int? HeightInInches { get; set; }
 
     /// <summary>
     /// The height of the NHL player in feet and inches <br/>
     /// Example: 6 ft 1 in
     /// </summary>
-    public string HeightInFeetAndInches => $"{HeightInInches / 12} ft {HeightInInches % 12} in";
+    public string HeightInFeetAndInches => this.HeightInInches.HasValue ? $"{this.HeightInInches / 12} ft {this.HeightInInches % 12} in" : string.Empty;
 
     /// <summary>
     /// The height of the NHL player in centimeters <br/>
@@ -131,13 +132,13 @@ public class PlayerProfile
     /// Example: 1997-01-13
     /// </summary>
     [JsonProperty("birthDate")]
-    public string BirthDate { get; set; }
+    public string? BirthDate { get; set; }
 
     /// <summary>
     /// The age of the NHL player <br/>
     /// Example: 24
     /// </summary>
-    public int Age => (DateTime.Now.Year - DateTime.Parse(BirthDate).Year);
+    public int? Age => string.IsNullOrWhiteSpace(this.BirthDate) ? null : (DateTime.Now.Year - DateTime.Parse(this.BirthDate, CultureInfo.InvariantCulture).Year);
 
     /// <summary>
     /// The birth city of the NHL player <br/>

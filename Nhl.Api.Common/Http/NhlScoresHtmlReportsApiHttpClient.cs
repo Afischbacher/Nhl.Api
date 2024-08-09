@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 
 namespace Nhl.Api.Common.Http;
@@ -19,7 +19,7 @@ public class NhlScoresHtmlReportsApiHttpClient : NhlApiHttpClient
     /// <summary>
     /// The dedicated NHL endpoint for HTML reports
     /// </summary>
-    public NhlScoresHtmlReportsApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
+    public NhlScoresHtmlReportsApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 60)
     {
 
     }

@@ -1,6 +1,7 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Nhl.Api.Models.Player;
 /// <summary>
@@ -97,7 +98,7 @@ public class GoalieProfile
     /// Example: 72
     /// </summary>
     [JsonProperty("heightInInches")]
-    public int HeightInInches { get; set; }
+    public int? HeightInInches { get; set; }
 
     /// <summary>
     /// The height of the NHL goalie in centimeters <br/>
@@ -110,7 +111,7 @@ public class GoalieProfile
     /// The height of the NHL goalie in feet and inches <br/>
     /// Example: 6 ft 0 in
     /// </summary>
-    public string HeightInFeetAndInches => $"{HeightInInches / 12} ft {HeightInInches % 12} in";
+    public string? HeightInFeetAndInches => this.HeightInInches.HasValue ? $"{this.HeightInInches / 12} ft {this.HeightInInches % 12} in" : null;
 
     /// <summary>
     /// The weight of the NHL goalie in pounds <br/>
@@ -131,13 +132,13 @@ public class GoalieProfile
     /// Example: 1998-07-12
     /// </summary>
     [JsonProperty("birthDate")]
-    public string BirthDate { get; set; }
+    public string? BirthDate { get; set; }
 
     /// <summary>
     /// The age of the NHL goalie <br/>
     /// Example: 24
     /// </summary>
-    public int Age => (DateTime.Now.Year - DateTime.Parse(BirthDate).Year);
+    public int? Age => string.IsNullOrWhiteSpace(this.BirthDate) ? null : (DateTime.Now.Year - DateTime.Parse(this.BirthDate, CultureInfo.InvariantCulture).Year);
 
     /// <summary>
     /// The birth city of the NHL goalie <br/>
