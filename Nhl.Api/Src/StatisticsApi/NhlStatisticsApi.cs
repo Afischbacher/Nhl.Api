@@ -643,7 +643,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         // Validate limit and offsetStart values
         if (limit < -1)
         {
-            throw new ArgumentException("Limit must be greater than or equal to 0");
+            throw new ArgumentException("Limit must be greater than or equal to -1");
         }
 
         if (offsetStart < 0)
