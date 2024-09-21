@@ -655,15 +655,15 @@ public class NhlApi : INhlApi
            await _nhlStatisticsApi.GetAllPlayersStatisticValuesBySeasonAsync(seasonYear, gameType, cancellationToken);
 
     /// <summary>
-    /// Returns all the NHL real time player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points, power play points, shooting percentage, shots, time on ice per game and more
+    /// Returns all the NHL real-time player game center statistics for players matching the provided filter expression for a specific season, including face-off percentage, points per game, overtime goals, shorthanded points, power-play points, shooting percentage, shots, time on ice per game, and more
     /// </summary>
     /// <param name="seasonYear">The NHL season year to retrieve the team statistics, see <see cref="SeasonYear"/> for more information on valid season years</param>
     /// <param name="expressionPlayerFilter">The expression player filter to filter the player statistics by, see <see cref="PlayerFilterExpressionBuilder"/> for more information on valid player filters</param>
-    /// <param name="playerRealtimeStatisticsFilterToSortBy">The player statistics filter to sort the player statistics by, see <see cref="PlayerStatisticsFilter"/> for more information on valid player statistics filters</param>
+    /// <param name="playerRealtimeStatisticsFilterToSortBy">The player real-time statistics filter to sort the player statistics by, see <see cref="PlayerRealtimeStatisticsFilter"/> for more information on valid player statistics filters</param>
     /// <param name="limit">The limit to the number of results returned when reviewing the NHL player statistics, by default -1 represents no limit applied to results</param>
     /// <param name="offsetStart">The offset to start the results from when reviewing the NHL player statistics</param>
     /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
-    /// <returns> Returns all the NHL player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more </returns>
+    /// <returns>Returns all the NHL real-time player game center statistics for players matching the filter expression for the specified season.</returns>
     public async Task<PlayerRealtimeStatisticsFilterResult> GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(string seasonYear, ExpressionPlayerFilter expressionPlayerFilter, PlayerRealtimeStatisticsFilter playerRealtimeStatisticsFilterToSortBy = PlayerRealtimeStatisticsFilter.OvertimeGoals, int limit = -1, int offsetStart = 0, CancellationToken cancellationToken = default) =>
             await _nhlStatisticsApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerRealtimeStatisticsFilterToSortBy, limit, offsetStart, cancellationToken);
 
