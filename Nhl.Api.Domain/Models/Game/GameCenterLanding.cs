@@ -1,8 +1,8 @@
+using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Standing;
-using System;
-using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Game;
 /// <summary>

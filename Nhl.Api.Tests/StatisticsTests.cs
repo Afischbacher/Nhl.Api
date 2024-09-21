@@ -1,3 +1,6 @@
+using System.Collections.Concurrent;
+using System.Linq;
+using System.Threading;
 using Newtonsoft.Json;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Enumerations.Statistic;
@@ -5,9 +8,6 @@ using Nhl.Api.Models.Game;
 using Nhl.Api.Models.Player;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
-using System.Collections.Concurrent;
-using System.Linq;
-using System.Threading;
 
 namespace Nhl.Api.Tests;
 [TestClass]

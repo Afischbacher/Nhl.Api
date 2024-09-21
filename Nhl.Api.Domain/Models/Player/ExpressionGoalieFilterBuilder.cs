@@ -1,7 +1,7 @@
-using Nhl.Api.Common.Extensions;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 using System.Text;
+using Nhl.Api.Common.Extensions;
 
 namespace Nhl.Api.Models.Player;
 /// <summary>

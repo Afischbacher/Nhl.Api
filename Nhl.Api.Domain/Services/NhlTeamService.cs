@@ -1,10 +1,10 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Helpers;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Team;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace Nhl.Api.Services;
 /// <summary>

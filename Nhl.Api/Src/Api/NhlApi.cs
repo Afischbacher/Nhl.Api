@@ -718,4 +718,4 @@ public class NhlApi : INhlApi
     /// <returns>The await-able result of the asynchronous operation</returns>
     public async ValueTask DisposeAsync() =>
            await Task.Run(() => _nhlPlayerApi?.Dispose());
- }
+}

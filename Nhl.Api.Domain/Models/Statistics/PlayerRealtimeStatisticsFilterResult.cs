@@ -1,5 +1,5 @@
-using Newtonsoft.Json;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Nhl.Api.Models.Statistics;
 /// <summary>
@@ -42,19 +42,19 @@ public class PlayerRealtimeStatisticsResult
     /// Number of empty net assists.
     /// </summary>
     [JsonProperty("emptyNetAssists")]
-    public int? EmptyNetAssists { get; set; } 
+    public int? EmptyNetAssists { get; set; }
 
     /// <summary>
     /// Number of empty net goals.
     /// </summary>
     [JsonProperty("emptyNetGoals")]
-    public int? EmptyNetGoals { get; set; } 
+    public int? EmptyNetGoals { get; set; }
 
     /// <summary>
     /// Number of empty net points.
     /// </summary>
     [JsonProperty("emptyNetPoints")]
-    public int? EmptyNetPoints { get; set; } 
+    public int? EmptyNetPoints { get; set; }
 
     /// <summary>
     /// Number of first goals.

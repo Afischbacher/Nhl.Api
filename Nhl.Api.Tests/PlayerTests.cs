@@ -1,7 +1,7 @@
+using System.Linq;
 using Newtonsoft.Json;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Season;
-using System.Linq;
 
 namespace Nhl.Api.Tests;
 [TestClass]
