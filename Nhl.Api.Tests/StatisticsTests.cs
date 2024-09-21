@@ -638,7 +638,7 @@ public class StatisticsTests
 
         var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
 
-        // Act
+        // Assert
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total >= 1);
