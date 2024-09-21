@@ -159,7 +159,7 @@ public interface INhlStatisticsApi
     /// <param name="limit">The limit to the number of results returned when reviewing the NHL player statistics, by default -1 represents no limit applied to results</param>
     /// <param name="offsetStart">The offset to start the results from when reviewing the NHL player statistics</param>
     /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
-    /// <returns> Returns all the NHL player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more </returns>
+    /// <returns> Returns all the NHL player time on ice statistics for a specific season including even time on ice, overtime time on ice, time on ice per game, and more </returns>
     public Task<PlayerTimeOnIceStatisticsFilterResult> GetTimeOnIcePlayerStatisticsBySeasonAndFilterExpressionAsync(string seasonYear, ExpressionPlayerFilter expressionPlayerFilter, PlayerTimeOnIceStatisticsFilter playerTimeOnIceStatisticsFilterToSortBy = PlayerTimeOnIceStatisticsFilter.EvenTimeOnIce, int limit = -1, int offsetStart = 0, CancellationToken cancellationToken = default);
 
 }
