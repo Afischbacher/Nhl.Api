@@ -262,7 +262,10 @@ public class NhlTeamService : INhlTeamService
         TeamNames.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
         TeamNames.WashingtonCapitals => TeamCodes.WashingtonCapitals,
         TeamNames.WinnipegJets => TeamCodes.WinnipegJets,
-        TeamNames.UtahHockeyClub => TeamCodes.UtahHockeyClub,
-        _ => throw new ArgumentException($"Unknown NHL team: {teamName}", nameof(teamName)),
+        public string? GetTeamCodeIdentifierByTeamName(string teamName) => teamName.ReplaceNonAsciiWithAscii() switch
+        {
+            TeamNames.UtahHockeyClub => TeamCodes.UtahHockeyClub,
+            _ => null,
+        };
     };
 }
