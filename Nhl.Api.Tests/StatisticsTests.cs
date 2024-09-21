@@ -1236,7 +1236,7 @@ public class StatisticsTests
             Assert.IsTrue(player.Wins < 40);
             Assert.IsTrue(player.GoalsAgainstAverage <= 3.5);
             Assert.IsTrue(player.Shutouts > 0);
-            Assert.IsTrue(player.SavePercentage >= 0.9m || player.Assists > 0);
+            Assert.IsTrue(player.SavePercentage >= 0.9m || player.PenaltyMinutes > 0);
             Assert.IsTrue(player.GoalieFullName.Contains("An"));
             Assert.IsTrue(!player.GoalieFullName.Contains("Ze"));
             Assert.IsTrue(player.PlayerId != 8471214);
