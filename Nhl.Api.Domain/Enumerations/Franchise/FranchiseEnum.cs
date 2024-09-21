@@ -1,4 +1,4 @@
-﻿namespace Nhl.Api.Models.Enumerations.Franchise;
+namespace Nhl.Api.Models.Enumerations.Franchise;
 
 /// <summary>
 /// An enumeration of all NHL franchises
@@ -160,5 +160,9 @@ public enum FranchiseEnum
     /// <summary>
     /// Seattle Kraken
     /// </summary>
-    SeattleKraken = 39
+    SeattleKraken = 39,
+    /// <summary>
+    /// Utah Hockey Club
+    /// </summary>
+    UtahHockeyClub = 40
 }

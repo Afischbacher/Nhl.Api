@@ -1,4 +1,4 @@
-﻿namespace Nhl.Api.Common.Helpers;
+namespace Nhl.Api.Common.Helpers;
 
 /// <summary>
 /// A helper class for all NHL team names
@@ -164,4 +164,9 @@ public static class TeamNames
     /// Winnipeg Jets
     /// </summary>
     public const string WinnipegJets = "Winnipeg Jets";
+
+    /// <summary>
+    /// Utah Hockey Club
+    /// </summary>
+    public const string UtahHockeyClub = "Utah Hockey Club";
 }

@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Statistics;
@@ -35,17 +35,17 @@ public class PlayerStatisticsResult
 
     /// <summary>
     /// The NHL player even strength goals <br/>
-    /// Example: 5
+    /// Example: 5 or null
     /// </summary>
     [JsonProperty("evGoals")]
-    public int EvenStrengthGoals { get; set; }
+    public int? EvenStrengthGoals { get; set; }
 
     /// <summary>
     /// The NHL player even strength points <br/>
-    /// Example: 6
+    /// Example: 6 or null
     /// </summary>
     [JsonProperty("evPoints")]
-    public int EvenStrengthPoints { get; set; }
+    public int? EvenStrengthPoints { get; set; }
 
     /// <summary>
     /// The NHL player faceoff win percentage <br/>
@@ -105,10 +105,10 @@ public class PlayerStatisticsResult
 
     /// <summary>
     /// The NHL player plus minus <br/>
-    /// Example: 5
+    /// Example: 5 or null
     /// </summary>
     [JsonProperty("plusMinus")]
-    public int PlusMinus { get; set; }
+    public int? PlusMinus { get; set; }
 
     /// <summary>
     /// The NHL player points <br/>
@@ -133,17 +133,17 @@ public class PlayerStatisticsResult
 
     /// <summary>
     /// The NHL player power play goals <br/>
-    /// Example: 3
+    /// Example: 3 or null
     /// </summary>
     [JsonProperty("ppGoals")]
-    public int PowerPlayGoals { get; set; }
+    public int? PowerPlayGoals { get; set; }
 
     /// <summary>
     /// The NHL player power play points <br/>
-    /// Example: 4
+    /// Example: 4 or null
     /// </summary>
     [JsonProperty("ppPoints")]
-    public int PowerPlayPoints { get; set; }
+    public int? PowerPlayPoints { get; set; }
 
     /// <summary>
     /// The NHL player season identifier <br/>
@@ -154,21 +154,21 @@ public class PlayerStatisticsResult
 
     /// <summary>
     /// The NHL player short handed goals <br/>
-    /// Example: 1
+    /// Example: 1 or null
     /// </summary>
     [JsonProperty("shGoals")]
-    public int ShortHandedGoals { get; set; }
+    public int? ShortHandedGoals { get; set; }
 
     /// <summary>
     /// The NHL player short handed points <br/>
-    /// Example: 2
+    /// Example: 2 or null
     /// </summary>
     [JsonProperty("shPoints")]
-    public int ShortHandedPoints { get; set; }
+    public int? ShortHandedPoints { get; set; }
 
     /// <summary>
     /// The NHL player shooting percentage <br/>
-    /// Example: 0.1234561
+    /// Example: 0.1234561 or null
     /// </summary>
     [JsonProperty("shootingPct")]
     public decimal? ShootingPercentage { get; set; }
@@ -207,4 +207,6 @@ public class PlayerStatisticsResult
     /// </summary>
     [JsonProperty("timeOnIcePerGame")]
     public decimal? TimeOnIcePerGame { get; set; }
+
+
 }

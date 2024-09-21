@@ -1,4 +1,4 @@
-﻿using Microsoft.Build.Locator;
+using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.MSBuild;
@@ -49,7 +49,7 @@ public class ProjectStructureTests
     {
         var errors = new StringBuilder();
 
-        var getSourceCSharpFiles = RootDirectoryFolder.GetFiles("*.cs", SearchOption.AllDirectories);
+        var getSourceCSharpFiles = this.RootDirectoryFolder.GetFiles("*.cs", SearchOption.AllDirectories);
         foreach (var sourceCSharpFile in getSourceCSharpFiles)
         {
             if (sourceCSharpFile.FullName.Contains("Tests"))

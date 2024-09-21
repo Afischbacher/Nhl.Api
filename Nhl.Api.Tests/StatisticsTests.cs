@@ -617,6 +617,196 @@ public class StatisticsTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetRealtimePlayerStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Filter_Query()
+    {
+        // Arrange
+        var expressionFilter = new PlayerFilterExpressionBuilder();
+
+        // Act
+        var expression = expressionFilter
+            .AddFilter(PlayerRealtimeStatisticsFilter.EmptyNetAssists)
+            .GreaterThan(0)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.ShootsCatches)
+            .EqualTo(ShootsCatches.Left)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.TeamAbbreviation)
+            .EqualTo(TeamCodes.TorontoMapleLeafs)
+            .Build();
+
+        await using var nhlApi = new NhlApi();
+
+        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+
+        // Act
+        Assert.IsNotNull(expression);
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Total >= 1);
+
+        foreach (var player in result.PlayerRealtimeStatisticsResults)
+        {
+            Assert.IsNotNull(player);
+            Assert.IsTrue(player.EmptyNetAssists > 0);
+            Assert.IsTrue(player.ShootsCatches == ShootsCatches.Left);
+            Assert.IsTrue(player.TeamAbbrevs == TeamCodes.TorontoMapleLeafs);
+        }
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetRealtimePlayerStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Filter_Query_For_2020_Season()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        var expressionFilter = new PlayerFilterExpressionBuilder();
+
+        // Act
+        var expression = expressionFilter
+            .AddFilter(PlayerRealtimeStatisticsFilter.BlockedShots)
+            .GreaterThan(1)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.ShootsCatches)
+            .EqualTo(ShootsCatches.Right)
+            .Build();
+
+
+        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20202021, expression);
+
+        // Act
+        Assert.IsNotNull(expression);
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Total >= 300);
+
+        foreach (var player in result.PlayerRealtimeStatisticsResults)
+        {
+            Assert.IsTrue(player.BlockedShots > 1);
+            Assert.IsTrue(player.ShootsCatches == ShootsCatches.Right);
+        }
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetRealtimePlayerStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Empty_Expression()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        var expressionFilter = new PlayerFilterExpressionBuilder();
+
+        // Act
+        var expression = expressionFilter.Build();
+
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20102011, expression);
+
+        // Act
+        Assert.IsNotNull(expression);
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Total >= 800);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetRealtimePlayerStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Filter_Query_For_Complex_Query_1()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        var expressionFilter = new PlayerFilterExpressionBuilder();
+
+        // Act
+        var expression = expressionFilter
+            .AddFilter(PlayerRealtimeStatisticsFilter.OvertimeGoals)
+            .GreaterThan(1)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.ShootsCatches)
+            .EqualTo(ShootsCatches.Right)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.EmptyNetPoints)
+            .GreaterThan(1)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.EmptyNetGoals)
+            .GreaterThanOrEqualTo(1)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.GamesPlayed)
+            .GreaterThanOrEqualTo(20)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.MissedShotCrossbar)
+            .GreaterThanOrEqualTo(3)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.SkaterFullName)
+            .Contains("William")
+            .Build();
+
+
+        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+
+        // Act
+        Assert.IsNotNull(expression);
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Total == 1);
+
+        foreach (var player in result.PlayerRealtimeStatisticsResults)
+        {
+            Assert.IsTrue(player.ShootsCatches == ShootsCatches.Right);
+            Assert.IsTrue(player.EmptyNetPoints > 1);
+            Assert.IsTrue(player.EmptyNetGoals >= 1);
+            Assert.IsTrue(player.GamesPlayed >= 20);
+            Assert.IsTrue(player.MissedShotCrossbar >= 3);
+            Assert.IsTrue(player.SkaterFullName.Contains("William"));
+        }
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetRealtimePlayerStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Filter_Query_For_Complex_Query_2()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        var expressionFilter = new PlayerFilterExpressionBuilder();
+
+        // Act
+        var expression = expressionFilter
+            .AddFilter(PlayerRealtimeStatisticsFilter.OvertimeGoals)
+            .GreaterThan(0)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.ShootsCatches)
+            .EqualTo(ShootsCatches.Right)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.EmptyNetPoints)
+            .GreaterThan(0)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.Takeaways)
+            .GreaterThanOrEqualTo(10)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.TimeOnIcePerGame)
+            .GreaterThanOrEqualTo(10)
+            .And()
+            .AddFilter(PlayerRealtimeStatisticsFilter.HitsPer60)
+            .GreaterThanOrEqualTo(0.5)
+            .And()
+            .StartGroup()
+            .AddFilter(PlayerRealtimeStatisticsFilter.GamesPlayed)
+            .LessThanOrEqualTo(20)
+            .Or()
+            .AddFilter(PlayerRealtimeStatisticsFilter.FirstGoals)
+            .GreaterThan(0)
+            .EndGroup()
+            .Build();
+
+        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+
+        // Act
+        Assert.IsNotNull(expression);
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Total == 47);
+
+        foreach (var player in result.PlayerRealtimeStatisticsResults)
+        {
+            Assert.IsTrue(player.OvertimeGoals > 0);
+            Assert.IsTrue(player.ShootsCatches == ShootsCatches.Right);
+            Assert.IsTrue(player.EmptyNetPoints > 0);
+            Assert.IsTrue(player.Takeaways >= 10);
+            Assert.IsTrue(player.TimeOnIcePerGame >= 10);
+            Assert.IsTrue(player.HitsPer60 >= 0.5);
+            Assert.IsTrue(player.GamesPlayed <= 20 || player.FirstGoals > 0);
+        }
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
     public async Task GetGoalieStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Filter_With_No_Query()
     {
         // Arrange
@@ -661,6 +851,282 @@ public class StatisticsTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow("20232024")]
+    [DataRow("20222023")]
+    [DataRow("20212022")]
+    [DataRow("20202021")]
+    [DataRow("20192020")]
+    [DataRow("20182019")]
+    [DataRow("20172018")]
+    [DataRow("20162017")]
+    [DataRow("20152016")]
+    [DataRow("20142015")]
+    [DataRow("20132014")]
+    [DataRow("20122013")]
+    [DataRow("20112012")]
+    [DataRow("20102011")]
+    [DataRow("20092010")]
+    [DataRow("20082009")]
+    [DataRow("20072008")]
+    [DataRow("20062007")]
+    [DataRow("20052006")]
+    [DataRow("20032004")]
+    [DataRow("20022003")]
+    [DataRow("20012002")]
+    [DataRow("20002001")]
+    [DataRow("19992000")]
+    [DataRow("19981999")]
+    [DataRow("19971998")]
+    [DataRow("19961997")]
+    [DataRow("19951996")]
+    [DataRow("19941995")]
+    [DataRow("19931994")]
+    [DataRow("19921993")]
+    [DataRow("19911992")]
+    [DataRow("19901991")]
+    [DataRow("19891990")]
+    [DataRow("19881989")]
+    [DataRow("19871988")]
+    [DataRow("19861987")]
+    [DataRow("19851986")]
+    [DataRow("19841985")]
+    [DataRow("19831984")]
+    [DataRow("19821983")]
+    [DataRow("19811982")]
+    [DataRow("19801981")]
+    [DataRow("19791980")]
+    [DataRow("19781979")]
+    [DataRow("19771978")]
+    [DataRow("19761977")]
+    [DataRow("19751976")]
+    [DataRow("19741975")]
+    [DataRow("19731974")]
+    [DataRow("19721973")]
+    [DataRow("19711972")]
+    [DataRow("19701971")]
+    [DataRow("19691970")]
+    [DataRow("19681969")]
+    [DataRow("19671968")]
+    [DataRow("19661967")]
+    [DataRow("19651966")]
+    [DataRow("19641965")]
+    [DataRow("19631964")]
+    [DataRow("19621963")]
+    [DataRow("19611962")]
+    [DataRow("19601961")]
+    [DataRow("19591960")]
+    [DataRow("19581959")]
+    [DataRow("19571958")]
+    [DataRow("19561957")]
+    [DataRow("19551956")]
+    [DataRow("19541955")]
+    [DataRow("19531954")]
+    [DataRow("19521953")]
+    [DataRow("19511952")]
+    [DataRow("19501951")]
+    [DataRow("19491950")]
+    [DataRow("19481949")]
+    [DataRow("19471948")]
+    [DataRow("19461947")]
+    [DataRow("19451946")]
+    [DataRow("19441945")]
+    [DataRow("19431944")]
+    [DataRow("19421943")]
+    [DataRow("19411942")]
+    [DataRow("19401941")]
+    [DataRow("19391940")]
+    [DataRow("19381939")]
+    [DataRow("19371938")]
+    [DataRow("19361937")]
+    [DataRow("19351936")]
+    [DataRow("19341935")]
+    [DataRow("19331934")]
+    [DataRow("19321933")]
+    [DataRow("19311932")]
+    [DataRow("19301931")]
+    [DataRow("19291930")]
+    [DataRow("19281929")]
+    [DataRow("19271928")]
+    [DataRow("19261927")]
+    [DataRow("19251926")]
+    [DataRow("19241925")]
+    [DataRow("19231924")]
+    [DataRow("19221923")]
+    [DataRow("19211922")]
+    [DataRow("19201921")]
+    [DataRow("19191920")]
+    [DataRow("19181919")]
+    [DataRow("19171918")]
+    public async Task GetGoalieStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_For_Each_Season(string seasonYear)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, ExpressionGoalieFilter.Empty);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Total >= 1);
+
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow("20232024")]
+    [DataRow("20222023")]
+    [DataRow("20212022")]
+    [DataRow("20202021")]
+    [DataRow("20192020")]
+    [DataRow("20182019")]
+    [DataRow("20172018")]
+    [DataRow("20162017")]
+    [DataRow("20152016")]
+    [DataRow("20142015")]
+    [DataRow("20132014")]
+    [DataRow("20122013")]
+    [DataRow("20112012")]
+    [DataRow("20102011")]
+    [DataRow("20092010")]
+    [DataRow("20082009")]
+    [DataRow("20072008")]
+    [DataRow("20062007")]
+    [DataRow("20052006")]
+    [DataRow("20032004")]
+    [DataRow("20022003")]
+    [DataRow("20012002")]
+    [DataRow("20002001")]
+    [DataRow("19992000")]
+    [DataRow("19981999")]
+    [DataRow("19971998")]
+    [DataRow("19961997")]
+    [DataRow("19951996")]
+    [DataRow("19941995")]
+    [DataRow("19931994")]
+    [DataRow("19921993")]
+    [DataRow("19911992")]
+    [DataRow("19901991")]
+    [DataRow("19891990")]
+    [DataRow("19881989")]
+    [DataRow("19871988")]
+    [DataRow("19861987")]
+    [DataRow("19851986")]
+    [DataRow("19841985")]
+    [DataRow("19831984")]
+    [DataRow("19821983")]
+    [DataRow("19811982")]
+    [DataRow("19801981")]
+    [DataRow("19791980")]
+    [DataRow("19781979")]
+    [DataRow("19771978")]
+    [DataRow("19761977")]
+    [DataRow("19751976")]
+    [DataRow("19741975")]
+    [DataRow("19731974")]
+    [DataRow("19721973")]
+    [DataRow("19711972")]
+    [DataRow("19701971")]
+    [DataRow("19691970")]
+    [DataRow("19681969")]
+    [DataRow("19671968")]
+    [DataRow("19661967")]
+    [DataRow("19651966")]
+    [DataRow("19641965")]
+    [DataRow("19631964")]
+    [DataRow("19621963")]
+    [DataRow("19611962")]
+    [DataRow("19601961")]
+    [DataRow("19591960")]
+    [DataRow("19581959")]
+    [DataRow("19571958")]
+    [DataRow("19561957")]
+    [DataRow("19551956")]
+    [DataRow("19541955")]
+    [DataRow("19531954")]
+    [DataRow("19521953")]
+    [DataRow("19511952")]
+    [DataRow("19501951")]
+    [DataRow("19491950")]
+    [DataRow("19481949")]
+    [DataRow("19471948")]
+    [DataRow("19461947")]
+    [DataRow("19451946")]
+    [DataRow("19441945")]
+    [DataRow("19431944")]
+    [DataRow("19421943")]
+    [DataRow("19411942")]
+    [DataRow("19401941")]
+    [DataRow("19391940")]
+    [DataRow("19381939")]
+    [DataRow("19371938")]
+    [DataRow("19361937")]
+    [DataRow("19351936")]
+    [DataRow("19341935")]
+    [DataRow("19331934")]
+    [DataRow("19321933")]
+    [DataRow("19311932")]
+    [DataRow("19301931")]
+    [DataRow("19291930")]
+    [DataRow("19281929")]
+    [DataRow("19271928")]
+    [DataRow("19261927")]
+    [DataRow("19251926")]
+    [DataRow("19241925")]
+    [DataRow("19231924")]
+    [DataRow("19221923")]
+    [DataRow("19211922")]
+    [DataRow("19201921")]
+    [DataRow("19191920")]
+    [DataRow("19181919")]
+    [DataRow("19171918")]
+    public async Task GetPlayerStatisticsBySeasonAndFilterExpressionAsync_Returns_Valid_Results_For_Each_Season(string seasonYear)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, ExpressionPlayerFilter.Empty);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Total >= 1);
+
+    }
+
+
+    [TestMethod]
+    [DataRow("20042005")] // The 2004–05 NHL season was canceled due to a labor dispute
+    public async Task GetPlayerStatisticsBySeasonAndFilterExpressionAsync_Returns_Valid_Results_For_Each_Season_With_04_05_Lockout(string seasonYear)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, ExpressionPlayerFilter.Empty);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.AreEqual(0, result.Total);
+
+    }
+
+    [TestMethod]
+    [DataRow("20042005")] // The 2004–05 NHL season was canceled due to a labor dispute
+    public async Task GetGoalieStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_For_Each_Season_With_04_05_Lockout(string seasonYear)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+        var expressionFilter = new GoalieFilterExpressionBuilder();
+
+        // Act
+        var result = await nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, ExpressionGoalieFilter.Empty);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.AreEqual(0, result.Total);
+
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
     public async Task GetGoalieStatisticsBySeasonAndFilterAsync_Returns_Valid_Results_Based_On_Filter_Query_For_Empty_Query()
     {
         // Arrange
@@ -670,7 +1136,7 @@ public class StatisticsTests
         // Act
         var result = await nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, ExpressionGoalieFilter.Empty);
 
-        // Act
+        // Assert
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total >= 81);
 
@@ -706,7 +1172,7 @@ public class StatisticsTests
 
         var result = await nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
 
-        // Act
+        // Assert
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total >= 1);
@@ -716,7 +1182,7 @@ public class StatisticsTests
             Assert.IsTrue(player.Wins > 10);
             Assert.IsTrue(player.GoalsAgainstAverage <= 3.5);
             Assert.IsTrue(player.Shutouts > 0);
-            Assert.IsTrue(player.SavePercentage >= 0.9 || player.PenaltyMinutes > 0);
+            Assert.IsTrue(player.SavePercentage >= 0.9m || player.PenaltyMinutes > 0);
         }
     }
 
@@ -759,7 +1225,7 @@ public class StatisticsTests
 
         var result = await nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20182019, expression);
 
-        // Act
+        // Assert
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total >= 6);
@@ -769,7 +1235,7 @@ public class StatisticsTests
             Assert.IsTrue(player.Wins < 40);
             Assert.IsTrue(player.GoalsAgainstAverage <= 3.5);
             Assert.IsTrue(player.Shutouts > 0);
-            Assert.IsTrue(player.SavePercentage >= 0.9 || player.Assists > 0);
+            Assert.IsTrue(player.SavePercentage >= 0.9m || player.Assists > 0);
             Assert.IsTrue(player.GoalieFullName.Contains("An"));
             Assert.IsTrue(!player.GoalieFullName.Contains("Ze"));
             Assert.IsTrue(player.PlayerId != 8471214);

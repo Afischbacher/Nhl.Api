@@ -410,6 +410,12 @@ public class NhlLeagueApi : INhlLeagueApi
                 QuaternaryColor = "#68A2B9",
                 QuinaryColor = "#E9072B"
             },
+            TeamEnum.UtahHockeyClub => new TeamColors
+            {
+                PrimaryColor = "#69B3E7",
+                SecondaryColor = "#010101",
+                TertiaryColor = "#FFFFFF"
+            },
             _ => null,
         };
 

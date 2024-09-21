@@ -1,4 +1,4 @@
-﻿namespace Nhl.Api.Models.Team;
+namespace Nhl.Api.Models.Team;
 
 /// <summary>
 /// All of the NHL team 3 character identifiers
@@ -238,4 +238,8 @@ public static class TeamCodes
     /// Washington Capitals
     /// </summary>
     public const string WashingtonCapitals = "WSH";
+    /// <summary>
+    /// Utah Hockey Club
+    /// </summary>
+    public const string UtahHockeyClub = "UTA";
 }
