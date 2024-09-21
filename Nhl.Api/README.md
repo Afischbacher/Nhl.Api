@@ -1011,11 +1011,11 @@ Returns all the NHL player game center statistics for a specific player for a sp
 
 ##### Summary
 
-Returns all the NHL real time player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points, power play points, shooting percentage, shots, time on ice per game and more
+Returns all the NHL real-time player game center statistics for players matching the provided filter expression for a specific season, including face-off percentage, points per game, overtime goals, shorthanded points, power-play points, shooting percentage, shots, time on ice per game, and more
 
 ##### Returns
 
-Returns all the NHL player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more
+Returns all the NHL real-time player game center statistics for players matching the filter expression for the specified season.
 
 ##### Parameters
 
@@ -1023,7 +1023,7 @@ Returns all the NHL player game center statistics for a specific player for a sp
 | ---- | ---- | ----------- |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year to retrieve the team statistics, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information on valid season years |
 | expressionPlayerFilter | [Nhl.Api.Models.Player.ExpressionPlayerFilter](#T-Nhl-Api-Models-Player-ExpressionPlayerFilter 'Nhl.Api.Models.Player.ExpressionPlayerFilter') | The expression player filter to filter the player statistics by, see [PlayerFilterExpressionBuilder](#T-Nhl-Api-Models-Player-PlayerFilterExpressionBuilder 'Nhl.Api.Models.Player.PlayerFilterExpressionBuilder') for more information on valid player filters |
-| playerRealtimeStatisticsFilterToSortBy | [Nhl.Api.Models.Player.PlayerRealtimeStatisticsFilter](#T-Nhl-Api-Models-Player-PlayerRealtimeStatisticsFilter 'Nhl.Api.Models.Player.PlayerRealtimeStatisticsFilter') | The player statistics filter to sort the player statistics by, see [PlayerStatisticsFilter](#T-Nhl-Api-Models-Player-PlayerStatisticsFilter 'Nhl.Api.Models.Player.PlayerStatisticsFilter') for more information on valid player statistics filters |
+| playerRealtimeStatisticsFilterToSortBy | [Nhl.Api.Models.Player.PlayerRealtimeStatisticsFilter](#T-Nhl-Api-Models-Player-PlayerRealtimeStatisticsFilter 'Nhl.Api.Models.Player.PlayerRealtimeStatisticsFilter') | The player real-time statistics filter to sort the player statistics by, see [PlayerRealtimeStatisticsFilter](#T-Nhl-Api-Models-Player-PlayerRealtimeStatisticsFilter 'Nhl.Api.Models.Player.PlayerRealtimeStatisticsFilter') for more information on valid player statistics filters |
 | limit | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The limit to the number of results returned when reviewing the NHL player statistics, by default -1 represents no limit applied to results |
 | offsetStart | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The offset to start the results from when reviewing the NHL player statistics |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the asynchronous operation |
@@ -1449,11 +1449,11 @@ Returns the NHL team schedule for the specified team and the specified date and 
 
 ##### Summary
 
-Returns all the NHL time on ice player game center statistics for a specific player for a specific season including even time on ice, overtime time on ice, over time on ice per over time game time on ice per game and more
+Returns all the NHL time-on-ice player game center statistics for players matching the provided filter expression for a specified season, including even-strength time on ice, overtime time on ice, time on ice per game, and more
 
 ##### Returns
 
-Returns all the NHL player game center statistics for a specific player for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more
+Returns all the NHL time-on-ice player game center statistics for players matching the filter expression for the specified season.
 
 ##### Parameters
 
@@ -1461,7 +1461,7 @@ Returns all the NHL player game center statistics for a specific player for a sp
 | ---- | ---- | ----------- |
 | seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The NHL season year to retrieve the team statistics, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information on valid season years |
 | expressionPlayerFilter | [Nhl.Api.Models.Player.ExpressionPlayerFilter](#T-Nhl-Api-Models-Player-ExpressionPlayerFilter 'Nhl.Api.Models.Player.ExpressionPlayerFilter') | The expression player filter to filter the player statistics by, see [PlayerFilterExpressionBuilder](#T-Nhl-Api-Models-Player-PlayerFilterExpressionBuilder 'Nhl.Api.Models.Player.PlayerFilterExpressionBuilder') for more information on valid player filters |
-| playerTimeOnIceStatisticsFilterToSortBy | [Nhl.Api.Models.Player.PlayerTimeOnIceStatisticsFilter](#T-Nhl-Api-Models-Player-PlayerTimeOnIceStatisticsFilter 'Nhl.Api.Models.Player.PlayerTimeOnIceStatisticsFilter') | The player statistics filter to sort the player statistics by, see [PlayerStatisticsFilter](#T-Nhl-Api-Models-Player-PlayerStatisticsFilter 'Nhl.Api.Models.Player.PlayerStatisticsFilter') for more information on valid player statistics filters |
+| playerTimeOnIceStatisticsFilterToSortBy | [Nhl.Api.Models.Player.PlayerTimeOnIceStatisticsFilter](#T-Nhl-Api-Models-Player-PlayerTimeOnIceStatisticsFilter 'Nhl.Api.Models.Player.PlayerTimeOnIceStatisticsFilter') | The player time-on-ice statistics filter to sort the player statistics by, see [PlayerTimeOnIceStatisticsFilter](#T-Nhl-Api-Models-Player-PlayerTimeOnIceStatisticsFilter 'Nhl.Api.Models.Player.PlayerTimeOnIceStatisticsFilter') for more information on valid player statistics filters |
 | limit | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The limit to the number of results returned when reviewing the NHL player statistics, by default -1 represents no limit applied to results |
 | offsetStart | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The offset to start the results from when reviewing the NHL player statistics |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the asynchronous operation |
