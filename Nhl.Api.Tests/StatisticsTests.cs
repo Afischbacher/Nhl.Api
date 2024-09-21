@@ -742,6 +742,7 @@ public class StatisticsTests
 
         foreach (var player in result.PlayerRealtimeStatisticsResults)
         {
+            Assert.IsTrue(player.OvertimeGoals > 1);
             Assert.IsTrue(player.ShootsCatches == ShootsCatches.Right);
             Assert.IsTrue(player.EmptyNetPoints > 1);
             Assert.IsTrue(player.EmptyNetGoals >= 1);
