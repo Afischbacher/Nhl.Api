@@ -228,7 +228,7 @@ public class NhlTeamService : INhlTeamService
     /// </summary>
     /// <param name="teamName">The NHL team name, Example: Vancouver Canucks</param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    public string GetTeamCodeIdentifierByTeamName(string teamName) => teamName.ReplaceNonAsciiWithAscii() switch
+    public string? GetTeamCodeIdentifierByTeamName(string teamName) => teamName.ReplaceNonAsciiWithAscii() switch
     {
         TeamNames.AnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
         TeamNames.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
@@ -262,10 +262,7 @@ public class NhlTeamService : INhlTeamService
         TeamNames.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
         TeamNames.WashingtonCapitals => TeamCodes.WashingtonCapitals,
         TeamNames.WinnipegJets => TeamCodes.WinnipegJets,
-        public string? GetTeamCodeIdentifierByTeamName(string teamName) => teamName.ReplaceNonAsciiWithAscii() switch
-        {
-            TeamNames.UtahHockeyClub => TeamCodes.UtahHockeyClub,
-            _ => null,
-        };
+        TeamNames.UtahHockeyClub => TeamCodes.UtahHockeyClub,
+        _ => null
     };
-}
+};
