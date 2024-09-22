@@ -423,7 +423,7 @@ public class TeamTests
     [TestMethodWithRetry(RetryCount = 5)]
     public async Task GetTeamSeasonScheduleByDateTimeAsync_Get_Valid_Information_With_Id(int teamId, string date)
     {
-        // ArrangeF
+        // Arrange
         await using var nhlApi = new NhlApi();
 
         // Act
