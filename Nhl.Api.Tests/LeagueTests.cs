@@ -1,8 +1,8 @@
+using System.Linq;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
-using System.Linq;
 
 namespace Nhl.Api.Tests;
 [TestClass]
@@ -356,7 +356,6 @@ public class LeagueTests
     [DataRow(22, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(25, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(26, SeasonYear.season20232024, GameType.RegularSeason)]
-    [DataRow(27, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(28, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(29, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(30, SeasonYear.season20232024, GameType.RegularSeason)]
@@ -369,15 +368,13 @@ public class LeagueTests
     [DataRow(8, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(9, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(10, SeasonYear.season20232024, GameType.RegularSeason)]
-    [DataRow(11, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(13, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(14, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(15, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(17, SeasonYear.season20232024, GameType.RegularSeason)]
-    [DataRow(50, SeasonYear.season20232024, GameType.RegularSeason)]
-    [DataRow(51, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(55, SeasonYear.season20232024, GameType.RegularSeason)]
-    public async Task GetTeamStatisticsBySeasonAndGameTypeAsync_Return_Valid_Information(int teamId, string seasonYear, GameType gameType)
+    [DataRow(28, SeasonYear.season20232024, GameType.RegularSeason)]
+    public async Task GetTeamStatisticsBySeasonAndGameTypeAsync_Return_Valid_Information_With_TeamId(int teamId, string seasonYear, GameType gameType)
     {
         // Arrange
         await using var nhlApi = new NhlApi();

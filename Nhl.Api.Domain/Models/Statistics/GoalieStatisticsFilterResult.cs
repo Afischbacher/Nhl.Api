@@ -1,5 +1,5 @@
-using Newtonsoft.Json;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Nhl.Api.Models.Statistics;
 /// <summary>
@@ -91,10 +91,10 @@ public class GoalieStatisticsResult
 
     /// <summary>
     /// The number of losses in overtime by the NHL goalie in the season <br/>
-    /// Example: 2
+    /// Example: 2 or null
     /// </summary>
     [JsonProperty("otLosses")]
-    public int OvertimeLosses { get; set; }
+    public int? OvertimeLosses { get; set; }
 
     /// <summary>
     /// The total number of penalty minutes served by the NHL goalie in the season <br/>
@@ -119,17 +119,17 @@ public class GoalieStatisticsResult
 
     /// <summary>
     /// The percentage of shots saved by the NHL goalie in the season <br/>
-    /// Example: 0.91711
+    /// Example: 0.91711 or null
     /// </summary>
     [JsonProperty("savePct")]
-    public double SavePercentage { get; set; }
+    public decimal? SavePercentage { get; set; }
 
     /// <summary>
     /// The total number of saves made by the NHL goalie in the season <br/>
-    /// Example: 102
+    /// Example: 102 or null
     /// </summary>
     [JsonProperty("saves")]
-    public int Saves { get; set; }
+    public int? Saves { get; set; }
 
     /// <summary>
     /// The identifier of the season for which the statistics are recorded <br/>
@@ -147,10 +147,10 @@ public class GoalieStatisticsResult
 
     /// <summary>
     /// The total number of shots faced by the NHL goalie in the season <br/>
-    /// Example: 1342
+    /// Example: 1342 or null
     /// </summary>
     [JsonProperty("shotsAgainst")]
-    public int ShotsAgainst { get; set; }
+    public int? ShotsAgainst { get; set; }
 
     /// <summary>
     /// The total number of shutouts recorded by the NHL goalie in the season <br/>

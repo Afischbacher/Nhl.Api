@@ -1,10 +1,10 @@
-﻿using Nhl.Api.Common.Extensions;
-using Nhl.Api.Common.Helpers;
-using Nhl.Api.Models.Enumerations.Team;
-using Nhl.Api.Models.Team;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Nhl.Api.Common.Extensions;
+using Nhl.Api.Common.Helpers;
+using Nhl.Api.Models.Enumerations.Team;
+using Nhl.Api.Models.Team;
 
 namespace Nhl.Api.Services;
 /// <summary>
@@ -17,28 +17,28 @@ public interface INhlTeamService
     /// </summary>
     /// <param name="teamLogoType">The NHL team logo type, specifying which the NHL team logo, Example: Dark </param>
     /// <returns>The NHL team logo color identifier, Example: dark</returns>
-    public string GetTeamLogoColorIdentifier(TeamLogoType teamLogoType);
+    public string? GetTeamLogoColorIdentifier(TeamLogoType teamLogoType);
 
     /// <summary>
     /// Returns the NHL team code identifier by the team id
     /// </summary>
     /// <param name="teamId">The NHL team identifier, specifying which the NHL team, Example: 55 - Seattle Kraken </param>
     /// <returns>The 3 letter code for the NHL team, Example: TOR - Toronto Maple Leafs</returns>
-    public string GetTeamCodeIdentifierByTeamId(int teamId);
+    public string? GetTeamCodeIdentifierByTeamId(int teamId);
 
     /// <summary>
     /// Returns the NHL team code identifier by the team abbreviation
     /// </summary>
     /// <param name="teamAbbreviation">The NHL team abbreviation, specifying which the NHL team, Example: TOR - Toronto Maple Leafs </param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    public string GetTeamCodeIdentifierByTeamAbbreviation(string teamAbbreviation);
+    public string? GetTeamCodeIdentifierByTeamAbbreviation(string teamAbbreviation);
 
     /// <summary>
     /// Returns the NHL team code identifier by the team enumeration
     /// </summary>
     /// <param name="teamEnum">The NHL team enumeration, specifying which the NHL team, Example: Toronto Maple Leafs - 10 </param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    public string GetTeamCodeIdentifierByTeamEnumeration(TeamEnum teamEnum);
+    public string? GetTeamCodeIdentifierByTeamEnumeration(TeamEnum teamEnum);
 
     /// <summary>
     /// Returns the NHL team code identifier by the team enumerations
@@ -52,7 +52,7 @@ public interface INhlTeamService
     /// </summary>
     /// <param name="teamName">The NHL team name, Example: Vancouver Canucks</param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    public string GetTeamCodeIdentifierByTeamName(string teamName);
+    public string? GetTeamCodeIdentifierByTeamName(string teamName);
 
 }
 
@@ -67,7 +67,7 @@ public class NhlTeamService : INhlTeamService
     /// </summary>
     /// <param name="teamLogoType">The NHL team logo type, specifying which the NHL team logo, Example: Dark </param>
     /// <returns>The NHL team logo color identifier, Example: dark</returns>
-    public string GetTeamLogoColorIdentifier(TeamLogoType teamLogoType) => teamLogoType switch
+    public string? GetTeamLogoColorIdentifier(TeamLogoType teamLogoType) => teamLogoType switch
     {
         TeamLogoType.Dark => "dark",
         TeamLogoType.Light => "light",
@@ -79,7 +79,7 @@ public class NhlTeamService : INhlTeamService
     /// </summary>
     /// <param name="teamId">The NHL team identifier, specifying which the NHL team, Example: 55 - Seattle Kraken </param>
     /// <returns>The 3 letter code for the NHL team, Example: TOR - Toronto Maple Leafs</returns>
-    public string GetTeamCodeIdentifierByTeamId(int teamId) => teamId switch
+    public string? GetTeamCodeIdentifierByTeamId(int teamId) => teamId switch
     {
         (int)TeamEnum.AnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
         (int)TeamEnum.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
@@ -113,6 +113,7 @@ public class NhlTeamService : INhlTeamService
         (int)TeamEnum.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
         (int)TeamEnum.WashingtonCapitals => TeamCodes.WashingtonCapitals,
         (int)TeamEnum.WinnipegJets => TeamCodes.WinnipegJets,
+        (int)TeamEnum.UtahHockeyClub => TeamCodes.UtahHockeyClub,
         _ => null,
     };
 
@@ -121,7 +122,7 @@ public class NhlTeamService : INhlTeamService
     /// </summary>
     /// <param name="teamAbbreviation">The NHL team abbreviation, specifying which the NHL team, Example: TOR - Toronto Maple Leafs </param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    public string GetTeamCodeIdentifierByTeamAbbreviation(string teamAbbreviation) => teamAbbreviation switch
+    public string? GetTeamCodeIdentifierByTeamAbbreviation(string teamAbbreviation) => teamAbbreviation switch
     {
         TeamCodes.MightyDucksofAnaheimAnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
         TeamCodes.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
@@ -157,6 +158,7 @@ public class NhlTeamService : INhlTeamService
         TeamCodes.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
         TeamCodes.WashingtonCapitals => TeamCodes.WashingtonCapitals,
         TeamCodes.WinnipegJets => TeamCodes.WinnipegJets,
+        TeamCodes.UtahHockeyClub => TeamCodes.UtahHockeyClub,
         _ => null,
     };
 
@@ -166,7 +168,7 @@ public class NhlTeamService : INhlTeamService
     /// </summary>
     /// <param name="teamEnum">The NHL team enumeration, specifying which the NHL team, Example: Toronto Maple Leafs - 10 </param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    public string GetTeamCodeIdentifierByTeamEnumeration(TeamEnum teamEnum) => teamEnum switch
+    public string? GetTeamCodeIdentifierByTeamEnumeration(TeamEnum teamEnum) => teamEnum switch
     {
         TeamEnum.NewJerseyDevils => TeamCodes.NewJerseyDevils,
         TeamEnum.NewYorkIslanders => TeamCodes.NewYorkIslanders,
@@ -200,6 +202,7 @@ public class NhlTeamService : INhlTeamService
         TeamEnum.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
         TeamEnum.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
         TeamEnum.SeattleKraken => TeamCodes.SeattleKraken,
+        TeamEnum.UtahHockeyClub => TeamCodes.UtahHockeyClub,
         _ => null,
     };
 
@@ -225,7 +228,7 @@ public class NhlTeamService : INhlTeamService
     /// </summary>
     /// <param name="teamName">The NHL team name, Example: Vancouver Canucks</param>
     /// <returns>The NHL team code for the NHL team, Example: TOR</returns>
-    public string GetTeamCodeIdentifierByTeamName(string teamName) => teamName.ReplaceNonAsciiWithAscii() switch
+    public string? GetTeamCodeIdentifierByTeamName(string teamName) => teamName.ReplaceNonAsciiWithAscii() switch
     {
         TeamNames.AnaheimDucks => TeamCodes.MightyDucksofAnaheimAnaheimDucks,
         TeamNames.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
@@ -259,6 +262,7 @@ public class NhlTeamService : INhlTeamService
         TeamNames.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
         TeamNames.WashingtonCapitals => TeamCodes.WashingtonCapitals,
         TeamNames.WinnipegJets => TeamCodes.WinnipegJets,
-        _ => throw new ArgumentException($"Unknown NHL team: {teamName}", nameof(teamName)),
+        TeamNames.UtahHockeyClub => TeamCodes.UtahHockeyClub,
+        _ => null
     };
-}
+};

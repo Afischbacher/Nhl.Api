@@ -1,4 +1,4 @@
-﻿namespace Nhl.Api.Models.Enumerations.Team;
+namespace Nhl.Api.Models.Enumerations.Team;
 
 /// <summary>
 /// An enumeration for all active NHL teams
@@ -132,5 +132,9 @@ public enum TeamEnum
     /// <summary>
     /// Seattle Kraken
     /// </summary>
-    SeattleKraken = 55
+    SeattleKraken = 55,
+    /// <summary>
+    /// Utah Hockey Club
+    /// </summary>
+    UtahHockeyClub = 59
 }

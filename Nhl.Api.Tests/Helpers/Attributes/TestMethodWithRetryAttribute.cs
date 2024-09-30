@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Threading;
 
 namespace Nhl.Api.Tests.Helpers.Attributes;
@@ -16,19 +16,36 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute
     /// <summary>
     /// A delay time between each test execution retry attempt
     /// </summary>
-    public int RetryDelayInSeconds { get; set; } = 0;
+    public int RetryDelayInSeconds { get; set; } = 1;
+
+    /// <summary>
+    /// The backoff coefficient to apply to the retry delay
+    /// </summary>
+    public decimal BackoffCoefficent { get; set; } = 1.0m;
 
     public override TestResult[] Execute(ITestMethod testMethod)
     {
-        var count = RetryCount;
-        var backOffDelay = RetryDelayInSeconds;
+        var count = this.RetryCount;
+        var backOffDelay = this.RetryDelayInSeconds;
+        var backOffWithCoefficient = (int)(backOffDelay * this.BackoffCoefficent);
+        const int oneThousandMilliseconds = 1000;
 
         TestResult[] result = null;
         while (count > 0)
         {
             try
             {
-                Thread.Sleep(backOffDelay * 1000);
+                if (this.BackoffCoefficent > 1.0m)
+                {
+                    backOffWithCoefficient = (int)(backOffDelay * this.BackoffCoefficent);
+                    this.BackoffCoefficent *= this.BackoffCoefficent;
+                    Thread.Sleep(backOffWithCoefficient * oneThousandMilliseconds);
+                }
+                else
+                {
+                    Thread.Sleep(backOffDelay * oneThousandMilliseconds);
+                }
+
                 result = base.Execute(testMethod);
                 if (result.Any(r => r.TestFailureException != null))
                 {

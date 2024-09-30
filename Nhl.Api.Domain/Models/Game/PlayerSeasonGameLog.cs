@@ -1,6 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections.Generic;
+using Newtonsoft.Json;
 using Nhl.Api.Models.Team;
-using System.Collections.Generic;
 
 namespace Nhl.Api.Models.Game;
 /// <summary>

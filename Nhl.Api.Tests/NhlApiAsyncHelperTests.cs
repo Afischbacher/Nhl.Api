@@ -1,6 +1,6 @@
-﻿using Nhl.Api.Common.Services;
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Linq;
+using Nhl.Api.Common.Services;
 
 namespace Nhl.Api.Tests;
 [TestClass]
