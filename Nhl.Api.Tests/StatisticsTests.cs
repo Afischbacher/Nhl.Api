@@ -452,7 +452,7 @@ public class StatisticsTests
 
         var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
 
-        // Act
+        // Assert
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total >= 9);
@@ -484,7 +484,7 @@ public class StatisticsTests
 
         var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season19992000, expression);
 
-        // Act
+        // Assert
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total >= 8);
@@ -508,7 +508,7 @@ public class StatisticsTests
 
         var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20102011, expression);
 
-        // Act
+        // Assert
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total >= 800);
@@ -545,7 +545,7 @@ public class StatisticsTests
 
         var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
 
-        // Act
+        // Assert
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total >= 2);
@@ -599,7 +599,7 @@ public class StatisticsTests
 
         var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
 
-        // Act
+        // Assert
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total >= 2);
@@ -735,7 +735,7 @@ public class StatisticsTests
 
         var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
 
-        // Act
+        // Assert
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total == 1);
@@ -790,7 +790,7 @@ public class StatisticsTests
 
         var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
 
-        // Act
+        // Assert
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total == 47);
@@ -816,7 +816,7 @@ public class StatisticsTests
         // Act
         var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, ExpressionPlayerFilter.Empty);
 
-        // Act
+        // Assert
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total > 800);
 
@@ -839,7 +839,7 @@ public class StatisticsTests
 
         var result = await nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
 
-        // Act
+        // Assert
         Assert.IsNotNull(expression);
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Total >= 1);
