@@ -153,8 +153,18 @@ public class NhlGameApi : INhlGameApi
     /// <param name="gameId">The NHL game identifier, Example: 2023020204 </param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL game center box score for the specified game id, including the game information, game status, game venue and more</returns>
-    public async Task<GameCenterBoxScore> GetGameCenterBoxScoreByGameIdAsync(int gameId, CancellationToken cancellationToken = default) =>
-         await _nhlApiWebHttpClient.GetAsync<GameCenterBoxScore>($"/gamecenter/{gameId}/boxscore", cancellationToken);
+    public async Task<GameCenterBoxScore> GetGameCenterBoxScoreByGameIdAsync(int gameId, CancellationToken cancellationToken = default)
+    {
+        var boxScoreTask = _nhlApiWebHttpClient.GetAsync<Boxscore>($"/gamecenter/{gameId}/right-rail", cancellationToken);
+        var gameCenterBoxScoreTask = _nhlApiWebHttpClient.GetAsync<GameCenterBoxScore>($"/gamecenter/{gameId}/boxscore", cancellationToken);
+
+        await Task.WhenAll(gameCenterBoxScoreTask, boxScoreTask);
+
+        var gameCenterBoxScore = await gameCenterBoxScoreTask;
+        gameCenterBoxScore.Boxscore = await boxScoreTask;
+
+        return gameCenterBoxScore;
+    }
 
     /// <summary>
     /// Returns the NHL game meta data for the specified game id, including the teams, season states and more
