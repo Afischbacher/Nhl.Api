@@ -707,6 +707,14 @@ public class NhlApi : INhlApi
            await _nhlStatisticsApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionGoalieFilter, goalieStatisticsFilterToSortBy, limit, offsetStart, cancellationToken);
 
     /// <summary>
+    /// Returns the NHL game direct box score including information such as summaries, linescores, shots by period and more
+    /// </summary>
+    /// <param name="gameId">The NHL game identifier, Example: 2023020204 </param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL game direct box score including information such as summaries, linescores, shots by period and more</returns>
+    public async Task<Boxscore> GetBoxscoreByGameIdAsync(int gameId, CancellationToken cancellationToken = default) => await _nhlGameApi.GetBoxscoreByGameIdAsync(gameId, cancellationToken);
+
+    /// <summary>
     /// Releases and disposes all unused or garbage collected resources for the Nhl.Api
     /// </summary>
     public void Dispose() =>
