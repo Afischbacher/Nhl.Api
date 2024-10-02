@@ -20,7 +20,7 @@ public interface INhlGameService
     /// </summary>
     /// <param name="gameCenterPlayByPlay"> A game center play by play object</param>
     /// <returns>All of the game center play by play information with the time of play for each play</returns>
-    Task<GameCenterPlayByPlay> AddDateTimeOfPlayForEachPlay(GameCenterPlayByPlay gameCenterPlayByPlay);
+    Task<GameCenterPlayByPlay> AddEstimatedDateTimeOfPlayForEachPlay(GameCenterPlayByPlay gameCenterPlayByPlay);
 }
 
 /// <summary>
@@ -35,51 +35,67 @@ public class NhlGameService : INhlGameService
     /// </summary>
     /// <param name="gameCenterPlayByPlay"> A game center play by play object</param>
     /// <returns>All of the game center play by play information with the time of play for each play</returns>
-    public async Task<GameCenterPlayByPlay> AddDateTimeOfPlayForEachPlay(GameCenterPlayByPlay gameCenterPlayByPlay)
+    public async Task<GameCenterPlayByPlay> AddEstimatedDateTimeOfPlayForEachPlay(GameCenterPlayByPlay gameCenterPlayByPlay)
     {
         var gameId = gameCenterPlayByPlay.Id.ToString(CultureInfo.InvariantCulture)[4..];
         var scoreReport = await this._nhlScoresHtmlReportsApiHttpClient.GetStringAsync($"/{gameCenterPlayByPlay.Season}/PL{gameId}.HTM", default);
 
-        var regex = Regex.Matches(scoreReport, @"(?<=<td class="" \+ bborder"">)Period(.*?)(?=</td>)", RegexOptions.Compiled, TimeSpan.FromSeconds(5)).ToList();
+        var timePeriodMatches = Regex.Matches(scoreReport, @"(?<=<td class="" \+ bborder"">)Period(.*?)(?=</td>)", RegexOptions.Compiled | RegexOptions.CultureInvariant, TimeSpan.FromSeconds(5)).ToList();
 
-        if (string.IsNullOrWhiteSpace(scoreReport) || regex.Count == 0)
+        if (string.IsNullOrWhiteSpace(scoreReport) || timePeriodMatches.Count == 0)
         {
             try
             {
+                // Parse game start time and adjust for venue UTC offset
                 var gameStart = DateTimeOffset.Parse($"{gameCenterPlayByPlay.StartTimeUTC}", CultureInfo.InvariantCulture);
                 var timeSpanOffset = TimeSpan.Parse(gameCenterPlayByPlay.VenueUTCOffset, CultureInfo.InvariantCulture);
 
-                // Set offset
-                gameStart = gameStart.AddHours(timeSpanOffset.TotalHours);
+                gameStart = gameStart.AddHours(timeSpanOffset.TotalHours); // Adjust with venue UTC offset
 
-                // Set average delay in start time
-                gameStart = gameStart.Add(TimeSpan.FromMinutes(8.5));
+                // Add average delay in start time (assuming game starts on average 8.5 minutes after scheduled time)
+                gameStart = gameStart.AddMinutes(8.5);
 
-                var averageTimeDelayInIntermission = TimeSpan.FromMinutes(18);
-
-                // Average time of a period including stoppage
-                var timeOfPeriod = TimeSpan.FromMinutes(35);
+                // Constants based on estimated NHL standards
+                var averagePeriodDuration = TimeSpan.FromMinutes(42.5);        // Average period duration including stoppages
+                var intermissionDuration = TimeSpan.FromMinutes(20);           // Intermission duration
+                var overtimeIntermissionDuration = TimeSpan.FromMinutes(2.5);    // Short break before OT
+                var maxRegularPeriods = 3;                                     // Number of regular periods
 
                 foreach (var play in gameCenterPlayByPlay.Plays)
                 {
                     var period = play.Period;
                     var timeElapsed = TimeSpan.Zero;
+                    var timeInPeriod = TimeSpan.ParseExact(play.TimeInPeriod, @"mm\:ss", CultureInfo.InvariantCulture);
 
-                    if (period > 1)
+                    if (period <= maxRegularPeriods)
                     {
-                        var regularPeriodTime = period <= 3 ? ((period - 1) * timeOfPeriod) : TimeSpan.FromMinutes(105);
-                        var averageDelayInIntermission = period <= 3 ? ((period - 1) * averageTimeDelayInIntermission) : TimeSpan.FromMinutes(60);
-                        timeElapsed += averageDelayInIntermission + regularPeriodTime;
+                        // Regular periods
+                        var completedPeriods = period - 1;
+
+                        // Total time from completed periods and intermissions
+                        timeElapsed += completedPeriods * (averagePeriodDuration + intermissionDuration);
+
+                        // Time elapsed within the current period
+                        timeElapsed += timeInPeriod;
+                    }
+                    else
+                    {
+                        // Overtime periods
+                        // Time from regular periods and intermissions
+                        timeElapsed += maxRegularPeriods * (averagePeriodDuration + intermissionDuration);
+
+                        // Add short break before overtime
+                        timeElapsed += overtimeIntermissionDuration;
+
+                        // Time within overtime period
+                        timeElapsed += timeInPeriod;
                     }
 
-                    timeElapsed += TimeOnly.Parse($"00:{play.TimeInPeriod}", CultureInfo.InvariantCulture).ToTimeSpan();
-                    if (period > 3)
-                    {
-                        timeElapsed += period * TimeSpan.FromMinutes(10);
-                    }
+                    // Calculate the estimated DateTime of the play
+                    var estimatedDateTime = gameStart.Add(timeElapsed);
 
-                    timeElapsed += TimeSpan.FromSeconds(5);
-                    play.EstimatedDateTimeOfPlay = gameStart.Add(timeElapsed);
+                    // Assign estimated date time to play
+                    play.EstimatedDateTimeOfPlay = estimatedDateTime;
                 }
             }
             catch
@@ -99,9 +115,9 @@ public class NhlGameService : INhlGameService
                     { 5, [] },
                 };
 
-                for (var i = 0; i < regex.Count; i++)
+                for (var i = 0; i < timePeriodMatches.Count; i++)
                 {
-                    var match = regex[i].Value;
+                    var match = timePeriodMatches[i].Value;
                     var value = Regex.Match(match, @"([0-9]{1,2}:[0-9]{2})", RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(30)).Groups[0].Value;
                     var time = TimeOnly.Parse($"{value} PM", CultureInfo.InvariantCulture);
                     var dateTime = DateTime.Parse($"{gameCenterPlayByPlay.GameDate} {time} {gameCenterPlayByPlay.EasternUTCOffset}", CultureInfo.InvariantCulture);
@@ -134,10 +150,15 @@ public class NhlGameService : INhlGameService
                 {
                     var startTime = startTimeOfEachPeriod[playsForPeriod.Key].FirstOrDefault();
                     var endTime = startTimeOfEachPeriod[playsForPeriod.Key].LastOrDefault();
+                    if (startTime == default || endTime == default)
+                    {
+                        continue;
+                    }
+
                     var distanceBetweenPlays = endTime - startTime;
                     var timeBetweenPlays = distanceBetweenPlays / playsForPeriod.Value.Count;
 
-                    var multiplier = CalculateMultiplier(startTime, endTime, playsForPeriod.Value.Count);
+                    var multiplier = this.CalculateMultiplier(startTime, endTime, playsForPeriod.Value.Count);
                     for (var i = 0; i < playsForPeriod.Value.Count; i++)
                     {
                         var play = playsForPeriod.Value[i];

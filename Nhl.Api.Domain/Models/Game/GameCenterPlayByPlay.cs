@@ -368,7 +368,7 @@ public class GameCenterPlay
     /// The estimated time of the play for the NHL game center play by play, these are not exact times and are close approximations of each game event <br/>
     /// Example: 2024-01-13T20:12:23Z
     /// </summary>
-    public DateTimeOffset EstimatedDateTimeOfPlay { get; set; }
+    public DateTimeOffset? EstimatedDateTimeOfPlay { get; set; }
 }
 
 /// <summary>

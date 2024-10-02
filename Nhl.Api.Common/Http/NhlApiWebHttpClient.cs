@@ -20,7 +20,7 @@ public class NhlApiWebHttpClient : NhlApiHttpClient
     /// <summary>
     /// The dedicated NHL web api HTTP Client for the Nhl.Api
     /// </summary>
-    public NhlApiWebHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: "v1", timeoutInSeconds: 30)
+    public NhlApiWebHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: "v1", timeoutInSeconds: 60)
     {
 
     }

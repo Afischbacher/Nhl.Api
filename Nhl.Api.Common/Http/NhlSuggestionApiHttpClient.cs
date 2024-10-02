@@ -18,7 +18,7 @@ public class NhlSuggestionApiHttpClient : NhlApiHttpClient
     /// <summary>
     /// The dedicated NHL HTTP Client for the NHL suggestion API
     /// </summary>
-    public NhlSuggestionApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: "v1", timeoutInSeconds: 30)
+    public NhlSuggestionApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: "v1", timeoutInSeconds: 60)
     {
     }
 

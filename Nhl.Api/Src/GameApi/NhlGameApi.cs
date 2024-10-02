@@ -147,7 +147,7 @@ public class NhlGameApi : INhlGameApi
         var gameCenterPlayByPlay = await _nhlApiWebHttpClient.GetAsync<GameCenterPlayByPlay>($"/gamecenter/{gameId}/play-by-play", cancellationToken);
         if (includeEventDateTime)
         {
-            gameCenterPlayByPlay = await _nhlGameService.AddDateTimeOfPlayForEachPlay(gameCenterPlayByPlay);
+            gameCenterPlayByPlay = await _nhlGameService.AddEstimatedDateTimeOfPlayForEachPlay(gameCenterPlayByPlay);
         }
 
         return gameCenterPlayByPlay;
