@@ -294,8 +294,7 @@ public class GameCenterPlay
     /// The period number for the NHL game center play by play <br/>
     /// Example: 1
     /// </summary>
-    [JsonProperty("period")]
-    public int Period { get; set; }
+    public int Period => this.PeriodDescriptor?.Number ?? 0;
 
     /// <summary>
     /// The period descriptor for the NHL game center play by play <br/>
@@ -364,6 +363,12 @@ public class GameCenterPlay
     /// </summary>
     [JsonProperty("details")]
     public GameCenterDetails Details { get; set; }
+
+    /// <summary>
+    /// The estimated time of the play for the NHL game center play by play, these are not exact times and are close approximations of each game event <br/>
+    /// Example: 2024-01-13T20:12:23Z
+    /// </summary>
+    public DateTimeOffset EstimatedDateTimeOfPlay { get; set; }
 }
 
 /// <summary>

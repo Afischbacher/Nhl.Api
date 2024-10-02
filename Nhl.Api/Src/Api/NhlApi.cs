@@ -516,9 +516,10 @@ public class NhlApi : INhlApi
     /// </summary>
     /// <param name="gameId">The NHL game identifier, Example: 2023020204 </param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <param name="includeEventDateTime"> A flag to include the event date and time for the NHL game center play by play feed</param>
     /// <returns>Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more</returns>
-    public async Task<GameCenterPlayByPlay> GetGameCenterPlayByPlayByGameIdAsync(int gameId, CancellationToken cancellationToken = default) =>
-           await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(gameId, cancellationToken);
+    public async Task<GameCenterPlayByPlay> GetGameCenterPlayByPlayByGameIdAsync(int gameId, bool includeEventDateTime = false, CancellationToken cancellationToken = default) =>
+           await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(gameId, includeEventDateTime, cancellationToken);
 
     /// <summary>
     /// Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more

@@ -210,13 +210,13 @@ public class GameTests
     [TestMethodWithRetry(RetryCount = 5)]
     public async Task NhlScoresHtmlReportsApiHttpClient_Can_Parse_Html_Report_For_Start_End_Period_Times()
     {
-        var dictionary = new Dictionary<string, List<string>>
+        var dictionary = new Dictionary<string, List<TimeOnly>>
         {
-            { "P1", new List<string>() },
-            { "P2", new List<string>() },
-            { "P3", new List<string>() },
-            { "OT", new List<string>() },
-            { "SH", new List<string>() },
+            { "P1", new List<TimeOnly>() },
+            { "P2", new List<TimeOnly>() },
+            { "P3", new List<TimeOnly>() },
+            { "OT", new List<TimeOnly>() },
+            { "SH", new List<TimeOnly>() },
         };
 
         var httpClient = new NhlScoresHtmlReportsApiHttpClient();
@@ -224,29 +224,31 @@ public class GameTests
 
         var regex = Regex.Matches(gameReport, @"(?<=<td class="" \+ bborder"">)Period(.*?)(?=</td>)", RegexOptions.Compiled, TimeSpan.FromSeconds(30)).ToList();
 
-        for (int i = 0; i < regex.Count; i++)
+        for (var i = 0; i < regex.Count; i++)
         {
             var match = regex[i].Value;
-            var value = Regex.Match(match, @"([0-9]{1,2}:[0-9]{2}\s[A-Z]{3})", RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(30)).Groups[0].Value;
+            var value = Regex.Match(match, @"([0-9]{1,2}:[0-9]{2})", RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(30)).Groups[0].Value;
+            var time = TimeOnly.Parse($"{value} PM");
+
             if (i <= 1)
             {
-                dictionary["P1"].Add(value);
+                dictionary["P1"].Add(time);
             }
             else if (i >= 2 && i <= 3)
             {
-                dictionary["P2"].Add(value);
+                dictionary["P2"].Add(time);
             }
             else if (i >= 4 && i <= 5)
             {
-                dictionary["P3"].Add(value);
+                dictionary["P3"].Add(time);
             }
             else if (i >= 6 && i <= 7)
             {
-                dictionary["OT"].Add(value);
+                dictionary["OT"].Add(time);
             }
             else if (i <= 9)
             {
-                dictionary["SH"].Add(value);
+                dictionary["SH"].Add(time);
             }
         }
     }

@@ -167,7 +167,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var tasks = schedule.Games.Select(async game =>
         {
             // Count number of game events where player won a faceoff
-            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, cancellationToken);
+            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, includeEventDateTime: false, cancellationToken);
             return gameCenterPlayByPlay.Plays.Count(play =>
             {
                 var playerId = (int)playerEnum;
@@ -233,10 +233,8 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var tasks = schedule.Games.Select(async game =>
         {
             // Count number of game events where player won a faceoff
-            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, cancellationToken);
-            return gameCenterPlayByPlay.Plays.Count(play =>
-            {
-                return playerGameCenterStatistic switch
+            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, includeEventDateTime: false, cancellationToken);
+            return gameCenterPlayByPlay.Plays.Count(play => playerGameCenterStatistic switch
                 {
                     PlayerGameCenterStatistic.FaceOffWon => play.TypeDescKey == "faceoff" && play.Details.WinningPlayerId == playerId,
                     PlayerGameCenterStatistic.FaceOffLost => play.TypeDescKey == "faceoff" && play.Details.LosingPlayerId == playerId,
@@ -250,8 +248,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
                     PlayerGameCenterStatistic.CommittedPenalty => play.TypeDescKey == "penalty" && play.Details.CommittedByPlayerId == playerId,
                     PlayerGameCenterStatistic.Takeaway => play.TypeDescKey == "takeaway" && play.Details.PlayerId == playerId,
                     _ => false,
-                };
-            });
+                });
         });
 
         // Wait for all tasks to complete
@@ -317,7 +314,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var tasks = schedule.Games.Select(async game =>
         {
             // Count number of game events where player won a faceoff
-            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, cancellationToken);
+            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, includeEventDateTime: false, cancellationToken);
             var gameStatisticTotals = new Dictionary<PlayerGameCenterStatistic, int>
             {
                 { PlayerGameCenterStatistic.FaceOffWon, 0 },
@@ -411,7 +408,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var tasks = schedule.Games.Select(async game =>
         {
             // Count number of game events where player won a faceoff
-            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, cancellationToken);
+            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, includeEventDateTime: false, cancellationToken);
             var gameStatisticTotals = new Dictionary<PlayerGameCenterStatistic, int>
             {
                 { PlayerGameCenterStatistic.FaceOffWon, 0 },
@@ -519,7 +516,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var gamePlayByPlayTasks = games.Select(async game =>
         {
             // Count number of game events where player won a faceoff
-            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, cancellationToken);
+            var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, includeEventDateTime: false, cancellationToken);
 
             gameCenterPlayByPlay.Plays.ForEach(play =>
             {
