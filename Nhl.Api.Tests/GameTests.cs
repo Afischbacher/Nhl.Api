@@ -1,6 +1,4 @@
 using System.Linq;
-using System.Text.RegularExpressions;
-using Nhl.Api.Common.Http;
 
 namespace Nhl.Api.Tests;
 

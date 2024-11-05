@@ -1,12 +1,11 @@
+using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Text.RegularExpressions;
-using System;
 using System.Threading.Tasks;
 using Nhl.Api.Common.Http;
 using Nhl.Api.Models.Game;
-using System.Linq;
-using Nhl.Api.Models.Schedule;
 
 namespace Nhl.Api.Services;
 

@@ -1,7 +1,3 @@
-using System.Globalization;
-using System.Text.RegularExpressions;
-using Nhl.Api.Common.Http;
-using Nhl.Api.Models.Game;
 using Nhl.Api.Services;
 
 namespace Nhl.Api;
