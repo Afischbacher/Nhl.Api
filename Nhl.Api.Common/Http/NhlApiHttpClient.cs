@@ -59,7 +59,7 @@ public abstract class NhlApiHttpClient : INhlApiHttpClient
     /// <summary>
     /// The Nhl.Api HTTP Client
     /// </summary>
-    public NhlApiHttpClient(string clientApiUri, string clientVersion, int timeoutInSeconds = 30)
+    public NhlApiHttpClient(string clientApiUri, string clientVersion, int timeoutInSeconds = 60)
     {
         ServicePointManager.ReusePort = true;
         ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls13 | SecurityProtocolType.Tls12;

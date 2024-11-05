@@ -28,7 +28,7 @@ public interface INhlGameService
 /// </summary>
 public class NhlGameService : INhlGameService
 {
-    private readonly NhlScoresHtmlReportsApiHttpClient _nhlScoresHtmlReportsApiHttpClient = new();
+    private readonly INhlApiHttpClient _nhlScoresHtmlReportsApiHttpClient = new NhlScoresHtmlReportsApiHttpClient();
 
     /// <summary>
     /// A method to add the estimated time of play for each play in the game center play by play
