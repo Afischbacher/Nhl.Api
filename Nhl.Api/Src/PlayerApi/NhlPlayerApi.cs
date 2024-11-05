@@ -97,7 +97,7 @@ public class NhlPlayerApi : INhlPlayerApi
             throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
         }
 
-        var playerInformation = await this.GetPlayerInformationAsync(playerId, cancellationToken);
+        var playerInformation = await GetPlayerInformationAsync(playerId, cancellationToken);
         var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear))?.TeamName?.Default;
         if (string.IsNullOrWhiteSpace(teamName))
         {
