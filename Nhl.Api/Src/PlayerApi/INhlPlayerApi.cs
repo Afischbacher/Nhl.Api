@@ -1,4 +1,6 @@
-﻿namespace Nhl.Api;
+using Nhl.Api.Models.Draft;
+
+namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial NHL Player API providing various NHL information about players, draft prospects, rosters and more
@@ -127,5 +129,14 @@ public interface INhlPlayerApi : IDisposable
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns all the NHL players to ever play in the NHL</returns>
     public Task<List<PlayerDataSearchResult>> GetAllPlayersAsync(CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Returns the NHL draft ranking by the specified year and starting position for the draft year 
+    /// </summary>
+    /// <param name="seasonYear"> The NHL draft year </param>
+    /// <param name="startingPosition"> The starting position of the NHL draft by the year </param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns> Returns the NHL draft ranking by the specified year and starting position for the draft year </returns>
+    public Task<PlayerDraftYear> GetPlayerDraftRankingByYearAsync(string seasonYear, int startingPosition = 1, CancellationToken cancellationToken = default);
 
 }

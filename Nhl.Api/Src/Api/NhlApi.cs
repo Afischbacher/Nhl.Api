@@ -1,3 +1,5 @@
+using Nhl.Api.Models.Draft;
+
 namespace Nhl.Api;
 
 /// <summary>
@@ -718,6 +720,17 @@ public class NhlApi : INhlApi
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL game direct box score including information such as summaries, linescores, shots by period and more</returns>
     public async Task<Boxscore> GetBoxscoreByGameIdAsync(int gameId, CancellationToken cancellationToken = default) => await _nhlGameApi.GetBoxscoreByGameIdAsync(gameId, cancellationToken);
+
+
+    /// <summary>
+    /// Returns the NHL draft ranking by the specified year and starting position for the draft year 
+    /// </summary>
+    /// <param name="seasonYear"> The NHL draft year </param>
+    /// <param name="startingPosition"> The starting position of the NHL draft by the year </param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns> Returns the NHL draft ranking by the specified year and starting position for the draft year </returns>
+    public async Task<PlayerDraftYear> GetPlayerDraftRankingByYearAsync(string seasonYear, int startingPosition = 1, CancellationToken cancellationToken = default) =>
+        await _nhlPlayerApi.GetPlayerDraftRankingByYearAsync(seasonYear, startingPosition, cancellationToken);
 
     /// <summary>
     /// Releases and disposes all unused or garbage collected resources for the Nhl.Api

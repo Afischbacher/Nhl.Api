@@ -365,10 +365,16 @@ public class GameCenterPlay
     public GameCenterDetails Details { get; set; }
 
     /// <summary>
-    /// The estimated time of the play for the NHL game center play by play, these are not exact times and are close approximations of each game event <br/>
+    /// The estimated time of the play for the NHL game center play by play, these are not exact times and are close approximations of each game event within 1 (one) hour of the event occurring <br/>
+    /// this is due to some factors which include but are not limited to: <br/>
+    /// <list type="bullet">
+    /// <item>An active NHL game currently in progress</item>
+    /// <item>No score sheet or report available for correct start and end times of periods</item>
+    /// <item>No public recordings of the end time of the game/period</item>
+    /// </list>
     /// Example: 2024-01-13T20:12:23Z
     /// </summary>
-    public DateTimeOffset? EstimatedDateTimeOfPlay { get; set; }
+    public DateTimeOffset? EstimatedDateTimeOfPlay { get; set; } = null;
 }
 
 /// <summary>

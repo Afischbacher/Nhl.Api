@@ -1,3 +1,4 @@
+using System.Globalization;
 using Nhl.Api.Services;
 
 namespace Nhl.Api;
@@ -459,13 +460,16 @@ public class NhlStatisticsApi : INhlStatisticsApi
 
         ValidateSeasonYear(seasonYear);
 
-        // Get all NHL teams
         var allNhlTeams = Enum.GetValues(typeof(TeamEnum)).Cast<TeamEnum>().ToList();
 
-        var teamRosterTasks = allNhlTeams.Select(async (team) =>
+        // Get all NHL Teams
+        if (int.Parse(seasonYear, CultureInfo.InvariantCulture) >= int.Parse(SeasonYear.season20242025, CultureInfo.InvariantCulture))
         {
-            return await _nhlLeagueApi.GetTeamRosterBySeasonYearAsync(team, seasonYear, cancellationToken);
-        });
+            // They are no longer in the NHL
+            allNhlTeams.Remove(TeamEnum.ArizonaCoyotes);
+        }
+
+        var teamRosterTasks = allNhlTeams.Select(async (team) => await _nhlLeagueApi.GetTeamRosterBySeasonYearAsync(team, seasonYear, cancellationToken));
 
         // Get all team rosters
         var allRoster = await Task.WhenAll(teamRosterTasks);

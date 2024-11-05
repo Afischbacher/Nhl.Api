@@ -1,4 +1,4 @@
-﻿
+
 namespace Nhl.Api.Models.Draft;
 
 /// <summary>

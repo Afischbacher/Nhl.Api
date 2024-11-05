@@ -31,7 +31,7 @@ public class PlayerTests
                 Assert.AreEqual("Brantford", playerSearchResult.BirthCity);
                 Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
                 Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
-                Assert.AreEqual("Ontario", playerSearchResult.BirthProvinceState);
+                Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
                 Assert.AreEqual("Wayne", playerSearchResult.FirstName);
                 Assert.AreEqual("Gretzky", playerSearchResult.LastName);
                 Assert.AreEqual("NYR", playerSearchResult.LastTeamAbbreviation);
@@ -57,13 +57,16 @@ public class PlayerTests
                 Assert.AreEqual("Richmond Hill", playerSearchResult.BirthCity);
                 Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
                 Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
-                Assert.AreEqual("Ontario", playerSearchResult.BirthProvinceState);
+                Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
                 Assert.AreEqual("Connor", playerSearchResult.FirstName);
                 Assert.AreEqual("McDavid", playerSearchResult.LastName);
                 Assert.AreEqual(true, playerSearchResult.IsActive);
                 Assert.AreEqual("EDM", playerSearchResult.LastTeamAbbreviation);
                 Assert.AreEqual("6\u00271\"", playerSearchResult.Height);
                 Assert.AreEqual(97, playerSearchResult.PlayerNumber);
+                break;
+
+            default:
                 break;
         }
 
@@ -121,7 +124,7 @@ public class PlayerTests
                 Assert.AreEqual("Richmond Hill", playerSearchResult.BirthCity);
                 Assert.AreEqual("CAN", playerSearchResult.BirthCountry);
                 Assert.AreEqual("Canada", playerSearchResult.FullBirthCountry);
-                Assert.AreEqual("Ontario", playerSearchResult.BirthProvinceState);
+                Assert.AreEqual("ON", playerSearchResult.BirthProvinceState);
                 Assert.AreEqual("Connor", playerSearchResult.FirstName);
                 Assert.AreEqual("McDavid", playerSearchResult.LastName);
                 Assert.AreEqual(true, playerSearchResult.IsActive);
@@ -879,6 +882,47 @@ public class PlayerTests
         Assert.IsTrue(players.Count > 22000);
     }
 
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow("2008")]
+    [DataRow("2009")]
+    [DataRow("2010")]
+    [DataRow("2011")]
+    [DataRow("2012")]
+    [DataRow("2013")]
+    [DataRow("2014")]
+    [DataRow("2015")]
+    [DataRow("2016")]
+    [DataRow("2017")]
+    [DataRow("2018")]
+    [DataRow("2019")]
+    [DataRow("2020")]
+    [DataRow("2021")]
+    [DataRow("2022")]
+    [DataRow("2023")]
+    [DataRow("2024")]
+    public async Task GetPlayerDraftRankingByYearAsync_Returns_Correct_Draft_Ranking_Information(string seasonYear)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var draft = await nhlApi.GetPlayerDraftRankingByYearAsync(seasonYear);
+
+        // Assert
+        Assert.IsNotNull(draft);
+        Assert.IsNotNull(draft.Rankings);
+        Assert.IsTrue(draft.Rankings.Count > 0);
+
+        foreach (var playerDraftRanking in draft.Rankings)
+        {
+            Assert.IsNotNull(playerDraftRanking);
+            Assert.IsNotNull(playerDraftRanking.FirstName);
+            Assert.IsNotNull(playerDraftRanking.LastName);
+            Assert.IsNotNull(playerDraftRanking.HeightInInches);
+            Assert.IsNotNull(playerDraftRanking.WeightInPounds);
+        }
+
+    }
 
     [TestMethodWithRetry(RetryCount = 25)]
     public async Task PlayerEnumFileGeneratorHelper_Returns_Valid_Content() =>
