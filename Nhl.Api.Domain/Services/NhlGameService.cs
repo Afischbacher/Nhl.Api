@@ -185,15 +185,25 @@ public class NhlGameService : INhlGameService
     }
 
     /// <summary>
-    /// A linear 
+    /// Calculates a multiplier for time estimation based on period duration and number of events.
+    /// The multiplier is used to adjust the distribution of plays within a period.
     /// </summary>
+    /// <param name="startTime">The start time of the period</param>
+    /// <param name="endTime">The end time of the period</param>
+    /// <param name="events">The number of events in the period</param>
+    /// <returns>A multiplier value for time distribution calculations</returns>
     private double CalculateMultiplier(DateTime startTime, DateTime endTime, int events)
     {
+
+        // Constants for the multiplier formula
+        var DURATION_COEFFICIENT = 41.0;
+        var EVENTS_COEFFICIENT = 2.0;
+        var CONSTANT_TERM = 381.0;
+        var NORMALIZER = 3000.0;
+
         // Calculate duration in minutes
         var duration = (endTime - startTime).TotalMinutes;
 
-        var multiplier = ((41 * duration) + (2 * events) - 381) / 3000;
-
-        return multiplier;
+        return ((DURATION_COEFFICIENT * duration) + (EVENTS_COEFFICIENT * events) - CONSTANT_TERM) / NORMALIZER;
     }
 }
