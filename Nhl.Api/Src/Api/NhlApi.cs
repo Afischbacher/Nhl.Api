@@ -710,6 +710,7 @@ public class NhlApi : INhlApi
     /// <param name="gameType"> The game type for the NHL season for the player statistics </param> 
     /// <param name="cancellationToken">A cancellation token to cancel the asynchronous operation</param>
     /// <returns> Returns all the NHL goalie statistics for a specific goalie for a specific season including face off percentage, points per game, overtime goals, short handed points , power play points, shooting percentage, shots, time on ice per game and more </returns>
+    /// <returns> Returns all the NHL goalie statistics for goalies matching the filter expression for the specified season, including various performance metrics. </returns>
     public async Task<GoalieStatisticsFilterResult> GetGoalieStatisticsBySeasonAndFilterExpressionAsync(string seasonYear, ExpressionGoalieFilter expressionGoalieFilter, GoalieStatisticsFilter goalieStatisticsFilterToSortBy = GoalieStatisticsFilter.Wins, int limit = -1, int offsetStart = 0, GameType gameType = GameType.RegularSeason, CancellationToken cancellationToken = default) =>
            await _nhlStatisticsApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionGoalieFilter, goalieStatisticsFilterToSortBy, limit, offsetStart, gameType, cancellationToken);
 
