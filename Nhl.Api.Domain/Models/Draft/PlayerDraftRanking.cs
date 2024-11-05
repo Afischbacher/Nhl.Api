@@ -36,25 +36,25 @@ public class PlayerDraftRanking
     /// The last name of the player
     /// </summary>
     [JsonProperty("lastName")]
-    public string LastName { get; set; }
+    public string? LastName { get; set; }
 
     /// <summary>
     /// The first name of the player
     /// </summary>
     [JsonProperty("firstName")]
-    public string FirstName { get; set; }
+    public string? FirstName { get; set; }
 
     /// <summary>
     /// The position code of the player
     /// </summary>
     [JsonProperty("positionCode")]
-    public string PositionCode { get; set; }
+    public string? PositionCode { get; set; }
 
     /// <summary>
     /// The shooting or catching hand of the player
     /// </summary>
     [JsonProperty("shootsCatches")]
-    public string ShootsCatches { get; set; }
+    public string? ShootsCatches { get; set; }
 
     /// <summary>
     /// The height of the player in inches
@@ -72,37 +72,37 @@ public class PlayerDraftRanking
     /// The last amateur club of the player
     /// </summary>
     [JsonProperty("lastAmateurClub")]
-    public string LastAmateurClub { get; set; }
+    public string? LastAmateurClub { get; set; }
 
     /// <summary>
     /// The last amateur league of the player
     /// </summary>
     [JsonProperty("lastAmateurLeague")]
-    public string LastAmateurLeague { get; set; }
+    public string? LastAmateurLeague { get; set; }
 
     /// <summary>
     /// The birth date of the player
     /// </summary>
     [JsonProperty("birthDate")]
-    public string BirthDate { get; set; }
+    public string? BirthDate { get; set; }
 
     /// <summary>
     /// The birth city of the player
     /// </summary>
     [JsonProperty("birthCity")]
-    public string BirthCity { get; set; }
+    public string? BirthCity { get; set; }
 
     /// <summary>
     /// The birth state or province of the player
     /// </summary>
     [JsonProperty("birthStateProvince")]
-    public string BirthStateProvince { get; set; }
+    public string? BirthStateProvince { get; set; }
 
     /// <summary>
     /// The birth country of the player
     /// </summary>
     [JsonProperty("birthCountry")]
-    public string BirthCountry { get; set; }
+    public string? BirthCountry { get; set; }
 
     /// <summary>
     /// The midterm rank of the player

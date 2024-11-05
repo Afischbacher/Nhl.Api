@@ -4,7 +4,7 @@ namespace Nhl.Api.Models.Draft;
 /// <summary>
 /// All of the valid NHL draft years 
 /// </summary>
-public class DraftYear
+public sealed class DraftYear
 {
     /// <summary>
     /// NHL Draft Year 1963

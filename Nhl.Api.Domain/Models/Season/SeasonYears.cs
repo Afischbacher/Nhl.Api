@@ -7,7 +7,7 @@ namespace Nhl.Api.Models.Season;
 /// <summary>
 /// All of the NHL season years since the inception of the NHL league
 /// </summary>
-public class SeasonYear
+public sealed class SeasonYear
 {
     /// <summary>
     /// A collection of all the NHL seasons
