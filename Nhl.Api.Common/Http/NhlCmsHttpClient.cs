@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 
 namespace Nhl.Api.Common.Http;
@@ -18,7 +18,7 @@ public class NhlCmsHttpClient : NhlApiHttpClient
     /// <summary>
     /// The dedicated NHL HTTP client for NHL player images and content
     /// </summary>
-    public NhlCmsHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
+    public NhlCmsHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 60)
     {
     }
 

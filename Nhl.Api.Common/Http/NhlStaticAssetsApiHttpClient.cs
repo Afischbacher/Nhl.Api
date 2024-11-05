@@ -17,7 +17,7 @@ public class NhlStaticAssetsApiHttpClient : NhlApiHttpClient
     /// <summary>
     /// The dedicated NHL static assets HTTP Client for the Nhl.Api
     /// </summary>
-    public NhlStaticAssetsApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
+    public NhlStaticAssetsApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 60)
     {
     }
 

@@ -1,11 +1,22 @@
-﻿
+
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Nhl.Api.Models.Season;
 
 /// <summary>
 /// All of the NHL season years since the inception of the NHL league
 /// </summary>
-public class SeasonYear
+public sealed class SeasonYear
 {
+    /// <summary>
+    /// A collection of all the NHL seasons
+    /// </summary>
+    public static readonly HashSet<string> AllSeasons = GenerateAllSeasons(1917, 2150);
+    private static HashSet<string> GenerateAllSeasons(int startYear, int endYear) => Enumerable.Range(startYear, endYear - startYear + 1)
+            .Select(year => $"{year}{year + 1}")
+            .ToHashSet();
+
     /// <summary>
     /// The NHL season 1917-1918
     /// </summary>

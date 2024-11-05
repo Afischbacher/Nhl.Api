@@ -1,4 +1,5 @@
 using Nhl.Api.Common.Services;
+using Nhl.Api.Models.Draft;
 using Nhl.Api.Services;
 
 namespace Nhl.Api;
@@ -283,9 +284,31 @@ public class NhlPlayerApi : INhlPlayerApi
     }
 
     /// <summary>
+    /// Returns the NHL draft ranking by the specified year and starting position for the draft year 
+    /// </summary>
+    /// <param name="seasonYear"> The NHL draft year </param>
+    /// <param name="startingPosition"> The starting position of the NHL draft by the year </param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns> Returns the NHL draft ranking by the specified year and starting position for the draft year </returns>
+    public async Task<PlayerDraftYear> GetPlayerDraftRankingByYearAsync(string seasonYear, int startingPosition = 1, CancellationToken cancellationToken = default)
+    {
+        if (string.IsNullOrWhiteSpace(seasonYear))
+        {
+            throw new ArgumentException($"The {nameof(seasonYear)} parameter is required", nameof(seasonYear));
+        }
+
+        if (startingPosition < 1)
+        {
+            throw new ArgumentException($"The {nameof(startingPosition)} parameter must be greater than 0", nameof(startingPosition));
+        }
+
+        return await _nhlApiWebHttpClient.GetAsync<PlayerDraftYear>($"/draft/rankings/{seasonYear}/{startingPosition}", cancellationToken);
+
+    }
+
+    /// <summary>
     /// Disposes and releases all unneeded resources for the NHL player API
     /// </summary>
-    /// <exception cref="NotImplementedException"></exception>
     public void Dispose()
     {
         _cachingService?.Dispose();

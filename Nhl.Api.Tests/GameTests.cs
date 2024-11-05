@@ -1,6 +1,4 @@
 using System.Linq;
-using System.Text.RegularExpressions;
-using Nhl.Api.Common.Http;
 
 namespace Nhl.Api.Tests;
 
@@ -208,46 +206,45 @@ public class GameTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    public async Task NhlScoresHtmlReportsApiHttpClient_Can_Parse_Html_Report_For_Start_End_Period_Times()
+    [DataRow(2000020004)]
+    [DataRow(2001020004)]
+    [DataRow(2002020004)]
+    [DataRow(2003020004)]
+    [DataRow(2005020037)]
+    [DataRow(2006020046)]
+    [DataRow(2007020055)]
+    [DataRow(2008020074)]
+    [DataRow(2009020090)]
+    [DataRow(2010020090)]
+    [DataRow(2011020090)]
+    [DataRow(2012020090)]
+    [DataRow(2013020090)]
+    [DataRow(2014020090)]
+    [DataRow(2015020090)]
+    [DataRow(2016020090)]
+    [DataRow(2017020090)]
+    [DataRow(2018020090)]
+    [DataRow(2023010110)]
+    [DataRow(2019020090)]
+    [DataRow(2020020090)]
+    [DataRow(2021020090)]
+    [DataRow(2022020090)]
+    [DataRow(2023020090)]
+    public async Task GetGameCenterPlayByPlayByGameIdAsync_Returns_Valid_Estimated_DateTime_Of_Play_Information(int gameId)
     {
-        var dictionary = new Dictionary<string, List<string>>
-        {
-            { "P1", new List<string>() },
-            { "P2", new List<string>() },
-            { "P3", new List<string>() },
-            { "OT", new List<string>() },
-            { "SH", new List<string>() },
-        };
+        // Arrange
+        await using var nhlApi = new NhlApi();
 
-        var httpClient = new NhlScoresHtmlReportsApiHttpClient();
-        var gameReport = await httpClient.GetStringAsync("/20232024/PL020206.HTM");
+        // Act
+        var results = await nhlApi.GetGameCenterPlayByPlayByGameIdAsync(gameId, includeEventDateTime: true);
 
-        var regex = Regex.Matches(gameReport, @"(?<=<td class="" \+ bborder"">)Period(.*?)(?=</td>)", RegexOptions.Compiled, TimeSpan.FromSeconds(30)).ToList();
-
-        for (int i = 0; i < regex.Count; i++)
-        {
-            var match = regex[i].Value;
-            var value = Regex.Match(match, @"([0-9]{1,2}:[0-9]{2}\s[A-Z]{3})", RegexOptions.Compiled | RegexOptions.IgnoreCase, TimeSpan.FromSeconds(30)).Groups[0].Value;
-            if (i <= 1)
-            {
-                dictionary["P1"].Add(value);
-            }
-            else if (i >= 2 && i <= 3)
-            {
-                dictionary["P2"].Add(value);
-            }
-            else if (i >= 4 && i <= 5)
-            {
-                dictionary["P3"].Add(value);
-            }
-            else if (i >= 6 && i <= 7)
-            {
-                dictionary["OT"].Add(value);
-            }
-            else if (i <= 9)
-            {
-                dictionary["SH"].Add(value);
-            }
-        }
+        // Assert
+        Assert.IsNotNull(results);
+        Assert.IsNotNull(results.GameDate);
+        Assert.IsNotNull(results.GameType);
+        Assert.IsNotNull(results.Id);
+        Assert.IsNotNull(results.Clock);
+        Assert.IsNotNull(results.Plays);
+        Assert.IsTrue(results.Plays.All(p => p.EstimatedDateTimeOfPlay.HasValue));
     }
 }

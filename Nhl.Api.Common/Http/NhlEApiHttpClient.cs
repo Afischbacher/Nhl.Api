@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Net.Http;
 
 namespace Nhl.Api.Common.Http;
@@ -19,7 +19,7 @@ public class NhlEApiHttpClient : NhlApiHttpClient
     /// <summary>
     /// The dedicated NHLe Api web api HTTP Client for the Nhl.Api
     /// </summary>
-    public NhlEApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
+    public NhlEApiHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 60)
     {
 
     }

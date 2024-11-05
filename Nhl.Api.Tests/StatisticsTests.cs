@@ -450,7 +450,8 @@ public class StatisticsTests
 
         await using var nhlApi = new NhlApi();
 
-        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression, playerStatisticsFilterToSortBy: PlayerStatisticsFilter.Goals,
+            limit: 5, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(expression);
@@ -482,7 +483,8 @@ public class StatisticsTests
             .Build();
 
 
-        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season19992000, expression);
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season19992000, expression, playerStatisticsFilterToSortBy: PlayerStatisticsFilter.Goals,
+            limit: 5, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(expression);
@@ -506,7 +508,8 @@ public class StatisticsTests
         // Act
         var expression = expressionFilter.Build();
 
-        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20102011, expression);
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20102011, expression, playerStatisticsFilterToSortBy: PlayerStatisticsFilter.Goals,
+            limit: 5, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(expression);
@@ -543,7 +546,8 @@ public class StatisticsTests
             .Build();
 
 
-        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression, playerStatisticsFilterToSortBy: PlayerStatisticsFilter.Goals,
+            limit: 5, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(expression);
@@ -597,7 +601,8 @@ public class StatisticsTests
             .EndGroup()
             .Build();
 
-        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression, playerStatisticsFilterToSortBy: PlayerStatisticsFilter.Goals,
+            limit: 5, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(expression);
@@ -636,7 +641,8 @@ public class StatisticsTests
 
         await using var nhlApi = new NhlApi();
 
-        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression, playerRealtimeStatisticsFilterToSortBy: PlayerRealtimeStatisticsFilter.MissedShotWideOfNet,
+            limit: 5, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(expression);
@@ -669,7 +675,8 @@ public class StatisticsTests
             .Build();
 
 
-        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20202021, expression);
+        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20202021, expression, playerRealtimeStatisticsFilterToSortBy: PlayerRealtimeStatisticsFilter.EmptyNetAssists,
+            limit: 5, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(expression);
@@ -693,7 +700,8 @@ public class StatisticsTests
         // Act
         var expression = expressionFilter.Build();
 
-        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20102011, expression);
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20102011, expression, playerStatisticsFilterToSortBy: PlayerStatisticsFilter.Goals,
+            limit: 5, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(expression);
@@ -733,7 +741,8 @@ public class StatisticsTests
             .Build();
 
 
-        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression, playerRealtimeStatisticsFilterToSortBy: PlayerRealtimeStatisticsFilter.TakeawaysPer60,
+            limit: 5, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(expression);
@@ -788,7 +797,7 @@ public class StatisticsTests
             .EndGroup()
             .Build();
 
-        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+        var result = await nhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression, playerRealtimeStatisticsFilterToSortBy: PlayerRealtimeStatisticsFilter.TakeawaysPer60, limit: 50, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(expression);
@@ -814,7 +823,7 @@ public class StatisticsTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, ExpressionPlayerFilter.Empty);
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, ExpressionPlayerFilter.Empty, playerStatisticsFilterToSortBy: PlayerStatisticsFilter.Goals, limit: 5, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(result);
@@ -837,7 +846,7 @@ public class StatisticsTests
             .LessThanOrEqualTo(3.15)
             .Build();
 
-        var result = await nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression);
+        var result = await nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(SeasonYear.season20232024, expression, goalieStatisticsFilterToSortBy: GoalieStatisticsFilter.Wins, limit: 5, offsetStart: 0, gameType: GameType.RegularSeason);
 
         // Assert
         Assert.IsNotNull(expression);
@@ -1305,9 +1314,10 @@ public class StatisticsTests
         int limit = 10; // Example limit
         int offsetStart = 0; // Example offset
         CancellationToken cancellationToken = default;
+        var gameType = GameType.RegularSeason;
 
         // Act
-        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken);
+        var result = await nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, gameType, cancellationToken);
 
         // Assert
         Assert.IsNotNull(result);
@@ -1322,13 +1332,14 @@ public class StatisticsTests
         string seasonYear = null;
         var expressionPlayerFilter = ExpressionPlayerFilter.Empty;
         PlayerStatisticsFilter playerStatisticsFilterToSortBy = PlayerStatisticsFilter.Points;
-
         int limit = 10;
         int offsetStart = 0;
         CancellationToken cancellationToken = default;
+        var gameType = GameType.RegularSeason;
+
 
         // Act & Assert
-        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, gameType, cancellationToken));
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
@@ -1342,9 +1353,10 @@ public class StatisticsTests
         int limit = 10;
         int offsetStart = 0;
         CancellationToken cancellationToken = default;
+        var gameType = GameType.RegularSeason;
 
         // Act & Assert
-        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, gameType, cancellationToken));
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
@@ -1358,9 +1370,11 @@ public class StatisticsTests
         int limit = -5; // Invalid limit
         int offsetStart = 0;
         CancellationToken cancellationToken = default;
+        var gameType = GameType.RegularSeason;
+
 
         // Act & Assert
-        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, gameType, cancellationToken));
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
@@ -1374,9 +1388,10 @@ public class StatisticsTests
         int limit = 10;
         int offsetStart = -3; // Invalid offset
         CancellationToken cancellationToken = default;
+        var gameType = GameType.RegularSeason;
 
         // Act & Assert
-        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, gameType, cancellationToken));
     }
 
 
@@ -1388,13 +1403,14 @@ public class StatisticsTests
         string seasonYear = null;
         var expressionPlayerFilter = ExpressionGoalieFilter.Empty;
         GoalieStatisticsFilter playerStatisticsFilterToSortBy = GoalieStatisticsFilter.Wins;
-
         int limit = 10;
         int offsetStart = 0;
         CancellationToken cancellationToken = default;
+        var gameType = GameType.RegularSeason;
+
 
         // Act & Assert
-        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, gameType, cancellationToken));
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
@@ -1408,9 +1424,10 @@ public class StatisticsTests
         int limit = 10;
         int offsetStart = 0;
         CancellationToken cancellationToken = default;
+        var gameType = GameType.RegularSeason;
 
         // Act & Assert
-        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, gameType, cancellationToken));
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
@@ -1424,9 +1441,10 @@ public class StatisticsTests
         int limit = -5; // Invalid limit
         int offsetStart = 0;
         CancellationToken cancellationToken = default;
+        var gameType = GameType.RegularSeason;
 
         // Act & Assert
-        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, gameType, cancellationToken));
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
@@ -1440,8 +1458,10 @@ public class StatisticsTests
         int limit = 10;
         int offsetStart = -3; // Invalid offset
         CancellationToken cancellationToken = default;
+        var gameType = GameType.RegularSeason;
+
 
         // Act & Assert
-        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, cancellationToken));
+        await Assert.ThrowsExceptionAsync<ArgumentException>(() => nhlApi.GetGoalieStatisticsBySeasonAndFilterExpressionAsync(seasonYear, expressionPlayerFilter, playerStatisticsFilterToSortBy, limit, offsetStart, gameType, cancellationToken));
     }
 }

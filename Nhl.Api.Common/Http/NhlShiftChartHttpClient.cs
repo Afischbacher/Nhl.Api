@@ -18,7 +18,7 @@ public class NhlShiftChartHttpClient : NhlApiHttpClient
     /// <summary>
     /// The dedicated NHL HTTP client for the shift charts for individual live game feeds
     /// </summary>
-    public NhlShiftChartHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 30)
+    public NhlShiftChartHttpClient() : base(clientApiUri: ClientApiUrl, clientVersion: string.Empty, timeoutInSeconds: 60)
     {
     }
 

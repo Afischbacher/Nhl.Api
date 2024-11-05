@@ -1,4 +1,4 @@
-﻿namespace Nhl.Api;
+namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial NHL Game API providing various NHL information game information, game schedules, live game feeds and more
@@ -105,9 +105,10 @@ public interface INhlGameApi
     /// Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more
     /// </summary>
     /// <param name="gameId">The NHL game identifier, Example: 2023020204 </param>
+    /// <param name="includeEventDateTime"> A flag to determine whether the event timestamp for each play by play event is included </param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more</returns>
-    public Task<GameCenterPlayByPlay> GetGameCenterPlayByPlayByGameIdAsync(int gameId, CancellationToken cancellationToken = default);
+    public Task<GameCenterPlayByPlay> GetGameCenterPlayByPlayByGameIdAsync(int gameId, bool includeEventDateTime = false, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Returns the NHL game center feed for the specified game id, including the game information, game status, game venue and more
@@ -132,4 +133,12 @@ public interface INhlGameApi
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL game meta data for the specified game id, including the teams, season states and more</returns>
     public Task<GameMetadata> GetGameMetadataByGameIdAsync(int gameId, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Returns the NHL game meta data for the specified game id, including the teams, season states and more
+    /// </summary>
+    /// <param name="gameId">The NHL game identifier, Example: 2023020204 </param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL game meta data for the specified game id, including the teams, season states and more</returns>
+    public Task<Boxscore> GetBoxscoreByGameIdAsync(int gameId, CancellationToken cancellationToken = default);
 }
