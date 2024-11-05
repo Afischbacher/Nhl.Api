@@ -37,8 +37,18 @@ public class NhlGameService : INhlGameService
     /// <returns>All of the game center play by play information with the time of play for each play</returns>
     public async Task<GameCenterPlayByPlay> AddEstimatedDateTimeOfPlayForEachPlay(GameCenterPlayByPlay gameCenterPlayByPlay)
     {
+        string? scoreReport = null;
+
         var gameId = gameCenterPlayByPlay.Id.ToString(CultureInfo.InvariantCulture)[4..];
-        var scoreReport = await this._nhlScoresHtmlReportsApiHttpClient.GetStringAsync($"/{gameCenterPlayByPlay.Season}/PL{gameId}.HTM", default);
+
+        try
+        {
+            scoreReport = await this._nhlScoresHtmlReportsApiHttpClient.GetStringAsync($"/{gameCenterPlayByPlay.Season}/PL{gameId}.HTM", default);
+        }
+        catch
+        {
+            return gameCenterPlayByPlay;
+        }
 
         var timePeriodMatches = Regex.Matches(scoreReport, @"(?<=<td class="" \+ bborder"">)Period(.*?)(?=</td>)", RegexOptions.Compiled | RegexOptions.CultureInvariant, TimeSpan.FromSeconds(5)).ToList();
 
