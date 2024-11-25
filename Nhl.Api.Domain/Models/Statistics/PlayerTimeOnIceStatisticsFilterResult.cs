@@ -90,7 +90,7 @@ public class PlayerTimeOnIceStatisticsResult
     /// Season ID.
     /// </summary>
     [JsonProperty("seasonId")]
-    public int? SeasonId { get; set; }
+    public int SeasonId { get; set; }
 
     /// <summary>
     /// Short-handed time on ice in seconds.
