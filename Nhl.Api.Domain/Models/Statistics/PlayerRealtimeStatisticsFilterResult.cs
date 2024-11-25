@@ -90,7 +90,7 @@ public class PlayerRealtimeStatisticsResult
     /// Hits per 60 minutes.
     /// </summary>
     [JsonProperty("hitsPer60")]
-    public double HitsPer60 { get; set; }
+    public double? HitsPer60 { get; set; }
 
     /// <summary>
     /// Player's last name.
@@ -186,7 +186,7 @@ public class PlayerRealtimeStatisticsResult
     /// Takeaways per 60 minutes.
     /// </summary>
     [JsonProperty("takeawaysPer60")]
-    public double TakeawaysPer60 { get; set; }
+    public double? TakeawaysPer60 { get; set; }
 
     /// <summary>
     /// Team abbreviation.

@@ -30,13 +30,13 @@ public class PlayerTimeOnIceStatisticsResult
     /// Even strength time on ice in seconds.
     /// </summary>
     [JsonProperty("evTimeOnIce")]
-    public int EvTimeOnIce { get; set; }
+    public int? EvTimeOnIce { get; set; }
 
     /// <summary>
     /// Even strength time on ice per game in seconds.
     /// </summary>
     [JsonProperty("evTimeOnIcePerGame")]
-    public double EvTimeOnIcePerGame { get; set; }
+    public double? EvTimeOnIcePerGame { get; set; }
 
     /// <summary>
     /// Number of games played.
@@ -54,13 +54,13 @@ public class PlayerTimeOnIceStatisticsResult
     /// Overtime time on ice in seconds.
     /// </summary>
     [JsonProperty("otTimeOnIce")]
-    public int OtTimeOnIce { get; set; }
+    public int? OtTimeOnIce { get; set; }
 
     /// <summary>
     /// Overtime time on ice per overtime game in seconds.
     /// </summary>
     [JsonProperty("otTimeOnIcePerOtGame")]
-    public double OtTimeOnIcePerOtGame { get; set; }
+    public double? OtTimeOnIcePerOtGame { get; set; }
 
     /// <summary>
     /// Player's ID.
@@ -78,31 +78,31 @@ public class PlayerTimeOnIceStatisticsResult
     /// Power play time on ice in seconds.
     /// </summary>
     [JsonProperty("ppTimeOnIce")]
-    public int PpTimeOnIce { get; set; }
+    public int? PpTimeOnIce { get; set; }
 
     /// <summary>
     /// Power play time on ice per game in seconds.
     /// </summary>
     [JsonProperty("ppTimeOnIcePerGame")]
-    public double PpTimeOnIcePerGame { get; set; }
+    public double? PpTimeOnIcePerGame { get; set; }
 
     /// <summary>
     /// Season ID.
     /// </summary>
     [JsonProperty("seasonId")]
-    public int SeasonId { get; set; }
+    public int? SeasonId { get; set; }
 
     /// <summary>
     /// Short-handed time on ice in seconds.
     /// </summary>
     [JsonProperty("shTimeOnIce")]
-    public int ShTimeOnIce { get; set; }
+    public int? ShTimeOnIce { get; set; }
 
     /// <summary>
     /// Short-handed time on ice per game in seconds.
     /// </summary>
     [JsonProperty("shTimeOnIcePerGame")]
-    public double ShTimeOnIcePerGame { get; set; }
+    public double? ShTimeOnIcePerGame { get; set; }
 
     /// <summary>
     /// Number of shifts.
@@ -138,7 +138,7 @@ public class PlayerTimeOnIceStatisticsResult
     /// Total time on ice in seconds.
     /// </summary>
     [JsonProperty("timeOnIce")]
-    public int TimeOnIce { get; set; }
+    public int? TimeOnIce { get; set; }
 
     /// <summary>
     /// Time on ice per game in seconds.
