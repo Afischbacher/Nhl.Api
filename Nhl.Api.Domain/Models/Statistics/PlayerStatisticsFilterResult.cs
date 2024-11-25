@@ -59,21 +59,21 @@ public class PlayerStatisticsResult
     /// Example: 2
     /// </summary>
     [JsonProperty("gameWinningGoals")]
-    public int GameWinningGoals { get; set; }
+    public int? GameWinningGoals { get; set; }
 
     /// <summary> 
     /// The NHL player games played <br/>
     /// Example: 78
     /// </summary>
     [JsonProperty("gamesPlayed")]
-    public int GamesPlayed { get; set; }
+    public int? GamesPlayed { get; set; }
 
     /// <summary>
     /// The NHL player goals <br/>
     /// Example: 10
     /// </summary>
     [JsonProperty("goals")]
-    public int Goals { get; set; }
+    public int? Goals { get; set; }
 
     /// <summary>
     /// The NHL player last name <br/>
@@ -87,14 +87,14 @@ public class PlayerStatisticsResult
     /// Example: 1
     /// </summary>
     [JsonProperty("otGoals")]
-    public int OvertimeGoals { get; set; }
+    public int? OvertimeGoals { get; set; }
 
     /// <summary>
     /// The NHL player penalty minutes <br/>
     /// Example: 20
     /// </summary>
     [JsonProperty("penaltyMinutes")]
-    public int PenaltyMinutes { get; set; }
+    public int? PenaltyMinutes { get; set; }
 
     /// <summary>
     /// The NHL player player identifier <br/>
@@ -115,14 +115,14 @@ public class PlayerStatisticsResult
     /// Example: 20
     /// </summary>
     [JsonProperty("points")]
-    public int Points { get; set; }
+    public int? Points { get; set; }
 
     /// <summary>
     /// The NHL player points per game <br/>
     /// Example: 0.356732
     /// </summary>
     [JsonProperty("pointsPerGame")]
-    public decimal PointsPerGame { get; set; }
+    public decimal? PointsPerGame { get; set; }
 
     /// <summary>
     /// The NHL player position code <br/>

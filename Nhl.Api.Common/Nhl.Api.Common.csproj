@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>3.6.0</Version>
+		<Version>3.6.1</Version>
 		<TargetFrameworks>net8.0</TargetFrameworks>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Nullable>enable</Nullable>
