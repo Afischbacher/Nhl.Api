@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -11,7 +11,7 @@ namespace Nhl.Api.Common.Services;
 public static class NhlApiAsyncHelper
 {
     private static readonly TaskFactory _myTaskFactory = new
-      TaskFactory(CancellationToken.None,
+(CancellationToken.None,
                   TaskCreationOptions.None,
                   TaskContinuationOptions.None,
                   TaskScheduler.Default);
@@ -58,7 +58,7 @@ public static class NhlApiAsyncHelper
                 }
                 finally
                 {
-                    semaphore.Release();
+                    _ = semaphore.Release();
                 }
             });
             await Task.WhenAll(tasks);

@@ -25,7 +25,7 @@ public interface ICachingService : IDisposable
     /// <summary>
     /// Attempts to retrieve the cached value based on the provided key and generic type
     /// </summary>
-    Task<T> TryGetAsync<T>(string key) where T : class;
+    Task<T?> TryGetAsync<T>(string key) where T : class;
 
     /// <summary>
     /// Determines if the key is available within the caching service
@@ -38,7 +38,7 @@ public interface ICachingService : IDisposable
 /// </summary>
 public class CachingService : ICachingService
 {
-    private static readonly ConcurrentDictionary<string, byte[]> _cacheStore = new ConcurrentDictionary<string, byte[]>();
+    private static readonly ConcurrentDictionary<string, byte[]> _cacheStore = new();
 
     /// <summary>
     /// Clears all cached values
@@ -67,13 +67,16 @@ public class CachingService : ICachingService
     /// <summary>
     /// Attempts to retrieve the cached value based on the provided key and generic type
     /// </summary>
-    public async Task<T> TryGetAsync<T>(string key) where T : class
+    public async Task<T?> TryGetAsync<T>(string key) where T : class
     {
         var hasCachedValue = _cacheStore.TryGetValue(key, out var value);
-        if (hasCachedValue)
+        if (hasCachedValue && value != null)
         {
             var stringValue = await Decompress(value);
-            return JsonConvert.DeserializeObject<T>(stringValue);
+            if (!string.IsNullOrWhiteSpace(stringValue))
+            {
+                return JsonConvert.DeserializeObject<T>(stringValue);
+            }
         }
 
         return null;

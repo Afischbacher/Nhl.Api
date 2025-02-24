@@ -1,11 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>3.6.1</Version>
-		<TargetFrameworks>net8.0</TargetFrameworks>
+		<Version>3.7.0</Version>
+		<TargetFrameworks>net9.0</TargetFrameworks>
 		<PackageId>Nhl.Api</PackageId>
 		<Title>Nhl.Api</Title>
-		<Copyright>Copyright (c) 2024 Andre Fischbacher</Copyright>
+		<Copyright>Copyright (c) 2025 Andre Fischbacher</Copyright>
 		<Authors>Andre Fischbacher</Authors>
 		<Description>The official unofficial .NET NHL API</Description>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

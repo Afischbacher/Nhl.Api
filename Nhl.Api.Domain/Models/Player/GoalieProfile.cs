@@ -35,35 +35,35 @@ public class GoalieProfile
     /// Example: PIT - Pittsburgh Penguins
     /// </summary>
     [JsonProperty("currentTeamAbbrev")]
-    public string CurrentTeamAbbrev { get; set; }
+    public required string CurrentTeamAbbrev { get; set; }
 
     /// <summary>
     /// The full team name of the NHL goalie <br/>
     /// Example: Pittsburgh Penguins
     /// </summary>
     [JsonProperty("fullTeamName")]
-    public FullTeamName FullTeamName { get; set; }
+    public required FullTeamName FullTeamName { get; set; }
 
     /// <summary>
     /// The first name of the NHL goalie <br/>
     /// Example: Joseph
     /// </summary>
     [JsonProperty("firstName")]
-    public FirstName FirstName { get; set; }
+    public required FirstName FirstName { get; set; }
 
     /// <summary>
     /// The last name of the NHL goalie <br/>
     /// Example: Woll
     /// </summary>
     [JsonProperty("lastName")]
-    public LastName LastName { get; set; }
+    public required LastName LastName { get; set; }
 
     /// <summary>
     /// The link to the NHL team logo <br/>
     /// Example: https://assets.nhle.com/logos/nhl/svg/TOR_light.svg 
     /// </summary>
     [JsonProperty("teamLogo")]
-    public string TeamLogo { get; set; }
+    public required string TeamLogo { get; set; }
 
     /// <summary>
     /// The NHL goalie 's jersey number <br/>
@@ -77,21 +77,21 @@ public class GoalieProfile
     /// Example: "G"
     /// </summary>
     [JsonProperty("position")]
-    public string Position { get; set; }
+    public required string Position { get; set; }
 
     /// <summary>
     /// The url link to the NHL goalie 's headshot image <br/>
     /// Example: <a href="https://assets.nhle.com/mugs/nhl/20232024/TOR/8479361.png">https://assets.nhle.com/mugs/nhl/20232024/TOR/8479361.png</a>
     /// </summary>
     [JsonProperty("headshot")]
-    public string Headshot { get; set; }
+    public required string Headshot { get; set; }
 
     /// <summary>
     /// The url link to the NHL goalie 's action image <br/>
     /// Example: <a href="https://assets.nhle.com/mugs/actionshots/1296x729/8479361.jpg">https://assets.nhle.com/mugs/actionshots/1296x729/8479361.jpg</a>
     /// </summary>
     [JsonProperty("heroImage")]
-    public string HeroImage { get; set; }
+    public required string HeroImage { get; set; }
 
     /// <summary>
     /// The height of the NHL goalie in inches <br/>
@@ -150,7 +150,7 @@ public class GoalieProfile
     /// </code>
     /// </summary>
     [JsonProperty("birthCity")]
-    public BirthCity BirthCity { get; set; }
+    public required BirthCity BirthCity { get; set; }
 
     /// <summary>
     /// The birth state province of the NHL goalie <br/> 
@@ -162,21 +162,21 @@ public class GoalieProfile
     /// </code>
     /// </summary>
     [JsonProperty("birthStateProvince")]
-    public BirthStateProvince BirthStateProvince { get; set; }
+    public required BirthStateProvince BirthStateProvince { get; set; }
 
     /// <summary>
     /// The birth country of the NHL goalie <br/>
     /// Example: USA
     /// </summary>
     [JsonProperty("birthCountry")]
-    public string BirthCountry { get; set; }
+    public required string BirthCountry { get; set; }
 
     /// <summary>
     /// The shoots or catches of the NHL goalie <br/>
     /// Example: "L" - Left or "R" - Right
     /// </summary>
     [JsonProperty("shootsCatches")]
-    public string ShootsCatches { get; set; }
+    public required string ShootsCatches { get; set; }
 
     /// <summary>
     /// The NHL draft details for the NHL goalie <br/>
@@ -192,14 +192,14 @@ public class GoalieProfile
     /// </code>
     /// </summary>
     [JsonProperty("draftDetails")]
-    public DraftDetails DraftDetails { get; set; }
+    public required DraftDetails DraftDetails { get; set; }
 
     /// <summary>
     /// The url link to the NHL goalie's official website on the NHL website <br/>
     /// Example: <a href="https://www.nhl.com/avalanche/player/alexandar-georgiev-8480382">alexandar-georgiev-8480382</a>
     /// </summary>
     [JsonProperty("playerSlug")]
-    public string PlayerSlug { get; set; }
+    public required string PlayerSlug { get; set; }
 
     /// <summary>
     /// Indicates if the NHL goalie is in the top 100 of all time in the NHL <br/>
@@ -247,7 +247,7 @@ public class GoalieProfile
     /// </code>
     /// </summary>
     [JsonProperty("featuredStats")]
-    public FeaturedGoalieStats FeaturedStats { get; set; }
+    public required FeaturedGoalieStats FeaturedStats { get; set; }
 
     /// <summary>
     /// The NHL goalies career totals <br/>
@@ -273,25 +273,25 @@ public class GoalieProfile
     ///  </code>
     /// </summary>
     [JsonProperty("careerTotals")]
-    public GoalieCareerTotals CareerTotals { get; set; }
+    public required GoalieCareerTotals CareerTotals { get; set; }
 
     /// <summary>
     /// The NHL link to shop for the NHL goalie's merchandise <br/>
     /// </summary>
     [JsonProperty("shopLink")]
-    public string ShopLink { get; set; }
+    public required string ShopLink { get; set; }
 
     /// <summary>
     /// The NHL link to the twitter account of the NHL goalie <br/>
     /// </summary>
     [JsonProperty("twitterLink")]
-    public string TwitterLink { get; set; }
+    public required string TwitterLink { get; set; }
 
     /// <summary>
     /// The NHL link to watch the NHL goalie's highlights <br/>
     /// </summary>
     [JsonProperty("watchLink")]
-    public string WatchLink { get; set; }
+    public required string WatchLink { get; set; }
 
     /// <summary>
     /// A collection of the last 5 games for the NHL goalie <br/>
@@ -314,7 +314,7 @@ public class GoalieProfile
     /// </code>
     /// </summary>
     [JsonProperty("last5Games")]
-    public List<GoalieLast5Game> Last5Games { get; set; }
+    public required List<GoalieLast5Game> Last5Games { get; set; }
 
     /// <summary>
     /// The NHL goalie's season totals for each year the goalie played professionally <br/>
@@ -335,7 +335,7 @@ public class GoalieProfile
     /// </code>
     /// </summary>
     [JsonProperty("seasonTotals")]
-    public List<GoalieSeasonTotal> SeasonTotals { get; set; }
+    public required List<GoalieSeasonTotal> SeasonTotals { get; set; }
 
     /// <summary>
     /// A collection of all the NHL players and goalie's that are currently on the NHL team roster <br/>
@@ -354,7 +354,7 @@ public class GoalieProfile
     /// </code>
     /// </summary>
     [JsonProperty("currentTeamRoster")]
-    public List<CurrentTeamRoster> CurrentTeamRoster { get; set; }
+    public required List<CurrentTeamRoster> CurrentTeamRoster { get; set; }
 }
 
 /// <summary>
@@ -366,7 +366,7 @@ public class BirthCity
     /// The default name of birth city of the NHL player or goalie
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 }
 
 /// <summary>
@@ -378,7 +378,7 @@ public class BirthStateProvince
     /// The default name of birth state or province of the NHL player or goalie
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 }
 
 /// <summary>
@@ -398,21 +398,21 @@ public class CurrentTeamRoster
     /// Example: Benoit
     /// </summary>
     [JsonProperty("lastName")]
-    public LastName LastName { get; set; }
+    public required LastName LastName { get; set; }
 
     /// <summary>
     /// The first name of the NHL player or goalie <br/>
     /// Example: Simon
     /// </summary>
     [JsonProperty("firstName")]
-    public FirstName FirstName { get; set; }
+    public required FirstName FirstName { get; set; }
 
     /// <summary>
     /// The player slug linking to the NHL player or goalie's profile on the NHL website <br/>
     /// Example: <a href="https://www.nhl.com/avalanche/player/nathan-mackinnon-8477492">nathan-mackinnon-8477492</a>
     /// </summary>
     [JsonProperty("playerSlug")]
-    public string PlayerSlug { get; set; }
+    public required string PlayerSlug { get; set; }
 }
 
 /// <summary>
@@ -432,7 +432,7 @@ public class DraftDetails
     /// Example: TOR - Toronto Maple Leafs
     /// </summary>
     [JsonProperty("teamAbbrev")]
-    public string TeamAbbrev { get; set; }
+    public required string TeamAbbrev { get; set; }
 
     /// <summary>
     /// The round of the NHL draft the NHL goalie was drafted in <br/> 
@@ -466,14 +466,14 @@ public class TeamName
     /// Example: Toronto Maple Leafs
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
     /// <summary>
     /// The french name of the NHL team <br/>
     /// Example: Maple Leafs de Toronto
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 }
 
 /// <summary>
@@ -486,7 +486,7 @@ public class FirstName
     /// Example: Nick
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 }
 
 /// <summary>
@@ -568,14 +568,14 @@ public class GoalieSeasonTotal
     /// Example: "NHL" or "AHL"
     /// </summary>
     [JsonProperty("leagueAbbrev")]
-    public string LeagueAbbrev { get; set; }
+    public required string LeagueAbbrev { get; set; }
 
     /// <summary>
     /// The team name of the NHL goalie <br/>
     /// Example:  "Boston College"
     /// </summary>
     [JsonProperty("teamName")]
-    public TeamName TeamName { get; set; }
+    public required TeamName TeamName { get; set; }
 
     /// <summary>
     /// The sequence number for the NHL goalie <br/>
@@ -631,7 +631,7 @@ public class GoalieSeasonTotal
     /// Example: "239:30"
     /// </summary>
     [JsonProperty("timeOnIce")]
-    public string TimeOnIce { get; set; }
+    public required string TimeOnIce { get; set; }
 
     /// <summary>
     /// The number of ties in the NHL goalie's season <br/>
@@ -761,13 +761,13 @@ public class GoalieRegularSeason
     /// The NHL goalies sub season including information and statistics
     /// </summary>
     [JsonProperty("subSeason")]
-    public GoalieSubSeason SubSeason { get; set; }
+    public required GoalieSubSeason SubSeason { get; set; }
 
     /// <summary>
     /// The NHL goalies career information and statistics
     /// </summary>
     [JsonProperty("career")]
-    public GoalieCareer Career { get; set; }
+    public required GoalieCareer Career { get; set; }
 
     /// <summary>
     /// The number of games played in the NHL goalie's regular season <br/>
@@ -865,7 +865,7 @@ public class GoalieRegularSeason
     /// Example; "1238:00"
     /// </summary>
     [JsonProperty("timeOnIce")]
-    public string TimeOnIce { get; set; }
+    public required string TimeOnIce { get; set; }
 }
 
 /// <summary>
@@ -884,7 +884,7 @@ public class FeaturedGoalieStats
     /// The NHL goalies regular season information and statistics
     /// </summary>
     [JsonProperty("regularSeason")]
-    public GoalieRegularSeason GoalieRegularSeason { get; set; }
+    public required GoalieRegularSeason GoalieRegularSeason { get; set; }
 }
 
 /// <summary>
@@ -896,13 +896,13 @@ public class GoalieCareerTotals
     /// The NHL goalies regular season information and statistics
     /// </summary>
     [JsonProperty("regularSeason")]
-    public GoalieRegularSeason RegularSeason { get; set; }
+    public required GoalieRegularSeason RegularSeason { get; set; }
 
     /// <summary>
     /// The NHL goalie playoffs information and statistics
     /// </summary>
     [JsonProperty("playoffs")]
-    public GoaliePlayoffs Playoffs { get; set; }
+    public required GoaliePlayoffs Playoffs { get; set; }
 }
 
 /// <summary>
@@ -1006,7 +1006,7 @@ public class GoaliePlayoffs
     /// Example: "1238:00"
     /// </summary>
     [JsonProperty("timeOnIce")]
-    public string TimeOnIce { get; set; }
+    public required string TimeOnIce { get; set; }
 }
 
 /// <summary>
@@ -1019,14 +1019,14 @@ public class FullTeamName
     /// Example: Vegas Golden Knights
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
     /// <summary>
     /// The french name of the NHL team <br/>
     /// Example: Golden Knights de Vegas
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 }
 
 /// <summary>
@@ -1053,21 +1053,21 @@ public class GoalieLast5Game
     /// Example: VGK - Vegas Golden Knights
     /// </summary>
     [JsonProperty("teamAbbrev")]
-    public string TeamAbbrev { get; set; }
+    public required string TeamAbbrev { get; set; }
 
     /// <summary>
     /// The home or road flag <br/>
     /// Example: "R" - Road, "H" - Home
     /// </summary>
     [JsonProperty("homeRoadFlag")]
-    public string HomeRoadFlag { get; set; }
+    public required string HomeRoadFlag { get; set; }
 
     /// <summary>
     /// The date of the NHL game <br/>
     /// Example: "2023-12-07"
     /// </summary>
     [JsonProperty("gameDate")]
-    public string GameDate { get; set; }
+    public required string GameDate { get; set; }
 
     /// <summary>
     /// The number of games started in the NHL game <br/>
@@ -1081,7 +1081,7 @@ public class GoalieLast5Game
     /// Example: "W" - Win, "L" - Loss, "O" - Overtime Loss
     /// </summary>
     [JsonProperty("decision")]
-    public string Decision { get; set; }
+    public required string Decision { get; set; }
 
     /// <summary>
     /// The number of shots against in the NHL game <br/>
@@ -1116,12 +1116,12 @@ public class GoalieLast5Game
     /// Example; "OTT" - Ottawa Senators
     /// </summary>
     [JsonProperty("opponentAbbrev")]
-    public string OpponentAbbrev { get; set; }
+    public required string OpponentAbbrev { get; set; }
 
     /// <summary>
     /// The number of minutes of time on the ice played in the NHL game <br/>
     /// Example: "60:00"
     /// </summary>
     [JsonProperty("toi")]
-    public string Toi { get; set; }
+    public required string Toi { get; set; }
 }

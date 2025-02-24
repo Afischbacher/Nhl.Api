@@ -10,11 +10,11 @@ public class TeamName
     /// The NHL team name in English
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
     /// <summary>
     /// The NHL team name in French
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 }

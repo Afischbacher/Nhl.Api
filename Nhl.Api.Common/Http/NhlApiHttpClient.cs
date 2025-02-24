@@ -1,5 +1,4 @@
 using System;
-using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,7 +16,7 @@ public interface INhlApiHttpClient
     /// <param name="route">The NHL  API endpoint</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>The deserialized JSON payload of the generic type</returns>
-    Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class, new();
+    Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class;
 
     /// <summary>
     /// Performs a HTTP GET request and returns a byte array
@@ -38,7 +37,7 @@ public interface INhlApiHttpClient
     /// <summary>
     /// The HTTP Client for the Nhl.Api
     /// </summary>
-    HttpClient HttpClient { get; }
+    HttpClient? HttpClient { get; }
 
     /// <summary>
     /// The official client for the Nhl.Api
@@ -54,39 +53,31 @@ public interface INhlApiHttpClient
 /// <summary>
 /// The Nhl.Api HTTP Client
 /// </summary>
-public abstract class NhlApiHttpClient : INhlApiHttpClient
+/// <remarks>
+/// The Nhl.Api HTTP Client
+/// </remarks>
+public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion, int timeoutInSeconds = 60) : INhlApiHttpClient
 {
-    /// <summary>
-    /// The Nhl.Api HTTP Client
-    /// </summary>
-    public NhlApiHttpClient(string clientApiUri, string clientVersion, int timeoutInSeconds = 60)
-    {
-        ServicePointManager.ReusePort = true;
-        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls13 | SecurityProtocolType.Tls12;
-        Client = clientApiUri;
-        ClientVersion = clientVersion;
-        Timeout = TimeSpan.FromSeconds(timeoutInSeconds);
-    }
 
     /// <summary>
     /// The HTTP Client for the Nhl.Api
     /// </summary>
-    public virtual HttpClient HttpClient { get; }
+    public virtual HttpClient? HttpClient { get; }
 
     /// <summary>
     /// The timeout for HTTP requests for the Nhl.Api
     /// </summary>
-    public TimeSpan Timeout { get; private set; }
+    public TimeSpan Timeout { get; private set; } = TimeSpan.FromSeconds(timeoutInSeconds);
 
     /// <summary>
     /// The client version for HTTP requests for the Nhl.Api
     /// </summary>
-    public string ClientVersion { get; private set; }
+    public string ClientVersion { get; private set; } = clientVersion;
 
     /// <summary>
     /// The official client for the Nhl.Api
     /// </summary>
-    public string Client { get; private set; }
+    public string Client { get; private set; } = clientApiUri;
 
     /// <summary>
     /// Performs a HTTP GET request with a generic argument as the model or type to be returned
@@ -94,16 +85,29 @@ public abstract class NhlApiHttpClient : INhlApiHttpClient
     /// <param name="route">The Nhl.Api endpoint</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>The deserialized JSON payload of the generic type</returns>
-    public async Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class, new()
+    public async Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class
     {
         if (string.IsNullOrWhiteSpace(route))
         {
             throw new ArgumentNullException(nameof(route));
         }
 
-        using var httpResponseMessage = await HttpClient.GetAsync(requestUri: $"{HttpClient.BaseAddress}{route}", cancellationToken: cancellationToken);
-        var contentResponse = await httpResponseMessage.Content.ReadAsStringAsync(cancellationToken);
+        using var httpResponseMessage = await this.HttpClient!.GetAsync(requestUri: $"{this.HttpClient?.BaseAddress}{route}", cancellationToken: cancellationToken)
+            ?? throw new HttpRequestException("The HTTP response message is null");
+        var contentResponse = await httpResponseMessage!.Content.ReadAsStringAsync(cancellationToken);
+        if (!httpResponseMessage.IsSuccessStatusCode)
+        {
+            throw new HttpRequestException($"The HTTP request failed with status code {httpResponseMessage.StatusCode} and reason {httpResponseMessage.ReasonPhrase}");
+        }
+
+        if (string.IsNullOrWhiteSpace(contentResponse))
+        {
+            throw new HttpRequestException("The content response is empty");
+        }
+
+#pragma warning disable CS8603 // Possible null reference return.
         return JsonConvert.DeserializeObject<T>(contentResponse);
+#pragma warning restore CS8603 // Possible null reference return.
     }
 
     /// <summary>
@@ -118,8 +122,8 @@ public abstract class NhlApiHttpClient : INhlApiHttpClient
         {
             throw new ArgumentNullException(nameof(route));
         }
-        var endpoint = $"{HttpClient.BaseAddress}{route}";
-        return await HttpClient.GetByteArrayAsync(endpoint, cancellationToken);
+        var endpoint = $"{this.HttpClient?.BaseAddress}{route}";
+        return await this.HttpClient!.GetByteArrayAsync(endpoint, cancellationToken);
     }
 
     /// <summary>
@@ -134,7 +138,7 @@ public abstract class NhlApiHttpClient : INhlApiHttpClient
         {
             throw new ArgumentNullException(nameof(route));
         }
-        var endpoint = $"{HttpClient.BaseAddress}{route}";
-        return await (await HttpClient.GetAsync(endpoint, cancellationToken)).Content.ReadAsStringAsync(cancellationToken);
+        var endpoint = $"{this.HttpClient?.BaseAddress}{route}";
+        return await (await this.HttpClient!.GetAsync(endpoint, cancellationToken)).Content.ReadAsStringAsync(cancellationToken);
     }
 }

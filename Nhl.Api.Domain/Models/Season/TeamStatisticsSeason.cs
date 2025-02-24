@@ -23,7 +23,7 @@ public class TeamStatisticsSeason
     /// The NHL team name for the team statistics season
     /// </summary>
     [JsonProperty("teamName")]
-    public string TeamName { get; set; }
+    public required string TeamName { get; set; }
 
     /// <summary>
     /// Gets or sets the season year
@@ -35,5 +35,5 @@ public class TeamStatisticsSeason
     /// Gets or sets the list of game types
     /// </summary>
     [JsonProperty("gameTypes")]
-    public List<int> GameTypes { get; set; } = new();
+    public List<int> GameTypes { get; set; } = [];
 }

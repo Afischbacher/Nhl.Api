@@ -11,13 +11,13 @@ public class LeagueStandingsSeasonInformation
     /// Returns the current date
     /// </summary>
     [JsonProperty("currentDate")]
-    public string CurrentDate { get; set; }
+    public required string CurrentDate { get; set; }
 
     /// <summary>
     /// Returns all the NHL seasons and their information
     /// </summary>
     [JsonProperty("seasons")]
-    public List<LeagueSeason> Seasons { get; set; }
+    public required List<LeagueSeason> Seasons { get; set; }
 }
 
 /// <summary>
@@ -72,14 +72,14 @@ public class LeagueSeason
     /// Example: 2022-05-01
     /// </summary>
     [JsonProperty("standingsEnd")]
-    public string StandingsEnd { get; set; }
+    public required string StandingsEnd { get; set; }
 
     /// <summary>
     /// Returns the start date of the NHL league standings <br/>
     /// Example: 2021-10-12
     /// </summary>
     [JsonProperty("standingsStart")]
-    public string StandingsStart { get; set; }
+    public required string StandingsStart { get; set; }
 
     /// <summary>
     /// The flag indicating if the NHL league season is using ties <br/>

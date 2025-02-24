@@ -11,7 +11,7 @@ public class LiveGameFeedPlayerShifts
     /// Returns a collection of each individual NHL player and their shift information
     /// </summary>
     [JsonProperty("data")]
-    public List<PlayerShiftInformation> PlayerShifts { get; set; }
+    public required List<PlayerShiftInformation> PlayerShifts { get; set; }
 
     /// <summary>
     /// Returns the total number of NHL player shifts within an NHL game <br/>
@@ -45,26 +45,26 @@ public class PlayerShiftInformation
     /// Example: 00:35
     /// </summary>
     [JsonProperty("duration")]
-    public string Duration { get; set; }
+    public required string Duration { get; set; }
 
     /// <summary>
     /// Returns the end time within the period "01:51"for the NHL player shift <br/>
     /// Example: 01:51
     /// </summary>
     [JsonProperty("endTime")]
-    public string EndTime { get; set; }
+    public required string EndTime { get; set; }
 
     /// <summary>
     /// Returns the event description for the NHL player shift
     /// </summary>
     [JsonProperty("eventDescription")]
-    public object EventDescription { get; set; }
+    public required object EventDescription { get; set; }
 
     /// <summary>
     /// Returns the event details for the NHL player shift
     /// </summary>
     [JsonProperty("eventDetails")]
-    public object EventDetails { get; set; }
+    public required object EventDetails { get; set; }
 
     /// <summary>
     /// Returns the event number for the NHL player shift <br/>
@@ -78,7 +78,7 @@ public class PlayerShiftInformation
     /// Example: Alex
     /// </summary>
     [JsonProperty("firstName")]
-    public string FirstName { get; set; }
+    public required string FirstName { get; set; }
 
     /// <summary>
     /// Returns the game id that is associated with the NHL player shift <br/>
@@ -92,14 +92,14 @@ public class PlayerShiftInformation
     /// Example: #862633
     /// </summary>
     [JsonProperty("hexValue")]
-    public string HexValue { get; set; }
+    public required string HexValue { get; set; }
 
     /// <summary>
     /// Returns the last name of the player for the NHL player shift <br/>
     /// Example: Goligoski
     /// </summary>
     [JsonProperty("lastName")]
-    public string LastName { get; set; }
+    public required string LastName { get; set; }
 
     /// <summary>
     /// Returns the period number for the NHL player shift <br/>
@@ -127,14 +127,14 @@ public class PlayerShiftInformation
     /// Example: 01:16
     /// </summary>
     [JsonProperty("startTime")]
-    public string StartTime { get; set; }
+    public required string StartTime { get; set; }
 
     /// <summary>
     /// Returns the team abbreviation for the NHL player within the NHL player shift <br/>
     /// Example: ARI
     /// </summary>
     [JsonProperty("teamAbbrev")]
-    public string TeamAbbrev { get; set; }
+    public required string TeamAbbrev { get; set; }
 
     /// <summary>
     /// Returns the NHL team id for the NHL player shift <br/>
@@ -148,7 +148,7 @@ public class PlayerShiftInformation
     /// Example: Arizona Coyotes
     /// </summary>
     [JsonProperty("teamName")]
-    public string TeamName { get; set; }
+    public required string TeamName { get; set; }
 
     /// <summary>
     /// Returns the type code for the NHL player shift <br/>

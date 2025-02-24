@@ -11,13 +11,13 @@ public class GameMetadata
     /// The list of NHL teams playing in the NHL game
     /// </summary>
     [JsonProperty("teams")]
-    public List<GameMetadataTeam> Teams { get; set; }
+    public required List<GameMetadataTeam> Teams { get; set; }
 
     /// <summary>
     /// The season states for the NHL game
     /// </summary>
     [JsonProperty("seasonStates")]
-    public SeasonStates SeasonStates { get; set; }
+    public required SeasonStates SeasonStates { get; set; }
 }
 
 /// <summary>
@@ -30,7 +30,7 @@ public class SeasonStates
     /// Example: 2021-10-13
     /// </summary>
     [JsonProperty("date")]
-    public string Date { get; set; }
+    public required string Date { get; set; }
 
     /// <summary>
     /// The NHL game type <br/>
@@ -56,14 +56,14 @@ public class GameMetadataTeam
     /// The NHL game team information
     /// </summary>
     [JsonProperty("name")]
-    public Name Name { get; set; }
+    public required Name Name { get; set; }
 
     /// <summary>
     /// The NHL team tri code <br/>
     /// Example: TOR
     /// </summary>
     [JsonProperty("tricode")]
-    public string Tricode { get; set; }
+    public required string Tricode { get; set; }
 
     /// <summary>
     /// The NHL team id <br/>

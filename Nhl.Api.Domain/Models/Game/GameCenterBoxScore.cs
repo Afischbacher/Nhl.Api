@@ -20,14 +20,14 @@ public class GameCenterBoxScoreAwayTeam
     /// Example: Wild
     /// </summary>
     [JsonProperty("name")]
-    public Name Name { get; set; }
+    public required Name Name { get; set; }
 
     /// <summary>
     /// The NHL away team abbreviation <br/>
     /// Example: MIN
     /// </summary>
     [JsonProperty("abbrev")]
-    public string Abbrev { get; set; }
+    public required string Abbrev { get; set; }
 
     /// <summary>
     /// The NHL away team score <br/>
@@ -55,7 +55,7 @@ public class GameCenterBoxScoreAwayTeam
     /// Example: 2/5
     /// </summary>
     [JsonProperty("powerPlayConversion")]
-    public string PowerPlayConversion { get; set; }
+    public required string PowerPlayConversion { get; set; }
 
     /// <summary>
     /// The NHL away team penalty minutes <br/>
@@ -83,37 +83,37 @@ public class GameCenterBoxScoreAwayTeam
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/MIN_light.svg">https://assets.nhle.com/logos/nhl/svg/MIN_light.svg</a>
     /// </summary>
     [JsonProperty("logo")]
-    public string Logo { get; set; }
+    public required string Logo { get; set; }
 
     /// <summary>
     /// The NHL away team forwards
     /// </summary>
     [JsonProperty("forwards")]
-    public List<GameCenterBoxScoreForward> Forwards { get; set; }
+    public required List<GameCenterBoxScoreForward> Forwards { get; set; }
 
     /// <summary>
     /// The NHL away team defense
     /// </summary>
     [JsonProperty("defense")]
-    public List<GameCenterBoxScoreDefense> Defense { get; set; }
+    public required List<GameCenterBoxScoreDefense> Defense { get; set; }
 
     /// <summary>
     /// The NHL away team goalies
     /// </summary>
     [JsonProperty("goalies")]
-    public List<GameCenterBoxScoreGoalie> Goalies { get; set; }
+    public required List<GameCenterBoxScoreGoalie> Goalies { get; set; }
 
     /// <summary>
     /// The NHL away team head coach
     /// </summary>
     [JsonProperty("headCoach")]
-    public HeadCoach HeadCoach { get; set; }
+    public required HeadCoach HeadCoach { get; set; }
 
     /// <summary>
     /// The NHL away team scratches
     /// </summary>
     [JsonProperty("scratches")]
-    public List<Scratch> Scratches { get; set; }
+    public required List<Scratch> Scratches { get; set; }
 }
 
 /// <summary>
@@ -125,43 +125,43 @@ public class Boxscore
     /// The NHL game center box score line score
     /// </summary>
     [JsonProperty("linescore")]
-    public Linescore Linescore { get; set; }
+    public required Linescore Linescore { get; set; }
 
     /// <summary>
     /// The NHL game center box score game shots by period
     /// </summary>
     [JsonProperty("shotsByPeriod")]
-    public List<ShotsByPeriod> ShotsByPeriod { get; set; }
+    public required List<ShotsByPeriod> ShotsByPeriod { get; set; }
 
     /// <summary>
     /// The NHL game center box score game game reports
     /// </summary>
     [JsonProperty("gameReports")]
-    public GameReports GameReports { get; set; }
+    public required GameReports GameReports { get; set; }
 
     /// <summary>
     /// The NHL game center box score game information
     /// </summary>
     [JsonProperty("gameInfo")]
-    public GameInfo GameInfo { get; set; }
+    public required GameInfo GameInfo { get; set; }
 
     /// <summary>
     /// The NHL game center box score team game statistics
     /// </summary>
     [JsonProperty("teamGameStats")]
-    public List<TeamGameStatistics> TeamGameStatistics { get; set; }
+    public required List<TeamGameStatistics> TeamGameStatistics { get; set; }
 
     /// <summary>
     /// The NHL season series information for the 2 teams
     /// </summary>
     [JsonProperty("seasonSeries")]
-    public List<SeasonSeries> SeasonSeries { get; set; }
+    public required List<SeasonSeries> SeasonSeries { get; set; }
 
     /// <summary>
     /// The NHL game season series wins between both teams
     /// </summary>
     [JsonProperty("seasonSeriesWins")]
-    public SeasonSeriesWins SeasonSeriesWins { get; set; }
+    public required SeasonSeriesWins SeasonSeriesWins { get; set; }
 }
 
 /// <summary>
@@ -174,21 +174,21 @@ public class TeamGameStatistics
     /// Example: sog - Shots on Goal
     /// </summary>
     [JsonProperty("category")]
-    public string Category { get; set; }
+    public required string Category { get; set; }
 
     /// <summary>
     /// The NHL away team game statistics value <br/>
     /// Example: 30
     /// </summary>
     [JsonProperty("awayValue")]
-    public object AwayValue { get; set; }
+    public required object AwayValue { get; set; }
 
     /// <summary>
     /// The NHL home team game statistics value <br/>
     /// Example: 26
     /// </summary>
     [JsonProperty("homeValue")]
-    public object HomeValue { get; set; }
+    public required object HomeValue { get; set; }
 }
 
 
@@ -216,14 +216,14 @@ public class GameCenterBoxScoreDefense
     /// Example: J. Spurgeon
     /// </summary>
     [JsonProperty("name")]
-    public Name Name { get; set; }
+    public required Name Name { get; set; }
 
     /// <summary>
     /// The NHL defense player position <br/>
     /// Example: D
     /// </summary>
     [JsonProperty("position")]
-    public string Position { get; set; }
+    public required string Position { get; set; }
 
     /// <summary>
     /// The NHL defense player goals <br/>
@@ -314,7 +314,7 @@ public class GameCenterBoxScoreDefense
     /// Example: 0/0
     /// </summary>
     [JsonProperty("faceoffs")]
-    public string Faceoffs { get; set; }
+    public required string Faceoffs { get; set; }
 
     /// <summary>
     /// The NHL defense player faceoff winning percentage <br/>
@@ -328,21 +328,21 @@ public class GameCenterBoxScoreDefense
     /// Example: 14:34
     /// </summary>
     [JsonProperty("toi")]
-    public string Toi { get; set; }
+    public required string Toi { get; set; }
 
     /// <summary>
     /// The NHL defense player power play time on ice <br/>
     /// Example: 02:12
     /// </summary>
     [JsonProperty("powerPlayToi")]
-    public string PowerPlayToi { get; set; }
+    public required string PowerPlayToi { get; set; }
 
     /// <summary>
     /// The NHL defense player shorthanded time on ice <br/>
     /// Example: 01:02
     /// </summary>
     [JsonProperty("shorthandedToi")]
-    public string ShorthandedToi { get; set; }
+    public required string ShorthandedToi { get; set; }
 }
 
 /// <summary>
@@ -369,14 +369,14 @@ public class GameCenterBoxScoreForward
     /// Example: A. Ovechkin
     /// </summary>
     [JsonProperty("name")]
-    public Name Name { get; set; }
+    public required Name Name { get; set; }
 
     /// <summary>
     /// The NHL forward player position <br/>
     /// Example: LW
     /// </summary>
     [JsonProperty("position")]
-    public string Position { get; set; }
+    public required string Position { get; set; }
 
     /// <summary>
     /// The NHL forward player goals <br/>
@@ -467,7 +467,7 @@ public class GameCenterBoxScoreForward
     /// Example: 2/5
     /// </summary>
     [JsonProperty("faceoffs")]
-    public string Faceoffs { get; set; }
+    public required string Faceoffs { get; set; }
 
     /// <summary>
     /// The NHL forward player faceoff winning percentage <br/>
@@ -481,21 +481,21 @@ public class GameCenterBoxScoreForward
     /// Example: 18:34
     /// </summary>
     [JsonProperty("toi")]
-    public string Toi { get; set; }
+    public required string Toi { get; set; }
 
     /// <summary>
     /// The NHL forward player power play time on ice <br/>
     /// Example: 02:12
     /// </summary>
     [JsonProperty("powerPlayToi")]
-    public string PowerPlayToi { get; set; }
+    public required string PowerPlayToi { get; set; }
 
     /// <summary>
     /// The NHL forward player shorthanded time on ice <br/>
     /// Example: 01:02
     /// </summary>
     [JsonProperty("shorthandedToi")]
-    public string ShorthandedToi { get; set; }
+    public required string ShorthandedToi { get; set; }
 }
 
 /// <summary>
@@ -507,25 +507,25 @@ public class GameCenterBoxScoreGameInfo
     /// The NHL game referee information
     /// </summary>
     [JsonProperty("referees")]
-    public List<Referee> Referees { get; set; }
+    public required List<Referee> Referees { get; set; }
 
     /// <summary>
     /// The NHL game linesmen information
     /// </summary>
     [JsonProperty("linesmen")]
-    public List<Linesman> Linesmen { get; set; }
+    public required List<Linesman> Linesmen { get; set; }
 
     /// <summary>
     /// The NHL away team information
     /// </summary>
     [JsonProperty("awayTeam")]
-    public GameCenterBoxScoreAwayTeam AwayTeam { get; set; }
+    public required GameCenterBoxScoreAwayTeam AwayTeam { get; set; }
 
     /// <summary>
     /// The NHL home team information
     /// </summary>
     [JsonProperty("homeTeam")]
-    public GameCenterBoxScoreHomeTeam HomeTeam { get; set; }
+    public required GameCenterBoxScoreHomeTeam HomeTeam { get; set; }
 }
 
 /// <summary>
@@ -538,70 +538,70 @@ public class GameReports
     /// Example: <a href="https://www.nhl.com/scores/htmlreports/20232024/GS020206.HTM">https://www.nhl.com/scores/htmlreports/20232024/GS020206.HTM</a>
     /// </summary>
     [JsonProperty("gameSummary")]
-    public string GameSummary { get; set; }
+    public required string GameSummary { get; set; }
 
     /// <summary>
     /// The NHL game center box score event summary link <br/>
     /// Example: <a href="https://www.nhl.com/scores/htmlreports/20232024/ES020206.HTM">https://www.nhl.com/scores/htmlreports/20232024/ES020206.HTM</a>
     /// </summary>
     [JsonProperty("eventSummary")]
-    public string EventSummary { get; set; }
+    public required string EventSummary { get; set; }
 
     /// <summary>
     /// The NHL game center box score play by play link <br/>
     /// Example: <a href="https://www.nhl.com/scores/htmlreports/20232024/PL020206.HTM">https://www.nhl.com/scores/htmlreports/20232024/PL020206.HTM</a>
     /// </summary>
     [JsonProperty("playByPlay")]
-    public string PlayByPlay { get; set; }
+    public required string PlayByPlay { get; set; }
 
     /// <summary>
     /// The NHL game center box score faceoff summary link <br/>
     /// Example: <a href="https://www.nhl.com/scores/htmlreports/20232024/FS020206.HTM">https://www.nhl.com/scores/htmlreports/20232024/FS020206.HTM</a>
     /// </summary>
     [JsonProperty("faceoffSummary")]
-    public string FaceoffSummary { get; set; }
+    public required string FaceoffSummary { get; set; }
 
     /// <summary>
     /// The NHL game center box score faceoff comparison link <br/>
     /// Example: <a href="https://www.nhl.com/scores/htmlreports/20232024/FC020206.HTM">https://www.nhl.com/scores/htmlreports/20232024/FC020206.HTM</a>
     /// </summary>
     [JsonProperty("faceoffComparison")]
-    public string FaceoffComparison { get; set; }
+    public required string FaceoffComparison { get; set; }
 
     /// <summary>
     /// The NHL game center box score roster summary link <br/>
     /// Example: <a href="https://www.nhl.com/scores/htmlreports/20232024/RO020206.HTM">https://www.nhl.com/scores/htmlreports/20232024/RO020206.HTM</a>
     /// </summary>
     [JsonProperty("rosters")]
-    public string Rosters { get; set; }
+    public required string Rosters { get; set; }
 
     /// <summary>
     /// The NHL game center box score shot summary link <br/>
     /// Example: <a href="https://www.nhl.com/scores/htmlreports/20232024/SS020206.HTM">https://www.nhl.com/scores/htmlreports/20232024/SS020206.HTM</a>
     /// </summary>
     [JsonProperty("shotSummary")]
-    public string ShotSummary { get; set; }
+    public required string ShotSummary { get; set; }
 
     /// <summary>
     /// The NHL game center box score shift chart link <br/>
     /// Example: <a href="https://www.nhl.com/scores/htmlreports/20232024/SC020206.HTM">https://www.nhl.com/scores/htmlreports/20232024/SC020206.HTM</a>
     /// </summary>
     [JsonProperty("shiftChart")]
-    public string ShiftChart { get; set; }
+    public required string ShiftChart { get; set; }
 
     /// <summary>
     /// The NHL game center box score total time on ice away report link <br/>
     /// Example: <a href="https://www.nhl.com/scores/htmlreports/20232024/TV020206.HTM">https://www.nhl.com/scores/htmlreports/20232024/TV020206.HTM</a>
     /// </summary>
     [JsonProperty("toiAway")]
-    public string ToiAway { get; set; }
+    public required string ToiAway { get; set; }
 
     /// <summary>
     /// The NHL game center box score total time on ice home report link <br/>
     /// Example: <a href="https://www.nhl.com/scores/htmlreports/20232024/TH020206.HTM">https://www.nhl.com/scores/htmlreports/20232024/TH020206.HTM</a>
     /// </summary>
     [JsonProperty("toiHome")]
-    public string ToiHome { get; set; }
+    public required string ToiHome { get; set; }
 }
 
 
@@ -629,42 +629,42 @@ public class GameCenterBoxScoreGoalie
     /// Example: J. Saros
     /// </summary>
     [JsonProperty("name")]
-    public Name Name { get; set; }
+    public required Name Name { get; set; }
 
     /// <summary>
     /// The NHL goalie position <br/>
     /// Example: G
     /// </summary>
     [JsonProperty("position")]
-    public string Position { get; set; }
+    public required string Position { get; set; }
 
     /// <summary>
     /// The NHL goalie even strength shots against <br/>
     /// Example: 20/22
     /// </summary>
     [JsonProperty("evenStrengthShotsAgainst")]
-    public string EvenStrengthShotsAgainst { get; set; }
+    public required string EvenStrengthShotsAgainst { get; set; }
 
     /// <summary>
     /// The NHL goalie power play shots against <br/>
     /// Example: 4/4
     /// </summary>
     [JsonProperty("powerPlayShotsAgainst")]
-    public string PowerPlayShotsAgainst { get; set; }
+    public required string PowerPlayShotsAgainst { get; set; }
 
     /// <summary>
     /// The NHL goalie shorthanded shots against <br/>
     /// Example: 0/0
     /// </summary>
     [JsonProperty("shorthandedShotsAgainst")]
-    public string ShorthandedShotsAgainst { get; set; }
+    public required string ShorthandedShotsAgainst { get; set; }
 
     /// <summary>
     /// The NHL goalie shots against <br/>
     /// Example: 24/26
     /// </summary>
     [JsonProperty("saveShotsAgainst")]
-    public string SaveShotsAgainst { get; set; }
+    public required string SaveShotsAgainst { get; set; }
 
     /// <summary>
     /// The NHL even strength goals against <br/>
@@ -706,7 +706,7 @@ public class GameCenterBoxScoreGoalie
     /// Example: 59:58
     /// </summary>
     [JsonProperty("toi")]
-    public string Toi { get; set; }
+    public required string Toi { get; set; }
 
     /// <summary>
     /// The NHL goalie save percentage <br/>
@@ -714,7 +714,7 @@ public class GameCenterBoxScoreGoalie
     /// </summary>
 
     [JsonProperty("savePctg")]
-    public string SavePctg { get; set; }
+    public required string SavePctg { get; set; }
 }
 
 /// <summary>
@@ -734,14 +734,14 @@ public class GameCenterBoxScoreHomeTeam
     /// Example: Capitals
     /// </summary>
     [JsonProperty("name")]
-    public Name Name { get; set; }
+    public required Name Name { get; set; }
 
     /// <summary>
     /// The NHL home team abbreviation <br/>
     /// Example: WSH
     /// </summary>
     [JsonProperty("abbrev")]
-    public string Abbrev { get; set; }
+    public required string Abbrev { get; set; }
 
     /// <summary>
     /// The NHL home team score <br/>
@@ -769,7 +769,7 @@ public class GameCenterBoxScoreHomeTeam
     /// Example: 1/4
     /// </summary>
     [JsonProperty("powerPlayConversion")]
-    public string PowerPlayConversion { get; set; }
+    public required string PowerPlayConversion { get; set; }
 
     /// <summary>
     /// The NHL home team penalty minutes <br/>
@@ -797,37 +797,37 @@ public class GameCenterBoxScoreHomeTeam
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/WSH_light.svg">https://assets.nhle.com/logos/nhl/svg/WSH_light.svg</a>
     /// </summary>
     [JsonProperty("logo")]
-    public string Logo { get; set; }
+    public required string Logo { get; set; }
 
     /// <summary>
     /// The NHL home team forwards
     /// </summary>
     [JsonProperty("forwards")]
-    public List<GameCenterBoxScoreForward> Forwards { get; set; }
+    public required List<GameCenterBoxScoreForward> Forwards { get; set; }
 
     /// <summary>
     /// The NHL home team defense
     /// </summary>
     [JsonProperty("defense")]
-    public List<GameCenterBoxScoreDefense> Defense { get; set; }
+    public required List<GameCenterBoxScoreDefense> Defense { get; set; }
 
     /// <summary>
     /// The NHL home team goalies
     /// </summary>
     [JsonProperty("goalies")]
-    public List<GameCenterBoxScoreGoalie> Goalies { get; set; }
+    public required List<GameCenterBoxScoreGoalie> Goalies { get; set; }
 
     /// <summary>
     /// The NHL home team head coach
     /// </summary>
     [JsonProperty("headCoach")]
-    public HeadCoach HeadCoach { get; set; }
+    public required HeadCoach HeadCoach { get; set; }
 
     /// <summary>
     /// The NHL home team scratches
     /// </summary>
     [JsonProperty("scratches")]
-    public List<Scratch> Scratches { get; set; }
+    public required List<Scratch> Scratches { get; set; }
 }
 
 /// <summary>
@@ -839,13 +839,13 @@ public class PlayerByGameStats
     /// The NHL game center player by game statistics for the away team
     /// </summary>
     [JsonProperty("awayTeam")]
-    public GameCenterBoxScoreAwayTeam AwayTeam { get; set; }
+    public required GameCenterBoxScoreAwayTeam AwayTeam { get; set; }
 
     /// <summary>
     /// The NHL game center player by game statistics for the home team
     /// </summary>
     [JsonProperty("homeTeam")]
-    public GameCenterBoxScoreHomeTeam HomeTeam { get; set; }
+    public required GameCenterBoxScoreHomeTeam HomeTeam { get; set; }
 }
 
 /// <summary>
@@ -879,13 +879,13 @@ public class GameCenterBoxScore
     /// Example: 2023-10-04
     /// </summary>
     [JsonProperty("gameDate")]
-    public string GameDate { get; set; }
+    public required string GameDate { get; set; }
 
     /// <summary>
     /// The information about the NHL game venue
     /// </summary>
     [JsonProperty("venue")]
-    public Venue Venue { get; set; }
+    public required Venue Venue { get; set; }
 
     /// <summary>
     /// The start time in UTC for the NHL game <br/>
@@ -899,34 +899,34 @@ public class GameCenterBoxScore
     /// Example: -5:00
     /// </summary>
     [JsonProperty("easternUTCOffset")]
-    public string EasternUTCOffset { get; set; }
+    public required string EasternUTCOffset { get; set; }
 
     /// <summary>
     /// The venue UTC offset for the NHL game <br/>
     /// Example: -5:00
     /// </summary>
     [JsonProperty("venueUTCOffset")]
-    public string VenueUTCOffset { get; set; }
+    public required string VenueUTCOffset { get; set; }
 
     /// <summary>
     /// The NHL game TV broadcast statuses
     /// </summary>
     [JsonProperty("tvBroadcasts")]
-    public List<TvBroadcast> TvBroadcasts { get; set; }
+    public required List<TvBroadcast> TvBroadcasts { get; set; }
 
     /// <summary>
     /// The NHL game state for the game <br/>
     /// Example: OFF
     /// </summary>
     [JsonProperty("gameState")]
-    public string GameState { get; set; }
+    public required string GameState { get; set; }
 
     /// <summary>
     /// The NHL game schedule state for the game <br/>
     /// Example: OK
     /// </summary>
     [JsonProperty("gameScheduleState")]
-    public string GameScheduleState { get; set; }
+    public required string GameScheduleState { get; set; }
 
     /// <summary>
     /// The NHL period number for the game <br/>
@@ -939,49 +939,49 @@ public class GameCenterBoxScore
     /// The NHL period description for the game
     /// </summary>
     [JsonProperty("periodDescriptor")]
-    public PeriodDescriptor PeriodDescriptor { get; set; }
+    public required PeriodDescriptor PeriodDescriptor { get; set; }
 
     /// <summary>
     /// The NHL game center box score away team information
     /// </summary>
     [JsonProperty("awayTeam")]
-    public GameCenterBoxScoreAwayTeam AwayTeam { get; set; }
+    public required GameCenterBoxScoreAwayTeam AwayTeam { get; set; }
 
     /// <summary>
     /// The NHL game center box score home team information
     /// </summary>
     [JsonProperty("homeTeam")]
-    public GameCenterBoxScoreHomeTeam HomeTeam { get; set; }
+    public required GameCenterBoxScoreHomeTeam HomeTeam { get; set; }
 
     /// <summary>
     /// The NHL game center box score clock information
     /// </summary>
     [JsonProperty("clock")]
-    public Clock Clock { get; set; }
+    public required Clock Clock { get; set; }
 
     /// <summary>
     /// The NHL game center box score game player statistics for the game
     /// </summary>
     [JsonProperty("playerByGameStats")]
-    public PlayerByGameStats PlayerByGameStatistics { get; set; }
+    public required PlayerByGameStats PlayerByGameStatistics { get; set; }
 
     /// <summary>
     /// The NHL game center box score information
     /// </summary>
     [JsonProperty("summary")]
-    public Boxscore Boxscore { get; set; }
+    public required Boxscore Boxscore { get; set; }
 
     /// <summary>
     /// The NHL game center box score game outcome information
     /// </summary>
     [JsonProperty("gameOutcome")]
-    public GameOutcome GameOutcome { get; set; }
+    public required GameOutcome GameOutcome { get; set; }
 
     /// <summary>
     /// The NHL game center box score game video information
     /// </summary>
     [JsonProperty("gameVideo")]
-    public GameVideo GameVideo { get; set; }
+    public required GameVideo GameVideo { get; set; }
 }
 
 /// <summary>
@@ -993,13 +993,13 @@ public class Linescore
     /// The NHL game center box score break down by period 
     /// </summary>
     [JsonProperty("byPeriod")]
-    public List<ByPeriod> ByPeriod { get; set; }
+    public required List<ByPeriod> ByPeriod { get; set; }
 
     /// <summary>
     /// The NHL game center box score team totals
     /// </summary>
     [JsonProperty("totals")]
-    public Totals Totals { get; set; }
+    public required Totals Totals { get; set; }
 }
 
 /// <summary>

@@ -1,3 +1,5 @@
+using System.Globalization;
+using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Services;
 
 namespace Nhl.Api;
@@ -45,7 +47,7 @@ public class NhlLeagueApi : INhlLeagueApi
             return false;
         }
 
-        return DateTime.Now >= DateTime.Parse(leagueSchedule.RegularSeasonStartDate) && DateTime.Now <= DateTime.Parse(leagueSchedule.RegularSeasonEndDate);
+        return DateTime.Now >= DateTime.Parse(leagueSchedule.RegularSeasonStartDate, CultureInfo.InvariantCulture) && DateTime.Now <= DateTime.Parse(leagueSchedule.RegularSeasonEndDate, CultureInfo.InvariantCulture);
     }
 
     /// <summary>
@@ -67,8 +69,8 @@ public class NhlLeagueApi : INhlLeagueApi
             return false;
         }
 
-        return DateTime.Now >= DateTime.Parse(leagueSchedule.RegularSeasonEndDate) &&
-            DateTime.Now <= DateTime.Parse(leagueSchedule.PlayoffEndDate);
+        return DateTime.Now >= DateTime.Parse(leagueSchedule.RegularSeasonEndDate, CultureInfo.InvariantCulture) &&
+            DateTime.Now <= DateTime.Parse(leagueSchedule.PlayoffEndDate, CultureInfo.InvariantCulture);
     }
 
     /// <summary>
@@ -90,7 +92,7 @@ public class NhlLeagueApi : INhlLeagueApi
             return false;
         }
 
-        return DateTime.Now >= DateTime.Parse(leagueSchedule.PreSeasonStartDate) && DateTime.Now <= DateTime.Parse(leagueSchedule.RegularSeasonStartDate);
+        return DateTime.Now >= DateTime.Parse(leagueSchedule.PreSeasonStartDate, CultureInfo.InvariantCulture) && DateTime.Now <= DateTime.Parse(leagueSchedule.RegularSeasonStartDate, CultureInfo.InvariantCulture);
     }
 
 
@@ -106,7 +108,7 @@ public class NhlLeagueApi : INhlLeagueApi
         var parsedTeamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamAbbreviation(teamAbbreviation);
         if (string.IsNullOrWhiteSpace(parsedTeamAbbreviation))
         {
-            throw new Exception($"The team abbreviation {teamAbbreviation} is not valid");
+            throw new InvalidTeamAbbreviationException($"The team abbreviation {teamAbbreviation} is not valid");
         }
 
         if (seasonYear?.Length != 8)
@@ -130,7 +132,7 @@ public class NhlLeagueApi : INhlLeagueApi
         var parsedTeamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamAbbreviation(teamAbbreviation);
         if (string.IsNullOrWhiteSpace(parsedTeamAbbreviation))
         {
-            throw new Exception($"The team abbreviation {teamAbbreviation} is not valid");
+            throw new InvalidTeamAbbreviationException($"The team abbreviation {teamAbbreviation} is not valid");
         }
 
         return await _nhlWebApiHttpClient.GetAsync<TeamWeekSchedule>($"/club-schedule/{teamAbbreviation}/week/{date:yyyy-MM-dd}", cancellationToken);
@@ -192,11 +194,6 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>An NHL team color scheme using hexadecimal codes</returns>
     public async Task<TeamColors> GetTeamColorsAsync(TeamEnum team, CancellationToken cancellationToken = default)
     {
-        if (cancellationToken.IsCancellationRequested)
-        {
-            return null;
-        }
-
         var teamColors = team switch
         {
             TeamEnum.NewJerseyDevils => new TeamColors
@@ -419,7 +416,7 @@ public class NhlLeagueApi : INhlLeagueApi
             _ => null,
         };
 
-        return await Task.FromResult(teamColors);
+        return await Task.FromResult(teamColors!);
     }
 
     /// <summary>
@@ -430,9 +427,9 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>An NHL team color scheme using hexadecimal codes</returns>
     public async Task<TeamColors> GetTeamColorsAsync(int teamId, CancellationToken cancellationToken = default)
     {
-        var teamEnum = Enum.Parse<TeamEnum>(teamId.ToString());
+        var teamEnum = Enum.Parse<TeamEnum>(teamId!.ToString(CultureInfo.InvariantCulture));
 
-        return await GetTeamColorsAsync(teamEnum, cancellationToken);
+        return await this.GetTeamColorsAsync(teamEnum, cancellationToken);
     }
 
     /// <summary>
@@ -451,8 +448,6 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns the NHL team roster for a specific team by the team identifier and season year</returns>
     public async Task<TeamSeasonRoster> GetTeamRosterBySeasonYearAsync(int teamId, string seasonYear, CancellationToken cancellationToken = default)
     {
-
-
         if (seasonYear?.Length != 8)
         {
             throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
@@ -563,18 +558,18 @@ public class NhlLeagueApi : INhlLeagueApi
         var sb = new StringBuilder("/meta");
         if (playerIds?.Count > 0)
         {
-            sb.Append($"?players={string.Join(",", playerIds)}");
+            _ = sb.Append(CultureInfo.InvariantCulture, $"?players={string.Join(",", playerIds)}");
         }
 
         if (teamIds?.Count > 0)
         {
             if (playerIds?.Count > 0)
             {
-                sb.Append($"&teams={string.Join(",", teamIds)}");
+                _ = sb.Append(CultureInfo.InvariantCulture, $"&teams={string.Join(",", teamIds)}");
             }
             else
             {
-                sb.Append($"?teams={string.Join(",", teamIds)}");
+                _ = sb.Append(CultureInfo.InvariantCulture, $"?teams={string.Join(",", teamIds)}");
             }
         }
 
@@ -593,7 +588,7 @@ public class NhlLeagueApi : INhlLeagueApi
         var sb = new StringBuilder("/meta");
         if (players?.Count > 0)
         {
-            sb.Append($"?players={string.Join(",", players.Select(player => (int)player).ToArray())}");
+            _ = sb.Append(CultureInfo.InvariantCulture, $"?players={string.Join(",", players.Select(player => (int)player).ToArray())}");
         }
 
         if (teams?.Count > 0)
@@ -601,11 +596,11 @@ public class NhlLeagueApi : INhlLeagueApi
             var teamAbbreviations = _nhlTeamService.GetTeamCodeIdentifierByTeamEnumerations(teams);
             if (players?.Count > 0)
             {
-                sb.Append($"&teams={string.Join(",", teamAbbreviations)}");
+                _ = sb.Append(CultureInfo.InvariantCulture, $"&teams={string.Join(",", teamAbbreviations)}");
             }
             else
             {
-                sb.Append($"?teams={string.Join(",", teamAbbreviations)}");
+                _ = sb.Append(CultureInfo.InvariantCulture, $"?teams={string.Join(",", teamAbbreviations)}");
             }
         }
 
@@ -617,5 +612,5 @@ public class NhlLeagueApi : INhlLeagueApi
     /// </summary>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns true or false based on the current time and date</returns>
-    public async Task<bool> IsLeagueActiveAsync(CancellationToken cancellationToken = default) => await IsRegularSeasonActiveAsync(cancellationToken) || await IsPlayoffSeasonActiveAsync(cancellationToken) || await IsPreSeasonActiveAsync(cancellationToken);
+    public async Task<bool> IsLeagueActiveAsync(CancellationToken cancellationToken = default) => await this.IsRegularSeasonActiveAsync(cancellationToken) || await this.IsPlayoffSeasonActiveAsync(cancellationToken) || await this.IsPreSeasonActiveAsync(cancellationToken);
 }

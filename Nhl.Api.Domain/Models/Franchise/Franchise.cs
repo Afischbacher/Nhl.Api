@@ -32,21 +32,21 @@ public class Franchise
     /// Example: Maple Leafs
     /// </summary>
     [JsonProperty("teamName")]
-    public string TeamName { get; set; }
+    public required string TeamName { get; set; }
 
     /// <summary>
     /// The geographic location of the NHL team <br/>
     /// Example: Toronto
     /// </summary>
     [JsonProperty("locationName")]
-    public string LocationName { get; set; }
+    public required string LocationName { get; set; }
 
     /// <summary>
     /// A link within the api to the franchise information <br/>
     /// Example: /api/v1/franchises/6
     /// </summary>
     [JsonProperty("link")]
-    public string Link { get; set; }
+    public required string Link { get; set; }
 
     /// <summary>
     /// The last season of the franchise within the NHL <br/>

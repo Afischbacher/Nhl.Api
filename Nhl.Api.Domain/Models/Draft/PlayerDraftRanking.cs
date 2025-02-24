@@ -18,13 +18,13 @@ public class PlayerDraftCategory
     /// The name of the player draft category
     /// </summary>
     [JsonProperty("name")]
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
     /// <summary>
     /// The consumer key of the player draft category
     /// </summary>
     [JsonProperty("consumerKey")]
-    public string ConsumerKey { get; set; }
+    public required string ConsumerKey { get; set; }
 }
 
 /// <summary>

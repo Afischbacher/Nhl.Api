@@ -26,18 +26,18 @@ public class TeamSchedule
     /// Example: US/Eastern
     /// </summary>
     [JsonProperty("clubTimezone")]
-    public string ClubTimezone { get; set; }
+    public required string ClubTimezone { get; set; }
 
     /// <summary>
     /// This returns the NHL team's time zone offset in hours <br/>
     ///  Example: -05:00
     /// </summary>
     [JsonProperty("clubUTCOffset")]
-    public string ClubUTCOffset { get; set; }
+    public required string ClubUTCOffset { get; set; }
 
     /// <summary>
     /// The NHL team's schedule for the season in a list of games
     /// </summary>
     [JsonProperty("games")]
-    public List<Game> Games { get; set; } = new();
+    public List<Game> Games { get; set; } = [];
 }

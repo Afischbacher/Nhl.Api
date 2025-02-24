@@ -12,19 +12,19 @@ public class TeamProspects
     /// The NHL team forward prospects for an NHL team
     /// </summary>
     [JsonProperty("forwards")]
-    public List<TeamProspectForward> Forwards { get; set; }
+    public required List<TeamProspectForward> Forwards { get; set; }
 
     /// <summary>
     /// The NHL team defense prospects for an NHL team
     /// </summary>
     [JsonProperty("defensemen")]
-    public List<TeamProspectDefenseman> Defensemen { get; set; }
+    public required List<TeamProspectDefenseman> Defensemen { get; set; }
 
     /// <summary>
     /// The NHL team goalie prospects for an NHL team
     /// </summary>
     [JsonProperty("goalies")]
-    public List<TeamProspectGoalie> Goalies { get; set; }
+    public required List<TeamProspectGoalie> Goalies { get; set; }
 }
 
 /// <summary>

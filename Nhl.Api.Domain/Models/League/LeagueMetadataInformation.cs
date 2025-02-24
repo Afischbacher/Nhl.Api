@@ -19,7 +19,7 @@ public class CurrentTeam
     /// Example: TOR
     /// </summary>
     [JsonProperty("abbrev")]
-    public string Abbrev { get; set; }
+    public required string Abbrev { get; set; }
 
     /// <summary>
     /// Force the player metadata to be updated <br/>
@@ -39,14 +39,14 @@ public class MetadataName
     /// Example: Auston Matthews
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
     /// <summary>
     /// The player name in French <br/>
     /// Example: Auston Matthews
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 }
 
 /// <summary>
@@ -66,27 +66,27 @@ public class Player
     /// Example: jack-eichel-8478403
     /// </summary>
     [JsonProperty("playerSlug")]
-    public string PlayerSlug { get; set; }
+    public required string PlayerSlug { get; set; }
 
     /// <summary>
     /// The NHL player action shot link url <br/>
     /// Example: <a href="https://assets.nhle.com/mugs/actionshots/1296x729/8478402.jpg">https://assets.nhle.com/mugs/actionshots/1296x729/8478402.jpg</a>
     /// </summary>
     [JsonProperty("actionShot")]
-    public string ActionShot { get; set; }
+    public required string ActionShot { get; set; }
 
     /// <summary>
     /// The name of the NHL player <br/>
     /// Example: Jack Eichel
     /// </summary>
     [JsonProperty("name")]
-    public MetadataName Name { get; set; }
+    public required MetadataName Name { get; set; }
 
     /// <summary>
     /// The collection of current NHL teams for the player metadata
     /// </summary>
     [JsonProperty("currentTeams")]
-    public List<CurrentTeam> CurrentTeams { get; set; }
+    public required List<CurrentTeam> CurrentTeams { get; set; }
 }
 
 /// <summary>
@@ -98,19 +98,19 @@ public class LeagueMetadataInformation
     /// The collection of NHL players for the metadata
     /// </summary>
     [JsonProperty("players")]
-    public List<Player> Players { get; set; }
+    public required List<Player> Players { get; set; }
 
     /// <summary>
     /// The collection of NHL teams for the metadata
     /// </summary>
     [JsonProperty("teams")]
-    public List<LeagueMetadataTeam> Teams { get; set; }
+    public required List<LeagueMetadataTeam> Teams { get; set; }
 
     /// <summary>
     /// The collection of NHL seasons for the metadata
     /// </summary>
     [JsonProperty("seasonStates")]
-    public List<object> SeasonStates { get; set; }
+    public required List<object> SeasonStates { get; set; }
 }
 
 /// <summary>
@@ -123,14 +123,14 @@ public class LeagueMetadataTeam
     /// Example: Edmonton Oilers
     /// </summary>
     [JsonProperty("name")]
-    public MetadataName Name { get; set; }
+    public required MetadataName Name { get; set; }
 
     /// <summary>
     /// The NHL team abbreviation for the metadata <br/>
     /// Example: EDM
     /// </summary>
     [JsonProperty("tricode")]
-    public string Tricode { get; set; }
+    public required string Tricode { get; set; }
 
     /// <summary>
     /// The NHL team identifier for the metadata <br/>

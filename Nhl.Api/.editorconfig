@@ -442,3 +442,6 @@ dotnet_naming_rule.parameters_rule.severity             = warning
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 ##########################################
+
+# IDE1006: Naming Styles
+dotnet_diagnostic.IDE1006.severity = none

@@ -34,42 +34,42 @@ public class TvScheduleBroadcastInformation
     /// Example: NHL Tonight: Pre-Game Skate
     /// </summary>
     [JsonProperty("title")]
-    public string Title { get; set; }
+    public required string Title { get; set; }
 
     /// <summary>
     /// The description of the NHL broadcast <br/>
     /// Example: NHL Tonight: Pre-Game Skate
     /// </summary>
     [JsonProperty("description")]
-    public string Description { get; set; }
+    public required string Description { get; set; }
 
     /// <summary>
     /// The broadcast house number <br/>
     /// Example: HPGS24R111023LV
     /// </summary>
     [JsonProperty("houseNumber")]
-    public string HouseNumber { get; set; }
+    public required string HouseNumber { get; set; }
 
     /// <summary>
     /// The NHL broadcast type <br/>
     /// Example: HD
     /// </summary>
     [JsonProperty("broadcastType")]
-    public string BroadcastType { get; set; }
+    public required string BroadcastType { get; set; }
 
     /// <summary>
     /// The NHL broadcast status <br/>
     /// Example: LIVE
     /// </summary>
     [JsonProperty("broadcastStatus")]
-    public string BroadcastStatus { get; set; }
+    public required string BroadcastStatus { get; set; }
 
     /// <summary>
     /// The NHL broadcast image URL <br/>
     /// Example: onthefly.png
     /// </summary>
     [JsonProperty("broadcastImageUrl")]
-    public string BroadcastImageUrl { get; set; }
+    public required string BroadcastImageUrl { get; set; }
 }
 
 /// <summary>
@@ -82,25 +82,25 @@ public class TvScheduleBroadcast
     /// Example: 2021-11-10
     /// </summary>
     [JsonProperty("date")]
-    public string Date { get; set; }
+    public required string Date { get; set; }
 
     /// <summary>
     /// The start date of the TV broadcast schedule <br/>
     /// Example: 2021-11-10
     /// </summary>
     [JsonProperty("startDate")]
-    public string StartDate { get; set; }
+    public required string StartDate { get; set; }
 
     /// <summary>
     /// The end date of the TV broadcast schedule <br/>
     /// Example: 2021-11-10
     /// </summary>
     [JsonProperty("endDate")]
-    public string EndDate { get; set; }
+    public required string EndDate { get; set; }
 
     /// <summary>
     /// The collection of NHL TV schedule broadcasts
     /// </summary>
     [JsonProperty("broadcasts")]
-    public List<TvScheduleBroadcastInformation> Broadcasts { get; set; }
+    public required List<TvScheduleBroadcastInformation> Broadcasts { get; set; }
 }

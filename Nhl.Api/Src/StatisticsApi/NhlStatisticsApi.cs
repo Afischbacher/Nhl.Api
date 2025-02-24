@@ -1,4 +1,5 @@
 using System.Globalization;
+using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Services;
 
 namespace Nhl.Api;
@@ -296,14 +297,19 @@ public class NhlStatisticsApi : INhlStatisticsApi
         }
 
         // Get Player Team By Season
-        var teamName = player.SeasonTotals.Find(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
+        var teamName = player.SeasonTotals.Find(x => x.Season == int.Parse(seasonYear, CultureInfo.InvariantCulture) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.OrdinalIgnoreCase))?.TeamName?.Default;
         // If no team exists for the season, return the player and the statistic totals as empty
         if (string.IsNullOrWhiteSpace(teamName))
         {
             return (player, statisticTotals);
         }
 
+        // If no team abbreviation exists for the season, return the player and the statistic totals as empty
         var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamName(teamName);
+        if (string.IsNullOrWhiteSpace(teamAbbreviation))
+        {
+            return (player, statisticTotals);
+        }
 
         // Get team season schedule
         var schedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(teamAbbreviation, seasonYear, cancellationToken);
@@ -388,7 +394,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         }
 
         // Get Player Team By Season
-        var teamName = player.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.InvariantCultureIgnoreCase))?.TeamName?.Default;
+        var teamName = player.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear, CultureInfo.InvariantCulture) && x.LeagueAbbrev.Equals(HockeyLeague.NationalHockeyLeague, StringComparison.OrdinalIgnoreCase))?.TeamName?.Default;
 
         // If no team exists for the season, return the player and the statistic totals as empty
         if (string.IsNullOrWhiteSpace(teamName))
@@ -396,7 +402,12 @@ public class NhlStatisticsApi : INhlStatisticsApi
             return (player, statisticTotals);
         }
 
+        // If no team abbreviation exists for the season, return the player and the statistic totals as empty
         var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamName(teamName);
+        if (string.IsNullOrWhiteSpace(teamAbbreviation))
+        {
+            return (player, statisticTotals);
+        }
 
         // Get team season schedule
         var schedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(teamAbbreviation, seasonYear, cancellationToken);
@@ -425,10 +436,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
                 { PlayerGameCenterStatistic.Takeaway, 0},
             };
 
-            gameCenterPlayByPlay.Plays.ForEach(play =>
-            {
-                GetPlayerStatisticTotal(playerId, play, ref gameStatisticTotals);
-            });
+            gameCenterPlayByPlay.Plays.ForEach(play => GetPlayerStatisticTotal(playerId, play, ref gameStatisticTotals));
 
             return gameStatisticTotals;
         });
@@ -460,19 +468,29 @@ public class NhlStatisticsApi : INhlStatisticsApi
 
         ValidateSeasonYear(seasonYear);
 
-        var allNhlTeams = Enum.GetValues(typeof(TeamEnum)).Cast<TeamEnum>().ToList();
+        var allNhlTeams = Enum.GetValues<TeamEnum>().Cast<TeamEnum>().ToList();
 
-        // Get all NHL Teams
-        if (int.Parse(seasonYear, CultureInfo.InvariantCulture) >= int.Parse(SeasonYear.season20242025, CultureInfo.InvariantCulture))
+        var teamRosterTasks = allNhlTeams.Select(async (team) =>
         {
-            // They are no longer in the NHL
-            allNhlTeams.Remove(TeamEnum.ArizonaCoyotes);
-        }
-
-        var teamRosterTasks = allNhlTeams.Select(async (team) => await _nhlLeagueApi.GetTeamRosterBySeasonYearAsync(team, seasonYear, cancellationToken));
+            try
+            {
+                return await _nhlLeagueApi.GetTeamRosterBySeasonYearAsync(team, seasonYear, cancellationToken);
+            }
+            catch
+            {
+                // This is for when a team does not have a roster for the season for example
+                // the Seattle Kraken did not have a roster for the 2020-2021 season because they did not exist
+                return new TeamSeasonRoster
+                {
+                    Defensemen = [],
+                    Forwards = [],
+                    Goalies = []
+                };
+            }
+        });
 
         // Get all team rosters
-        var allRoster = await Task.WhenAll(teamRosterTasks);
+        var allRoster = (await Task.WhenAll(teamRosterTasks)).Where(x => (x.Defensemen.Count > 0 || x.Forwards.Count > 0) && x.Goalies.Count > 0).ToList();
 
         var allPlayers = new List<TeamRosterPlayer>();
         allPlayers.AddRange(allRoster.SelectMany(x => x.Forwards).ToList());
@@ -503,9 +521,14 @@ public class NhlStatisticsApi : INhlStatisticsApi
             { PlayerGameCenterStatistic.Takeaway, 0 },
         });
 
+
         var teamScheduleTasks = allNhlTeams.Select(async team =>
         {
             var teamAbbreviation = _nhlTeamService.GetTeamCodeIdentifierByTeamEnumeration(team);
+            if (string.IsNullOrWhiteSpace(teamAbbreviation))
+            {
+                throw new InvalidTeamAbbreviationException($"The team abbreviation for {team} is invalid");
+            }
             var teamSchedule = await _nhlLeagueApi.GetTeamScheduleBySeasonAsync(teamAbbreviation, seasonYear, cancellationToken);
 
             return teamSchedule;
@@ -513,7 +536,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
 
         var games = (await Task.WhenAll(teamScheduleTasks))
             .SelectMany(schedule => schedule.Games)
-            .Where(g => g.GameType == (int)gameType)
+            .Where(g => g.GameType == (int)gameType!)
             .DistinctBy(g => g.Id)
             .ToList();
 
@@ -522,10 +545,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
             // Count number of game events where player won a faceoff
             var gameCenterPlayByPlay = await _nhlGameApi.GetGameCenterPlayByPlayByGameIdAsync(game.Id, includeEventDateTime: false, cancellationToken);
 
-            gameCenterPlayByPlay.Plays.ForEach(play =>
-            {
-                GetPlayerStatisticTotal(play, ref allPlayers, ref allPlayerStatisticTotals);
-            });
+            gameCenterPlayByPlay.Plays.ForEach(play => GetPlayerStatisticTotal(play, ref allPlayers, ref allPlayerStatisticTotals));
 
         });
 
@@ -572,7 +592,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var endpoint = new StringBuilder($"/skater/summary?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={playerStatisticsFilterToSortBy.GetEnumMemberValue()}&gameTypeId={(int)gameType}");
         if (expressionPlayerFilter.IsValidExpression)
         {
-            endpoint.Append($"&{expressionPlayerFilter}");
+            _ = endpoint.Append(CultureInfo.InvariantCulture, $"&{expressionPlayerFilter}");
         }
 
         return await _nhlEApiWebHttpClient.GetAsync<PlayerStatisticsFilterResult>(endpoint.ToString(), cancellationToken);
@@ -615,7 +635,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var endpoint = new StringBuilder($"/goalie/summary?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={goalieStatisticsFilterToSortBy.GetEnumMemberValue()}&gameTypeId={(int)gameType}");
         if (expressionGoalieFilter.IsValidExpression)
         {
-            endpoint.Append($"&{expressionGoalieFilter}");
+            _ = endpoint.Append(CultureInfo.InvariantCulture, $"&{expressionGoalieFilter}");
         }
 
         return await _nhlEApiWebHttpClient.GetAsync<GoalieStatisticsFilterResult>(endpoint.ToString(), cancellationToken);
@@ -658,7 +678,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var endpoint = new StringBuilder($"/skater/realtime?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={playerRealtimeStatisticsFilterToSortBy.GetEnumMemberValue()}&gameTypeId={(int)gameType}");
         if (expressionPlayerFilter.IsValidExpression)
         {
-            endpoint.Append($"&{expressionPlayerFilter}");
+            _ = endpoint.Append(CultureInfo.InvariantCulture, $"&{expressionPlayerFilter}");
         }
 
         return await _nhlEApiWebHttpClient.GetAsync<PlayerRealtimeStatisticsFilterResult>(endpoint.ToString(), cancellationToken);
@@ -701,7 +721,7 @@ public class NhlStatisticsApi : INhlStatisticsApi
         var endpoint = new StringBuilder($"/skater/timeonice?cayenneExp=seasonId={seasonYear}&limit={limit}&start={offsetStart}&sort={playerTimeOnIceStatisticsFilterToSortBy.GetEnumMemberValue()}&gameTypeId={(int)gameType}");
         if (expressionPlayerFilter.IsValidExpression)
         {
-            endpoint.Append($"&{expressionPlayerFilter}");
+            _ = endpoint.Append(CultureInfo.InvariantCulture, $"&{expressionPlayerFilter}");
         }
 
         return await _nhlEApiWebHttpClient.GetAsync<PlayerTimeOnIceStatisticsFilterResult>(endpoint.ToString(), cancellationToken);

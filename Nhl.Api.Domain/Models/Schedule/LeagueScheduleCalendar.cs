@@ -12,13 +12,13 @@ public class CommonName
     /// Example: Devils
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
     /// <summary>
     /// The French name of the NHL team
     /// Example: Devils
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 }
 
 /// <summary>
@@ -31,14 +31,14 @@ public class Name
     /// Example: Tampa Bay Lightning
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
     /// <summary>
     /// The French name of the NHL team
     /// Example: Lightning de Tampa Bay
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 }
 
 
@@ -52,34 +52,34 @@ public class LeagueScheduleCalendar
     /// Example: 2024-04-06
     /// </summary>
     [JsonProperty("endDate")]
-    public string EndDate { get; set; }
+    public required string EndDate { get; set; }
 
     /// <summary>
     /// The next start date of the NHL league schedule calendar
     /// Example: 2024-04-07
     /// </summary>
     [JsonProperty("nextStartDate")]
-    public string NextStartDate { get; set; }
+    public required string NextStartDate { get; set; }
 
     /// <summary>
     /// The previous start date of the NHL league schedule calendar
     /// Example: 2024-04-05
     /// </summary>
     [JsonProperty("previousStartDate")]
-    public string PreviousStartDate { get; set; }
+    public required string PreviousStartDate { get; set; }
 
     /// <summary>
     /// The start date of the NHL league schedule calendar
     /// Example: 2024-04-07
     /// </summary>
     [JsonProperty("startDate")]
-    public string StartDate { get; set; }
+    public required string StartDate { get; set; }
 
     /// <summary>
     /// The total number of items in the NHL league schedule calendar
     /// </summary>
     [JsonProperty("teams")]
-    public List<LeagueScheduleCalendarTeam> Teams { get; set; }
+    public required List<LeagueScheduleCalendarTeam> Teams { get; set; }
 }
 
 /// <summary>
@@ -105,42 +105,42 @@ public class LeagueScheduleCalendarTeam
     /// The common name of the NHL team
     /// </summary>
     [JsonProperty("commonName")]
-    public CommonName CommonName { get; set; }
+    public required CommonName CommonName { get; set; }
 
     /// <summary>
     /// The abbreviation of the NHL team <br/>
     /// Example: NYR
     /// </summary>
     [JsonProperty("abbrev")]
-    public string Abbrev { get; set; }
+    public required string Abbrev { get; set; }
 
     /// <summary>
     /// The name of the NHL team <br/>
     /// Example: New York Rangers
     /// </summary>
     [JsonProperty("name")]
-    public Name Name { get; set; }
+    public required Name Name { get; set; }
 
     /// <summary>
     /// The place name of the NHL team <br/>
     /// Example: NY Rangers
     /// </summary>
     [JsonProperty("placeName")]
-    public PlaceName PlaceName { get; set; }
+    public required PlaceName PlaceName { get; set; }
 
     /// <summary>
     /// The light logo of the NHL team <br/>
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/NYR_light.svg">https://assets.nhle.com/logos/nhl/svg/NYR_light.svg</a>
     /// </summary>
     [JsonProperty("logo")]
-    public string Logo { get; set; }
+    public required string Logo { get; set; }
 
     /// <summary>
     /// The dark logo of the NHL team <br/>
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/NYR_dark.svg">https://assets.nhle.com/logos/nhl/svg/NYR_light.svg</a>
     /// </summary>
     [JsonProperty("darkLogo")]
-    public string DarkLogo { get; set; }
+    public required string DarkLogo { get; set; }
 
     /// <summary>
     /// Is the team an NHL team <br/>

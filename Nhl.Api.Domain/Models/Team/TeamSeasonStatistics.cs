@@ -21,21 +21,21 @@ public class TeamStatisticGoalie
     /// Example: <a href="https://assets.nhle.com/mugs/nhl/20232024/TOR/8470966.png">https://assets.nhle.com/mugs/nhl/20232024/TOR/8470966.png</a>
     /// </summary>
     [JsonProperty("headshot")]
-    public string Headshot { get; set; }
+    public required string Headshot { get; set; }
 
     /// <summary>
     /// The NHL team goalie player first name <br/>
     /// Example: Frederik
     /// </summary>
     [JsonProperty("firstName")]
-    public FirstName FirstName { get; set; }
+    public required FirstName FirstName { get; set; }
 
     /// <summary>
     /// The NHL team goalie player last name <br/>
     /// Example: Andersen
     /// </summary>
     [JsonProperty("lastName")]
-    public LastName LastName { get; set; }
+    public required LastName LastName { get; set; }
 
     /// <summary>
     /// The NHL team goalie player number of games played <br/>
@@ -167,7 +167,7 @@ public class TeamSeasonStatistics
     /// Example: 20232024
     /// </summary>
     [JsonProperty("season")]
-    public string Season { get; set; }
+    public required string Season { get; set; }
 
     /// <summary>
     /// The NHL team statistics game type <br/>
@@ -180,13 +180,13 @@ public class TeamSeasonStatistics
     /// The collection of NHL team skaters and their statistics for the team and the season and game type
     /// </summary>
     [JsonProperty("skaters")]
-    public List<TeamStatisticSkater> Skaters { get; set; }
+    public required List<TeamStatisticSkater> Skaters { get; set; }
 
     /// <summary>
     /// The collection of NHL team goalies and their statistics for the team and the season and game type
     /// </summary>
     [JsonProperty("goalies")]
-    public List<TeamStatisticGoalie> Goalies { get; set; }
+    public required List<TeamStatisticGoalie> Goalies { get; set; }
 }
 
 /// <summary>
@@ -206,28 +206,28 @@ public class TeamStatisticSkater
     /// Example: <a href="https://assets.nhle.com/mugs/nhl/20232024/PIT/8471675.png">https://assets.nhle.com/mugs/nhl/20232024/PIT/8471675.png</a>
     /// </summary>
     [JsonProperty("headshot")]
-    public string Headshot { get; set; }
+    public required string Headshot { get; set; }
 
     /// <summary>
     /// The NHL player first name for the skater <br/>
     /// Example: Sidney
     /// </summary>
     [JsonProperty("firstName")]
-    public FirstName FirstName { get; set; }
+    public required FirstName FirstName { get; set; }
 
     /// <summary>
     /// The NHL player last name for the skater <br/>
     /// Example: Crosby
     /// </summary>
     [JsonProperty("lastName")]
-    public LastName LastName { get; set; }
+    public required LastName LastName { get; set; }
 
     /// <summary>
     /// The NHL player position code for the skater <br/>
     /// Example: C - Center
     /// </summary>
     [JsonProperty("positionCode")]
-    public string PositionCode { get; set; }
+    public required string PositionCode { get; set; }
 
     /// <summary>
     /// The NHL player number of games played for the skater <br/>

@@ -113,7 +113,7 @@ public class StringTests
         var expected = "";
 
         // Act
-        string result = input.ReplaceNonAsciiWithAscii();
+        var result = input.ReplaceNonAsciiWithAscii();
 
         // Assert
         Assert.AreEqual(expected, result);
@@ -127,7 +127,7 @@ public class StringTests
         var expected = "HelloWorld";
 
         // Act
-        string result = input.ReplaceNonAsciiWithAscii();
+        var result = input.ReplaceNonAsciiWithAscii();
 
         // Assert
         Assert.AreEqual(expected, result);

@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Nhl.Api.Common.Extensions;
 using Nhl.Api.Common.Helpers;
 using Nhl.Api.Models.Enumerations.Team;
@@ -215,10 +214,14 @@ public class NhlTeamService : INhlTeamService
         var teamCodes = new HashSet<string>();
         foreach (var team in teamEnums)
         {
-            teamCodes.Add(GetTeamCodeIdentifierByTeamEnumeration(team));
+            var teamCode = this.GetTeamCodeIdentifierByTeamEnumeration(team);
+            if (!string.IsNullOrWhiteSpace(teamCode))
+            {
+                _ = teamCodes.Add(teamCode);
+            }
         }
 
-        return teamCodes.ToList();
+        return [.. teamCodes];
     }
 
 

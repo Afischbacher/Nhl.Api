@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 
 namespace Nhl.Api.Tests;
@@ -42,7 +43,7 @@ public class GameTests
 
         // Assert
         Assert.IsNotNull(results);
-        Assert.IsTrue(results.Any());
+        Assert.IsTrue(results.Count != 0);
 
     }
 
@@ -162,7 +163,7 @@ public class GameTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var results = await nhlApi.GetTvScheduleBroadcastByDateAsync(DateOnly.Parse(date));
+        var results = await nhlApi.GetTvScheduleBroadcastByDateAsync(DateOnly.Parse(date, CultureInfo.InvariantCulture));
 
         // Assert
         Assert.IsNotNull(results);
@@ -183,7 +184,7 @@ public class GameTests
 
         // Assert
         Assert.IsNotNull(results);
-        Assert.IsTrue(results.Any());
+        Assert.IsTrue(results.Count != 0);
     }
 
     [TestMethodWithRetry(RetryCount = 5)]

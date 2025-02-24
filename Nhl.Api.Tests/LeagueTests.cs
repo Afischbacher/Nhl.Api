@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using Nhl.Api.Enumerations.Game;
 using Nhl.Api.Models.Enumerations.Team;
@@ -24,7 +25,7 @@ public class LeagueTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var schedule = await nhlApi.GetLeagueGameWeekScheduleByDateAsync(DateOnly.Parse(date));
+        var schedule = await nhlApi.GetLeagueGameWeekScheduleByDateAsync(DateOnly.Parse(date, CultureInfo.InvariantCulture));
 
         // Assert
         Assert.IsNotNull(schedule);
@@ -195,7 +196,7 @@ public class LeagueTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var teamWeekSchedule = await nhlApi.GetTeamWeekScheduleByDateAsync(teamCode, DateOnly.Parse(seasonYear));
+        var teamWeekSchedule = await nhlApi.GetTeamWeekScheduleByDateAsync(teamCode, DateOnly.Parse(seasonYear, CultureInfo.InvariantCulture));
 
         // Assert
         Assert.IsNotNull(teamWeekSchedule);
@@ -238,11 +239,11 @@ public class LeagueTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var leagueStandingByDate = await nhlApi.GetLeagueStandingsByDateAsync(DateOnly.Parse(date));
+        var leagueStandingByDate = await nhlApi.GetLeagueStandingsByDateAsync(date: DateOnly.Parse(date, CultureInfo.InvariantCulture));
 
         // Assert
         Assert.IsNotNull(leagueStandingByDate);
-        Assert.IsTrue(leagueStandingByDate.Standings.Count() > 0);
+        Assert.IsTrue(leagueStandingByDate.Standings.Count > 0);
 
         foreach (var standing in leagueStandingByDate.Standings)
         {
@@ -518,7 +519,7 @@ public class LeagueTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetLeagueWeekScheduleByDateAsync(DateOnly.Parse(date));
+        var result = await nhlApi.GetLeagueWeekScheduleByDateAsync(DateOnly.Parse(date, CultureInfo.InvariantCulture));
 
         // Assert
         Assert.IsNotNull(result);
@@ -537,7 +538,7 @@ public class LeagueTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetLeagueScheduleCalendarByDateAsync(DateOnly.Parse(date));
+        var result = await nhlApi.GetLeagueScheduleCalendarByDateAsync(DateOnly.Parse(date, CultureInfo.InvariantCulture));
 
         // Assert
         Assert.IsNotNull(result);
@@ -556,7 +557,7 @@ public class LeagueTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var result = await nhlApi.GetLeagueScheduleCalendarByDateAsync(DateOnly.Parse(date));
+        var result = await nhlApi.GetLeagueScheduleCalendarByDateAsync(DateOnly.Parse(date, CultureInfo.InvariantCulture));
 
         // Assert
         Assert.IsNotNull(result);

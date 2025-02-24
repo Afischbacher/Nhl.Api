@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Net.Http;
+using System.Threading;
 
 namespace Nhl.Api.Common.Http;
 /// <summary>
@@ -7,8 +8,8 @@ namespace Nhl.Api.Common.Http;
 /// </summary>
 public class NhlShiftChartHttpClient : NhlApiHttpClient
 {
-    private static readonly object _lock = new object();
-    private static HttpClient _httpClient;
+    private static readonly Lock _lock = new();
+    private static HttpClient? _httpClient;
 
     /// <summary>
     /// The dedicated NHL HTTP API endpoint for the shift charts for individual live game feeds
@@ -33,8 +34,8 @@ public class NhlShiftChartHttpClient : NhlApiHttpClient
             {
                 _httpClient ??= new HttpClient
                 {
-                    BaseAddress = new Uri($"{Client}{ClientVersion}"),
-                    Timeout = Timeout
+                    BaseAddress = new Uri($"{this.Client}{this.ClientVersion}"),
+                    Timeout = this.Timeout
                 };
 
                 return _httpClient;

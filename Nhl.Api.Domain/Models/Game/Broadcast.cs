@@ -18,26 +18,26 @@ public class Broadcast
     /// Example: MSG-B
     /// </summary>
     [JsonProperty("name")]
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
     /// <summary>
     /// The type for the broadcast channel <br/>
     /// Example: home
     /// </summary>
     [JsonProperty("type")]
-    public string Type { get; set; }
+    public required string Type { get; set; }
 
     /// <summary>
     /// The website for the broadcast channel <br/>
     /// Example: nhl
     /// </summary>
     [JsonProperty("site")]
-    public string Site { get; set; }
+    public required string Site { get; set; }
 
     /// <summary>
     /// The language for the broadcast channel <br/>
     /// Example: en
     /// </summary>
     [JsonProperty("language")]
-    public string Language { get; set; }
+    public required string Language { get; set; }
 }

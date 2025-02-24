@@ -23,14 +23,14 @@ public class GameCenterAwayTeam
     /// Example: Leafs
     /// </summary>
     [JsonProperty("name")]
-    public Name Name { get; set; }
+    public required Name Name { get; set; }
 
     /// <summary>
     /// The abbreviation of the NHL away team <br/>
     /// Example: MIN
     /// </summary>
     [JsonProperty("abbrev")]
-    public string Abbrev { get; set; }
+    public required string Abbrev { get; set; }
 
     /// <summary>
     /// The score of the NHL away team <br/>
@@ -51,13 +51,13 @@ public class GameCenterAwayTeam
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/MIN_light.svg">https://assets.nhle.com/logos/nhl/svg/MIN_light.svg</a>
     /// </summary>
     [JsonProperty("logo")]
-    public string Logo { get; set; }
+    public required string Logo { get; set; }
 
     /// <summary>
     /// The players on the ice for the NHL away team
     /// </summary>
     [JsonProperty("onIce")]
-    public List<object> OnIce { get; set; }
+    public required List<object> OnIce { get; set; }
 }
 
 /// <summary>
@@ -105,21 +105,21 @@ public class GameCenterDetails
     /// Example: N/O/D - Neutral/Offensive/Defensive
     /// </summary>
     [JsonProperty("zoneCode")]
-    public string ZoneCode { get; set; }
+    public required string ZoneCode { get; set; }
 
     /// <summary>
     /// The unique type code for the NHL game center play by play <br/>
     /// Example: 508 - blocked-shot
     /// </summary>
     [JsonProperty("typeCode")]
-    public string TypeCode { get; set; }
+    public required string TypeCode { get; set; }
 
     /// <summary>
     /// The description key for the NHL game center play by play <br/>
     /// Example: tripping
     /// </summary>
     [JsonProperty("descKey")]
-    public string DescKey { get; set; }
+    public required string DescKey { get; set; }
 
     /// <summary>
     /// The duration for a penalty for the NHL game center play by play <br/>
@@ -150,7 +150,7 @@ public class GameCenterDetails
     /// </code>
     /// </summary>
     [JsonProperty("shotType")]
-    public string ShotType { get; set; }
+    public required string ShotType { get; set; }
 
     /// <summary>
     /// The shooting player identifier for the NHL game center play by play <br/>
@@ -213,14 +213,14 @@ public class GameCenterDetails
     /// Example: puck-in-netting
     /// </summary>
     [JsonProperty("reason")]
-    public string Reason { get; set; }
+    public required string Reason { get; set; }
 
     /// <summary>
     /// The secondary reason for the event of the NHL game center play by play <br/>
     /// Example: video-review
     /// </summary>
     [JsonProperty("secondaryReason")]
-    public string SecondaryReason { get; set; }
+    public required string SecondaryReason { get; set; }
 }
 
 
@@ -241,14 +241,14 @@ public class GameCenterHomeTeam
     /// Example: Leafs
     /// </summary>
     [JsonProperty("name")]
-    public Name Name { get; set; }
+    public required Name Name { get; set; }
 
     /// <summary>
     /// The abbreviation of the NHL home team <br/>
     /// Example: MIN
     /// </summary>
     [JsonProperty("abbrev")]
-    public string Abbrev { get; set; }
+    public required string Abbrev { get; set; }
 
     /// <summary>
     /// The score of the NHL home team <br/>
@@ -269,13 +269,13 @@ public class GameCenterHomeTeam
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/MIN_light.svg">https://assets.nhle.com/logos/nhl/svg/MIN_light.svg</a>
     /// </summary>
     [JsonProperty("logo")]
-    public string Logo { get; set; }
+    public required string Logo { get; set; }
 
     /// <summary>
     /// The players on the ice for the NHL home team
     /// </summary>
     [JsonProperty("onIce")]
-    public List<object> OnIce { get; set; }
+    public required List<object> OnIce { get; set; }
 }
 
 /// <summary>
@@ -307,35 +307,35 @@ public class GameCenterPlay
     /// </code>
     /// </summary>
     [JsonProperty("periodDescriptor")]
-    public PeriodDescriptor PeriodDescriptor { get; set; }
+    public required PeriodDescriptor PeriodDescriptor { get; set; }
 
     /// <summary>
     /// The time remaining in the period for the NHL game center play by play <br/>
     /// Example: 04:57
     /// </summary>
     [JsonProperty("timeInPeriod")]
-    public string TimeInPeriod { get; set; }
+    public required string TimeInPeriod { get; set; }
 
     /// <summary>
     /// The time remaining in the game for the NHL game center play by play <br/>
     /// Example: 15:03
     /// </summary>
     [JsonProperty("timeRemaining")]
-    public string TimeRemaining { get; set; }
+    public required string TimeRemaining { get; set; }
 
     /// <summary>
     /// The situation code for the NHL game center play by play <br/>
     /// Example: 1441
     /// </summary>
     [JsonProperty("situationCode")]
-    public string SituationCode { get; set; }
+    public required string SituationCode { get; set; }
 
     /// <summary>
     /// The home team defending side for the NHL game center play by play <br/>
     /// Example: right
     /// </summary>
     [JsonProperty("homeTeamDefendingSide")]
-    public string HomeTeamDefendingSide { get; set; }
+    public required string HomeTeamDefendingSide { get; set; }
 
     /// <summary>
     /// The type code for the NHL game center play by play <br/>
@@ -349,7 +349,7 @@ public class GameCenterPlay
     /// Example: faceoff
     /// </summary>
     [JsonProperty("typeDescKey")]
-    public string TypeDescKey { get; set; }
+    public required string TypeDescKey { get; set; }
 
     /// <summary>
     /// The sort order identifier for the NHL game center play by play <br/>
@@ -362,7 +362,7 @@ public class GameCenterPlay
     /// The details of the game center play by play
     /// </summary>
     [JsonProperty("details")]
-    public GameCenterDetails Details { get; set; }
+    public required GameCenterDetails Details { get; set; }
 
     /// <summary>
     /// The estimated time of the play for the NHL game center play by play, these are not exact times and are close approximations of each game event within 1 (one) hour of the event occurring <br/>
@@ -409,13 +409,13 @@ public class GameCenterPlayByPlay
     /// Example: 2023-11-10
     /// </summary>
     [JsonProperty("gameDate")]
-    public string GameDate { get; set; }
+    public required string GameDate { get; set; }
 
     /// <summary>
     /// The venue for the NHL game center play by play
     /// </summary>
     [JsonProperty("venue")]
-    public Venue Venue { get; set; }
+    public required Venue Venue { get; set; }
 
     /// <summary>
     /// The NHL start time in UTC for a specific game for the NHL game center play by play <br/>
@@ -429,34 +429,34 @@ public class GameCenterPlayByPlay
     /// Example: -05:00
     /// </summary>
     [JsonProperty("easternUTCOffset")]
-    public string EasternUTCOffset { get; set; }
+    public required string EasternUTCOffset { get; set; }
 
     /// <summary>
     /// The NHL venue utc offset for a specific game for the NHL game center play by play <br/>
     /// Example: -08:00
     /// </summary>
     [JsonProperty("venueUTCOffset")]
-    public string VenueUTCOffset { get; set; }
+    public required string VenueUTCOffset { get; set; }
 
     /// <summary>
     /// The collection of NHL TV broadcasts for a specific game for the NHL game center play by play
     /// </summary>
     [JsonProperty("tvBroadcasts")]
-    public List<TvBroadcast> TvBroadcasts { get; set; } = new();
+    public List<TvBroadcast> TvBroadcasts { get; set; } = [];
 
     /// <summary>
     /// The NHL game state for a specific game for the NHL game center play by play <br/>
     /// Example: OFF or LIVE or FUT
     /// </summary>
     [JsonProperty("gameState")]
-    public string GameState { get; set; }
+    public required string GameState { get; set; }
 
     /// <summary>
     /// The NHL game schedule state for a specific game for the NHL game center play by play <br/>
     /// Example: OK
     /// </summary>
     [JsonProperty("gameScheduleState")]
-    public string GameScheduleState { get; set; }
+    public required string GameScheduleState { get; set; }
 
     /// <summary>
     /// The NHL period for a specific game for the scoreboard for an NHL team <br/>
@@ -469,31 +469,31 @@ public class GameCenterPlayByPlay
     /// The period type for a specific game for the scoreboard for an NHL team 
     /// </summary>
     [JsonProperty("periodDescriptor")]
-    public PeriodDescriptor PeriodDescriptor { get; set; }
+    public required PeriodDescriptor PeriodDescriptor { get; set; }
 
     /// <summary>
     /// The NHL away team for the game center play by play
     /// </summary>
     [JsonProperty("awayTeam")]
-    public GameCenterAwayTeam AwayTeam { get; set; }
+    public required GameCenterAwayTeam AwayTeam { get; set; }
 
     /// <summary>
     /// The NHL home team for the game center play by play
     /// </summary>
     [JsonProperty("homeTeam")]
-    public GameCenterHomeTeam HomeTeam { get; set; }
+    public required GameCenterHomeTeam HomeTeam { get; set; }
 
     /// <summary>
     /// The NHL game clock information for the NHL game center play by play
     /// </summary>
     [JsonProperty("clock")]
-    public Clock Clock { get; set; }
+    public required Clock Clock { get; set; }
 
     /// <summary>
     /// The collection of roster members from each NHL team for the NHL game center play by play
     /// </summary>
     [JsonProperty("rosterSpots")]
-    public List<RosterSpot> RosterSpots { get; set; } = new();
+    public List<RosterSpot> RosterSpots { get; set; } = [];
 
     /// <summary>
     /// The display period within the NHL game center play by play <br/>
@@ -506,13 +506,13 @@ public class GameCenterPlayByPlay
     /// The NHL game outcome for the NHL game center play by play
     /// </summary>
     [JsonProperty("gameOutcome")]
-    public GameOutcome GameOutcome { get; set; }
+    public required GameOutcome GameOutcome { get; set; }
 
     /// <summary>
     /// The NHL game play by play information for the NHL game center play by play
     /// </summary>
     [JsonProperty("plays")]
-    public List<GameCenterPlay> Plays { get; set; } = new();
+    public List<GameCenterPlay> Plays { get; set; } = [];
 
 }
 
@@ -541,14 +541,14 @@ public class RosterSpot
     /// Example: Matt
     /// </summary>
     [JsonProperty("firstName")]
-    public FirstName FirstName { get; set; }
+    public required FirstName FirstName { get; set; }
 
     /// <summary>
     /// The last name of the NHL player for the NHL game center play by play <br/>
     /// Example: Boldy
     /// </summary>
     [JsonProperty("lastName")]
-    public LastName LastName { get; set; }
+    public required LastName LastName { get; set; }
 
     /// <summary>
     /// The jersey number of the NHL player for the NHL game center play by play <br/>
@@ -562,12 +562,12 @@ public class RosterSpot
     /// Example: L/R/C/D/G
     /// </summary>
     [JsonProperty("positionCode")]
-    public string PositionCode { get; set; }
+    public required string PositionCode { get; set; }
 
     /// <summary>
     /// The url link headshot of the NHL player for the NHL game center play by play <br/>
     /// Example: <a href="https://assets.nhle.com/mugs/nhl/20232024/BUF/8482175.png">https://assets.nhle.com/mugs/nhl/20232024/BUF/8482175.png</a>
     /// </summary>
     [JsonProperty("headshot")]
-    public string Headshot { get; set; }
+    public required string Headshot { get; set; }
 }

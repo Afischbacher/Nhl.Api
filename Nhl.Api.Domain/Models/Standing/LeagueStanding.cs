@@ -12,13 +12,13 @@ public class PlaceName
     /// The NHL place name in English
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
     /// <summary>
     /// The NHL place name in French
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 }
 
 /// <summary>
@@ -37,7 +37,7 @@ public class LeagueStanding
     /// A list of the NHL team standings for the league
     /// </summary>
     [JsonProperty("standings")]
-    public List<Standing> Standings { get; set; }
+    public required List<Standing> Standings { get; set; }
 }
 
 /// <summary>
@@ -50,7 +50,7 @@ public class Standing
     /// Example: W - Western Conference
     /// </summary>
     [JsonProperty("conferenceAbbrev")]
-    public string ConferenceAbbrev { get; set; }
+    public required string ConferenceAbbrev { get; set; }
 
     /// <summary>
     /// The NHL team conference home sequence <br/>
@@ -71,7 +71,7 @@ public class Standing
     /// Example: Western
     /// </summary>
     [JsonProperty("conferenceName")]
-    public string ConferenceName { get; set; }
+    public required string ConferenceName { get; set; }
 
     /// <summary>
     /// The NHL team conference road sequence <br/>
@@ -92,14 +92,14 @@ public class Standing
     /// Example: 2023-12-10
     /// </summary>
     [JsonProperty("date")]
-    public string Date { get; set; }
+    public required string Date { get; set; }
 
     /// <summary>
     /// The NHL team division abbreviation <br/>
     /// Example P - Pacific Division
     /// </summary>
     [JsonProperty("divisionAbbrev")]
-    public string DivisionAbbrev { get; set; }
+    public required string DivisionAbbrev { get; set; }
 
     /// <summary>
     /// The NHL team division home sequence <br/>
@@ -120,7 +120,7 @@ public class Standing
     /// Example: Pacific
     /// </summary>
     [JsonProperty("divisionName")]
-    public string DivisionName { get; set; }
+    public required string DivisionName { get; set; }
 
     /// <summary>
     /// The NHL team division road sequence <br/>
@@ -386,7 +386,7 @@ public class Standing
     /// Example: NY Rangers
     /// </summary>
     [JsonProperty("placeName")]
-    public PlaceName PlaceName { get; set; }
+    public required PlaceName PlaceName { get; set; }
 
     /// <summary>
     /// The NHL team point percentage <br/>
@@ -533,7 +533,7 @@ public class Standing
     /// Example: W - Win or L - Loss
     /// </summary>
     [JsonProperty("streakCode")]
-    public string StreakCode { get; set; }
+    public required string StreakCode { get; set; }
 
     /// <summary>
     /// The NHL team streak number <br/>
@@ -547,28 +547,28 @@ public class Standing
     /// Example: New York Rangers
     /// </summary>
     [JsonProperty("teamName")]
-    public TeamName TeamName { get; set; }
+    public required TeamName TeamName { get; set; }
 
     /// <summary>
     /// The NHL team common name <br/>
     /// Example: Rangers
     /// </summary>
     [JsonProperty("teamCommonName")]
-    public TeamCommonName TeamCommonName { get; set; }
+    public required TeamCommonName TeamCommonName { get; set; }
 
     /// <summary>
     /// The NHL team abbreviation <br/>
     /// Example: NYR
     /// </summary>
     [JsonProperty("teamAbbrev")]
-    public TeamAbbrev TeamAbbrev { get; set; }
+    public required TeamAbbrev TeamAbbrev { get; set; }
 
     /// <summary>
     /// The NHL team url link for the team logo <br/>
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/NYR_light.svg">https://assets.nhle.com/logos/nhl/svg/NYR_light.svg</a>
     /// </summary>
     [JsonProperty("teamLogo")]
-    public string TeamLogo { get; set; }
+    public required string TeamLogo { get; set; }
 
     /// <summary>
     /// The NHL team number of ties <br/>
@@ -615,7 +615,7 @@ public class TeamAbbrev
     /// The NHL team name abbreviation in English
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 }
 
 /// <summary>
@@ -627,11 +627,11 @@ public class TeamCommonName
     /// The NHL team common name in English
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
     /// <summary>
     /// The NHL team common name in French
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 }

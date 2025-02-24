@@ -12,7 +12,7 @@ namespace Nhl.Api.Models.Enumerations.Player;
 /// </summary>
 public static class PlayerEnumFileGeneratorHelper
 {
-    private static readonly INhlApiHttpClient _nhlApiHttpClient = new NhlEApiHttpClient();
+    private static readonly NhlEApiHttpClient _nhlApiHttpClient = new();
 
     /// <summary>
     /// Retrieves all NHL players to have player in the NHL

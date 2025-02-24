@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Globalization;
 using System.Runtime.Serialization;
 using System.Text;
 using Nhl.Api.Common.Extensions;
@@ -36,7 +37,7 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder AddFilter(GoalieStatisticsFilter goalieStatisticsFilter)
     {
-        _filterExpression.Append($"{goalieStatisticsFilter.GetEnumMemberValue()}");
+        _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $"{goalieStatisticsFilter.GetEnumMemberValue()}");
         return this;
     }
 
@@ -47,7 +48,7 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder Contains(object value)
     {
-        _filterExpression.Append($" like '%{value}%'");
+        _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" like '%{value}%'");
         return this;
     }
 
@@ -58,7 +59,7 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder NotContains(object value)
     {
-        _filterExpression.Append($" not like '%{value}%'");
+        _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" not like '%{value}%'");
         return this;
     }
 
@@ -68,7 +69,7 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder And()
     {
-        _filterExpression.Append(" and ");
+        _ = this._filterExpression.Append(" and ");
         return this;
     }
 
@@ -78,7 +79,7 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder Or()
     {
-        _filterExpression.Append(" or ");
+        _ = this._filterExpression.Append(" or ");
         return this;
     }
 
@@ -88,7 +89,7 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder StartGroup()
     {
-        _filterExpression.Append("(");
+        _ = this._filterExpression.Append('(');
         return this;
     }
 
@@ -98,7 +99,7 @@ public class GoalieFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public GoalieFilterExpressionBuilder EndGroup()
     {
-        _filterExpression.Append(")");
+        _ = this._filterExpression.Append(')');
         return this;
     }
 
@@ -111,11 +112,11 @@ public class GoalieFilterExpressionBuilder
     {
         if (value is string)
         {
-            _filterExpression.Append($" = '{value}' ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" = '{value}' ");
         }
         else
         {
-            _filterExpression.Append($" = {value} ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" = {value} ");
         }
 
         return this;
@@ -130,11 +131,11 @@ public class GoalieFilterExpressionBuilder
     {
         if (value is string)
         {
-            _filterExpression.Append($" != '{value}' ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" != '{value}' ");
         }
         else
         {
-            _filterExpression.Append($" != {value} ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" != {value} ");
         }
 
         return this;
@@ -149,11 +150,11 @@ public class GoalieFilterExpressionBuilder
     {
         if (value is string)
         {
-            _filterExpression.Append($" > '{value}' ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" > '{value}' ");
         }
         else
         {
-            _filterExpression.Append($" > {value} ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" > {value} ");
         }
 
         return this;
@@ -168,11 +169,11 @@ public class GoalieFilterExpressionBuilder
     {
         if (value is string)
         {
-            _filterExpression.Append($" >= '{value}' ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" >= '{value}' ");
         }
         else
         {
-            _filterExpression.Append($" >= {value} ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" >= {value} ");
         }
 
         return this;
@@ -187,12 +188,12 @@ public class GoalieFilterExpressionBuilder
     {
         if (value is string)
         {
-            _filterExpression.Append($" < '{value}' ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" < '{value}' ");
 
         }
         else
         {
-            _filterExpression.Append($" < {value} ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" < {value} ");
         }
 
         return this;
@@ -207,11 +208,11 @@ public class GoalieFilterExpressionBuilder
     {
         if (value is string)
         {
-            _filterExpression.Append($" <= '{value}' ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" <= '{value}' ");
         }
         else
         {
-            _filterExpression.Append($" <= {value} ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" <= {value} ");
         }
 
         return this;
@@ -221,13 +222,13 @@ public class GoalieFilterExpressionBuilder
     /// Converts the expression filter to a string
     /// </summary>
     /// <returns>The expression filter as a string</returns>
-    public override string ToString() => _filterExpression.ToString();
+    public override string ToString() => this._filterExpression.ToString();
 
     /// <summary>
     /// Builds the expression filter for the NHL player statistics
     /// </summary>
     /// <returns>The built expression filter.</returns>
-    public ExpressionGoalieFilter Build() => new ExpressionGoalieFilter(_filterExpression.ToString());
+    public ExpressionGoalieFilter Build() => new(this._filterExpression.ToString());
 
     /// <summary>
     /// An empty expression filter for the NHL goalie statistics
@@ -240,29 +241,24 @@ public class GoalieFilterExpressionBuilder
 /// A class that represents the expression filter for the NHL API for goalie statistics <br/>
 /// See <see cref="GoalieFilterExpressionBuilder"/> for an example of how to use the expression filter for NHL goalie to filter results
 /// </summary>
-public class ExpressionGoalieFilter
+/// <remarks>
+/// A class that represents the expression filter for the NHL goalie statistics
+/// </remarks>
+public class ExpressionGoalieFilter(string filterExpression)
 {
-    private readonly string _filterExpression;
-
-    /// <summary>
-    /// A class that represents the expression filter for the NHL goalie statistics
-    /// </summary>
-    public ExpressionGoalieFilter(string filterExpression)
-    {
-        _filterExpression = filterExpression;
-    }
+    private readonly string _filterExpression = filterExpression;
 
     /// <summary>
     /// The ToString method for the expression filter to return the raw expression for filtering <br/>
     /// See <see cref="PlayerFilterExpressionBuilder"/> for an example of how to use the expression filter
     /// </summary>
     /// <returns>The raw expression for filtering</returns>
-    public override string ToString() => _filterExpression.ToString();
+    public override string ToString() => this._filterExpression.ToString();
 
     /// <summary>
     /// Determines if the expression is valid based on the length of the expression
     /// </summary>
-    public bool IsValidExpression => _filterExpression.Length > 15;
+    public bool IsValidExpression => this._filterExpression.Length > 15;
 
     /// <summary>
     /// An empty expression filter for the NHL goalie statistics

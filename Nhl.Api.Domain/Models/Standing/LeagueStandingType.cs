@@ -11,12 +11,12 @@ public class LeagueStandingType
     /// Example: postseason
     /// </summary>
     [JsonProperty("name")]
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
     /// <summary>
     /// The description of the NHL league standing type <br/>
     /// Example: Postseason Standings
     /// </summary>
     [JsonProperty("description")]
-    public string Description { get; set; }
+    public required string Description { get; set; }
 }

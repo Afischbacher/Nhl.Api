@@ -28,17 +28,17 @@ public class TeamLogo
     /// Example: https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/53.svg
     /// </summary>
     [JsonProperty("uri")]
-    public string Uri { get; set; }
+    public required string Uri { get; set; }
 
     /// <summary>
     /// Returns the requested NHL team logo as a byte array
     /// </summary>
     [JsonProperty("imageAsByteArray")]
-    public byte[] ImageAsByteArray { get; set; }
+    public required byte[] ImageAsByteArray { get; set; }
 
     /// <summary>
     /// Returns the requested NHL team logo as a base 64 encoded string
     /// </summary>
     [JsonProperty("imageAsBase64String")]
-    public string ImageAsBase64String { get; set; }
+    public required string ImageAsBase64String { get; set; }
 }

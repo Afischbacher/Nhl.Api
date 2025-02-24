@@ -12,19 +12,19 @@ public class TeamSeasonRoster
     /// The NHL team season roster forwards
     /// </summary>
     [JsonProperty("forwards")]
-    public List<TeamSeasonRosterForward> Forwards { get; set; }
+    public required List<TeamSeasonRosterForward> Forwards { get; set; }
 
     /// <summary>
     /// The NHL team season roster defensemen
     /// </summary>
     [JsonProperty("defensemen")]
-    public List<TeamSeasonRosterDefenseman> Defensemen { get; set; }
+    public required List<TeamSeasonRosterDefenseman> Defensemen { get; set; }
 
     /// <summary>
     /// The NHL team season roster goalies
     /// </summary>
     [JsonProperty("goalies")]
-    public List<TeamSeasonRosterGoalie> Goalies { get; set; }
+    public required List<TeamSeasonRosterGoalie> Goalies { get; set; }
 }
 
 /// <summary>
@@ -37,14 +37,14 @@ public class BirthCity
     /// Example: Toronto
     /// </summary>  
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
     /// <summary>
     /// The French name of the NHL birth city for the NHL player <br/>
     /// Example: Sainte-Marie
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 }
 
 /// <summary>
@@ -57,14 +57,14 @@ public class BirthStateProvince
     /// Example: Ontario
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
     /// <summary>
     /// The French name of the NHL birth state or province for the NHL player <br/>
     /// Example: Californie
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 }
 
 /// <summary>
@@ -84,21 +84,21 @@ public abstract class TeamRosterPlayer
     /// Example: <a href="https://assets.nhle.com/mugs/nhl/20232024/TOR/8479318.png">https://assets.nhle.com/mugs/nhl/20232024/TOR/8479318.png</a>
     /// </summary>
     [JsonProperty("headshot")]
-    public string Headshot { get; set; }
+    public required string Headshot { get; set; }
 
     /// <summary>
     /// The first name of the NHL player <br/>
     /// Example: Auston
     /// </summary>
     [JsonProperty("firstName")]
-    public FirstName FirstName { get; set; }
+    public required FirstName FirstName { get; set; }
 
     /// <summary>
     /// The last name of the NHL player <br/>
     /// Example: Matthews
     /// </summary>
     [JsonProperty("lastName")]
-    public LastName LastName { get; set; }
+    public required LastName LastName { get; set; }
 
     /// <summary>
     /// The NHL player jersey number <br/>
@@ -112,14 +112,14 @@ public abstract class TeamRosterPlayer
     /// Example: C
     /// </summary>
     [JsonProperty("positionCode")]
-    public string PositionCode { get; set; }
+    public required string PositionCode { get; set; }
 
     /// <summary>
     /// The NHL player shoots or catches position <br/>
     /// Example: L or R
     /// </summary>
     [JsonProperty("shootsCatches")]
-    public string ShootsCatches { get; set; }
+    public required string ShootsCatches { get; set; }
 
     /// <summary>
     /// The NHL player height in inches <br/>
@@ -154,32 +154,32 @@ public abstract class TeamRosterPlayer
     /// Example: 1997-09-17
     /// </summary>
     [JsonProperty("birthDate")]
-    public string BirthDate { get; set; }
+    public required string BirthDate { get; set; }
 
     /// <summary>
     /// The NHL player birth city 
     /// </summary>
     [JsonProperty("birthCity")]
-    public BirthCity BirthCity { get; set; }
+    public required BirthCity BirthCity { get; set; }
 
     /// <summary>
     /// The NHL playter birth country <br/>
     /// Example: CAN or USA
     /// </summary>
     [JsonProperty("birthCountry")]
-    public string BirthCountry { get; set; }
+    public required string BirthCountry { get; set; }
 
     /// <summary>
     /// The NHL player birth state or province <br/>
     /// Example: Ontario
     /// </summary>
     [JsonProperty("birthStateProvince")]
-    public BirthStateProvince BirthStateProvince { get; set; }
+    public required BirthStateProvince BirthStateProvince { get; set; }
 
     /// <summary>
     /// The NHL player full name
     /// </summary>  
-    public string FullName => $"{FirstName?.Default} {LastName?.Default}";
+    public string FullName => $"{this.FirstName?.Default} {this.LastName?.Default}";
 }
 
 /// <summary>
