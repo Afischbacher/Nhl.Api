@@ -479,7 +479,9 @@ public class NhlStatisticsApi : INhlStatisticsApi
             catch
             {
                 // This is for when a team does not have a roster for the season for example
-                // the Seattle Kraken did not have a roster for the 2020-2021 season because they did not exist
+                // Examples:
+                // The Seattle Kraken did not have a roster for the 2020-2021 season because they did not exist
+                // The Arizona Coyotes did not have a roster in 2024-2025 because they were removed from the league
                 return new TeamSeasonRoster
                 {
                     Defensemen = [],
