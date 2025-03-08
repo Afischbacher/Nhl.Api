@@ -90,7 +90,7 @@ public class PlayerTests
         Assert.IsNotNull(results);
         CollectionAssert.AllItemsAreNotNull(results);
 
-        var playerSearchResult = results.First();
+        var playerSearchResult = results.First(r => r.Name == query);
 
         switch (query)
         {
@@ -107,11 +107,11 @@ public class PlayerTests
                 Assert.AreEqual(88, playerSearchResult.PlayerNumber);
                 break;
 
-            case "Joesph Woll":
+            case "Joseph Woll":
                 Assert.AreEqual("Dardenne Prairie", playerSearchResult.BirthCity);
                 Assert.AreEqual("USA", playerSearchResult.BirthCountry);
                 Assert.AreEqual("United States of America", playerSearchResult.FullBirthCountry);
-                Assert.AreEqual("Missouri", playerSearchResult.BirthProvinceState);
+                Assert.AreEqual("MO", playerSearchResult.BirthProvinceState);
                 Assert.AreEqual("Joseph", playerSearchResult.FirstName);
                 Assert.AreEqual("Woll", playerSearchResult.LastName);
                 Assert.AreEqual(true, playerSearchResult.IsActive);
