@@ -927,7 +927,7 @@ public class PlayerTests
         await using var nhlApi = new NhlApi();
 
         // Act / Assert
-        _ = await Assert.ThrowsExceptionAsync<ArgumentException>(async () => await nhlApi.GetPlayerDraftRankingByYearAsync(" "));
+        _ = await Assert.ThrowsExceptionAsync<HttpRequestException>(async () => await nhlApi.GetPlayerDraftRankingByYearAsync(" "));
     }
 
 

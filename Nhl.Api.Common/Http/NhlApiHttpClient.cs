@@ -93,7 +93,8 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
         }
 
         using var httpResponseMessage = await this.HttpClient!.GetAsync(requestUri: $"{this.HttpClient?.BaseAddress}{route}", cancellationToken: cancellationToken)
-            ?? throw new HttpRequestException("The HTTP response message is null");
+            ?? throw new HttpRequestException($"The HTTP request exception thrown for HTTP resource {this.HttpClient?.BaseAddress}{route}");
+
         var contentResponse = await httpResponseMessage!.Content.ReadAsStringAsync(cancellationToken);
         if (!httpResponseMessage.IsSuccessStatusCode)
         {
