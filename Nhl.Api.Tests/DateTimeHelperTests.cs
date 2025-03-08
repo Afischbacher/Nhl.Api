@@ -1,4 +1,5 @@
-﻿using Nhl.Api.Common.Helpers;
+﻿using System.Globalization;
+using Nhl.Api.Common.Helpers;
 
 namespace Nhl.Api.Tests;
 [TestClass]
@@ -44,12 +45,12 @@ public class DateTimeHelperTests
     {
         // Act/Arrange
 
-        var dateTimeOffset = DateTimeOffset.Parse(dateTimeOffsetAsString);
+        var dateTimeOffset = DateTimeOffset.Parse(dateTimeOffsetAsString, CultureInfo.InvariantCulture);
         var result = TimeStampHelper.ParseDateTimeOffsetFromTimeStamp(dateTimeOffset);
 
         // Assert
         Assert.IsNotNull(result);
         Assert.IsTrue(result.Length == 15);
-        StringAssert.StartsWith(result, dateTimeOffset.Year.ToString());
+        StringAssert.StartsWith(result, dateTimeOffset.Year.ToString(CultureInfo.InvariantCulture));
     }
 }

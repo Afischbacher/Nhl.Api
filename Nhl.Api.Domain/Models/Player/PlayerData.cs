@@ -26,28 +26,28 @@ public class PlayerDataSearchResult
     /// Example: Connor
     /// </summary>
     [JsonProperty("firstName")]
-    public string FirstName { get; set; }
+    public required string FirstName { get; set; }
 
     /// <summary>
     /// The full name of the NHL player <br/>
     /// Example: Connor McDavid
     /// </summary>
     [JsonProperty("fullName")]
-    public string FullName { get; set; }
+    public required string FullName { get; set; }
 
     /// <summary>
     /// The last name of the NHL player <br/>
     /// Example: McDavid
     /// </summary>
     [JsonProperty("lastName")]
-    public string LastName { get; set; }
+    public required string LastName { get; set; }
 
     /// <summary>
     /// The position code of the NHL player <br/>
     /// Excample: C - Center    
     /// </summary>
     [JsonProperty("positionCode")]
-    public string PositionCode { get; set; }
+    public required string PositionCode { get; set; }
 
     /// <summary>
     /// The sweater number of the NHL player <br/>
@@ -66,7 +66,7 @@ public class PlayerData
     /// The list of NHL players in the response of the search
     /// </summary>
     [JsonProperty("data")]
-    public List<PlayerDataSearchResult> Data { get; set; } = new();
+    public List<PlayerDataSearchResult> Data { get; set; } = [];
 
     /// <summary>
     /// The total number of NHL players in the NHL 

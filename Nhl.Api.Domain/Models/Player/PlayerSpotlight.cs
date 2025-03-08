@@ -11,7 +11,7 @@ public class PlayerSpotlightName
     /// Example: Connor McDavid
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
 }
 
@@ -32,21 +32,21 @@ public class PlayerSpotlight
     /// Example: Nathan MacKinnon
     /// </summary>
     [JsonProperty("name")]
-    public PlayerSpotlightName Name { get; set; }
+    public required PlayerSpotlightName Name { get; set; }
 
     /// <summary>
     /// The NHL players url to their profile <br/>
     /// Example: <a href="https://www.nhl.com/lightning/player/nikita-kucherov-8476453">https://www.nhl.com/lightning/player/nikita-kucherov-8476453</a>
     /// </summary>
     [JsonProperty("playerSlug")]
-    public string PlayerSlug { get; set; }
+    public required string PlayerSlug { get; set; }
 
     /// <summary>
     /// The position of the NHL player <br/>
     /// Example: R - Right Wing
     /// </summary>
     [JsonProperty("position")]
-    public string Position { get; set; }
+    public required string Position { get; set; }
 
     /// <summary>
     /// The NHL players jersey number <br/>
@@ -67,21 +67,21 @@ public class PlayerSpotlight
     /// Example: <a href="https://assets.nhle.com/mugs/nhl/20232024/EDM/8477934.png">https://assets.nhle.com/mugs/nhl/20232024/EDM/8477934.png</a>
     /// </summary>
     [JsonProperty("headshot")]
-    public string Headshot { get; set; }
+    public required string Headshot { get; set; }
 
     /// <summary>
     /// The NHL players team tri code <br/>
     /// Example: EDM
     /// </summary>
     [JsonProperty("teamTriCode")]
-    public string TeamTriCode { get; set; }
+    public required string TeamTriCode { get; set; }
 
     /// <summary>
     /// The NHL players team logo url <br/>
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/BOS_light.svg">https://assets.nhle.com/logos/nhl/svg/BOS_light.svg</a>
     /// </summary>
     [JsonProperty("teamLogo")]
-    public string TeamLogo { get; set; }
+    public required string TeamLogo { get; set; }
 
     /// <summary>
     /// The identifier to sort the players for the NHL player spotlight <br/>

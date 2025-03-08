@@ -51,7 +51,7 @@ public class GoalieSeasonGameLog
     /// </summary>
 
     [JsonProperty("playerStatsSeasons")]
-    public List<PlayerStatsSeason> GoalieStatsSeasons { get; set; }
+    public required List<PlayerStatsSeason> GoalieStatsSeasons { get; set; }
 
     /// <summary>
     /// The collection of goalie game logs for the NHL season for an NHL goalie <br/>
@@ -83,7 +83,7 @@ public class GoalieSeasonGameLog
     /// </code>
     /// </summary>
     [JsonProperty("gameLog")]
-    public List<GoalieGameLog> GoalieGameLogs { get; set; }
+    public required List<GoalieGameLog> GoalieGameLogs { get; set; }
 }
 
 /// <summary>
@@ -104,21 +104,21 @@ public class GoalieGameLog
     /// Example: "EDM"
     /// </summary>
     [JsonProperty("teamAbbrev")]
-    public string TeamAbbrev { get; set; }
+    public required string TeamAbbrev { get; set; }
 
     /// <summary>
     /// The NHL team home or road flag for the team <br/>
     /// Example: "H" or "R" for "Home" or "Road"
     /// </summary>
     [JsonProperty("homeRoadFlag")]
-    public string HomeRoadFlag { get; set; }
+    public required string HomeRoadFlag { get; set; }
 
     /// <summary>
     /// The NHL game date for the game a player played in <br/>
     /// Example: "2023-11-13"
     /// </summary>
     [JsonProperty("gameDate")]
-    public string GameDate { get; set; }
+    public required string GameDate { get; set; }
 
     /// <summary>
     /// The number of goals a player scored in the game <br/>
@@ -139,14 +139,14 @@ public class GoalieGameLog
     /// Example: "Maple Leafs"
     /// </summary>
     [JsonProperty("commonName")]
-    public CommonName CommonName { get; set; }
+    public required CommonName CommonName { get; set; }
 
     /// <summary>
     /// The opponent team common name information for the team a player plays against <br/>
     /// Example: "Canucks"
     /// </summary>
     [JsonProperty("opponentCommonName")]
-    public OpponentCommonName OpponentCommonName { get; set; }
+    public required OpponentCommonName OpponentCommonName { get; set; }
 
     /// <summary>
     /// The number of games a player started in the game <br/>
@@ -160,7 +160,7 @@ public class GoalieGameLog
     /// Example: W for win, L for loss, O for overtime
     /// </summary>
     [JsonProperty("decision")]
-    public string Decision { get; set; }
+    public required string Decision { get; set; }
 
     /// <summary>
     /// The number of shots against the goalie <br/>
@@ -195,7 +195,7 @@ public class GoalieGameLog
     /// Example: "VAN"
     /// </summary>
     [JsonProperty("opponentAbbrev")]
-    public string OpponentAbbrev { get; set; }
+    public required string OpponentAbbrev { get; set; }
 
     /// <summary>
     /// The number of penalty minutes a player received in the game <br/>
@@ -209,5 +209,5 @@ public class GoalieGameLog
     /// Example: "20:00"
     /// </summary>
     [JsonProperty("toi")]
-    public string Toi { get; set; }
+    public required string Toi { get; set; }
 }

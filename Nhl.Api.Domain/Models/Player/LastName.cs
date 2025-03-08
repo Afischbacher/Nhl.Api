@@ -11,5 +11,5 @@ public class LastName
     /// Example: Smith
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 }

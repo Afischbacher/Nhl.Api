@@ -11,12 +11,12 @@ public class AmateurLeague
     /// Example: QMJHL
     /// </summary>
     [JsonProperty("name")]
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
     /// <summary>
     /// The link to the Nhl.Api for the amateur team <br/>
     /// Example: /api/v1/league/null
     /// </summary>
     [JsonProperty("link")]
-    public string Link { get; set; }
+    public required string Link { get; set; }
 }

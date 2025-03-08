@@ -736,13 +736,28 @@ public class NhlApi : INhlApi
     /// <summary>
     /// Releases and disposes all unused or garbage collected resources for the Nhl.Api
     /// </summary>
-    public void Dispose() =>
-        _nhlPlayerApi?.Dispose();
+    public void Dispose()
+    {
+        _nhlPlayerApi.Dispose();
+        GC.SuppressFinalize(this);
+    }
 
     /// <summary>
     /// Releases and disposes all unused or garbage collected resources for the Nhl.Api asynchronously
     /// </summary>
     /// <returns>The await-able result of the asynchronous operation</returns>
-    public async ValueTask DisposeAsync() =>
-           await Task.Run(() => _nhlPlayerApi?.Dispose());
+    public async ValueTask DisposeAsync()
+    {
+        _nhlPlayerApi.Dispose();
+        await Task.Run(() => GC.SuppressFinalize(this));
+    }
+
+    /// <summary>
+    /// Returns the current NHL playofff schedule for the current season
+    /// </summary>
+    /// <param name="seasonYear">The eight digit number format for the season, see <see cref="SeasonYear"/> for more information, Example: 20232024</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns a collection of playoff series match ups by year</returns>
+    public async Task<PlayoffSeriesSchedule> GetPlayoffSeriesBySeasonYearAsync(string seasonYear, CancellationToken cancellationToken = default) =>
+        await _nhlLeagueApi.GetPlayoffSeriesBySeasonYearAsync(seasonYear, cancellationToken);
 }

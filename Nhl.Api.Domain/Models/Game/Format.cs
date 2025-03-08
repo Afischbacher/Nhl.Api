@@ -11,14 +11,14 @@ public class Format
     /// Example: BO7 (Best of 7)
     /// </summary>
     [JsonProperty("name")]
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
     /// <summary>
     /// Description of the format for the NHL playoff round <br/>
     /// Example: Best of 7
     /// </summary>
     [JsonProperty("description")]
-    public string Description { get; set; }
+    public required string Description { get; set; }
 
     /// <summary>
     /// The number of games in the NHL playoff round <br/>

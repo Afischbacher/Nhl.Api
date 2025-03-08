@@ -32,25 +32,25 @@ public class GoalieStatisticLeaders
     /// The NHL goalie's statistic leader for the number of wins in for an NHL season and game type
     /// </summary>
     [JsonProperty("wins")]
-    public List<Wins> Wins { get; set; } = new();
+    public List<Wins> Wins { get; set; } = [];
 
     /// <summary>
     /// The NHL goalie's statistic leader for the number of shutouts in for an NHL season and game type
     /// </summary>
     [JsonProperty("shutouts")]
-    public List<Shutouts> Shutouts { get; set; } = new();
+    public List<Shutouts> Shutouts { get; set; } = [];
 
     /// <summary>
     /// The NHL goalie's statistic leader for the save percentage in for an NHL season and game type
     /// </summary>
     [JsonProperty("savePctg")]
-    public List<SavePercentage> SavePercentages { get; set; } = new();
+    public List<SavePercentage> SavePercentages { get; set; } = [];
 
     /// <summary>
     /// The NHL goalie's statistic leader for the goals against average in for an NHL season and game type
     /// </summary>
     [JsonProperty("goalsAgainstAverage")]
-    public List<GoalsAgainstAverage> GoalsAgainstAverage { get; set; } = new();
+    public List<GoalsAgainstAverage> GoalsAgainstAverage { get; set; } = [];
 }
 
 /// <summary>

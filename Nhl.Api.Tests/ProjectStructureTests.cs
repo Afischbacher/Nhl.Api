@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
@@ -11,7 +12,7 @@ public class ProjectStructureTests
 
     #region constants
     private const string Nhl = "Nhl";
-    private string[] _whiteListedFiles = ["AssemblyInfo.cs", "Program.cs", "Startup.cs", "GlobalUsings.cs", "InternalPlayerEnum.cs", "Microsoft.NET.Test.Sdk.Program.cs"];
+    private readonly string[] _whiteListedFiles = ["AssemblyInfo.cs", "Program.cs", "Startup.cs", "GlobalUsings.cs", "InternalPlayerEnum.cs", "Microsoft.NET.Test.Sdk.Program.cs"];
 
     #endregion
 
@@ -20,7 +21,7 @@ public class ProjectStructureTests
     {
         if (!MSBuildLocator.IsRegistered)
         {
-            MSBuildLocator.RegisterDefaults();
+            _ = MSBuildLocator.RegisterDefaults();
         }
 
         RootDirectoryFolder.Refresh();
@@ -49,7 +50,7 @@ public class ProjectStructureTests
     {
         var errors = new StringBuilder();
 
-        var getSourceCSharpFiles = this.RootDirectoryFolder.GetFiles("*.cs", SearchOption.AllDirectories);
+        var getSourceCSharpFiles = RootDirectoryFolder.GetFiles("*.cs", SearchOption.AllDirectories);
         foreach (var sourceCSharpFile in getSourceCSharpFiles)
         {
             if (sourceCSharpFile.FullName.Contains("Tests"))
@@ -61,7 +62,7 @@ public class ProjectStructureTests
 
             if (sourceCode.Contains("namespace Nhl.Api.Domain"))
             {
-                errors.Append("Domain namespace found in file: " + sourceCSharpFile.FullName + "\n");
+                _ = errors.Append("Domain namespace found in file: " + sourceCSharpFile.FullName + "\n");
             }
         }
 
@@ -81,14 +82,14 @@ public class ProjectStructureTests
         {
             var files = project.Documents;
 
-            foreach (var file in files.Where(f => !_whiteListedFiles.Contains(f.Name)))
+            foreach (var file in files.Where(f => !this._whiteListedFiles.Contains(f.Name)))
             {
                 var syntaxTree = await file.GetSyntaxTreeAsync();
                 var namespaceDeclaration = syntaxTree.GetRoot().DescendantNodes().FirstOrDefault(n => n.IsKind(SyntaxKind.FileScopedNamespaceDeclaration));
 
                 if (namespaceDeclaration is null)
                 {
-                    errors.AppendLine($"{file.Name} has non-file scoped namespace\n");
+                    _ = errors.AppendLine(CultureInfo.InvariantCulture, $"{file.Name} has non-file scoped namespace\n");
                 }
             }
         }
@@ -98,7 +99,7 @@ public class ProjectStructureTests
     }
 
     #region Private Methods
-    private DirectoryInfo RootDirectoryFolder => Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent;
+    private static DirectoryInfo RootDirectoryFolder => Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.Parent;
 
     #endregion
 }

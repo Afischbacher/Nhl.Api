@@ -1,5 +1,6 @@
 using System;
 using System.Net.Http;
+using System.Threading;
 
 namespace Nhl.Api.Common.Http;
 /// <summary>
@@ -7,8 +8,10 @@ namespace Nhl.Api.Common.Http;
 /// </summary>
 public class NhlScoresHtmlReportsApiHttpClient : NhlApiHttpClient
 {
-    private static readonly object _lock = new object();
+    private static readonly Lock _lock = new();
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
     private static HttpClient _httpClient;
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
 
     /// <summary>
     /// The NHL endpoint for HTML reports
@@ -35,8 +38,8 @@ public class NhlScoresHtmlReportsApiHttpClient : NhlApiHttpClient
             {
                 _httpClient ??= new HttpClient()
                 {
-                    BaseAddress = new Uri($"{Client}{ClientVersion}"),
-                    Timeout = Timeout
+                    BaseAddress = new Uri($"{this.Client}{this.ClientVersion}"),
+                    Timeout = this.Timeout
                 };
 
                 return _httpClient;

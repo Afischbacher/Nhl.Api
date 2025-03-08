@@ -11,7 +11,7 @@ public class PlayerStatisticsFilterResult
     /// The NHL player statistics result by summary of statistics for a player and season
     /// </summary>
     [JsonProperty("data")]
-    public List<PlayerStatisticsResult> PlayerStatisticsResults { get; set; }
+    public required List<PlayerStatisticsResult> PlayerStatisticsResults { get; set; }
 
     /// <summary>
     /// The total number of results based on the search criteria <br/>
@@ -80,7 +80,7 @@ public class PlayerStatisticsResult
     /// Example: "Smith"
     /// </summary>
     [JsonProperty("lastName")]
-    public string LastName { get; set; }
+    public required string LastName { get; set; }
 
     /// <summary>
     /// The NHL overtime goals <br/>
@@ -129,7 +129,7 @@ public class PlayerStatisticsResult
     /// Example: "C"
     /// </summary>
     [JsonProperty("positionCode")]
-    public string PositionCode { get; set; }
+    public required string PositionCode { get; set; }
 
     /// <summary>
     /// The NHL player power play goals <br/>
@@ -178,7 +178,7 @@ public class PlayerStatisticsResult
     /// Example: "L"
     /// </summary>
     [JsonProperty("shootsCatches")]
-    public string ShootsCatches { get; set; }
+    public required string ShootsCatches { get; set; }
 
     /// <summary>
     /// The NHL player number of shots <br/>
@@ -192,14 +192,14 @@ public class PlayerStatisticsResult
     /// Example: "John Smith"
     /// </summary>
     [JsonProperty("skaterFullName")]
-    public string SkaterFullName { get; set; }
+    public required string SkaterFullName { get; set; }
 
     /// <summary>
     /// The NHL player team abbreviations <br/>
     /// Example: "TOR"
     /// </summary>
     [JsonProperty("teamAbbrevs")]
-    public string TeamAbbreviations { get; set; }
+    public required string TeamAbbreviations { get; set; }
 
     /// <summary>
     /// The NHL player time on ice per game <br/>

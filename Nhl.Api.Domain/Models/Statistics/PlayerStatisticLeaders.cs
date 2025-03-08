@@ -14,55 +14,55 @@ public class PlayerStatisticLeaders
     /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for short handed goals
     /// </summary>
     [JsonProperty("goalsSh")]
-    public List<ShorthandedGoals> GoalsSh { get; set; } = new();
+    public List<ShorthandedGoals> GoalsSh { get; set; } = [];
 
     /// <summary>
     /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for plus/minus
     /// </summary>
     [JsonProperty("plusMinus")]
-    public List<PlusMinus> PlusMinus { get; set; } = new();
+    public List<PlusMinus> PlusMinus { get; set; } = [];
 
     /// <summary>
     /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for assists
     /// </summary>
     [JsonProperty("assists")]
-    public List<Assists> Assists { get; set; } = new();
+    public List<Assists> Assists { get; set; } = [];
 
     /// <summary>
     /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for power play goals
     /// </summary>
     [JsonProperty("goalsPp")]
-    public List<PowerPlayGoals> GoalsPp { get; set; } = new();
+    public List<PowerPlayGoals> GoalsPp { get; set; } = [];
 
     /// <summary>
     /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for face off percentage leaders
     /// </summary>
     [JsonProperty("faceoffLeaders")]
-    public List<FaceoffLeaders> FaceoffLeaders { get; set; } = new();
+    public List<FaceoffLeaders> FaceoffLeaders { get; set; } = [];
 
     /// <summary>
     /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for penalty minutes
     /// </summary>
     [JsonProperty("penaltyMins")]
-    public List<PenaltyMinutes> PenaltyMinutes { get; set; } = new();
+    public List<PenaltyMinutes> PenaltyMinutes { get; set; } = [];
 
     /// <summary>
     /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for goals
     /// </summary>
     [JsonProperty("goals")]
-    public List<Goals> Goals { get; set; } = new();
+    public List<Goals> Goals { get; set; } = [];
 
     /// <summary>
     /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for points
     /// </summary>
     [JsonProperty("points")]
-    public List<Points> Points { get; set; } = new();
+    public List<Points> Points { get; set; } = [];
 
     /// <summary>
     /// The NHL player's statistic leaders for a specific player statistic type for the NHL season for total time on ice
     /// </summary>
     [JsonProperty("toi")]
-    public List<TotalTimeOnIce> TotalTimeOnIce { get; set; } = new();
+    public List<TotalTimeOnIce> TotalTimeOnIce { get; set; } = [];
 }
 
 /// <summary>
@@ -82,14 +82,14 @@ public class BaseStatisticLeader
     /// Example: Sidney
     /// </summary>
     [JsonProperty("firstName")]
-    public FirstName FirstName { get; set; }
+    public required FirstName FirstName { get; set; }
 
     /// <summary>
     /// The name of the NHL player's last name <br/>
     /// Example: Crosby
     /// </summary>
     [JsonProperty("lastName")]
-    public LastName LastName { get; set; }
+    public required LastName LastName { get; set; }
 
     /// <summary>
     /// The NHL player's sweater number <br/>
@@ -103,35 +103,35 @@ public class BaseStatisticLeader
     /// Example: https://assets.nhle.com/mugs/nhl/20232024/VAN/8478444.png
     /// </summary>
     [JsonProperty("headshot")]
-    public string Headshot { get; set; }
+    public required string Headshot { get; set; }
 
     /// <summary>
     /// The NHL team abbreviation for the team the player plays for <br/>
     /// Example: VAN
     /// </summary>
     [JsonProperty("teamAbbrev")]
-    public string TeamAbbrev { get; set; }
+    public required string TeamAbbrev { get; set; }
 
     /// <summary>
     /// The NHL team name for the team the player plays for <br/>
     /// Example: Maple Leafs
     /// </summary>
     [JsonProperty("teamName")]
-    public TeamName TeamName { get; set; }
+    public required TeamName TeamName { get; set; }
 
     /// <summary>
     /// The NHL team logo for the team the player plays for <br/>
     /// Example: https://assets.nhle.com/logos/nhl/svg/TOR_light.svg
     /// </summary>
     [JsonProperty("teamLogo")]
-    public string TeamLogo { get; set; }
+    public required string TeamLogo { get; set; }
 
     /// <summary>
     /// The NHL player's position <br/>
     /// Example: Center
     /// </summary>
     [JsonProperty("position")]
-    public string Position { get; set; }
+    public required string Position { get; set; }
 }
 
 

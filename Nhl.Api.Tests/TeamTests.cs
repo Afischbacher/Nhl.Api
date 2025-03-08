@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Linq;
 using Nhl.Api.Common.Helpers;
 using Nhl.Api.Models.Enumerations.Team;
@@ -64,7 +65,7 @@ public class TeamTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var teams = Enum.GetValues(typeof(TeamEnum)).Cast<TeamEnum>();
+        var teams = Enum.GetValues<TeamEnum>().Cast<TeamEnum>();
         foreach (var team in teams)
         {
             var teamColor = await nhlApi.GetTeamColorsAsync(team);
@@ -232,7 +233,7 @@ public class TeamTests
     [DataRow(6, SeasonYear.season20132014)]
     [DataRow(54, SeasonYear.season20222023)]
     [DataRow(10, SeasonYear.season19661967)]
-    [DataRow(55, SeasonYear.season20232024)]
+    [DataRow(55, SeasonYear.season20242025)]
     [TestMethodWithRetry(RetryCount = 5)]
     public async Task GetCurrentTeamScoreboardAsync_Get_Valid_Information_With_TeamId(int teamId, string seasonYear)
     {
@@ -427,7 +428,7 @@ public class TeamTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var teamRoster = await nhlApi.GetTeamWeekScheduleByDateAsync(teamId, DateOnly.Parse(date));
+        var teamRoster = await nhlApi.GetTeamWeekScheduleByDateAsync(teamId, DateOnly.Parse(date, CultureInfo.InvariantCulture));
 
         // Assert
         Assert.IsNotNull(teamRoster);
@@ -448,7 +449,7 @@ public class TeamTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var teamRoster = await nhlApi.GetTeamWeekScheduleByDateAsync(team, DateOnly.Parse(date));
+        var teamRoster = await nhlApi.GetTeamWeekScheduleByDateAsync(team, DateOnly.Parse(date, CultureInfo.InvariantCulture));
 
         // Assert
         Assert.IsNotNull(teamRoster);

@@ -29,5 +29,5 @@ public class LeagueRecord
     /// Example: league
     /// </summary>
     [JsonProperty("type")]
-    public string Type { get; set; }
+    public required string Type { get; set; }
 }

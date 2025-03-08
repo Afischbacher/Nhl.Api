@@ -20,28 +20,28 @@ public class AwayTeam
     /// Example: Seattle
     /// </summary>
     [JsonProperty("placeName")]
-    public PlaceName PlaceName { get; set; }
+    public required PlaceName PlaceName { get; set; }
 
     /// <summary>
     /// The NHL team abbreviation for the away team <br/>
     /// Example: SEA
     /// </summary>
     [JsonProperty("abbrev")]
-    public string Abbrev { get; set; }
+    public required string Abbrev { get; set; }
 
     /// <summary>
     /// The link to the NHL team light logo for the away team <br/>
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/BUF_19992000-20052006_light.svg">https://assets.nhle.com/logos/nhl/svg/BUF_19992000-20052006_light.svg</a>
     /// </summary>
     [JsonProperty("logo")]
-    public string LightLogo { get; set; }
+    public required string LightLogo { get; set; }
 
     /// <summary>
     /// The link to the NHL team dark logo for the away team <br/>
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/BUF_19992000-20052006_dark.svg">https://assets.nhle.com/logos/nhl/svg/BUF_19992000-20052006_dark.svg</a>
     /// </summary>
     [JsonProperty("darkLogo")]
-    public string DarkLogo { get; set; }
+    public required string DarkLogo { get; set; }
 
     /// <summary>
     /// Indicates if the away team is a split squad <br/>
@@ -55,14 +55,14 @@ public class AwayTeam
     /// Example: https://www.united.com/ual/en/us/
     /// </summary>
     [JsonProperty("airlinelink")]
-    public string Airlinelink { get; set; }
+    public required string Airlinelink { get; set; }
 
     /// <summary>
     /// Returns the associated NHL team airline description <br/>
     /// Example: Fly United
     /// </summary>
     [JsonProperty("airlineDesc")]
-    public string AirlineDescription { get; set; }
+    public required string AirlineDescription { get; set; }
 
     /// <summary>
     /// The score for the NHL away team <br/>
@@ -76,13 +76,13 @@ public class AwayTeam
     /// Example: https://d2igy0yla8zi0u.cloudfront.net/CBJ/20232024/CBJ-radio.m3u8
     /// </summary>
     [JsonProperty("radioLink")]
-    public string RadioLink { get; set; }
+    public required string RadioLink { get; set; }
 
     /// <summary>
     /// The odds for the NHL away team
     /// </summary>
     [JsonProperty("odds")]
-    public List<Odd> Odds { get; set; } = new();
+    public List<Odd> Odds { get; set; } = [];
 }
 
 /// <summary>
@@ -95,7 +95,7 @@ public class FirstInitial
     /// Example: J. for Joseph
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 }
 
 /// <summary>
@@ -128,7 +128,7 @@ public class Game
     /// The NHL game venue
     /// </summary>
     [JsonProperty("venue")]
-    public Venue Venue { get; set; }
+    public required Venue Venue { get; set; }
 
     /// <summary>
     /// This indicates if the NHL game is a neutral site game <br/>
@@ -149,111 +149,111 @@ public class Game
     /// Example: -05:00
     /// </summary>
     [JsonProperty("easternUTCOffset")]
-    public string EasternUTCOffset { get; set; }
+    public required string EasternUTCOffset { get; set; }
 
     /// <summary>
     /// The Venue UTC offset for the NHL game <br/>
     /// Example: +01:00
     /// </summary>  
     [JsonProperty("venueUTCOffset")]
-    public string VenueUTCOffset { get; set; }
+    public required string VenueUTCOffset { get; set; }
 
     /// <summary>
     /// The NHL game venue time zone <br/>
     /// Example: Europe/Stockholm
     /// </summary>
     [JsonProperty("venueTimezone")]
-    public string VenueTimezone { get; set; }
+    public required string VenueTimezone { get; set; }
 
     /// <summary>
     /// The NHL game state <br/>
     /// Example: OFF
     /// </summary>
     [JsonProperty("gameState")]
-    public string GameState { get; set; }
+    public required string GameState { get; set; }
 
     /// <summary>
     /// The NHL game schedule state <br/>
     /// Example: OK
     /// </summary>
     [JsonProperty("gameScheduleState")]
-    public string GameScheduleState { get; set; }
+    public required string GameScheduleState { get; set; }
 
     /// <summary>
     /// The collection of NHL broadcasts for the NHL game
     /// </summary>
     [JsonProperty("tvBroadcasts")]
-    public List<TvBroadcast> TvBroadcasts { get; set; }
+    public required List<TvBroadcast> TvBroadcasts { get; set; }
 
     /// <summary>
     /// The NHL away team information for the NHL game
     /// </summary>
     [JsonProperty("awayTeam")]
-    public AwayTeam AwayTeam { get; set; }
+    public required AwayTeam AwayTeam { get; set; }
 
 
     /// <summary>
     /// The NHL home team information for the NHL game
     /// </summary>
     [JsonProperty("homeTeam")]
-    public HomeTeam HomeTeam { get; set; }
+    public required HomeTeam HomeTeam { get; set; }
 
     /// <summary>
     /// The NHL game period descriptor
     /// </summary>
     [JsonProperty("periodDescriptor")]
-    public PeriodDescriptor PeriodDescriptor { get; set; }
+    public required PeriodDescriptor PeriodDescriptor { get; set; }
 
     /// <summary>
     /// The NHL game outcome
     /// </summary>
     [JsonProperty("gameOutcome")]
-    public GameOutcome GameOutcome { get; set; }
+    public required GameOutcome GameOutcome { get; set; }
 
     /// <summary>
     /// The NHL game winning goalie
     /// </summary>
     [JsonProperty("winningGoalie")]
-    public WinningGoalie WinningGoalie { get; set; }
+    public required WinningGoalie WinningGoalie { get; set; }
 
     /// <summary>
     /// The NHL game winning goal scorer
     /// </summary>
     [JsonProperty("winningGoalScorer")]
-    public WinningGoalScorer WinningGoalScorer { get; set; }
+    public required WinningGoalScorer WinningGoalScorer { get; set; }
 
     /// <summary>
     /// The NHL special event information for the NHL game
     /// </summary>
     [JsonProperty("specialEvent")]
-    public SpecialEvent SpecialEvent { get; set; }
+    public required SpecialEvent SpecialEvent { get; set; }
 
     /// <summary>
     /// The NHL special event logo for the NHL game <br/>
     /// Example: <a href="https://assets.nhle.com/special_event_season/20232024/2023020267.svg">https://assets.nhle.com/special_event_season/20232024/2023020267.svg</a>
     /// </summary>
     [JsonProperty("specialEventLogo")]
-    public string SpecialEventLogo { get; set; }
+    public required string SpecialEventLogo { get; set; }
 
     /// <summary>
     /// A NHL link for the 3 minute recap for the NHL game <br/>
     /// Example: https://www.nhl.com/video/recap-maple-leafs-at-wild-11-19-23-6341442719112
     /// </summary>
     [JsonProperty("threeMinRecap")]
-    public string ThreeMinRecap { get; set; }
+    public required string ThreeMinRecap { get; set; }
 
     /// <summary>
     /// A NHL link for the game recap for the NHL game <br/>
     /// Example: https://www.nhl.com/gamecenter/min-vs-tor/2023/11/19/2023020267
     /// </summary>
     [JsonProperty("gameCenterLink")]
-    public string GameCenterLink { get; set; }
+    public required string GameCenterLink { get; set; }
 
     /// <summary>
     /// A NHL link for purchasing tickets for the NHL game <br/>
     /// </summary>
     [JsonProperty("ticketsLink")]
-    public string TicketsLink { get; set; }
+    public required string TicketsLink { get; set; }
 }
 
 /// <summary>
@@ -266,7 +266,7 @@ public class GameOutcome
     /// Example: OT
     /// </summary>
     [JsonProperty("lastPeriodType")]
-    public string LastPeriodType { get; set; }
+    public required string LastPeriodType { get; set; }
 }
 
 /// <summary>
@@ -278,14 +278,14 @@ public class GameWeek
     /// The NHL game week date <br/>
     /// </summary>
     [JsonProperty("date")]
-    public string Date { get; set; }
+    public required string Date { get; set; }
 
     /// <summary>
     /// The NHL game week day abbreviation <br/>
     /// Example: SUN
     /// </summary>
     [JsonProperty("dayAbbrev")]
-    public string DayAbbrev { get; set; }
+    public required string DayAbbrev { get; set; }
 
     /// <summary>
     /// The number of NHL games for the NHL date <br/>
@@ -298,7 +298,7 @@ public class GameWeek
     /// A collection of all the NHL games for the NHL date
     /// </summary>
     [JsonProperty("games")]
-    public List<Game> Games { get; set; } = new();
+    public List<Game> Games { get; set; } = [];
 }
 
 /// <summary>
@@ -318,28 +318,28 @@ public class HomeTeam
     /// Example: Seattle
     /// </summary>
     [JsonProperty("placeName")]
-    public PlaceName PlaceName { get; set; }
+    public required PlaceName PlaceName { get; set; }
 
     /// <summary>
     /// The NHL team abbreviation for the away team <br/>
     /// Example: SEA
     /// </summary>
     [JsonProperty("abbrev")]
-    public string Abbrev { get; set; }
+    public required string Abbrev { get; set; }
 
     /// <summary>
     /// The link to the NHL team light logo for the away team <br/>
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/BUF_19992000-20052006_light.svg">https://assets.nhle.com/logos/nhl/svg/BUF_19992000-20052006_light.svg</a>
     /// </summary>
     [JsonProperty("logo")]
-    public string LightLogo { get; set; }
+    public required string LightLogo { get; set; }
 
     /// <summary>
     /// The link to the NHL team dark logo for the away team <br/>
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/BUF_19992000-20052006_dark.svg">https://assets.nhle.com/logos/nhl/svg/BUF_19992000-20052006_dark.svg</a>
     /// </summary>
     [JsonProperty("darkLogo")]
-    public string DarkLogo { get; set; }
+    public required string DarkLogo { get; set; }
 
     /// <summary>
     /// Indicates if the away team is a split squad <br/>
@@ -360,13 +360,13 @@ public class HomeTeam
     /// Example: https://d2igy0yla8zi0u.cloudfront.net/CBJ/20232024/CBJ-radio.m3u8
     /// </summary>
     [JsonProperty("radioLink")]
-    public string RadioLink { get; set; }
+    public required string RadioLink { get; set; }
 
     /// <summary>
     /// The odds for the NHL away team
     /// </summary>
     [JsonProperty("odds")]
-    public List<Odd> Odds { get; set; } = new();
+    public List<Odd> Odds { get; set; } = [];
 }
 
 /// <summary>
@@ -379,7 +379,7 @@ public class LastName
     /// Example: Smith
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 }
 
 /// <summary>
@@ -419,49 +419,49 @@ public class OddsPartner
     /// Example: "CA"
     /// </summary>
     [JsonProperty("country")]
-    public string Country { get; set; }
+    public required string Country { get; set; }
 
     /// <summary>
     /// The NHL game odds partner name <br/>
     /// Example: Bet365
     /// </summary>
     [JsonProperty("name")]
-    public string Name { get; set; }
+    public required string Name { get; set; }
 
     /// <summary>
     /// The NHL game odds partner logo <br/>
     /// Example: https://assets.nhle.com/betting_partner/bet365.svg
     /// </summary>
     [JsonProperty("imageUrl")]
-    public string ImageUrl { get; set; }
+    public required string ImageUrl { get; set; }
 
     /// <summary>
     /// The NHL game odds partner site url <br/>
     /// Example: https://www.on.bet365.ca/olp/nhl
     /// </summary>
     [JsonProperty("siteUrl")]
-    public string SiteUrl { get; set; }
+    public required string SiteUrl { get; set; }
 
     /// <summary>
     /// The background color for the NHL game odds partner <br/>
     /// Example: #086D51
     /// </summary>
     [JsonProperty("bgColor")]
-    public string BgColor { get; set; }
+    public required string BgColor { get; set; }
 
     /// <summary>
     /// The text color for the NHL game odds partner <br/>
     /// Example: #FFFFFF
     /// </summary>
     [JsonProperty("textColor")]
-    public string TextColor { get; set; }
+    public required string TextColor { get; set; }
 
     /// <summary>
     /// The accent color for the NHL game odds partner <br/>
     /// Example: #FDDE14
     /// </summary>
     [JsonProperty("accentColor")]
-    public string AccentColor { get; set; }
+    public required string AccentColor { get; set; }
 }
 
 /// <summary>
@@ -481,7 +481,7 @@ public class PeriodDescriptor
     /// Example: OT
     /// </summary>
     [JsonProperty("periodType")]
-    public string PeriodType { get; set; }
+    public required string PeriodType { get; set; }
 }
 
 /// <summary>
@@ -494,14 +494,14 @@ public class PlaceName
     /// Example: Philadelphia
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
     /// <summary>
     /// The NHL team place name for the team in French <br/>
     /// Example: Philadelphie
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 }
 
 /// <summary>
@@ -514,54 +514,54 @@ public class LeagueSchedule
     /// Example: 2023-10-18
     /// </summary>
     [JsonProperty("nextStartDate")]
-    public string NextStartDate { get; set; }
+    public required string NextStartDate { get; set; }
 
     /// <summary>
     /// The previous NHL league schedule next start date <br/>
     /// Example: 2023-10-11
     /// </summary>
     [JsonProperty("previousStartDate")]
-    public string PreviousStartDate { get; set; }
+    public required string PreviousStartDate { get; set; }
 
     /// <summary>
     /// The collection of NHL game weeks for the NHL league schedule
     /// </summary>
     [JsonProperty("gameWeek")]
-    public List<GameWeek> GameWeek { get; set; } = new();
+    public List<GameWeek> GameWeek { get; set; } = [];
 
     /// <summary>
     /// The collection of NHL game odds partners for the NHL league schedule
     /// </summary>
     [JsonProperty("oddsPartners")]
-    public List<OddsPartner> OddsPartners { get; set; } = new();
+    public List<OddsPartner> OddsPartners { get; set; } = [];
 
     /// <summary>
     /// The NHL league schedule pre season start date <br/>
     /// Example: 2023-09-23
     /// </summary>
     [JsonProperty("preSeasonStartDate")]
-    public string PreSeasonStartDate { get; set; }
+    public required string PreSeasonStartDate { get; set; }
 
     /// <summary>
     /// The NHL league schedule regular season start date <br/>
     /// Example: 2023-10-10
     /// </summary>
     [JsonProperty("regularSeasonStartDate")]
-    public string RegularSeasonStartDate { get; set; }
+    public required string RegularSeasonStartDate { get; set; }
 
     /// <summary>
     /// The NHL league schedule regular season end date <br/>
     /// Example: 2024-04-18
     /// </summary>
     [JsonProperty("regularSeasonEndDate")]
-    public string RegularSeasonEndDate { get; set; }
+    public required string RegularSeasonEndDate { get; set; }
 
     /// <summary>
     /// The NHL league schedule playoff season end date <br/>
     /// Example: 2024-06-18
     /// </summary>
     [JsonProperty("playoffEndDate")]
-    public string PlayoffEndDate { get; set; }
+    public required string PlayoffEndDate { get; set; }
 
     /// <summary>
     /// The number of games for the NHL league schedule for the selected date and week <br/>
@@ -581,7 +581,7 @@ public class SpecialEvent
     /// Example: 2023 NHL Global Series
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 }
 
 /// <summary>
@@ -601,21 +601,21 @@ public class TvBroadcast
     /// Example: H or A (Home or Away)
     /// </summary>
     [JsonProperty("market")]
-    public string Market { get; set; }
+    public required string Market { get; set; }
 
     /// <summary>
     /// The country code for the NHL game TV broadcast <br/>
     /// Example: US
     /// </summary>
     [JsonProperty("countryCode")]
-    public string CountryCode { get; set; }
+    public required string CountryCode { get; set; }
 
     /// <summary>
     /// The TV network for the NHL game TV broadcast <br/>
     /// Example: ESPN+ or NBCSP+
     /// </summary>
     [JsonProperty("network")]
-    public string Network { get; set; }
+    public required string Network { get; set; }
 }
 
 /// <summary>
@@ -628,7 +628,7 @@ public class Venue
     /// Example: Wells Fargo Center
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 }
 
 /// <summary>
@@ -648,14 +648,14 @@ public class WinningGoalie
     /// Example: J. for Joseph
     /// </summary>
     [JsonProperty("firstInitial")]
-    public FirstInitial FirstInitial { get; set; }
+    public required FirstInitial FirstInitial { get; set; }
 
     /// <summary>
     /// The last name of the NHL goalie <br/>
     /// Example: Smith
     /// </summary>
     [JsonProperty("lastName")]
-    public LastName LastName { get; set; }
+    public required LastName LastName { get; set; }
 }
 
 /// <summary>
@@ -675,12 +675,12 @@ public class WinningGoalScorer
     /// Example: C. for Connor
     /// </summary>
     [JsonProperty("firstInitial")]
-    public FirstInitial FirstInitial { get; set; }
+    public required FirstInitial FirstInitial { get; set; }
 
     /// <summary>
     /// The last name of the NHL player <br/>
     /// Example: McDavid
     /// </summary>
     [JsonProperty("lastName")]
-    public LastName LastName { get; set; }
+    public required LastName LastName { get; set; }
 }

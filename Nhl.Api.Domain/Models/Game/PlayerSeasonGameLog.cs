@@ -21,21 +21,21 @@ public class PlayerGameLog
     /// Example: "EDM"
     /// </summary>
     [JsonProperty("teamAbbrev")]
-    public string TeamAbbrev { get; set; }
+    public required string TeamAbbrev { get; set; }
 
     /// <summary>
     /// The NHL team home or road flag for the team <br/>
     /// Example: "H" or "R" for "Home" or "Road"
     /// </summary>
     [JsonProperty("homeRoadFlag")]
-    public string HomeRoadFlag { get; set; }
+    public required string HomeRoadFlag { get; set; }
 
     /// <summary>
     /// The NHL game date for the game a player played in <br/>
     /// Example: "2023-11-13"
     /// </summary>
     [JsonProperty("gameDate")]
-    public string GameDate { get; set; }
+    public required string GameDate { get; set; }
 
     /// <summary>
     /// The number of goals a player scored in the game <br/>
@@ -56,14 +56,14 @@ public class PlayerGameLog
     /// Example: "Maple Leafs"
     /// </summary>
     [JsonProperty("commonName")]
-    public CommonName CommonName { get; set; }
+    public required CommonName CommonName { get; set; }
 
     /// <summary>
     /// The opponent team common name information for the team a player plays against <br/>
     /// Example: "Canucks"
     /// </summary>
     [JsonProperty("opponentCommonName")]
-    public OpponentCommonName OpponentCommonName { get; set; }
+    public required OpponentCommonName OpponentCommonName { get; set; }
 
     /// <summary>
     /// The number of points a player scored in the game <br/>
@@ -139,7 +139,7 @@ public class PlayerGameLog
     /// Example: "VAN"
     /// </summary>
     [JsonProperty("opponentAbbrev")]
-    public string OpponentAbbrev { get; set; }
+    public required string OpponentAbbrev { get; set; }
 
     /// <summary>
     /// The number of penalty minutes a player received in the game <br/>
@@ -153,7 +153,7 @@ public class PlayerGameLog
     /// Example: "20:00"
     /// </summary>
     [JsonProperty("toi")]
-    public string Toi { get; set; }
+    public required string Toi { get; set; }
 }
 
 /// <summary>
@@ -166,21 +166,21 @@ public class OpponentCommonName
     /// Example: "Sharks"
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 
     /// <summary>
     /// The French common name for the opponent team a player plays against <br/>
     /// Example: "Requins"
     /// </summary>
     [JsonProperty("fr")]
-    public string Fr { get; set; }
+    public required string Fr { get; set; }
 
     /// <summary>
     /// The Spanish common name for the opponent team a player plays against <br/>
     /// Example: "Tiburones"
     /// </summary>
     [JsonProperty("es")]
-    public string Es { get; set; }
+    public required string Es { get; set; }
 }
 
 /// <summary>
@@ -200,7 +200,7 @@ public class PlayerStatsSeason
     /// Example: [2,3]
     /// </summary>
     [JsonProperty("gameTypes")]
-    public List<int> GameTypes { get; set; }
+    public required List<int> GameTypes { get; set; }
 
 }
 
@@ -251,7 +251,7 @@ public class PlayerSeasonGameLog
     /// </code>
     /// </summary>
     [JsonProperty("playerStatsSeasons")]
-    public List<PlayerStatsSeason> PlayerStatsSeasons { get; set; }
+    public required List<PlayerStatsSeason> PlayerStatsSeasons { get; set; }
 
     /// <summary>
     /// The collection of player game logs including all the information
@@ -289,5 +289,5 @@ public class PlayerSeasonGameLog
     /// </code>
     /// </summary>
     [JsonProperty("gameLog")]
-    public List<PlayerGameLog> PlayerGameLogs { get; set; }
+    public required List<PlayerGameLog> PlayerGameLogs { get; set; }
 }

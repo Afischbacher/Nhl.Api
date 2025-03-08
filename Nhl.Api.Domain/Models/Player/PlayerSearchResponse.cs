@@ -12,5 +12,5 @@ public class PlayerSearchResponse
     /// A collection of suggestions for NHL player search
     /// </summary>
     [Obsolete("This property is obsolete use the PlayerSearchResult class instead")]
-    public List<string> Suggestions { get; set; }
+    public required List<string> Suggestions { get; set; }
 }

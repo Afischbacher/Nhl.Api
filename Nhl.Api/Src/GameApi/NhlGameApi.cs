@@ -9,7 +9,6 @@ public class NhlGameApi : INhlGameApi
     private static readonly NhlShiftChartHttpClient _nhlShiftChartHttpClient = new();
     private static readonly NhlApiWebHttpClient _nhlApiWebHttpClient = new();
     private static readonly NhlTeamService _nhlTeamService = new();
-    private static readonly NhlScoresHtmlReportsApiHttpClient _nhlScoresHtmlReportsApiHttpClient = new();
     private static readonly NhlGameService _nhlGameService = new();
 
     /// <summary>

@@ -15,7 +15,7 @@ public static class EnumExtensions
     /// <typeparam name="T">The enumeration type</typeparam>
     /// <param name="value">The value of the enumerations</param>
     /// <returns>The string value of the enumeration based on the attribute <see cref="EnumMemberAttribute"/></returns>
-    public static string GetEnumMemberValue<T>(this T value) where T : Enum => typeof(T)
+    public static string? GetEnumMemberValue<T>(this T value) where T : Enum => typeof(T)
             .GetTypeInfo()
             .DeclaredMembers
             .SingleOrDefault(x => x.Name == value.ToString())

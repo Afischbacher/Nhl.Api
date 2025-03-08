@@ -35,35 +35,35 @@ public class PlayerProfile
     /// Example: EDM
     /// </summary>
     [JsonProperty("currentTeamAbbrev")]
-    public string CurrentTeamAbbrev { get; set; }
+    public required string CurrentTeamAbbrev { get; set; }
 
     /// <summary>
     /// The full team name for the NHL player <br/>
     /// Example: Edmonton Oilers
     /// </summary>
     [JsonProperty("fullTeamName")]
-    public FullTeamName FullTeamName { get; set; }
+    public required FullTeamName FullTeamName { get; set; }
 
     /// <summary>
     /// The first name of the NHL player <br/>
     /// Example: Connor
     /// </summary>
     [JsonProperty("firstName")]
-    public FirstName FirstName { get; set; }
+    public required FirstName FirstName { get; set; }
 
     /// <summary>
     /// The last name of the NHL player <br/>
     /// Example: McDavid
     /// </summary>
     [JsonProperty("lastName")]
-    public LastName LastName { get; set; }
+    public required LastName LastName { get; set; }
 
     /// <summary>
     /// The link url to the NHL team logo <br/>
     /// Example: <a href="https://assets.nhle.com/logos/nhl/svg/EDM_light.svg">https://assets.nhle.com/logos/nhl/svg/EDM_light.svg</a>
     /// </summary>
     [JsonProperty("teamLogo")]
-    public string TeamLogo { get; set; }
+    public required string TeamLogo { get; set; }
 
     /// <summary>
     /// The NHL players jersey number <br/>
@@ -77,21 +77,21 @@ public class PlayerProfile
     /// Example: C
     /// </summary>
     [JsonProperty("position")]
-    public string Position { get; set; }
+    public required string Position { get; set; }
 
     /// <summary>
     /// The link url from the NHL for the NHL players headshot <br/>
     /// Example: <a href="https://assets.nhle.com/mugs/nhl/20232024/EDM/8478402.png">https://assets.nhle.com/mugs/nhl/20232024/EDM/8478402.png</a> 
     /// </summary>
     [JsonProperty("headshot")]
-    public string Headshot { get; set; }
+    public required string Headshot { get; set; }
 
     /// <summary>
     /// The link url for the NHL players action shot <br/>
     /// Example: <a href="https://assets.nhle.com/mugs/actionshots/1296x729/8478402.jpg">https://assets.nhle.com/mugs/actionshots/1296x729/8478402.jpg</a>
     /// </summary>
     [JsonProperty("heroImage")]
-    public string HeroImage { get; set; }
+    public required string HeroImage { get; set; }
 
     /// <summary>
     /// The height of the NHL player in inches <br/>
@@ -145,28 +145,28 @@ public class PlayerProfile
     /// Example: Richmond Hill
     /// </summary>
     [JsonProperty("birthCity")]
-    public BirthCity BirthCity { get; set; }
+    public required BirthCity BirthCity { get; set; }
 
     /// <summary>
     /// The birth state or province of the NHL player <br/>
     /// Example: ON
     /// </summary>
     [JsonProperty("birthStateProvince")]
-    public BirthStateProvince BirthStateProvince { get; set; }
+    public required BirthStateProvince BirthStateProvince { get; set; }
 
     /// <summary>
     /// The birth country of the NHL player <br/>
     /// Example: CAN
     /// </summary>
     [JsonProperty("birthCountry")]
-    public string BirthCountry { get; set; }
+    public required string BirthCountry { get; set; }
 
     /// <summary>
     /// The NHL player shooting or catching hand <br/>
     /// Example: L or R
     /// </summary>
     [JsonProperty("shootsCatches")]
-    public string ShootsCatches { get; set; }
+    public required string ShootsCatches { get; set; }
 
     /// <summary>
     /// The details of the NHL draft for the NHL player <br/>
@@ -182,14 +182,14 @@ public class PlayerProfile
     /// </code>
     /// </summary>
     [JsonProperty("draftDetails")]
-    public DraftDetails DraftDetails { get; set; }
+    public required DraftDetails DraftDetails { get; set; }
 
     /// <summary>
     /// The NHL player slug for the NHL player link profile <br/>
     /// Example: connor-mcdavid-8478402
     /// </summary>
     [JsonProperty("playerSlug")]
-    public string PlayerSlug { get; set; }
+    public required string PlayerSlug { get; set; }
 
     /// <summary>
     /// Determines if the NHL player is a Top 100 player of all time <br/>
@@ -209,60 +209,60 @@ public class PlayerProfile
     /// The NHL player's features statistics for the player's profile
     /// </summary>
     [JsonProperty("featuredStats")]
-    public PlayerFeaturedStats FeaturedStats { get; set; }
+    public required PlayerFeaturedStats FeaturedStats { get; set; }
 
     /// <summary>
     /// The NHL player's career totals for the player's profile <br/>
     /// </summary>
     [JsonProperty("careerTotals")]
-    public PlayerCareerTotals CareerTotals { get; set; }
+    public required PlayerCareerTotals CareerTotals { get; set; }
 
     /// <summary>
     /// The NHL players link to shop for the NHL player's merchandise
     /// </summary>
     [JsonProperty("shopLink")]
-    public string ShopLink { get; set; }
+    public required string ShopLink { get; set; }
 
     /// <summary>
     /// The NHL player's link to the NHL player's Twitter profile
     /// </summary>
     [JsonProperty("twitterLink")]
-    public string TwitterLink { get; set; }
+    public required string TwitterLink { get; set; }
 
     /// <summary>
     /// The NHL player's link to the NHL player's highlight reels and action shots
     /// </summary>
     [JsonProperty("watchLink")]
-    public string WatchLink { get; set; }
+    public required string WatchLink { get; set; }
 
     /// <summary>
     /// A collection of the NHL player's last 5 games statistics
     /// </summary>
     [JsonProperty("last5Games")]
-    public List<PlayerLast5Game> Last5Games { get; set; }
+    public required List<PlayerLast5Game> Last5Games { get; set; }
 
     /// <summary>
     /// A collection of the NHL player's season totals for each season played
     /// </summary>
     [JsonProperty("seasonTotals")]
-    public List<PlayerSeasonTotal> SeasonTotals { get; set; }
+    public required List<PlayerSeasonTotal> SeasonTotals { get; set; }
 
     /// <summary>
     /// A collection of the NHL player's awards won throughout their career
     /// </summary>
     [JsonProperty("awards")]
-    public List<PlayerAward> Awards { get; set; }
+    public required List<PlayerAward> Awards { get; set; }
 
     /// <summary>
     /// A collection of the NHL player's current team roster
     /// </summary>
     [JsonProperty("currentTeamRoster")]
-    public List<CurrentTeamRoster> CurrentTeamRoster { get; set; }
+    public required List<CurrentTeamRoster> CurrentTeamRoster { get; set; }
 
     /// <summary>
     /// Full name of the NHL player
     /// </summary>  
-    public string FullName => $"{FirstName?.Default} {LastName?.Default}" ?? string.Empty;
+    public string FullName => $"{this.FirstName?.Default} {this.LastName?.Default}" ?? string.Empty;
 }
 
 
@@ -365,13 +365,13 @@ public class PlayerCareerTotals
     /// The NHL player's career totals for the regular season
     /// </summary>
     [JsonProperty("regularSeason")]
-    public PlayerRegularSeason PlayerRegularSeason { get; set; }
+    public required PlayerRegularSeason PlayerRegularSeason { get; set; }
 
     /// <summary>
     /// The NHL player's career totals for the playoffs
     /// </summary>
     [JsonProperty("playoffs")]
-    public PlayerPlayoffs PlayerPlayoffs { get; set; }
+    public required PlayerPlayoffs PlayerPlayoffs { get; set; }
 }
 
 /// <summary>
@@ -467,7 +467,7 @@ public class PlayerPlayoffs
     /// The average time on ice for the NHL player in the playoffs
     /// </summary>
     [JsonProperty("avgToi")]
-    public string AvgToi { get; set; }
+    public required string AvgToi { get; set; }
 
     /// <summary>
     /// The number of shorthanded goals scored by the NHL player in the playoffs
@@ -485,13 +485,13 @@ public class PlayerRegularSeason
     /// The NHL player's sub season statistics
     /// </summary>
     [JsonProperty("subSeason")]
-    public PlayerSubSeason SubSeason { get; set; }
+    public required PlayerSubSeason SubSeason { get; set; }
 
     /// <summary>
     /// The NHL player's career information for the season
     /// </summary>
     [JsonProperty("career")]
-    public PlayerCareer Career { get; set; }
+    public required PlayerCareer Career { get; set; }
 
     /// <summary>
     /// The NHL player's number of games played in the season
@@ -581,7 +581,7 @@ public class PlayerRegularSeason
     /// The average time on ice for the NHL player in the season
     /// </summary>
     [JsonProperty("avgToi")]
-    public string AvgToi { get; set; }
+    public required string AvgToi { get; set; }
 
     /// <summary>
     /// The number of shorthanded goals scored by the NHL player in the season
@@ -601,13 +601,13 @@ public class PlayerAward
     /// The trophy won by the NHL player and it's information
     /// </summary>
     [JsonProperty("trophy")]
-    public Trophy Trophy { get; set; }
+    public required Trophy Trophy { get; set; }
 
     /// <summary>
     /// The seasons the NHL player won the award with statistics
     /// </summary>
     [JsonProperty("seasons")]
-    public List<PlayerAwardSeason> Seasons { get; set; }
+    public required List<PlayerAwardSeason> Seasons { get; set; }
 }
 
 /// <summary>
@@ -686,7 +686,7 @@ public class Trophy
     /// The default name of the trophy
     /// </summary>
     [JsonProperty("default")]
-    public string Default { get; set; }
+    public required string Default { get; set; }
 }
 
 /// <summary>
@@ -801,19 +801,19 @@ public class PlayerLast5Game
     /// The NHL team abbreviation for the team the NHL player played for in the game
     /// </summary>
     [JsonProperty("teamAbbrev")]
-    public string TeamAbbrev { get; set; }
+    public required string TeamAbbrev { get; set; }
 
     /// <summary>
     /// The NHL home or road flag for the team the NHL player played for in the game
     /// </summary>
     [JsonProperty("homeRoadFlag")]
-    public string HomeRoadFlag { get; set; }
+    public required string HomeRoadFlag { get; set; }
 
     /// <summary>
     /// The NHL game date for the game
     /// </summary>
     [JsonProperty("gameDate")]
-    public string GameDate { get; set; }
+    public required string GameDate { get; set; }
 
     /// <summary>
     /// The number of goals scored by the NHL player in the game
@@ -873,13 +873,13 @@ public class PlayerLast5Game
     /// The opponent team abbreviation for the team the NHL player played against in the game
     /// </summary>
     [JsonProperty("opponentAbbrev")]
-    public string OpponentAbbrev { get; set; }
+    public required string OpponentAbbrev { get; set; }
 
     /// <summary>
     /// The total minutes on the 
     /// </summary>
     [JsonProperty("toi")]
-    public string Toi { get; set; }
+    public required string Toi { get; set; }
 }
 
 /// <summary>
@@ -897,7 +897,7 @@ public class PlayerFeaturedStats
     /// The NHL player regular season statistics for the featured statistics
     /// </summary>
     [JsonProperty("regularSeason")]
-    public PlayerRegularSeason RegularSeason { get; set; }
+    public required PlayerRegularSeason RegularSeason { get; set; }
 }
 
 /// <summary>
@@ -921,13 +921,13 @@ public class PlayerSeasonTotal
     /// The NHL players league abbreviation for the season for the league they played in
     /// </summary>
     [JsonProperty("leagueAbbrev")]
-    public string LeagueAbbrev { get; set; }
+    public required string LeagueAbbrev { get; set; }
 
     /// <summary>
     /// The team name for the NHL player for the season
     /// </summary>
     [JsonProperty("teamName")]
-    public TeamName TeamName { get; set; }
+    public required TeamName TeamName { get; set; }
 
     /// <summary>
     /// The sequence number for the NHL player for the season
@@ -1029,5 +1029,5 @@ public class PlayerSeasonTotal
     /// The average time on ice for the NHL player in the season
     /// </summary>
     [JsonProperty("avgToi")]
-    public string AvgToi { get; set; }
+    public required string AvgToi { get; set; }
 }

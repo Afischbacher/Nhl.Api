@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Globalization;
 using System.Runtime.Serialization;
 using System.Text;
 using Nhl.Api.Common.Extensions;
@@ -37,7 +38,7 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder AddFilter(PlayerStatisticsFilter playerStatisticsFilter)
     {
-        _filterExpression.Append($"{playerStatisticsFilter.GetEnumMemberValue()}");
+        _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $"{playerStatisticsFilter.GetEnumMemberValue()}");
         return this;
     }
 
@@ -48,7 +49,7 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder AddFilter(PlayerRealtimeStatisticsFilter playerRealtimeStatisticsFilter)
     {
-        _filterExpression.Append($"{playerRealtimeStatisticsFilter.GetEnumMemberValue()}");
+        _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $"{playerRealtimeStatisticsFilter.GetEnumMemberValue()}");
         return this;
     }
 
@@ -59,7 +60,7 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder AddFilter(PlayerTimeOnIceStatisticsFilter playerTimeOnIceStatisticsFilter)
     {
-        _filterExpression.Append($"{playerTimeOnIceStatisticsFilter.GetEnumMemberValue()}");
+        _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $"{playerTimeOnIceStatisticsFilter.GetEnumMemberValue()}");
         return this;
     }
 
@@ -70,7 +71,7 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder Contains(object value)
     {
-        _filterExpression.Append($" like '%{value}%'");
+        _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" like '%{value}%'");
         return this;
     }
 
@@ -81,7 +82,7 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder NotContains(object value)
     {
-        _filterExpression.Append($" not like '%{value}%'");
+        _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" not like '%{value}%'");
         return this;
     }
 
@@ -91,7 +92,7 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder And()
     {
-        _filterExpression.Append(" and ");
+        _ = this._filterExpression.Append(" and ");
         return this;
     }
 
@@ -101,7 +102,7 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder Or()
     {
-        _filterExpression.Append(" or ");
+        _ = this._filterExpression.Append(" or ");
         return this;
     }
 
@@ -111,7 +112,7 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder StartGroup()
     {
-        _filterExpression.Append("(");
+        _ = this._filterExpression.Append('(');
         return this;
     }
 
@@ -121,7 +122,7 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder EndGroup()
     {
-        _filterExpression.Append(")");
+        _ = this._filterExpression.Append(')');
         return this;
     }
 
@@ -134,11 +135,11 @@ public class PlayerFilterExpressionBuilder
     {
         if (value is string)
         {
-            _filterExpression.Append($" = '{value}' ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" = '{value}' ");
         }
         else
         {
-            _filterExpression.Append($" = {value} ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" = {value} ");
         }
 
         return this;
@@ -153,11 +154,11 @@ public class PlayerFilterExpressionBuilder
     {
         if (value is string)
         {
-            _filterExpression.Append($" != '{value}' ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" != '{value}' ");
         }
         else
         {
-            _filterExpression.Append($" != {value} ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" != {value} ");
         }
 
         return this;
@@ -170,7 +171,7 @@ public class PlayerFilterExpressionBuilder
     /// <returns>The builder to continue building the expression</returns>
     public PlayerFilterExpressionBuilder GreaterThan(object value)
     {
-        _filterExpression.Append($" > {value} ");
+        _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" > {value} ");
         return this;
     }
 
@@ -183,11 +184,11 @@ public class PlayerFilterExpressionBuilder
     {
         if (value is string)
         {
-            _filterExpression.Append($" >= '{value}' ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" >= '{value}' ");
         }
         else
         {
-            _filterExpression.Append($" >= {value} ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" >= {value} ");
         }
 
         return this;
@@ -202,12 +203,12 @@ public class PlayerFilterExpressionBuilder
     {
         if (value is string)
         {
-            _filterExpression.Append($" < '{value}' ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" < '{value}' ");
 
         }
         else
         {
-            _filterExpression.Append($" < {value} ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" < {value} ");
         }
 
         return this;
@@ -222,11 +223,11 @@ public class PlayerFilterExpressionBuilder
     {
         if (value is string)
         {
-            _filterExpression.Append($" <= '{value}' ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" <= '{value}' ");
         }
         else
         {
-            _filterExpression.Append($" <= {value} ");
+            _ = this._filterExpression.Append(CultureInfo.InvariantCulture, $" <= {value} ");
         }
 
         return this;
@@ -236,13 +237,13 @@ public class PlayerFilterExpressionBuilder
     /// Converts the expression filter to a string
     /// </summary>
     /// <returns>The expression filter as a string</returns>
-    public override string ToString() => _filterExpression.ToString();
+    public override string ToString() => this._filterExpression.ToString();
 
     /// <summary>
     /// Builds the expression filter for the NHL player statistics
     /// </summary>
     /// <returns>The built expression filter.</returns>
-    public ExpressionPlayerFilter Build() => new ExpressionPlayerFilter(_filterExpression.ToString());
+    public ExpressionPlayerFilter Build() => new(this._filterExpression.ToString());
 
     /// <summary>
     /// An empty expression filter for the NHL player statistics
@@ -255,29 +256,24 @@ public class PlayerFilterExpressionBuilder
 /// A class that represents the expression filter for the NHL API for player statistics <br/>
 /// See <see cref="PlayerFilterExpressionBuilder"/> for an example of how to use the expression filter for NHL players to filter results
 /// </summary>
-public class ExpressionPlayerFilter
+/// <remarks>
+/// A class that represents the expression filter for the NHL player statistics
+/// </remarks>
+public class ExpressionPlayerFilter(string filterExpression)
 {
-    private readonly string _filterExpression;
-
-    /// <summary>
-    /// A class that represents the expression filter for the NHL player statistics
-    /// </summary>
-    public ExpressionPlayerFilter(string filterExpression)
-    {
-        _filterExpression = filterExpression;
-    }
+    private readonly string _filterExpression = filterExpression;
 
     /// <summary>
     /// The ToString method for the expression filter to return the raw expression for filtering <br/>
     /// See <see cref="PlayerFilterExpressionBuilder"/> for an example of how to use the expression filter
     /// </summary>
     /// <returns>The raw expression for filtering</returns>
-    public override string ToString() => _filterExpression.ToString();
+    public override string ToString() => this._filterExpression.ToString();
 
     /// <summary>
     /// Determines if the expression is valid based on the length of the expression
     /// </summary>
-    public bool IsValidExpression => _filterExpression.Length > 15;
+    public bool IsValidExpression => this._filterExpression.Length > 15;
 
     /// <summary>
     /// An empty expression filter for the NHL player statistics

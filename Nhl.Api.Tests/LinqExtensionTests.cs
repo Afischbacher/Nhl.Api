@@ -1,10 +1,10 @@
-﻿using System.Linq;
+using System.Linq;
 
 namespace Nhl.Api.Tests;
 [TestClass]
 public class LinqExtensionTests
 {
-    class TestLinqClass
+    internal sealed class TestLinqClass
     {
         public int Number { get; set; }
     }
@@ -14,10 +14,10 @@ public class LinqExtensionTests
     {
         var testCollection = new List<TestLinqClass>()
         {
-           new TestLinqClass{ Number = 1 },
-           new TestLinqClass{ Number = 2 },
-           new TestLinqClass{ Number = 3 },
-           new TestLinqClass{ Number = 2 }
+           new() { Number = 1 },
+           new() { Number = 2 },
+           new() { Number = 3 },
+           new() { Number = 2 }
         };
 
         var distinctValues = testCollection.DistinctBy(c => c.Number);

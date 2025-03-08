@@ -11,11 +11,11 @@ public class Teams
     /// The NHL away team
     /// </summary>
     [JsonProperty("away")]
-    public AwayTeam AwayTeam { get; set; }
+    public required AwayTeam AwayTeam { get; set; }
 
     /// <summary>
     /// The NHL home team
     /// </summary>
     [JsonProperty("home")]
-    public HomeTeam HomeTeam { get; set; }
+    public required HomeTeam HomeTeam { get; set; }
 }

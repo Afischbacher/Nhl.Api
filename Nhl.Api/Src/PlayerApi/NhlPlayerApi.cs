@@ -1,3 +1,4 @@
+using System.Globalization;
 using Nhl.Api.Common.Services;
 using Nhl.Api.Models.Draft;
 using Nhl.Api.Services;
@@ -34,7 +35,7 @@ public class NhlPlayerApi : INhlPlayerApi
     {
         if (string.IsNullOrWhiteSpace(query))
         {
-            return new List<PlayerSearchResult>();
+            return [];
         }
 
         return await _nhlSuggestionApiHttpClient.GetAsync<List<PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&limit={limit}", cancellationToken);
@@ -51,7 +52,7 @@ public class NhlPlayerApi : INhlPlayerApi
     {
         if (string.IsNullOrWhiteSpace(query))
         {
-            return new List<PlayerSearchResult>();
+            return [];
         }
 
         return await _nhlSuggestionApiHttpClient.GetAsync<List<PlayerSearchResult>>($"/search/player?culture=en-us&q={query}&active=true&limit={limit}", cancellationToken);
@@ -71,8 +72,8 @@ public class NhlPlayerApi : INhlPlayerApi
             throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
         }
 
-        var playerInformation = await GetPlayerInformationAsync(player, cancellationToken);
-        var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear))?.TeamName?.Default;
+        var playerInformation = await this.GetPlayerInformationAsync(player, cancellationToken);
+        var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear, CultureInfo.InvariantCulture))?.TeamName?.Default;
         if (string.IsNullOrWhiteSpace(teamName))
         {
             return [];
@@ -97,8 +98,8 @@ public class NhlPlayerApi : INhlPlayerApi
             throw new ArgumentException($"The {nameof(seasonYear)} parameter must be in the format of yyyyyyyy, example: 20232024", nameof(seasonYear));
         }
 
-        var playerInformation = await GetPlayerInformationAsync(playerId, cancellationToken);
-        var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear))?.TeamName?.Default;
+        var playerInformation = await this.GetPlayerInformationAsync(playerId, cancellationToken);
+        var teamName = playerInformation.SeasonTotals.FirstOrDefault(x => x.Season == int.Parse(seasonYear, CultureInfo.InvariantCulture))?.TeamName?.Default;
         if (string.IsNullOrWhiteSpace(teamName))
         {
             return [];

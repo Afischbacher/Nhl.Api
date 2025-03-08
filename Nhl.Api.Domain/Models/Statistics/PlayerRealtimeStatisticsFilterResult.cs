@@ -11,7 +11,7 @@ public class PlayerRealtimeStatisticsFilterResult
     /// The NHL player statistics result by summary of statistics for a player and season
     /// </summary>
     [JsonProperty("data")]
-    public List<PlayerRealtimeStatisticsResult> PlayerRealtimeStatisticsResults { get; set; }
+    public required List<PlayerRealtimeStatisticsResult> PlayerRealtimeStatisticsResults { get; set; }
 
     /// <summary>
     /// The total number of results based on the search criteria <br/>
@@ -96,7 +96,7 @@ public class PlayerRealtimeStatisticsResult
     /// Player's last name.
     /// </summary>
     [JsonProperty("lastName")]
-    public string LastName { get; set; }
+    public required string LastName { get; set; }
 
     /// <summary>
     /// Number of missed shots that hit the crossbar.
@@ -150,7 +150,7 @@ public class PlayerRealtimeStatisticsResult
     /// Player's position code.
     /// </summary>
     [JsonProperty("positionCode")]
-    public string PositionCode { get; set; }
+    public required string PositionCode { get; set; }
 
     /// <summary>
     /// Season ID.
@@ -162,7 +162,7 @@ public class PlayerRealtimeStatisticsResult
     /// Player's shooting or catching hand.
     /// </summary>
     [JsonProperty("shootsCatches")]
-    public string ShootsCatches { get; set; }
+    public required string ShootsCatches { get; set; }
 
     /// <summary>
     /// Number of shot attempts that were blocked.
@@ -174,7 +174,7 @@ public class PlayerRealtimeStatisticsResult
     /// Player's full name.
     /// </summary>
     [JsonProperty("skaterFullName")]
-    public string SkaterFullName { get; set; }
+    public required string SkaterFullName { get; set; }
 
     /// <summary>
     /// Number of takeaways.
@@ -192,7 +192,7 @@ public class PlayerRealtimeStatisticsResult
     /// Team abbreviation.
     /// </summary>
     [JsonProperty("teamAbbrevs")]
-    public string TeamAbbrevs { get; set; }
+    public required string TeamAbbrevs { get; set; }
 
     /// <summary>
     /// Time on ice per game in minutes.

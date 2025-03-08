@@ -11,7 +11,7 @@ public class GoalieStatisticsFilterResult
     /// The NHL goalie statistics result by summary of statistics for a goalie and season
     /// </summary>
     [JsonProperty("data")]
-    public List<GoalieStatisticsResult> GoalieStatisticsResults { get; set; }
+    public required List<GoalieStatisticsResult> GoalieStatisticsResults { get; set; }
 
     /// <summary>
     /// The total number of results based on the search criteria <br/>
@@ -52,7 +52,7 @@ public class GoalieStatisticsResult
     /// Example: "Connor Hellebuyck"
     /// </summary>
     [JsonProperty("goalieFullName")]
-    public string GoalieFullName { get; set; }
+    public required string GoalieFullName { get; set; }
 
     /// <summary>
     /// The number of goals scored by the NHL goalie in the season. <br/>
@@ -80,7 +80,7 @@ public class GoalieStatisticsResult
     /// Example: "Hellebuyck"
     /// </summary>
     [JsonProperty("lastName")]
-    public string LastName { get; set; }
+    public required string LastName { get; set; }
 
     /// <summary>
     /// The number of losses by the NHL goalie in the season <br/>
@@ -143,7 +143,7 @@ public class GoalieStatisticsResult
     /// Example: "L"
     /// </summary>
     [JsonProperty("shootsCatches")]
-    public string ShootsCatches { get; set; }
+    public required string ShootsCatches { get; set; }
 
     /// <summary>
     /// The total number of shots faced by the NHL goalie in the season <br/>
@@ -164,7 +164,7 @@ public class GoalieStatisticsResult
     /// Example: "TOR, CGY"
     /// </summary>
     [JsonProperty("teamAbbrevs")]
-    public string TeamAbbreviations { get; set; }
+    public required string TeamAbbreviations { get; set; }
 
     /// <summary>
     /// The number of ties recorded by the NHL goalie in the season <br/>

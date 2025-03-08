@@ -27,7 +27,7 @@ public interface INhlGameService
 /// </summary>
 public class NhlGameService : INhlGameService
 {
-    private readonly INhlApiHttpClient _nhlScoresHtmlReportsApiHttpClient = new NhlScoresHtmlReportsApiHttpClient();
+    private readonly NhlScoresHtmlReportsApiHttpClient _nhlScoresHtmlReportsApiHttpClient = new();
 
     /// <summary>
     /// A method to add the estimated time of play for each play in the game center play by play
@@ -167,7 +167,7 @@ public class NhlGameService : INhlGameService
                     var distanceBetweenPlays = endTime - startTime;
                     var timeBetweenPlays = distanceBetweenPlays / playsForPeriod.Value.Count;
 
-                    var multiplier = this.CalculateMultiplier(startTime, endTime, playsForPeriod.Value.Count);
+                    var multiplier = CalculateMultiplier(startTime, endTime, playsForPeriod.Value.Count);
                     for (var i = 0; i < playsForPeriod.Value.Count; i++)
                     {
                         var play = playsForPeriod.Value[i];
@@ -192,9 +192,8 @@ public class NhlGameService : INhlGameService
     /// <param name="endTime">The end time of the period</param>
     /// <param name="events">The number of events in the period</param>
     /// <returns>A multiplier value for time distribution calculations</returns>
-    private double CalculateMultiplier(DateTime startTime, DateTime endTime, int events)
+    private static double CalculateMultiplier(DateTime startTime, DateTime endTime, int events)
     {
-
         // Constants for the multiplier formula
         var DURATION_COEFFICIENT = 41.0;
         var EVENTS_COEFFICIENT = 2.0;

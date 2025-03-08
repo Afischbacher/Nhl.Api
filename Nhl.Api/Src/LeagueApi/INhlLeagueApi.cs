@@ -1,4 +1,4 @@
-﻿namespace Nhl.Api;
+namespace Nhl.Api;
 
 /// <summary>
 /// The official unofficial NHL League API providing various NHL league information including teams, franchises, standings, awards and more
@@ -208,5 +208,13 @@ public interface INhlLeagueApi
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns true or false based on the current time and date</returns>
     public Task<bool> IsLeagueActiveAsync(CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Returns the current NHL playofff schedule for the current season
+    /// </summary>
+    /// <param name="seasonYear">The eight digit number format for the season, see <see cref="SeasonYear"/> for more information, Example: 20232024</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns a collection of playoff series match ups by year </returns>
+    public Task<PlayoffSeriesSchedule> GetPlayoffSeriesBySeasonYearAsync(string seasonYear, CancellationToken cancellationToken = default);
 
 }
