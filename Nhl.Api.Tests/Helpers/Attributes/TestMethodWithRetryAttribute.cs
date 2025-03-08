@@ -53,7 +53,7 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute
                 }
                 else
                 {
-                    return result;
+                    break;
                 }
             }
             catch (Exception) when (count > 0)

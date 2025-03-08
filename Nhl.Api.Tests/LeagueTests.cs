@@ -624,4 +624,33 @@ public class LeagueTests
         Assert.IsNotNull(result);
         Assert.AreEqual(result.Players.Count, 1);
     }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(SeasonYear.season20242025)]
+    [DataRow(SeasonYear.season20082009)]
+    [DataRow(SeasonYear.season20132014)]
+    [DataRow(SeasonYear.season20002001)]
+    [DataRow(SeasonYear.season19931994)]
+
+    public async Task GetPlayoffSeriesBySeasonYearAsync_Returns_Valid_Information(string seasonYear)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetPlayoffSeriesBySeasonYearAsync(seasonYear, cancellationToken: default);
+
+        // Assert
+        Assert.IsNotNull(result);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task GetPlayoffSeriesBySeasonYearAsync_With_Invalid_Season_Year_Throws_Argument_Exception()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act / Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(async () => await nhlApi.GetPlayoffSeriesBySeasonYearAsync(" ", cancellationToken: default));
+    }
 }

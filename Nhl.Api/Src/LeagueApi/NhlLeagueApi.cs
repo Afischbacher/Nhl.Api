@@ -613,4 +613,22 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns true or false based on the current time and date</returns>
     public async Task<bool> IsLeagueActiveAsync(CancellationToken cancellationToken = default) => await this.IsRegularSeasonActiveAsync(cancellationToken) || await this.IsPlayoffSeasonActiveAsync(cancellationToken) || await this.IsPreSeasonActiveAsync(cancellationToken);
+
+    /// <summary>
+    /// Returns the current NHL playofff schedule for the current season
+    /// </summary>
+    /// <param name="seasonYear">The eight digit number format for the season, see <see cref="SeasonYear"/> for more information, Example: 20232024</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns a collection of playoff series match ups by year </returns>
+    public async Task<PlayoffSeriesSchedule> GetPlayoffSeriesBySeasonYearAsync(string seasonYear, CancellationToken cancellationToken = default)
+    {
+        if (seasonYear?.Length != 8)
+        {
+            throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
+        }
+
+
+        return await _nhlWebApiHttpClient.GetAsync<PlayoffSeriesSchedule>("/playoff-series/carousel/20232024", cancellationToken);
+    }
+
 }
