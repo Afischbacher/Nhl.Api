@@ -627,8 +627,7 @@ public class NhlLeagueApi : INhlLeagueApi
             throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
         }
 
-
-        return await _nhlWebApiHttpClient.GetAsync<PlayoffSeriesSchedule>("/playoff-series/carousel/20232024", cancellationToken);
+        return await _nhlWebApiHttpClient.GetAsync<PlayoffSeriesSchedule>($"/playoff-series/carousel/{seasonYear}", cancellationToken);
     }
 
 }
