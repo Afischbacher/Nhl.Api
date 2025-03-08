@@ -287,6 +287,19 @@ public class PlayerTests
 
 
     [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(" ")]
+    [DataRow("202520262027")]
+    public async Task GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync_Test_InvalidSeasonYear(string seasonYear)
+    {
+        // Arrange 
+        await using var nhlApi = new NhlApi();
+
+        // Act / Assert
+        await Assert.ThrowsExceptionAsync<ArgumentException>(async () => await nhlApi.GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync(8478402, seasonYear, GameType.RegularSeason));
+    }
+
+
+    [TestMethodWithRetry(RetryCount = 5)]
     [DataRow(PlayerEnum.MarcAndreFleury8470594, SeasonYear.season20222023, GameType.RegularSeason)]
     [DataRow(PlayerEnum.JuuseSaros8477424, SeasonYear.season20182019, GameType.RegularSeason)]
     [DataRow(PlayerEnum.JosephWoll8479361, SeasonYear.season20222023, GameType.RegularSeason)]
