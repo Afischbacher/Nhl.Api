@@ -145,6 +145,9 @@ public class PlayerTests
                 Assert.AreEqual("6\u00274\"", playerSearchResult.Height);
                 Assert.AreEqual(31, playerSearchResult.PlayerNumber);
                 break;
+
+            default:
+                throw new ArgumentException(null, nameof(query));
         }
 
     }
