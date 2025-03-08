@@ -736,15 +736,21 @@ public class NhlApi : INhlApi
     /// <summary>
     /// Releases and disposes all unused or garbage collected resources for the Nhl.Api
     /// </summary>
-    public void Dispose() =>
+    public void Dispose()
+    {
+        _nhlPlayerApi.Dispose();
         GC.SuppressFinalize(this);
+    }
 
     /// <summary>
     /// Releases and disposes all unused or garbage collected resources for the Nhl.Api asynchronously
     /// </summary>
     /// <returns>The await-able result of the asynchronous operation</returns>
-    public async ValueTask DisposeAsync() =>
-           await Task.Run(() => GC.SuppressFinalize(this));
+    public async ValueTask DisposeAsync()
+    {
+        _nhlPlayerApi.Dispose();
+        await Task.Run(() => GC.SuppressFinalize(this));
+    }
 
     /// <summary>
     /// Returns the current NHL playofff schedule for the current season
