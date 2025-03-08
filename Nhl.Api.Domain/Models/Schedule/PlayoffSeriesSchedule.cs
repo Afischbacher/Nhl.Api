@@ -117,7 +117,7 @@ public class Round
     /// Example: new List&lt;Series&gt; { /* Series objects */ }
     /// </summary>
     [JsonProperty("series")]
-    public List<Series> Series { get; set; } = new List<Series>();
+    public List<Series> Series { get; set; } = [];
 }
 
 /// <summary>

@@ -1,6 +1,6 @@
-﻿[assembly: Parallelize(Workers = 4, Scope = ExecutionScope.MethodLevel)]
+[assembly: Parallelize(Workers = 4, Scope = ExecutionScope.MethodLevel)]
 namespace Nhl.Api.Tests;
 
-internal class AssemblyInfo
+internal sealed class AssemblyInfo
 {
 }

@@ -1,4 +1,6 @@
-﻿namespace Nhl.Api.Common.Helpers;
+using System;
+
+namespace Nhl.Api.Common.Helpers;
 
 /// <summary>
 /// A helper class for converting ISO standard country codes to the full country name
@@ -1247,6 +1249,6 @@ public static class CountryCodeHelper
             return "Zimbabwe";
         }
 
-        return string.Empty;
+        throw new ArgumentException($"Country code {countryCode} not found");
     }
 }
