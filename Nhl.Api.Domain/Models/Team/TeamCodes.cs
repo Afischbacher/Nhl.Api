@@ -239,7 +239,7 @@ public static class TeamCodes
     /// </summary>
     public const string WashingtonCapitals = "WSH";
     /// <summary>
-    /// Utah Hockey Club
+    /// Utah Mammoth
     /// </summary>
-    public const string UtahHockeyClub = "UTA";
+    public const string UtahMammoth = "UTA";
 }

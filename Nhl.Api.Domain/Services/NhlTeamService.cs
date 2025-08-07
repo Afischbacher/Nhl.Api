@@ -111,7 +111,7 @@ public class NhlTeamService : INhlTeamService
         (int)TeamEnum.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
         (int)TeamEnum.WashingtonCapitals => TeamCodes.WashingtonCapitals,
         (int)TeamEnum.WinnipegJets => TeamCodes.WinnipegJets,
-        (int)TeamEnum.UtahHockeyClub => TeamCodes.UtahHockeyClub,
+        (int)TeamEnum.UtahMammoth => TeamCodes.UtahMammoth,
         _ => null,
     };
 
@@ -156,7 +156,7 @@ public class NhlTeamService : INhlTeamService
         TeamCodes.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
         TeamCodes.WashingtonCapitals => TeamCodes.WashingtonCapitals,
         TeamCodes.WinnipegJets => TeamCodes.WinnipegJets,
-        TeamCodes.UtahHockeyClub => TeamCodes.UtahHockeyClub,
+        TeamCodes.UtahMammoth => TeamCodes.UtahMammoth,
         _ => null,
     };
 
@@ -200,7 +200,7 @@ public class NhlTeamService : INhlTeamService
         TeamEnum.ArizonaCoyotes => TeamCodes.ArizonaCoyotes,
         TeamEnum.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
         TeamEnum.SeattleKraken => TeamCodes.SeattleKraken,
-        TeamEnum.UtahHockeyClub => TeamCodes.UtahHockeyClub,
+        TeamEnum.UtahMammoth => TeamCodes.UtahMammoth,
         _ => null,
     };
 
@@ -264,7 +264,7 @@ public class NhlTeamService : INhlTeamService
         TeamNames.VegasGoldenKnights => TeamCodes.VegasGoldenKnights,
         TeamNames.WashingtonCapitals => TeamCodes.WashingtonCapitals,
         TeamNames.WinnipegJets => TeamCodes.WinnipegJets,
-        TeamNames.UtahHockeyClub => TeamCodes.UtahHockeyClub,
+        TeamNames.UtahMammoth => TeamCodes.UtahMammoth,
         _ => null
     };
 };

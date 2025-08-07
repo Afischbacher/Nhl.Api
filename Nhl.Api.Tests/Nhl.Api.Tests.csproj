@@ -19,7 +19,6 @@
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="4.3.0-3.final" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.Common" Version="4.3.0-3.final" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.3.0-3.final" />
-		<PackageReference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform" Version="4.1.0" />
 		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
 		<PackageReference Include="Microsoft.TestPlatform" Version="16.6.1" />
 		<PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="16.6.1" />

@@ -166,7 +166,7 @@ public static class TeamNames
     public const string WinnipegJets = "Winnipeg Jets";
 
     /// <summary>
-    /// Utah Hockey Club
+    /// Utah Mammoth
     /// </summary>
-    public const string UtahHockeyClub = "Utah Hockey Club";
+    public const string UtahMammoth = "Utah Mammoth";
 }

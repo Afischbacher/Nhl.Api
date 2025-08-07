@@ -416,17 +416,17 @@ public class PlayerTests
         await using var nhlApi = new NhlApi();
 
         // Act
-        var goalieInformation = await nhlApi.GetGoalieInformationAsync(PlayerEnum.MarcAndreFleury8470594);
+        var goalieInformation = await nhlApi.GetGoalieInformationAsync(PlayerEnum.LoganThompson8480313);
 
         // Assert
         Assert.IsNotNull(goalieInformation);
-        Assert.AreEqual("Marc-Andre", goalieInformation.FirstName.Default);
-        Assert.AreEqual("Fleury", goalieInformation.LastName.Default);
-        Assert.AreEqual("MIN", goalieInformation.CurrentTeamAbbrev);
-        Assert.AreEqual("Minnesota Wild", goalieInformation.FullTeamName.Default);
-        Assert.AreEqual("Sorel", goalieInformation.BirthCity.Default);
+        Assert.AreEqual("Logan", goalieInformation.FirstName.Default);
+        Assert.AreEqual("Thompson", goalieInformation.LastName.Default);
+        Assert.AreEqual("WSH", goalieInformation.CurrentTeamAbbrev);
+        Assert.AreEqual("Washington Capitals", goalieInformation.FullTeamName.Default);
+        Assert.AreEqual("Calgary", goalieInformation.BirthCity.Default);
         Assert.AreEqual("CAN", goalieInformation.BirthCountry);
-        Assert.AreEqual("Quebec", goalieInformation.BirthStateProvince.Default);
+        Assert.AreEqual("Alberta", goalieInformation.BirthStateProvince.Default);
 
     }
 
@@ -544,7 +544,7 @@ public class PlayerTests
     [DataRow(PlayerEnum.JosephWoll8479361)]
     [DataRow(PlayerEnum.JohnGibson8476434)]
     [DataRow(PlayerEnum.AndreiVasilevskiy8476883)]
-    [DataRow(PlayerEnum.MarcAndreFleury8470594)]
+    [DataRow(PlayerEnum.LoganThompson8480313)]
     [DataRow(PlayerEnum.SergeiBobrovsky8475683)]
     [DataRow(PlayerEnum.JuuseSaros8477424)]
     public async Task GetGoalieInformationAsync_Test_PlayerEnum_Returns_Valid_Information(PlayerEnum playerEnum)
@@ -582,7 +582,6 @@ public class PlayerTests
     [DataRow(8479361)]
     [DataRow(8476434)]
     [DataRow(8476883)]
-    [DataRow(8470594)]
     [DataRow(8475683)]
     [DataRow(8477424)]
     public async Task GetGoalieInformationAsync_Test_PlayerId(int playerId)
