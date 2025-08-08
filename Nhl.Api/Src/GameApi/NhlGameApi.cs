@@ -194,4 +194,13 @@ public class NhlGameApi : INhlGameApi
     /// <returns>Returns the NHL game meta data for the specified game id, including the teams, season states and more</returns>
     public async Task<GameMetadata> GetGameMetadataByGameIdAsync(int gameId, CancellationToken cancellationToken = default) =>
          await _nhlApiWebHttpClient.GetAsync<GameMetadata>($"/meta/game/{gameId}", cancellationToken);
+
+    /// <summary>
+    /// Returns the NHL game story for the specified game id, including teams, scoring, and statistics
+    /// </summary>
+    /// <param name="gameId">The NHL game identifier, Example: 2023020204</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL game story for the specified game id, including teams, scoring, and statistics</returns>
+    public async Task<GameStory> GetGameStoryByGameIdAsync(int gameId, CancellationToken cancellationToken = default)
+        => await _nhlApiWebHttpClient.GetAsync<GameStory>($"/wsc/game-story/{gameId}", cancellationToken);
 }

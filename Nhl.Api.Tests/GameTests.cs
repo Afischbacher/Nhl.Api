@@ -248,4 +248,48 @@ public class GameTests
         Assert.IsNotNull(results.Plays);
         Assert.IsTrue(results.Plays.All(p => p.EstimatedDateTimeOfPlay.HasValue));
     }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(2023020204)]
+    [DataRow(2023020205)]
+    [DataRow(2023020206)]
+    [DataRow(2023020207)]
+    [DataRow(2017020205)]
+    [DataRow(2018020206)]
+    [DataRow(2019020207)]
+    public async Task GetGameStoryByGameIdAsync_Return_Valid_Information(int gameId)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetGameStoryByGameIdAsync(gameId);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Id > 0);
+        Assert.IsTrue(result.Season > 0);
+        Assert.IsTrue(result.GameType > 0);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.GameDate));
+        Assert.IsNotNull(result.Venue);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.Venue.Default));
+        Assert.IsNotNull(result.VenueLocation);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.VenueLocation.Default));
+        Assert.IsNotNull(result.StartTimeUTC);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.EasternUTCOffset));
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.VenueUTCOffset));
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.VenueTimezone));
+        Assert.IsNotNull(result.TvBroadcasts);
+        Assert.IsNotNull(result.GameState);
+        Assert.IsNotNull(result.GameScheduleState);
+        Assert.IsNotNull(result.AwayTeam);
+        Assert.IsNotNull(result.HomeTeam);
+        Assert.IsNotNull(result.Summary);
+        Assert.IsNotNull(result.Clock);
+        Assert.IsNotNull(result.PeriodDescriptor);
+        // Check summary details
+        Assert.IsNotNull(result.Summary.Scoring);
+        Assert.IsNotNull(result.Summary.ThreeStars);
+        Assert.IsNotNull(result.Summary.TeamGameStats);
+    }
 }

@@ -5,7 +5,7 @@ namespace Nhl.Api.Tests.Helpers.Attributes;
 /// <summary>
 /// An Microsoft Test custom attribute for retrying on failed test methods
 /// </summary>
-public class TestMethodWithRetryAttribute : TestMethodAttribute
+public class TestMethodWithRetryAttribute : TestMethodAttribute, IDisposable
 {
 
     /// <summary>
@@ -23,8 +23,12 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute
     /// </summary>
     public decimal BackoffCoefficent { get; set; } = 1.0m;
 
+    private static readonly SemaphoreSlim _semaphoreSlim = new(1, 1);
+
     public override TestResult[] Execute(ITestMethod testMethod)
     {
+        _semaphoreSlim.Wait();
+
         var count = this.RetryCount;
         var backOffDelay = this.RetryDelayInSeconds;
         var backOffWithCoefficient = (int)(backOffDelay * this.BackoffCoefficent);
@@ -41,12 +45,13 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute
                     this.BackoffCoefficent *= this.BackoffCoefficent;
                     Thread.Sleep(backOffWithCoefficient * oneThousandMilliseconds);
                 }
-                else
+                else if (count < this.RetryCount)
                 {
                     Thread.Sleep(backOffDelay * oneThousandMilliseconds);
                 }
 
                 result = base.Execute(testMethod);
+
                 if (result.Any(r => r.TestFailureException != null))
                 {
                     throw result.First(r => r.TestFailureException != null).TestFailureException;
@@ -65,7 +70,14 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute
             }
         }
 
+        _semaphoreSlim.Release();
         return result;
+    }
+
+    public void Dispose()
+    {
+        GC.SuppressFinalize(this);
+        _semaphoreSlim.Dispose();
     }
 }
 
