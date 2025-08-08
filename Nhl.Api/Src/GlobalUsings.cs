@@ -1,4 +1,4 @@
-﻿// System
+// System
 // Nhl.Api.Common
 global using System;
 global using System.Collections.Generic;
@@ -21,3 +21,4 @@ global using Nhl.Api.Models.Season;
 global using Nhl.Api.Models.Standing;
 global using Nhl.Api.Models.Statistics;
 global using Nhl.Api.Models.Team;
+global using Nhl.Api.Models.Draft;

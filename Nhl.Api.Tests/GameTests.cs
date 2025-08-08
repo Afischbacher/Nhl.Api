@@ -287,9 +287,67 @@ public class GameTests
         Assert.IsNotNull(result.Summary);
         Assert.IsNotNull(result.Clock);
         Assert.IsNotNull(result.PeriodDescriptor);
-        // Check summary details
         Assert.IsNotNull(result.Summary.Scoring);
         Assert.IsNotNull(result.Summary.ThreeStars);
         Assert.IsNotNull(result.Summary.TeamGameStats);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(2023)]
+    [DataRow(2022)]
+    [DataRow(2021)]
+    [DataRow(2020)]
+    public async Task GetPlayoffBracketAsync_Returns_Valid_Information(int year)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetPlayoffBracketAsync(year);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.BracketLogo));
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.BracketLogoFr));
+        Assert.IsNotNull(result.Series);
+        Assert.IsTrue(result.Series.Count > 0);
+
+        foreach (var series in result.Series)
+        {
+            Assert.IsNotNull(series);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.SeriesUrl));
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.SeriesTitle));
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.SeriesAbbrev));
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.SeriesLetter));
+            Assert.IsTrue(series.PlayoffRound >= 0);
+            Assert.IsTrue(series.TopSeedRank > 0);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.TopSeedRankAbbrev));
+            Assert.IsTrue(series.TopSeedWins >= 0);
+            Assert.IsTrue(series.BottomSeedRank > 0);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.BottomSeedRankAbbrev));
+            Assert.IsTrue(series.BottomSeedWins >= 0);
+            Assert.IsTrue(series.WinningTeamId > 0);
+            Assert.IsTrue(series.LosingTeamId > 0);
+
+            Assert.IsNotNull(series.TopSeedTeam);
+            Assert.IsNotNull(series.BottomSeedTeam);
+
+            // SeriesLogo, SeriesLogoFr, ConferenceAbbrev, ConferenceName are optional
+            foreach (var team in new[] { series.TopSeedTeam, series.BottomSeedTeam })
+            {
+                Assert.IsTrue(team.Id > 0);
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.Abbrev));
+                Assert.IsNotNull(team.Name);
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.Name.Default));
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.Name.Fr));
+                Assert.IsNotNull(team.CommonName);
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.CommonName.Default));
+                Assert.IsNotNull(team.PlaceNameWithPreposition);
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.PlaceNameWithPreposition.Default));
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.PlaceNameWithPreposition.Fr));
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.Logo));
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.DarkLogo));
+            }
+        }
     }
 }

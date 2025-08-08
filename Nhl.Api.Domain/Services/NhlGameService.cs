@@ -19,7 +19,7 @@ public interface INhlGameService
     /// </summary>
     /// <param name="gameCenterPlayByPlay"> A game center play by play object</param>
     /// <returns>All of the game center play by play information with the time of play for each play</returns>
-    Task<GameCenterPlayByPlay> AddEstimatedDateTimeOfPlayForEachPlay(GameCenterPlayByPlay gameCenterPlayByPlay);
+    public Task<GameCenterPlayByPlay> AddEstimatedDateTimeOfPlayForEachPlay(GameCenterPlayByPlay gameCenterPlayByPlay);
 }
 
 /// <summary>
