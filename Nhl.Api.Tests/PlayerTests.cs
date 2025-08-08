@@ -899,6 +899,7 @@ public class PlayerTests
         }
     }
 
+    [Ignore("This endpoint is currently not operating as expected")]
     [TestMethodWithRetry(RetryCount = 10, RetryDelayInSeconds = 10)]
     public async Task GetAllPlayersAsync_Returns_All_Players()
     {
