@@ -169,4 +169,10 @@ public static class TeamNames
     /// Utah Mammoth
     /// </summary>
     public const string UtahMammoth = "Utah Mammoth";
+
+    /// <summary>
+    /// Utah Hockey Club (renamed to Utah Mammoth)
+    /// </summary>
+    [System.Obsolete("Renamed to UtahMammoth; this alias will be removed in a future release.", false)]
+    public const string UtahHockeyClub = UtahMammoth;
 }

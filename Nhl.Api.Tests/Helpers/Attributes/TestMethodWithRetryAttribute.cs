@@ -66,11 +66,11 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute, IDisposable
             }
             finally
             {
+                _semaphoreSlim.Release();
                 count--;
             }
         }
 
-        _semaphoreSlim.Release();
         return result;
     }
 
