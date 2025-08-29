@@ -23,12 +23,8 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute, IDisposable
     /// </summary>
     public decimal BackoffCoefficent { get; set; } = 1.0m;
 
-    private static readonly SemaphoreSlim _semaphoreSlim = new(1, 1);
-
     public override TestResult[] Execute(ITestMethod testMethod)
     {
-        _semaphoreSlim.Wait();
-
         var count = this.RetryCount;
         var backOffDelay = this.RetryDelayInSeconds;
         var backOffWithCoefficient = (int)(backOffDelay * this.BackoffCoefficent);
@@ -70,14 +66,9 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute, IDisposable
             }
         }
 
-        _semaphoreSlim.Release();
         return result;
     }
 
-    public void Dispose()
-    {
-        GC.SuppressFinalize(this);
-        _semaphoreSlim.Dispose();
-    }
+    public void Dispose() => GC.SuppressFinalize(this);
 }
 
