@@ -290,7 +290,7 @@ public abstract class TeamStatisticTeamPlayer
 {
 
     /// <summary>
-    /// The NHL player or goale identifier for the team member <br/>
+    /// The NHL player or goalie identifier for the team member <br/>
     /// Example: 8471675
     /// </summary>
     [JsonProperty("playerId")]
