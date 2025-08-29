@@ -45,7 +45,10 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute, IDisposable
                     this.BackoffCoefficent *= this.BackoffCoefficent;
                     Thread.Sleep(backOffWithCoefficient * oneThousandMilliseconds);
                 }
-                else if (count < this.RetryCount)
+                else
+                {
+
+                }
                 {
                     Thread.Sleep(backOffDelay * oneThousandMilliseconds);
                 }
