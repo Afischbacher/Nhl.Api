@@ -47,9 +47,6 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute, IDisposable
                 }
                 else
                 {
-
-                }
-                {
                     Thread.Sleep(backOffDelay * oneThousandMilliseconds);
                 }
 
@@ -69,11 +66,11 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute, IDisposable
             }
             finally
             {
-                _semaphoreSlim.Release();
                 count--;
             }
         }
 
+        _semaphoreSlim.Release();
         return result;
     }
 
