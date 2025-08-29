@@ -768,7 +768,7 @@ public class NhlApi : INhlApi
     public async Task<GameStory> GetGameStoryByGameIdAsync(int gameId, CancellationToken cancellationToken = default) =>
         await _nhlGameApi.GetGameStoryByGameIdAsync(gameId, cancellationToken);
     /// <summary>
-    /// Returns the NHL playoff bracket for the specified season year.
+    /// Returns the NHL playoff bracket for the specified season year
     /// </summary>
     /// <param name="seasonYear">The season year, Example: 2022</param>
     /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
