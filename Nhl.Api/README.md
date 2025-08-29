@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/github/license/Afischbacher/Nhl.Api)](https://github.com/Afischbacher/Nhl.Api/blob/master/LICENSE)
 [![codecov](https://codecov.io/github/Afischbacher/Nhl.Api/branch/master/graph/badge.svg?token=3TBEBCZJJ5)](https://codecov.io/github/Afischbacher/Nhl.Api)
 # The Official Unofficial .NET NHL API 🏒
-A modern C# .NET library for the NHL API providing various NHL information about players, games, teams, conferences, divisions, statistics and more
+A modern .NET library for the NHL API providing various NHL information about players, games, teams, conferences, divisions, statistics and more
 
 
 <div align="center">
@@ -28,7 +28,7 @@ You should install Nhl.Api with NuGet:
 ```
 Install-Package Nhl.Api
 ```
-Or via the .NET Core command line interface:
+Or via the .NET CLI command line interface:
 ```
 dotnet add package Nhl.Api
 ```
@@ -102,6 +102,18 @@ Once registered using your dependency injection library of choice or just using 
 `builder.RegisterType<NhlLeagueApi>().As<INhlLeagueApi>();`<br/>
 #### Simple Object Instantiation
 `var nhlLeagueApi = new NhlLeagueApi();`<br/>
+
+### Available APIs 📋
+
+``NhlApi`` – full API access
+
+``NhlPlayerApi`` – player profiles, stats, info
+
+``NhlGameApi`` – schedules, box scores, results
+
+``NhlStatisticsApi`` – season and game stats
+
+``NhlLeagueApi`` – teams, conferences, divisions
 
 ## Bugs 🐛 <a name="bugs"></a>
 If you have any issues with the library or suggestions, please feel free to create an issue and it will be adressed as soon as possible :)
