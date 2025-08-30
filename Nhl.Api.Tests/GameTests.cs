@@ -97,6 +97,10 @@ public class GameTests
     [DataRow(2017020205)]
     [DataRow(2018020206)]
     [DataRow(2019020207)]
+    [DataRow(2024010050)]
+    [DataRow(2024010055)]
+    [DataRow(2024010060)]
+
     public async Task GetGameCenterBoxScoreByGameIdAsync_Return_Valid_Information(int gameId)
     {
         // Arrange
@@ -109,12 +113,6 @@ public class GameTests
         Assert.IsNotNull(results);
         Assert.IsNotNull(results.GameDate);
         Assert.IsNotNull(results.GameType);
-        Assert.IsNotNull(results.Boxscore);
-
-        Assert.IsNotNull(results.Boxscore.Linescore);
-        Assert.IsNotNull(results.Boxscore.SeasonSeriesWins);
-        Assert.IsNotNull(results.Boxscore.SeasonSeries);
-        Assert.IsNotNull(results.Boxscore.TeamGameStatistics);
         Assert.IsNotNull(results.PlayerByGameStatistics);
 
         Assert.IsNotNull(results.Id);
@@ -123,6 +121,15 @@ public class GameTests
         Assert.IsNotNull(results.AwayTeam);
         Assert.IsNotNull(results.HomeTeam);
         Assert.IsNotNull(results.GameOutcome);
+
+        if (results.Boxscore != null)
+        {
+            Assert.IsNotNull(results.Boxscore);
+            Assert.IsNotNull(results.Boxscore.Linescore);
+            Assert.IsNotNull(results.Boxscore.SeasonSeriesWins);
+            Assert.IsNotNull(results.Boxscore.SeasonSeries);
+            Assert.IsNotNull(results.Boxscore.TeamGameStatistics);
+        }
     }
 
     [TestMethodWithRetry(RetryCount = 5)]

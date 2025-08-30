@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
@@ -966,10 +966,10 @@ public class GameCenterBoxScore
     public required PlayerByGameStats PlayerByGameStatistics { get; set; }
 
     /// <summary>
-    /// The NHL game center box score information
+    /// The NHL game center box score information if available for the game
     /// </summary>
     [JsonProperty("summary")]
-    public required Boxscore Boxscore { get; set; }
+    public Boxscore? Boxscore { get; set; }
 
     /// <summary>
     /// The NHL game center box score game outcome information
