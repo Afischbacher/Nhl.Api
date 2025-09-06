@@ -1,5 +1,3 @@
-using Nhl.Api.Models.Draft;
-
 namespace Nhl.Api;
 
 /// <summary>
@@ -760,4 +758,21 @@ public class NhlApi : INhlApi
     /// <returns>Returns a collection of playoff series match ups by year</returns>
     public async Task<PlayoffSeriesSchedule> GetPlayoffSeriesBySeasonYearAsync(string seasonYear, CancellationToken cancellationToken = default) =>
         await _nhlLeagueApi.GetPlayoffSeriesBySeasonYearAsync(seasonYear, cancellationToken);
+
+    /// <summary>
+    /// Returns the NHL game story for the specified game id, including teams, scoring, and statistics
+    /// </summary>
+    /// <param name="gameId">The NHL game identifier, Example: 2023020204</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL game story for the specified game id, including teams, scoring, and statistics</returns>
+    public async Task<GameStory> GetGameStoryByGameIdAsync(int gameId, CancellationToken cancellationToken = default) =>
+        await _nhlGameApi.GetGameStoryByGameIdAsync(gameId, cancellationToken);
+    /// <summary>
+    /// Returns the NHL playoff bracket for the specified season year
+    /// </summary>
+    /// <param name="seasonYear">The season year, Example: 2022</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL playoff bracket for the specified season year</returns>
+    public async Task<PlayoffBracket> GetPlayoffBracketAsync(int seasonYear, CancellationToken cancellationToken = default) =>
+        await _nhlGameApi.GetPlayoffBracketAsync(seasonYear, cancellationToken);
 }

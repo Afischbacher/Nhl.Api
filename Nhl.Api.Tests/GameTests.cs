@@ -97,6 +97,10 @@ public class GameTests
     [DataRow(2017020205)]
     [DataRow(2018020206)]
     [DataRow(2019020207)]
+    [DataRow(2024010050)]
+    [DataRow(2024010055)]
+    [DataRow(2024010060)]
+
     public async Task GetGameCenterBoxScoreByGameIdAsync_Return_Valid_Information(int gameId)
     {
         // Arrange
@@ -109,12 +113,6 @@ public class GameTests
         Assert.IsNotNull(results);
         Assert.IsNotNull(results.GameDate);
         Assert.IsNotNull(results.GameType);
-        Assert.IsNotNull(results.Boxscore);
-
-        Assert.IsNotNull(results.Boxscore.Linescore);
-        Assert.IsNotNull(results.Boxscore.SeasonSeriesWins);
-        Assert.IsNotNull(results.Boxscore.SeasonSeries);
-        Assert.IsNotNull(results.Boxscore.TeamGameStatistics);
         Assert.IsNotNull(results.PlayerByGameStatistics);
 
         Assert.IsNotNull(results.Id);
@@ -123,6 +121,15 @@ public class GameTests
         Assert.IsNotNull(results.AwayTeam);
         Assert.IsNotNull(results.HomeTeam);
         Assert.IsNotNull(results.GameOutcome);
+
+        if (results.Boxscore != null)
+        {
+            Assert.IsNotNull(results.Boxscore);
+            Assert.IsNotNull(results.Boxscore.Linescore);
+            Assert.IsNotNull(results.Boxscore.SeasonSeriesWins);
+            Assert.IsNotNull(results.Boxscore.SeasonSeries);
+            Assert.IsNotNull(results.Boxscore.TeamGameStatistics);
+        }
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
@@ -247,5 +254,107 @@ public class GameTests
         Assert.IsNotNull(results.Clock);
         Assert.IsNotNull(results.Plays);
         Assert.IsTrue(results.Plays.All(p => p.EstimatedDateTimeOfPlay.HasValue));
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(2023020204)]
+    [DataRow(2023020205)]
+    [DataRow(2023020206)]
+    [DataRow(2023020207)]
+    [DataRow(2017020205)]
+    [DataRow(2018020206)]
+    [DataRow(2019020207)]
+    public async Task GetGameStoryByGameIdAsync_Return_Valid_Information(int gameId)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetGameStoryByGameIdAsync(gameId);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.IsTrue(result.Id > 0);
+        Assert.IsTrue(result.Season > 0);
+        Assert.IsTrue(result.GameType > 0);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.GameDate));
+        Assert.IsNotNull(result.Venue);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.Venue.Default));
+        Assert.IsNotNull(result.VenueLocation);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.VenueLocation.Default));
+        Assert.IsNotNull(result.StartTimeUTC);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.EasternUTCOffset));
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.VenueUTCOffset));
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.VenueTimezone));
+        Assert.IsNotNull(result.TvBroadcasts);
+        Assert.IsNotNull(result.GameState);
+        Assert.IsNotNull(result.GameScheduleState);
+        Assert.IsNotNull(result.AwayTeam);
+        Assert.IsNotNull(result.HomeTeam);
+        Assert.IsNotNull(result.Summary);
+        Assert.IsNotNull(result.Clock);
+        Assert.IsNotNull(result.PeriodDescriptor);
+        Assert.IsNotNull(result.Summary.Scoring);
+        Assert.IsNotNull(result.Summary.ThreeStars);
+        Assert.IsNotNull(result.Summary.TeamGameStats);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(2023)]
+    [DataRow(2022)]
+    [DataRow(2021)]
+    [DataRow(2020)]
+    public async Task GetPlayoffBracketAsync_Returns_Valid_Information(int year)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var result = await nhlApi.GetPlayoffBracketAsync(year);
+
+        // Assert
+        Assert.IsNotNull(result);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.BracketLogo));
+        Assert.IsFalse(string.IsNullOrWhiteSpace(result.BracketLogoFr));
+        Assert.IsNotNull(result.Series);
+        Assert.IsTrue(result.Series.Count > 0);
+
+        foreach (var series in result.Series)
+        {
+            Assert.IsNotNull(series);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.SeriesUrl));
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.SeriesTitle));
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.SeriesAbbrev));
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.SeriesLetter));
+            Assert.IsTrue(series.PlayoffRound >= 0);
+            Assert.IsTrue(series.TopSeedRank > 0);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.TopSeedRankAbbrev));
+            Assert.IsTrue(series.TopSeedWins >= 0);
+            Assert.IsTrue(series.BottomSeedRank > 0);
+            Assert.IsFalse(string.IsNullOrWhiteSpace(series.BottomSeedRankAbbrev));
+            Assert.IsTrue(series.BottomSeedWins >= 0);
+            Assert.IsTrue(series.WinningTeamId > 0);
+            Assert.IsTrue(series.LosingTeamId > 0);
+
+            Assert.IsNotNull(series.TopSeedTeam);
+            Assert.IsNotNull(series.BottomSeedTeam);
+
+            // SeriesLogo, SeriesLogoFr, ConferenceAbbrev, ConferenceName are optional
+            foreach (var team in new[] { series.TopSeedTeam, series.BottomSeedTeam })
+            {
+                Assert.IsTrue(team.Id > 0);
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.Abbrev));
+                Assert.IsNotNull(team.Name);
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.Name.Default));
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.Name.Fr));
+                Assert.IsNotNull(team.CommonName);
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.CommonName.Default));
+                Assert.IsNotNull(team.PlaceNameWithPreposition);
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.PlaceNameWithPreposition.Default));
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.PlaceNameWithPreposition.Fr));
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.Logo));
+                Assert.IsFalse(string.IsNullOrWhiteSpace(team.DarkLogo));
+            }
+        }
     }
 }

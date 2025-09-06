@@ -141,4 +141,20 @@ public interface INhlGameApi
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL game meta data for the specified game id, including the teams, season states and more</returns>
     public Task<Boxscore> GetBoxscoreByGameIdAsync(int gameId, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Returns the NHL game story for the specified game id, including teams, scoring, and statistics
+    /// </summary>
+    /// <param name="gameId">The NHL game identifier, Example: 2023020204</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL game story for the specified game id, including teams, scoring, and statistics</returns>
+    public Task<GameStory> GetGameStoryByGameIdAsync(int gameId, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Returns the NHL playoff bracket for the specified season year.
+    /// </summary>
+    /// <param name="seasonYear">The season year, Example: 2022</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL playoff bracket for the specified season year</returns>
+    public Task<PlayoffBracket> GetPlayoffBracketAsync(int seasonYear, CancellationToken cancellationToken = default);
 }

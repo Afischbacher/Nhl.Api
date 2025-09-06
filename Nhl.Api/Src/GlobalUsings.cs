@@ -1,4 +1,4 @@
-﻿// System
+// System
 // Nhl.Api.Common
 global using System;
 global using System.Collections.Generic;
@@ -11,6 +11,7 @@ global using Nhl.Api.Common.Helpers;
 global using Nhl.Api.Common.Http;
 global using Nhl.Api.Enumerations.Game;
 global using Nhl.Api.Enumerations.Statistic;
+global using Nhl.Api.Models.Draft;
 global using Nhl.Api.Models.Enumerations.Player;
 global using Nhl.Api.Models.Enumerations.Team;
 global using Nhl.Api.Models.Game;

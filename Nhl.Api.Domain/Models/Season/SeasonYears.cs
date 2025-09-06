@@ -13,9 +13,7 @@ public sealed class SeasonYear
     /// A collection of all the NHL seasons
     /// </summary>
     public static readonly HashSet<string> AllSeasons = GenerateAllSeasons(1917, 2150);
-    private static HashSet<string> GenerateAllSeasons(int startYear, int endYear) => Enumerable.Range(startYear, endYear - startYear + 1)
-            .Select(year => $"{year}{year + 1}")
-            .ToHashSet();
+    private static HashSet<string> GenerateAllSeasons(int startYear, int endYear) => [.. Enumerable.Range(startYear, endYear - startYear + 1).Select(year => $"{year}{year + 1}")];
 
     /// <summary>
     /// The NHL season 1917-1918

@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/github/license/Afischbacher/Nhl.Api)](https://github.com/Afischbacher/Nhl.Api/blob/master/LICENSE)
 [![codecov](https://codecov.io/github/Afischbacher/Nhl.Api/branch/master/graph/badge.svg?token=3TBEBCZJJ5)](https://codecov.io/github/Afischbacher/Nhl.Api)
 # The Official Unofficial .NET NHL API 🏒
-A modern C# .NET library for the NHL API providing various NHL information about players, games, teams, conferences, divisions, statistics and more
+A modern .NET library for the NHL API providing various NHL information about players, games, teams, conferences, divisions, statistics and more
 
 
 <div align="center">
@@ -28,7 +28,7 @@ You should install Nhl.Api with NuGet:
 ```
 Install-Package Nhl.Api
 ```
-Or via the .NET Core command line interface:
+Or via the .NET CLI command line interface:
 ```
 dotnet add package Nhl.Api
 ```
@@ -103,6 +103,18 @@ Once registered using your dependency injection library of choice or just using 
 #### Simple Object Instantiation
 `var nhlLeagueApi = new NhlLeagueApi();`<br/>
 
+### Available APIs 📋
+
+``NhlApi`` – full API access
+
+``NhlPlayerApi`` – player profiles, stats, info
+
+``NhlGameApi`` – schedules, box scores, results
+
+``NhlStatisticsApi`` – season and game stats
+
+``NhlLeagueApi`` – teams, conferences, divisions
+
 ## Bugs 🐛 <a name="bugs"></a>
 If you have any issues with the library or suggestions, please feel free to create an issue and it will be adressed as soon as possible :)
 
@@ -137,6 +149,7 @@ Thank you to all the people in the hockey community, especially:
   - [GetGameMetadataByGameIdAsync(gameId,cancellationToken)](#M-Nhl-Api-NhlApi-GetGameMetadataByGameIdAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetGameMetadataByGameIdAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetGameScoreboardAsync(cancellationToken)](#M-Nhl-Api-NhlApi-GetGameScoreboardAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetGameScoreboardAsync(System.Threading.CancellationToken)')
   - [GetGameScoresByDateAsync(date,cancellationToken)](#M-Nhl-Api-NhlApi-GetGameScoresByDateAsync-System-DateOnly,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetGameScoresByDateAsync(System.DateOnly,System.Threading.CancellationToken)')
+  - [GetGameStoryByGameIdAsync(gameId,cancellationToken)](#M-Nhl-Api-NhlApi-GetGameStoryByGameIdAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetGameStoryByGameIdAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetGoalieInformationAsync(playerId,cancellationToken)](#M-Nhl-Api-NhlApi-GetGoalieInformationAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetGoalieInformationAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetGoalieInformationAsync(player,cancellationToken)](#M-Nhl-Api-NhlApi-GetGoalieInformationAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetGoalieInformationAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.Threading.CancellationToken)')
   - [GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(player,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlApi-GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String,Nhl-Api-Enumerations-Game-GameType,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetGoalieSeasonGameLogsBySeasonAndGameTypeAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String,Nhl.Api.Enumerations.Game.GameType,System.Threading.CancellationToken)')
@@ -160,6 +173,7 @@ Thank you to all the people in the hockey community, especially:
   - [GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync(playerId,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlApi-GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync-System-Int32,System-String,Nhl-Api-Enumerations-Game-GameType,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetPlayerSeasonGameLogsBySeasonAndGameTypeAsync(System.Int32,System.String,Nhl.Api.Enumerations.Game.GameType,System.Threading.CancellationToken)')
   - [GetPlayerSpotlightAsync(cancellationToken)](#M-Nhl-Api-NhlApi-GetPlayerSpotlightAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetPlayerSpotlightAsync(System.Threading.CancellationToken)')
   - [GetPlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear,expressionPlayerFilter,playerStatisticsFilterToSortBy,limit,offsetStart,gameType,cancellationToken)](#M-Nhl-Api-NhlApi-GetPlayerStatisticsBySeasonAndFilterExpressionAsync-System-String,Nhl-Api-Models-Player-ExpressionPlayerFilter,Nhl-Api-Models-Player-PlayerStatisticsFilter,System-Int32,System-Int32,Nhl-Api-Enumerations-Game-GameType,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetPlayerStatisticsBySeasonAndFilterExpressionAsync(System.String,Nhl.Api.Models.Player.ExpressionPlayerFilter,Nhl.Api.Models.Player.PlayerStatisticsFilter,System.Int32,System.Int32,Nhl.Api.Enumerations.Game.GameType,System.Threading.CancellationToken)')
+  - [GetPlayoffBracketAsync(seasonYear,cancellationToken)](#M-Nhl-Api-NhlApi-GetPlayoffBracketAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetPlayoffBracketAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetPlayoffSeriesBySeasonYearAsync(seasonYear,cancellationToken)](#M-Nhl-Api-NhlApi-GetPlayoffSeriesBySeasonYearAsync-System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetPlayoffSeriesBySeasonYearAsync(System.String,System.Threading.CancellationToken)')
   - [GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear,expressionPlayerFilter,playerRealtimeStatisticsFilterToSortBy,limit,offsetStart,gameType,cancellationToken)](#M-Nhl-Api-NhlApi-GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync-System-String,Nhl-Api-Models-Player-ExpressionPlayerFilter,Nhl-Api-Models-Player-PlayerRealtimeStatisticsFilter,System-Int32,System-Int32,Nhl-Api-Enumerations-Game-GameType,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(System.String,Nhl.Api.Models.Player.ExpressionPlayerFilter,Nhl.Api.Models.Player.PlayerRealtimeStatisticsFilter,System.Int32,System.Int32,Nhl.Api.Enumerations.Game.GameType,System.Threading.CancellationToken)')
   - [GetSkaterStatisticsLeadersAsync(playerStatisticsType,seasonYear,gameType,limit,cancellationToken)](#M-Nhl-Api-NhlApi-GetSkaterStatisticsLeadersAsync-Nhl-Api-Enumerations-Statistic-PlayerStatisticsType,Nhl-Api-Enumerations-Game-GameType,System-String,System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetSkaterStatisticsLeadersAsync(Nhl.Api.Enumerations.Statistic.PlayerStatisticsType,Nhl.Api.Enumerations.Game.GameType,System.String,System.Int32,System.Threading.CancellationToken)')
@@ -205,7 +219,9 @@ Thank you to all the people in the hockey community, especially:
   - [GetGameMetadataByGameIdAsync(gameId,cancellationToken)](#M-Nhl-Api-NhlGameApi-GetGameMetadataByGameIdAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlGameApi.GetGameMetadataByGameIdAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetGameScoreboardAsync(cancellationToken)](#M-Nhl-Api-NhlGameApi-GetGameScoreboardAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlGameApi.GetGameScoreboardAsync(System.Threading.CancellationToken)')
   - [GetGameScoresByDateAsync(date,cancellationToken)](#M-Nhl-Api-NhlGameApi-GetGameScoresByDateAsync-System-DateOnly,System-Threading-CancellationToken- 'Nhl.Api.NhlGameApi.GetGameScoresByDateAsync(System.DateOnly,System.Threading.CancellationToken)')
+  - [GetGameStoryByGameIdAsync(gameId,cancellationToken)](#M-Nhl-Api-NhlGameApi-GetGameStoryByGameIdAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlGameApi.GetGameStoryByGameIdAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetLiveGameFeedPlayerShiftsAsync(gameId,cancellationToken)](#M-Nhl-Api-NhlGameApi-GetLiveGameFeedPlayerShiftsAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlGameApi.GetLiveGameFeedPlayerShiftsAsync(System.Int32,System.Threading.CancellationToken)')
+  - [GetPlayoffBracketAsync(seasonYear,cancellationToken)](#M-Nhl-Api-NhlGameApi-GetPlayoffBracketAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlGameApi.GetPlayoffBracketAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetTeamSeasonScheduleBySeasonYearAsync(teamId,seasonYear,cancellationToken)](#M-Nhl-Api-NhlGameApi-GetTeamSeasonScheduleBySeasonYearAsync-System-Int32,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlGameApi.GetTeamSeasonScheduleBySeasonYearAsync(System.Int32,System.String,System.Threading.CancellationToken)')
   - [GetTeamSeasonScheduleBySeasonYearAsync(team,seasonYear,cancellationToken)](#M-Nhl-Api-NhlGameApi-GetTeamSeasonScheduleBySeasonYearAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlGameApi.GetTeamSeasonScheduleBySeasonYearAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.String,System.Threading.CancellationToken)')
   - [GetTeamSeasonScheduleByYearAndMonthAsync(teamId,year,month,cancellationToken)](#M-Nhl-Api-NhlGameApi-GetTeamSeasonScheduleByYearAndMonthAsync-System-Int32,System-Int32,System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlGameApi.GetTeamSeasonScheduleByYearAndMonthAsync(System.Int32,System.Int32,System.Int32,System.Threading.CancellationToken)')
@@ -612,6 +628,24 @@ Returns all of the NHL game scores for the specified date, including the game id
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date and time, Example: 2020-10-02 |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
+
+<a name='M-Nhl-Api-NhlApi-GetGameStoryByGameIdAsync-System-Int32,System-Threading-CancellationToken-'></a>
+### GetGameStoryByGameIdAsync(gameId,cancellationToken) `method`
+
+##### Summary
+
+Returns the NHL game story for the specified game id, including teams, scoring, and statistics
+
+##### Returns
+
+Returns the NHL game story for the specified game id, including teams, scoring, and statistics
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gameId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL game identifier, Example: 2023020204 |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
 <a name='M-Nhl-Api-NhlApi-GetGoalieInformationAsync-System-Int32,System-Threading-CancellationToken-'></a>
@@ -1051,6 +1085,24 @@ Returns all the NHL player game center statistics for a specific player for a sp
 | offsetStart | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The offset to start the results from when reviewing the NHL player statistics |
 | gameType | [Nhl.Api.Enumerations.Game.GameType](#T-Nhl-Api-Enumerations-Game-GameType 'Nhl.Api.Enumerations.Game.GameType') | The game type for the NHL season for the player statistics |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token to cancel the asynchronous operation |
+
+<a name='M-Nhl-Api-NhlApi-GetPlayoffBracketAsync-System-Int32,System-Threading-CancellationToken-'></a>
+### GetPlayoffBracketAsync(seasonYear,cancellationToken) `method`
+
+##### Summary
+
+Returns the NHL playoff bracket for the specified season year.
+
+##### Returns
+
+Returns the NHL playoff bracket for the specified season year
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| seasonYear | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The season year, Example: 2022 |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
 <a name='M-Nhl-Api-NhlApi-GetPlayoffSeriesBySeasonYearAsync-System-String,System-Threading-CancellationToken-'></a>
 ### GetPlayoffSeriesBySeasonYearAsync(seasonYear,cancellationToken) `method`
@@ -1880,6 +1932,24 @@ Returns all of the NHL game scores for the specified date, including the game id
 | date | [System.DateOnly](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.DateOnly 'System.DateOnly') | The date for the requested game scores, Example: 2020-10-02 |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
+<a name='M-Nhl-Api-NhlGameApi-GetGameStoryByGameIdAsync-System-Int32,System-Threading-CancellationToken-'></a>
+### GetGameStoryByGameIdAsync(gameId,cancellationToken) `method`
+
+##### Summary
+
+Returns the NHL game story for the specified game id, including teams, scoring, and statistics
+
+##### Returns
+
+Returns the NHL game story for the specified game id, including teams, scoring, and statistics
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| gameId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL game identifier, Example: 2023020204 |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
+
 <a name='M-Nhl-Api-NhlGameApi-GetLiveGameFeedPlayerShiftsAsync-System-Int32,System-Threading-CancellationToken-'></a>
 ### GetLiveGameFeedPlayerShiftsAsync(gameId,cancellationToken) `method`
 
@@ -1896,6 +1966,24 @@ A collection of all the NHL player game shifts for a specific game, including st
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | gameId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The game id, Example: 2021020087 |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
+
+<a name='M-Nhl-Api-NhlGameApi-GetPlayoffBracketAsync-System-Int32,System-Threading-CancellationToken-'></a>
+### GetPlayoffBracketAsync(seasonYear,cancellationToken) `method`
+
+##### Summary
+
+Returns the NHL playoff bracket for the specified season year.
+
+##### Returns
+
+Returns the NHL playoff bracket for the specified season year
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| seasonYear | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The season year, Example: 2022 |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
 <a name='M-Nhl-Api-NhlGameApi-GetTeamSeasonScheduleBySeasonYearAsync-System-Int32,System-String,System-Threading-CancellationToken-'></a>

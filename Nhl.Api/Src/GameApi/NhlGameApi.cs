@@ -165,15 +165,25 @@ public class NhlGameApi : INhlGameApi
     /// <returns>Returns the NHL game center box score for the specified game id, including the game information, game status, game venue and more</returns>
     public async Task<GameCenterBoxScore> GetGameCenterBoxScoreByGameIdAsync(int gameId, CancellationToken cancellationToken = default)
     {
-        var boxScoreTask = _nhlApiWebHttpClient.GetAsync<Boxscore>($"/gamecenter/{gameId}/right-rail", cancellationToken);
-        var gameCenterBoxScoreTask = _nhlApiWebHttpClient.GetAsync<GameCenterBoxScore>($"/gamecenter/{gameId}/boxscore", cancellationToken);
+        var gameCenterBoxScore = await _nhlApiWebHttpClient.GetAsync<GameCenterBoxScore>($"/gamecenter/{gameId}/boxscore", cancellationToken);
+        Boxscore? boxScore = null;
+        try
+        {
+            boxScore = await _nhlApiWebHttpClient.GetAsync<Boxscore>($"/gamecenter/{gameId}/right-rail", cancellationToken);
+        }
+        catch
+        {
+            // Not all games have a boxscore available using the right-rail endpoint, so we need to handle the exception
+        }
 
-        await Task.WhenAll(gameCenterBoxScoreTask, boxScoreTask);
-
-        var gameCenterBoxScore = await gameCenterBoxScoreTask;
+        if (boxScore == null)
+        {
+            gameCenterBoxScore.Boxscore = null;
+            return gameCenterBoxScore;
+        }
 
         // We manually assign the boxscore to the object as the NHL API has moved the boxscore to a different endpoint
-        gameCenterBoxScore.Boxscore = await boxScoreTask;
+        gameCenterBoxScore.Boxscore = boxScore;
 
         return gameCenterBoxScore;
     }
@@ -194,4 +204,20 @@ public class NhlGameApi : INhlGameApi
     /// <returns>Returns the NHL game meta data for the specified game id, including the teams, season states and more</returns>
     public async Task<GameMetadata> GetGameMetadataByGameIdAsync(int gameId, CancellationToken cancellationToken = default) =>
          await _nhlApiWebHttpClient.GetAsync<GameMetadata>($"/meta/game/{gameId}", cancellationToken);
+
+    /// <summary>
+    /// Returns the NHL game story for the specified game id, including teams, scoring, and statistics
+    /// </summary>
+    /// <param name="gameId">The NHL game identifier, Example: 2023020204</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL game story for the specified game id, including teams, scoring, and statistics</returns>
+    public async Task<GameStory> GetGameStoryByGameIdAsync(int gameId, CancellationToken cancellationToken = default)
+        => await _nhlApiWebHttpClient.GetAsync<GameStory>($"/wsc/game-story/{gameId}", cancellationToken);
+    /// <summary>
+    /// Returns the NHL playoff bracket for the specified season year.
+    /// </summary>
+    /// <param name="seasonYear">The season year, Example: 2022</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL playoff bracket for the specified season year</returns>
+    public async Task<PlayoffBracket> GetPlayoffBracketAsync(int seasonYear, CancellationToken cancellationToken = default) => await _nhlApiWebHttpClient.GetAsync<PlayoffBracket>($"/playoff-bracket/{seasonYear}", cancellationToken);
 }

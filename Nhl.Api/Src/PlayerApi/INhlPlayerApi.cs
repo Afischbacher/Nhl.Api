@@ -1,5 +1,3 @@
-using Nhl.Api.Models.Draft;
-
 namespace Nhl.Api;
 
 /// <summary>

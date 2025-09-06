@@ -1,6 +1,5 @@
 using System.Globalization;
 using Nhl.Api.Common.Services;
-using Nhl.Api.Models.Draft;
 using Nhl.Api.Services;
 
 namespace Nhl.Api;

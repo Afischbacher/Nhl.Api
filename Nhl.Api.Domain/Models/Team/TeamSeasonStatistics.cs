@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Nhl.Api.Models.Player;
 
@@ -6,36 +6,8 @@ namespace Nhl.Api.Models.Team;
 /// <summary>
 /// The NHL team goalie's and their team statistics 
 /// </summary>
-public class TeamStatisticGoalie
+public class TeamStatisticGoalie : TeamStatisticTeamPlayer
 {
-
-    /// <summary>
-    /// The NHL team goalie player id <br/>
-    /// Example: 8477465
-    /// </summary>
-    [JsonProperty("playerId")]
-    public int PlayerId { get; set; }
-
-    /// <summary>
-    /// The NHL team goalie player headshot url <br/>
-    /// Example: <a href="https://assets.nhle.com/mugs/nhl/20232024/TOR/8470966.png">https://assets.nhle.com/mugs/nhl/20232024/TOR/8470966.png</a>
-    /// </summary>
-    [JsonProperty("headshot")]
-    public required string Headshot { get; set; }
-
-    /// <summary>
-    /// The NHL team goalie player first name <br/>
-    /// Example: Frederik
-    /// </summary>
-    [JsonProperty("firstName")]
-    public required FirstName FirstName { get; set; }
-
-    /// <summary>
-    /// The NHL team goalie player last name <br/>
-    /// Example: Andersen
-    /// </summary>
-    [JsonProperty("lastName")]
-    public required LastName LastName { get; set; }
 
     /// <summary>
     /// The NHL team goalie player number of games played <br/>
@@ -155,6 +127,7 @@ public class TeamStatisticGoalie
     /// </summary>
     [JsonProperty("timeOnIce")]
     public int TimeOnIce { get; set; }
+
 }
 
 /// <summary>
@@ -192,35 +165,8 @@ public class TeamSeasonStatistics
 /// <summary>
 /// The NHL team skaters's and their team statistics 
 /// </summary>
-public class TeamStatisticSkater
+public class TeamStatisticSkater : TeamStatisticTeamPlayer
 {
-    /// <summary>
-    /// The NHL player id for the skater <br/>
-    /// Example: 8471675
-    /// </summary>
-    [JsonProperty("playerId")]
-    public int PlayerId { get; set; }
-
-    /// <summary>
-    /// The NHL player headshot url for the skater <br/>
-    /// Example: <a href="https://assets.nhle.com/mugs/nhl/20232024/PIT/8471675.png">https://assets.nhle.com/mugs/nhl/20232024/PIT/8471675.png</a>
-    /// </summary>
-    [JsonProperty("headshot")]
-    public required string Headshot { get; set; }
-
-    /// <summary>
-    /// The NHL player first name for the skater <br/>
-    /// Example: Sidney
-    /// </summary>
-    [JsonProperty("firstName")]
-    public required FirstName FirstName { get; set; }
-
-    /// <summary>
-    /// The NHL player last name for the skater <br/>
-    /// Example: Crosby
-    /// </summary>
-    [JsonProperty("lastName")]
-    public required LastName LastName { get; set; }
 
     /// <summary>
     /// The NHL player position code for the skater <br/>
@@ -333,4 +279,48 @@ public class TeamStatisticSkater
     /// </summary>
     [JsonProperty("faceoffWinPctg")]
     public decimal FaceoffWinPctg { get; set; }
+
+}
+
+
+/// <summary>
+/// A base class for NHL team player statistics, which includes both skaters and goalies
+/// </summary>
+public abstract class TeamStatisticTeamPlayer
+{
+
+    /// <summary>
+    /// The NHL player or goalie identifier for the team member <br/>
+    /// Example: 8471675
+    /// </summary>
+    [JsonProperty("playerId")]
+    public int PlayerId { get; set; }
+
+    /// <summary>
+    /// The NHL player headshot url for the skater <br/>
+    /// Example: <a href="https://assets.nhle.com/mugs/nhl/20232024/PIT/8471675.png">https://assets.nhle.com/mugs/nhl/20232024/PIT/8471675.png</a>
+    /// </summary>
+    [JsonProperty("headshot")]
+    public required string Headshot { get; set; }
+
+    /// <summary>
+    /// The NHL player first name for the skater <br/>
+    /// Example: Sidney
+    /// </summary>
+    [JsonProperty("firstName")]
+    public required FirstName FirstName { get; set; }
+
+    /// <summary>
+    /// The NHL player last name for the skater <br/>
+    /// Example: Crosby
+    /// </summary>
+    [JsonProperty("lastName")]
+    public required LastName LastName { get; set; }
+
+    /// <summary>
+    /// The NHL full name of the player skater, which is a combination of the first and last name <br/>
+    /// Example: Sidney Crosby
+    /// </summary>
+    public string FullName => $"{this.FirstName.Default} {this.LastName.Default}";
+
 }

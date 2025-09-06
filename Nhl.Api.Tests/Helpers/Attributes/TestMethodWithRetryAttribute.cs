@@ -5,7 +5,7 @@ namespace Nhl.Api.Tests.Helpers.Attributes;
 /// <summary>
 /// An Microsoft Test custom attribute for retrying on failed test methods
 /// </summary>
-public class TestMethodWithRetryAttribute : TestMethodAttribute
+public class TestMethodWithRetryAttribute : TestMethodAttribute, IDisposable
 {
 
     /// <summary>
@@ -47,6 +47,7 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute
                 }
 
                 result = base.Execute(testMethod);
+
                 if (result.Any(r => r.TestFailureException != null))
                 {
                     throw result.First(r => r.TestFailureException != null).TestFailureException;
@@ -67,5 +68,7 @@ public class TestMethodWithRetryAttribute : TestMethodAttribute
 
         return result;
     }
+
+    public void Dispose() => GC.SuppressFinalize(this);
 }
 

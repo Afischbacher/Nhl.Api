@@ -239,7 +239,12 @@ public static class TeamCodes
     /// </summary>
     public const string WashingtonCapitals = "WSH";
     /// <summary>
-    /// Utah Hockey Club
+    /// Utah Mammoth
     /// </summary>
-    public const string UtahHockeyClub = "UTA";
+    public const string UtahMammoth = "UTA";
+    /// <summary>
+    /// Utah Hockey Club (renamed to Utah Mammoth)
+    /// </summary>
+    [System.Obsolete("Renamed to UtahMammoth; this alias will be removed in a future release.", false)]
+    public const string UtahHockeyClub = UtahMammoth;
 }

@@ -162,7 +162,7 @@ public enum FranchiseEnum
     /// </summary>
     SeattleKraken = 39,
     /// <summary>
-    /// Utah Hockey Club
+    /// Utah Mammoth
     /// </summary>
-    UtahHockeyClub = 40
+    UtahMammoth = 40
 }

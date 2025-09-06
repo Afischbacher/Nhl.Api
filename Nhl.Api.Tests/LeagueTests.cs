@@ -375,6 +375,7 @@ public class LeagueTests
     [DataRow(17, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(55, SeasonYear.season20232024, GameType.RegularSeason)]
     [DataRow(28, SeasonYear.season20232024, GameType.RegularSeason)]
+    [DataRow(59, SeasonYear.season20242025, GameType.RegularSeason)]
     public async Task GetTeamStatisticsBySeasonAndGameTypeAsync_Return_Valid_Information_With_TeamId(int teamId, string seasonYear, GameType gameType)
     {
         // Arrange
@@ -448,6 +449,7 @@ public class LeagueTests
     [DataRow(TeamEnum.WashingtonCapitals)]
     [DataRow(TeamEnum.WinnipegJets)]
     [DataRow(TeamEnum.SeattleKraken)]
+    [DataRow(TeamEnum.UtahMammoth)]
     public async Task GetTeamStatisticsBySeasonAsync_Return_Valid_Information_With_Enum(TeamEnum team)
     {
         // Arrange
@@ -631,6 +633,8 @@ public class LeagueTests
     [DataRow(SeasonYear.season20132014)]
     [DataRow(SeasonYear.season20002001)]
     [DataRow(SeasonYear.season19931994)]
+    [DataRow(SeasonYear.season20202021)]
+    [DataRow(SeasonYear.season20072008)]
 
     public async Task GetPlayoffSeriesBySeasonYearAsync_Returns_Valid_Information(string seasonYear)
     {
