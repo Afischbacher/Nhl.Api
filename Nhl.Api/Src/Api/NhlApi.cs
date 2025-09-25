@@ -778,4 +778,20 @@ public class NhlApi : INhlApi
     /// <returns>Returns the NHL playoff bracket for the specified season year</returns>
     public async Task<PlayoffBracket> GetPlayoffBracketAsync(int seasonYear, CancellationToken cancellationToken = default) =>
         await _nhlGameApi.GetPlayoffBracketAsync(seasonYear, cancellationToken);
+
+    /// <summary>
+    /// Returns team information for a specific NHL team by its id
+    /// </summary>
+    /// <param name="teamId">The NHL team identifier</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL team information for the specified team id</returns>
+    public async Task<LeagueTeam> GetTeamByIdAsync(int teamId, CancellationToken cancellationToken = default) => await _nhlLeagueApi.GetTeamByIdAsync(teamId, cancellationToken);
+
+    /// <summary>
+    /// Returns team information for a specific NHL team by its enumeration
+    /// </summary>
+    /// <param name="team">The NHL team enumeration</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL team information for the specified team id</returns>
+    public async Task<LeagueTeam> GetTeamByIdAsync(TeamEnum team, CancellationToken cancellationToken = default) => await _nhlLeagueApi.GetTeamByIdAsync(team, cancellationToken);
 }

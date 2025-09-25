@@ -560,4 +560,38 @@ public class TeamTests
         Assert.IsNotNull(teamAbbreviation);
         Assert.AreEqual(teamAbbreviation.Length, 3);
     }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task TestGetTeamByIdAsync_WithId()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var team = await nhlApi.GetTeamByIdAsync(10);
+
+        // Assert
+        Assert.IsNotNull(team);
+        Assert.IsNotNull(team.Teams);
+        Assert.IsTrue(team.Teams.Count > 0);
+        Assert.AreEqual(10, team.Teams[0].Id);
+        Assert.IsNotNull(team.Teams[0].FullName);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task TestGetTeamByIdAsync_WithEnum()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var team = await nhlApi.GetTeamByIdAsync(TeamEnum.TorontoMapleLeafs);
+
+        // Assert
+        Assert.IsNotNull(team);
+        Assert.IsNotNull(team.Teams);
+        Assert.IsTrue(team.Teams.Count > 0);
+        Assert.AreEqual(10, team.Teams[0].Id);
+        Assert.IsNotNull(team.Teams[0].FullName);
+    }
 }

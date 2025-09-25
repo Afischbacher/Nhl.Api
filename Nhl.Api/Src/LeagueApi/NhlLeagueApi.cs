@@ -11,6 +11,7 @@ public class NhlLeagueApi : INhlLeagueApi
     private static readonly NhlStaticAssetsApiHttpClient _nhlStaticAssetsApiHttpClient = new();
     private static readonly NhlTeamService _nhlTeamService = new();
     private static readonly NhlApiWebHttpClient _nhlWebApiHttpClient = new();
+    private static readonly NhlTeamHttpClient _nhlTeamHttpClient = new();
 
     /// <summary>
     /// The official unofficial NHL League API providing various NHL league information including teams, franchises, standings, awards and more
@@ -137,6 +138,22 @@ public class NhlLeagueApi : INhlLeagueApi
 
         return await _nhlWebApiHttpClient.GetAsync<TeamWeekSchedule>($"/club-schedule/{teamAbbreviation}/week/{date:yyyy-MM-dd}", cancellationToken);
     }
+
+    /// <summary>
+    /// Returns team information for a specific NHL team by its id
+    /// </summary>
+    /// <param name="teamId">The NHL team identifier</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL team information for the specified team id</returns>
+    public async Task<LeagueTeam> GetTeamByIdAsync(int teamId, CancellationToken cancellationToken = default) => await _nhlTeamHttpClient.GetAsync<LeagueTeam>($"/id/{teamId}", cancellationToken);
+
+    /// <summary>
+    /// Returns team information for a specific NHL team by its enumeration
+    /// </summary>
+    /// <param name="team">The NHL team enumeration</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL team information for the specified team enumeration</returns>
+    public async Task<LeagueTeam> GetTeamByIdAsync(TeamEnum team, CancellationToken cancellationToken = default) => await this.GetTeamByIdAsync((int)team, cancellationToken);
 
     /// <summary>
     /// Returns an the NHL team logo based a dark or light preference using the NHL team enumeration
