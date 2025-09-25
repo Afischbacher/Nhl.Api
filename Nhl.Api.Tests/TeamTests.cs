@@ -124,7 +124,30 @@ public class TeamTests
         Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 100);
     }
 
+    [DataRow(TeamEnum.UtahHockeyClub, TeamLogoType.Dark)]
+    [DataRow(TeamEnum.UtahHockeyClub, TeamLogoType.Light)]
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task TestGetUtahHockeyClub20242025TeamLogoDarkAsync(TeamEnum teamEnum, TeamLogoType teamLogoType)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var teamLogo = await nhlApi.GetTeamLogoAsync(teamEnum, teamLogoType, SeasonYear.season20242025, default);
+
+        // Assert
+        Assert.IsNotNull(teamLogo);
+        Assert.IsNotNull(teamLogo.Uri);
+        Assert.IsNotNull(teamLogo.ImageAsByteArray);
+        Assert.IsNotNull(teamLogo.ImageAsBase64String);
+
+        Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 1000);
+        Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 100);
+    }
+
+
     [DataRow(10)]
+    [DataRow(68)]
     [DataRow(55)]
     [DataRow(7)]
     [DataRow(24)]
@@ -150,6 +173,8 @@ public class TeamTests
 
     [DataRow(21)]
     [DataRow(28)]
+    [DataRow(59)]
+    [DataRow(68)]
     [DataRow(6)]
     [DataRow(5)]
     [TestMethodWithRetry(RetryCount = 5)]
@@ -176,6 +201,8 @@ public class TeamTests
     [DataRow(7)]
     [DataRow(24)]
     [DataRow(25)]
+    [DataRow(59)]
+    [DataRow(68)]
     [TestMethodWithRetry(RetryCount = 5)]
     public async Task GetCurrentTeamScoreboardAsync_Get_Valid_Information_With_Id(int teamId)
     {
