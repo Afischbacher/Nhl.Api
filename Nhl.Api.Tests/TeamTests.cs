@@ -128,7 +128,7 @@ public class TeamTests
     [DataRow(TeamEnum.UtahHockeyClub, TeamLogoType.Dark)]
     [DataRow(TeamEnum.UtahHockeyClub, TeamLogoType.Light)]
     [TestMethodWithRetry(RetryCount = 5)]
-    public async Task TestGetUtahHockeyClub20242025TeamLogoDarkAsync(TeamEnum teamEnum, TeamLogoType teamLogoType)
+    public async Task TestGetUtahHockeyClub20242025TeamLogoAsync(TeamEnum teamEnum, TeamLogoType teamLogoType)
     {
         // Arrange
         await using var nhlApi = new NhlApi();
@@ -145,6 +145,28 @@ public class TeamTests
         Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 1000);
         Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 100);
     }
+
+    [DataRow(59, TeamLogoType.Dark)]
+    [DataRow(59, TeamLogoType.Light)]
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task Test_GetUtahHockeyClub20242025TeamLogoAsync_WithTeamId(int teamId, TeamLogoType teamLogoType)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var teamLogo = await nhlApi.GetTeamLogoAsync(teamId, teamLogoType, SeasonYear.season20242025, default);
+
+        // Assert
+        Assert.IsNotNull(teamLogo);
+        Assert.IsNotNull(teamLogo.Uri);
+        Assert.IsNotNull(teamLogo.ImageAsByteArray);
+        Assert.IsNotNull(teamLogo.ImageAsBase64String);
+
+        Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 1000);
+        Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 100);
+    }
+
 
     [TestMethodWithRetry(RetryCount = 5)]
     public async Task TestGetTampaBayLightningWithInvalidSeasonThrowsAsync()
@@ -481,7 +503,7 @@ public class TeamTests
     [DataRow(24, "2015-01-20")]
     [DataRow(25, "2023-10-11")]
     [TestMethodWithRetry(RetryCount = 5)]
-    public async Task GetTeamSeasonScheduleByDateTimeAsync_Get_Valid_Information_With_Team(TeamEnum team, string date)
+    public async Task TestGetTeamSeasonScheduleByDateTimeAsync_Get_Valid_Information_With_Team(TeamEnum team, string date)
     {
         // Arrange
         await using var nhlApi = new NhlApi();
@@ -607,7 +629,7 @@ public class TeamTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    public async Task TestGetAllTeamsAsync()
+    public async Task Test_GetAllTeamsAsync()
     {
         // Arrange
         await using var nhlApi = new NhlApi();
