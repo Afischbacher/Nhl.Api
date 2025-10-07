@@ -10,18 +10,20 @@ public interface INhlLeagueApi
     /// </summary>
     /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
     /// <param name="teamLogoType">A season year for the all the NHL statistics, based on the background of light or dark</param>
+    /// <param name="seasonYear">The eight digit number format for the season, see <see cref="SeasonYear"/> for more information, Example: 20232024, Note: This only applies to the Utah Mammoth and Utah Hockey Club for the 2024-2025 NHL season</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the URI endpoint</returns>
-    public Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light, CancellationToken cancellationToken = default);
+    public Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light, string? seasonYear = null, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Returns an the NHL team logo based using the NHL team enumeration
+    /// Returns an the NHL team logo based a dark or light preference using the NHL team enumeration
     /// </summary>
     /// <param name="team">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
     /// <param name="teamLogoType">The NHL team logo image type, based on the background of light or dark</param>
+    /// <param name="seasonYear">The eight digit number format for the season, see <see cref="SeasonYear"/> for more information, Example: 20232024, Note: This only applies to the Utah Mammoth and Utah Hockey Club for the 2024-2025 NHL season</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the URI endpoint</returns>
-    public Task<TeamLogo> GetTeamLogoAsync(TeamEnum team, TeamLogoType teamLogoType = TeamLogoType.Light, CancellationToken cancellationToken = default);
+    /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
+    public Task<TeamLogo> GetTeamLogoAsync(TeamEnum team, TeamLogoType teamLogoType = TeamLogoType.Light, string? seasonYear = null, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Returns the hexadecimal code for an NHL team's colors
@@ -217,4 +219,26 @@ public interface INhlLeagueApi
     /// <returns>Returns a collection of playoff series match ups by year </returns>
     public Task<PlayoffSeriesSchedule> GetPlayoffSeriesBySeasonYearAsync(string seasonYear, CancellationToken cancellationToken = default);
 
+    /// <summary>
+    /// Returns team information for a specific NHL team by its id
+    /// </summary>
+    /// <param name="teamId">The NHL team identifier</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL team information for the specified team id</returns>
+    public Task<LeagueTeam> GetTeamByIdAsync(int teamId, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Returns team information for a specific NHL team by its enumeration
+    /// </summary>
+    /// <param name="team">The NHL team enumeration</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL team information for the specified team enumeration</returns>
+    public Task<LeagueTeam> GetTeamByIdAsync(TeamEnum team, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Returns all the NHL teams including active and inactive teams
+    /// </summary>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns> The collection of all NHL teams including active and inactive teams</returns>
+    public Task<TeamsResponse> GetAllTeamsAsync(CancellationToken cancellationToken = default);
 }

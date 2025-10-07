@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 
 namespace Nhl.Api.Models.Team;
 /// <summary>
@@ -25,7 +25,7 @@ public class TeamLogo
 
     /// <summary>
     /// Returns the Uri for the NHL team logo <br/>
-    /// Example: https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/53.svg
+    /// Example: "https://www-league.nhlstatic.com/images/logos/teams-current-primary-light/1.svg"
     /// </summary>
     [JsonProperty("uri")]
     public required string Uri { get; set; }

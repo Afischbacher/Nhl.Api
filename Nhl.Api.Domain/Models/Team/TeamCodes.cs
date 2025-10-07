@@ -43,7 +43,7 @@ public static class TeamCodes
     /// </summary>
     public const string ColumbusBlueJackets = "CBJ";
     /// <summary>
-    /// Bay Area Seals California Golden Seals
+    /// Bay Area Seals / California Golden Seals
     /// </summary>
     public const string BayAreaSealsCaliforniaGoldenSeals = "CGS";
     /// <summary>
@@ -243,8 +243,7 @@ public static class TeamCodes
     /// </summary>
     public const string UtahMammoth = "UTA";
     /// <summary>
-    /// Utah Hockey Club (renamed to Utah Mammoth)
+    /// Utah Hockey Club (Only for 2024-2025 NHL Season)
     /// </summary>
-    [System.Obsolete("Renamed to UtahMammoth; this alias will be removed in a future release.", false)]
-    public const string UtahHockeyClub = UtahMammoth;
+    public const string UtahHockeyClub = "UTA";
 }

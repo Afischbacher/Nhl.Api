@@ -168,8 +168,13 @@ public enum TeamEnum
     [TeamActive(true)]
     SeattleKraken = 55,
     /// <summary>
+    /// Utah Hockey Club
+    /// </summary>
+    [TeamActive(false)]
+    UtahHockeyClub = 59,
+    /// <summary>
     /// Utah Mammoth
     /// </summary>
     [TeamActive(true)]
-    UtahMammoth = 59
+    UtahMammoth = 68
 }

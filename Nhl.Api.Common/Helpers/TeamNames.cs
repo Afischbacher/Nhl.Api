@@ -171,8 +171,7 @@ public static class TeamNames
     public const string UtahMammoth = "Utah Mammoth";
 
     /// <summary>
-    /// Utah Hockey Club (renamed to Utah Mammoth)
+    /// Utah Hockey Club (Only for 2024-2025 NHL Season)
     /// </summary>
-    [System.Obsolete("Renamed to UtahMammoth; this alias will be removed in a future release.", false)]
-    public const string UtahHockeyClub = UtahMammoth;
+    public const string UtahHockeyClub = "Utah Hockey Club";
 }

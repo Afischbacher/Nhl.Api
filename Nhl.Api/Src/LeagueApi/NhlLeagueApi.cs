@@ -11,6 +11,7 @@ public class NhlLeagueApi : INhlLeagueApi
     private static readonly NhlStaticAssetsApiHttpClient _nhlStaticAssetsApiHttpClient = new();
     private static readonly NhlTeamService _nhlTeamService = new();
     private static readonly NhlApiWebHttpClient _nhlWebApiHttpClient = new();
+    private static readonly NhlTeamHttpClient _nhlTeamHttpClient = new();
 
     /// <summary>
     /// The official unofficial NHL League API providing various NHL league information including teams, franchises, standings, awards and more
@@ -139,16 +140,59 @@ public class NhlLeagueApi : INhlLeagueApi
     }
 
     /// <summary>
+    /// Returns team information for a specific NHL team by its id
+    /// </summary>
+    /// <param name="teamId">The NHL team identifier</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL team information for the specified team id</returns>
+    public async Task<LeagueTeam> GetTeamByIdAsync(int teamId, CancellationToken cancellationToken = default) => await _nhlTeamHttpClient.GetAsync<LeagueTeam>($"/id/{teamId}", cancellationToken);
+
+    /// <summary>
+    /// Returns team information for a specific NHL team by its enumeration
+    /// </summary>
+    /// <param name="team">The NHL team enumeration</param>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL team information for the specified team enumeration</returns>
+    public async Task<LeagueTeam> GetTeamByIdAsync(TeamEnum team, CancellationToken cancellationToken = default) => await this.GetTeamByIdAsync((int)team, cancellationToken);
+
+    /// <summary>
+    /// Returns all NHL teams from the stats endpoint
+    /// </summary>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the collection of all teams and the total number of results</returns>
+    public async Task<TeamsResponse> GetAllTeamsAsync(CancellationToken cancellationToken = default) => await _nhlTeamHttpClient.GetAsync<TeamsResponse>("", cancellationToken);
+
+    /// <summary>
     /// Returns an the NHL team logo based a dark or light preference using the NHL team enumeration
     /// </summary>
     /// <param name="team">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
     /// <param name="teamLogoType">The NHL team logo image type, based on the background of light or dark</param>
+    /// <param name="seasonYear">The eight digit number format for the season, see <see cref="SeasonYear"/> for more information, Example: 20232024, Note: This only applies to the Utah Mammoth and Utah Hockey Club for the 2024-2025 NHL season</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
-    public async Task<TeamLogo> GetTeamLogoAsync(TeamEnum team, TeamLogoType teamLogoType = TeamLogoType.Light, CancellationToken cancellationToken = default)
+    public async Task<TeamLogo> GetTeamLogoAsync(TeamEnum team, TeamLogoType teamLogoType = TeamLogoType.Light, string? seasonYear = null, CancellationToken cancellationToken = default)
     {
-        var endpoint = $"logos/nhl/svg/{_nhlTeamService.GetTeamCodeIdentifierByTeamId((int)team)}_{_nhlTeamService.GetTeamLogoColorIdentifier(teamLogoType)}.svg";
-        var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint, cancellationToken);
+        var teamIdentifier = _nhlTeamService.GetTeamCodeIdentifierByTeamEnumeration(team);
+        var teamColorIdentifier = _nhlTeamService.GetTeamLogoColorIdentifier(teamLogoType);
+        var seasonYearString = seasonYear != null ? $"{seasonYear}-{seasonYear}" : string.Empty;
+
+        if (!string.IsNullOrWhiteSpace(seasonYearString) && team != TeamEnum.UtahHockeyClub)
+        {
+            throw new InvalidTeamLogoSeasonException("The season year parameter only applies to the Utah Hockey Club for the 2024-2025 NHL season");
+        }
+
+        string endpoint;
+        byte[] imageContent;
+        if (string.IsNullOrWhiteSpace(seasonYearString))
+        {
+            endpoint = $"logos/nhl/svg/{teamIdentifier}_{teamColorIdentifier}.svg";
+            imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint, cancellationToken);
+        }
+        else
+        {
+            endpoint = $"logos/nhl/svg/{teamIdentifier}_{seasonYearString}_{teamColorIdentifier}.svg";
+            imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint, cancellationToken);
+        }
 
         return new TeamLogo
         {
@@ -163,12 +207,32 @@ public class NhlLeagueApi : INhlLeagueApi
     /// </summary>
     /// <param name="teamId">The NHL team identifier - Seattle Kraken: 55</param>
     /// <param name="teamLogoType">The NHL team logo image type, based on the background of light or dark</param>
+    /// <param name="seasonYear">The eight digit number format for the season, see <see cref="SeasonYear"/> for more information, Example: 20232024, Note: This only applies to the Utah Mammoth and Utah Hockey Club for the 2024-2025 NHL season</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
-    public async Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light, CancellationToken cancellationToken = default)
+    public async Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light, string? seasonYear = null, CancellationToken cancellationToken = default)
     {
-        var endpoint = $"logos/nhl/svg/{_nhlTeamService.GetTeamCodeIdentifierByTeamId(teamId)}_{_nhlTeamService.GetTeamLogoColorIdentifier(teamLogoType)}.svg";
-        var imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint, cancellationToken);
+        var teamColorIdentifier = _nhlTeamService.GetTeamLogoColorIdentifier(teamLogoType);
+        var teamIdentifier = _nhlTeamService.GetTeamCodeIdentifierByTeamId(teamId);
+        var seasonYearString = seasonYear != null ? $"{seasonYear}-{seasonYear}" : string.Empty;
+
+        if (!string.IsNullOrWhiteSpace(seasonYearString) && teamId != (int)TeamEnum.UtahHockeyClub)
+        {
+            throw new InvalidTeamLogoSeasonException("The season year parameter only applies to the Utah Hockey Club for the 2024-2025 NHL season");
+        }
+
+        string endpoint;
+        byte[] imageContent;
+        if (string.IsNullOrWhiteSpace(seasonYearString))
+        {
+            endpoint = $"logos/nhl/svg/{teamIdentifier}_{teamColorIdentifier}.svg";
+            imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint, cancellationToken);
+        }
+        else
+        {
+            endpoint = $"logos/nhl/svg/{teamIdentifier}_{seasonYearString}_{teamColorIdentifier}.svg";
+            imageContent = await _nhlStaticAssetsApiHttpClient.GetByteArrayAsync(endpoint, cancellationToken);
+        }
 
         return new TeamLogo
         {
@@ -406,6 +470,12 @@ public class NhlLeagueApi : INhlLeagueApi
                 TertiaryColor = "#355464",
                 QuaternaryColor = "#68A2B9",
                 QuinaryColor = "#E9072B"
+            },
+            TeamEnum.UtahHockeyClub => new TeamColors
+            {
+                PrimaryColor = "#69B3E7",
+                SecondaryColor = "#010101",
+                TertiaryColor = "#FFFFFF"
             },
             TeamEnum.UtahMammoth => new TeamColors
             {
