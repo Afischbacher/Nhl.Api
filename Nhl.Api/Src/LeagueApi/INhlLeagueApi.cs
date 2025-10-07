@@ -218,7 +218,7 @@ public interface INhlLeagueApi
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns a collection of playoff series match ups by year </returns>
     public Task<PlayoffSeriesSchedule> GetPlayoffSeriesBySeasonYearAsync(string seasonYear, CancellationToken cancellationToken = default);
- 
+
     /// <summary>
     /// Returns team information for a specific NHL team by its id
     /// </summary>
@@ -234,4 +234,11 @@ public interface INhlLeagueApi
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>Returns the NHL team information for the specified team enumeration</returns>
     public Task<LeagueTeam> GetTeamByIdAsync(TeamEnum team, CancellationToken cancellationToken = default);
+
+    /// <summary>
+    /// Returns all the NHL teams including active and inactive teams
+    /// </summary>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns> The collection of all NHL teams including active and inactive teams</returns>
+    public Task<TeamsResponse> GetAllTeamsAsync(CancellationToken cancellationToken = default);
 }

@@ -129,6 +129,7 @@ Thank you to all the people in the hockey community, especially:
 - <a target="_blank" href="https://www.nhl.com/">NHL</a> for providing the API for the community to use to build awesome stuff.
 
 ### Contents 📋 <a name="contents"></a>
+
 - [NhlApi](#T-Nhl-Api-NhlApi 'Nhl.Api.NhlApi')
   - [#ctor()](#M-Nhl-Api-NhlApi-#ctor 'Nhl.Api.NhlApi.#ctor')
   - [Dispose()](#M-Nhl-Api-NhlApi-Dispose 'Nhl.Api.NhlApi.Dispose')
@@ -138,6 +139,7 @@ Thank you to all the people in the hockey community, especially:
   - [GetAllRosterSeasonsByTeamAsync(teamId,cancellationToken)](#M-Nhl-Api-NhlApi-GetAllRosterSeasonsByTeamAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllRosterSeasonsByTeamAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetAllRosterSeasonsByTeamAsync(team,cancellationToken)](#M-Nhl-Api-NhlApi-GetAllRosterSeasonsByTeamAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllRosterSeasonsByTeamAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Threading.CancellationToken)')
   - [GetAllSeasonsAsync()](#M-Nhl-Api-NhlApi-GetAllSeasonsAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllSeasonsAsync(System.Threading.CancellationToken)')
+  - [GetAllTeamsAsync(cancellationToken)](#M-Nhl-Api-NhlApi-GetAllTeamsAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllTeamsAsync(System.Threading.CancellationToken)')
   - [GetAllTotalPlayerStatisticValuesBySeasonAsync(playerId,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlApi-GetAllTotalPlayerStatisticValuesBySeasonAsync-System-Int32,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(System.Int32,System.String,System.Nullable{Nhl.Api.Enumerations.Game.GameType},System.Threading.CancellationToken)')
   - [GetAllTotalPlayerStatisticValuesBySeasonAsync(playerEnum,seasonYear,gameType,cancellationToken)](#M-Nhl-Api-NhlApi-GetAllTotalPlayerStatisticValuesBySeasonAsync-Nhl-Api-Models-Enumerations-Player-PlayerEnum,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetAllTotalPlayerStatisticValuesBySeasonAsync(Nhl.Api.Models.Enumerations.Player.PlayerEnum,System.String,System.Nullable{Nhl.Api.Enumerations.Game.GameType},System.Threading.CancellationToken)')
   - [GetBoxscoreByGameIdAsync(gameId,cancellationToken)](#M-Nhl-Api-NhlApi-GetBoxscoreByGameIdAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetBoxscoreByGameIdAsync(System.Int32,System.Threading.CancellationToken)')
@@ -178,10 +180,12 @@ Thank you to all the people in the hockey community, especially:
   - [GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(seasonYear,expressionPlayerFilter,playerRealtimeStatisticsFilterToSortBy,limit,offsetStart,gameType,cancellationToken)](#M-Nhl-Api-NhlApi-GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync-System-String,Nhl-Api-Models-Player-ExpressionPlayerFilter,Nhl-Api-Models-Player-PlayerRealtimeStatisticsFilter,System-Int32,System-Int32,Nhl-Api-Enumerations-Game-GameType,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetRealtimePlayerStatisticsBySeasonAndFilterExpressionAsync(System.String,Nhl.Api.Models.Player.ExpressionPlayerFilter,Nhl.Api.Models.Player.PlayerRealtimeStatisticsFilter,System.Int32,System.Int32,Nhl.Api.Enumerations.Game.GameType,System.Threading.CancellationToken)')
   - [GetSkaterStatisticsLeadersAsync(playerStatisticsType,seasonYear,gameType,limit,cancellationToken)](#M-Nhl-Api-NhlApi-GetSkaterStatisticsLeadersAsync-Nhl-Api-Enumerations-Statistic-PlayerStatisticsType,Nhl-Api-Enumerations-Game-GameType,System-String,System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetSkaterStatisticsLeadersAsync(Nhl.Api.Enumerations.Statistic.PlayerStatisticsType,Nhl.Api.Enumerations.Game.GameType,System.String,System.Int32,System.Threading.CancellationToken)')
   - [GetSourcesToWatchGamesAsync(cancellationToken)](#M-Nhl-Api-NhlApi-GetSourcesToWatchGamesAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetSourcesToWatchGamesAsync(System.Threading.CancellationToken)')
+  - [GetTeamByIdAsync(teamId,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamByIdAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamByIdAsync(System.Int32,System.Threading.CancellationToken)')
+  - [GetTeamByIdAsync(team,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamByIdAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Threading.CancellationToken)')
   - [GetTeamColorsAsync(team,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamColorsAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamColorsAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Threading.CancellationToken)')
   - [GetTeamColorsAsync(teamId,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamColorsAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamColorsAsync(System.Int32,System.Threading.CancellationToken)')
-  - [GetTeamLogoAsync(teamId,teamLogoType,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamLogoAsync(System.Int32,Nhl.Api.Models.Team.TeamLogoType,System.Threading.CancellationToken)')
-  - [GetTeamLogoAsync(team,teamLogoType,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamLogoAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,Nhl.Api.Models.Team.TeamLogoType,System.Threading.CancellationToken)')
+  - [GetTeamLogoAsync(teamId,teamLogoType,seasonYear,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamLogoAsync(System.Int32,Nhl.Api.Models.Team.TeamLogoType,System.String,System.Threading.CancellationToken)')
+  - [GetTeamLogoAsync(team,teamLogoType,seasonYear,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamLogoAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,Nhl.Api.Models.Team.TeamLogoType,System.String,System.Threading.CancellationToken)')
   - [GetTeamProspectsByTeamAsync(teamId,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamProspectsByTeamAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamProspectsByTeamAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetTeamProspectsByTeamAsync(team,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamProspectsByTeamAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamProspectsByTeamAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Threading.CancellationToken)')
   - [GetTeamRosterBySeasonYearAsync(teamId,seasonYear,cancellationToken)](#M-Nhl-Api-NhlApi-GetTeamRosterBySeasonYearAsync-System-Int32,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlApi.GetTeamRosterBySeasonYearAsync(System.Int32,System.String,System.Threading.CancellationToken)')
@@ -233,6 +237,7 @@ Thank you to all the people in the hockey community, especially:
   - [GetAllRosterSeasonsByTeamAsync(teamId,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetAllRosterSeasonsByTeamAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetAllRosterSeasonsByTeamAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetAllRosterSeasonsByTeamAsync(team,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetAllRosterSeasonsByTeamAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetAllRosterSeasonsByTeamAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Threading.CancellationToken)')
   - [GetAllSeasonsAsync(cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetAllSeasonsAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetAllSeasonsAsync(System.Threading.CancellationToken)')
+  - [GetAllTeamsAsync(cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetAllTeamsAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetAllTeamsAsync(System.Threading.CancellationToken)')
   - [GetLeagueGameWeekScheduleByDateAsync(date,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetLeagueGameWeekScheduleByDateAsync-System-DateOnly,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetLeagueGameWeekScheduleByDateAsync(System.DateOnly,System.Threading.CancellationToken)')
   - [GetLeagueMetadataInformationAsync(playerIds,teamIds,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformationAsync-System-Collections-Generic-List{System-Int32},System-Collections-Generic-List{System-String},System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetLeagueMetadataInformationAsync(System.Collections.Generic.List{System.Int32},System.Collections.Generic.List{System.String},System.Threading.CancellationToken)')
   - [GetLeagueMetadataInformationAsync(players,teams,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetLeagueMetadataInformationAsync-System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Player-PlayerEnum},System-Collections-Generic-List{Nhl-Api-Models-Enumerations-Team-TeamEnum},System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetLeagueMetadataInformationAsync(System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Player.PlayerEnum},System.Collections.Generic.List{Nhl.Api.Models.Enumerations.Team.TeamEnum},System.Threading.CancellationToken)')
@@ -242,10 +247,12 @@ Thank you to all the people in the hockey community, especially:
   - [GetLeagueWeekScheduleByDateAsync(date,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetLeagueWeekScheduleByDateAsync-System-DateOnly,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetLeagueWeekScheduleByDateAsync(System.DateOnly,System.Threading.CancellationToken)')
   - [GetPlayoffSeriesBySeasonYearAsync(seasonYear,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetPlayoffSeriesBySeasonYearAsync-System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetPlayoffSeriesBySeasonYearAsync(System.String,System.Threading.CancellationToken)')
   - [GetSourcesToWatchGamesAsync(cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetSourcesToWatchGamesAsync-System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetSourcesToWatchGamesAsync(System.Threading.CancellationToken)')
+  - [GetTeamByIdAsync(teamId,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetTeamByIdAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetTeamByIdAsync(System.Int32,System.Threading.CancellationToken)')
+  - [GetTeamByIdAsync(team,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetTeamByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetTeamByIdAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Threading.CancellationToken)')
   - [GetTeamColorsAsync(team,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetTeamColorsAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetTeamColorsAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Threading.CancellationToken)')
   - [GetTeamColorsAsync(teamId,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetTeamColorsAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetTeamColorsAsync(System.Int32,System.Threading.CancellationToken)')
-  - [GetTeamLogoAsync(team,teamLogoType,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetTeamLogoAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,Nhl.Api.Models.Team.TeamLogoType,System.Threading.CancellationToken)')
-  - [GetTeamLogoAsync(teamId,teamLogoType,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetTeamLogoAsync(System.Int32,Nhl.Api.Models.Team.TeamLogoType,System.Threading.CancellationToken)')
+  - [GetTeamLogoAsync(team,teamLogoType,seasonYear,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetTeamLogoAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,Nhl.Api.Models.Team.TeamLogoType,System.String,System.Threading.CancellationToken)')
+  - [GetTeamLogoAsync(teamId,teamLogoType,seasonYear,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetTeamLogoAsync(System.Int32,Nhl.Api.Models.Team.TeamLogoType,System.String,System.Threading.CancellationToken)')
   - [GetTeamProspectsByTeamAsync(teamId,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetTeamProspectsByTeamAsync-System-Int32,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetTeamProspectsByTeamAsync(System.Int32,System.Threading.CancellationToken)')
   - [GetTeamProspectsByTeamAsync(team,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetTeamProspectsByTeamAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetTeamProspectsByTeamAsync(Nhl.Api.Models.Enumerations.Team.TeamEnum,System.Threading.CancellationToken)')
   - [GetTeamRosterBySeasonYearAsync(teamId,seasonYear,cancellationToken)](#M-Nhl-Api-NhlLeagueApi-GetTeamRosterBySeasonYearAsync-System-Int32,System-String,System-Threading-CancellationToken- 'Nhl.Api.NhlLeagueApi.GetTeamRosterBySeasonYearAsync(System.Int32,System.String,System.Threading.CancellationToken)')
@@ -427,6 +434,23 @@ Returns all the NHL seasons for the NHL league
 ##### Parameters
 
 This method has no parameters.
+
+<a name='M-Nhl-Api-NhlApi-GetAllTeamsAsync-System-Threading-CancellationToken-'></a>
+### GetAllTeamsAsync(cancellationToken) `method`
+
+##### Summary
+
+Returns all the NHL teams including active and inactive teams
+
+##### Returns
+
+Returns the collection of all teams and the total number of results
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
 <a name='M-Nhl-Api-NhlApi-GetAllTotalPlayerStatisticValuesBySeasonAsync-System-Int32,System-String,System-Nullable{Nhl-Api-Enumerations-Game-GameType},System-Threading-CancellationToken-'></a>
 ### GetAllTotalPlayerStatisticValuesBySeasonAsync(playerId,seasonYear,gameType,cancellationToken) `method`
@@ -1091,7 +1115,7 @@ Returns all the NHL player game center statistics for a specific player for a sp
 
 ##### Summary
 
-Returns the NHL playoff bracket for the specified season year.
+Returns the NHL playoff bracket for the specified season year
 
 ##### Returns
 
@@ -1183,6 +1207,42 @@ Returns the collection of countries and where you can watch NHL games with links
 | ---- | ---- | ----------- |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
+<a name='M-Nhl-Api-NhlApi-GetTeamByIdAsync-System-Int32,System-Threading-CancellationToken-'></a>
+### GetTeamByIdAsync(teamId,cancellationToken) `method`
+
+##### Summary
+
+Returns team information for a specific NHL team by its id
+
+##### Returns
+
+Returns the NHL team information for the specified team id
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team identifier |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
+
+<a name='M-Nhl-Api-NhlApi-GetTeamByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken-'></a>
+### GetTeamByIdAsync(team,cancellationToken) `method`
+
+##### Summary
+
+Returns team information for a specific NHL team by its enumeration
+
+##### Returns
+
+Returns the NHL team information for the specified team id
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team enumeration |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
+
 <a name='M-Nhl-Api-NhlApi-GetTeamColorsAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken-'></a>
 ### GetTeamColorsAsync(team,cancellationToken) `method`
 
@@ -1219,8 +1279,8 @@ An NHL team color scheme using hexadecimal codes
 | teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team identifier - Seattle Kraken: 55 |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
-<a name='M-Nhl-Api-NhlApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType,System-Threading-CancellationToken-'></a>
-### GetTeamLogoAsync(teamId,teamLogoType,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType,System-String,System-Threading-CancellationToken-'></a>
+### GetTeamLogoAsync(teamId,teamLogoType,seasonYear,cancellationToken) `method`
 
 ##### Summary
 
@@ -1236,10 +1296,11 @@ Returns NHL team logo information including a byte array, base64 encoded string 
 | ---- | ---- | ----------- |
 | teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team identifier - Seattle Kraken: 55 |
 | teamLogoType | [Nhl.Api.Models.Team.TeamLogoType](#T-Nhl-Api-Models-Team-TeamLogoType 'Nhl.Api.Models.Team.TeamLogoType') | The NHL team logo image type, based on the background of light or dark |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The eight digit number format for the season, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information, Example: 20232024, Note: This only applies to the Utah Mammoth and Utah Hockey Club for the 2024-2025 NHL season |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
-<a name='M-Nhl-Api-NhlApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType,System-Threading-CancellationToken-'></a>
-### GetTeamLogoAsync(team,teamLogoType,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType,System-String,System-Threading-CancellationToken-'></a>
+### GetTeamLogoAsync(team,teamLogoType,seasonYear,cancellationToken) `method`
 
 ##### Summary
 
@@ -1255,6 +1316,7 @@ Returns NHL team logo information including a byte array, base64 encoded string 
 | ---- | ---- | ----------- |
 | team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team identifier, 55 - Seattle Kraken, see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information |
 | teamLogoType | [Nhl.Api.Models.Team.TeamLogoType](#T-Nhl-Api-Models-Team-TeamLogoType 'Nhl.Api.Models.Team.TeamLogoType') | The NHL team logo image type, based on the background of light or dark |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The eight digit number format for the season, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information, Example: 20232024, Note: This only applies to the Utah Mammoth and Utah Hockey Club for the 2024-2025 NHL season |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
 <a name='M-Nhl-Api-NhlApi-GetTeamProspectsByTeamAsync-System-Int32,System-Threading-CancellationToken-'></a>
@@ -2177,6 +2239,23 @@ Returns all the NHL seasons for the NHL league
 | ---- | ---- | ----------- |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
+<a name='M-Nhl-Api-NhlLeagueApi-GetAllTeamsAsync-System-Threading-CancellationToken-'></a>
+### GetAllTeamsAsync(cancellationToken) `method`
+
+##### Summary
+
+Returns all NHL teams from the stats endpoint
+
+##### Returns
+
+Returns the collection of all teams and the total number of results
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
+
 <a name='M-Nhl-Api-NhlLeagueApi-GetLeagueGameWeekScheduleByDateAsync-System-DateOnly,System-Threading-CancellationToken-'></a>
 ### GetLeagueGameWeekScheduleByDateAsync(date,cancellationToken) `method`
 
@@ -2339,6 +2418,42 @@ Returns the collection of countries and where you can watch NHL games with links
 | ---- | ---- | ----------- |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
+<a name='M-Nhl-Api-NhlLeagueApi-GetTeamByIdAsync-System-Int32,System-Threading-CancellationToken-'></a>
+### GetTeamByIdAsync(teamId,cancellationToken) `method`
+
+##### Summary
+
+Returns team information for a specific NHL team by its id
+
+##### Returns
+
+Returns the NHL team information for the specified team id
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team identifier |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
+
+<a name='M-Nhl-Api-NhlLeagueApi-GetTeamByIdAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken-'></a>
+### GetTeamByIdAsync(team,cancellationToken) `method`
+
+##### Summary
+
+Returns team information for a specific NHL team by its enumeration
+
+##### Returns
+
+Returns the NHL team information for the specified team enumeration
+
+##### Parameters
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team enumeration |
+| cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
+
 <a name='M-Nhl-Api-NhlLeagueApi-GetTeamColorsAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,System-Threading-CancellationToken-'></a>
 ### GetTeamColorsAsync(team,cancellationToken) `method`
 
@@ -2375,8 +2490,8 @@ An NHL team color scheme using hexadecimal codes
 | teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team identifier - Seattle Kraken: 55 |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
-<a name='M-Nhl-Api-NhlLeagueApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType,System-Threading-CancellationToken-'></a>
-### GetTeamLogoAsync(team,teamLogoType,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlLeagueApi-GetTeamLogoAsync-Nhl-Api-Models-Enumerations-Team-TeamEnum,Nhl-Api-Models-Team-TeamLogoType,System-String,System-Threading-CancellationToken-'></a>
+### GetTeamLogoAsync(team,teamLogoType,seasonYear,cancellationToken) `method`
 
 ##### Summary
 
@@ -2392,10 +2507,11 @@ Returns NHL team logo information including a byte array, base64 encoded string 
 | ---- | ---- | ----------- |
 | team | [Nhl.Api.Models.Enumerations.Team.TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') | The NHL team identifier, 55 - Seattle Kraken, see [TeamEnum](#T-Nhl-Api-Models-Enumerations-Team-TeamEnum 'Nhl.Api.Models.Enumerations.Team.TeamEnum') for more information |
 | teamLogoType | [Nhl.Api.Models.Team.TeamLogoType](#T-Nhl-Api-Models-Team-TeamLogoType 'Nhl.Api.Models.Team.TeamLogoType') | The NHL team logo image type, based on the background of light or dark |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The eight digit number format for the season, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information, Example: 20232024, Note: This only applies to the Utah Mammoth and Utah Hockey Club for the 2024-2025 NHL season |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
-<a name='M-Nhl-Api-NhlLeagueApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType,System-Threading-CancellationToken-'></a>
-### GetTeamLogoAsync(teamId,teamLogoType,cancellationToken) `method`
+<a name='M-Nhl-Api-NhlLeagueApi-GetTeamLogoAsync-System-Int32,Nhl-Api-Models-Team-TeamLogoType,System-String,System-Threading-CancellationToken-'></a>
+### GetTeamLogoAsync(teamId,teamLogoType,seasonYear,cancellationToken) `method`
 
 ##### Summary
 
@@ -2411,6 +2527,7 @@ Returns NHL team logo information including a byte array, base64 encoded string 
 | ---- | ---- | ----------- |
 | teamId | [System.Int32](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Int32 'System.Int32') | The NHL team identifier - Seattle Kraken: 55 |
 | teamLogoType | [Nhl.Api.Models.Team.TeamLogoType](#T-Nhl-Api-Models-Team-TeamLogoType 'Nhl.Api.Models.Team.TeamLogoType') | The NHL team logo image type, based on the background of light or dark |
+| seasonYear | [System.String](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.String 'System.String') | The eight digit number format for the season, see [SeasonYear](#T-Nhl-Api-Models-Season-SeasonYear 'Nhl.Api.Models.Season.SeasonYear') for more information, Example: 20232024, Note: This only applies to the Utah Mammoth and Utah Hockey Club for the 2024-2025 NHL season |
 | cancellationToken | [System.Threading.CancellationToken](http://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&l=EN-US&k=k:System.Threading.CancellationToken 'System.Threading.CancellationToken') | A cancellation token that can be used by other objects or threads to receive notice of cancellation |
 
 <a name='M-Nhl-Api-NhlLeagueApi-GetTeamProspectsByTeamAsync-System-Int32,System-Threading-CancellationToken-'></a>

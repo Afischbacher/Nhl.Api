@@ -1,5 +1,5 @@
-using Newtonsoft.Json;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Nhl.Api.Models.Team;
 /// <summary>
@@ -31,7 +31,7 @@ public class TeamInformation
     /// Example: 6 for Toronto Maple Leafs
     /// </summary>
     [JsonProperty("franchiseId")]
-    public required int FranchiseId { get; set; }
+    public required int? FranchiseId { get; set; }
 
     /// <summary>
     /// The full team name
@@ -45,7 +45,7 @@ public class TeamInformation
     /// Example: 133 for NHL
     /// </summary>
     [JsonProperty("leagueId")]
-    public required int LeagueId { get; set; }
+    public required int? LeagueId { get; set; }
 
     /// <summary>
     /// The raw three-character tricode for the team

@@ -594,4 +594,25 @@ public class TeamTests
         Assert.AreEqual(10, team.Teams[0].Id);
         Assert.IsNotNull(team.Teams[0].FullName);
     }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task TestGetAllTeamsAsync()
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var teamsResponse = await nhlApi.GetAllTeamsAsync();
+
+        // Assert
+        Assert.IsNotNull(teamsResponse);
+        Assert.IsNotNull(teamsResponse.Data);
+        Assert.IsTrue(teamsResponse.Data.Count > 60, "Expected at least one team in the data collection.");
+        Assert.IsTrue(teamsResponse.Total > 60, "Expected total to be greater than zero.");
+
+        var first = teamsResponse.Data.First();
+        Assert.IsTrue(first.Id > 0, "Expected first team to have a valid id.");
+        Assert.IsNotNull(first.FullName, "Expected first team to have a full name.");
+        Assert.IsNotNull(first.TriCode, "Expected first team to have a triCode.");
+    }
 }

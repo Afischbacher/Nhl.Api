@@ -16,7 +16,7 @@ public interface INhlApiHttpClient
     /// <param name="route">The NHL  API endpoint</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>The deserialized JSON payload of the generic type</returns>
-    Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class;
+    public Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class;
 
     /// <summary>
     /// Performs a HTTP GET request and returns a byte array
@@ -24,7 +24,7 @@ public interface INhlApiHttpClient
     /// <param name="route">The Nhl.Api endpoint</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A byte array payload from the HTTP GET request</returns>
-    Task<byte[]> GetByteArrayAsync(string route, CancellationToken cancellationToken = default);
+    public Task<byte[]> GetByteArrayAsync(string route, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// Performs a HTTP GET request and returns a string 
@@ -32,22 +32,22 @@ public interface INhlApiHttpClient
     /// <param name="route">The Nhl.Api endpoint</param>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
     /// <returns>A byte array payload from the HTTP GET request</returns>
-    Task<string> GetStringAsync(string route, CancellationToken cancellationToken = default);
+    public Task<string> GetStringAsync(string route, CancellationToken cancellationToken = default);
 
     /// <summary>
     /// The HTTP Client for the Nhl.Api
     /// </summary>
-    HttpClient? HttpClient { get; }
+    public HttpClient? HttpClient { get; }
 
     /// <summary>
     /// The official client for the Nhl.Api
     /// </summary>
-    string Client { get; }
+    public string Client { get; }
 
     /// <summary>
     /// The client version for HTTP requests for the Nhl.Api
     /// </summary>
-    string ClientVersion { get; }
+    public string ClientVersion { get; }
 }
 
 /// <summary>
@@ -87,11 +87,6 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
     /// <returns>The deserialized JSON payload of the generic type</returns>
     public async Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class
     {
-        if (string.IsNullOrWhiteSpace(route))
-        {
-            throw new ArgumentNullException(nameof(route));
-        }
-
         using var httpResponseMessage = await this.HttpClient!.GetAsync(requestUri: $"{this.HttpClient?.BaseAddress}{route}", cancellationToken: cancellationToken)
             ?? throw new HttpRequestException($"The HTTP request exception thrown for HTTP resource {this.HttpClient?.BaseAddress}{route}");
 

@@ -156,6 +156,13 @@ public class NhlLeagueApi : INhlLeagueApi
     public async Task<LeagueTeam> GetTeamByIdAsync(TeamEnum team, CancellationToken cancellationToken = default) => await this.GetTeamByIdAsync((int)team, cancellationToken);
 
     /// <summary>
+    /// Returns all NHL teams from the stats endpoint
+    /// </summary>
+    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the collection of all teams and the total number of results</returns>
+    public async Task<TeamsResponse> GetAllTeamsAsync(CancellationToken cancellationToken = default) => await _nhlTeamHttpClient.GetAsync<TeamsResponse>("", cancellationToken);
+
+    /// <summary>
     /// Returns an the NHL team logo based a dark or light preference using the NHL team enumeration
     /// </summary>
     /// <param name="team">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>
