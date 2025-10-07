@@ -176,7 +176,7 @@ public class NhlLeagueApi : INhlLeagueApi
         var teamColorIdentifier = _nhlTeamService.GetTeamLogoColorIdentifier(teamLogoType);
         var seasonYearString = seasonYear != null ? $"{seasonYear}-{seasonYear}" : string.Empty;
 
-        if (!string.IsNullOrWhiteSpace(seasonYearString) && team != TeamEnum.UtahHockeyClub && seasonYearString != SeasonYear.season20242025)
+        if (!string.IsNullOrWhiteSpace(seasonYearString) && team != TeamEnum.UtahHockeyClub)
         {
             throw new InvalidTeamLogoSeasonException("The season year parameter only applies to the Utah Hockey Club for the 2024-2025 NHL season");
         }
