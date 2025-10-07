@@ -1,5 +1,6 @@
 using System.Globalization;
 using System.Linq;
+using Nhl.Api.Common.Exceptions;
 using Nhl.Api.Common.Helpers;
 using Nhl.Api.Models.Enumerations.Team;
 using Nhl.Api.Models.Season;
@@ -143,6 +144,16 @@ public class TeamTests
 
         Assert.IsTrue(teamLogo.ImageAsByteArray.Length > 1000);
         Assert.IsTrue(teamLogo.ImageAsBase64String.Length > 100);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    public async Task TestGetTampaBayLightningWithInvalidSeasonThrowsAsync()
+    {
+        // Arrange 
+        await using var nhlApi = new NhlApi();
+
+        // Act/Assert
+        await Assert.ThrowsExceptionAsync<InvalidTeamLogoSeasonException>(async () => await nhlApi.GetTeamLogoAsync(TeamEnum.TampaBayLightning, TeamLogoType.Dark, SeasonYear.season20252026, default));
     }
 
 

@@ -176,7 +176,7 @@ public class NhlLeagueApi : INhlLeagueApi
         var teamColorIdentifier = _nhlTeamService.GetTeamLogoColorIdentifier(teamLogoType);
         var seasonYearString = seasonYear != null ? $"{seasonYear}-{seasonYear}" : string.Empty;
 
-        if (!string.IsNullOrWhiteSpace(seasonYearString) && team != TeamEnum.UtahHockeyClub)
+        if (!string.IsNullOrWhiteSpace(seasonYearString) && team != TeamEnum.UtahHockeyClub && seasonYearString != SeasonYear.season20242025)
         {
             throw new InvalidTeamLogoSeasonException("The season year parameter only applies to the Utah Hockey Club for the 2024-2025 NHL season");
         }
@@ -212,9 +212,9 @@ public class NhlLeagueApi : INhlLeagueApi
     /// <returns>Returns NHL team logo information including a byte array, base64 encoded string and the Uri endpoint</returns>
     public async Task<TeamLogo> GetTeamLogoAsync(int teamId, TeamLogoType teamLogoType = TeamLogoType.Light, string? seasonYear = null, CancellationToken cancellationToken = default)
     {
-        var seasonYearString = seasonYear != null ? $"{seasonYear}-{seasonYear}" : string.Empty;
         var teamColorIdentifier = _nhlTeamService.GetTeamLogoColorIdentifier(teamLogoType);
         var teamIdentifier = _nhlTeamService.GetTeamCodeIdentifierByTeamId(teamId);
+        var seasonYearString = seasonYear != null ? $"{seasonYear}-{seasonYear}" : string.Empty;
 
         if (!string.IsNullOrWhiteSpace(seasonYearString) && teamId != (int)TeamEnum.UtahHockeyClub)
         {
