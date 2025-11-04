@@ -82,7 +82,7 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
     /// <summary>
     /// The maximum number of retries for HTTP requests
     /// </summary>
-    public int MaxRetries { get; private set; } = 5;
+    public int MaxRetries { get; private set; } = 10;
 
     /// <summary>
     /// Performs a HTTP GET request with a generic argument as the model or type to be returned
@@ -114,7 +114,9 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
                     await Task.Delay(httpResponseMessage.Headers.RetryAfter.Delta.Value, cancellationToken);
                 }
 
+                var previousResponse = httpResponseMessage;
                 httpResponseMessage = await GetRequest();
+                previousResponse?.Dispose();
                 retryCount++;
             }
         }
@@ -131,9 +133,7 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
         }
 
         httpResponseMessage?.Dispose();
-#pragma warning disable CS8603 // Possible null reference return.
-        return JsonConvert.DeserializeObject<T>(contentResponse);
-#pragma warning restore CS8603 // Possible null reference return.
+        return JsonConvert.DeserializeObject<T>(contentResponse)!;
 
         async Task<HttpResponseMessage> GetRequest() => await this.HttpClient!.GetAsync(requestUri: $"{this.HttpClient?.BaseAddress}{route}", cancellationToken: cancellationToken)
                 ?? throw new HttpRequestException($"The HTTP request exception thrown for HTTP resource {this.HttpClient?.BaseAddress}{route}");
@@ -167,6 +167,7 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
         {
             throw new ArgumentNullException(nameof(route));
         }
+
         var endpoint = $"{this.HttpClient?.BaseAddress}{route}";
         return await (await this.HttpClient!.GetAsync(endpoint, cancellationToken)).Content.ReadAsStringAsync(cancellationToken);
     }
