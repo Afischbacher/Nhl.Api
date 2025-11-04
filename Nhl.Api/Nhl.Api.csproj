@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<Version>3.9.0</Version>
+		<Version>3.9.1</Version>
 		<TargetFrameworks>net9.0</TargetFrameworks>
 		<PackageId>Nhl.Api</PackageId>
 		<Title>Nhl.Api</Title>
