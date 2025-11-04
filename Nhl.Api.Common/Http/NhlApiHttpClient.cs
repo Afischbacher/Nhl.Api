@@ -80,6 +80,11 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
     public string Client { get; private set; } = clientApiUri;
 
     /// <summary>
+    /// The maximum number of retries for HTTP requests
+    /// </summary>
+    public int MaxRetries { get; private set; } = 5;
+
+    /// <summary>
     /// Performs a HTTP GET request with a generic argument as the model or type to be returned
     /// </summary>
     /// <param name="route">The Nhl.Api endpoint</param>
@@ -87,7 +92,7 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
     /// <returns>The deserialized JSON payload of the generic type</returns>
     public async Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class
     {
-        var maxRetries = 5;
+        var maxRetries = this.MaxRetries;
         var retryCount = 0;
         var httpResponseMessage = await GetRequest();
 
@@ -102,7 +107,7 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
 
                 if (httpResponseMessage.Headers.RetryAfter.Delta.Value.TotalSeconds <= 0)
                 {
-                    await Task.Delay(5000, cancellationToken); // Default to 5 seconds if no delta value
+                    await Task.Delay(2000, cancellationToken); // Default to 2 seconds if no delta value
                 }
                 else
                 {
