@@ -87,8 +87,32 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
     /// <returns>The deserialized JSON payload of the generic type</returns>
     public async Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class
     {
-        using var httpResponseMessage = await this.HttpClient!.GetAsync(requestUri: $"{this.HttpClient?.BaseAddress}{route}", cancellationToken: cancellationToken)
-            ?? throw new HttpRequestException($"The HTTP request exception thrown for HTTP resource {this.HttpClient?.BaseAddress}{route}");
+        var maxRetries = 5;
+        var retryCount = 0;
+        var httpResponseMessage = await GetRequest();
+
+        if (httpResponseMessage.Headers.RetryAfter != null)
+        {
+            while (httpResponseMessage.Headers.RetryAfter != null && httpResponseMessage.Headers.RetryAfter.Delta.HasValue)
+            {
+                if (retryCount >= maxRetries)
+                {
+                    throw new HttpRequestException($"The HTTP request exceeded the maximum retry attempts of {maxRetries} for HTTP resource {this.HttpClient?.BaseAddress}{route}");
+                }
+
+                if (httpResponseMessage.Headers.RetryAfter.Delta.Value.TotalSeconds <= 0)
+                {
+                    await Task.Delay(5000, cancellationToken); // Default to 5 seconds if no delta value
+                }
+                else
+                {
+                    await Task.Delay(httpResponseMessage.Headers.RetryAfter.Delta.Value, cancellationToken);
+                }
+
+                httpResponseMessage = await GetRequest();
+                retryCount++;
+            }
+        }
 
         var contentResponse = await httpResponseMessage!.Content.ReadAsStringAsync(cancellationToken);
         if (!httpResponseMessage.IsSuccessStatusCode)
@@ -101,9 +125,13 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
             throw new HttpRequestException("The content response is empty");
         }
 
+        httpResponseMessage?.Dispose();
 #pragma warning disable CS8603 // Possible null reference return.
         return JsonConvert.DeserializeObject<T>(contentResponse);
 #pragma warning restore CS8603 // Possible null reference return.
+
+        async Task<HttpResponseMessage> GetRequest() => await this.HttpClient!.GetAsync(requestUri: $"{this.HttpClient?.BaseAddress}{route}", cancellationToken: cancellationToken)
+                ?? throw new HttpRequestException($"The HTTP request exception thrown for HTTP resource {this.HttpClient?.BaseAddress}{route}");
     }
 
     /// <summary>
