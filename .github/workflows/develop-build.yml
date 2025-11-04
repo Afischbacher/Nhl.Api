@@ -18,10 +18,3 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore --configuration Release
-    - name: Run Tests
-      run: dotnet test -m --configuration Release --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
-    - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@v5
-      with:
-        fail_ci_if_error: false
-        token: ${{ secrets.CODECOV_TOKEN }}

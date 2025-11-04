@@ -15,22 +15,22 @@ public interface ICachingService : IDisposable
     /// <summary>
     /// Add's or updates the cached value based on the provided key and value
     /// </summary>
-    Task TryAddUpdateAsync<T>(string key, T value) where T : class;
+    public Task TryAddUpdateAsync<T>(string key, T value) where T : class;
 
     /// <summary>
     /// Removes the cached item by the key
     /// </summary>
-    Task<bool> RemoveAsync(string key);
+    public Task<bool> RemoveAsync(string key);
 
     /// <summary>
     /// Attempts to retrieve the cached value based on the provided key and generic type
     /// </summary>
-    Task<T?> TryGetAsync<T>(string key) where T : class;
+    public Task<T?> TryGetAsync<T>(string key) where T : class;
 
     /// <summary>
     /// Determines if the key is available within the caching service
     /// </summary>
-    Task<bool> ContainsKeyAsync(string key);
+    public Task<bool> ContainsKeyAsync(string key);
 }
 
 /// <summary>
@@ -87,7 +87,7 @@ public class CachingService : ICachingService
     /// </summary>
     private static async Task CopyTo(Stream src, Stream dest)
     {
-        var bytes = new byte[4096];
+        var bytes = new byte[];
         int count;
 
         while ((count = await src.ReadAsync(bytes)) != 0)
