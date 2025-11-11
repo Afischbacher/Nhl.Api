@@ -16,4 +16,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Release
     - name: Run Tests
-      run: dotnet test Nhl.Api.Tests/Nhl.Api.Tests.csproj --no-build --filter "FullyQualifiedName~Nhl.Api.Tests.GameTests"
+      run: dotnet test ./Nhl.Api.Tests/Nhl.Api.Tests.csproj --filter "FullyQualifiedName~Nhl.Api.Tests.GameTests"
