@@ -14,10 +14,5 @@ jobs:
       run: dotnet restore
     - name: Build
       run: dotnet build --no-restore --configuration Release
-    - name: Run Tests
-      run: |
-        dotnet test ./Nhl.Api.Tests/Nhl.Api.Tests.csproj \
-          --no-build \
-          --filter "FullyQualifiedName~Nhl.Api.Tests.NhlApiAsyncHelperTests" \
-          --verbosity normal
-      working-directory: ${{ github.workspace }}
+    - name: Run tests
+      run: dotnet test ./Nhl.Api.Tests/Nhl.Api.Tests.csproj --filter "FullyQualifiedName~Nhl.Api.Tests.NhlApiAsyncHelperTests"
