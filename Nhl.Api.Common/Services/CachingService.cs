@@ -87,7 +87,7 @@ public class CachingService : ICachingService
     /// </summary>
     private static async Task CopyTo(Stream src, Stream dest)
     {
-        var bytes = new byte[src.Length];
+        var bytes = new byte[16384];
         int count;
 
         while ((count = await src.ReadAsync(bytes)) != 0)
