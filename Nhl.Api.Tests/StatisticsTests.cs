@@ -420,7 +420,7 @@ public class StatisticsTests
         await using var nhlApi = new NhlApi();
 
         var schedule = await nhlApi.GetTeamScheduleBySeasonAsync("VAN", "20232024");
-        schedule.Games = schedule.Games.Where(x => x.GameType == 2).ToList();
+        schedule.Games = [.. schedule.Games.Where(x => x.GameType == 2)];
 
         var list = new List<GameCenterPlay>();
 

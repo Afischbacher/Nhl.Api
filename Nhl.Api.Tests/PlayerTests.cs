@@ -999,6 +999,7 @@ public class PlayerTests
 
     }
 
+    [Ignore("Only required when generating a new player enumeration file")]
     [TestMethodWithRetry(RetryCount = 25)]
     public async Task PlayerEnumFileGeneratorHelper_Returns_Valid_Content() =>
         // Arrange

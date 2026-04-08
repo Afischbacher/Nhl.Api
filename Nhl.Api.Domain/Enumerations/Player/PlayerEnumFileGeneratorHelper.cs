@@ -10,7 +10,7 @@ namespace Nhl.Api.Models.Enumerations.Player;
 /// <summary>
 /// A helper class for generating the <see cref="PlayerEnum"/> values
 /// </summary>
-public static class PlayerEnumFileGeneratorHelper
+public static partial class PlayerEnumFileGeneratorHelper
 {
     private static readonly NhlEApiHttpClient _nhlApiHttpClient = new();
 
@@ -41,7 +41,7 @@ public static class PlayerEnumFileGeneratorHelper
             {
                 if (!players.ContainsKey(playerSearchResult.Id))
                 {
-                    var playerName = Regex.Replace(ReplaceNonAsciiWithAscii(playerSearchResult.FullName.Replace(" ", "")), @"('|\.|\s|-|_|&|\(|\))", string.Empty, RegexOptions.CultureInvariant | RegexOptions.Compiled);
+                    var playerName = PlayerNameRegex().Replace(ReplaceNonAsciiWithAscii(playerSearchResult.FullName.Replace(" ", "")), string.Empty);
                     var playerDetails = $"{playerName} | Player Identifier: {playerSearchResult.Id} | Position: {playerSearchResult.PositionCode}";
 
                     players.Add(playerSearchResult.Id, (playerName, playerDetails));
@@ -120,4 +120,7 @@ public static class PlayerEnumFileGeneratorHelper
 
         return output;
     }
+
+    [GeneratedRegex(@"('|\.|\s|-|_|&|\(|\))", RegexOptions.Compiled | RegexOptions.CultureInvariant)]
+    internal static partial Regex PlayerNameRegex();
 }

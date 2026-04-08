@@ -48,11 +48,6 @@ public interface INhlApiHttpClient
     /// The client version for HTTP requests for the Nhl.Api
     /// </summary>
     public string ClientVersion { get; }
-
-    /// <summary>
-    /// Randomizes the default request headers used by the HTTP client.
-    /// </summary>
-    public void RandomizeDefaultRequestHeaders();
 }
 
 /// <summary>
@@ -65,7 +60,7 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
 {
 
     private const int DefaultTimeoutInMilliseconds = 2000;
-    private static readonly Lock DefaultRequestHeadersLock = new();
+    // A collection of common User-Agent and Accept-Language header profiles to randomize HTTP requests and mimic real-world traffic patterns
     private static readonly (string UserAgent, string AcceptLanguage)[] HeaderProfiles =
     [
         ("Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36", "en-US,en;q=0.9"),
@@ -127,23 +122,19 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
     /// <summary>
     /// Randomizes the default request headers used by the HTTP client.
     /// </summary>
-    public virtual void RandomizeDefaultRequestHeaders()
+    public virtual void RandomizeDefaultRequestHeaders(HttpRequestMessage httpRequestMessage)
     {
         if (this.HttpClient is null)
         {
             return;
         }
 
-        lock (DefaultRequestHeadersLock)
-        {
-            var (userAgent, acceptLanguage) = HeaderProfiles[Random.Shared.Next(HeaderProfiles.Length)];
-            var defaultRequestHeaders = this.HttpClient.DefaultRequestHeaders;
+        var (userAgent, acceptLanguage) = HeaderProfiles[Random.Shared.Next(HeaderProfiles.Length)];
 
-            defaultRequestHeaders.Clear();
-            defaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json, text/plain, */*");
-            defaultRequestHeaders.TryAddWithoutValidation("User-Agent", userAgent);
-            defaultRequestHeaders.TryAddWithoutValidation("Accept-Language", acceptLanguage);
-        }
+        httpRequestMessage.Headers.Clear();
+        httpRequestMessage.Headers.TryAddWithoutValidation("Accept", "application/json, text/plain, */*");
+        httpRequestMessage.Headers.TryAddWithoutValidation("User-Agent", userAgent);
+        httpRequestMessage.Headers.TryAddWithoutValidation("Accept-Language", acceptLanguage);
     }
 
     /// <summary>
@@ -154,7 +145,6 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
     /// <returns>The deserialized JSON payload of the generic type</returns>
     public async Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class
     {
-        this.RandomizeDefaultRequestHeaders();
         var maxRetries = this.MaxRetries;
         var retryCount = 0;
         var httpResponseMessage = await GetRequest();
@@ -198,8 +188,15 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
         httpResponseMessage?.Dispose();
         return JsonConvert.DeserializeObject<T>(contentResponse)!;
 
-        async Task<HttpResponseMessage> GetRequest() => await this.HttpClient!.GetAsync(requestUri: $"{this.HttpClient?.BaseAddress}{route}", cancellationToken: cancellationToken)
+        async Task<HttpResponseMessage> GetRequest()
+        {
+            var endpoint = $"{this.HttpClient?.BaseAddress}{route}";
+            var httpRequest = new HttpRequestMessage(HttpMethod.Get, endpoint);
+            this.RandomizeDefaultRequestHeaders(httpRequest);
+
+            return await this.HttpClient!.SendAsync(httpRequest, cancellationToken)
                 ?? throw new HttpRequestException($"The HTTP request exception thrown for HTTP resource {this.HttpClient?.BaseAddress}{route}");
+        }
     }
 
     /// <summary>
@@ -214,7 +211,6 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
         {
             throw new ArgumentNullException(nameof(route));
         }
-        this.RandomizeDefaultRequestHeaders();
         var endpoint = $"{this.HttpClient?.BaseAddress}{route}";
         return await this.HttpClient!.GetByteArrayAsync(endpoint, cancellationToken);
     }
@@ -232,8 +228,9 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
             throw new ArgumentNullException(nameof(route));
         }
 
-        this.RandomizeDefaultRequestHeaders();
         var endpoint = $"{this.HttpClient?.BaseAddress}{route}";
-        return await (await this.HttpClient!.GetAsync(endpoint, cancellationToken)).Content.ReadAsStringAsync(cancellationToken);
+        var httpRequest = new HttpRequestMessage(HttpMethod.Get, endpoint);
+        this.RandomizeDefaultRequestHeaders(httpRequest);
+        return await (await this.HttpClient!.SendAsync(httpRequest, cancellationToken)).Content.ReadAsStringAsync(cancellationToken);
     }
 }
