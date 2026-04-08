@@ -59,6 +59,8 @@ public interface INhlApiHttpClient
 public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion, int timeoutInSeconds = 60) : INhlApiHttpClient
 {
 
+    private const int DefaultTimeoutInMilliseconds = 2000;
+
     /// <summary>
     /// The HTTP Client for the Nhl.Api
     /// </summary>
@@ -107,7 +109,7 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
 
                 if (httpResponseMessage.Headers.RetryAfter.Delta.Value.TotalSeconds <= 0)
                 {
-                    await Task.Delay(2000, cancellationToken); // Default to 2 seconds if no delta value
+                    await Task.Delay(DefaultTimeoutInMilliseconds, cancellationToken); // Default to 2 seconds if no delta value
                 }
                 else
                 {
