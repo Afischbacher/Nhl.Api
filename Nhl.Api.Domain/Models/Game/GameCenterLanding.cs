@@ -892,7 +892,7 @@ public class Summary
     /// The shootout information
     /// </summary>
     [JsonProperty("shootout")]
-    public required List<Shootout> Shootout { get; set; }
+    public required Shootout Shootout { get; set; }
 
 
     /// <summary>
@@ -979,6 +979,13 @@ public class Shootout
     /// </summary>
     [JsonProperty("homeAttempts")]
     public int HomeAttempts { get; set; }
+
+    /// <summary>
+    /// The live score information for the shootout of the NHL game <br/>
+    /// Example: { "home": 2, "away": 1 }
+    /// </summary>
+    [JsonProperty("liveScore")]
+    public Totals? LiveScore { get; set; }
 }
 
 

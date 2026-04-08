@@ -499,14 +499,6 @@ public class NhlApi : INhlApi
            await _nhlGameApi.GetGameScoresByDateAsync(date, cancellationToken);
 
     /// <summary>
-    /// Returns the collection of countries and where you can watch NHL games with links and more
-    /// </summary>
-    /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
-    /// <returns>Returns the collection of countries and where you can watch NHL games with links and more</returns>
-    public async Task<List<GameWatchSource>> GetSourcesToWatchGamesAsync(CancellationToken cancellationToken = default) =>
-           await _nhlLeagueApi.GetSourcesToWatchGamesAsync(cancellationToken);
-
-    /// <summary>
     /// Returns the live NHL game scoreboard, including the game information, game status, game venue and more
     /// </summary>
     /// <param name="cancellationToken"> A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>

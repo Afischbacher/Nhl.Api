@@ -48,6 +48,11 @@ public interface INhlApiHttpClient
     /// The client version for HTTP requests for the Nhl.Api
     /// </summary>
     public string ClientVersion { get; }
+
+    /// <summary>
+    /// Randomizes the default request headers used by the HTTP client.
+    /// </summary>
+    public void RandomizeDefaultRequestHeaders();
 }
 
 /// <summary>
@@ -60,6 +65,39 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
 {
 
     private const int DefaultTimeoutInMilliseconds = 2000;
+    private static readonly Lock DefaultRequestHeadersLock = new();
+    private static readonly (string UserAgent, string AcceptLanguage)[] HeaderProfiles =
+    [
+        ("Mozilla/5.0 (Windows NT 11.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36", "en-US,en;q=0.9"),
+        ("Mozilla/5.0 (Macintosh; Intel Mac OS X 13_6_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.6367.91 Safari/537.36", "en-GB,en;q=0.8"),
+        ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.128 Safari/537.36", "en-US,en;q=0.9"),
+        ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Brave/1.65.122 Chrome/124.0.6367.91 Safari/537.36", "en-CA,en;q=0.9"),
+        ("Mozilla/5.0 (Macintosh; Intel Mac OS X 12_7_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.3 Safari/605.1.15", "en-AU,en;q=0.8"),
+
+        ("Mozilla/5.0 (iPhone; CPU iPhone OS 16_7_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.7 Mobile/15E148 Safari/604.1", "en-US,en;q=0.8"),
+        ("Mozilla/5.0 (iPad; CPU OS 17_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.2 Mobile/15E148 Safari/604.1", "en-CA,en;q=0.8"),
+        ("Mozilla/5.0 (Linux; Android 14; SM-S918B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.6367.91 Mobile Safari/537.36", "en-US,en;q=0.9"),
+        ("Mozilla/5.0 (Linux; Android 13; Pixel 7 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.105 Mobile Safari/537.36", "en-GB,en;q=0.9"),
+        ("Mozilla/5.0 (Linux; Android 12; OnePlus 10 Pro) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.6261.128 Mobile Safari/537.36", "en-IN,en;q=0.8"),
+
+        ("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0", "en-US,en;q=0.9"),
+        ("Mozilla/5.0 (Macintosh; Intel Mac OS X 13.5; rv:124.0) Gecko/20100101 Firefox/124.0", "en-CA,en;q=0.8"),
+        ("Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:123.0) Gecko/20100101 Firefox/123.0", "en-GB,en;q=0.8"),
+        ("Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:122.0) Gecko/20100101 Firefox/122.0", "fr-CA,fr;q=0.9,en;q=0.7"),
+        ("Mozilla/5.0 (Macintosh; Intel Mac OS X 12.6; rv:121.0) Gecko/20100101 Firefox/121.0", "de-DE,de;q=0.9,en;q=0.7"),
+
+        ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edg/123.0.2420.97 Chrome/123.0.6312.105 Safari/537.36", "en-US,en;q=0.9"),
+        ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Edg/122.0.2365.80 Chrome/122.0.6261.128 Safari/537.36", "en-CA,en;q=0.8"),
+        ("Mozilla/5.0 (Macintosh; Intel Mac OS X 13_4_1) AppleWebKit/537.36 (KHTML, like Gecko) Edg/124.0.2478.51 Chrome/124.0.6367.91 Safari/537.36", "en-GB,en;q=0.8"),
+        ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Edg/121.0.2277.128 Chrome/121.0.6167.160 Safari/537.36", "en-US,en;q=0.9"),
+        ("Mozilla/5.0 (Windows NT 10.0; ARM64) AppleWebKit/537.36 (KHTML, like Gecko) Edg/124.0.2478.51 Chrome/124.0.6367.91 Safari/537.36", "en-AU,en;q=0.8"),
+
+        ("Mozilla/5.0 (Linux; Android 14; Pixel Tablet) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.6367.91 Safari/537.36", "en-US,en;q=0.9"),
+        ("Mozilla/5.0 (Linux; Android 13; Samsung Galaxy Tab S8) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.105 Safari/537.36", "en-CA,en;q=0.8"),
+        ("Mozilla/5.0 (Macintosh; Intel Mac OS X 14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36", "en-US,en;q=0.9"),
+        ("Mozilla/5.0 (Windows NT 10.0; Win64; x64; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.6312.105 Safari/537.36", "es-ES,es;q=0.9,en;q=0.7"),
+        ("Mozilla/5.0 (X11; Linux x86_64; Fedora) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.6367.91 Safari/537.36", "en-US,en;q=0.9")
+    ];
 
     /// <summary>
     /// The HTTP Client for the Nhl.Api
@@ -87,6 +125,28 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
     public int MaxRetries { get; private set; } = 10;
 
     /// <summary>
+    /// Randomizes the default request headers used by the HTTP client.
+    /// </summary>
+    public virtual void RandomizeDefaultRequestHeaders()
+    {
+        if (this.HttpClient is null)
+        {
+            return;
+        }
+
+        lock (DefaultRequestHeadersLock)
+        {
+            var (userAgent, acceptLanguage) = HeaderProfiles[Random.Shared.Next(HeaderProfiles.Length)];
+            var defaultRequestHeaders = this.HttpClient.DefaultRequestHeaders;
+
+            defaultRequestHeaders.Clear();
+            defaultRequestHeaders.TryAddWithoutValidation("Accept", "application/json, text/plain, */*");
+            defaultRequestHeaders.TryAddWithoutValidation("User-Agent", userAgent);
+            defaultRequestHeaders.TryAddWithoutValidation("Accept-Language", acceptLanguage);
+        }
+    }
+
+    /// <summary>
     /// Performs a HTTP GET request with a generic argument as the model or type to be returned
     /// </summary>
     /// <param name="route">The Nhl.Api endpoint</param>
@@ -94,6 +154,7 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
     /// <returns>The deserialized JSON payload of the generic type</returns>
     public async Task<T> GetAsync<T>(string route, CancellationToken cancellationToken = default) where T : class
     {
+        this.RandomizeDefaultRequestHeaders();
         var maxRetries = this.MaxRetries;
         var retryCount = 0;
         var httpResponseMessage = await GetRequest();
@@ -153,6 +214,7 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
         {
             throw new ArgumentNullException(nameof(route));
         }
+        this.RandomizeDefaultRequestHeaders();
         var endpoint = $"{this.HttpClient?.BaseAddress}{route}";
         return await this.HttpClient!.GetByteArrayAsync(endpoint, cancellationToken);
     }
@@ -170,6 +232,7 @@ public abstract class NhlApiHttpClient(string clientApiUri, string clientVersion
             throw new ArgumentNullException(nameof(route));
         }
 
+        this.RandomizeDefaultRequestHeaders();
         var endpoint = $"{this.HttpClient?.BaseAddress}{route}";
         return await (await this.HttpClient!.GetAsync(endpoint, cancellationToken)).Content.ReadAsStringAsync(cancellationToken);
     }

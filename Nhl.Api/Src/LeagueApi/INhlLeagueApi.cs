@@ -167,12 +167,6 @@ public interface INhlLeagueApi
     public Task<LeagueScheduleCalendar> GetLeagueScheduleCalendarByDateAsync(DateOnly date, CancellationToken cancellationToken = default);
 
     /// <summary>
-    /// Returns the collection of countries and where you can watch NHL games with links and more
-    /// </summary>
-    /// <returns>Returns the collection of countries and where you can watch NHL games with links and more</returns>
-    public Task<List<GameWatchSource>> GetSourcesToWatchGamesAsync(CancellationToken cancellationToken = default);
-
-    /// <summary>
     /// Returns the NHL TV broadcasts for the specified date with information about the broadcasts
     /// </summary>
     /// <param name="date">The date requested for the NHL TV broadcasts, Example: 2024-02-10</param>

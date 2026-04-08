@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,7 +13,7 @@ public sealed class SeasonYear
     /// <summary>
     /// A collection of all the NHL seasons
     /// </summary>
-    public static readonly HashSet<string> AllSeasons = GenerateAllSeasons(1917, 2150);
+    public static readonly HashSet<string> AllSeasons = GenerateAllSeasons(1917, DateTime.Now.Year);
     private static HashSet<string> GenerateAllSeasons(int startYear, int endYear) => [.. Enumerable.Range(startYear, endYear - startYear + 1).Select(year => $"{year}{year + 1}")];
 
     /// <summary>

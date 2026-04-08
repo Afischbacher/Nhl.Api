@@ -33,22 +33,6 @@ public class GameTests
     }
 
     [TestMethodWithRetry(RetryCount = 5)]
-    public async Task GetSourcesToWatchGamesAsync_Return_Valid_Information()
-    {
-        // Arrange
-        await using var nhlApi = new NhlApi();
-
-        // Act
-        var results = await nhlApi.GetSourcesToWatchGamesAsync();
-
-        // Assert
-        Assert.IsNotNull(results);
-        Assert.IsTrue(results.Count != 0);
-
-    }
-
-
-    [TestMethodWithRetry(RetryCount = 5)]
     public async Task GetGameScoreboardAsync_Return_Valid_Information()
     {
         // Arrange
