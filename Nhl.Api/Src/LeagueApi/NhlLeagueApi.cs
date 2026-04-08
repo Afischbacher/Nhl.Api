@@ -163,6 +163,142 @@ public class NhlLeagueApi : INhlLeagueApi
     public async Task<TeamsResponse> GetAllTeamsAsync(CancellationToken cancellationToken = default) => await _nhlTeamHttpClient.GetAsync<TeamsResponse>("", cancellationToken);
 
     /// <summary>
+    /// Returns the NHL Edge team detail for a team, season, and game type.
+    /// </summary>
+    /// <param name="teamId">The NHL team identifier, Example: 9 - Ottawa Senators</param>
+    /// <param name="seasonYear">The eight digit season year, Example: 20242025</param>
+    /// <param name="gameType">The game type, Example: 2 for regular season or 3 for playoffs</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL Edge team detail payload for the requested team, season, and game type</returns>
+    public async Task<TeamDetail> GetTeamDetailBySeasonYearAndGameTypeAsync(int teamId, string seasonYear, GameType gameType, CancellationToken cancellationToken = default)
+    {
+        if (seasonYear?.Length != 8)
+        {
+            throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
+        }
+
+        return await _nhlWebApiHttpClient.GetAsync<TeamDetail>($"/edge/team-detail/{teamId}/{seasonYear}/{(int)gameType}", cancellationToken);
+    }
+
+    /// <summary>
+    /// Returns the NHL Edge team detail for a team, season, and game type.
+    /// </summary>
+    /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 9 - Ottawa Senators</param>
+    /// <param name="seasonYear">The eight digit season year, Example: 20242025</param>
+    /// <param name="gameType">The game type, Example: 2 for regular season or 3 for playoffs</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL Edge team detail payload for the requested team, season, and game type</returns>
+    public async Task<TeamDetail> GetTeamDetailBySeasonYearAndGameTypeAsync(TeamEnum team, string seasonYear, GameType gameType, CancellationToken cancellationToken = default) =>
+        await this.GetTeamDetailBySeasonYearAndGameTypeAsync((int)team, seasonYear, gameType, cancellationToken);
+
+    /// <summary>
+    /// Returns the NHL Edge team comparison for a team, season, and game type.
+    /// </summary>
+    /// <param name="teamId">The NHL team identifier, Example: 9 - Ottawa Senators</param>
+    /// <param name="seasonYear">The eight digit season year, Example: 20242025</param>
+    /// <param name="gameType">The game type, Example: 2 for regular season or 3 for playoffs</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL Edge team comparison payload for the requested team, season, and game type</returns>
+    public async Task<TeamComparison> GetTeamComparisonBySeasonYearAndGameTypeAsync(int teamId, string seasonYear, GameType gameType, CancellationToken cancellationToken = default)
+    {
+        if (seasonYear?.Length != 8)
+        {
+            throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
+        }
+
+        return await _nhlWebApiHttpClient.GetAsync<TeamComparison>($"/edge/team-comparison/{teamId}/{seasonYear}/{(int)gameType}", cancellationToken);
+    }
+
+    /// <summary>
+    /// Returns the NHL Edge team comparison for a team, season, and game type.
+    /// </summary>
+    /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 9 - Ottawa Senators</param>
+    /// <param name="seasonYear">The eight digit season year, Example: 20242025</param>
+    /// <param name="gameType">The game type, Example: 2 for regular season or 3 for playoffs</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL Edge team comparison payload for the requested team, season, and game type</returns>
+    public async Task<TeamComparison> GetTeamComparisonBySeasonYearAndGameTypeAsync(TeamEnum team, string seasonYear, GameType gameType, CancellationToken cancellationToken = default) =>
+        await this.GetTeamComparisonBySeasonYearAndGameTypeAsync((int)team, seasonYear, gameType, cancellationToken);
+
+    /// <summary>
+    /// Returns the NHL Edge team comparison for the current season and game type.
+    /// </summary>
+    /// <param name="teamId">The NHL team identifier, Example: 9 - Ottawa Senators</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL Edge team comparison payload for the requested team using the current season</returns>
+    public async Task<TeamComparison> GetTeamComparisonByNowAsync(int teamId, CancellationToken cancellationToken = default) =>
+        await _nhlWebApiHttpClient.GetAsync<TeamComparison>($"/edge/team-comparison/{teamId}/now", cancellationToken);
+
+    /// <summary>
+    /// Returns the NHL Edge team comparison for the current season and game type.
+    /// </summary>
+    /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 9 - Ottawa Senators</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL Edge team comparison payload for the requested team using the current season</returns>
+    public async Task<TeamComparison> GetTeamComparisonByNowAsync(TeamEnum team, CancellationToken cancellationToken = default) =>
+        await this.GetTeamComparisonByNowAsync((int)team, cancellationToken);
+
+    /// <summary>
+    /// Returns the NHL Edge team skating distance top 10 for a season and game type.
+    /// </summary>
+    /// <param name="positions">The player positions filter, Example: all, F, or D</param>
+    /// <param name="strength">The strength filter, Example: all, pp, pk, or es</param>
+    /// <param name="sortBy">The sort-by selector, Example: total</param>
+    /// <param name="seasonYear">The eight digit season year, Example: 20242025</param>
+    /// <param name="gameType">The game type, Example: 2 for regular season or 3 for playoffs</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL Edge team skating distance top 10 payload for the requested filters</returns>
+    public async Task<List<TeamSkatingDistanceTop10>> GetTeamSkatingDistanceTop10BySeasonYearAndGameTypeAsync(string positions, string strength, string sortBy, string seasonYear, GameType gameType, CancellationToken cancellationToken = default)
+    {
+        if (seasonYear?.Length != 8)
+        {
+            throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
+        }
+
+        return await _nhlWebApiHttpClient.GetAsync<List<TeamSkatingDistanceTop10>>($"/edge/team-skating-distance-top-10/{positions}/{strength}/{sortBy}/{seasonYear}/{(int)gameType}", cancellationToken);
+    }
+
+    /// <summary>
+    /// Returns the NHL Edge team skating distance top 10 for the current season.
+    /// </summary>
+    /// <param name="positions">The player positions filter, Example: all, F, or D</param>
+    /// <param name="strength">The strength filter, Example: all, pp, pk, or es</param>
+    /// <param name="sortBy">The sort-by selector, Example: total</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL Edge team skating distance top 10 payload for the requested filters</returns>
+    public async Task<List<TeamSkatingDistanceTop10>> GetTeamSkatingDistanceTop10ByNowAsync(string positions, string strength, string sortBy, CancellationToken cancellationToken = default) =>
+        await _nhlWebApiHttpClient.GetAsync<List<TeamSkatingDistanceTop10>>($"/edge/team-skating-distance-top-10/{positions}/{strength}/{sortBy}/now", cancellationToken);
+
+    /// <summary>
+    /// Returns the NHL Edge team skating distance detail for a team, season, and game type.
+    /// </summary>
+    /// <param name="teamId">The NHL team identifier, Example: 9 - Ottawa Senators</param>
+    /// <param name="seasonYear">The eight digit season year, Example: 20242025</param>
+    /// <param name="gameType">The game type, Example: 2 for regular season or 3 for playoffs</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL Edge team skating distance detail payload for the requested team, season, and game type</returns>
+    public async Task<TeamSkatingDistanceDetail> GetTeamSkatingDistanceDetailBySeasonYearAndGameTypeAsync(int teamId, string seasonYear, GameType gameType, CancellationToken cancellationToken = default)
+    {
+        if (seasonYear?.Length != 8)
+        {
+            throw new ArgumentException("The season year must be in the eight digit format, Example: 20232024");
+        }
+
+        return await _nhlWebApiHttpClient.GetAsync<TeamSkatingDistanceDetail>($"/edge/team-skating-distance-detail/{teamId}/{seasonYear}/{(int)gameType}", cancellationToken);
+    }
+
+    /// <summary>
+    /// Returns the NHL Edge team skating distance detail for a team, season, and game type.
+    /// </summary>
+    /// <param name="team">The NHL team identifier, see <see cref="TeamEnum"/> for more information, Example: 9 - Ottawa Senators</param>
+    /// <param name="seasonYear">The eight digit season year, Example: 20242025</param>
+    /// <param name="gameType">The game type, Example: 2 for regular season or 3 for playoffs</param>
+    /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation</param>
+    /// <returns>Returns the NHL Edge team skating distance detail payload for the requested team, season, and game type</returns>
+    public async Task<TeamSkatingDistanceDetail> GetTeamSkatingDistanceDetailBySeasonYearAndGameTypeAsync(TeamEnum team, string seasonYear, GameType gameType, CancellationToken cancellationToken = default) =>
+        await this.GetTeamSkatingDistanceDetailBySeasonYearAndGameTypeAsync((int)team, seasonYear, gameType, cancellationToken);
+
+    /// <summary>
     /// Returns an the NHL team logo based a dark or light preference using the NHL team enumeration
     /// </summary>
     /// <param name="team">The NHL team identifier, 55 - Seattle Kraken, see <see cref="TeamEnum"/> for more information</param>

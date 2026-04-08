@@ -6,6 +6,7 @@ using Nhl.Api.Models.Season;
 using Nhl.Api.Models.Team;
 
 namespace Nhl.Api.Tests;
+
 [TestClass]
 public class LeagueTests
 {
@@ -506,6 +507,167 @@ public class LeagueTests
 
         // Assert
         Assert.IsNotNull(teamStatisticsBySeason);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(9)]
+    [DataRow(10)]
+    [DataRow(13)]
+    [DataRow(14)]
+    public async Task GetTeamDetailBySeasonYearAndGameTypeAsync_Return_Valid_Information_With_Id(int teamId)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var teamDetail = await nhlApi.GetTeamDetailBySeasonYearAndGameTypeAsync(teamId, SeasonYear.season20242025, GameType.RegularSeason);
+
+        // Assert
+        Assert.IsNotNull(teamDetail);
+        Assert.IsNotNull(teamDetail.Team);
+        Assert.AreEqual(teamId, teamDetail.Team.Id);
+        Assert.IsNotNull(teamDetail.Team.CommonName);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(teamDetail.Team.CommonName.Default));
+        Assert.IsNotNull(teamDetail.Team.TeamLogo);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(teamDetail.Team.TeamLogo.Light));
+        Assert.IsFalse(string.IsNullOrWhiteSpace(teamDetail.Team.TeamLogo.Dark));
+        Assert.IsNotNull(teamDetail.SeasonsWithEdgeStats);
+        Assert.IsTrue(teamDetail.SeasonsWithEdgeStats.Count > 0);
+        Assert.IsTrue(teamDetail.SeasonsWithEdgeStats.Any(season => season.Id == 20242025 && season.GameTypes.Contains((int)GameType.RegularSeason)));
+        Assert.IsNotNull(teamDetail.ShotSpeed);
+        Assert.IsNotNull(teamDetail.ShotSpeed.ShotAttemptsOver90);
+        Assert.IsNotNull(teamDetail.ShotSpeed.TopShotSpeed);
+        Assert.IsNotNull(teamDetail.ShotSpeed.TopShotSpeed.LeagueAvg);
+        Assert.IsNotNull(teamDetail.SkatingSpeed);
+        Assert.IsNotNull(teamDetail.SkatingSpeed.BurstsOver20);
+        Assert.IsNotNull(teamDetail.SkatingSpeed.SpeedMax);
+        Assert.IsNotNull(teamDetail.DistanceSkated);
+        Assert.IsNotNull(teamDetail.DistanceSkated.Total);
+        Assert.IsNotNull(teamDetail.ShotsOnGoalSummary);
+        Assert.IsTrue(teamDetail.ShotsOnGoalSummary.Count > 0);
+        Assert.IsNotNull(teamDetail.ShotsOnGoalDetails);
+        Assert.IsTrue(teamDetail.ShotsOnGoalDetails.Count > 0);
+        Assert.IsNotNull(teamDetail.ZoneTimeDetails);
+    }
+
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(9)]
+    public async Task GetTeamComparisonBySeasonYearAndGameTypeAsync_Return_Valid_Information_With_Id(int teamId)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var teamComparison = await nhlApi.GetTeamComparisonBySeasonYearAndGameTypeAsync(teamId, SeasonYear.season20242025, GameType.RegularSeason);
+
+        // Assert
+        Assert.IsNotNull(teamComparison);
+        Assert.IsNotNull(teamComparison.Team);
+        Assert.AreEqual(teamId, teamComparison.Team.Id);
+        Assert.IsNotNull(teamComparison.Team.CommonName);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(teamComparison.Team.CommonName.Default));
+        Assert.IsNotNull(teamComparison.Team.TeamLogo);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(teamComparison.Team.TeamLogo.Light));
+        Assert.IsFalse(string.IsNullOrWhiteSpace(teamComparison.Team.TeamLogo.Dark));
+        Assert.IsNotNull(teamComparison.SeasonsWithEdgeStats);
+        Assert.IsTrue(teamComparison.SeasonsWithEdgeStats.Count > 0);
+        Assert.IsTrue(teamComparison.SeasonsWithEdgeStats.Any(season => season.Id == 20242025 && season.GameTypes.Contains((int)GameType.RegularSeason)));
+        Assert.IsNotNull(teamComparison.ShotSpeedDetails);
+        Assert.IsNotNull(teamComparison.ShotSpeedDetails.TopShotSpeed);
+        Assert.IsNotNull(teamComparison.ShotSpeedDetails.TopShotSpeed.Overlay);
+        Assert.IsNotNull(teamComparison.ShotSpeedDetails.AvgShotSpeed);
+        Assert.IsNotNull(teamComparison.SkatingSpeedDetails);
+        Assert.IsNotNull(teamComparison.SkatingSpeedDetails.MaxSkatingSpeed);
+        Assert.IsNotNull(teamComparison.SkatingSpeedDetails.MaxSkatingSpeed.Overlay);
+        Assert.IsTrue(teamComparison.SkatingDistanceLast10.Count > 0);
+        Assert.IsNotNull(teamComparison.SkatingDistanceLast10.First().HomeTeam);
+        Assert.IsNotNull(teamComparison.SkatingDistanceLast10.First().AwayTeam);
+        Assert.IsNotNull(teamComparison.ShotLocationDetails);
+        Assert.IsTrue(teamComparison.ShotLocationDetails.Count > 0);
+        Assert.IsNotNull(teamComparison.ShotLocationTotals);
+        Assert.IsTrue(teamComparison.ShotLocationTotals.Count > 0);
+        Assert.IsNotNull(teamComparison.ZoneTimeDetails);
+        Assert.IsNotNull(teamComparison.ShotDifferential);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow("F", "pp", "total")]
+    public async Task GetTeamSkatingDistanceTop10BySeasonYearAndGameTypeAsync_Return_Valid_Information(string positions, string strength, string sortBy)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var teamSkatingDistanceTop10 = await nhlApi.GetTeamSkatingDistanceTop10BySeasonYearAndGameTypeAsync(positions, strength, sortBy, SeasonYear.season20242025, GameType.RegularSeason);
+
+        // Assert
+        Assert.IsNotNull(teamSkatingDistanceTop10);
+        Assert.IsTrue(teamSkatingDistanceTop10.Count > 0);
+        Assert.IsTrue(teamSkatingDistanceTop10.Count <= 10);
+
+        var firstResult = teamSkatingDistanceTop10.First();
+        Assert.IsNotNull(firstResult.Team);
+        Assert.IsNotNull(firstResult.Team.CommonName);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(firstResult.Team.CommonName.Default));
+        Assert.IsNotNull(firstResult.Team.TeamLogo);
+        Assert.IsFalse(string.IsNullOrWhiteSpace(firstResult.Team.TeamLogo.Light));
+        Assert.IsFalse(string.IsNullOrWhiteSpace(firstResult.Team.TeamLogo.Dark));
+        Assert.IsNotNull(firstResult.DistanceTotal);
+        Assert.IsNotNull(firstResult.DistancePer60);
+        Assert.IsNotNull(firstResult.DistanceMaxPerGame);
+        Assert.IsNotNull(firstResult.DistanceMaxPerGame.Overlay);
+        Assert.IsNotNull(firstResult.DistanceMaxPerPeriod);
+        Assert.IsNotNull(firstResult.DistanceMaxPerPeriod.Overlay);
+        Assert.IsNotNull(firstResult.DistanceMaxPerGame.Overlay.GameOutcome);
+        Assert.IsNotNull(firstResult.DistanceMaxPerGame.Overlay.PeriodDescriptor);
+    }
+
+    [TestMethodWithRetry(RetryCount = 5)]
+    [DataRow(9)]
+    [DataRow(10)]
+    public async Task GetTeamSkatingDistanceDetailBySeasonYearAndGameTypeAsync_Return_Valid_Information_With_Id(int teamId)
+    {
+        // Arrange
+        await using var nhlApi = new NhlApi();
+
+        // Act
+        var teamSkatingDistanceDetail = await nhlApi.GetTeamSkatingDistanceDetailBySeasonYearAndGameTypeAsync(teamId, SeasonYear.season20242025, GameType.RegularSeason);
+
+        // Assert
+        Assert.IsNotNull(teamSkatingDistanceDetail);
+        Assert.IsNotNull(teamSkatingDistanceDetail.SkatingDistanceLast10);
+        Assert.IsTrue(teamSkatingDistanceDetail.SkatingDistanceLast10.Count > 0);
+
+        var last10 = teamSkatingDistanceDetail.SkatingDistanceLast10.First();
+        Assert.IsNotNull(last10.GameCenterLink);
+        Assert.IsNotNull(last10.GameDate);
+        Assert.IsTrue(last10.ToiAll > 0);
+        Assert.IsNotNull(last10.DistanceSkatedAll);
+        Assert.IsNotNull(last10.DistanceSkatedEven);
+        Assert.IsNotNull(last10.DistanceSkatedPP);
+        Assert.IsNotNull(last10.DistanceSkatedPK);
+        Assert.IsNotNull(last10.HomeTeam);
+        Assert.IsNotNull(last10.AwayTeam);
+        Assert.IsNotNull(last10.HomeTeam.CommonName);
+        Assert.IsNotNull(last10.AwayTeam.CommonName);
+        Assert.IsNotNull(last10.HomeTeam.TeamLogo);
+        Assert.IsNotNull(last10.AwayTeam.TeamLogo);
+
+        Assert.IsNotNull(teamSkatingDistanceDetail.SkatingDistanceDetails);
+        Assert.IsTrue(teamSkatingDistanceDetail.SkatingDistanceDetails.Count > 0);
+
+        var detail = teamSkatingDistanceDetail.SkatingDistanceDetails.First();
+        Assert.IsFalse(string.IsNullOrWhiteSpace(detail.StrengthCode));
+        Assert.IsFalse(string.IsNullOrWhiteSpace(detail.PositionCode));
+        Assert.IsNotNull(detail.DistanceTotal);
+        Assert.IsNotNull(detail.DistanceTotal.LeagueAvg);
+        Assert.IsNotNull(detail.DistancePer60);
+        Assert.IsNotNull(detail.DistancePer60.LeagueAvg);
+        Assert.IsNotNull(detail.DistanceMaxGame);
+        Assert.IsNotNull(detail.DistanceMaxGame.Overlay);
+        Assert.IsNotNull(detail.DistanceMaxPeriod);
+        Assert.IsNotNull(detail.DistanceMaxPeriod.Overlay);
     }
 
     [TestMethodWithRetry(RetryCount = 5)]

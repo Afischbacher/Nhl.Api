@@ -267,6 +267,12 @@ public class GameOutcome
     /// </summary>
     [JsonProperty("lastPeriodType")]
     public required string LastPeriodType { get; set; }
+
+    /// <summary>
+    /// Returns the number of overtime periods when present.
+    /// </summary>
+    [JsonProperty("otPeriods")]
+    public int? OtPeriods { get; set; }
 }
 
 /// <summary>
@@ -482,6 +488,12 @@ public class PeriodDescriptor
     /// </summary>
     [JsonProperty("periodType")]
     public required string PeriodType { get; set; }
+
+    /// <summary>
+    /// Returns the maximum number of regulation periods when present.
+    /// </summary>
+    [JsonProperty("maxRegulationPeriods")]
+    public int? MaxRegulationPeriods { get; set; }
 }
 
 /// <summary>

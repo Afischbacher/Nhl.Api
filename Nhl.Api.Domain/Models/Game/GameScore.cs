@@ -257,6 +257,12 @@ public class GameOutcome
     /// </summary>
     [JsonProperty("lastPeriodType")]
     public required string LastPeriodType { get; set; }
+
+    /// <summary>
+    /// The number of overtime periods when present.
+    /// </summary>
+    [JsonProperty("otPeriods")]
+    public int? OtPeriods { get; set; }
 }
 
 /// <summary>

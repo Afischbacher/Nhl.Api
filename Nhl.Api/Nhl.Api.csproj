@@ -2,10 +2,10 @@
 
 	<PropertyGroup>
 		<Version>3.9.1</Version>
-		<TargetFrameworks>net9.0</TargetFrameworks>
+		<TargetFrameworks>net9.0;net10.0</TargetFrameworks>
 		<PackageId>Nhl.Api</PackageId>
 		<Title>Nhl.Api</Title>
-		<Copyright>Copyright (c) 2025 Andre Fischbacher</Copyright>
+		<Copyright>Copyright (c) 2026 Andre Fischbacher</Copyright>
 		<Authors>Andre Fischbacher</Authors>
 		<Description>The official unofficial .NET NHL API</Description>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
